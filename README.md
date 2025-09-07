@@ -50,6 +50,13 @@ Complete HIG for all Apple platforms:
 - **Platforms**: iOS, iPadOS, macOS, tvOS, watchOS, visionOS
 - **Technologies**: Machine learning, AR/VR, Apple Pay
 
+### 🖼️ **Figma Design Resources**
+250+ visual component designs showcasing Liquid Glass:
+- **UI Components**: Buttons, alerts, sheets, tab bars, toolbars
+- **Materials**: Liquid Glass blur effects (Regular/Thin/Thick/Ultra-thin)
+- **System Elements**: Keyboards, status bars, notifications, widgets
+- **Complete Examples**: Home screen, lock screen, control center mockups
+
 ### 🚀 **OS 26 Platform Guides**
 Comprehensive overviews for each platform:
 - iOS 26, iPadOS 26, macOS Tahoe 26
@@ -89,6 +96,7 @@ struct ContentView: View {
 ├── 🎨 liquid-glass/         ← New design system docs
 ├── 📚 documentation/        ← 400+ framework references
 ├── 🎨 human-interface-guidelines/ ← Complete HIG
+├── 🖼️ figma/                ← UI component design resources
 └── 💻 os26-liquid-glass-example/  ← SwiftUI sample app
 ```
 
@@ -100,6 +108,7 @@ struct ContentView: View {
 | `liquid-glass` | Design system | 4 documents | Principles, adoption, fundamentals |
 | `documentation` | API references | 400+ files | SwiftUI, UIKit, Core frameworks |
 | `human-interface-guidelines` | Design guidelines | 100+ guides | Components, foundations, patterns |
+| `figma` | UI component designs | 250+ images | Liquid Glass components, materials, examples |
 | `os26-liquid-glass-example` | Sample code | Full app | Complete SwiftUI implementation |
 
 ## 🤖 AI & LLM Integration
@@ -189,6 +198,7 @@ xcodebuild -project "os26-liquid-glass-example/Landmarks/Landmarks.xcodeproj" \
 | Understand Liquid Glass | [`liquid-glass/`](./liquid-glass) |
 | Find API documentation | [`documentation/`](./documentation) |
 | See design guidelines | [`human-interface-guidelines/`](./human-interface-guidelines) |
+| View UI component designs | [`figma/`](./figma) |
 | Run sample code | [`os26-liquid-glass-example/`](./os26-liquid-glass-example) |
 
 ## 🔧 Development
@@ -300,10 +310,11 @@ We welcome contributions! This is an open-source project maintained by the commu
 
 ## 📊 Repository Stats
 
-- **📁 Total Files**: 500+ documentation files
+- **📁 Total Files**: 750+ documentation & design files
 - **📝 Content**: 427,787 words (~570K tokens)
 - **🎯 Frameworks Covered**: 400+
 - **🎨 Design Components**: 100+
+- **🖼️ Figma Designs**: 250+ UI component images
 - **💻 Sample Apps**: Complete SwiftUI implementation
 - **🌍 Platforms**: iOS, iPadOS, macOS, tvOS, watchOS, visionOS
 
