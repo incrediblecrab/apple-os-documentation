@@ -2,7 +2,7 @@
 
 Perform tasks with the on-device model that specializes in language understanding, structured output, and tool calling.
 
-**Platforms:** iOS 26.0+ (Beta) | iPadOS 26.0+ (Beta) | Mac Catalyst 26.0+ (Beta) | macOS 26.0+ (Beta) | visionOS 26.0+ (Beta)
+**Platforms:** iOS 26.0+ | iPadOS 26.0+ | Mac Catalyst 26.0+ | macOS 26.0+ | visionOS 26.0+
 
 ## Overview
 
@@ -48,11 +48,7 @@ For more information about acceptable usage of the Foundation Models framework, 
 ### Feedback
 - **struct LanguageModelFeedbackAttachment** - Feedback appropriate for attaching to Feedback Assistant.
 
-**Beta Software**
-
-This documentation contains preliminary information about an API or technology in development. This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
-
-Learn more about using Apple's beta software
+**Note:** To use the Foundation Models framework, people need to turn on Apple Intelligence on their device. For a list of supported devices, see Apple Intelligence documentation.
 
 ---
 

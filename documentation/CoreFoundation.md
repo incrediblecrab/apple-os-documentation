@@ -87,12 +87,9 @@ For more about Core Foundation, see Core Foundation Design Concepts.
 - **Core Foundation Macros**
 
 ### Variables
-- **kCFURLUbiquitousItemIsSyncPausedKey** *Beta*
-- **kCFURLUbiquitousItemSupportedSyncControlsKey** *Beta*
-
+- **kCFURLUbiquitousItemIsSyncPausedKey**- **kCFURLUbiquitousItemSupportedSyncControlsKey**
 ### Functions
-- **CFAttributedStringGetStatisticalWritingDirections** *Beta*
-
+- **CFAttributedStringGetStatisticalWritingDirections**
 ---
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/CoreFoundation)*

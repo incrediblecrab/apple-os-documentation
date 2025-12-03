@@ -75,12 +75,11 @@ In iOS 18.4 and later, your app can continue ranging in the background with any 
 ### Deprecated
 - **NSNearbyInteractionAllowOnceUsageDescription** - A one-time request for user permission to begin an interaction session with nearby devices (Deprecated)
 
-### Beta Features
-- **NIDLTDOAConfiguration** - A session configuration that enables UWB Down Link Time Difference of Arrival(DL-TDoA) ranging with nearby anchors (Beta)
-- **NIDLTDOAMeasurement** - Represents a single measurement relative to a DL-TDOA anchor (Beta)
-- **NIDLTDOACoordinatesType** - The coordinate types of DL-TDOA measurement updates that Nearby Interaction supports (Beta)
-- **NIDLTDOAMeasurementType** - The measurement types of DL-TDOA measurement updates that Nearby Interaction supports (Beta)
-
+### DL-TDOA Features
+- **NIDLTDOAConfiguration** - A session configuration that enables UWB Down Link Time Difference of Arrival(DL-TDoA) ranging with nearby anchors
+- **NIDLTDOAMeasurement** - Represents a single measurement relative to a DL-TDOA anchor
+- **NIDLTDOACoordinatesType** - The coordinate types of DL-TDOA measurement updates that Nearby Interaction supports
+- **NIDLTDOAMeasurementType** - The measurement types of DL-TDOA measurement updates that Nearby Interaction supports
 ---
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/NearbyInteraction)*

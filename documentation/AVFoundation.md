@@ -50,33 +50,18 @@ AVFoundation combines several major technology areas that together encompass a w
 - **Macros**
 
 ### Classes
-- **AVCaptureSpatialAudioMetadataSampleGenerator** (Beta)
-- **AVCustomMediaSelectionScheme** - For content that has been authored with the express intent of offering an alternative selection interface for AVMediaSelectionOptions, AVCustomMediaSelectionScheme provides a collection of custom settings for controlling the presentation of the media. (Beta)
-- **AVMediaPresentationSelector** - For content that has been authored with the express intent of offering an alternative selection interface for AVMediaSelectionOptions, AVMediaPresentationSelector represents a collection of mutually exclusive settings. (Beta)
-- **AVMediaPresentationSetting** - For content that has been authored with the express intent of offering an alternative selection interface for AVMediaSelectionOptions, AVMediaPresentationSetting represents a selectable setting for controlling the presentation of the media. (Beta)
-- **AVMetadataCatHeadObject** (Beta)
-- **AVMetadataDogHeadObject** (Beta)
-- **AVMetricDownloadSummaryEvent** - Represents a summary metric event with aggregated metrics for the entire download task.
-- **AVMetricMediaRendition** (Beta)
-- **AVPlaybackCoordinationMedium**
+- **AVCaptureSpatialAudioMetadataSampleGenerator**- **AVCustomMediaSelectionScheme** - For content that has been authored with the express intent of offering an alternative selection interface for AVMediaSelectionOptions, AVCustomMediaSelectionScheme provides a collection of custom settings for controlling the presentation of the media.- **AVMediaPresentationSelector** - For content that has been authored with the express intent of offering an alternative selection interface for AVMediaSelectionOptions, AVMediaPresentationSelector represents a collection of mutually exclusive settings.- **AVMediaPresentationSetting** - For content that has been authored with the express intent of offering an alternative selection interface for AVMediaSelectionOptions, AVMediaPresentationSetting represents a selectable setting for controlling the presentation of the media.- **AVMetadataCatHeadObject**- **AVMetadataDogHeadObject**- **AVMetricDownloadSummaryEvent** - Represents a summary metric event with aggregated metrics for the entire download task.
+- **AVMetricMediaRendition**- **AVPlaybackCoordinationMedium**
 
 ### Structures
 - **AVCIImageFilteringParameters**
 - **AVCIImageFilteringResult** - An output video frame processed with Core Image filtering.
-- **AVCaptureSceneMonitoringStatus** (Beta)
-- **AVSpatialVideoConfiguration**
+- **AVCaptureSceneMonitoringStatus**- **AVSpatialVideoConfiguration**
 
 ### Variables
-- **AVAssetExportPresetHEVC4320x2160** (Beta)
-- **AVAssetExportPresetMVHEVC4320x4320** (Beta)
-- **AVAssetExportPresetMVHEVC7680x7680** (Beta)
-- **AVContentKeyRequestRandomDeviceIdentifierSeedKey** - Value is an NSData containing a 16-byte seed to randomize the user's deviceID contained in the SPC blob during FairPlay key exchange (Beta)
-- **AVContentKeyRequestShouldRandomizeDeviceIdentifierKey** - Value is an Boolean indicating whether the user's deviceID contained in the SPC blob during FairPlay key exchange should be randomized using a system generated seed (Beta)
-- **AVURLAssetShouldParseExternalSphericalTagsKey** - Indicates whether additional projected media signaling in the asset should be parsed and resolved as format description extensions. (Beta)
-
+- **AVAssetExportPresetHEVC4320x2160**- **AVAssetExportPresetMVHEVC4320x4320**- **AVAssetExportPresetMVHEVC7680x7680**- **AVContentKeyRequestRandomDeviceIdentifierSeedKey** - Value is an NSData containing a 16-byte seed to randomize the user's deviceID contained in the SPC blob during FairPlay key exchange- **AVContentKeyRequestShouldRandomizeDeviceIdentifierKey** - Value is an Boolean indicating whether the user's deviceID contained in the SPC blob during FairPlay key exchange should be randomized using a system generated seed- **AVURLAssetShouldParseExternalSphericalTagsKey** - Indicates whether additional projected media signaling in the asset should be parsed and resolved as format description extensions.
 ### Enumerations
-- **AVCaptureCameraLensSmudgeDetectionStatus** (Beta)
-
+- **AVCaptureCameraLensSmudgeDetectionStatus**
 ---
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/AVFoundation)*

@@ -22,14 +22,12 @@ Carrier apps use the classes in this group to provision cellular plan eSIMs on s
 
 - **CTCellularPlanProvisioning** - An object you use to download and install a carrier eSIM.
 - **CTCellularPlanProvisioningRequest** - A request specifying an eSIM to download and install.
-- **CTCellularPlanProperties** - An object you use for an eSIM. (Beta)
-- **CTCellularPlanCapability** - The type of cellular plan available for an eSIM.
+- **CTCellularPlanProperties** - An object you use for an eSIM.- **CTCellularPlanCapability** - The type of cellular plan available for an eSIM.
 
 ### SIM
 Check the presence of a SIM based on authentication.
 
-- **CTCellularPlanStatus** - An object used for retrieving and checking the validity of a token. (Beta)
-
+- **CTCellularPlanStatus** - An object used for retrieving and checking the validity of a token.
 ### Subscriber Information
 - **CTSubscriber** - A cellular network subscriber.
 - **CTSubscriberDelegate** - A protocol to handle changes to subscriber information.

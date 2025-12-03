@@ -60,7 +60,7 @@ Complete HIG for all Apple platforms:
 ### 🚀 **OS 26 Platform Guides**
 Comprehensive overviews for each platform:
 - iOS 26, iPadOS 26, macOS Tahoe 26
-- tvOS 26, visionOS 3, watchOS 13
+- tvOS 26, visionOS 26, watchOS 26
 
 ## 🔥 Liquid Glass Design System
 
@@ -164,9 +164,11 @@ xcodebuild -project "os26-liquid-glass-example/Landmarks/Landmarks.xcodeproj" \
 ## 🛠️ Getting Started
 
 ### Prerequisites
-- **Xcode 16.0+** (for OS 26 development)
+- **Xcode 26** (for OS 26 development)
 - **iOS 26.0+** / **macOS Tahoe 26.0+** (for Liquid Glass features)
 - **Git** (for cloning repository)
+
+> **Note:** Starting April 2026, all App Store submissions require Xcode 26 and iOS 26 SDK.
 
 ### Installation
 
@@ -353,4 +355,4 @@ This is an **unofficial** community-maintained repository. Apple Inc. does not e
 
 ---
 
-*Last updated: 2025-07-24 | Version: OS 26.0 | Community Maintained*
+*Last updated: 2025-12-03 | Version: OS 26.1 (26.2 in beta) | Community Maintained*

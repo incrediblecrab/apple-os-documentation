@@ -2,7 +2,7 @@
 
 Learn how to design and develop beautiful interfaces that leverage Liquid Glass.
 
-**Platforms:** iOS 26.0+ | iPadOS 26.0+ | macOS Tahoe 26.0+ | tvOS 26.0+ | visionOS 3.0+ | watchOS 26.0+
+**Platforms:** iOS 26.0+ | iPadOS 26.0+ | macOS Tahoe 26.0+ | tvOS 26.0+ | visionOS 26.0+ | watchOS 26.0+
 
 ## Overview
 
@@ -80,7 +80,7 @@ Liquid Glass extends across all Apple platforms with platform-specific optimizat
 - Siri Remote integration with Liquid Glass materials
 - 10-foot experience optimization
 
-**visionOS 3.0+**  
+**visionOS 26.0+**
 - 3D content integration with 2D interfaces
 - Depth-based visual effects
 - Spatial computing enhancements

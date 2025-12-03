@@ -78,17 +78,13 @@ After all threads finish:
 - **Hypervisor Data Types**
 
 ### Structures
-- **hv_ipa_granule_t** (Beta)
-
+- **hv_ipa_granule_t**
 ### Variables
 - **HV_IPA_GRANULE_16KB**
 - **HV_IPA_GRANULE_4KB**
 
 ### Functions
-- **hv_vm_config_get_default_ipa_granule** (Beta)
-- **hv_vm_config_get_ipa_granule** (Beta)
-- **hv_vm_config_set_ipa_granule** (Beta)
-
+- **hv_vm_config_get_default_ipa_granule**- **hv_vm_config_get_ipa_granule**- **hv_vm_config_set_ipa_granule**
 ---
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/Hypervisor)*

@@ -29,8 +29,7 @@ For related documentation, see [Mac Technology Overview](https://developer.apple
 
 ### Variables
 - `let kDADiskDescriptionFSKitPrefix: CFString`
-- `let kDADiskDescriptionRepairRunningKey: CFString` (Beta)
-- `var kDADiskMountOptionNoFollow: Int`
+- `let kDADiskDescriptionRepairRunningKey: CFString`- `var kDADiskMountOptionNoFollow: Int`
 - `var kDAReturnBadArgument: Int`
 - `var kDAReturnBusy: Int`
 - `var kDAReturnError: Int`

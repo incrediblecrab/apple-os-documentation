@@ -29,8 +29,7 @@ Apps and games that model a detailed environment involve substantial revision du
 ### Setup
 - **PHASEEngine** - An object that manages audio assets, controls playback, and configures environmental effects.
 - **UpdateMode** - Modes that determine when the framework consumes API calls and updates internal state.
-- **RenderingMode** - Modes that determine whether the system renders audio in process or out of process. (Beta)
-- **PHASEAssetRegistry** - A central repository of audio assets.
+- **RenderingMode** - Modes that determine whether the system renders audio in process or out of process.- **PHASEAssetRegistry** - A central repository of audio assets.
 - **PHASENormalizationMode** - Options that determine whether the framework adjusts a sound asset's loudness for the user's output device.
 - **PHASESpatializationMode** - The manner in which PHASE outputs spatial audio.
 - **PHASEReverbPreset** - The manner in which PHASE diffuses resonating sound.

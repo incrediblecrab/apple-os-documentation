@@ -55,8 +55,7 @@ The StoreKit framework also provides functionality for External Purchase, Extern
 - **SKOverlay** - A class that displays an overlay you can use to recommend another app or an App Clip's corresponding full app.
 
 ### Background assets extension
-- **StoreDownloaderExtension** - An app extension that uses the system implementation to schedule Apple-hosted asset-pack downloads automatically. *(Beta)*
-
+- **StoreDownloaderExtension** - An app extension that uses the system implementation to schedule Apple-hosted asset-pack downloads automatically.
 ### Payment method binding
 - **PaymentMethodBinding** - A binding that makes payment methods available in apps for an Apple ID.
 
@@ -74,8 +73,7 @@ The StoreKit framework also provides functionality for External Purchase, Extern
 - **SKCloudServiceController** - An object that determines the current capabilities of a person's Music library. *(Deprecated)*
 
 ### Structures
-- **AppStoreMerchandisingKind** - *(Beta)*
-
+- **AppStoreMerchandisingKind** -
 ## See Also
 
 ### Related Documentation

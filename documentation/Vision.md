@@ -27,9 +27,7 @@ To begin using the framework, you create a request for the type of analysis you 
 - **ImageRequestHandler** - An object that processes one or more image-analysis requests pertaining to a single image.
 - **VisionRequest** - A type for image-analysis requests.
 - **VisionObservation** - A type for objects produced by image-analysis requests.
-- **DetectLensSmudgeRequest** - A request that detects a smudge on a lens from an image or video frame capture. (Beta)
-- **SmudgeObservation** - An observation that provides an overall score of the presence of a smudge in an image or video frame capture. (Beta)
-
+- **DetectLensSmudgeRequest** - A request that detects a smudge on a lens from an image or video frame capture.- **SmudgeObservation** - An observation that provides an overall score of the presence of a smudge in an image or video frame capture.
 ### Image sequence analysis
 - **GeneratePersonSegmentationRequest** - A request that produces a matte image for a person it finds in the input image.
 - **GeneratePersonInstanceMaskRequest** - A request that produces a mask of individual people it finds in the input image.
@@ -69,9 +67,7 @@ To begin using the framework, you create a request for the type of analysis you 
 ### Text detection
 - [Recognizing tables within a document](https://developer.apple.com/documentation/vision/recognizing_tables_within_a_document) - Scan a document containing a contact table and extract the content within the table in a formatted way.
 - [Locating and displaying recognized text](https://developer.apple.com/documentation/vision/locating_and_displaying_recognized_text) - Perform text recognition on a photo using the Vision framework's text-recognition request.
-- **RecognizeDocumentsRequest** - An image-analysis request to scan an image of a document and provide information about its structure. (Beta)
-- **DocumentObservation** - Information about the sections of content that an image-analysis request detects in a document. (Beta)
-- **DetectTextRectanglesRequest** - An image-analysis request that finds regions of visible text in an image.
+- **RecognizeDocumentsRequest** - An image-analysis request to scan an image of a document and provide information about its structure.- **DocumentObservation** - Information about the sections of content that an image-analysis request detects in a document.- **DetectTextRectanglesRequest** - An image-analysis request that finds regions of visible text in an image.
 - **RecognizeTextRequest** - An image-analysis request that recognizes text in an image.
 
 ### Barcode detection
@@ -108,11 +104,9 @@ To begin using the framework, you create a request for the type of analysis you 
 ### Image locations and regions
 - **NormalizedPoint** - A point in a 2D coordinate system.
 - **NormalizedRect** - The location and dimensions of a rectangle.
-- **NormalizedRegion** - A polygon composed of normalized points. (Beta)
-- **NormalizedCircle** - The center point and radius of a 2D circle.
+- **NormalizedRegion** - A polygon composed of normalized points.- **NormalizedCircle** - The center point and radius of a 2D circle.
 - **BoundingBoxProviding** - A protocol for objects that have a bounding box.
-- **BoundingRegionProviding** - A protocol for objects that have a defined boundary in an image. (Beta)
-- **QuadrilateralProviding** - A protocol for objects that have a bounding quadrilateral.
+- **BoundingRegionProviding** - A protocol for objects that have a defined boundary in an image.- **QuadrilateralProviding** - A protocol for objects that have a bounding quadrilateral.
 - **CoordinateOrigin** - The origin of a coordinate system relative to an image.
 
 ### Request Handlers

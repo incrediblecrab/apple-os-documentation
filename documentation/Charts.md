@@ -26,10 +26,10 @@ Swift Charts supports localization and accessibility features. You can also over
 - **Plot** - A mechanism for grouping chart contents into a single entity.
 
 ### 3D charts
-- **Chart3D** (Beta) - A SwiftUI view that displays a three-dimensional chart.
-- **Chart3DContent** (Beta) - A type that represents the three-dimensional content that you draw on a chart.
-- **Chart3DContentBuilder** (Beta) - A result builder that you use to compose the three-dimensional contents of a chart.
-- **SurfacePlot** (Beta) - Chart content that represents a collection of data using three-dimensional data.
+- **Chart3D** - A SwiftUI view that displays a three-dimensional chart.
+- **Chart3DContent** - A type that represents the three-dimensional content that you draw on a chart.
+- **Chart3DContentBuilder** - A result builder that you use to compose the three-dimensional contents of a chart.
+- **SurfacePlot** - Chart content that represents a collection of data using three-dimensional data.
 
 ### Marks
 - **AreaMark** - Chart content that represents data using the area of one or more regions.

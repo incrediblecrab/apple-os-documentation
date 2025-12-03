@@ -2,7 +2,7 @@
 
 Include your app's content in search results that visual intelligence provides.
 
-**Platforms:** iOS 26.0+ Beta | iPadOS 26.0+ Beta | Mac Catalyst 26.0+ Beta
+**Platforms:** iOS 26.0+ | iPadOS 26.0+ | Mac Catalyst 26.0+
 
 ## Overview
 
@@ -19,12 +19,6 @@ To integrate your app with visual intelligence and include your app's content in
 ### App intents essentials
 - [Making actions and content discoverable and widely available](https://developer.apple.com/documentation/appintents/making-actions-and-content-discoverable-and-widely-available) - Adopt App Intents to make your app discoverable with Spotlight, controls, widgets, and the Action button.
 - [Creating your first app intent](https://developer.apple.com/documentation/appintents/creating-your-first-app-intent) - Create your first app intent that makes your app available in system experiences like Spotlight or the Shortcuts app.
-
-### Beta Software
-
-This documentation contains preliminary information about an API or technology in development. This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
-
-[Learn more about using Apple's beta software](https://developer.apple.com/support/beta-software/)
 
 ---
 

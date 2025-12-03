@@ -27,6 +27,8 @@ When buttons are instantly recognizable and easy to understand, an app tends to 
 
 System buttons offer a range of styles that support customization while providing built-in interaction states, accessibility support, and appearance adaptation. Different platforms define different styles that help you communicate hierarchies of actions in your app.
 
+> **iOS 26+, iPadOS 26+, macOS Tahoe 26+:** Standard buttons automatically adopt Liquid Glass materials and fluid animations when built with Xcode 26. Buttons now feature rounder forms that align with hardware curvature and come to life with interactive responses.
+
 - **In general, use a button that has a prominent visual style for the most likely action in a view** - To draw people's attention to a specific button, use a prominent button style so the system can apply an accent color to the button's background. Buttons that use color tend to be the most visually distinctive, helping people quickly identify the actions they're most likely to use. Keep the number of prominent buttons to one or two per view. Presenting too many prominent buttons increases cognitive load, requiring people to spend more time considering options before making a choice.
 - **Use style — not size — to visually distinguish the preferred choice among multiple options** - When you use buttons of the same size to offer two or more options, you signal that the options form a coherent set of choices. By contrast, placing two buttons of different sizes near each other can make the interface look confusing and inconsistent. If you want to highlight the preferred or most likely option in a set, use a more prominent button style for that option and a less prominent style for the remaining ones.
 
@@ -136,6 +138,9 @@ Several specific button types are unique to macOS.
 - [NSButton](https://developer.apple.com/documentation/appkit/nsbutton) - AppKit
 
 ## Changelog
+
+### December 3, 2025
+- Added Liquid Glass context for iOS 26+, iPadOS 26+, and macOS Tahoe 26+ buttons.
 
 ### June 9, 2025
 - Updated guidance for button styles and content.

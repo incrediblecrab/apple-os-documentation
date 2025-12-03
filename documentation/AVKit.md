@@ -12,9 +12,7 @@ Create user interfaces for media playback, complete with transport controls, cha
 - **AVPlayerViewControllerDelegate** - A protocol that defines the methods to implement to respond to player view controller events.
 - **AVCaptureEventInteraction** - An object that registers handlers to respond to capture events from system hardware buttons.
 - **AVCaptureEvent** - An object that describes a user interaction with a system hardware button.
-- **AVCaptureEventSound** - A sound object for a capture event. (Beta)
-- **AVInputPickerInteraction** - Use AVInputPickerInteraction to present an input picker. (Beta)
-
+- **AVCaptureEventSound** - A sound object for a capture event.- **AVInputPickerInteraction** - Use AVInputPickerInteraction to present an input picker.
 ### tvOS Playback and Capture
 - [Customizing the tvOS Playback Experience](https://developer.apple.com/documentation/avkit/customizing_the_tvos_playback_experience) - Adopt the latest features of the redesigned tvOS player user interface to provide a more streamlined way to watch your content.
 - [Presenting Navigation Markers](https://developer.apple.com/documentation/avkit/presenting_navigation_markers) - Present navigation markers in the Chapters panel to help users quickly navigate your content.

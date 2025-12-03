@@ -49,12 +49,23 @@ Implement secure, easy, and unphishable authentication with passkeys. Replace pa
 Dive into the latest key technologies and capabilities:
 
 - **Liquid Glass Design System**: Revolutionary visual effects and materials
-- **Apple Intelligence**: On-device AI capabilities with privacy protection  
+- **Apple Intelligence**: On-device AI capabilities with privacy protection
 - **Enhanced Widgets**: More customization and functionality
 - **Advanced Live Activities**: Real-time information display
 - **Improved App Intents**: System-wide app integration
 - **Metal 4**: Next-generation graphics performance
 - **Enhanced Security**: Advanced authentication and privacy features
+
+### iOS 26.1 Updates (November 2025)
+- Interface refinements and performance improvements
+- Bug fixes and stability enhancements
+
+### iOS 26.2 (In Beta - Expected Mid-December 2025)
+- **Liquid Glass opacity slider**: Adjust the opacity of Liquid Glass for the Lock Screen clock
+- **Offline lyrics**: View song lyrics in Apple Music without network connection
+- **Reminder alarms**: Set alarms for reminders with new "Urgent" option
+- **Hypertension Notifications API**: Read health notifications from Apple Watch
+- **Live Translation on AirPods**: Available in EU regions for Digital Markets Act compliance
 
 ## Getting Started
 

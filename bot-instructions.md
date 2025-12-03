@@ -90,7 +90,7 @@ ls figma/Buttons/*.png
 ```yaml
 Required:
   - /documentation/SwiftUI.md OR /documentation/UIKit.md
-  - /liquid-glass/adoption-strategies.md
+  - /liquid-glass/adopting-liquid-glass.md
 Optional:
   - /os26-liquid-glass-example/Landmarks/[specific files]
 Skip:
@@ -116,7 +116,7 @@ Skip:
 ```yaml
 Required:
   - /os26-intro/[platform].md
-  - /liquid-glass/adoption-strategies.md
+  - /liquid-glass/adopting-liquid-glass.md
 Optional:
   - Specific framework docs as needed
 Skip:
@@ -184,7 +184,7 @@ Skip:
 ```yaml
 SwiftUI Development:
   - documentation/SwiftUI.md
-  - liquid-glass/fundamentals.md
+  - liquid-glass/introduction.md
   - os26-liquid-glass-example/Landmarks/*.swift
 
 UIKit Development:
@@ -201,6 +201,12 @@ Platform-Specific:
   iOS: os26-intro/iOS.md
   macOS: os26-intro/macOS.md
   visionOS: os26-intro/visionOS.md
+
+WWDC 2025 Key Additions:
+  - documentation/FoundationModels.md    # On-device AI/LLM framework
+  - documentation/DeclaredAgeRange.md    # Age-appropriate content API
+  - documentation/Charts.md              # Includes Chart3D for 3D charts
+  - documentation/Containerization.md    # Linux containers on Mac (Apple silicon only)
 ```
 
 ## Optimization Tips
@@ -221,8 +227,8 @@ def find_relevant_docs(query):
 ```python
 # Cache frequently used combinations
 COMMON_CONTEXTS = {
-    'swiftui_basics': ['SwiftUI.md', 'liquid-glass/fundamentals.md'],
-    'uikit_migration': ['UIKit.md', 'liquid-glass/adoption-strategies.md'],
+    'swiftui_basics': ['SwiftUI.md', 'liquid-glass/introduction.md'],
+    'uikit_migration': ['UIKit.md', 'liquid-glass/adopting-liquid-glass.md'],
     'design_system': ['liquid-glass/*.md']
 }
 ```
@@ -310,7 +316,7 @@ Note: Full SwiftUI documentation is ~4,837 tokens. Loading specific Button secti
 ```javascript
 // Optimal loading for code completion
 const loadForCodeCompletion = async (language, framework) => {
-  const base = await loadFile('liquid-glass/fundamentals.md');
+  const base = await loadFile('liquid-glass/introduction.md');
   
   if (framework === 'SwiftUI') {
     return base + await loadFile('documentation/SwiftUI.md', {
@@ -358,9 +364,23 @@ class AppleDocBot:
 
 ### Version Tracking
 
-- **Current Version**: OS 26.0
-- **Last Updated**: 2025-09-07
+- **Current Version**: OS 26.1 (released November 2025)
+- **Upcoming Version**: OS 26.2 (in beta, expected mid-December 2025)
+- **Last Updated**: 2025-12-03
 - **Token Counts**: May vary with updates
+
+### Key Deadlines
+
+| Date | Requirement |
+|------|-------------|
+| **April 2026** | All App Store submissions require Xcode 26 and iOS 26 SDK |
+| **Fall 2026** | Liquid Glass adoption mandatory (UIDesignRequiresCompatibility removed in iOS 27) |
+
+### Platform Version Reference
+
+All Apple platforms now use unified "26" versioning:
+- iOS 26, iPadOS 26, macOS Tahoe 26, tvOS 26, watchOS 26, **visionOS 26**
+- Note: visionOS jumped from 2.x directly to 26 (no visionOS 3-25)
 
 ### Change Detection
 

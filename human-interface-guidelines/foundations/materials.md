@@ -119,8 +119,8 @@ visionOS defines three vibrancy values that help you communicate a hierarchy of 
 
 ### Videos
 
-- [Meet Liquid Glass](https://developer.apple.com/videos/play/wwdc2025/meet-liquid-glass)
-- [Get to know the new design system](https://developer.apple.com/videos/play/wwdc2025/get-to-know-the-new-design-system)
+- [Meet Liquid Glass](https://developer.apple.com/videos/play/wwdc2025/10001/)
+- [Get to know the new design system](https://developer.apple.com/videos/play/wwdc2025/10002/)
 
 ## Changelog
 

@@ -2,7 +2,7 @@
 
 Create custom materials and effects for 3D content in Reality Composer Pro.
 
-**Platforms:** iOS 17.0+ | iPadOS 17.0+ | Mac Catalyst 17.0+ | macOS 15.0+ | tvOS 26.0+ (Beta) | visionOS 1.0+
+**Platforms:** iOS 17.0+ | iPadOS 17.0+ | Mac Catalyst 17.0+ | macOS 15.0+ | tvOS 26.0+ | visionOS 1.0+
 
 ## Overview
 
@@ -69,10 +69,6 @@ Add RealityKit surfaces or textures to your material and access and manipulate s
 
 #### Surface
 Generate a MaterialX preview surface.
-
-### Beta Software
-
-This documentation contains preliminary information about an API or technology in development. This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
 
 ---
 

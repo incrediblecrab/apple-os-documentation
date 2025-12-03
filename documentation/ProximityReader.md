@@ -62,13 +62,13 @@ The use of this framework requires you to coordinate with a participating paymen
 - **MobileNationalIDCardDataRequest** - A mobile national ID card request that retrieves elements from the holder and returns the validated document elements.
 - **MobileNationalIDCardRawDataRequest** - A mobile national ID card request which retrieves elements from the holder and returns the raw response data for processing.
 - **MobileDocumentDisplayRequest** - A mobile document request that retrieves elements from the holder and displays the results onscreen for visual inspection.
-- **MobileDocumentRequest** (Beta) - A type that represents a mobile document request.
-- **MobileDocumentDataRequest** (Beta) - A type that represents a mobile document data request.
-- **MobileDocumentRawDataRequest** (Beta) - A type that represents a mobile document raw data request.
-- **MobilePhotoIDDataRequest** (Beta) - A photo ID request that retrieves elements from the holder and returns the validated document elements.
-- **MobilePhotoIDRawDataRequest** (Beta) - A mobile driver's license request which retrieves elements from the holder and returns the raw response data for processing.
-- **MobileDocumentAnyOfDataRequest** (Beta) - A type that describes a data request for any mobile document from a group of requests.
-- **MobileDocumentAnyOfRawDataRequest** (Beta) - A type that describes a raw data request for any mobile document from a group of requests.
+- **MobileDocumentRequest** - A type that represents a mobile document request.
+- **MobileDocumentDataRequest** - A type that represents a mobile document data request.
+- **MobileDocumentRawDataRequest** - A type that represents a mobile document raw data request.
+- **MobilePhotoIDDataRequest** - A photo ID request that retrieves elements from the holder and returns the validated document elements.
+- **MobilePhotoIDRawDataRequest** - A mobile driver's license request which retrieves elements from the holder and returns the raw response data for processing.
+- **MobileDocumentAnyOfDataRequest** - A type that describes a data request for any mobile document from a group of requests.
+- **MobileDocumentAnyOfRawDataRequest** - A type that describes a raw data request for any mobile document from a group of requests.
 
 ### Errors
 

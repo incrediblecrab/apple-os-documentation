@@ -52,8 +52,7 @@ Use the data in the reports to help improve the performance of your iOS app, mac
 
 ### Disk usage metrics
 - **MXDiskIOMetric** - An object representing metrics about disk usage.
-- **MXDiskSpaceUsageMetric** - An object representing metrics about your app's disk space usage. (Beta)
-- **MXDiskWriteExceptionDiagnostic** - An object representing a diagnostic report for a disk write exception.
+- **MXDiskSpaceUsageMetric** - An object representing metrics about your app's disk space usage.- **MXDiskWriteExceptionDiagnostic** - An object representing a diagnostic report for a disk write exception.
 
 ### Custom metrics
 - **MXSignpostMetric** - An object representing a custom metric.

@@ -58,9 +58,7 @@ Simple and straightforward sign-up and sign-in flows reduce the burden on the us
 - **ASCredentialProviderViewController** - A view controller that a credential manager app uses to extend AutoFill.
 
 ### Credential migration
-- **ASCredentialExportManager** - A class to manage exporting credentials. *Beta*
-- **ASCredentialImportManager** - A class to manage importing credentials. *Beta*
-
+- **ASCredentialExportManager** - A class to manage exporting credentials.- **ASCredentialImportManager** - A class to manage importing credentials.
 ### Single sign-on (SSO)
 - [Enterprise single sign-on (SSO)](https://developer.apple.com/documentation/authenticationservices/enterprise_single_sign-on_sso)
 - [Platform single sign-on (SSO)](https://developer.apple.com/documentation/authenticationservices/platform_single_sign-on_sso) - Use credentials from macOS login to perform single sign-on with an identity provider.
@@ -77,17 +75,13 @@ Simple and straightforward sign-up and sign-in flows reduce the burden on the us
 - **ASAccountAuthenticationModificationExtensionContext** - An object that you interact with to change an account's password or to upgrade to Sign in with Apple.
 
 ### Updating credential managers
-- **ASCredentialUpdater** - A class to pass credential update events to credential managers enabled on the system. *Beta*
-
+- **ASCredentialUpdater** - A class to pass credential update events to credential managers enabled on the system.
 ### Reference
 - **AuthenticationServices Enumerations**
 - **AuthenticationServices Data Types**
 
 ### Classes
-- **ASAuthorizationAccountCreationPlatformPublicKeyCredential** *Beta*
-- **ASAuthorizationAccountCreationPlatformPublicKeyCredentialRequest** *Beta*
-- **ASAuthorizationAccountCreationProvider** *Beta*
-- **ASAuthorizationProviderExtensionUserLoginConfiguration**
+- **ASAuthorizationAccountCreationPlatformPublicKeyCredential**- **ASAuthorizationAccountCreationPlatformPublicKeyCredentialRequest**- **ASAuthorizationAccountCreationProvider**- **ASAuthorizationProviderExtensionUserLoginConfiguration**
 - **ASOneTimeCodeCredentialIdentity**
 
 ### Protocols
@@ -106,24 +100,16 @@ Simple and straightforward sign-up and sign-in flows reduce the burden on the us
 - **ASAuthorizationPublicKeyCredentialPRFAssertionOutput** - The outputs of the WebAuthentication PRF extension, when requested during an assertion. This object represents one or two SymmetricKeys which are available anywhere the passkey can be used. These are general purpose keys which can be used for application-specific needs, such as encryption of user data. These keys should not be stored or exported. They should only ever be derived as the result of an assertion operation, and then discarded when finished.
 - **ASAuthorizationPublicKeyCredentialPRFRegistrationInput**
 - **ASAuthorizationPublicKeyCredentialPRFRegistrationOutput**
-- **ASEmailIdentifier** *Beta*
-- **ASImportableCredentialScope** - The scope for where a credential should be usable. *Beta*
-- **ASImportableEditableField** - A field that someone can edit within a credential. *Beta*
-- **ASPasskeyAssertionCredentialExtensionInput**
+- **ASEmailIdentifier**- **ASImportableCredentialScope** - The scope for where a credential should be usable.- **ASImportableEditableField** - A field that someone can edit within a credential.- **ASPasskeyAssertionCredentialExtensionInput**
 - **ASPasskeyAssertionCredentialExtensionOutput**
 - **ASPasskeyRegistrationCredentialExtensionInput**
 - **ASPasskeyRegistrationCredentialExtensionOutput**
-- **ASPhoneNumberIdentifier** *Beta*
-- **ASPublicKeyCredentialClientData**
+- **ASPhoneNumberIdentifier**- **ASPublicKeyCredentialClientData**
 
 ### Variables
-- **ASCredentialExchangeActivity** - The activity type used in user activity objects sent to importing apps. *Beta*
-- **ASCredentialImportToken** - The key for the token in the user info dictionary of the user activity sent to importing apps. *Beta*
-
+- **ASCredentialExchangeActivity** - The activity type used in user activity objects sent to importing apps.- **ASCredentialImportToken** - The key for the token in the user info dictionary of the user activity sent to importing apps.
 ### Enumerations
-- **ASContactIdentifier** *Beta*
-- **ASContactIdentifierRequest** *Beta*
-- **ASPasskeyCredentialExtensionInput**
+- **ASContactIdentifier**- **ASContactIdentifierRequest**- **ASPasskeyCredentialExtensionInput**
 
 ---
 

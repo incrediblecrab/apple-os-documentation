@@ -230,7 +230,7 @@ Different size class combinations apply to the full-screen experience on differe
 
 #### Videos
 
-- [Get to know the new design system](https://developer.apple.com/videos/play/wwdc2023/10076/)
+- [Get to know the new design system](https://developer.apple.com/videos/play/wwdc2025/10002/)
 - [Compose custom layouts with SwiftUI](https://developer.apple.com/videos/play/wwdc2022/10056/)
 - [Essential Design Principles](https://developer.apple.com/videos/play/wwdc2017/802/)
 

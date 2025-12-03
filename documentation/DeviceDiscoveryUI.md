@@ -34,11 +34,11 @@ The following requirements apply:
 - **NSApplicationServices** - A list of service providers and the devices that they support.
 
 ### Classes
-- **DDDevicePairingViewController** - Beta
+- **DDDevicePairingViewController**
 
 ### Structures
-- **DDDevicePairingAccess** - Specifies the access level requested for device discovery. Beta
-- **DevicePairingView** - A control that allows a user to become discoverable and advertise to local devices. Beta
+- **DDDevicePairingAccess** - Specifies the access level requested for device discovery.
+- **DevicePairingView** - A control that allows a user to become discoverable and advertise to local devices.
 
 ---
 

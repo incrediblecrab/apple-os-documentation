@@ -63,8 +63,7 @@ You can build an XPC service using C, Swift, or Objective-C. There are both high
 
 ### Structures
 - **XPCEndpoint** - An XPCEndpoint represents a connection in serialized form. Unlike a connection, an endpoint is an inert object that does not have any runtime activity associated with it. Thus, it is safe to pass an endpoint in a message. Upon receiving an endpoint, the recipient can use XPCSession to create as many distinct sessions as desired.
-- **XPCPeerRequirement** (Beta)
-
+- **XPCPeerRequirement**
 ### Type Aliases
 - **xpc_peer_requirement_t**
 

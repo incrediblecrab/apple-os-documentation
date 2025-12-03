@@ -2,7 +2,7 @@
 
 Provide on-device intelligence with contextual clues that increase your widget's visibility on Apple Watch.
 
-**Platforms:** iOS 26.0+ (Beta) | iPadOS 26.0+ (Beta) | Mac Catalyst 26.0+ (Beta) | macOS 26.0+ (Beta) | visionOS 26.0+ (Beta) | watchOS 26.0+ (Beta)
+**Platforms:** iOS 26.0+ | iPadOS 26.0+ | Mac Catalyst 26.0+ | macOS 26.0+ | visionOS 26.0+ | watchOS 26.0+
 
 ## Overview
 
@@ -48,9 +48,5 @@ For more information, refer to [Increasing the visibility of widgets in Smart St
 - **date(from: Date, to: Date) -> RelevantContext** - Tells the system a widget is relevant between two dates. (Deprecated)
 
 ---
-
-**Beta Software**
-
-This documentation contains preliminary information about an API or technology in development. This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/RelevanceKit)*

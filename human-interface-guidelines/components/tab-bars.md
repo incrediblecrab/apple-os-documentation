@@ -108,8 +108,8 @@ No additional considerations for macOS. Not supported in watchOS.
 
 ### Videos
 
-- [Get to know the new design system](https://developer.apple.com/videos/play/wwdc2024/10151/)
-- [Elevate the design of your iPad app](https://developer.apple.com/videos/play/wwdc2024/10153/)
+- [Get to know the new design system](https://developer.apple.com/videos/play/wwdc2025/10002/)
+- [Elevate the design of your iPad app](https://developer.apple.com/videos/play/wwdc2025/10232/)
 
 ## Changelog
 

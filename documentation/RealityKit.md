@@ -2,7 +2,7 @@
 
 Simulate and render 3D content for use in your augmented reality apps.
 
-**Platforms:** iOS 13.0+ | iPadOS 13.0+ | Mac Catalyst 13.1+ | macOS 10.15+ | tvOS 26.0+ (Beta) | visionOS 1.0+
+**Platforms:** iOS 13.0+ | iPadOS 13.0+ | Mac Catalyst 13.1+ | macOS 10.15+ | tvOS 26.0+ | visionOS 1.0+
 
 ## Overview
 
@@ -39,8 +39,7 @@ Control your app's content and how people can interact with it.
 
 ### Asset creation
 - [Designing RealityKit content with Reality Composer Pro](https://developer.apple.com/documentation/realitykit/designing_realitykit_content_with_reality_composer_pro) - Design RealityKit scenes for your visionOS app.
-- [Swift Splash](https://developer.apple.com/documentation/realitykit/swift_splash) - Use RealityKit to create an interactive ride in visionOS. (Beta)
-- [Diorama](https://developer.apple.com/documentation/realitykit/diorama) - Design scenes for your visionOS app using Reality Composer Pro.
+- [Swift Splash](https://developer.apple.com/documentation/realitykit/swift_splash) - Use RealityKit to create an interactive ride in visionOS.- [Diorama](https://developer.apple.com/documentation/realitykit/diorama) - Design scenes for your visionOS app using Reality Composer Pro.
 - [Composing interactive 3D content with RealityKit and Reality Composer Pro](https://developer.apple.com/documentation/realitykit/composing_interactive_3d_content_with_realitykit_and_reality_composer_pro) - Build an interactive scene using an animation timeline.
 - [Presenting an artist's scene](https://developer.apple.com/documentation/realitykit/presenting_an_artist_s_scene) - Display a scene from Reality Composer Pro in visionOS.
 - [Reality Composer](https://developer.apple.com/documentation/realitykit/reality_composer) - A visual editor for RealityKit AR scenes.
@@ -87,9 +86,5 @@ Control your app's content and how people can interact with it.
 - [Taking Control of Scene Anchoring](https://developer.apple.com/documentation/realitykit/taking_control_of_scene_anchoring) - Create a more interactive user experience by choosing exactly where to anchor Reality Composer scenes.
 
 ---
-
-**Beta Software**
-
-This documentation contains preliminary information about an API or technology in development. This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/RealityKit)*

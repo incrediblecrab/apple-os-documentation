@@ -97,13 +97,13 @@ Templates that are available exclusively to apps with the communication entitlem
 - **CarPlay Constants**
 
 ### Classes
-- **CPListImageRowItemCardElement** (Beta)
-- **CPListImageRowItemCondensedElement** (Beta)
-- **CPListImageRowItemElement** (Beta) - Abstract superclass for a a row item element object.
-- **CPListImageRowItemGridElement** (Beta)
-- **CPListImageRowItemImageGridElement** (Beta)
-- **CPListImageRowItemRowElement** (Beta)
-- **CPMessageGridItemConfiguration** (Beta)
+- **CPListImageRowItemCardElement**
+- **CPListImageRowItemCondensedElement**
+- **CPListImageRowItemElement** - Abstract superclass for a a row item element object.
+- **CPListImageRowItemGridElement**
+- **CPListImageRowItemImageGridElement**
+- **CPListImageRowItemRowElement**
+- **CPMessageGridItemConfiguration**
 - **CPNowPlayingMode**
 - **CPNowPlayingModeSports** - The sports mode represents a layout for now playing suited to live-streaming or recorded playback of a sporting event that features exactly two teams.
 - **CPNowPlayingSportsClock** - A representation of the amount of time elapsed so far in this event, for events where the clock counts UP.

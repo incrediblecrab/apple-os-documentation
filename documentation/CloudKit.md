@@ -69,7 +69,7 @@ Note: The classes of the CloudKit framework aren't for subclassing. Use these cl
 - **Deprecated Symbols** - Review unsupported symbols and their replacements.
 
 ### Classes
-- **CKShareRequestAccessOperation** - Beta
+- **CKShareRequestAccessOperation** - An operation that requests access to a shared record zone.
 
 ### Variables
 - **CKRecordParentKey**

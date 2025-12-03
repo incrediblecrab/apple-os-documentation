@@ -20,8 +20,7 @@ Use the BrowserEngineCore framework to support low-level functions for your alte
 - **BE_JIT_WRITE_PROTECT_TAG** - A discriminator value the system uses to generate pointer authentication codes for just-in-time compilation.
 
 ### Classes
-- **BEAudioSession** - An object that represents an audio session. (Beta)
-
+- **BEAudioSession** - An object that represents an audio session.
 ---
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/BrowserEngineCore)*

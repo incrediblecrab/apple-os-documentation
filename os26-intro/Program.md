@@ -21,7 +21,7 @@ Apple customers adopt new software rapidly, so you can keep innovating. Integrat
 - iPadOS 26.0 with enhanced multitasking
 - watchOS 26.0 with new health capabilities
 - tvOS 26.0 with improved living room experiences
-- visionOS 3.0 with spatial computing advances
+- visionOS 26.0 with spatial computing advances
 
 ### Access Comprehensive Services and Capabilities
 

@@ -33,18 +33,13 @@ Play, record, and process audio; configure your app's system audio behavior.
 - **Macros**
 
 ### Classes
-- **AVAudioSessionCapability** - Describes whether a specific capability is supported and if that capability is currently enabled (Beta)
-- **AVAudioSessionPortExtensionBluetoothMicrophone** - An object that describes capabilities of Bluetooth microphone ports. (Beta)
-
+- **AVAudioSessionCapability** - Describes whether a specific capability is supported and if that capability is currently enabled- **AVAudioSessionPortExtensionBluetoothMicrophone** - An object that describes capabilities of Bluetooth microphone ports.
 ### Protocols
 - **AVAudioSessionSpatialExperience**
 
 ### Variables
 - **AVAudioSessionSetActiveFlags_NotifyOthersOnDeactivation** - A flag that indicates that when your audio session deactivates, any audio sessions that your audio session interrupted can reactivate themselves. (Deprecated)
-- **AVEncoderASPFrequencyKey** (Beta)
-- **AVEncoderContentSourceKey** (Beta)
-- **AVEncoderDynamicRangeControlConfigurationKey** (Beta)
-- **AVSampleRateConverterAlgorithm_Mastering** - The mastering encoder bit rate strategy.
+- **AVEncoderASPFrequencyKey**- **AVEncoderContentSourceKey**- **AVEncoderDynamicRangeControlConfigurationKey**- **AVSampleRateConverterAlgorithm_Mastering** - The mastering encoder bit rate strategy.
 - **AVSampleRateConverterAlgorithm_MinimumPhase** - The minimum phase encoder bit rate strategy.
 - **AVSampleRateConverterAlgorithm_Normal** - The usual encoder bit rate strategy.
 
@@ -57,8 +52,7 @@ Play, record, and process audio; configure your app's system audio behavior.
 - **AVMIDIPlayerCompletionHandler** - A callback the system invokes when MIDI playback completes.
 
 ### Enumerations
-- **AVAudioContentSource** (Beta)
-- **AVAudioDynamicRangeControlConfiguration**
+- **AVAudioContentSource**- **AVAudioDynamicRangeControlConfiguration**
 
 ---
 

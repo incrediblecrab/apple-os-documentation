@@ -16,30 +16,18 @@ For a general understanding of how you use these classes together, see SpeechAna
 
 ### Essentials
 - [Bringing advanced speech-to-text capabilities to your app](https://developer.apple.com/documentation/speech/bringing_advanced_speech-to-text_capabilities_to_your_app) - Learn how to incorporate live speech-to-text transcription into your app with SpeechAnalyzer.
-- **SpeechAnalyzer** - Analyzes spoken audio content in various ways and manages the analysis session. *(Beta)*
-- **AssetInventory** - Manages the assets that are necessary for transcription or other analyses. *(Beta)*
-
+- **SpeechAnalyzer** - Analyzes spoken audio content in various ways and manages the analysis session.- **AssetInventory** - Manages the assets that are necessary for transcription or other analyses.
 ### Modules
-- **SpeechTranscriber** - A speech-to-text transcription module that's appropriate for normal conversation and general purposes. *(Beta)*
-- **DictationTranscriber** - A speech-to-text transcription module that's similar to system dictation features and compatible with older devices. *(Beta)*
-- **SpeechDetector** - A module that performs a voice activity detection (VAD) analysis. *(Beta)*
-- **SpeechModule** - Protocol that all analyzer modules conform to. *(Beta)*
-- **LocaleDependentSpeechModule** - If a module conforms to this protocol, then its assets depend on the locale setting. *(Beta)*
-
+- **SpeechTranscriber** - A speech-to-text transcription module that's appropriate for normal conversation and general purposes.- **DictationTranscriber** - A speech-to-text transcription module that's similar to system dictation features and compatible with older devices.- **SpeechDetector** - A module that performs a voice activity detection (VAD) analysis.- **SpeechModule** - Protocol that all analyzer modules conform to.- **LocaleDependentSpeechModule** - If a module conforms to this protocol, then its assets depend on the locale setting.
 ### Input and output
-- **AnalyzerInput** - Time-coded audio data. *(Beta)*
-- **SpeechModuleResult** - Protocol that all module results conform to. *(Beta)*
-
+- **AnalyzerInput** - Time-coded audio data.- **SpeechModuleResult** - Protocol that all module results conform to.
 ### Custom vocabulary
-- **AnalysisContext** - Contextual information that may be shared among analyzers. *(Beta)*
-- **SFSpeechLanguageModel** - A language model built from custom training data.
+- **AnalysisContext** - Contextual information that may be shared among analyzers.- **SFSpeechLanguageModel** - A language model built from custom training data.
 - **Configuration** - An object describing the location of a custom language model and specialized vocabulary.
 - **SFCustomLanguageModelData** - An object that generates and exports custom language model training data.
 
 ### Asset and resource management
-- **AssetInstallationRequest** - An object that describes, downloads, and installs a selection of assets. *(Beta)*
-- **SpeechModels** - Namespace for methods related to model management. *(Beta)*
-
+- **AssetInstallationRequest** - An object that describes, downloads, and installs a selection of assets.- **SpeechModels** - Namespace for methods related to model management.
 ### Legacy API
 - [Speech Recognition in Objective-C](https://developer.apple.com/documentation/speech/speech_recognition_in_objective-c) - Use these classes to perform speech recognition in Objective-C code.
 

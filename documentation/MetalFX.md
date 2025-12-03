@@ -34,21 +34,15 @@ Because the scaling effects take time to initialize, make an instance of either 
 - **MTLFXSpatialScalerColorProcessingMode** - The color space modes for the input and output textures you use with a spatial scaling effect instance.
 
 ### Classes
-- **MTLFXFrameInterpolatorDescriptor** (Beta) - A set of properties that configure a frame interpolator, and a factory method that creates the effect.
+- **MTLFXFrameInterpolatorDescriptor** - A set of properties that configure a frame interpolator, and a factory method that creates the effect.
 - **MTLFXTemporalDenoisedScalerDescriptor**
 
 ### Protocols
-- **MTL4FXFrameInterpolator** (Beta)
-- **MTL4FXSpatialScaler** (Beta) - An upscaling effect that generates a higher resolution texture in a render pass by spatially analyzing an input texture.
-- **MTL4FXTemporalDenoisedScaler** (Beta)
-- **MTL4FXTemporalScaler** (Beta)
-- **MTLFXFrameInterpolatableScaler**
-- **MTLFXFrameInterpolator** (Beta)
-- **MTLFXFrameInterpolatorBase** (Beta)
-- **MTLFXSpatialScalerBase** - An upscaling effect that generates a higher resolution texture in a render pass by spatially analyzing an input texture.
+- **MTL4FXFrameInterpolator**- **MTL4FXSpatialScaler** - An upscaling effect that generates a higher resolution texture in a render pass by spatially analyzing an input texture.
+- **MTL4FXTemporalDenoisedScaler**- **MTL4FXTemporalScaler**- **MTLFXFrameInterpolatableScaler**
+- **MTLFXFrameInterpolator**- **MTLFXFrameInterpolatorBase**- **MTLFXSpatialScalerBase** - An upscaling effect that generates a higher resolution texture in a render pass by spatially analyzing an input texture.
 - **MTLFXTemporalDenoisedScaler**
-- **MTLFXTemporalDenoisedScalerBase** (Beta)
-- **MTLFXTemporalScalerBase** - An upscaling effect that generates a higher resolution texture in a render pass by analyzing multiple input textures over time.
+- **MTLFXTemporalDenoisedScalerBase**- **MTLFXTemporalScalerBase** - An upscaling effect that generates a higher resolution texture in a render pass by analyzing multiple input textures over time.
 
 ---
 

@@ -2,7 +2,7 @@
 
 Provide an interface so people can present mobile documents.
 
-**Platforms:** iOS 26.0+ (Beta) | iPadOS 26.0+ (Beta) | macOS 26.0+ (Beta)
+**Platforms:** iOS 26.0+ | iPadOS 26.0+ | macOS 26.0+
 
 ## Overview
 
@@ -26,7 +26,5 @@ The IdentityDocumentServicesUI framework contains user-interface objects that su
 - **IdentityDocumentPresentmentControlling** - A closed protocol that indicates this object is a controller that the system uses for identity document presentment.
 
 ---
-
-> **Beta Software:** This documentation contains preliminary information about an API or technology in development. This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/IdentityDocumentServicesUI)*

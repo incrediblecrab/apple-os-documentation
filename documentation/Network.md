@@ -67,81 +67,31 @@ Use this framework when you need direct access to protocols like TLS, TCP, and U
 - **nw_multipath_version_t**
 - **nw_path_unsatisfied_reason_t**
 - **nw_quic_stream_type_t**
-- **Bonjour** - A browser that discovers Bonjour services. (Beta)
-- **BonjourListenerProvider** - Advertise a Bonjour service. (Beta)
-- **Coder** - A protocol that frames and encodes/decodes Codable types. (Beta)
-- **DefaultProtocolStorage** (Beta)
-- **Framer** - An instance of a Framer protocol to load into a protocol stack. (Beta)
-- **IP** - The system definition of the Internet Protocol (IP). (Beta)
-- **NWParametersBuilder** - An opaque class that is responsible for creating and configuring NWParameters based on the parameterized protocol stack. (Beta)
-- **NWTXTRecord** - A dictionary representing a TXT record in a DNS packet.
-- **NetworkJSONCoder** (Beta)
-- **NetworkPropertyListCoder** (Beta)
-- **ProtocolMetadataBuilder** - A resultBuilder for configuring metadata in send methods in a declarative way. (Beta)
-- **ProtocolStackBuilder** - A resultBuilder for specifying and configuring protocol stacks in a declarative way (Beta)
-- **ProxyConfiguration** - A proxy configuration for Relays, Oblivious HTTP, HTTP CONNECT, or SOCKSv5.
-- **QUIC** - The system definition of the QUIC protocol. (Beta)
-- **QUICDatagram** - Send and receive unreliable datagrams over QUIC via RFC 9221 (Beta)
-- **QUICStream** - A QUIC stream that runs over a QUIC connection. (Beta)
-- **TCP** - The system definition of the Transmission Control Protocol (TCP). (Beta)
-- **TLS** - The system definition of the Transport Layer Security (TLS) protocol. (Beta)
-- **TLV** - A Type-Length-Value (TLV) framing protocol. (Beta)
-- **TXTRecordDecoder**
-- **UDP** - The system definition of the User Datagram Protocol (UDP). (Beta)
-- **UnexpectedEndpointType** - An error generated when an unexpected endpoint type is supplied. (Beta)
-- **WebSocket** - The system definition of the WebSocket protocol. (Beta)
-- **nw_link_quality_t**
+- **Bonjour** - A browser that discovers Bonjour services.- **BonjourListenerProvider** - Advertise a Bonjour service.- **Coder** - A protocol that frames and encodes/decodes Codable types.- **DefaultProtocolStorage**- **Framer** - An instance of a Framer protocol to load into a protocol stack.- **IP** - The system definition of the Internet Protocol (IP).- **NWParametersBuilder** - An opaque class that is responsible for creating and configuring NWParameters based on the parameterized protocol stack.- **NWTXTRecord** - A dictionary representing a TXT record in a DNS packet.
+- **NetworkJSONCoder**- **NetworkPropertyListCoder**- **ProtocolMetadataBuilder** - A resultBuilder for configuring metadata in send methods in a declarative way.- **ProtocolStackBuilder** - A resultBuilder for specifying and configuring protocol stacks in a declarative way- **ProxyConfiguration** - A proxy configuration for Relays, Oblivious HTTP, HTTP CONNECT, or SOCKSv5.
+- **QUIC** - The system definition of the QUIC protocol.- **QUICDatagram** - Send and receive unreliable datagrams over QUIC via RFC 9221- **QUICStream** - A QUIC stream that runs over a QUIC connection.- **TCP** - The system definition of the Transmission Control Protocol (TCP).- **TLS** - The system definition of the Transport Layer Security (TLS) protocol.- **TLV** - A Type-Length-Value (TLV) framing protocol.- **TXTRecordDecoder**
+- **UDP** - The system definition of the User Datagram Protocol (UDP).- **UnexpectedEndpointType** - An error generated when an unexpected endpoint type is supplied.- **WebSocket** - The system definition of the WebSocket protocol.- **nw_link_quality_t**
 
 ### Classes
 - **NWMultiplexGroup**
-- **NetworkBrowser** - Discover advertised services and devices on the network. (Beta)
-- **NetworkConnection** - Connect to an endpoint on the network to send and receive data. (Beta)
-- **NetworkListener** - Listen for incoming network connections. (Beta)
-
+- **NetworkBrowser** - Discover advertised services and devices on the network.- **NetworkConnection** - Connect to an endpoint on the network to send and receive data.- **NetworkListener** - Listen for incoming network connections.
 ### Reference
 - **Network Constants** - Access Network framework constants used in C.
 - **Network Functions** - Access Network framework functions used in C.
 - **Network Data Types**
 
 ### Protocols
-- **BrowserProvider** - BrowserProviders can be used when creating NetworkBrowsers. (Beta)
-- **Connectable** - Describes types that can be used to make NetworkConnections. (Beta)
-- **ConnectionProtocol** (Beta)
-- **ConnectionStorage** - Types that conform to ConnectionStorage can be used as additional storage within a connection. (Beta)
-- **DatagramProtocol** - Types that conform to DatagramProtocol send and receive messages with minimal or no metadata, usually constrained to a fixed maximum size. (Beta)
-- **FramerProtocol** - Framer protocols allow custom framing and serialization of messages on a connection. (Beta)
-- **ListenerProvider** - Extensible support for configuring advertise descriptors to define the service a listener should advertise. (Beta)
-- **MessageProtocol** - Types that conform to MessageProtocol send and receive messages. The conforming type is responsible for specifying its message-specific metadata. (Beta)
-- **MultiplexProtocol** - Types that conform to MultiplexProtocol are allowed to be the top protocol in a network protocol stack for multiplexing network connection objects. (Beta)
-- **NWParametersProvider** - Types that conform to the NWParametersProvider protocol can be used to generate an NWParameters. (Beta)
-- **NetworkCoder** (Beta)
-- **NetworkDecoder** - A type that conforms to the NetworkEncoder protocol can decode data to an Encodable object (Beta)
-- **NetworkEncoder** - A type that conforms to the NetworkEncoder protocol can encode a Encodable object to Data (Beta)
-- **NetworkFixedWidthInteger** (Beta)
-- **NetworkMetadataProtocol** - Types that conform to NetworkProtocolOptions can be used when configuring protocol stacks. (Beta)
-- **NetworkProtocolOptions** (Beta)
-- **OneToOneProtocol** - Types that conform to OneToOneProtocol are allowed to be the top protocol in a network protocol stack for non-multiplexed connections. (Beta)
-- **StreamProtocol** - Types that conform to the StreamProtocol protocol expose methods for sending and receiving byte streams. (Beta)
-- **SubConnectionProtocol** (Beta)
-
+- **BrowserProvider** - BrowserProviders can be used when creating NetworkBrowsers.- **Connectable** - Describes types that can be used to make NetworkConnections.- **ConnectionProtocol**- **ConnectionStorage** - Types that conform to ConnectionStorage can be used as additional storage within a connection.- **DatagramProtocol** - Types that conform to DatagramProtocol send and receive messages with minimal or no metadata, usually constrained to a fixed maximum size.- **FramerProtocol** - Framer protocols allow custom framing and serialization of messages on a connection.- **ListenerProvider** - Extensible support for configuring advertise descriptors to define the service a listener should advertise.- **MessageProtocol** - Types that conform to MessageProtocol send and receive messages. The conforming type is responsible for specifying its message-specific metadata.- **MultiplexProtocol** - Types that conform to MultiplexProtocol are allowed to be the top protocol in a network protocol stack for multiplexing network connection objects.- **NWParametersProvider** - Types that conform to the NWParametersProvider protocol can be used to generate an NWParameters.- **NetworkCoder**- **NetworkDecoder** - A type that conforms to the NetworkEncoder protocol can decode data to an Encodable object- **NetworkEncoder** - A type that conforms to the NetworkEncoder protocol can encode a Encodable object to Data- **NetworkFixedWidthInteger**- **NetworkMetadataProtocol** - Types that conform to NetworkProtocolOptions can be used when configuring protocol stacks.- **NetworkProtocolOptions**- **OneToOneProtocol** - Types that conform to OneToOneProtocol are allowed to be the top protocol in a network protocol stack for non-multiplexed connections.- **StreamProtocol** - Types that conform to the StreamProtocol protocol expose methods for sending and receiving byte streams.- **SubConnectionProtocol**
 ### Variables
-- **kNWErrorDomainWiFiAware** (Beta)
-- **nw_error_domain_wifi_aware** (Beta)
-- **nw_link_quality_good**
+- **kNWErrorDomainWiFiAware**- **nw_error_domain_wifi_aware**- **nw_link_quality_good**
 - **nw_link_quality_minimal**
 - **nw_link_quality_moderate**
 - **nw_link_quality_unknown**
 
 ### Functions
-- **nw_parameters_get_allow_ultra_constrained** (Beta)
-- **nw_parameters_set_allow_ultra_constrained** (Beta)
-- **nw_path_get_link_quality** (Beta)
-- **nw_path_is_ultra_constrained** (Beta)
-- **withNetworkConnection** (Beta)
-
+- **nw_parameters_get_allow_ultra_constrained**- **nw_parameters_set_allow_ultra_constrained**- **nw_path_get_link_quality**- **nw_path_is_ultra_constrained**- **withNetworkConnection**
 ### Enumerations
-- **AdvertisedRoute** (Beta)
-
+- **AdvertisedRoute**
 ---
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/Network)*

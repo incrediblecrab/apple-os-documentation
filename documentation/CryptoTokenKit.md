@@ -41,9 +41,7 @@ Starting in macOS 10.15.4, the CryptoTokenKit framework includes support for alw
 - **Code** - Error codes from CryptoTokenKit.
 
 ### Classes
-- **TKSmartCardSlotNFCSession** - NFC session that's related to NFC smart card slot which was created. (Beta)
-- **TKSmartCardTokenRegistrationManager** - Provides a centralized management system for registering and unregistering smartcards using their token IDs. (Beta)
-
+- **TKSmartCardSlotNFCSession** - NFC session that's related to NFC smart card slot which was created.- **TKSmartCardTokenRegistrationManager** - Provides a centralized management system for registering and unregistering smartcards using their token IDs.
 ### Type Aliases
 - **TKTokenObjectID** - (Deprecated)
 

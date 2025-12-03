@@ -84,8 +84,7 @@ iOS supports Always-on VPN to ensure all IP traffic is tunneled back to the orga
 - Provide functionality similar to Apple Push Notification Service when access to the wider internet is unavailable.
 
 ### App extensions
-- **NEAppExtensionConfiguration** - A class that defines configuration options for use in NetworkExtension app extensions. (Beta)
-
+- **NEAppExtensionConfiguration** - A class that defines configuration options for use in NetworkExtension app extensions.
 ### Classes
 - **NEVPNIKEv2PPKConfiguration**
 
@@ -101,8 +100,7 @@ iOS supports Always-on VPN to ensure all IP traffic is tunneled back to the orga
 
 ### Enumerations
 - **NERelayManagerClientError**
-- **NEVPNIKEv2PostQuantumKeyExchangeMethod** (Beta)
-
+- **NEVPNIKEv2PostQuantumKeyExchangeMethod**
 ---
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/NetworkExtension)*

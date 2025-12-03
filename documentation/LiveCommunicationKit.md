@@ -39,7 +39,7 @@ With a person's permission, an installed health research app that uses SensorKit
 - **MuteConversationAction** - An action that mutes or unmutes a conversation.
 - **PauseConversationAction** - An action that stops or restarts all audio and video streams for a conversation.
 - **PlayToneAction** - An action that plays sequence of tones to indicate that a participant of a conversation interacted with the keypad.
-- **SetTranslatingAction** - An action that starts or stops translation. Beta
+- **SetTranslatingAction** - An action that starts or stops translation.
 - **StartConversationAction** - An action that starts an outgoing conversation and causes the devices of a remote participant to ring.
 - **UnmergeConversationAction** - An action that separates two previosuly merged conversations.
 

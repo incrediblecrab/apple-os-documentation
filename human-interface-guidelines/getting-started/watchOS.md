@@ -55,7 +55,7 @@ Great Apple Watch experiences are streamlined and specialized, and integrate the
 
 ### Videos
 
-- [What's new in watchOS 26](https://developer.apple.com/videos/play/wwdc2019/808/)
+- [What's new in watchOS 26](https://developer.apple.com/videos/play/wwdc2025/whats-new-in-watchos-26/)
 
 ## Changelog
 

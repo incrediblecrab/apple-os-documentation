@@ -58,8 +58,7 @@ func render() {
 - [Migrating from the Observable Object protocol to the Observable macro](https://developer.apple.com/documentation/observation/migrating_from_the_observable_object_protocol_to_the_observable_macro) - Update your existing app to leverage the benefits of Observation in Swift.
 
 ### Structures
-- **Observations** - An asychronous sequence generated from a closure that tracks the transactional changes of @Observable types. (Beta)
-
+- **Observations** - An asychronous sequence generated from a closure that tracks the transactional changes of @Observable types.
 ### Macros
 - **ObservationIgnored()** - Disables observation tracking of a property.
 - **ObservationTracked()** - Synthesizes a property for accessors.

@@ -81,14 +81,11 @@ For information on installing alternative app marketplaces from their company we
 - **BEDownloadMonitor** - An object that reports the status of web downloads to the system.
 
 ### Classes
-- **BEAccessibilityRemoteElement** (Beta)
-- **BEAccessibilityRemoteHostElement** (Beta)
-- **BEMediaEnvironment**
+- **BEAccessibilityRemoteElement**- **BEAccessibilityRemoteHostElement**- **BEMediaEnvironment**
 - **BEProcessCapability**
 
 ### Protocols
-- **BEExtensionProcess** (Beta)
-
+- **BEExtensionProcess**
 ### Structures
 - **BEAccessibility**
 

@@ -66,15 +66,11 @@ For designing Game Center features in your app, see Human Interface Guidelines >
 ### Challenges
 - [Creating engaging challenges from leaderboards](https://developer.apple.com/documentation/gamekit/creating_engaging_challenges_from_leaderboards) - Encourage friendly competition by adding challenges to your game.
 - [Choosing a leaderboard for your challenges](https://developer.apple.com/documentation/gamekit/choosing_a_leaderboard_for_your_challenges) - Understand what gameplay works well when configuring challenges in your game.
-- **GKChallengeDefinition** - An object that represents the static metadata you define for the challenge. (Beta)
-- **GKShowChallengeBanners** - A Boolean value that indicates whether GameKit can display challenge banners in a game. (Deprecated)
+- **GKChallengeDefinition** - An object that represents the static metadata you define for the challenge.- **GKShowChallengeBanners** - A Boolean value that indicates whether GameKit can display challenge banners in a game. (Deprecated)
 
 ### Activities
 - [Creating activities for your game](https://developer.apple.com/documentation/gamekit/creating_activities_for_your_game) - Use activities to surface game content to players and encourage them to connect with each other.
-- **GKGameActivity** - An object that represents a single instance of a game activity for the current game. (Beta)
-- **GKGameActivityDefinition** - An object that represents the static metadata you define for the activity. (Beta)
-- **GKGameActivityListener** - An object that responds to activity events. (Beta)
-
+- **GKGameActivity** - An object that represents a single instance of a game activity for the current game.- **GKGameActivityDefinition** - An object that represents the static metadata you define for the activity.- **GKGameActivityListener** - An object that responds to activity events.
 ### Real-time Games
 - [Creating real-time games](https://developer.apple.com/documentation/gamekit/creating_real-time_games) - Develop games where multiple players interact in real time.
 - [Finding multiple players for a game](https://developer.apple.com/documentation/gamekit/finding_multiple_players_for_a_game) - Discover and invite other players to participate in a real-time game.

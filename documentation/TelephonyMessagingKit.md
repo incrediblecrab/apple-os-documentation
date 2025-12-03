@@ -2,7 +2,7 @@
 
 Send and receive standards-based messages over cellular networks.
 
-**Platforms:** iOS 26.0+ Beta | iPadOS 26.0+ Beta
+**Platforms:** iOS 26.0+ | iPadOS 26.0+
 
 ## Overview
 
@@ -29,9 +29,5 @@ To have access to the TelephonyMessageKit API you must add the Default Carrier M
 - **RCSGroupContext** - Structure containing information about a message's group.
 
 ---
-
-**Beta Software**
-
-This documentation contains preliminary information about an API or technology in development. This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/TelephonyMessagingKit)*

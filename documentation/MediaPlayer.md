@@ -56,8 +56,7 @@ You can't play video media items directly using the Media Player framework. To p
 - [Providing animated artwork for media items](https://developer.apple.com/documentation/mediaplayer/providing_animated_artwork_for_media_items) - Display animated artwork for your app's media in system views, such as the lock screen, by providing video assets through your now playing info.
 - **MPMediaItem** - A collection of properties that represents a single item in the media library.
 - **MPMediaItemArtwork** - A graphical image, such as music album cover art, associated with a media item.
-- **MPMediaItemAnimatedArtwork** - An animated image, such as an animated music album cover art, for a media item. (Beta)
-- **MPMediaItemCollection** - A sorted set of media items from the media library.
+- **MPMediaItemAnimatedArtwork** - An animated image, such as an animated music album cover art, for a media item.- **MPMediaItemCollection** - A sorted set of media items from the media library.
 - **MPMediaPlaylist** - A playable collection of related media items.
 - **MPMediaPlaylistCreationMetadata** - A set of attributes for describing a playlist when creating it.
 - **MPMediaEntity** - The abstract superclass for media items, media item collections, and media playlist instances.

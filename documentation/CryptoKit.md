@@ -53,10 +53,7 @@ Prefer CryptoKit over lower-level interfaces. CryptoKit frees your app from mana
 
 ### Key Encapsulation Mechanisms (KEM)
 - **KEM** - A key encapsulation mechanism.
-- **MLKEM768** - The Module-Lattice key encapsulation mechanism (KEM). (Beta)
-- **MLKEM1024** - The Module-Lattice key encapsulation mechanism (KEM). (Beta)
-- **XWingMLKEM768X25519** - The X-Wing (ML-KEM768 with X25519) Key Encapsulation Mechanism, defined in https://datatracker.ietf.org/doc/html/draft-connolly-cfrg-xwing-kem-06 (Beta)
-
+- **MLKEM768** - The Module-Lattice key encapsulation mechanism (KEM).- **MLKEM1024** - The Module-Lattice key encapsulation mechanism (KEM).- **XWingMLKEM768X25519** - The X-Wing (ML-KEM768 with X25519) Key Encapsulation Mechanism, defined in https://datatracker.ietf.org/doc/html/draft-connolly-cfrg-xwing-kem-06
 ### KEM Keys
 - **KEMPrivateKey** - The private key for a key encapsulation mechanism.
 - **KEMPublicKey** - The public key for a key encapsulation mechanism.
@@ -94,9 +91,7 @@ Prefer CryptoKit over lower-level interfaces. CryptoKit frees your app from mana
 - **SHA2_512** - An implementation of Secure Hashing Algorithm 2 (SHA-2) hashing with a 512-bit digest.
 
 ### Enumerations
-- **MLDSA65** - The MLDSA65 Digital Signature Algorithm (Beta)
-- **MLDSA87** - The MLDSA87 Digital Signature Algorithm (Beta)
-
+- **MLDSA65** - The MLDSA65 Digital Signature Algorithm- **MLDSA87** - The MLDSA87 Digital Signature Algorithm
 ---
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/CryptoKit)*

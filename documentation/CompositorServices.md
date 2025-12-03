@@ -42,9 +42,8 @@ For more information about how to draw your app's content using Metal, see Metal
 ### Type Aliases
 - **cp_drawable_array_t** - An opaque type that contains the drawable types and other information you need to set up your render pipeline.
 
-### Beta
-- **cp_hover_effect_t** - An opaque type that describes a hover effect of the tracking area. (Beta)
-
+### Hover Effects
+- **cp_hover_effect_t** - An opaque type that describes a hover effect of the tracking area.
 ---
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/CompositorServices)*

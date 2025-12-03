@@ -71,33 +71,21 @@ For more information, see Image I/O Programming Guide.
 - [Image I/O Macros](https://developer.apple.com/documentation/imageio/image_i_o_macros)
 
 ### Variables
-- **kCGComputeHDRStats** (Beta)
-- **kCGImageDestinationEncodeAlternateColorSpace** (Beta)
-- **kCGImageDestinationEncodeBaseColorSpace** (Beta)
-- **kCGImageDestinationEncodeBaseIsSDR**
-- **kCGImageDestinationEncodeBasePixelFormatRequest** (Beta)
-- **kCGImageDestinationEncodeGainMapPixelFormatRequest** (Beta)
-- **kCGImageDestinationEncodeGainMapSubsampleFactor** (Beta)
-- **kCGImageDestinationEncodeGenerateGainMapWithBaseImage** (Beta)
-- **kCGImageDestinationEncodeIsBaseImage** (Beta)
-- **kCGImageDestinationEncodeRequest**
+- **kCGComputeHDRStats**- **kCGImageDestinationEncodeAlternateColorSpace**- **kCGImageDestinationEncodeBaseColorSpace**- **kCGImageDestinationEncodeBaseIsSDR**
+- **kCGImageDestinationEncodeBasePixelFormatRequest**- **kCGImageDestinationEncodeGainMapPixelFormatRequest**- **kCGImageDestinationEncodeGainMapSubsampleFactor**- **kCGImageDestinationEncodeGenerateGainMapWithBaseImage**- **kCGImageDestinationEncodeIsBaseImage**- **kCGImageDestinationEncodeRequest**
 - **kCGImageDestinationEncodeRequestOptions**
 - **kCGImageDestinationEncodeToISOGainmap**
 - **kCGImageDestinationEncodeToISOHDR**
 - **kCGImageDestinationEncodeToSDR**
 - **kCGImageDestinationEncodeTonemapMode**
 - **kCGImagePropertyASTCBlockSize**
-- **kCGImagePropertyASTCBlockSize4x4** (Beta)
-- **kCGImagePropertyASTCBlockSize8x8** (Beta)
-- **kCGImagePropertyASTCEncoder**
+- **kCGImagePropertyASTCBlockSize4x4**- **kCGImagePropertyASTCBlockSize8x8**- **kCGImagePropertyASTCEncoder**
 - **kCGImagePropertyBCEncoder**
 - **kCGImagePropertyBCFormat**
 - **kCGImagePropertyEncoder**
 - **kCGImagePropertyOpenEXRCompression**
 - **kCGImagePropertyPVREncoder**
-- **kCGImageProviderPreferredTileHeight** (Beta)
-- **kCGImageProviderPreferredTileWidth** (Beta)
-- **kCGImageSourceGenerateImageSpecificLumaScaling**
+- **kCGImageProviderPreferredTileHeight**- **kCGImageProviderPreferredTileWidth**- **kCGImageSourceGenerateImageSpecificLumaScaling**
 
 ---
 

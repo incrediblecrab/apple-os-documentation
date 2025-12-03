@@ -2,7 +2,7 @@
 
 Share mobile documents using the Digital Credentials API.
 
-**Platforms:** iOS 26.0+ (Beta) | iPadOS 26.0+ (Beta) | macOS 26.0+ (Beta)
+**Platforms:** iOS 26.0+ | iPadOS 26.0+ | macOS 26.0+
 
 ## Overview
 
@@ -38,7 +38,5 @@ This framework also enables web browsers to implement the presentment flow for t
 - **IdentityDocumentPresentmentError** - An error type that is thrown from the identity document web presentment controller.
 
 ---
-
-> **Beta Software:** This documentation contains preliminary information about an API or technology in development. This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/IdentityDocumentServices)*

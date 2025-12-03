@@ -60,7 +60,7 @@ Respond to reported actions.
 - **CXSetGroupCallAction** - An encapsulation of the act of grouping or ungrouping calls.
 - **CXSetHeldCallAction** - An encapsulation of the act of placing a call on hold or removing a call from hold.
 - **CXSetMutedCallAction** - An encapsulation of the act of muting or unmuting a call.
-- **CXSetTranslatingCallAction** (Beta) - An encapsulation of the act of translating a call.
+- **CXSetTranslatingCallAction** - An encapsulation of the act of translating a call.
 
 ### Call information
 Get information about calls, and receive notifications when the status of a call changes.

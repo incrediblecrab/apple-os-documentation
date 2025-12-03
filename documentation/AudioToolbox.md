@@ -58,20 +58,11 @@ The AudioToolbox framework provides interfaces for recording, playback, and stre
 - **Macros**
 
 ### Protocols
-- **SpatialAudioExperience** - Configure an audio stream for spatial computing. *Beta*
-
+- **SpatialAudioExperience** - Configure an audio stream for spatial computing.
 ### Structures
-- **AutomaticSpatialAudio** - A spatial audio experience determined by the system. *Beta*
-- **BypassedSpatialAudio** - An experience in which the system does not apply spatial processing to the audio stream. *Beta*
-- **FixedSpatialAudio** - A spatial experience that does not take user motion into account. *Beta*
-- **HeadTrackedSpatialAudio** - A spatial experience that takes user motion into account. *Beta*
-
+- **AutomaticSpatialAudio** - A spatial audio experience determined by the system.- **BypassedSpatialAudio** - An experience in which the system does not apply spatial processing to the audio stream.- **FixedSpatialAudio** - A spatial experience that does not take user motion into account.- **HeadTrackedSpatialAudio** - A spatial experience that takes user motion into account.
 ### Variables
-- **kAUAudioMixParameter_RemixAmount** *Beta*
-- **kAUAudioMixParameter_Style** *Beta*
-- **kAUAudioMixProperty_EnableSpatialization** *Beta*
-- **kAUAudioMixProperty_SpatialAudioMixMetadata** *Beta*
-- **kAudioCodecContentSource_AV_Spatial_Live**
+- **kAUAudioMixParameter_RemixAmount**- **kAUAudioMixParameter_Style**- **kAUAudioMixProperty_EnableSpatialization**- **kAUAudioMixProperty_SpatialAudioMixMetadata**- **kAudioCodecContentSource_AV_Spatial_Live**
 - **kAudioCodecContentSource_AV_Spatial_Offline**
 - **kAudioCodecContentSource_AV_Traditional_Live**
 - **kAudioCodecContentSource_AV_Traditional_Offline**
@@ -104,22 +95,15 @@ The AudioToolbox framework provides interfaces for recording, playback, and stre
 - **kAudioConverterPropertyChannelMixMap**
 - **kAudioConverterPropertyPerformDownmix**
 - **kAudioUnitErr_MultipleVoiceProcessors**
-- **kAudioUnitSubType_AUAudioMix** *Beta*
-
+- **kAudioUnitSubType_AUAudioMix**
 ### Functions
-- **AudioConverterFillComplexBufferRealtimeSafe** *Beta*
-- **AudioConverterFillComplexBufferWithPacketDependencies** *Beta*
-- **AudioFileWritePacketsWithDependencies** *Beta*
-- **AudioServicesPlayAlertSound** - Play an alert sound with the provided spatial audio experience. *Beta*
-- **AudioServicesPlaySystemSound** - Play a system sound with the provided spatial audio experience. *Beta*
-
+- **AudioConverterFillComplexBufferRealtimeSafe**- **AudioConverterFillComplexBufferWithPacketDependencies**- **AudioFileWritePacketsWithDependencies**- **AudioServicesPlayAlertSound** - Play an alert sound with the provided spatial audio experience.- **AudioServicesPlaySystemSound** - Play a system sound with the provided spatial audio experience.
 ### Type Aliases
 - **AudioConverterComplexInputDataProcRealtimeSafe**
 
 ### Enumerations
 - **AUAudioMixRenderingStyle**
-- **SpatialAudioExperiences** *Beta*
-
+- **SpatialAudioExperiences**
 ---
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/AudioToolbox)*

@@ -48,8 +48,8 @@ Great iPhone experiences integrate the platform and device capabilities that peo
 
 ### Videos
 
-- [Meet Liquid Glass](https://developer.apple.com/videos/play/wwdc2024/10229/)
-- [Get to know the new design system](https://developer.apple.com/videos/play/wwdc2024/10178/)
+- [Meet Liquid Glass](https://developer.apple.com/videos/play/wwdc2025/10001/)
+- [Get to know the new design system](https://developer.apple.com/videos/play/wwdc2025/10002/)
 
 ---
 

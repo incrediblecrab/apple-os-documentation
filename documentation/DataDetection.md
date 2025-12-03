@@ -41,8 +41,7 @@ Then, inspect and use the data from objects that the data detection system retur
 
 ### Matched Strings
 - **DDMatch** - A base class for common types of data that the data detection system matches.
-- **DataDetector** - An extension to the string protocol that scans strings for semantic entities, such as email addresses, phone numbers, URLs, and flight information. (Beta)
-
+- **DataDetector** - An extension to the string protocol that scans strings for semantic entities, such as email addresses, phone numbers, URLs, and flight information.
 ### Matched Data Types
 - **DDMatchCalendarEvent** - An object that represents a calendar date or date range that the data detection system matches.
 - **DDMatchEmailAddress** - An object that contains an email address that the data detection system matches.

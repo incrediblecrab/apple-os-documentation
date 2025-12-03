@@ -2,7 +2,7 @@
 
 Find out how to bring the new material to your app.
 
-**Platforms:** iOS 26.0+ | iPadOS 26.0+ | macOS Tahoe 26.0+ | tvOS 26.0+ | visionOS 3.0+ | watchOS 26.0+
+**Platforms:** iOS 26.0+ | iPadOS 26.0+ | macOS Tahoe 26.0+ | tvOS 26.0+ | visionOS 26.0+ | watchOS 26.0+
 
 ## Overview
 
@@ -126,7 +126,7 @@ Platform conventions for location and behavior of search optimize the experience
 
 ### Platform Considerations
 
-**iOS 26.0+, iPadOS 26.0+, macOS Tahoe 26.0+, tvOS 26.0+, visionOS 3.0+**  
+**iOS 26.0+, iPadOS 26.0+, macOS Tahoe 26.0+, tvOS 26.0+, visionOS 26.0+**  
 Liquid Glass can have distinct appearance and behavior across different platforms, contexts, and input methods. Test your app across devices to understand how the material looks and feels.
 
 **watchOS 26.0+**  
@@ -137,6 +137,16 @@ Liquid Glass changes are minimal in watchOS and appear automatically when you op
 - **Combine custom Liquid Glass effects** - Use GlassEffectContainer to optimize performance when applying effects to custom elements
 - **Performance test your app across platforms** - Regularly assess and improve performance when building with latest SDKs
 - **Use UIDesignRequiresCompatibility key** - Add to your information property list to maintain previous SDK appearance while updating
+
+### Adoption Timeline
+
+> **Important:** Apple has announced that the option to retain current designs using `UIDesignRequiresCompatibility` will be removed in the next major release (iOS 27). Full Liquid Glass adoption is required by iOS 27's public release.
+
+**Key Dates:**
+- **April 2026**: All App Store submissions require Xcode 26 and iOS 26 SDK
+- **Fall 2026**: Liquid Glass adoption becomes mandatory with iOS 27
+
+**Recommendation:** Begin adopting Liquid Glass now to ensure a smooth transition and to take advantage of the unified design language across all Apple platforms.
 
 ### Related Components
 

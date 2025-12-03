@@ -105,8 +105,7 @@ Take advantage of the unique architecture of Apple silicon GPUs.
 - [Achieving smooth frame rates with a Metal display link](https://developer.apple.com/documentation/metal/achieving_smooth_frame_rates_with_a_metal_display_link) - Pace rendering with minimal input latency while providing essential information to the operating system for power-efficient rendering, thermal mitigation, and the scheduling of sustainable workloads.
 
 ### Structures
-- **MTL4CommandQueueError** (Beta)
-
+- **MTL4CommandQueueError**
 ### Type Aliases
 - **MTLGPUAddress** - A 64-bit unsigned integer type appropriate for storing GPU addresses.
 

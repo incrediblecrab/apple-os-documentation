@@ -2,7 +2,7 @@
 
 Create age-appropriate experiences in your app by asking people to share their age range.
 
-**Platforms:** iOS 26.0+ (Beta) | iPadOS 26.0+ (Beta) | Mac Catalyst 26.0+ (Beta) | macOS 26.0+ (Beta)
+**Platforms:** iOS 26.0+ | iPadOS 26.0+ | Mac Catalyst 26.0+ | macOS 26.0+ | visionOS 26.0+ | watchOS 26.0+
 
 ## Overview
 

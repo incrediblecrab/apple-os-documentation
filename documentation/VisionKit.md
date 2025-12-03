@@ -44,8 +44,7 @@ In iOS 17 and macOS 14 and later, VisionKit identifies subjects within an image 
 - **VNDocumentCameraScan** - A single document scanned in the document camera.
 
 ### Structures
-- **CameraRegionView** - CameraRegionView displays a view of a stabilized region of interest within a user's view, and then provide Passthrough camera feed for the selected region. It also allows additional post-processing of the passthrough camera frames. Example of such region of interest could be documents, a user manual, gauges or displays. (Beta)
-
+- **CameraRegionView** - CameraRegionView displays a view of a stabilized region of interest within a user's view, and then provide Passthrough camera feed for the selected region. It also allows additional post-processing of the passthrough camera frames. Example of such region of interest could be documents, a user manual, gauges or displays.
 ---
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/VisionKit)*

@@ -45,8 +45,7 @@ To support racing wheel devices in your macOS app, see Racing wheel device suppo
 - **GCRacingWheel** - An object that represents a physical racing wheel controller connected to a device.
 - **GCKeyboard** - An object that represents a physical keyboard connected to a device.
 - **GCMouse** - An object that represents a physical mouse connected to a device.
-- **GCStylus** - An object that represents a physical stylus connected to the device. (Beta)
-
+- **GCStylus** - An object that represents a physical stylus connected to the device.
 ### Game Controller Profiles
 - [Input](https://developer.apple.com/documentation/gamecontroller/input) - Receive controller input in the way that best integrates with the flow of your game or game engine.
 - **GCMotion** - A controller profile that supports orientation and motion.

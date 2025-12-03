@@ -93,16 +93,24 @@ You can integrate SwiftUI views with objects from the UIKit, AppKit, and WatchKi
 - **Xcode library customization** - Expose custom views and modifiers in the Xcode library
 - **Performance analysis** - Measure and improve your app's responsiveness
 
-### Protocols (Beta)
+### Web Content (New in iOS 26)
+- **WebView** - A SwiftUI view that displays web content within your app
+- **WebPage** - A type that represents a web page for use with WebView
+- **Rich text TextEditor** - Enhanced TextEditor with support for rich text formatting and styling
+
+### Protocols
 - **RoundedRectangularShape** - A protocol of InsettableShape that describes a rounded rectangular shape
 - **SliderTickContent** - A type that provides content for a SliderTickBuilder
 
-### Structures (Beta)
+### Structures
 - **AnyCompositorContent** - Type erased compositor content
 - **ConcentricRectangle** - A shape that is replaced by a concentric version of the current container shape
 - **RectangleCornerInsets** - The inset sizes for the corners of a rectangle
 - **RoundedRectangularShapeCorners** - A type describing the corner styles of a RoundedRectangularShape
 - Various slider-related structures for tick content
+
+### Xcode 26 Features
+- **Embedded Playground code blocks** - Embed interactive Playground code blocks directly within regular projects for live API testing and learning
 
 ---
 

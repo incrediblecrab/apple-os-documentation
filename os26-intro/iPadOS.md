@@ -54,6 +54,15 @@ Dive into the latest key technologies and capabilities:
 - **Stage Manager Enhancements**: Better app organization and workflow management
 - **Enhanced Accessibility**: Improved support for assistive technologies
 
+### iPadOS 26.1 Updates (November 2025)
+- Updated multitasking features and window management improvements
+- Performance optimizations and bug fixes
+
+### iPadOS 26.2 (In Beta - Expected Mid-December 2025)
+- **Restored drag-and-drop**: Drag apps from App Library, Dock, and Spotlight into Slide Over and tiled views
+- **Enhanced Liquid Glass**: Opacity customization for Lock Screen elements
+- **Offline lyrics**: Apple Music lyrics available without network connection
+
 ## Getting Started
 
 **New to iPadOS development?**  

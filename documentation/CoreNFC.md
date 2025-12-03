@@ -62,8 +62,7 @@ Core NFC isn't available for use in app extensions, and it requires a device tha
 #### Classes
 - **NFCISO15693CustomCommandConfiguration**
 - **NFCISO15693ReadMultipleBlocksConfiguration**
-- **NFCPaymentTagReaderSession** (Beta)
-
+- **NFCPaymentTagReaderSession**
 #### Structures
 - **NFCFeliCaPollingResponse**
 - **NFCFeliCaRequestSpecificationVersionResponse**

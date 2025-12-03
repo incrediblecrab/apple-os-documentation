@@ -38,11 +38,9 @@ For information about handling user interactions on Apple Pencil in your UIKit a
 - **PKContentVersion** - Constants that represent versions of PencilKit for backward compatibility.
 
 ### Classes
-- **PKResponderState** - The state of PencilKit behavior related to a UIResponder. (Beta)
-
+- **PKResponderState** - The state of PencilKit behavior related to a UIResponder.
 ### Enumerations
-- **PKToolPickerVisibility** - The visibility state of a tool picker. (Beta)
-
+- **PKToolPickerVisibility** - The visibility state of a tool picker.
 ---
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/PencilKit)*

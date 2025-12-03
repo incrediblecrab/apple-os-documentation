@@ -2,7 +2,7 @@
 
 Display a set of recent, personal events that inspire someone to contribute to your app's creative workflow.
 
-**Platforms:** iOS 17.2+ | iPadOS 26.0+ (Beta)
+**Platforms:** iOS 17.2+ | iPadOS 26.0+
 
 ## Overview
 
@@ -30,9 +30,7 @@ For the picker to appear, your app needs a special entitlement in your app's cod
 
 ### Notifications
 - [Receiving journaling suggestions system notifications](https://developer.apple.com/documentation/journalingsuggestions/receiving_journaling_suggestions_system_notifications) - Register your app to receive journaling suggestions when a person taps a system notification.
-- **JournalingSuggestionPresentationToken** - A container for a Journaling Suggestion identifier. (Beta)
-- **JournalingSuggestionsConfiguration** - The configuration for Journaling Suggestion notifications. (Beta)
-
+- **JournalingSuggestionPresentationToken** - A container for a Journaling Suggestion identifier.- **JournalingSuggestionsConfiguration** - The configuration for Journaling Suggestion notifications.
 ---
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/JournalingSuggestions)*

@@ -90,13 +90,11 @@ To get started, create a **TabletopGame** object that represents your game insta
 ### Debugging
 - **DebugDrawOptions** - Types of items in a rendering that you want to debug
 
-### Protocols (Beta)
-- **CustomAction** protocol - A protocol that represents an action whose behavior is implemented outside of TabletopKit
+### Protocols- **CustomAction** protocol - A protocol that represents an action whose behavior is implemented outside of TabletopKit
 - **CustomEquipmentState** protocol - A specialized protocol for the equipment state that allows to accommodate custom data that TabletopKit syncs between players
 - **MutableEquipmentState** protocol - A protocol for equipment data that TabletopKit syncs between players, and that can be mutated
 
-### Structures (Beta)
-- **CounterCollection** - A collection of score counters that can be inspected and modified
+### Structures- **CounterCollection** - A collection of score counters that can be inspected and modified
 - **EquipmentCollection** - A collection of equipment whose state can be inspected and modified
 - **EquipmentStateCollection** - A collection of equipment states that can be inspected and modified
 - **TableState** - The state of the table that can be queried and modified

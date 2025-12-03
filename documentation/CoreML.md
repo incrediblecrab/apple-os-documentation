@@ -85,9 +85,7 @@ A block diagram of the machine learning stack. The top layer is a single block l
 - [CoreML Enumerations](https://developer.apple.com/documentation/coreml/coreml_enumerations)
 
 ### Functions
-- **pointwiseMax(_:_:)** - Computes the element-wise maximum of two values. (Beta)
-- **pointwiseMin(_:_:)** - Computes the element-wise minimum of two values. (Beta)
-
+- **pointwiseMax(_:_:)** - Computes the element-wise maximum of two values.- **pointwiseMin(_:_:)** - Computes the element-wise minimum of two values.
 ### Enumerations
 - **MLShapedArrayBufferLayout** - Buffer layout enum
 

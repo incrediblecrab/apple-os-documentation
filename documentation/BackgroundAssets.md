@@ -38,18 +38,14 @@ The flow for periodic content requests is identical to the app install and updat
 - [Testing asset packs locally](https://developer.apple.com/documentation/backgroundassets/testing_asset_packs_locally) - Test your system-managed asset packs using a mock server on your Mac.
 
 ### Managed Asset Packs
-- **AssetPack** - An archive of assets that the system downloads together. (Beta)
-- **AssetPackManager** - An actor that manages asset packs. (Beta)
-- **ManagedDownloaderExtension** - An app extension that uses the system implementation to schedule asset-pack downloads automatically. (Beta)
-- **BAAppGroupID** - The app group identifier that you share between your app and the extension that uses asset packs.
+- **AssetPack** - An archive of assets that the system downloads together.- **AssetPackManager** - An actor that manages asset packs.- **ManagedDownloaderExtension** - An app extension that uses the system implementation to schedule asset-pack downloads automatically.- **BAAppGroupID** - The app group identifier that you share between your app and the extension that uses asset packs.
 - **BAHasManagedAssetPacks** - A Boolean value that indicates whether you let the system automatically manage your asset packs.
 
 ### Apple-hosted Managed Asset Packs
 - **BAUsesAppleHosting** - A Boolean value that indicates whether you use Apple's service to host your asset packs.
 
 ### Self-hosted Unmanaged Asset Packs
-- **AssetPackManifest** - A representation of a manifest that lists asset packs that are available to download. (Beta)
-
+- **AssetPackManifest** - A representation of a manifest that lists asset packs that are available to download.
 ### Unmanaged Asset Downloads
 - [Configuring your Background Assets project](https://developer.apple.com/documentation/backgroundassets/configuring_your_background_assets_project) - Edit your app and extension targets in your Xcode project to use Background Assets.
 - [Downloading essential assets in the background](https://developer.apple.com/documentation/backgroundassets/downloading_essential_assets_in_the_background) - Fetch the assets your app requires before its first launch using an app extension and the Background Assets framework.
@@ -64,8 +60,7 @@ The flow for periodic content requests is identical to the app install and updat
 - **BADownload** - An object that represents an in-progress or concluded asset download.
 
 ### Errors
-- **ManagedBackgroundAssetsError** - An error for a managed asset pack. (Beta)
-- **BAErrorDomain**
+- **ManagedBackgroundAssetsError** - An error for a managed asset pack.- **BAErrorDomain**
 - **BAErrorCode**
 
 ---

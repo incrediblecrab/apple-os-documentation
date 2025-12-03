@@ -66,8 +66,8 @@ See SRSensor for the complete list.
 - **SRPhotoplethysmogramSample** - The sample photoplethysmogram (PPG) sensor data.
 
 ### Classes
-- **SRAcousticSettings** - Beta
-- **SRSleepSession** - Beta
+- **SRAcousticSettings** - An object that describes the acoustic settings of a device during sleep.
+- **SRSleepSession** - An object that represents a user's sleep session data.
 
 ---
 

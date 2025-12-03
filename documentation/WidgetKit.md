@@ -2,7 +2,7 @@
 
 Extend the reach of your app by creating widgets, watch complications, Live Activities, and controls.
 
-**Platforms:** iOS 14.0+ | iPadOS 14.0+ | Mac Catalyst 14.0+ | macOS 11.0+ | visionOS 26.0+ Beta | watchOS 9.0+
+**Platforms:** iOS 14.0+ | iPadOS 14.0+ | Mac Catalyst 14.0+ | macOS 11.0+ | visionOS 26.0+ | watchOS 9.0+
 
 ## Overview
 Using WidgetKit, you can make your app’s content available in contexts outside the app and extend its reach by building an ecosystem of glanceable, up-to-date experiences.

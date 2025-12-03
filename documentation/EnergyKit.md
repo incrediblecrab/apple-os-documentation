@@ -2,7 +2,7 @@
 
 Provide a grid forecast for your app to help people choose when to use electricity.
 
-**Platforms:** iOS 26.0+ *Beta* | iPadOS 26.0+ *Beta*
+**Platforms:** iOS 26.0+ | iPadOS 26.0+
 
 ## Overview
 
@@ -48,8 +48,6 @@ To generate device electricity consumption or runtime insights, your app needs t
 
 ### Error response
 - **EnergyKitError** - A specialized error that provides localized messages describing the error and why it occurred.
-
-> **Beta Software:** This documentation contains preliminary information about an API or technology in development. This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
 
 ---
 

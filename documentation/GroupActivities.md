@@ -42,10 +42,7 @@ This framework leverages the FaceTime infrastructure to synchronize your app's a
 - [Adding spatial Persona support to an activity](https://developer.apple.com/documentation/groupactivities/adding_spatial_persona_support_to_an_activity) - Update your SharePlay activities to support spatial Personas and the shared context when running in visionOS.
 - **SystemCoordinator** - A type you use to coordinate your interface's behavior when an active SharePlay session supports spatial placement of content.
 - **ParticipantState** - A structure that tells you whether a participant supports a shared simulation space for the current activity.
-- **groupActivityAssociation(_ kind: GroupActivityAssociationKind?) -> some View** - Specifies how a view should be associated with the current SharePlay group activity. (Beta)
-- **GroupActivityAssociationInteraction** - An interaction configures a view's association with the current SharePlay group activity. (Beta)
-- **GroupActivityAssociationKind** - An association a user-interface element can have with a SharePlay group activity. (Beta)
-
+- **groupActivityAssociation(_ kind: GroupActivityAssociationKind?) -> some View** - Specifies how a view should be associated with the current SharePlay group activity.- **GroupActivityAssociationInteraction** - An interaction configures a view's association with the current SharePlay group activity.- **GroupActivityAssociationKind** - An association a user-interface element can have with a SharePlay group activity.
 ### Custom Spatial Templates
 - [Building a guessing game for visionOS](https://developer.apple.com/documentation/groupactivities/building_a_guessing_game_for_visionos) - Create a team-based guessing game for visionOS using Group Activities.
 - **SpatialTemplate** - An interface you use to create custom arrangements of spatial Personas in a scene.

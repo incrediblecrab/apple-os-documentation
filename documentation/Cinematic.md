@@ -44,9 +44,7 @@ The Cinematic framework enables you to add professional-level editing and playba
 - **CNAssetSpatialAudioInfo**
 
 ### Enumerations
-- **CNSpatialAudioContentType** (Beta)
-- **CNSpatialAudioRenderingStyle** (Beta)
-
+- **CNSpatialAudioContentType**- **CNSpatialAudioRenderingStyle**
 ---
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/Cinematic)*

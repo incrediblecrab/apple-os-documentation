@@ -50,7 +50,7 @@ No additional considerations for iOS, iPadOS, macOS, tvOS, visionOS, or watchOS.
 
 ### Videos
 
-- [Get to know the new design system](https://developer.apple.com/videos/play/wwdc2024/10159/)
+- [Get to know the new design system](https://developer.apple.com/videos/play/wwdc2025/10002/)
 
 ## Changelog
 

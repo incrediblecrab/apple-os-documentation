@@ -2,7 +2,7 @@
 
 Integrate onscreen touch controls into your Metal-based games.
 
-**Platforms:** iOS 26.0+ Beta | iPadOS 26.0+ Beta | Mac Catalyst 26.0+ Beta | visionOS 26.0+ Beta
+**Platforms:** iOS 26.0+ | iPadOS 26.0+ | Mac Catalyst 26.0+ | visionOS 26.0+
 
 ## Overview
 
@@ -49,9 +49,5 @@ Use the **TCTouchController** class as the central point to manage and render yo
 - **TCRegionColliderRegion** - Defines the region of the touch controller that the TCRegionCollider represents.
 
 ---
-
-**Beta Software**
-
-This documentation contains preliminary information about an API or technology in development. This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/TouchController)*

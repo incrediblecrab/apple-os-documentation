@@ -69,8 +69,7 @@ You can:
 - **Deprecated symbols** - Review unsupported symbols and their replacements.
 
 ### Classes
-- **SFSafariSettings** (Beta)
-
+- **SFSafariSettings**
 ---
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/SafariServices)*

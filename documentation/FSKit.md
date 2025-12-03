@@ -95,9 +95,7 @@ When you choose a design flow, write an app extension that conforms to either Fi
 - **FSProbeResult** - An object that represents the results of a specific probe.
 
 ### Classes
-- **FSGenericURLResource** - A resource representing an abstract URL (Beta)
-- **FSPathURLResource** - A resource representing a path (Beta)
-
+- **FSGenericURLResource** - A resource representing an abstract URL- **FSPathURLResource** - A resource representing a path
 ---
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/FSKit)*

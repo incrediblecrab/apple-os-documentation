@@ -29,16 +29,13 @@ Your app can also use a framework-provided task to execute critical jobs in the 
 
 ### Foreground Tasks with Background Support
 - [Performing long-running tasks on iOS and iPadOS](https://developer.apple.com/documentation/backgroundtasks/performing_long-running_tasks_on_ios_and_ipados) - Use a continuous background task to do work that can complete as needed.
-- **BGContinuedProcessingTask** - A task that starts in the foreground and can continue running in the background as needed. (Beta)
-- **Background GPU Access** - The entitlement the system requires for a continuous background task to use the GPU. (Beta)
-
+- **BGContinuedProcessingTask** - A task that starts in the foreground and can continue running in the background as needed.- **Background GPU Access** - The entitlement the system requires for a continuous background task to use the GPU.
 ### Task Requests
 - **BGProcessingTaskRequest** - A request to launch your app in the background to execute a processing task that can take minutes to complete.
 - **BGAppRefreshTaskRequest** - A request to launch your app in the background to execute a short refresh task.
 - **BGTaskRequest** - An abstract class for representing task requests.
 - **BGHealthResearchTaskRequest** - A request to launch your app in the background to execute processing for a health research study in which a user participates.
-- **BGContinuedProcessingTaskRequest** - A request for a workload that the system continues processing even if a person backgrounds the app. (Beta)
-
+- **BGContinuedProcessingTaskRequest** - A request for a workload that the system continues processing even if a person backgrounds the app.
 ### Development and Testing
 - [Starting and Terminating Tasks During Development](https://developer.apple.com/documentation/backgroundtasks/starting_and_terminating_tasks_during_development) - Use the debugger during development to start tasks and to terminate them before completion.
 

@@ -19,8 +19,7 @@ To display models in a SwiftUI view, use the **Query()** macro and specify a pre
 ### Essentials
 - [Preserving your app's model data across launches](https://developer.apple.com/documentation/swiftdata/preserving_your_app_s_model_data_across_launches) - Describe your model classes to SwiftData using the framework's macros, and store instances of those models so they exist beyond the app's runtime
 - [Adding and editing persistent data in your app](https://developer.apple.com/documentation/swiftdata/adding_and_editing_persistent_data_in_your_app) - Create a data entry form for collecting and changing data managed by SwiftData
-- [Adopting SwiftData for a Core Data app](https://developer.apple.com/documentation/swiftdata/adopting_swiftdata_for_a_core_data_app) - Persist data in your app intuitively with the Swift native persistence framework (Beta)
-- [SwiftData updates](https://developer.apple.com/documentation/swiftdata/swiftdata_updates) - Learn about important changes to SwiftData
+- [Adopting SwiftData for a Core Data app](https://developer.apple.com/documentation/swiftdata/adopting_swiftdata_for_a_core_data_app) - Persist data in your app intuitively with the Swift native persistence framework- [SwiftData updates](https://developer.apple.com/documentation/swiftdata/swiftdata_updates) - Learn about important changes to SwiftData
 - [Adopting inheritance in SwiftData](https://developer.apple.com/documentation/swiftdata/adopting_inheritance_in_swiftdata) - Add flexibility to your models using class inheritance
 
 ### Model Definition

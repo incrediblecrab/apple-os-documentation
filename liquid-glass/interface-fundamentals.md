@@ -2,7 +2,9 @@
 
 Explore the components that go into building your app's interface, and discover platform-specific features that improve the experience you offer to people.
 
-**Platforms:** iOS 14.0+ | iPadOS 14.0+ | macOS 11.0+ | tvOS 14.0+ | visionOS 1.0+ | watchOS 7.0+
+**Platforms:** iOS 14.0+ | iPadOS 14.0+ | macOS 11.0+ | tvOS 14.0+ | visionOS 26.0+ | watchOS 7.0+
+
+> **Note:** This document covers interface fundamentals across all supported versions. For Liquid Glass design system features, see the dedicated [Liquid Glass documentation](introduction.md) which requires iOS 26.0+, iPadOS 26.0+, macOS Tahoe 26.0+, tvOS 26.0+, visionOS 26.0+, and watchOS 26.0+.
 
 ## Overview
 

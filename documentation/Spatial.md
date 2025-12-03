@@ -13,38 +13,26 @@ The Spatial module is a lightweight 3D mathematical library that provides a simp
 ### Data structures
 - **Vector3D** - A three-element vector.
 - **Vector3DFloat** - A single-precision structure that defines a three-element vector.
-- **Axis3D** - Constants that describe an axis. *(Beta)*
-
+- **Axis3D** - Constants that describe an axis.
 ### 2D primitives
 - **Angle2D** - A geometric angle with a value you access in either radians or degrees.
-- **Angle2DFloat** - A single-precision geometric angle whose value you access in either radians or degrees. *(Beta)*
-
+- **Angle2DFloat** - A single-precision geometric angle whose value you access in either radians or degrees.
 ### 3D primitives
 - **Point3D** - A point in a 3D coordinate system.
-- **Point3DFloat** - A single-precision structure that contains a point in a three-dimensional coordinate system. *(Beta)*
-- **Size3D** - A size that describes width, height, and depth in a 3D coordinate system.
-- **Size3DFloat** - A single-precision structure that contains width, height, and depth values. *(Beta)*
-- **Rect3D** - A rectangle in a 3D coordinate system.
-- **Rect3DFloat** - A single-precision structure that contains the location and dimensions of a 3D rectangle. *(Beta)*
-- **Rotation3D** - A rotation in three dimensions.
-- **Rotation3DFloat** - A single-precision structure that represents a rotation in three dimensions. *(Beta)*
-- **RotationAxis3D** - A 3D rotation axis.
-- **RotationAxis3DFloat** - A 3D axis. *(Beta)*
-- **Pose3D** - A structure that contains a 3D position and a 3D rotation.
-- **Pose3DFloat** - A single-precision structure that contains a position and rotation. *(Beta)*
-- **ScaledPose3D** - A structure that contains a position, rotation, and scale.
+- **Point3DFloat** - A single-precision structure that contains a point in a three-dimensional coordinate system.- **Size3D** - A size that describes width, height, and depth in a 3D coordinate system.
+- **Size3DFloat** - A single-precision structure that contains width, height, and depth values.- **Rect3D** - A rectangle in a 3D coordinate system.
+- **Rect3DFloat** - A single-precision structure that contains the location and dimensions of a 3D rectangle.- **Rotation3D** - A rotation in three dimensions.
+- **Rotation3DFloat** - A single-precision structure that represents a rotation in three dimensions.- **RotationAxis3D** - A 3D rotation axis.
+- **RotationAxis3DFloat** - A 3D axis.- **Pose3D** - A structure that contains a 3D position and a 3D rotation.
+- **Pose3DFloat** - A single-precision structure that contains a position and rotation.- **ScaledPose3D** - A structure that contains a position, rotation, and scale.
 - **ScaledPose3DFloat** - A structure that contains a position, rotation, and scale.
 - **SphericalCoordinates3D** - A structure that defines spherical coordinates in radial, inclination, azimuthal order.
-- **SphericalCoordinates3DFloat** - A single-precision structure that defines spherical coordinates in radial, inclination, azimuthal order. *(Beta)*
-- **Ray3D** - A ray in a 3D coordinate system.
-- **Ray3DFloat** - A single-precision structure that contains the origin and direction of a 3D ray. *(Beta)*
-
+- **SphericalCoordinates3DFloat** - A single-precision structure that defines spherical coordinates in radial, inclination, azimuthal order.- **Ray3D** - A ray in a 3D coordinate system.
+- **Ray3DFloat** - A single-precision structure that contains the origin and direction of a 3D ray.
 ### Affine and projective transforms
 - **AffineTransform3D** - A 3D affine transformation matrix.
-- **AffineTransform3DFloat** - *(Beta)*
-- **ProjectiveTransform3D** - A 3D projective transformation matrix.
-- **ProjectiveTransform3DFloat** - A single-precision 3D projective transformation matrix. *(Beta)*
-
+- **AffineTransform3DFloat** -- **ProjectiveTransform3D** - A 3D projective transformation matrix.
+- **ProjectiveTransform3DFloat** - A single-precision 3D projective transformation matrix.
 ### Converting between coordinate spaces
 - **CoordinateSpace3D** - A type that represents a coordinate space which you can use to convert values to and from other coordinate spaces.
 - **CoordinateSpace3DFloat**
@@ -85,8 +73,7 @@ The Spatial module is a lightweight 3D mathematical library that provides a simp
 - **VolumetricProtocol** - A set of methods for working with Spatial primitives with volume.
 
 ### Structures
-- **EulerAnglesFloat** - *(Beta)*
-
+- **EulerAnglesFloat** -
 ### Enumerations
 - **AxisWithFactorsFloat** - The axis of a shear transform.
 

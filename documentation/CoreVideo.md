@@ -48,26 +48,13 @@ Core Video provides a pipeline model for digital video. It simplifies working wi
 
 ### Classes
 - **CVMetalBufferCache**
-- **CVReadOnlyPixelBuffer** - Provides an immutable view of the pixel data held by the pixel buffer. (Beta)
-
+- **CVReadOnlyPixelBuffer** - Provides an immutable view of the pixel data held by the pixel buffer.
 ### Protocols
-- **CVBufferRepresentable** - A sealed protocol intended to be implemented by the types in CoreVideo framework. This protocol facilitates Swift types that wrap a value of CVBuffer type. (Beta)
-- **CVImageBufferRepresentable** - A sealed protocol intended to be implemented by the types in CoreVideo framework. This protocol facilitates Swift types that wrap a value of CVImageBuffer type. (Beta)
-- **CVPixelBufferRepresentable** - A sealed protocol intended to be implemented by the types in CoreVideo framework. This protocol facilitates Swift types that wrap a value of CVPixelBuffer type. (Beta)
-
+- **CVBufferRepresentable** - A sealed protocol intended to be implemented by the types in CoreVideo framework. This protocol facilitates Swift types that wrap a value of CVBuffer type.- **CVImageBufferRepresentable** - A sealed protocol intended to be implemented by the types in CoreVideo framework. This protocol facilitates Swift types that wrap a value of CVImageBuffer type.- **CVPixelBufferRepresentable** - A sealed protocol intended to be implemented by the types in CoreVideo framework. This protocol facilitates Swift types that wrap a value of CVPixelBuffer type.
 ### Structures
-- **CVError** - Wraps CVReturn values to present them as Swift Error values. This type is used for all errors thrown in the CoreVideo framework. All CVReturn values are provided as static constants. (Beta)
-- **CVImageSize** - Size of image buffer expressed as pixel count. (Beta)
-- **CVMutablePixelBuffer** - Provides read-write access to the pixel data and attachments. (Beta)
-- **CVPixelBufferAttributes** - A partial set of pixel buffer creation attributes. This struct is useful for conveying partial requirements for pixel buffers to clients. This struct makes all properties of CVPixelBuffer/CreationAttributes optional. (Beta)
-- **CVPixelBufferCreationAttributes** - Attributes needed for creating a pixel buffer. (Beta)
-- **CVPixelBufferPadding** - Padding pixels around the CVPixelBuffer. (Beta)
-- **CVPixelBufferPlaneProperties** - Properties of a plane of pixels in pixel buffer. (Beta)
-- **CVPixelFormatDescription** - Defines a pixel format which can be used to create custom pixel buffer types. (Beta)
-- **CVPixelFormatType** - Identifier for a pixel format type. (Beta)
-
+- **CVError** - Wraps CVReturn values to present them as Swift Error values. This type is used for all errors thrown in the CoreVideo framework. All CVReturn values are provided as static constants.- **CVImageSize** - Size of image buffer expressed as pixel count.- **CVMutablePixelBuffer** - Provides read-write access to the pixel data and attachments.- **CVPixelBufferAttributes** - A partial set of pixel buffer creation attributes. This struct is useful for conveying partial requirements for pixel buffers to clients. This struct makes all properties of CVPixelBuffer/CreationAttributes optional.- **CVPixelBufferCreationAttributes** - Attributes needed for creating a pixel buffer.- **CVPixelBufferPadding** - Padding pixels around the CVPixelBuffer.- **CVPixelBufferPlaneProperties** - Properties of a plane of pixels in pixel buffer.- **CVPixelFormatDescription** - Defines a pixel format which can be used to create custom pixel buffer types.- **CVPixelFormatType** - Identifier for a pixel format type.
 ### Variables
-Multiple Beta variables for image buffer display mask rectangles and metadata keys.
+Variables for image buffer display mask rectangles and metadata keys.
 
 ### Functions
 - **CVMetalBufferCacheCreate** - Creates a new Metal buffer cache.
@@ -77,14 +64,12 @@ Multiple Beta variables for image buffer display mask rectangles and metadata ke
 - **CVMetalBufferGetBuffer** - Returns the Metal buffer backing a CVMetalBuffer.
 - **CVMetalBufferGetTypeID** - Returns the Core Foundation type identifier for the Metal buffer type.
 - **CVPixelBufferIsCompatibleWithAttributes** - Determines if a pixel buffer is compatible with given attributes.
-- **CVPixelFormatTypeCopyFourCharCodeString** - Copies the FourCC string for a pixel format type. (Beta)
-
+- **CVPixelFormatTypeCopyFourCharCodeString** - Copies the FourCC string for a pixel format type.
 ### Type Aliases
 - **CVMetalBuffer**
 
 ### Enumerations
-- **CVImageBufferOriginPosition** (Beta)
-
+- **CVImageBufferOriginPosition**
 ---
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/CoreVideo)*

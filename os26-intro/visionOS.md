@@ -1,12 +1,12 @@
-# visionOS 3.0 Developer Introduction
+# visionOS 26.0 Developer Introduction
 
 Apple Vision Pro offers an infinite canvas to explore, experiment, and play — giving you the freedom to completely rethink your app's spatial computing experience. Using familiar frameworks and tools, you can design and build an entirely new universe of apps and games for Vision Pro.
 
-**Platform:** visionOS 3.0+
+**Platform:** visionOS 26.0+
 
 ## Overview
 
-visionOS 3.0 represents the future of spatial computing, enabling developers to create immersive experiences that seamlessly blend digital content with the physical world. This release introduces advanced spatial capabilities, enhanced performance, and new frameworks for building the next generation of applications.
+visionOS 26.0 represents the future of spatial computing, enabling developers to create immersive experiences that seamlessly blend digital content with the physical world. This release introduces advanced spatial capabilities, enhanced performance, and new frameworks for building the next generation of applications.
 
 ## Key Features
 
@@ -54,10 +54,11 @@ Enable multiple Vision Pro users to share the same spatial experience, perfect f
 **Passthrough Integration**  
 Seamlessly blend digital content with the real world using high-quality passthrough video that maintains spatial relationships.
 
-## What's New in visionOS 3.0
+## What's New in visionOS 26.0
 
 Dive into the latest key technologies and capabilities:
 
+- **Liquid Glass Design**: Unified design language across Apple platforms with spatial adaptations
 - **Enhanced Spatial Tracking**: Improved precision and stability for world tracking
 - **Advanced Hand Tracking**: More accurate finger tracking and gesture recognition
 - **Performance Optimizations**: Better graphics performance and thermal management
@@ -65,6 +66,14 @@ Dive into the latest key technologies and capabilities:
 - **Improved Accessibility**: Enhanced VoiceOver and assistive technology support
 - **Developer Tools**: Better debugging and profiling tools for spatial applications
 - **Shared AR**: Multi-user spatial experiences and collaboration features
+- **Spatial Widgets**: Widgets that integrate seamlessly into the user's space
+- **Spatial Scenes**: Photos that come alive in the user's environment
+- **Spatial Browsing**: Enhanced Safari experience for spatial computing
+
+### visionOS 26.1 Updates (November 2025)
+- **Vision Pro app for iPad**: Control and interact with Vision Pro from iPad
+- Performance improvements and bug fixes
+- Enhanced collaboration features
 
 ## Getting Started
 
