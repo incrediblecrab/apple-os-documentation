@@ -143,7 +143,7 @@ Liquid Glass changes are minimal in watchOS and appear automatically when you op
 > **Important:** Apple has announced that the option to retain current designs using `UIDesignRequiresCompatibility` will be removed in the next major release (iOS 27). Full Liquid Glass adoption is required by iOS 27's public release.
 
 **Key Dates:**
-- **April 2026**: All App Store submissions require Xcode 26 and iOS 26 SDK
+- **April 2026**: All App Store submissions now require Xcode 26 and iOS 26 SDK (in effect)
 - **Fall 2026**: Liquid Glass adoption becomes mandatory with iOS 27
 
 **Recommendation:** Begin adopting Liquid Glass now to ensure a smooth transition and to take advantage of the unified design language across all Apple platforms.

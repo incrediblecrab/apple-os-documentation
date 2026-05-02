@@ -168,7 +168,7 @@ xcodebuild -project "os26-liquid-glass-example/Landmarks/Landmarks.xcodeproj" \
 - **iOS 26.0+** / **macOS Tahoe 26.0+** (for Liquid Glass features)
 - **Git** (for cloning repository)
 
-> **Note:** Starting April 2026, all App Store submissions require Xcode 26 and iOS 26 SDK.
+> **Note:** Since April 2026, all App Store submissions require Xcode 26 and iOS 26 SDK (in effect).
 
 ### Installation
 
@@ -355,4 +355,4 @@ This is an **unofficial** community-maintained repository. Apple Inc. does not e
 
 ---
 
-*Last updated: 2025-12-03 | Version: OS 26.1 (26.2 in beta) | Community Maintained*
+*Last updated: 2026-05-02 | Version: OS 26.4 (26.5 Beta 4) | Community Maintained*

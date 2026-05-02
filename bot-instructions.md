@@ -364,16 +364,16 @@ class AppleDocBot:
 
 ### Version Tracking
 
-- **Current Version**: OS 26.1 (released November 2025)
-- **Upcoming Version**: OS 26.2 (in beta, expected mid-December 2025)
-- **Last Updated**: 2025-12-03
+- **Current Version**: OS 26.4 (current GA across iOS/iPadOS/macOS/tvOS/visionOS/watchOS)
+- **Upcoming Version**: OS 26.5 (in developer beta — Beta 4 as of May 2026)
+- **Last Updated**: 2026-05-02
 - **Token Counts**: May vary with updates
 
 ### Key Deadlines
 
 | Date | Requirement |
 |------|-------------|
-| **April 2026** | All App Store submissions require Xcode 26 and iOS 26 SDK |
+| **April 2026** | All App Store submissions now require Xcode 26 and iOS 26 SDK (in effect) |
 | **Fall 2026** | Liquid Glass adoption mandatory (UIDesignRequiresCompatibility removed in iOS 27) |
 
 ### Platform Version Reference

@@ -75,6 +75,23 @@ Dive into the latest key technologies and capabilities:
 - Performance improvements and bug fixes
 - Enhanced collaboration features
 
+### visionOS 26.2 Updates
+- Stability and bug-fix release; see the [visionOS 26.2 Release Notes](https://developer.apple.com/documentation/visionOS-Release-Notes/visionos-26_2-release-notes) for details
+
+### visionOS 26.3 Updates
+- Stability and bug-fix release; see the [visionOS 26.3 Release Notes](https://developer.apple.com/documentation/visionOS-Release-Notes/visionos-26_3-release-notes) for details
+
+### visionOS 26.4 Updates
+- **Foveated Streaming with NVIDIA CloudXR**: Stream high-resolution, low-latency immersive content to Vision Pro using foveated streaming via the new [`FoveatedStreaming`](https://developer.apple.com/documentation/foveatedstreaming) framework
+- **Background Assets offline APIs**: Check asset-pack status offline; ensure latest version is available locally
+- **StoreKit revocation fields**: New `Transaction.revocationType` and `Transaction.revocationPercentage` properties
+- **SwiftUI fix**: `.userActivity` now correctly surfaces as the current user activity
+- **Networking fix**: Resolves `CFRunLoopSource` leaks when PAC or Auto proxy discovery is configured
+
+### visionOS 26.5 (Developer Beta — Beta 4 as of May 2026)
+- Update your apps to use the new features and test against API changes
+- See the [visionOS 26.5 Beta 4 Release Notes](https://developer.apple.com/documentation/visionOS-Release-Notes/visionos-26_5-release-notes) for the latest changes
+
 ## Getting Started
 
 **New to visionOS development?**  

@@ -60,12 +60,29 @@ Dive into the latest key technologies and capabilities:
 - Interface refinements and performance improvements
 - Bug fixes and stability enhancements
 
-### iOS 26.2 (In Beta - Expected Mid-December 2025)
-- **Liquid Glass opacity slider**: Adjust the opacity of Liquid Glass for the Lock Screen clock
-- **Offline lyrics**: View song lyrics in Apple Music without network connection
-- **Reminder alarms**: Set alarms for reminders with new "Urgent" option
-- **Hypertension Notifications API**: Read health notifications from Apple Watch
-- **Live Translation on AirPods**: Available in EU regions for Digital Markets Act compliance
+### iOS 26.2 Updates
+- **Hypertension Notifications API**: Authorize `HKCategoryTypeIdentifierHypertensionEvent` to read hypertension notifications from Apple Watch
+- **StoreKit `AppStore.ageRatingCode`**: Fetch the current age rating code for your app to detect rating changes
+- **DeclaredAgeRange fixes**: Recompile against the 26.2 SDK to resolve runtime crashes in age-range APIs
+- **TLS Client Hello updated**: Servers with strict bot-detection should adopt resilient policies that handle TLS fingerprint changes
+
+### iOS 26.3 Updates
+- **StoreKit fix**: `Product.products(for:)` now throws errors instead of failing silently
+
+### iOS 26.4 Updates
+- **Memory Integrity Enforcement (MIE)**: Apps can opt in to full MIE protections for enhanced memory safety (previously limited to Soft Mode)
+- **Background Assets offline status**: Check asset-pack status offline via `localStatus(ofAssetPackWithID:)` and `assetPackIsAvailableLocally(withID:)`
+- **Background Assets latest version**: Use `ensureLocalAvailability(of:requireLatestVersion:)` to keep asset packs current
+- **StoreKit revocation fields**: New `Transaction.revocationType` and `Transaction.revocationPercentage` properties
+- **RCS end-to-end encryption (developer testing)**: Cross-platform RCS E2EE available in beta between Apple and Android devices
+- **AudioAccessoryKit (developer testing)**: Third-party audio accessory makers can provide headphone information for automatic audio switching
+- **Accessory Notifications Framework (developer testing)**: Accessory companion apps can request notification forwarding via an extension model
+- **SwiftUI fix**: `.userActivity` now correctly surfaces as the current user activity
+- **Networking fix**: Resolves `CFRunLoopSource` leaks when PAC or Auto proxy discovery is configured
+
+### iOS 26.5 (Developer Beta — Beta 4 as of May 2026)
+- Update your apps to use the new features and test against API changes
+- See the [iOS & iPadOS 26.5 Beta 4 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-26_5-release-notes) for the latest changes
 
 ## Getting Started
 

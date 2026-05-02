@@ -58,10 +58,25 @@ Dive into the latest key technologies and capabilities:
 - Updated multitasking features and window management improvements
 - Performance optimizations and bug fixes
 
-### iPadOS 26.2 (In Beta - Expected Mid-December 2025)
-- **Restored drag-and-drop**: Drag apps from App Library, Dock, and Spotlight into Slide Over and tiled views
-- **Enhanced Liquid Glass**: Opacity customization for Lock Screen elements
-- **Offline lyrics**: Apple Music lyrics available without network connection
+### iPadOS 26.2 Updates
+- **Hypertension Notifications API**: Authorize `HKCategoryTypeIdentifierHypertensionEvent` to read hypertension notifications from Apple Watch
+- **StoreKit `AppStore.ageRatingCode`**: Fetch the current age rating code for your app to detect rating changes
+- **DeclaredAgeRange fixes**: Recompile against the 26.2 SDK to resolve runtime crashes in age-range APIs
+
+### iPadOS 26.3 Updates
+- **StoreKit fix**: `Product.products(for:)` now throws errors instead of failing silently
+
+### iPadOS 26.4 Updates
+- **Memory Integrity Enforcement (MIE)**: Apps can opt in to full MIE protections (previously limited to Soft Mode)
+- **Background Assets offline APIs**: Check asset-pack status offline; ensure latest version is available locally
+- **StoreKit revocation fields**: New `Transaction.revocationType` and `Transaction.revocationPercentage` properties
+- **AudioAccessoryKit (developer testing)**: Third-party audio accessory makers can provide headphone information for automatic audio switching
+- **SwiftUI fix**: `.userActivity` now correctly surfaces as the current user activity
+- **Networking fix**: Resolves `CFRunLoopSource` leaks when PAC or Auto proxy discovery is configured
+
+### iPadOS 26.5 (Developer Beta — Beta 4 as of May 2026)
+- Update your apps to use the new features and test against API changes
+- See the [iOS & iPadOS 26.5 Beta 4 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-26_5-release-notes) for the latest changes
 
 ## Getting Started
 

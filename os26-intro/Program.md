@@ -16,12 +16,12 @@ The Apple Developer Program is your gateway to building and distributing apps ac
 Apple customers adopt new software rapidly, so you can keep innovating. Integrate the latest Apple technologies in your apps to deliver incredible experiences on Apple platforms as soon as they're released.
 
 **Early Access Includes:**
-- iOS 26.0 beta releases and developer previews
-- macOS Tahoe 26.0 beta software
-- iPadOS 26.0 with enhanced multitasking
-- watchOS 26.0 with new health capabilities
-- tvOS 26.0 with improved living room experiences
-- visionOS 26.0 with spatial computing advances
+- iOS 26.5 beta releases and developer previews
+- macOS Tahoe 26.5 beta software
+- iPadOS 26.5 beta releases
+- watchOS 26.5 beta releases
+- tvOS 26.5 beta releases
+- visionOS 26.5 beta releases
 
 ### Access Comprehensive Services and Capabilities
 
