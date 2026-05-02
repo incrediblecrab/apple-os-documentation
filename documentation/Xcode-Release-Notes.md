@@ -13,7 +13,14 @@ For information about Xcode Cloud releases, see Xcode Cloud release notes.
 ## Topics
 
 ### Xcode 26
-- [Xcode 26 Beta 4 Release Notes](https://developer.apple.com/documentation/xcode-release-notes/xcode_26_beta_4_release_notes) - Update your apps to use new features, and test your apps against API changes.
+- [Xcode 26.5 Beta 3 Release Notes](https://developer.apple.com/documentation/xcode-release-notes/xcode_26_5_release_notes) - Update your apps to use new features, and test your apps against API changes.
+- [Xcode 26.4.1 Release Notes](https://developer.apple.com/documentation/xcode-release-notes/xcode_26_4_1_release_notes) - Update your apps to use new features, and test your apps against API changes.
+- [Xcode 26.4 Release Notes](https://developer.apple.com/documentation/xcode-release-notes/xcode_26_4_release_notes) - Update your apps to use new features, and test your apps against API changes.
+- [Xcode 26.3 Release Notes](https://developer.apple.com/documentation/xcode-release-notes/xcode_26_3_release_notes) - Update your apps to use new features, and test your apps against API changes.
+- [Xcode 26.2 Release Notes](https://developer.apple.com/documentation/xcode-release-notes/xcode_26_2_release_notes) - Update your apps to use new features, and test your apps against API changes.
+- [Xcode 26.1.1 Release Notes](https://developer.apple.com/documentation/xcode-release-notes/xcode_26_1_release_notes) - Update your apps to use new features, and test your apps against API changes.
+- [Xcode 26.0.1 Release Notes](https://developer.apple.com/documentation/xcode-release-notes/xcode_26_0_1_release_notes) - Update your apps to use new features, and test your apps against API changes.
+- [Xcode 26 Release Notes](https://developer.apple.com/documentation/xcode-release-notes/xcode_26_release_notes) - Update your apps to use new features, and test your apps against API changes.
 
 ### Xcode 16
 - [Xcode 16.4 Release Notes](https://developer.apple.com/documentation/xcode-release-notes/xcode_16_4_release_notes) - Update your apps to use new features, and test your apps against API changes.

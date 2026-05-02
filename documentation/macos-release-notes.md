@@ -15,10 +15,15 @@ When writing your report, please include the full version number in the title an
 ## Topics
 
 ### macOS 26
-- [macOS Tahoe 26 Beta 4 Release Notes](https://developer.apple.com/documentation/macos-release-notes/macos_tahoe_26_beta_4_release_notes) - Update your apps to use new features, and test your apps against API changes.
+- [macOS Tahoe 26.5 Beta 4 Release Notes](https://developer.apple.com/documentation/macos-release-notes/macos_tahoe_26_5_release_notes) - Update your apps to use new features, and test your apps against API changes.
+- [macOS Tahoe 26.4 Release Notes](https://developer.apple.com/documentation/macos-release-notes/macos_tahoe_26_4_release_notes) - Update your apps to use new features, and test your apps against API changes.
+- [macOS Tahoe 26.3 Release Notes](https://developer.apple.com/documentation/macos-release-notes/macos_tahoe_26_3_release_notes) - Update your apps to use new features, and test your apps against API changes.
+- [macOS Tahoe 26.2 Release Notes](https://developer.apple.com/documentation/macos-release-notes/macos_tahoe_26_2_release_notes) - Update your apps to use new features, and test your apps against API changes.
+- [macOS Tahoe 26.1 Release Notes](https://developer.apple.com/documentation/macos-release-notes/macos_tahoe_26_1_release_notes) - Update your apps to use new features, and test your apps against API changes.
+- [macOS Tahoe 26 Release Notes](https://developer.apple.com/documentation/macos-release-notes/macos_tahoe_26_release_notes) - Update your apps to use new features, and test your apps against API changes.
 
 ### macOS 15
-- [macOS Sequoia 15.6 RC Release Notes](https://developer.apple.com/documentation/macos-release-notes/macos_sequoia_15_6_rc_release_notes) - Update your apps to use new features, and test your apps against API changes.
+- [macOS Sequoia 15.6 Release Notes](https://developer.apple.com/documentation/macos-release-notes/macos_sequoia_15_6_release_notes) - Update your apps to use new features, and test your apps against API changes.
 - [macOS Sequoia 15.5 Release Notes](https://developer.apple.com/documentation/macos-release-notes/macos_sequoia_15_5_release_notes) - Update your apps to use new features, and test your apps against API changes.
 - [macOS Sequoia 15.4 Release Notes](https://developer.apple.com/documentation/macos-release-notes/macos_sequoia_15_4_release_notes) - Update your apps to use new features, and test your apps against API changes.
 - [macOS Sequoia 15.3 Release Notes](https://developer.apple.com/documentation/macos-release-notes/macos_sequoia_15_3_release_notes) - Update your apps to use new features, and test your apps against API changes.

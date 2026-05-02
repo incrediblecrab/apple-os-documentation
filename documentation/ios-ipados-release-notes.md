@@ -17,10 +17,15 @@ When writing your report, please include the full version number in the title an
 ## Topics
 
 ### iOS & iPadOS 26
-- [iOS & iPadOS 26 Beta 4 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-26-beta-4-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 26.5 Beta 4 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-26-5-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 26.4 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-26-4-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 26.3 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-26-3-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 26.2 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-26-2-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 26.1 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-26-1-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 26 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-26-release-notes) - Update your apps to use new features, and test your apps against API changes.
 
 ### iOS & iPadOS 18
-- [iOS & iPadOS 18.6 RC Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-18-6-rc-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 18.6 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-18-6-release-notes) - Update your apps to use new features, and test your apps against API changes.
 - [iOS & iPadOS 18.5 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-18-5-release-notes) - Update your apps to use new features, and test your apps against API changes.
 - [iOS & iPadOS 18.4 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-18-4-release-notes) - Update your apps to use new features, and test your apps against API changes.
 - [iOS & iPadOS 18.3 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-18-3-release-notes) - Update your apps to use new features, and test your apps against API changes.

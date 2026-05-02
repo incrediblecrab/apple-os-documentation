@@ -15,10 +15,15 @@ For issues not mentioned in release notes, file bugs through **Feedback Assistan
 ## Topics
 
 ### tvOS 26
-- [tvOS 26 Beta 4 Release Notes](https://developer.apple.com/documentation/tvos-release-notes/tvos_26_beta_4_release_notes) - Update your apps to use new features, and test your apps against API changes.
+- [tvOS 26.5 Beta 4 Release Notes](https://developer.apple.com/documentation/tvos-release-notes/tvos_26_5_release_notes) - Update your apps to use new features, and test your apps against API changes.
+- [tvOS 26.4 Release Notes](https://developer.apple.com/documentation/tvos-release-notes/tvos_26_4_release_notes) - Update your apps to use new features, and test your apps against API changes.
+- [tvOS 26.3 Release Notes](https://developer.apple.com/documentation/tvos-release-notes/tvos_26_3_release_notes) - Update your apps to use new features, and test your apps against API changes.
+- [tvOS 26.2 Release Notes](https://developer.apple.com/documentation/tvos-release-notes/tvos_26_2_release_notes) - Update your apps to use new features, and test your apps against API changes.
+- [tvOS 26.1 Release Notes](https://developer.apple.com/documentation/tvos-release-notes/tvos_26_1_release_notes) - Update your apps to use new features, and test your apps against API changes.
+- [tvOS 26 Release Notes](https://developer.apple.com/documentation/tvos-release-notes/tvos_26_release_notes) - Update your apps to use new features, and test your apps against API changes.
 
 ### tvOS 18
-- [tvOS 18.6 RC Release Notes](https://developer.apple.com/documentation/tvos-release-notes/tvos_18_6_rc_release_notes) - Update your apps to use new features, and test your apps against API changes.
+- [tvOS 18.6 Release Notes](https://developer.apple.com/documentation/tvos-release-notes/tvos_18_6_release_notes) - Update your apps to use new features, and test your apps against API changes.
 - [tvOS 18.5 Release Notes](https://developer.apple.com/documentation/tvos-release-notes/tvos_18_5_release_notes) - Update your apps to use new features, and test your apps against API changes.
 - [tvOS 18.4 Release Notes](https://developer.apple.com/documentation/tvos-release-notes/tvos_18_4_release_notes) - Update your apps to use new features, and test your apps against API changes.
 - [tvOS 18.3 Release Notes](https://developer.apple.com/documentation/tvos-release-notes/tvos_18_3_release_notes) - Update your apps to use new features, and test your apps against API changes.

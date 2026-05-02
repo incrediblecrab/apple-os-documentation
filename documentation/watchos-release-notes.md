@@ -11,10 +11,15 @@ For issues not mentioned in release notes, file bugs through [Feedback Assistant
 ## Topics
 
 ### watchOS 26
-- [watchOS 26 Beta 4 Release Notes](https://developer.apple.com/documentation/watchos-release-notes/watchos-26-beta-4-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [watchOS 26.5 Beta 4 Release Notes](https://developer.apple.com/documentation/watchos-release-notes/watchos-26-5-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [watchOS 26.4 Release Notes](https://developer.apple.com/documentation/watchos-release-notes/watchos-26-4-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [watchOS 26.3 Release Notes](https://developer.apple.com/documentation/watchos-release-notes/watchos-26-3-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [watchOS 26.2 Release Notes](https://developer.apple.com/documentation/watchos-release-notes/watchos-26-2-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [watchOS 26.1 Release Notes](https://developer.apple.com/documentation/watchos-release-notes/watchos-26-1-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [watchOS 26 Release Notes](https://developer.apple.com/documentation/watchos-release-notes/watchos-26-release-notes) - Update your apps to use new features, and test your apps against API changes.
 
 ### watchOS 11
-- [watchOS 11.6 RC Release Notes](https://developer.apple.com/documentation/watchos-release-notes/watchos-11-6-rc-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [watchOS 11.6 Release Notes](https://developer.apple.com/documentation/watchos-release-notes/watchos-11-6-release-notes) - Update your apps to use new features, and test your apps against API changes.
 - [watchOS 11.5 Release Notes](https://developer.apple.com/documentation/watchos-release-notes/watchos-11-5-release-notes) - Update your apps to use new features, and test your apps against API changes.
 - [watchOS 11.4 Release Notes](https://developer.apple.com/documentation/watchos-release-notes/watchos-11-4-release-notes) - Update your apps to use new features, and test your apps against API changes.
 - [watchOS 11.3 Release Notes](https://developer.apple.com/documentation/watchos-release-notes/watchos-11-3-release-notes) - Update your apps to use new features, and test your apps against API changes.

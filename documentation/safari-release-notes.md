@@ -9,10 +9,15 @@ Safari is a web browser app and web technology platform available on iOS and mac
 ## Topics
 
 ### Version 26
-- [Safari 26.0 Beta Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_26_0_beta_release_notes) - Released July 7, 2025 — 26.0 beta (20622.1.18)
+- [Safari 26.5 Beta Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_26_5_release_notes) - Released March 30, 2026 — 26.5 beta (20624.2.1)
+- [Safari 26.4 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_26_4_release_notes) - Released March 24, 2026 — 26.4 (20624.1.16)
+- [Safari 26.3 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_26_3_release_notes) - Released February 11, 2026 — 26.3 (20623.2.7)
+- [Safari 26.2 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_26_2_release_notes) - Released December 12, 2025 — 26.2 (20623.1.14)
+- [Safari 26.1 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_26_1_release_notes) - Released November 3, 2025 — 26.1 (20622.2.11)
+- [Safari 26.0 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_26_release_notes) - Released September 15, 2025 — 26.0 (20622.1.22)
 
 ### Version 18
-- [Safari 18.6 Beta Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_18_6_beta_release_notes) - Released July 1, 2025 — 18.6 beta (20621.3.7)
+- [Safari 18.6 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_18_6_release_notes) - Released July 29, 2025 — 18.6 (20621.3.11)
 - [Safari 18.5 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_18_5_release_notes) - Released May 12, 2025 — 18.5 (20621.2.5)
 - [Safari 18.4 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_18_4_release_notes) - Released March 31, 2025 — 18.4 (20621.1.15)
 - [Safari 18.3 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_18_3_release_notes) - Released January 27, 2025 — 18.3 (20620.2.4)

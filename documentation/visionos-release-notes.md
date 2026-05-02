@@ -13,10 +13,15 @@ For issues not mentioned in release notes, file bugs through Feedback Assistant.
 ## Topics
 
 ### visionOS 26
-- [visionOS 26 Beta 4 Release Notes](https://developer.apple.com/documentation/visionos-release-notes/visionos-26-beta-4-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [visionOS 26.5 Beta 4 Release Notes](https://developer.apple.com/documentation/visionos-release-notes/visionos-26_5-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [visionOS 26.4 Release Notes](https://developer.apple.com/documentation/visionos-release-notes/visionos-26_4-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [visionOS 26.3 Release Notes](https://developer.apple.com/documentation/visionos-release-notes/visionos-26_3-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [visionOS 26.2 Release Notes](https://developer.apple.com/documentation/visionos-release-notes/visionos-26_2-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [visionOS 26.1 Release Notes](https://developer.apple.com/documentation/visionos-release-notes/visionos-26_1-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [visionOS 26 Release Notes](https://developer.apple.com/documentation/visionos-release-notes/visionos-26-release-notes) - Update your apps to use new features, and test your apps against API changes.
 
 ### visionOS 2
-- [visionOS 2.6 RC Release Notes](https://developer.apple.com/documentation/visionos-release-notes/visionos-2_6-rc-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [visionOS 2.6 Release Notes](https://developer.apple.com/documentation/visionos-release-notes/visionos-2_6-release-notes) - Update your apps to use new features, and test your apps against API changes.
 - [visionOS 2.5 Release Notes](https://developer.apple.com/documentation/visionos-release-notes/visionos-2_5-release-notes) - Update your apps to use new features, and test your apps against API changes.
 - [visionOS 2.4 Release Notes](https://developer.apple.com/documentation/visionos-release-notes/visionos-2_4-release-notes) - Update your apps to use new features, and test your apps against API changes.
 - [visionOS 2.3 Release Notes](https://developer.apple.com/documentation/visionos-release-notes/visionos-2_3-release-notes) - Update your apps to use new features, and test your apps against API changes.
