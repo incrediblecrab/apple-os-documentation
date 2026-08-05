@@ -35,3 +35,10 @@ desktop.ini
 .env
 .env.local
 .env.*.local
+
+# --- project-specific (auto-added 2026-08-04) ---
+DerivedData/
+*.xcuserstate
+xcuserdata/
+.swiftpm/
+*.moved-aside
