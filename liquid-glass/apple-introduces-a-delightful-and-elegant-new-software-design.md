@@ -4,6 +4,8 @@ A universal design across platforms brings more focus to content and a new level
 
 **Date:** June 9, 2025
 
+> **Historical record.** This page archives Apple's original June 2025 announcement of Liquid Glass for the OS 26 generation. It is preserved as published and is not updated with later changes. For how the material has evolved since, see [Liquid Glass](introduction.md) and [Adopting Liquid Glass](adopting-liquid-glass.md); for the OS 27 generation specifically, see [os27-intro](../os27-intro/iOS.md).
+
 ## Overview
 
 Apple today previewed a beautiful new software design that makes apps and system experiences more expressive and delightful while being instantly familiar. It's crafted with a new material called Liquid Glass. This translucent material reflects and refracts its surroundings, while dynamically transforming to help bring greater focus to content, delivering a new level of vitality across controls, navigation, app icons, widgets, and more. For the very first time, the new design extends across platforms — iOS 26, iPadOS 26, macOS Tahoe 26, watchOS 26, and tvOS 26 — to establish even more harmony while maintaining the distinct qualities that make each unique.

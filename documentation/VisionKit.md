@@ -47,4 +47,6 @@ In iOS 17 and macOS 14 and later, VisionKit identifies subjects within an image 
 - **CameraRegionView** - CameraRegionView displays a view of a stabilized region of interest within a user's view, and then provide Passthrough camera feed for the selected region. It also allows additional post-processing of the passthrough camera frames. Example of such region of interest could be documents, a user manual, gauges or displays.
 ---
 
+*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
+
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/VisionKit)*

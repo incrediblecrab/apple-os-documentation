@@ -14,6 +14,26 @@ AppKit also works with SwiftUI, so you can implement parts of your AppKit app in
 
 **Note:** For information about bringing your iPad app to Mac, see Mac Catalyst. To build an iOS app, you can use SwiftUI to create an app that works across all of Apple's platforms, or use UIKit to create an app for iOS only.
 
+## What's New in OS 27
+
+> **macOS Golden Gate 27+:** Standard AppKit controls adopt the refined Liquid Glass appearance when you rebuild with Xcode 27. Sidebars now extend to the full window edge with refraction continuing beneath them, and sidebar icons retain their tint color.
+
+**Liquid Glass API**
+
+- `NSGlassEffectView` — the material as a view
+- `NSGlassEffectContainerView` — groups glass effects for blending and performance
+- `NSBackgroundExtensionView` — edge-to-edge content extension
+
+**Build requirements**
+
+Xcode 27 requires macOS 27 Golden Gate, which runs only on Apple silicon (M1 and later). Plan build machine and CI migration before adopting the OS 27 SDK. macOS 27 is also the last release with full Rosetta 2 support, so replace any Intel-only build tooling with native binaries.
+
+**What to re-test**
+
+- Custom window chrome, `NSVisualEffectView` usage, and toolbar accessory views
+- Appearance across the transparency slider in System Settings > Appearance
+- Behavior under Reduce Transparency and Increase Contrast
+
 ## Topics
 
 ### Essentials
@@ -69,5 +89,7 @@ AppKit also works with SwiftUI, so you can implement parts of your AppKit app in
 - [Macros](https://developer.apple.com/documentation/appkit/macros) - Macros for use with multiple classes.
 
 ---
+
+*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/AppKit)*

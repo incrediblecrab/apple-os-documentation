@@ -48,4 +48,6 @@ No additional considerations for iOS or iPadOS. Not supported in macOS, tvOS, vi
 
 ---
 
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
+
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/home-screen-quick-actions)*

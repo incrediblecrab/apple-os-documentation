@@ -10,6 +10,8 @@ The system synchronizes app playback on all participating devices to support sea
 
 When someone shares content during a FaceTime call, the system asks each participant to launch the app to begin the experience. If people don't have the app installed, the SharePlay alert encourages them to download it from the App Store.
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Shared experiences render against the refined Liquid Glass material. Photos Shared Albums now include **Android and Windows** participants, so shared-content features should not assume an all-Apple audience.
+
 ## Topics
 
 ### Best Practices
@@ -95,5 +97,7 @@ In a shared activity, FaceTime can show representations of other participants â€
 - Clarified guidance for helping nonsubscribers join a group activity.
 
 ---
+
+*Design baseline: Apple OS 27 generation â€” iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/shareplay)*

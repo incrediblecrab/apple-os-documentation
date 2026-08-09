@@ -18,6 +18,8 @@ Note: When you use App Intents to make your app's actions available to the syste
 
 ### Best Practices
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+, watchOS 27+, visionOS 27+:** App Intents can use entity schemas to contribute app content to Spotlight's semantic index and intent schemas to support natural-language actions without fixed phrases, improving Siri, Shortcuts, and Spotlight entry points.
+
 - **Offer App Shortcuts for your app's most common and important tasks** - Straightforward tasks that people can complete without leaving their current context work best, but you can also open your app if it helps people complete multistep tasks more easily.
 - **Add flexibility by letting people choose from a set of options** - An App Shortcut can include a single optional value, or parameter, if it makes sense. For example, a meditation app could offer an App Shortcut that lets someone begin a specific type of meditation: "Start [morning, daily, sleep] meditation." Include predictable and familiar values as options, because people won't have the list in front of them for reference. For developer guidance, see Adding parameters to an app intent.
 - **Ask for clarification in response to a request that's missing optional information** - For example, someone might say "Start meditation" without specifying the type (morning, daily, or sleep); you could follow up by suggesting the one they used most recently, or one based on the current time of day. If one option is most likely, consider presenting it as the default, and provide a short list of alternatives to choose from if a person doesn't want the default choice.
@@ -83,5 +85,7 @@ Live Activities offer continuous access to information that's likely to remain r
 - New page.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/app-shortcuts)*

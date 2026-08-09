@@ -8,6 +8,8 @@ An iMessage app can help people share content, collaborate, and even play games 
 
 An iMessage app or sticker pack is available within the context of a Messages conversation and also in effects in both Messages and FaceTime. You can create an iMessage app or sticker pack as a standalone app or as an app extension within your iOS or iPadOS app. For developer guidance, see Messages and Adding Sticker packs and iMessage apps to the system Stickers app, Messages camera, and FaceTime.
 
+> **iOS 27+, iPadOS 27+:** Messages gains a **Write with Siri** button above the keyboard, smarter notification grouping (group-thread Tapbacks collapse into one notification), and automatic retry when a send fails. **Communication Safety now blurs gore and violence**, not just nudity.
+
 ## Topics
 
 ### Best Practices
@@ -82,5 +84,7 @@ No additional considerations for iOS or iPadOS. Not supported in macOS, tvOS, vi
 - Consolidated guidance into one page.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/imessage-apps-and-stickers)*

@@ -24,6 +24,22 @@ With **Swift Testing** you leverage powerful and expressive capabilities of the 
 - Meet Swift Testing
 - Go further with Swift Testing
 
+## What's New in OS 27
+
+> **Xcode 27, Swift 6.4:** Two testing surfaces are added alongside Swift Testing.
+
+**App Intents Testing**
+
+Validates your Siri, Shortcuts, and Spotlight integration by exercising real system pathways rather than driving the UI. Because [SiriKit is deprecated](SiriKit.md) and App Intents is now the primary assistant integration point, this is the mechanism for catching integration regressions before shipping.
+
+**Evaluations**
+
+Model-backed features produce non-deterministic output, which unit tests express poorly. The [Evaluations](Evaluations.md) framework is designed for validating AI feature behavior against expectations rather than exact strings.
+
+**Toolchain note**
+
+Both require Xcode 27, which requires macOS 27 Golden Gate on Apple silicon.
+
 ## Topics
 
 ### Essentials
@@ -53,5 +69,7 @@ With **Swift Testing** you leverage powerful and expressive capabilities of the 
 - [Attachments](https://developer.apple.com/documentation/testing/attachments) - Attach values to tests to help diagnose issues and gather feedback.
 
 ---
+
+*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/Testing)*

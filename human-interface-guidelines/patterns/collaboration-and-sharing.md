@@ -14,6 +14,8 @@ You can take advantage of Messages integration and the system-provided sharing i
 
 In addition to helping people share and collaborate on documents, visionOS supports immersive sharing experiences through SharePlay. For guidance, see SharePlay.
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Shared Albums in Photos now work with **Android and Windows users**, alongside emoji reactions, expiring albums, and finer-grained permissions. If your app builds on Photos sharing, account for participants outside the Apple ecosystem.
+
 ## Topics
 
 ### Best practices
@@ -72,5 +74,7 @@ In your SwiftUI app running in watchOS, use ShareLink to present the system-prov
 - New page.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/collaboration-and-sharing)*

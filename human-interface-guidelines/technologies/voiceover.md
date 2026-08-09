@@ -10,6 +10,8 @@ By supporting VoiceOver, you help people who are blind or have low vision access
 
 VoiceOver is supported in apps and games built for Apple platforms. It's also supported in apps and games developed in Unity using Apple's Unity plug-ins. For related guidance, see Accessibility.
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+, tvOS 27+, watchOS 27+, visionOS 27+:** With translucency now a continuous spectrum people control via the transparency slider in Settings > Appearance, never convey state or grouping through material alone — expose it in the accessibility tree with explicit labels, values, and traits so it survives any visual setting.
+
 ## Topics
 
 ### Best Practices
@@ -63,5 +65,7 @@ Be mindful that custom gestures aren't always accessible. When VoiceOver is turn
 - New page
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/voiceover)*

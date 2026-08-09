@@ -30,6 +30,8 @@ Beyond its use for navigation, turning the Digital Crown generates information y
 
 Most Apple Watch models provide haptic feedback for the Digital Crown, which gives people a more tactile experience as they scroll through content. By default, the system provides linear haptic detents — or taps — as people turn the Digital Crown a specific distance. Some system controls, like table views, provide detents as new items scroll onto the screen.
 
+> **watchOS 27+:** Crown-driven scrolling composites against the refined Liquid Glass material. On a small, briefly glanced display, verify that scroll position and selection feedback stay legible under Reduce Transparency and Increase Contrast.
+
 ## Topics
 
 ### Best Practices
@@ -72,5 +74,7 @@ Not supported in iOS, iPadOS, macOS, or tvOS.
 - Added guidelines emphasizing the central role of the Digital Crown for navigation.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/digital-crown)*

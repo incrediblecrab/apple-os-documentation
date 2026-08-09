@@ -15,6 +15,10 @@ In addition to alternative app marketplaces, this framework also serves:
 
 **Important:** To request the marketplace entitlement, see Getting started as an alternative app marketplace in the European Union. To apply to distribute your app from your website, see Getting started with Web Distribution in the EU.
 
+## What's New in the OS 27 SDK
+
+Alternative and web distribution is available in the European Union, Brazil, and Japan. Japan's MSCA support for alternative marketplaces arrived in iOS 26.2. Notarization remains the mandatory baseline review; MarketplaceKit requires iOS 17.4 or later for marketplaces, iOS 17.5 or later for web distribution, and Xcode 15.3 or later.
+
 ## Topics
 
 ### Essentials
@@ -68,5 +72,7 @@ In addition to alternative app marketplaces, this framework also serves:
 - **MarketplaceKitError** - Errors that can occur in the marketplace workflow.
 
 ---
+
+*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/MarketplaceKit)*

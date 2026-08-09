@@ -4,6 +4,8 @@ Elevate the living room experience with great features that entertain, engage, a
 
 **Platform:** tvOS 26.0+
 
+> **Generation status:** tvOS 26 is the current shipping line — **tvOS 26.6**, released July 27, 2026. tvOS 27 is in beta; see [os27-intro/tvOS.md](../os27-intro/tvOS.md).
+
 ## Overview
 
 tvOS 26.0 transforms the living room experience with enhanced entertainment, productivity, and connectivity features. This release focuses on immersive content delivery, seamless device integration, and intuitive navigation designed for the big screen.
@@ -116,3 +118,5 @@ Join the [Apple Developer Program](Program.md) to access beta software, advanced
 ---
 
 *Platform requirements and feature availability may vary. Some capabilities and services may not be available in all regions or all languages.*
+
+*Reviewed 2026-08-09 against the OS 27 generation. See [os27-intro](../os27-intro/) for the current beta line.*

@@ -12,6 +12,8 @@ In iOS, iPadOS, macOS, and tvOS, people often choose Dark Mode as their default 
 
 ### Best Practices
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Liquid Glass now diffuses busy background content more aggressively, adds a subtle darkened edge ring, and renders brighter specular highlights, improving legibility without extra visual noise. People can tune overall translucency with the transparency slider in Settings > Appearance, and the material also responds to Reduce Transparency and Increase Contrast.
+
 **Avoid offering an app-specific appearance setting.** An app-specific appearance mode option creates more work for people because they have to adjust more than one setting to get the appearance they want. Worse, they may think your app is broken because it doesn't respond to their systemwide appearance choice.
 
 **Ensure that your app looks good in both appearance modes.** In addition to using one mode or the other, people can choose the Auto appearance setting, which switches between the light and dark appearances as conditions change throughout the day, potentially while your app is running.
@@ -87,5 +89,7 @@ Dark Mode isn't supported in visionOS or watchOS.
 - Added art contrasting the light and dark appearances.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/dark-mode)*

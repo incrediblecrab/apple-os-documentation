@@ -12,6 +12,8 @@ Your app icon is a crucial aspect of your app's or game's branding and user expe
 
 ### Layer design
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** App icons gain sharper layer separation, and Icon Composer 2 lets you author per-layer refraction effects for Liquid Glass while previewing across OS versions.
+
 Although you can provide a flattened image for your icon, layers give you the most control over how your icon design is represented. A layered app icon comes together to produce a sense of depth and vitality. On each platform, the system applies visual effects that respond to the environment and people's interactions.
 
 iOS, iPadOS, macOS, and watchOS app icons include a background layer and one or more foreground layers that coalesce to create dimensionality. These icons take on Liquid Glass attributes like specular highlights, frostiness, and translucency, which respond to changes in lighting and, in iOS and iPadOS, device movement.
@@ -147,5 +149,7 @@ App icons support the following color spaces:
 - Added specifications for Apple Watch Ultra.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/app-icons)*

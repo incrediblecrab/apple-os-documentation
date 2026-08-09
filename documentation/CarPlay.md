@@ -16,6 +16,8 @@ You can use other technologies to drive portions of your app's CarPlay interface
 
 Session 10635: Accelerate Your App with CarPlay
 
+> **iOS 27+:** CarPlay gains native **video app support**, with playback restricted to when the vehicle is parked, and brings the rebuilt Siri into the car. If you ship a video app, review the parked-state playback requirement before adopting.
+
 ## Topics
 
 ### CarPlay Integration
@@ -115,5 +117,7 @@ Templates that are available exclusively to apps with the communication entitlem
 - **CPMaximumMessageItemLeadingDetailTextImageSize** - Maximum size of an image for the detailed text leading image.
 
 ---
+
+*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/CarPlay)*

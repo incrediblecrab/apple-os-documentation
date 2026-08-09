@@ -44,6 +44,8 @@ iOS, iPadOS, macOS, and visionOS also define sets of dynamic system colors that 
 
 ### Liquid Glass Color
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Liquid Glass now diffuses busy background content more aggressively, adds a subtle darkened edge ring, and renders brighter specular highlights, improving legibility without extra visual noise. People can tune overall translucency with the transparency slider in Settings > Appearance, and the material also responds to Reduce Transparency and Increase Contrast.
+
 For smaller elements like toolbars and tab bars, the system can adapt Liquid Glass between a light and dark appearance in response to the underlying content. Symbols and text on these elements follow a monochromatic color scheme, becoming darker when the underlying content is light, and lighter when it's dark.
 
 Liquid Glass appears more opaque in larger elements like sidebars to preserve legibility over complex backgrounds and accommodate richer content on the material's surface.
@@ -227,5 +229,7 @@ In SwiftUI, the equivalent of systemGray is gray.
 - Corrected RGB values for system mint color (Dark Mode) in iOS and iPadOS.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/color)*

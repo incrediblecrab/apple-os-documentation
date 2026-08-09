@@ -12,6 +12,8 @@ In many cases, focusing an item also selects it. The exception is when automatic
 
 Different platforms communicate focus in different ways. For example, iPadOS and macOS show focus by drawing a ring around an item or highlighting it; tvOS generally uses the parallax effect to give the focused item an appearance of depth and liveliness. The combination of focus effects and interactions is sometimes called a focus system or focus model.
 
+> **tvOS 27+, visionOS 27+:** Focus states must remain unmistakable against the refined Liquid Glass material, particularly where glass composites over bright, moving video artwork. The most common regression in this generation is a focus ring that reads clearly on a solid background but disappears over glass. Never rely on translucency alone to signal focus.
+
 ## Topics
 
 ### Best Practices
@@ -98,5 +100,7 @@ Not supported in iOS or watchOS.
 - Updated to include guidance for visionOS.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/focus-and-selection)*

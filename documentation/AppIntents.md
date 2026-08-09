@@ -30,6 +30,27 @@ To learn more about features that the App Intents framework enables and how you 
 
 For design guidance, see Human Interface Guidelines > App Shortcuts, Human Interface Guidelines > Siri, and Human Interface Guidelines > Action Button.
 
+## What's New in OS 27
+
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+, tvOS 27+, watchOS 27+, visionOS 27+:** App Intents is the primary integration point for the rebuilt Siri. **SiriKit is deprecated** — SiriKit-based intents are not recognized by the new Siri, so migrate to App Intents.
+
+**Schemas**
+
+- **Entity schemas** contribute your app's content to Spotlight's semantic index, letting the system reason about what your app contains.
+- **Intent schemas** let people act on that content through natural language, with no fixed phrases to memorize and no code changes as Siri's language model evolves.
+
+**View Annotations API**
+
+Map SwiftUI views to App Intents entities so people can reference and act on what's currently on screen conversationally. Particularly valuable on iPad, where Apple Pencil can circle or tap an element to ask Siri about it.
+
+**App Intents Testing**
+
+A new testing framework validates Siri, Shortcuts, and Spotlight integration through real system pathways rather than UI automation, surfacing integration problems far earlier than end-to-end testing.
+
+**Shortcuts**
+
+People can now create a shortcut by describing the workflow in plain language, which raises the value of exposing well-named, well-described intents from your app.
+
 ## Topics
 
 ### Essentials
@@ -105,5 +126,7 @@ For design guidance, see Human Interface Guidelines > App Shortcuts, Human Inter
 - **VideoCategory**
 
 ---
+
+*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/AppIntents)*

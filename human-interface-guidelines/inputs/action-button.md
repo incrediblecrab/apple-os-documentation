@@ -12,6 +12,8 @@ A person chooses a function for the Action button when they set up their device;
 
 When designing your app or game, think of the Action button as another way for someone to quickly access a function that they use on a regular basis.
 
+> **iOS 27+:** The Action button can trigger App Intents. With **intent schemas** in OS 27, exposing well-named intents makes your app's actions available both to the Action button and to natural-language Siri requests.
+
 ## Topics
 
 ### Best Practices
@@ -54,5 +56,7 @@ In watchOS, a person can assign the Action button's first press to drop a waypoi
 - New page.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/action-button)*

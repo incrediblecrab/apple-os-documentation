@@ -8,6 +8,8 @@ People can use a pointing device like a trackpad or mouse to navigate the interf
 
 People appreciate the precision and flexibility that pointing devices offer. On a Mac, people typically expect to combine a pointing device with a keyboard as they navigate apps and the system. On iPad and Apple Vision Pro, a pointing device gives people an additional way to interact with apps and content, without replacing touch, eyes, or gestures.
 
+> **iPadOS 27+:** Windowing is refined for large iPads paired with a Magic Keyboard — smoother resize, move, and close, with more Mac-like overlapping windows and an optional **persistent menu bar**. Re-test pointer targeting across free-form window sizes and external displays.
+
 ## Topics
 
 ### Best Practices
@@ -83,5 +85,7 @@ Not supported in tvOS or watchOS.
 - [UIBandSelectionInteraction](https://developer.apple.com/documentation/uikit/uibandselectioninteraction) - UIKit
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/pointing-devices)*

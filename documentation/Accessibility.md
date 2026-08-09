@@ -56,6 +56,8 @@ You can add Accessibility Nutrition Labels to your App Store product page to ind
 
 For more information on adding Accessibility Nutrition Labels to your app, see Overview of Accessibility Nutrition Labels in App Store Connect Help.
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+, tvOS 27+, watchOS 27+, visionOS 27+:** A continuous **transparency slider** in Settings > Appearance replaces the OS 26 Clear/Tinted toggle, so translucency is now a spectrum people control rather than two presets. Your interface must remain legible across that entire range, and under **Reduce Transparency** and **Increase Contrast**. Never encode meaning in translucency alone. Communication Safety now blurs gore and violence in Messages and FaceTime in addition to nudity.
+
 ## Topics
 
 ### Essentials
@@ -107,5 +109,7 @@ For more information on adding Accessibility Nutrition Labels to your app, see O
 - Extend Speech Synthesis with personal and custom voices
 
 ---
+
+*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/Accessibility)*

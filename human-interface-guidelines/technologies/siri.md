@@ -16,6 +16,10 @@ When you use SiriKit to define the tasks and actions that your app supports, peo
 
 Siri works with your products on iPhone, iPad, Mac, Apple Watch, HomePod, and AirPods, so people can use it almost everywhere.
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+, tvOS 27+, watchOS 27+, visionOS 27+:** Siri is **rebuilt on Apple Foundation Models** — extended natural conversation, cross-app context, multi-step in-app actions, and awareness of personal on-device data. A standalone **Siri app** lets people review and continue conversations, syncing across devices.
+>
+> **SiriKit is deprecated.** SiriKit-based intents are **not recognized** by the new Siri. Expose your functionality through **App Intents** entity and intent schemas instead, and validate with the new App Intents Testing framework. There are no fixed phrases to define — the system maps natural language onto your schemas.
+
 ## Topics
 
 ### Best Practices
@@ -134,5 +138,7 @@ The Shortcuts app is available in watchOS 7 and later. All watchOS apps particip
 - Consolidated guidance into one page
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/siri)*

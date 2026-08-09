@@ -10,6 +10,8 @@ Apple Pencil is a versatile, intuitive tool for iPad apps that offers pixel‑le
 
 For details on Apple Pencil features and compatibility, see [Apple Pencil](https://www.apple.com/apple-pencil/).
 
+> **iPadOS 27+:** Apple Pencil becomes an intelligence input — people can **circle or tap anything on screen with Apple Pencil to ask Siri about it**. This is the interaction modality that most distinguishes iPad from iPhone in this release. Expose your on-screen content through App Intents entity schemas and the View Annotations API so it can be referenced this way.
+
 ## Topics
 
 ### Best Practices
@@ -120,5 +122,7 @@ Not supported in iOS, macOS, tvOS, visionOS, or watchOS.
 - Added guidelines for using hover to enhance your app.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/apple-pencil-and-scribble)*

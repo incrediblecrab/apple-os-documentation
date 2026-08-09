@@ -14,6 +14,8 @@ In macOS, visionOS, and watchOS, a sheet is always modal, but in iOS and iPadOS,
 
 ### Best Practices
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Liquid Glass now diffuses busy background content more aggressively, adds a subtle darkened edge ring, and renders brighter specular highlights, improving legibility without extra visual noise. People can tune overall translucency with the transparency slider in Settings > Appearance, and the material also responds to Reduce Transparency and Increase Contrast.
+
 - **Use a sheet to present simple content or tasks** - A sheet allows some of the parent view to remain visible, helping people retain their original context as they interact with the sheet.
 - **For complex or prolonged user flows, consider alternatives to sheets** - For example, iOS and iPadOS offer a full-screen style of modal view that can work well to display content like videos, photos, or camera views or to help people perform multistep tasks like document or photo editing. (For developer guidance, see UIModalPresentationStyle.fullScreen.) In a macOS experience, you might want to open a new window or let people enter full-screen mode instead of using a sheet. For example, a self-contained task like editing a document tends to work well in a separate window, whereas going full screen can help people view media. In visionOS, you can give people a way to transition your app to a Full Space where they can dive into content or a task; for guidance, see Immersive experiences.
 - **Display only one sheet at a time from the main interface** - When people close a sheet, they expect to return to the parent view or window. If closing a sheet takes people back to another sheet, they can lose track of where they are in your app. If something people do within a sheet results in another sheet appearing, close the first sheet before displaying the new one. If necessary, you can display the first sheet again after people dismiss the second one.
@@ -85,5 +87,7 @@ In watchOS, a sheet is a full-screen view that slides over your app's current co
 - Updated guidance for using sheets in watchOS.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/sheets)*

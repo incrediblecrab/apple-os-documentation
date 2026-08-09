@@ -20,6 +20,8 @@ The framework is the foundation for domain-specific frameworks and functionality
 
 A block diagram of the machine learning stack. The top layer is a single block labeled "Your app," which spans the entire width of the block diagram. The second layer has four blocks labeled "Vision," "Natural Language," "Speech," and "Sound Analysis." The third layer is labeled "Core ML," which also spans the entire width. The fourth and final layer has two blocks, "Accelerate and BNNS" and "Metal Performance Shaders."
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** For language-model work, prefer [Foundation Models](FoundationModels.md), which in OS 27 exposes a generalized `LanguageModel` protocol supporting Apple's on-device model and third-party providers. Validate model-backed behavior with the [Evaluations](Evaluations.md) framework, since non-deterministic output is poorly served by exact-match unit tests.
+
 ## Topics
 
 ### Core ML models
@@ -90,5 +92,7 @@ A block diagram of the machine learning stack. The top layer is a single block l
 - **MLShapedArrayBufferLayout** - Buffer layout enum
 
 ---
+
+*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/CoreML)*

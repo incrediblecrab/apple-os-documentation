@@ -12,6 +12,8 @@ In some cases, people appreciate the ability to scope a search or filter the res
 
 In iOS, iPadOS, and macOS, Spotlight helps people find content across all apps in the system and on the web. When you index and provide information about your app's content, people can use Spotlight to find content your app contains without opening it first. For guidance, see Systemwide search.
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** App Intents **entity schemas** contribute your app's content to Spotlight's **semantic index**, so the system can reason about what your app contains. **Intent schemas** let people act on that content through natural language without fixed phrases. Modeling your content as entities is now the primary way to be findable.
+
 ## Topics
 
 ### Best Practices
@@ -64,5 +66,7 @@ No additional considerations for iOS, iPadOS, macOS, tvOS, visionOS, or watchOS.
 - Updated best practices with general guidance from Search fields, and reorganized guidance for systemwide search.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/searching)*

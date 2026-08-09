@@ -16,6 +16,8 @@ Visit SF Symbols to download the app and browse the full set of symbols. Be sure
 
 ### Rendering modes
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+, tvOS 27+, watchOS 27+, visionOS 27+:** SF Symbols 8 includes over 7,000 symbols, giving you more system-provided options for clear, consistent iconography across platform appearances.
+
 SF Symbols provides four rendering modes — monochrome, hierarchical, palette, and multicolor — that give you multiple options when applying color to symbols. For example, you might want to use multiple opacities of your app's accent color to give symbols depth and emphasis, or specify a palette of contrasting colors to display symbols that coordinate with various color schemes.
 
 To support the rendering modes, SF Symbols organizes a symbol's paths into distinct layers. For example, the cloud.sun.rain.fill symbol consists of three layers: the primary layer contains the cloud paths, the secondary layer contains the paths that define the sun and its rays, and the tertiary layer contains the raindrop paths.
@@ -185,5 +187,7 @@ No additional considerations for iOS, iPadOS, macOS, tvOS, visionOS, or watchOS.
 - Added a new section on variable color. Removed instructions on creating custom symbol paths, exporting templates, and layering paths, deferring to developer articles that cover these topics.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/sf-symbols)*

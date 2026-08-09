@@ -19,6 +19,32 @@ You can integrate SwiftUI views with objects from the UIKit, AppKit, and WatchKi
 - **BOT-anist** - Build a multiplatform app that uses windows, volumes, and animations to create a robot botanist's greenhouse
 - **Building a document-based app with SwiftUI** - Create, save, and open documents in a multiplatform app
 
+## What's New in OS 27
+
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+, tvOS 27+, watchOS 27+, visionOS 27+:** Standard SwiftUI controls pick up the refined Liquid Glass appearance automatically when you rebuild with Xcode 27. The `UIDesignRequiresCompatibility` key is ignored by the OS 27 SDK, so there is no supported opt-out once you link against it.
+
+**Liquid Glass API**
+
+These are the actual symbols — there is no `LiquidGlass` module to import.
+
+- `glassEffect(_:in:)` — apply the material to a custom view
+- `GlassEffectContainer` — group glass effects so they blend and morph together, and to reduce rendering cost
+- `glassEffectID(_:in:)` — identify a glass element across state transitions
+- `glassEffectUnion(id:namespace:)` — merge adjacent glass shapes into one continuous surface
+- `buttonStyle(.glass)` and `buttonStyle(.glassProminent)` — standard glass button styles
+- `backgroundExtensionEffect()` — extend content beneath sidebars and inspectors
+
+**View Annotations**
+
+The new View Annotations API maps SwiftUI views to App Intents entities, letting people reference and act on what's on screen through natural language. See [App Intents](AppIntents.md).
+
+**What to re-test**
+
+- Custom controls layered on or near glass surfaces, across the full range of the new transparency slider in Settings > Appearance
+- Text contrast over glass against your brightest and busiest content
+- Layouts under Reduce Transparency and Increase Contrast
+- On iPadOS 27, any layout logic that assumes a fixed set of multitasking states — Split View and Slide Over now operate inside the windowing framework
+
 ## Topics
 
 ### Essentials
@@ -113,5 +139,7 @@ You can integrate SwiftUI views with objects from the UIKit, AppKit, and WatchKi
 - **Embedded Playground code blocks** - Embed interactive Playground code blocks directly within regular projects for live API testing and learning
 
 ---
+
+*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/SwiftUI)*

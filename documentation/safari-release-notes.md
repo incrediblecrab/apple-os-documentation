@@ -4,6 +4,8 @@ Learn about changes for Safari and Safari View Controller for iOS, iPadOS, macOS
 
 ## Overview
 
+> **Safari 27 is in beta as of August 2026**, alongside the OS 27 generation. Safari 27 adds AI tab grouping by topic, extension generation from a natural-language description, and webpage change monitoring. Verify API-level detail against Apple's published release notes before depending on it.
+
 Safari is a web browser app and web technology platform available on iOS and macOS. It's built on WebKit, a fast, open-source web rendering engine that implements web standards. Safari includes Apple web innovations such as Intelligent Tracking Prevention, Reader mode, Safari App Extensions, and Web Inspector.
 
 ## Topics
@@ -64,5 +66,7 @@ Safari is a web browser app and web technology platform available on iOS and mac
 - [Safari 12 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_12_release_notes) - Released September 17, 2018 — Version 12 (14606.1.36)
 
 ---
+
+*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/safari-release-notes)*

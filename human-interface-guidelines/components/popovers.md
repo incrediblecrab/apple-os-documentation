@@ -12,6 +12,8 @@ A popover is a transient view that appears above other content when people click
 
 ### Best Practices
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Liquid Glass now diffuses busy background content more aggressively, adds a subtle darkened edge ring, and renders brighter specular highlights, improving legibility without extra visual noise. People can tune overall translucency with the transparency slider in Settings > Appearance, and the material also responds to Reduce Transparency and Increase Contrast.
+
 - **Use a popover to expose a small amount of information or functionality** - Because a popover disappears after people interact with it, limit the amount of functionality in the popover to a few related tasks. For example, a calendar event popover makes it easy for people to change the date or time of an event, or to move it to another calendar. The popover disappears after the change, letting people continue reviewing the events on their calendar.
 - **Consider using popovers when you want more room for content** - Views like sidebars and panels take up a lot of space. If you need content only temporarily, displaying it in a popover can help streamline your interface.
 - **Position popovers appropriately** - Make sure a popover's arrow points as directly as possible to the element that revealed it. Ideally, a popover doesn't cover the element that revealed it or any essential content people may need to see while using it.
@@ -55,5 +57,7 @@ Not supported in tvOS or watchOS.
 - [NSPopover](https://developer.apple.com/documentation/appkit/nspopover) - AppKit
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/popovers)*

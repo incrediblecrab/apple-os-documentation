@@ -19,6 +19,8 @@ Depending on the needs of your app, you can use ID Verifier to make the followin
 
 **Data Transfer request** - Use a Data Transfer request only when you have a legal verification requirement and you need to store or process information like a person's address or date of birth. You must request an additional entitlement to make a Data Transfer request. To learn more, see Get started with ID Verifier; for developer guidance, see MobileDriversLicenseDataRequest and MobileDriversLicenseRawDataRequest.
 
+> **2026 App Store Review Guidelines:** **1.2.1(a)** and **4.7.5** require an age restriction mechanism based on **verified or declared age** for apps with user-generated content, including HTML5/JavaScript mini apps. The DeclaredAgeRange framework returns age **ranges** only and is parent-controlled for children in Family Sharing.
+
 ## Topics
 
 ### Best Practices
@@ -58,5 +60,7 @@ No additional considerations for iOS. Not supported in iPadOS, macOS, tvOS, visi
 - New page.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/id-verifier)*

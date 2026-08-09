@@ -8,6 +8,8 @@ The Siri Remote is the primary input method for Apple TV, helping people feel co
 
 In addition to several specific buttons, the Siri Remote combines a clickpad and touch surface to support familiar gestures like swipe and press that people use to navigate tvOS apps, browse channels and content, play and pause media, and make selections.
 
+> **tvOS 27+:** Siri on Apple TV is rebuilt on Apple Foundation Models, improving conversational search and playback control. Verify that focus feedback driven by the remote stays unmistakable against refined glass over video artwork.
+
 ## Topics
 
 ### Best Practices
@@ -74,5 +76,7 @@ Not supported in iOS, iPadOS, macOS, visionOS, or watchOS.
 - [EPG experience](https://developer.apple.com/design/human-interface-guidelines/live-viewing-apps#EPG-experience) - Design guidance
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/remotes)*

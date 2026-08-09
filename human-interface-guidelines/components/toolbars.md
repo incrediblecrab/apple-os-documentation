@@ -20,6 +20,8 @@ In contrast to a toolbar, a tab bar is specifically for navigating between areas
 
 ### Best Practices
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Scroll-under toolbars automatically become uniform and less translucent while content passes beneath them, improving control legibility over busy content. This behavior uses the existing Liquid Glass API surface and responds to the transparency slider and accessibility contrast settings.
+
 - **Choose items deliberately to avoid overcrowding** - People need to be able to distinguish and activate each item, so you don't want to put too many items in the toolbar. To accommodate variable view widths, define which items move to the overflow menu as the toolbar becomes narrower.
 
 Note: The system automatically adds an overflow menu in macOS or iPadOS when items no longer fit. Don't add an overflow menu manually, and avoid layouts that cause toolbar items to overflow by default.
@@ -168,5 +170,7 @@ Use a scrolling toolbar button for an important action that isn't a primary app 
 - Updated guidance for using toolbars in watchOS.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/toolbars)*

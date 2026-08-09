@@ -8,6 +8,8 @@ When it doesn't create an unnecessary barrier to your experience, an account can
 
 Ask people to create an account only if your core functionality requires it; otherwise, let people enjoy your app or game without one. If you require an account, consider using Sign in with Apple to give people a consistent sign-in experience they can trust and the convenience of not having to remember multiple accounts and authentication methods.
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Apple Intelligence can navigate to eligible sites, sign in, and automatically update weak or compromised passwords. Ensure your sign-in and password-change flows use standard, well-labeled forms so automated rotation can complete reliably.
+
 ## Topics
 
 ### Best Practices
@@ -76,5 +78,7 @@ Use iCloud synchronization to provide access to the Keychain, letting people aut
 - [What's new in device management](https://developer.apple.com/videos/play/wwdc2024/10136/)
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/managing-accounts)*

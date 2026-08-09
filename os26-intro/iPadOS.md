@@ -4,6 +4,8 @@ Build apps and games for the distinct iPad experience. Take advantage of the new
 
 **Platform:** iPadOS 26.0+
 
+> **Generation status:** iPadOS 26 is the current shipping line — **iPadOS 26.6**, released July 27, 2026. iPadOS 27 is in beta and drops all A12-class iPads; see [os27-intro/iPadOS.md](../os27-intro/iPadOS.md).
+
 ## Overview
 
 iPadOS 26.0 delivers powerful capabilities designed specifically for iPad's unique form factor and capabilities. This release emphasizes Liquid Glass design, Apple Intelligence integration, and enhanced productivity features that take advantage of iPad's versatile nature.
@@ -74,9 +76,12 @@ Dive into the latest key technologies and capabilities:
 - **SwiftUI fix**: `.userActivity` now correctly surfaces as the current user activity
 - **Networking fix**: Resolves `CFRunLoopSource` leaks when PAC or Auto proxy discovery is configured
 
-### iPadOS 26.5 (Developer Beta — Beta 4 as of May 2026)
-- Update your apps to use the new features and test against API changes
-- See the [iOS & iPadOS 26.5 Beta 4 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-26_5-release-notes) for the latest changes
+### iPadOS 26.5 and 26.6 Updates
+- iPadOS 26.5 shipped during spring 2026
+- **iPadOS 26.6 (July 27, 2026)** is the current shipping release of the OS 26 line
+- See the [iOS & iPadOS Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes) for the latest changes
+
+> **Looking ahead:** iPadOS 27 is in beta as of August 2026. It drops every A12-class iPad, making iPadOS 26 the terminal release for those devices. See the [iPadOS 27 Developer Introduction](../os27-intro/iPadOS.md).
 
 ## Getting Started
 
@@ -125,3 +130,5 @@ Join the [Apple Developer Program](Program.md) to access beta software, advanced
 ---
 
 *Platform requirements and feature availability may vary. Some capabilities and services may not be available in all regions or all languages.*
+
+*Reviewed 2026-08-09 against the OS 27 generation. See [os27-intro](../os27-intro/) for the current beta line.*

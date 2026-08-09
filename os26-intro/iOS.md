@@ -4,6 +4,8 @@ Create great apps and games for the world's most advanced mobile operating syste
 
 **Platform:** iOS 26.0+
 
+> **Generation status:** iOS 26 is the current shipping line — **iOS 26.6**, released July 27, 2026. iOS 27 is in beta; see [os27-intro/iOS.md](../os27-intro/iOS.md).
+
 ## Overview
 
 iOS 26.0 introduces groundbreaking features and design improvements that enhance user experiences across iPhone devices. This release focuses on Liquid Glass design, Apple Intelligence integration, and powerful new capabilities for developers.
@@ -80,9 +82,12 @@ Dive into the latest key technologies and capabilities:
 - **SwiftUI fix**: `.userActivity` now correctly surfaces as the current user activity
 - **Networking fix**: Resolves `CFRunLoopSource` leaks when PAC or Auto proxy discovery is configured
 
-### iOS 26.5 (Developer Beta — Beta 4 as of May 2026)
-- Update your apps to use the new features and test against API changes
-- See the [iOS & iPadOS 26.5 Beta 4 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-26_5-release-notes) for the latest changes
+### iOS 26.5 and 26.6 Updates
+- iOS 26.5 shipped during spring 2026
+- **iOS 26.6 (July 27, 2026)** is the current shipping release of the OS 26 line
+- See the [iOS & iPadOS Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes) for the latest changes
+
+> **Looking ahead:** iOS 27 is in developer and public beta as of August 2026, with a public release expected in September 2026. See the [iOS 27 Developer Introduction](../os27-intro/iOS.md). Note that the `UIDesignRequiresCompatibility` key is ignored by the iOS 27 SDK.
 
 ## Getting Started
 
@@ -131,3 +136,5 @@ Join the [Apple Developer Program](Program.md) to access beta software, advanced
 ---
 
 *Platform requirements and feature availability may vary. Some capabilities and services may not be available in all regions or all languages.*
+
+*Reviewed 2026-08-09 against the OS 27 generation. See [os27-intro](../os27-intro/) for the current beta line.*

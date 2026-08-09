@@ -16,6 +16,8 @@ Websites that accept Apple Pay incorporate it into the purchasing flow. An Apple
 
 All websites that offer Apple Pay must include a privacy statement and adhere to the [Acceptable use guidelines for Apple Pay on the web](https://developer.apple.com/apple-pay/acceptable-use-guidelines-for-websites/). For a hands-on demo of Apple Pay on the web, see [Apple Pay on the web interactive demo](https://applepaydemo.apple.com/).
 
+> **iOS 27+, iPadOS 27+:** Visual Intelligence can identify and split line items from a receipt photo; in the US, Apple Cash requests can be sent directly from the result. **Wallet Insights** surfaces spending patterns, recurring transactions, and balances from connected accounts.
+
 ## Topics
 
 ### Best Practices
@@ -233,5 +235,7 @@ No additional considerations for iOS, iPadOS, macOS, visionOS, or watchOS. Not s
 - Consolidated guidance into one page.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/apple-pay)*

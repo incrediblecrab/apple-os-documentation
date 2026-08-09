@@ -4,6 +4,10 @@ Create user interfaces for media playback, complete with transport controls, cha
 
 **Platforms:** iOS 8.0+ | iPadOS 8.0+ | Mac Catalyst 13.0+ | macOS 10.9+ | tvOS 9.0+ | visionOS 1.0+ | watchOS 9.0+
 
+## What's New in the OS 27 SDK
+
+Apple Music supports Hi-Res Lossless playback up to 24-bit/192 kHz on supported hardware in tvOS 27. CarPlay also gains native video apps, with playback only while parked.
+
 ## Topics
 
 ### iOS Playback and Capture
@@ -71,5 +75,7 @@ Create user interfaces for media playback, complete with transport controls, cha
 - **Macros**
 
 ---
+
+*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/AVKit)*

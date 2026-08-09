@@ -132,21 +132,70 @@ Liquid Glass can have distinct appearance and behavior across different platform
 **watchOS 26.0+**  
 Liquid Glass changes are minimal in watchOS and appear automatically when you open your app on the latest release. However, adopt standard toolbar APIs and button styles from watchOS 10 to ensure proper appearance.
 
+### What Changed in OS 27
+
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+, tvOS 27+, visionOS 27+, watchOS 27+:** Liquid Glass is refined rather than replaced. Apple introduced **no new named Liquid Glass API types** in OS 27 — existing code continues to work, and the changes are in how the material renders and how people control it.
+
+**Material refinements**
+
+- **Stronger content diffusion** — busy backgrounds are blurred more aggressively beneath glass surfaces, addressing the most common legibility complaint from OS 26
+- **Darkened edge ring** — a subtle darker border separates glass surfaces from what sits behind them
+- **Brighter specular highlights** — edge highlights are more defined, making surface boundaries easier to perceive
+- **Adaptive toolbars** — toolbars automatically become uniform and less translucent as content scrolls beneath them
+
+**People control the transparency**
+
+A continuous **transparency slider** in Settings > Appearance (System Settings > Appearance on macOS) replaces the binary Clear/Tinted toggle from OS 26. People can place translucency anywhere on a spectrum rather than choosing between two presets.
+
+Your interface must remain usable across the full range of that slider, and under Reduce Transparency and Increase Contrast. Do not encode meaning in translucency alone.
+
+**Sidebars**
+
+Sidebars now extend to the full window edge with refraction continuing beneath them, and sidebar icons retain their tint color instead of washing out — a fix for a frequent OS 26 complaint.
+
+**App icons**
+
+Icons gain sharper separation between layers, addressing feedback that OS 26 icons appeared soft at small sizes. Per-layer refraction is authored in Icon Composer 2.
+
+**What to re-test**
+
+1. Every custom control that sits on or near a glass surface, across the transparency slider range
+2. Text contrast over glass against your brightest and busiest background content
+3. Focus and selection states on tvOS, where glass composites over moving video artwork
+4. Passthrough legibility on visionOS in bright, dark, and high-motion real environments
+5. Complications on watchOS against every watch face family you support
+
 ### Performance Considerations
 
-- **Combine custom Liquid Glass effects** - Use GlassEffectContainer to optimize performance when applying effects to custom elements
+- **Combine custom Liquid Glass effects** - Use `GlassEffectContainer` to optimize performance when applying effects to custom elements
 - **Performance test your app across platforms** - Regularly assess and improve performance when building with latest SDKs
-- **Use UIDesignRequiresCompatibility key** - Add to your information property list to maintain previous SDK appearance while updating
+- **Budget for material cost** - Liquid Glass is GPU-backed; profile scrolling and animation on your oldest supported device, not only current hardware
 
 ### Adoption Timeline
 
-> **Important:** Apple has announced that the option to retain current designs using `UIDesignRequiresCompatibility` will be removed in the next major release (iOS 27). Full Liquid Glass adoption is required by iOS 27's public release.
+> **iOS 26+, iPadOS 26+, macOS Tahoe 26+:** The `UIDesignRequiresCompatibility` Info.plist key lets an app built against the OS 26 SDK retain the pre-Liquid-Glass appearance as a temporary migration aid.
+
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** `UIDesignRequiresCompatibility` is **ignored by the OS 27 SDK**. There is no supported way to opt out once you build against it.
+
+**How the appearance is actually decided**
+
+The design your app receives is gated on the **SDK you link against**, not on the OS version the device is running:
+
+| App built against | Running on OS 26 | Running on OS 27 |
+|---|---|---|
+| OS 25 SDK or earlier | Legacy appearance | Legacy appearance |
+| OS 26 SDK, `UIDesignRequiresCompatibility` set | Legacy appearance | Legacy appearance |
+| OS 26 SDK, key not set | Liquid Glass | Liquid Glass |
+| OS 27 SDK | n/a | Liquid Glass (key ignored) |
+
+An app still built against the OS 26 SDK keeps its current appearance when running on OS 27. The change takes effect the moment you recompile with Xcode 27 — so the timing is yours to choose, but the outcome is not.
 
 **Key Dates:**
-- **April 2026**: All App Store submissions now require Xcode 26 and iOS 26 SDK (in effect)
-- **Fall 2026**: Liquid Glass adoption becomes mandatory with iOS 27
+- **April 28, 2026**: App Store Connect uploads require the OS 26 SDK or later (Xcode 26+) — in effect
+- **OS 27 SDK adoption**: full Liquid Glass adoption, no opt-out
+- **OS 27 SDK submission deadline**: **not announced.** Apple has historically set this requirement in the spring following a release, but no date has been published. Watch [Upcoming Requirements](https://developer.apple.com/news/upcoming-requirements/).
 
-**Recommendation:** Begin adopting Liquid Glass now to ensure a smooth transition and to take advantage of the unified design language across all Apple platforms.
+**Recommendation:** Adopt on your own schedule rather than under deadline pressure. Standard SwiftUI, UIKit, and AppKit controls migrate for free on recompile; custom navigation chrome and hand-rolled blur effects do not.
 
 ### Related Components
 

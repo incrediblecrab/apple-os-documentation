@@ -10,6 +10,8 @@ On iPhone 16 and iPhone 16 Pro models, the Camera Control quickly opens your app
 
 The overlay allows people to quickly adjust controls. A person can view the available controls by lightly double-pressing the Camera Control. After selecting a control, they can slide their finger on the Camera Control to adjust a value to capture their content as they want.
 
+> **iOS 27+:** Visual Intelligence expands — nutritional breakdown from a meal photo, and receipt understanding that identifies and splits line items per person. Wallet's **Create a Pass** uses the camera to digitize tickets, memberships, and loyalty cards.
+
 ## Topics
 
 ### Anatomy
@@ -66,5 +68,7 @@ Not supported in iPadOS, macOS, watchOS, tvOS, or visionOS.
 - New page.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/camera-control)*

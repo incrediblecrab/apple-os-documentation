@@ -22,6 +22,31 @@ Liquid Glass is a revolutionary material that transforms how interfaces look, fe
 - **Platform Universal** - Consistent experience across iOS, iPadOS, macOS, tvOS, visionOS, and watchOS
 - **Content-Focused** - Designed to highlight and emphasize underlying content
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Liquid Glass is refined in the OS 27 generation, not replaced. Busy background content is diffused more aggressively, a subtle darkened edge ring improves separation, and specular highlights are brighter and better defined. A continuous transparency slider in Settings > Appearance replaces the Clear/Tinted toggle, so your interface must stay legible across the full range people can choose. **No new named Liquid Glass API types were introduced in OS 27** — existing code continues to work.
+
+### The Real API Surface
+
+Use these verified API names when working with Liquid Glass. Do not invent framework or modifier names.
+
+**SwiftUI**
+- `glassEffect(_:in:)` — apply the material to a custom view
+- `GlassEffectContainer` — group multiple glass effects so they blend and morph together, and to reduce rendering cost
+- `glassEffectID(_:in:)` — identify a glass element across state transitions for smooth morphing
+- `glassEffectUnion(id:namespace:)` — merge adjacent glass shapes into one continuous surface
+- `buttonStyle(.glass)` and `buttonStyle(.glassProminent)` — standard glass button styles
+- `backgroundExtensionEffect()` — extend content beneath sidebars and inspectors
+
+**UIKit**
+- `UIGlassEffect` — the material as a visual effect
+- `UIGlassContainerEffect` — the container analogue of `GlassEffectContainer`
+- `UIBackgroundExtensionView` — edge-to-edge content extension
+
+**AppKit**
+- `NSGlassEffectView` and `NSGlassEffectContainerView`
+- `NSBackgroundExtensionView`
+
+There is no `LiquidGlass` module to import, and no `.liquidGlassStyle`-style modifiers. The material is delivered through the frameworks you already use.
+
 ### Adopting Liquid Glass
 
 If you have an existing app, adopting Liquid Glass doesn't mean reinventing your app from the ground up. Start by building your app in the latest version of Xcode to see the changes. Then, follow best practices in your interface to help your app look right at home on Apple platforms.

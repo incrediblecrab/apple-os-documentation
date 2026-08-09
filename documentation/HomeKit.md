@@ -14,6 +14,10 @@ Using HomeKit, your app can:
 - Display, edit, and act upon the data in the home configuration database.
 - Communicate with configured accessories and services in order to perform actions like turning on the lights in the living room.
 
+## What's New in the OS 27 SDK
+
+In tvOS 27, HomeKit Secure Video adds 4K camera recording with on-device transcription and descriptions. The Home app also consolidates related camera alerts.
+
 ## Topics
 
 ### Essentials
@@ -51,5 +55,7 @@ Using HomeKit, your app can:
 - **HMAccessorySetupPayload** - A payload for authenticating a HomeKit accessory.
 
 ---
+
+*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/HomeKit)*

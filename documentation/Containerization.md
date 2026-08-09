@@ -27,6 +27,8 @@ The framework produces and consumes OCI-compatible container images, enabling:
 - Push locally-built images to registries
 - Run images in any OCI-compatible application
 
+> **macOS Golden Gate 27+:** Requires Apple silicon, which is now the only macOS 27 configuration. macOS 27 is the last release with full Rosetta 2 support, so any Intel-only image tooling in your container workflow needs a native replacement. See [Apple Silicon](apple-silicon.md).
+
 ## Topics
 
 ### Essentials
@@ -155,5 +157,7 @@ Containerization is fully open-source under the Apache 2.0 license:
 - [What's new in Virtualization](https://developer.apple.com/videos/play/wwdc2025/10132/) - macOS 26 virtualization updates
 
 ---
+
+*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/containerization) | [GitHub](https://github.com/apple/containerization)*

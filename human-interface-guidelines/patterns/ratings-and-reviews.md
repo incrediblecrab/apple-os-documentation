@@ -10,6 +10,8 @@ Delivering a great overall experience is the best way to encourage positive rati
 
 People can always rate your app within the App Store.
 
+> **2026 App Store Review Guidelines:** Guideline **1.2.1(a)** requires apps with user-generated content to provide a way to flag content exceeding the app's age rating plus an age restriction mechanism based on verified or declared age. See [os27-intro/Program.md](../../os27-intro/Program.md).
+
 ## Topics
 
 ### Best Practices
@@ -42,5 +44,7 @@ No additional considerations for iOS, iPadOS, macOS, tvOS, visionOS, or watchOS.
 - Added artwork
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/ratings-and-reviews)*

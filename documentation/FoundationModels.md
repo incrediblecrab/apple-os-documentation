@@ -20,6 +20,24 @@ To use the on-device language model, people need to turn on Apple Intelligence o
 
 For more information about acceptable usage of the Foundation Models framework, see Acceptable use requirements for the Foundation Models framework.
 
+## What's New in OS 27
+
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+, visionOS 27+:** Foundation Models generalizes beyond Apple's on-device model.
+
+**The `LanguageModel` protocol**
+
+The framework now exposes a generalized `LanguageModel` protocol. Your app can target Apple's on-device model or any conformant provider, including cloud models — Google Gemini is available as an optional cloud model for certain Siri features, alongside other providers such as Claude. Write against the protocol rather than a concrete model type so provider choice stays a configuration decision.
+
+**Siri**
+
+Siri itself is rebuilt on Apple Foundation Models in OS 27, with extended conversational context, cross-app awareness, and multi-step in-app actions. Apps that expose good App Intents schemas become actionable through that assistant. See [App Intents](AppIntents.md).
+
+**Validating model-backed features**
+
+Model output is non-deterministic, so unit tests alone are insufficient. The new [Evaluations](Evaluations.md) framework is designed for validating AI feature behavior.
+
+> **Note:** Multimodal prompt support and Dynamic Profiles were reported among the OS 27 additions but could not be confirmed against a published Apple documentation page. Verify against the [Foundation Models documentation](https://developer.apple.com/documentation/foundationmodels) before depending on them.
+
 ## Topics
 
 ### Essentials
@@ -51,5 +69,7 @@ For more information about acceptable usage of the Foundation Models framework, 
 **Note:** To use the Foundation Models framework, people need to turn on Apple Intelligence on their device. For a list of supported devices, see Apple Intelligence documentation.
 
 ---
+
+*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/FoundationModels)*

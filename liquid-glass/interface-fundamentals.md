@@ -6,6 +6,8 @@ Explore the components that go into building your app's interface, and discover 
 
 > **Note:** This document covers interface fundamentals across all supported versions. For Liquid Glass design system features, see the dedicated [Liquid Glass documentation](introduction.md) which requires iOS 26.0+, iPadOS 26.0+, macOS Tahoe 26.0+, tvOS 26.0+, visionOS 26.0+, and watchOS 26.0+.
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** The fundamentals below are unchanged, but two things affect every interface. Liquid Glass rendering is refined (stronger content diffusion, a darkened edge ring, brighter specular highlights), and a continuous transparency slider in Settings > Appearance lets people tune translucency across a spectrum rather than choosing Clear or Tinted. Validate your layouts across that full range, and under Reduce Transparency and Increase Contrast. On iPadOS 27, Split View and Slide Over now operate inside the windowing framework, so re-test any layout logic that assumes a fixed set of multitasking states.
+
 ## Overview
 
 To build your app's interface, you can use standard system views, draw content yourself, or mix custom drawing with the standard views. Regardless of how you create your content, all interfaces rely on some standard components to present that content:

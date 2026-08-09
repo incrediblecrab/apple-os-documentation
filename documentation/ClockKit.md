@@ -26,6 +26,10 @@ When your app has a complication on the active watch face, watchOS tries to keep
 
 The system also gives apps with active complications more opportunities for background refresh tasks. You can use these tasks to keep the content of your watchOS app and your complications up to date and accurate.
 
+## What's New in the OS 27 SDK
+
+watchOS 27 adds a dynamic app grid that highlights Siri-suggested and recently used apps, plus an updated Smart Stack with a single-tap widget gesture and visible wallet and transit balances.
+
 ## Topics
 
 ### Migration Support
@@ -42,5 +46,7 @@ The system also gives apps with active complications more opportunities for back
 - **Deprecated articles and symbols**
 
 ---
+
+*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/ClockKit)*

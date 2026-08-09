@@ -14,6 +14,8 @@ To create the interface of your CarPlay app, you use the system-defined template
 
 To learn how to create various types of CarPlay apps and use the system-provided templates, see CarPlay App Programming Guide. The general design guidelines below apply to all types of CarPlay apps.
 
+> **iOS 27+:** CarPlay gains **native video app support**, with playback restricted to when the vehicle is parked, and brings the rebuilt Siri into the car. Design video experiences explicitly around the parked-state requirement.
+
 ## Topics
 
 ### iPhone Interactions
@@ -84,5 +86,7 @@ No additional considerations for iOS. Not supported in iPadOS, macOS, tvOS, visi
 - Consolidated guidance into one page.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/carplay)*

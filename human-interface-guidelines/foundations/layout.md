@@ -14,6 +14,8 @@ Apple provides templates, guides, and other resources that can help you integrat
 
 ### Best practices
 
+> **iPadOS 27+, macOS Golden Gate 27+:** Sidebars now extend to the full window edge with refraction continuing beneath them, while scroll-under toolbars become uniform and less translucent as content passes below. Design layouts so content can extend beneath these system surfaces without compromising legibility.
+
 **Group related items to help people find the information they want.** For example, you might use negative space, background shapes, colors, materials, or separator lines to show when elements are related and to separate information into distinct areas. When you do so, ensure that content and controls remain clearly distinct.
 
 **Make essential information easy to find by giving it sufficient space.** People want to view the most important information right away, so don't obscure it by crowding it with nonessential details. You can make secondary information available in other parts of the window, or include it in an additional view.
@@ -264,5 +266,7 @@ Different size class combinations apply to the full-screen experience on differe
 - Added specifications for iPhone 14 Pro Max, iPhone 14 Pro, iPhone 14 Plus, iPhone 14, and Apple Watch Ultra.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/layout)*

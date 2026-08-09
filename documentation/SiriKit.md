@@ -18,6 +18,21 @@ To display branding or other customized content in Siri and Maps after you fulfi
 
 **Important:** With a person's permission, an installed health research app that uses SensorKit entitlements may collect Face Metrics data while your SiriKit app is in use. To prevent SensorKit from collecting Face Metrics data while your app is in use, you can set the **SRResearchDataGeneration** information property list key to NO.
 
+## Deprecated in OS 27
+
+> **⚠️ iOS 27+, iPadOS 27+, macOS Golden Gate 27+, tvOS 27+, watchOS 27+, visionOS 27+:** **SiriKit is deprecated.** Migrate to [App Intents](AppIntents.md).
+
+Siri is rebuilt on Apple Foundation Models in the OS 27 generation, and **SiriKit-based intents are not recognized by the new Siri**. The Intents and IntentsUI frameworks continue to function for existing integrations, but they do not participate in the new conversational assistant, and no new SiriKit capability is being added.
+
+**What to do**
+
+1. Re-express your SiriKit intents as App Intents `AppIntent` types.
+2. Model your content with App Intents **entity schemas** so it enters Spotlight's semantic index.
+3. Adopt **intent schemas** so people can act through natural language without fixed phrases.
+4. Validate with the new **App Intents Testing** framework, which exercises real system pathways.
+
+Apple has not published a full SiriKit deactivation timeline. Treat deprecation as the signal to migrate rather than waiting for a removal date.
+
 ## Topics
 
 ### Frameworks
@@ -68,5 +83,7 @@ Browse articles that cover high-level Intents and IntentsUI tasks.
 - [Configuring Your Intents UI App Extension Target](https://developer.apple.com/documentation/sirikit/configuring_your_intents_ui_app_extension_target) - Configure your Xcode project to include an Intents UI app extension that you use to customize the Siri and Maps interfaces.
 
 ---
+
+*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/SiriKit)*

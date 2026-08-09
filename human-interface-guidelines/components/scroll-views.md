@@ -12,6 +12,8 @@ The scroll view itself has no appearance, but it can display a translucent scrol
 
 ### Best Practices
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Scroll-under toolbars automatically become uniform and less translucent while content passes beneath them, improving control legibility over busy content. This behavior uses the existing Liquid Glass API surface and responds to the transparency slider and accessibility contrast settings.
+
 - **Support default scrolling gestures and keyboard shortcuts** - People are accustomed to the systemwide scrolling behavior and expect it to work everywhere. If you build custom scrolling for a view, make sure your scroll indicators use the elastic behavior that people expect.
 - **Make it apparent when content is scrollable** - Because scroll indicators aren't always visible, it can be helpful to make it obvious when content extends beyond the view. For example, displaying partial content at the edge of a view indicates that there's more content in that direction. Although most people immediately try scrolling a view to discover if additional content is available, it's considerate to draw their attention to it.
 - **Avoid putting a scroll view inside another scroll view with the same orientation** - Nesting scroll views that have the same orientation can create an unpredictable interface that's difficult to control. It's alright to place a horizontal scroll view inside a vertical scroll view (or vice versa), however.
@@ -78,5 +80,7 @@ When people begin swiping content in the direction they want it to scroll, the s
 - Updated guidance for using scroll views in watchOS.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/scroll-views)*

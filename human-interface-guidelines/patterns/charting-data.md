@@ -16,6 +16,8 @@ A chart can range from a simple graphic that provides glanceable information to 
 
 Not every collection of data needs to be displayed in a chart. If you simply need to provide data — and you don't need to convey information about it or help people analyze it — consider offering the data in other ways, such as in a list or table that people can scroll, search, and sort.
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Charts placed over or near glass surfaces should stay legible across the full range of the transparency slider in Settings > Appearance, and under Reduce Transparency and Increase Contrast. Never rely on translucency alone to distinguish series.
+
 ## Topics
 
 ### Best practices
@@ -66,5 +68,7 @@ No additional considerations for iOS, iPadOS, macOS, tvOS, visionOS, or watchOS.
 - New page.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/charting-data)*

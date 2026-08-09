@@ -14,6 +14,8 @@ You can use ShazamKit to provide features like:
 
 If you need the device microphone to get audio samples for your app to recognize, you must request access to it. As with all types of permission requests, it's important to help people understand why you're asking for access.
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Media and recognition experiences render against the refined Liquid Glass material. Validate overlay legibility over album art and video content across the transparency slider range.
+
 ## Topics
 
 ### Best Practices
@@ -29,5 +31,7 @@ After you receive permission to access the microphone for features that use Shaz
 - [ShazamKit](https://developer.apple.com/documentation/shazamkit) - ShazamKit framework
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/shazamkit)*

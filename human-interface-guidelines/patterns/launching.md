@@ -8,6 +8,8 @@ A streamlined launch experience helps people start using your app or game immedi
 
 Launching begins when someone opens your app or game, includes an initial download, and ends when the first screen is ready. After launching completes, you might offer an onboarding experience, which can give people a high-level view of your app or game.
 
+> **iOS 27+:** Apple reports substantially faster app launches in iOS 27, attributed to a rebuilt CPU scheduler that also benefits older devices including iPhone 11. Treat the specific percentages as marketing claims rather than measured guarantees, and continue to measure your own launch path.
+
 ## Topics
 
 ### Best practices
@@ -72,5 +74,7 @@ Consider launching in the Shared Space even if your app is fully immersive. Open
 - Updated to include guidance for visionOS.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/launching)*

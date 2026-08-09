@@ -22,6 +22,8 @@ As you begin designing your app or game for iPad, start by understanding the fol
 - Widgets
 - Drag and drop
 
+> **iPadOS 27+:** Windowing is refined with smoother resize, move, and close; a **persistent menu bar** option shows the active app name; and Split View and Slide Over now operate **inside** the windowing framework rather than as separate modes. External displays gain per-display app pinning and resizable iPhone apps. Re-test any layout logic that assumes a fixed set of multitasking states. iPadOS 27 drops all A12-class iPads.
+
 ## Topics
 
 ### Best Practices
@@ -51,5 +53,7 @@ Great iPad experiences integrate the platform and device capabilities that peopl
 - [Get to know the new design system](https://developer.apple.com/videos/play/wwdc2025/10002/)
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/designing-for-ipados)*

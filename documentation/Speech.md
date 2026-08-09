@@ -12,6 +12,8 @@ The SpeechTranscriber class and other module classes provide specific services. 
 
 For a general understanding of how you use these classes together, see SpeechAnalyzer.
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+, watchOS 27+, visionOS 27+:** Siri is rebuilt on Apple Foundation Models with extended conversational context and multi-step in-app actions. **[SiriKit is deprecated](SiriKit.md)** — voice-driven app functionality should be exposed through [App Intents](AppIntents.md), not SiriKit intents.
+
 ## Topics
 
 ### Essentials
@@ -32,5 +34,7 @@ For a general understanding of how you use these classes together, see SpeechAna
 - [Speech Recognition in Objective-C](https://developer.apple.com/documentation/speech/speech_recognition_in_objective-c) - Use these classes to perform speech recognition in Objective-C code.
 
 ---
+
+*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/Speech)*

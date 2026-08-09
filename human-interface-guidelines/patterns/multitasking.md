@@ -10,6 +10,8 @@ People expect to use multitasking on their devices, and they may think something
 
 In addition to app switching, multitasking can present different experiences on different devices; see Platform considerations.
 
+> **iPadOS 27+:** Split View and Slide Over now operate **inside** the windowing framework rather than as separate classic modes; people invoke them through windowing controls. Windows resize, move, and close more smoothly, and a **persistent menu bar** option shows the active app name. External displays support per-display app pinning and resizable iPhone apps. Re-test any layout that hard-codes size-class transitions or assumes a fixed set of multitasking states.
+
 ## Topics
 
 ### Best Practices
@@ -95,5 +97,7 @@ Only one window is active at a time in the Shared Space. When people look from o
 - Updated to include guidance for visionOS.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/multitasking)*

@@ -17,6 +17,8 @@ Depending on the platform, you might use different components to present these t
 
 To provide a temporary experience, like viewing media, or to help people perform a distinct, multistep task, like editing content, apps can offer a full-screen modal experience. In contrast, apps may also offer nonmodal types of full-screen experiences; for guidance, see Going full screen. visionOS apps can offer a range of immersive experiences; for guidance, see Immersive experiences.
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Sheets and alerts adopt the refined Liquid Glass material automatically when you rebuild with Xcode 27 — stronger diffusion of the content behind them, a darkened edge ring, and brighter specular highlights. Verify that modal content stays legible over your busiest background screens.
+
 ## Topics
 
 ### Best Practices
@@ -61,5 +63,7 @@ No additional considerations for iOS, iPadOS, macOS, tvOS, visionOS, or watchOS.
 - Updated to include guidance for visionOS.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/modality)*

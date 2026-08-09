@@ -16,6 +16,8 @@ By enabling the player activities listed above, supporting Game Center also help
 
 You can add Game Center into your game using the GameKit framework, which provides a full-featured UI that makes it easy for players to access and view their Game Center data within your game. Alternatively, you can also use GameKit to present this data within your own custom UI. For developer guidance, see GameKit.
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+, tvOS 27+:** System chrome over game content uses the refined Liquid Glass material. On Mac, note that **macOS 27 is Apple-silicon-only and the last release with full Rosetta 2** — ship native Apple silicon builds.
+
 ## Topics
 
 ### Accessing Game Center
@@ -173,5 +175,7 @@ Game Center supports both real-time and turn-based multiplayer activities that m
 - Consolidated guidance into one page.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/game-center)*

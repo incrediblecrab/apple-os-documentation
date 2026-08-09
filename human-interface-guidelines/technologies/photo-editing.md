@@ -10,6 +10,8 @@ Edits are always saved in the Photos app as new files, safely preserving the ori
 
 To access a photo editing extension, a photo must be in edit mode. While in edit mode, tapping the extension icon in the toolbar displays an action menu of available editing extensions. Selecting one displays the extension's interface in a modal view containing a top toolbar. Dismissing this view confirms and saves the edit, or cancels it and returns to the Photos app.
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Photos adds **Spatial Reframing** (change a photo's apparent camera angle post-capture using Portrait depth data) and **Extend** (expand beyond the original borders, capped at 25% per side, once per image), plus substantially improved Clean Up. **All AI-edited photos carry a SynthID watermark** — account for this if your app inspects or re-encodes edited assets. Photos also gains keywords and star ratings.
+
 ## Topics
 
 ### Best Practices
@@ -28,5 +30,7 @@ To access a photo editing extension, a photo must be in edit mode. While in edit
 - [PhotoKit](https://developer.apple.com/documentation/photokit) - PhotoKit
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/photo-editing)*

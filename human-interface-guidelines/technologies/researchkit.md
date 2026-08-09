@@ -10,6 +10,8 @@ The ResearchKit framework provides predesigned screens and transitions that make
 
 *These guidelines are for informational purposes only and don't constitute legal advice. Contact an attorney to obtain advice with respect to the development of a research app and any applicable laws.*
 
+> **iOS 27+, watchOS 27+:** Health gains perimenopause notifications with symptom logging, and GymKit pairs directly from iPhone without requiring an Apple Watch. Study designs that assume watch-mediated equipment pairing should be revisited.
+
 ## Topics
 
 ### Creating the Onboarding Experience
@@ -107,5 +109,7 @@ ResearchKit offers a profile screen you can use to let participants manage perso
 - Updated artwork.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/researchkit)*

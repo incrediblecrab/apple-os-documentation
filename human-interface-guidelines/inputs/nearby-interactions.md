@@ -10,6 +10,8 @@ A great nearby interaction feels intuitive and natural to people, because it bui
 
 Nearby interactions are available on devices that support Ultra Wideband technology (to learn more, see Ultra Wideband availability), and rely on the Nearby Interaction framework. Before participating in nearby interaction experiences, people grant permission for their device to interact while they're using your app. The Nearby Interaction APIs help you preserve people's privacy by relying on randomly generated device identifiers that last only as long as the interaction session your app initiates.
 
+> **iOS 27+, watchOS 27+:** **GymKit now pairs with gym equipment directly from iPhone**, without requiring an Apple Watch to be present. Proximity-based pairing flows that assumed watch mediation should be revisited.
+
 ## Topics
 
 ### Best Practices
@@ -60,5 +62,7 @@ Not supported in macOS, tvOS, or visionOS.
 - Changed page title from Spatial interactions.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/nearby-interactions)*

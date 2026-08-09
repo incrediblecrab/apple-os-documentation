@@ -21,6 +21,8 @@ An indeterminate progress indicator — also called an activity indicator — us
 
 ### Best Practices
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Liquid Glass now diffuses busy background content more aggressively, adds a subtle darkened edge ring, and renders brighter specular highlights, improving legibility without extra visual noise. People can tune overall translucency with the transparency slider in Settings > Appearance, and the material also responds to Reduce Transparency and Increase Contrast.
+
 - **When possible, use a determinate progress indicator** - An indeterminate progress indicator shows that a process is occurring, but it doesn't help people estimate how long a task will take. A determinate progress indicator can help people decide whether to do something else while waiting for the task to complete, restart the task at a different time, or abandon the task.
 - **Be as accurate as possible when reporting advancement in a determinate progress indicator** - Consider evening out the pace of advancement to help people feel confident about the time needed for the task to complete. Showing 90 percent completion in five seconds and the last 10 percent in 5 minutes can make people wonder if your app is still working and can even feel deceptive.
 - **Keep progress indicators moving so people know something is continuing to happen** - People tend to associate a stationary indicator with a stalled process or a frozen app. If a process stalls for some reason, provide feedback that helps people understand the problem and what they can do about it.
@@ -71,5 +73,7 @@ By default the system displays the progress indicators in white over the scene's
 - Updated guidance to reflect changes in watchOS 10.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/progress-indicators)*

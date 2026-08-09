@@ -23,6 +23,8 @@ As you begin designing your app for Apple Watch, start by understanding the foll
 - Always On
 - Watch faces
 
+> **watchOS 27+:** Liquid Glass refinements carry to the watch. On a small, briefly glanced display, prioritize legibility — validate complications and workout views under Reduce Transparency and Increase Contrast, and against every watch face family you support.
+
 ## Topics
 
 ### Best Practices
@@ -63,5 +65,7 @@ Great Apple Watch experiences are streamlined and specialized, and integrate the
 - Enhanced guidance for providing a glanceable, focused app experience, and emphasized the importance of the Digital Crown in navigation.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/designing-for-watchos)*

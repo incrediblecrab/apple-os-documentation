@@ -16,6 +16,8 @@ Although a context menu provides convenient access to frequently used items, it'
 
 ### Best Practices
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Liquid Glass now diffuses busy background content more aggressively, adds a subtle darkened edge ring, and renders brighter specular highlights, improving legibility without extra visual noise. People can tune overall translucency with the transparency slider in Settings > Appearance, and the material also responds to Reduce Transparency and Increase Contrast.
+
 - **Prioritize relevancy when choosing items to include in a context menu** - A context menu isn't for providing advanced or rarely used items; instead, it helps people quickly access the commands they're most likely to need in their current context. For example, the context menu for a Mail message in the Inbox includes commands for replying and moving the message, but not commands for editing message content, managing mailboxes, or filtering messages.
 - **Aim for a small number of menu items** - A context menu that's too long can be difficult to scan and scroll.
 - **Support context menus consistently throughout your app** - If you provide context menus for items in some places but not in others, people won't know where they can use the feature and may think there's a problem.
@@ -81,5 +83,7 @@ A context menu seldom displays a title. In contrast, each item in a context menu
 - Refined guidance on including a submenu and added a guideline on using a context menu to support object creation in an iPadOS app.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/context-menus)*

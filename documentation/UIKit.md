@@ -18,6 +18,27 @@ To build a macOS app, you can use **SwiftUI** to create an app that works across
 
 Use **UIKit** classes only from your app's main thread or main dispatch queue, unless otherwise indicated in the documentation for those classes. This restriction particularly applies to classes that derive from **UIResponder** or that involve manipulating your app's user interface in any way.
 
+## What's New in OS 27
+
+> **iOS 27+, iPadOS 27+, tvOS 27+, visionOS 27+:** Standard UIKit controls — navigation bars, tab bars, toolbars, sheets, and alerts — adopt the refined Liquid Glass appearance when you rebuild with Xcode 27. `UIDesignRequiresCompatibility` is ignored by the OS 27 SDK.
+
+**Liquid Glass API**
+
+- `UIGlassEffect` — the material as a `UIVisualEffect`
+- `UIGlassContainerEffect` — groups glass effects so they blend and morph together
+- `UIBackgroundExtensionView` — edge-to-edge content extension beneath sidebars and inspectors
+
+**Migration notes**
+
+Custom `UIVisualEffectView` blur chrome and hand-rolled navigation bars do **not** migrate automatically. Replace bespoke blur with `UIGlassEffect` inside a `UIGlassContainerEffect` rather than approximating the material yourself.
+
+**What to re-test**
+
+- Custom `UIView` subclasses drawn over translucent bars
+- Contrast and hit targets across the range of the transparency slider in Settings > Appearance
+- Behavior under Reduce Transparency and Increase Contrast
+- On iPadOS 27, size-class and multitasking assumptions, since Split View and Slide Over now run inside the windowing framework
+
 ## Topics
 
 ### Essentials
@@ -139,5 +160,7 @@ Review unsupported symbols and their replacements.
 - **UICornerRadius**
 
 ---
+
+*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/UIKit)*

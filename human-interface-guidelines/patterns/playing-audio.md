@@ -90,8 +90,8 @@ In watchOS, the system manages audio playback. An app can play short audio clips
 
 ## Related links
 
-- [Playing video](/human-interface-guidelines/patterns/playing-video)
-- [Feedback](/human-interface-guidelines/patterns/feedback)
+- [Playing video](playing-video.md)
+- [Feedback](feedback.md)
 
 ## Developer documentation
 
@@ -109,3 +109,5 @@ In watchOS, the system manages audio playback. An app can play short audio clips
 | Date | Changes |
 |------|---------|
 | June 21, 2023 | Updated to include guidance for visionOS. |
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*

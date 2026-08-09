@@ -8,6 +8,8 @@ iCloud is a service that lets people seamlessly access the content they care abo
 
 A fundamental aspect of iCloud is transparency. People don't need to know where content resides. They can just assume they're always accessing the latest version.
 
+> **iOS 27+, iPadOS 27+:** Uploads to iCloud continue in the background when people leave your app or lock the device, so long transfers no longer pause or fail. Design sync and upload affordances around work that survives backgrounding.
+
 ## Topics
 
 ### Best Practices
@@ -38,5 +40,7 @@ No additional considerations for iOS, iPadOS, macOS, tvOS, visionOS, or watchOS.
 - Added guidance for synchronizing game data through iCloud.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/icloud)*

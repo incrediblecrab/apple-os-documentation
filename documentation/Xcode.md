@@ -16,6 +16,26 @@ Note
 
 Download the latest version of Xcode from the Mac App Store. Download beta versions of Xcode from the Apple Developer website.
 
+## What's New in Xcode 27
+
+> **Requires macOS 27 Golden Gate, Apple silicon only.** macOS 27 drops every remaining Intel Mac, so adopting the OS 27 SDK requires migrating build machines and CI runners first. Treat this as the long-lead item in your migration plan.
+
+**Toolchain**
+
+Xcode 27 ships with **Swift 6.4** and the OS 27 SDKs. See [Swift](Swift.md) for language changes.
+
+**Design behavior**
+
+Building against the OS 27 SDK opts your app fully into the refined Liquid Glass appearance. The `UIDesignRequiresCompatibility` Info.plist key is **ignored** — there is no supported opt-out. Appearance is gated on the linked SDK, not the running OS, so an app still built with Xcode 26 keeps its current look on OS 27.
+
+**Testing**
+
+The new App Intents Testing framework validates Siri, Shortcuts, and Spotlight integration through real system pathways. The [Evaluations](Evaluations.md) framework covers AI feature behavior that unit tests cannot express.
+
+**Submission requirements**
+
+App Store Connect uploads have required the OS 26 SDK or later since April 28, 2026. **No Xcode 27 / OS 27 SDK deadline has been announced** — track [Upcoming Requirements](https://developer.apple.com/news/upcoming-requirements/).
+
 ## Topics
 
 ### Essentials
@@ -59,5 +79,7 @@ Download the latest version of Xcode from the Mac App Store. Download beta versi
 - [Application binary interfaces](https://developer.apple.com/documentation/xcode/application_binary_interfaces) - Write assembly instructions that adhere to the application binary interfaces of Apple platforms.
 
 ---
+
+*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/Xcode)*

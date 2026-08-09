@@ -33,6 +33,8 @@ In addition, the macOS menu bar includes the Apple menu on the leading side and 
 
 ### Best Practices
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Liquid Glass now diffuses busy background content more aggressively, adds a subtle darkened edge ring, and renders brighter specular highlights, improving legibility without extra visual noise. People can tune overall translucency with the transparency slider in Settings > Appearance, and the material also responds to Reduce Transparency and Increase Contrast.
+
 - **Support the default system-defined menus and their ordering** - People expect to find menus and menu items in an order they're familiar with. In many cases, the system implements the functionality of standard menu items so you don't have to. For example, when people select text in a standard text field, the system makes the Edit > Copy menu item available.
 
 - **Always show the same set of menu items** - Keeping menu items visible helps people learn what actions your app supports, even if they're unavailable in the current context. If a menu bar item isn't actionable, disable the action instead of hiding it from the menu.
@@ -277,5 +279,7 @@ Consider exposing app-specific functionality in other ways, too. For example, yo
 - Added guidance for the menu bar in iPadOS.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/the-menu-bar)*

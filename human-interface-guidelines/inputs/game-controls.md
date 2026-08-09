@@ -13,6 +13,8 @@ On Apple platforms, a game can support input from physical game controllers or d
 
 To reach the widest audience and provide the best experience for each platform, keep these factors in mind when choosing the input methods to support.
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+, tvOS 27+:** On-screen control overlays use the refined Liquid Glass material — verify legibility over bright, fast-moving game content across the transparency slider range. On Mac, **macOS 27 is Apple-silicon-only and the last release with full Rosetta 2**.
+
 ## Topics
 
 ### Touch Controls
@@ -96,5 +98,7 @@ Not supported in watchOS.
 - Added guidance for supporting touch controls and changed title from Game controllers.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/game-controls)*

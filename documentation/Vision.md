@@ -18,6 +18,8 @@ To begin using the framework, you create a request for the type of analysis you 
 
 **Note:** Starting in iOS 18.0, the Vision framework provides a new Swift-only API. See Original Objective-C and Swift API to view the original API.
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Visual Intelligence expands in OS 27 — nutritional breakdown from a meal photo, and receipt understanding that identifies and splits line items per person. On iPad, Apple Pencil can circle or tap on-screen content to query it. These are system experiences; integrate through [App Intents](AppIntents.md) entity schemas so your content participates.
+
 ## Topics
 
 ### Still-image analysis
@@ -124,5 +126,7 @@ To begin using the framework, you create a request for the type of analysis you 
 - [Original Objective-C and Swift API](https://developer.apple.com/documentation/vision/original_objective-c_and_swift_api)
 
 ---
+
+*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/Vision)*

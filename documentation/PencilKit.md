@@ -43,4 +43,6 @@ For information about handling user interactions on Apple Pencil in your UIKit a
 - **PKToolPickerVisibility** - The visibility state of a tool picker.
 ---
 
+*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
+
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/PencilKit)*

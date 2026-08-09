@@ -19,6 +19,8 @@ For digital goods and services delivered within the app, see [In-App Purchase](h
 
 The **Wallet** app allows users to organize their boarding passes, tickets, gift cards, and loyalty cards. It also lets users manage their payment cards for Apple Pay. Using the PassKit framework, you can add passes to Wallet and have these passes appear on the user's lock screen based on the time and place when the pass is relevant. You can also update a pass's content using push notifications.
 
+> **iOS 27+, iPadOS 27+, watchOS 27+:** Wallet adds **Create a Pass**, letting people digitize tickets, memberships, gift cards, and loyalty cards using the camera or manual entry. Templates include Standard, Membership, and Event, with 12 background colors plus 7 themed backgrounds, up to **two action buttons per pass**, and a bold "Poster Generic" card style. **Wallet Insights** surfaces spending patterns, recurring transactions, and balances from connected accounts.
+
 ## Topics
 
 ### Apple Pay support
@@ -33,5 +35,7 @@ The **Wallet** app allows users to organize their boarding passes, tickets, gift
 - [Wallet Passes](https://developer.apple.com/documentation/walletpasses) - Create, distribute, and update passes for the Wallet app.
 
 ---
+
+*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/PassKit)*

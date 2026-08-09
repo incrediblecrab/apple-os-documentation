@@ -12,6 +12,8 @@ When you support Tap to Pay on iPhone in your iOS payment app, you help merchant
 
 Before you can integrate Tap to Pay on iPhone into your iOS app, you need to work with a supported payment service provider (PSP), request the Tap to Pay on iPhone entitlement, and use ProximityReader APIs, either through the PSP's SDK or by adopting the framework. For high-level guidance — including marketing recommendations for letting people know about your app's new capabilities — see Tap to Pay on iPhone; for developer guidance, see Setting up Tap to Pay on iPhone.
 
+> **iOS 27+:** **Wallet Insights** surfaces spending patterns, recurring transactions, and balances from connected accounts, and Visual Intelligence can split receipt line items with Apple Cash requests in the US.
+
 ## Topics
 
 ### Best Practices
@@ -88,5 +90,7 @@ Not supported in iPadOS, macOS, tvOS, visionOS, or watchOS.
 - Refined guidance on preparing Tap to Pay on iPhone and helping merchants learn how to use the feature
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/tap-to-pay-on-iphone)*

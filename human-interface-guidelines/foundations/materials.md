@@ -14,6 +14,10 @@ Apple platforms feature two types of materials: Liquid Glass, and standard mater
 
 ### Liquid Glass
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Standard controls built with Xcode 27 continue to use the OS 26 Liquid Glass API surface; no new named Liquid Glass API types are required. Rebuilding with the iOS 27 SDK opts iPhone and iPad apps into the refined appearance because UIDesignRequiresCompatibility is ignored by the iOS 27 SDK.
+
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Liquid Glass now diffuses busy background content more aggressively, adds a subtle darkened edge ring, and renders brighter specular highlights, improving legibility without extra visual noise. People can tune overall translucency with the transparency slider in Settings > Appearance, and the material also responds to Reduce Transparency and Increase Contrast.
+
 Liquid Glass forms a distinct functional layer for controls and navigation elements — like tab bars and sidebars — that floats above the content layer, establishing a clear visual hierarchy between functional elements and content. Liquid Glass allows content to scroll and peek through from beneath these elements to give the interface a sense of dynamism and depth, all while maintaining legibility for controls and navigation.
 
 **Don't use Liquid Glass in the content layer.** Liquid Glass works best when it provides a clear distinction between interactive elements and content, and including it in the content layer can result in unnecessary complexity and a confusing visual hierarchy. Instead, use standard materials for elements in the content layer, such as app backgrounds. An exception to this is for controls in the content layer with a transient interactive element like sliders and toggles; in these cases, the element takes on a Liquid Glass appearance to emphasize its interactivity when a person activates it.
@@ -140,5 +144,7 @@ visionOS defines three vibrancy values that help you communicate a hierarchy of 
 - Added guidance on using materials to provide context and orientation in watchOS apps.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/materials)*

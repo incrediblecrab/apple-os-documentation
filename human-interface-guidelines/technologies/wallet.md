@@ -10,6 +10,8 @@ People use their cards and passes in Wallet to make Apple Pay purchases, track t
 
 When you integrate Apple Wallet into your app, you can create custom passes and present them the moment people need them, securely verify an individual's identity so they can access personal content, and offer detailed receipts and tracking information where it's most convenient. For developer guidance, see Wallet.
 
+> **iOS 27+, iPadOS 27+, watchOS 27+:** Wallet adds **Create a Pass**, letting people digitize tickets, memberships, gift cards, and loyalty cards using the camera or manual entry. Templates include Standard, Membership, and Event, with 12 background colors plus 7 themed backgrounds, up to **two action buttons per pass**, and a bold "Poster Generic" card style. **Wallet Insights** surfaces spending patterns, recurring transactions, and balances from connected accounts.
+
 ## Topics
 
 ### Best Practices
@@ -129,5 +131,7 @@ Not supported in tvOS.
 - Added guidelines for using Verify with Wallet, updated guidance on providing shipping status values and descriptions, and consolidated guidance into one page
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/wallet)*

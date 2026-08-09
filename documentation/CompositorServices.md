@@ -12,6 +12,8 @@ When you present an immersive space with CompositorLayer content from your app, 
 
 For more information about how to draw your app's content using Metal, see Metal.
 
+> **visionOS 27+:** Immersive content composites against the refined Liquid Glass material used for system windows and ornaments. Validate legibility and comfort across varied real-world lighting, and honor Reduce Transparency, Increase Contrast, and Reduce Motion.
+
 ## Topics
 
 ### App integration
@@ -45,5 +47,7 @@ For more information about how to draw your app's content using Metal, see Metal
 ### Hover Effects
 - **cp_hover_effect_t** - An opaque type that describes a hover effect of the tracking area.
 ---
+
+*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/CompositorServices)*

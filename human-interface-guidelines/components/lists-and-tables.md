@@ -14,6 +14,8 @@ Sometimes, people need to work with complex data in a multicolumn table or a spr
 
 ### Best Practices
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Liquid Glass now diffuses busy background content more aggressively, adds a subtle darkened edge ring, and renders brighter specular highlights, improving legibility without extra visual noise. People can tune overall translucency with the transparency slider in Settings > Appearance, and the material also responds to Reduce Transparency and Increase Contrast.
+
 - **Prefer displaying text in a list or table** - A table can include any type of content, but the row-based format is especially well suited to making text easy to scan and read. If you have items that vary widely in size — or you need to display a large number of images — consider using a collection instead.
 - **Let people edit a table when it makes sense** - People appreciate being able to reorder a list, even if they can't add or remove items. In iOS and iPadOS, people must enter an edit mode before they can select table items.
 - **Provide appropriate feedback when people select a list item** - The feedback can vary depending on whether selecting the item reveals a new view or toggles the item's state. In general, a table that helps people navigate through a hierarchy persistently highlights the selected row to clarify the path people are taking. In contrast, a table that lists options often highlights a row only briefly before adding an image — such as a checkmark — indicating that the item is selected.
@@ -74,5 +76,7 @@ Confirm that images near a table still look good as each row highlights and slig
 - Updated guidance to reflect changes in watchOS 10.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/lists-and-tables)*

@@ -28,6 +28,8 @@ Validate advertisement-driven app installations. See AdAttributionKit for app ad
 
 The StoreKit framework also provides functionality for External Purchase, External link account, PaymentMethodBinding, and StoreDownloaderExtension.
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Review your compliance posture alongside the 2026 App Store Review Guidelines changes — notably **5.1.2(i)** (disclose and obtain permission before sharing personal data with third parties, including third-party AI), **3.2.2(ix)** (loan apps capped at 36% APR), and **5.1.1(ix)** (crypto exchanges treated as a highly-regulated field). In the US storefront, external purchase links and buttons are permitted without an entitlement under guideline 3.1.1; the Supreme Court granted certiorari in *Apple v. Epic Games* in June 2026 and the outcome is pending. See [os27-intro/Program.md](../os27-intro/Program.md).
+
 ## Topics
 
 ### In-App Purchase
@@ -85,5 +87,7 @@ The StoreKit framework also provides functionality for External Purchase, Extern
 - [App Store Receipts](https://developer.apple.com/documentation/appstorereceipts) - Validate app and In-App Purchase receipts with the App Store. *(Deprecated)*
 
 ---
+
+*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/StoreKit)*

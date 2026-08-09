@@ -2,6 +2,23 @@
 
 View major documentation updates and highlights from WWDC, browse ongoing updates from a set of framework releases over time, and jump to the latest release notes.
 
+## WWDC 2026 and the OS 27 Generation
+
+Announced June 8, 2026; currently in beta, with public releases expected fall 2026 (**not dated by Apple**).
+
+- **Siri rebuilt on Apple Foundation Models** — conversational, cross-app context, multi-step in-app actions, standalone Siri app syncing across devices
+- **[Foundation Models](FoundationModels.md)** — generalized `LanguageModel` protocol supporting Apple's on-device model and third-party providers
+- **[App Intents](AppIntents.md)** — entity and intent schemas, View Annotations API, App Intents Testing
+- **[Evaluations](Evaluations.md)** — validate AI feature behavior beyond unit tests
+- **[Core AI](CoreAI.md)** — intelligence infrastructure (details still limited)
+- **[Swift 6.4](Swift.md)** — `anyAppleOS`, `@diagnose`, `weak let`, `~Sendable`, `@C`, Task Cancellation Shield
+- **[Xcode 27](Xcode.md)** — **requires macOS 27 Golden Gate on Apple silicon**
+- **Liquid Glass refinements** — stronger content diffusion, darkened edge ring, brighter specular highlights, continuous transparency slider replacing Clear/Tinted
+- **[SiriKit deprecated](SiriKit.md)** — migrate to App Intents
+- **`UIDesignRequiresCompatibility` ignored** by the OS 27 SDK — no opt-out from Liquid Glass once you rebuild
+- **macOS Golden Gate 27** — first Apple-silicon-only macOS; last release with full Rosetta 2
+- **iPadOS 27** drops all A12-class iPads; **iOS 27 drops no iPhones**
+
 ## Topics
 
 ### WWDC
@@ -97,5 +114,7 @@ View major documentation updates and highlights from WWDC, browse ongoing update
 - [Safari Release Notes](https://developer.apple.com/documentation/updates/safari_release_notes) - Learn about changes for Safari and Safari View Controller for iOS, iPadOS, macOS, and in visionOS; WKWebView for iOS, iPadOS, macOS, watchOS, and in visionOS; and Web Inspector on macOS.
 
 ---
+
+*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/Updates)*

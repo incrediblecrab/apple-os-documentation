@@ -10,6 +10,8 @@ Depending on the device they're using, people can make gestures on a touchscreen
 
 Every platform supports basic gestures like tap, swipe, and drag. Although the precise movements that make up basic gestures can vary per platform and input device, people are familiar with the underlying functionality of these gestures and expect to use them everywhere. For a list of these gestures, see Standard gestures.
 
+> **iPadOS 27+:** Split View and Slide Over now operate **inside** the windowing framework, so the gestures that invoke them run through windowing controls rather than separate multitasking modes. Re-test gesture handling across free-form window sizes and external displays.
+
 ## Topics
 
 ### Best Practices
@@ -148,5 +150,7 @@ The system provides APIs that support the familiar gestures people use with thei
 - Changed page title from Touchscreen gestures and updated to include guidance for visionOS.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/gestures)*

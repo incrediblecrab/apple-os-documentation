@@ -8,6 +8,8 @@ Notifications can give people timely and important information, whether the devi
 
 You need to get permission before sending any notification. The system lets people change this decision in settings, where they can also silence all notifications (except for government alerts in some locales).
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Notification grouping is smarter system-wide — group-thread Tapbacks collapse into a single notification, and Home consolidates camera alerts. Messages automatically retries when a send fails. Re-check how your notifications read once the system aggregates them, and avoid designs that assume one notification per event.
+
 ## Topics
 
 ### Integrating with Focus
@@ -79,5 +81,7 @@ By default, the notification settings people use for apps on their iPhone apply 
 - [The Push Notifications primer](https://developer.apple.com/videos/play/wwdc2020/10095/)
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/managing-notifications)*

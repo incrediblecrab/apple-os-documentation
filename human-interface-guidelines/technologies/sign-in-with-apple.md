@@ -12,6 +12,8 @@ You can offer Sign in with Apple in every version of your app or website across 
 
 Sign in with Apple makes it easy for people to authenticate with Face ID, Touch ID, or Optic ID and has two-factor authentication built in for an added layer of security. Apple doesn't use Sign in with Apple to profile people or their activity in apps.
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Apple Intelligence can navigate to eligible sites, sign in, and automatically rotate weak or compromised passwords. Use standard, well-labeled authentication forms so automated flows complete reliably. Passkeys remain the preferred unphishable alternative to passwords.
+
 ## Topics
 
 ### Best Practices
@@ -68,5 +70,7 @@ No additional considerations for iOS, iPadOS, macOS, tvOS, visionOS, or watchOS.
 - Consolidated guidance into one page
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/sign-in-with-apple)*

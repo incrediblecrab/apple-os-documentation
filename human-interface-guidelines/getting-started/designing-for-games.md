@@ -8,6 +8,8 @@ When people play your game on an Apple device, they dive into the world you desi
 
 As you create or adapt a game for Apple platforms, learn how to integrate the fundamental platform characteristics and patterns that help your game feel at home on all Apple devices. To learn what makes each platform unique, see Designing for iOS, Designing for iPadOS, Designing for macOS, Designing for tvOS, Designing for visionOS, and Designing for watchOS. For developer guidance, see Games Pathway.
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+, tvOS 27+:** System chrome layered over game content uses the refined Liquid Glass material. On macOS, note that **macOS 27 is Apple-silicon-only and the last release with full Rosetta 2** — ship native Apple silicon builds. Verify HUD and overlay legibility across the range of the transparency slider.
+
 ## Topics
 
 ### Jump into Gameplay
@@ -104,5 +106,7 @@ As you create or adapt a game for Apple platforms, learn how to integrate the fu
 - New page.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/designing-for-games)*

@@ -22,6 +22,8 @@ In addition, a notification related to direct communication — like a phone cal
 
 ### Best Practices
 
+> **iOS 27+:** Notifications use smarter grouping, including collapsed group-thread Tapbacks and consolidated Home camera alerts, helping reduce visual noise while preserving important updates.
+
 - **Provide concise, informative notifications** - People turn on notifications to get quick updates, so you want to provide valuable information succinctly.
 - **Avoid sending multiple notifications for the same thing, even if someone hasn't responded** - People attend to notifications at their convenience. If you send multiple notifications for the same thing, you fill up Notification Center, and people may turn off all notifications from your app.
 - **Avoid sending a notification that tells people to perform specific tasks within your app** - If it makes sense to offer simple tasks that people can perform without opening your app, you can provide notification actions. Otherwise, avoid telling people what to do because it's hard for people to remember such instructions after they dismiss the notification.
@@ -115,5 +117,7 @@ People can double-tap to respond to notifications on supported devices. When a p
 - Updated watchOS platform considerations with guidance for presenting notification responses to double tap.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/notifications)*

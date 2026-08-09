@@ -4,6 +4,8 @@ Learn about changes to Xcode.
 
 ## Overview
 
+> **Xcode 27 is in beta as of August 2026** and **requires macOS 27 Golden Gate**, which runs only on Apple silicon. Plan build machine and CI migration before adopting the OS 27 SDK. The current shipping release is Xcode 26.6 (`17F113`), released June 25, 2026.
+
 You get Xcode from the Mac App Store. It's a free download that installs directly into the Applications folder.
 
 The Apple Developer Program provides everything you need to build and distribute your apps on the App Store for iPhone, iPad, Mac, and Apple Watch. Membership includes access to beta OS releases, advanced app capabilities, and tools to develop, test, and distribute apps and Safari extensions. For more information, visit Apple Developer Program.
@@ -11,6 +13,9 @@ The Apple Developer Program provides everything you need to build and distribute
 For information about Xcode Cloud releases, see Xcode Cloud release notes.
 
 ## Topics
+
+### Xcode 27
+- [Xcode 27 Beta Release Notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) - Pre-release. Ships Swift 6.4 and the OS 27 SDKs. **Requires macOS 27 Golden Gate on Apple silicon.**
 
 ### Xcode 26
 - [Xcode 26.5 Beta 3 Release Notes](https://developer.apple.com/documentation/xcode-release-notes/xcode_26_5_release_notes) - Update your apps to use new features, and test your apps against API changes.
@@ -89,5 +94,7 @@ For information about Xcode Cloud releases, see Xcode Cloud release notes.
 - [Earlier Xcode Release Notes](https://developer.apple.com/documentation/xcode-release-notes/earlier_xcode_release_notes)
 
 ---
+
+*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/Xcode-Release-Notes)*

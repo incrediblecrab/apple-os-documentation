@@ -50,6 +50,8 @@ To support dynamic scaling and the appearance of depth, visionOS defines a point
 
 ### Best practices
 
+> **visionOS 27+:** Curved wrap-around windows and eye-based notification expansion add new spatial presentation patterns. Preserve comfortable scale, depth, and clear hierarchy when adapting existing spatial layouts.
+
 **Avoid displaying too many windows.** Too many windows can obscure people's surroundings, making them feel overwhelmed, constricted, and even uncomfortable. It can also make it cumbersome for people to relocate an app because it means moving a lot of windows.
 
 **Prioritize standard, indirect gestures.** People can make an indirect gesture without moving their hand into their field of view. In contrast, making a direct gesture requires people to touch the virtual object with their finger, which can be tiring, especially when the object is positioned at or above their line of sight. In visionOS, people use indirect gestures to perform the standard gestures they already know. When you prioritize indirect gestures, people can use them to interact with any object they look at, whatever its distance. If you support direct gestures, consider reserving them for nearby objects that invite close inspection or manipulation for short periods of time. For guidance, see Gestures > visionOS.
@@ -95,5 +97,7 @@ Not supported in iOS, iPadOS, macOS, tvOS, or watchOS.
 - New page.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/spatial-layout)*

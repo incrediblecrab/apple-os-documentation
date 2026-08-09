@@ -24,6 +24,8 @@ As you begin designing your app or game for iOS, start by understanding the foll
 - Shortcuts
 - Activity views
 
+> **iOS 27+:** Liquid Glass is refined — stronger content diffusion, a darkened edge ring, and brighter specular highlights — and a continuous **transparency slider** in Settings > Appearance replaces the OS 26 Clear/Tinted toggle. App icons gain sharper layer separation. `UIDesignRequiresCompatibility` is ignored by the iOS 27 SDK, so rebuilding opts you fully in. iOS 27 drops no iPhones.
+
 ## Topics
 
 ### Best Practices
@@ -52,5 +54,7 @@ Great iPhone experiences integrate the platform and device capabilities that peo
 - [Get to know the new design system](https://developer.apple.com/videos/play/wwdc2025/10002/)
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/designing-for-ios)*

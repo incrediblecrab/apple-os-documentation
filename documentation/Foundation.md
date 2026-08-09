@@ -8,6 +8,8 @@ Access essential data types, collections, and operating-system services to defin
 
 The Foundation framework provides a base layer of functionality for apps and frameworks, including data storage and persistence, text processing, date and time calculations, sorting and filtering, and networking. The classes, protocols, and data types defined by Foundation are used throughout the macOS, iOS, watchOS, and tvOS SDKs.
 
+> **Swift 6.4 / Xcode 27:** Availability can now be expressed once across platforms with `@available(anyAppleOS 27, *)` instead of long per-platform lists. Swift 6.4 also adds `weak let` for immutable weak references, `~Sendable` to opt out of `Sendable` inference, `@diagnose` for custom compile-time diagnostics, and a Task Cancellation Shield. See [Swift](Swift.md).
+
 ## Topics
 
 ### Fundamentals
@@ -56,5 +58,7 @@ The Foundation framework provides a base layer of functionality for apps and fra
 - **macro bundle() -> Bundle** - Returns the bundle most likely to contain resources for the calling code.
 
 ---
+
+*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/Foundation)*

@@ -8,6 +8,10 @@ Build apps, libraries, frameworks, plug-ins, and other executable code that run 
 
 Getting the best performance on Apple silicon sometimes requires making adjustments to the way you use hardware resources. Minimize your dependence on the hardware by using higher-level technologies whenever possible. For example, use Grand Central Dispatch instead of creating and managing threads yourself. Test your changes on Apple silicon to verify that your code behaves optimally.
 
+> **macOS Golden Gate 27+:** macOS 27 is the **first Apple-silicon-only macOS**, dropping the final four Intel Macs (iMac 2020, Mac Pro 2019, MacBook Pro 16-inch 2019, MacBook Pro 13-inch 2020 four-port). It is also the **last release with full Rosetta 2 support** — from macOS 28, Rosetta is expected to be retained only as a limited compatibility layer for older unmaintained games and their dependent frameworks. Replace any Intel-only binary in your distribution and build chain with a native Apple silicon build. **Xcode 27 requires macOS 27**, so build machines and CI runners must migrate first.
+
+> **Note:** The scope of Rosetta in macOS 28 reflects Apple's stated direction rather than shipped documentation. Verify against Apple's platform release notes before making irreversible plans.
+
 ## Topics
 
 ### Essentials
@@ -44,5 +48,7 @@ Getting the best performance on Apple silicon sometimes requires making adjustme
 - [Improving control flow integrity with pointer authentication](https://developer.apple.com/documentation/apple_silicon/improving_control_flow_integrity_with_pointer_authentication) - Increase confidence that your code uses pointers correctly.
 
 ---
+
+*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/apple-silicon)*

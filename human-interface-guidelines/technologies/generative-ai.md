@@ -8,6 +8,10 @@ Generative AI empowers you to enhance your app or game with dynamic content and 
 
 Generative artificial intelligence uses machine learning models to create and transform text, images, and other content. Use it to offer novel, delightful features that help people express themselves creatively, communicate effectively, and complete tasks more easily. For instance, generative AI can enable people to edit text, create imaginative stories and images, or interact with a character in a game that uses AI-generated dialog.
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** The Foundation Models framework exposes a generalized **`LanguageModel` protocol**, so apps can target Apple's on-device model or any conformant provider, including cloud models. Validate model-backed features with the new **Evaluations** framework rather than exact-match unit tests.
+>
+> **Disclose third-party AI.** App Store Review Guideline **5.1.2(i)** requires clearly disclosing where personal data is shared with third parties — **including third-party AI** — and obtaining explicit permission first. AI-edited photos carry a **SynthID watermark**.
+
 ## Topics
 
 ### Best Practices
@@ -78,5 +82,7 @@ No additional considerations for iOS, iPadOS, macOS, tvOS, visionOS, or watchOS.
 - New page.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/generative-ai)*

@@ -34,6 +34,8 @@ You can design interface icons — also called glyphs — or you can choose symb
 
 ## Standard icons
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+, tvOS 27+, watchOS 27+, visionOS 27+:** SF Symbols 8 includes over 7,000 symbols, giving you more system-provided options for clear, consistent iconography across platform appearances.
+
 For icons to represent common actions in menus, toolbars, buttons, and other places in interfaces across Apple platforms, you can use these SF Symbols.
 
 ### Editing
@@ -197,5 +199,7 @@ Designing a single, expressive image for the background fill can be a great way 
 - Updated to include guidance for visionOS.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/icons)*

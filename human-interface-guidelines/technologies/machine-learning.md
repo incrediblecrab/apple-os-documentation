@@ -10,6 +10,8 @@ In addition to providing familiar features like image recognition and content re
 
 For related guidance on how to use machine learning models to enable intelligent content creation experiences, see [Generative AI](https://developer.apple.com/design/human-interface-guidelines/generative-ai).
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** For language tasks, prefer Foundation Models, which in OS 27 generalizes to a **`LanguageModel` protocol** covering Apple's on-device model and third-party providers. Use the new **Evaluations** framework to validate non-deterministic model behavior. Disclose third-party AI data sharing and obtain permission per guideline **5.1.2(i)**.
+
 ## Topics
 
 ### Planning Your Design
@@ -185,5 +187,7 @@ Every feature has certain limitations to what it can deliver. When there's a mis
 - Consolidated guidance into one page.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/machine-learning)*

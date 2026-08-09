@@ -12,6 +12,8 @@ Using the device's camera to present the physical world onscreen live, your app 
 
 **Note:** The following guidance applies to apps that run in iOS and iPadOS. To learn about using ARKit to create immersive augmented reality experiences in visionOS, see [ARKit](https://developer.apple.com/documentation/arkit).
 
+> **iOS 27+, iPadOS 27+, visionOS 27+:** Interface chrome layered over camera or passthrough content uses the refined Liquid Glass material, with stronger content diffusion and a darkened edge ring. Because the background is live and uncontrolled, test controls against bright, dark, and rapidly changing scenes. New 3D work should target RealityKit rather than SceneKit.
+
 ## Topics
 
 ### Best Practices
@@ -188,6 +190,8 @@ With the wearer's permission, you can use ARKit in your visionOS app to detect s
 - Basic AR experience guidelines established
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/augmented-reality)*
 

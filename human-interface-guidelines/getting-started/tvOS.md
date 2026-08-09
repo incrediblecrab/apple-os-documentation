@@ -23,6 +23,8 @@ As you begin designing your app or game for tvOS, start by understanding the fol
 - Top Shelf
 - TV provider accounts
 
+> **tvOS 27+:** Liquid Glass refinements apply to the focus-driven television interface. Because tvOS is viewed at a distance and navigated by focus rather than touch, verify that **focus states remain unmistakable** against refined translucent materials — especially over bright, moving video artwork.
+
 ## Topics
 
 ### Best Practices
@@ -55,5 +57,7 @@ Great tvOS experiences integrate the platform and device capabilities that peopl
 - Refined best practices for multiuser support.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/designing-for-tvos)*

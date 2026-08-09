@@ -8,6 +8,8 @@ iPhone, iPad, and Mac offer full-screen modes that let people expand a window to
 
 Apple TV and Apple Watch don't offer full-screen modes because apps and games already fill the screen by default. Apple Vision Pro doesn't offer a full-screen mode because people can expand a window to fill more of their view or use the Digital Crown to hide passthrough and transition to a more immersive experience (for guidance, see Immersive experiences).
 
+> **iPadOS 27+:** With Split View and Slide Over folded into the windowing framework and a persistent menu bar option available, re-test full-screen transitions across free-form window sizes and external displays rather than a fixed set of multitasking states.
+
 ## Topics
 
 ### Best practices
@@ -66,5 +68,7 @@ Consider deferring system gestures to prevent accidental exits in a full-screen 
 - Enhanced guidance for playing a game in full-screen mode.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/going-full-screen)*

@@ -26,6 +26,8 @@ Controls display their information differently depending on where they appear:
 
 ### Best Practices
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Standard controls built with Xcode 27 continue to use the OS 26 Liquid Glass API surface; no new named Liquid Glass API types are required. Rebuilding with the iOS 27 SDK opts iPhone and iPad apps into the refined appearance because UIDesignRequiresCompatibility is ignored by the iOS 27 SDK.
+
 - **Offer controls for actions that provide the most benefit without having to launch your app** - For example, launching a Live Activity from a control creates an easy and seamless experience that informs someone about progress without having to navigate to your app to stay up to date.
 
 - **Update controls when someone interacts with them, when an action completes, or remotely with a push notification** - Update the contents of a control to accurately reflect the state and show if an action is still in progress.
@@ -80,5 +82,7 @@ No additional considerations for iOS or iPadOS. Not supported in macOS, watchOS,
 - New page
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/controls)*

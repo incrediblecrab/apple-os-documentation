@@ -14,6 +14,8 @@ Use MapKit to give your app a sense of place with maps and location information.
 - Respond to user interactions with well known points of interest, geographical features, and boundaries.
 - Provide text completion to make it easy for users to search for a destination or point of interest.
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Map controls and overlays render against the refined Liquid Glass material. Because map content is dense and high-contrast, verify that overlay chrome remains legible across the full transparency slider range and under Increase Contrast.
+
 ## Topics
 
 ### The MapKit APIs
@@ -43,5 +45,7 @@ Use MapKit to give your app a sense of place with maps and location information.
 - [Apple Maps Server API](https://developer.apple.com/documentation/applemapsserverapi) - Reduce API calls and conserve device power by streamlining your app's georelated searches.
 
 ---
+
+*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/MapKit)*

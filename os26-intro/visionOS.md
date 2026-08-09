@@ -4,6 +4,8 @@ Apple Vision Pro offers an infinite canvas to explore, experiment, and play — 
 
 **Platform:** visionOS 26.0+
 
+> **Generation status:** visionOS 26 is the current shipping line — **visionOS 26.6**, released July 27, 2026. visionOS 27 is in beta; see [os27-intro/visionOS.md](../os27-intro/visionOS.md).
+
 ## Overview
 
 visionOS 26.0 represents the future of spatial computing, enabling developers to create immersive experiences that seamlessly blend digital content with the physical world. This release introduces advanced spatial capabilities, enhanced performance, and new frameworks for building the next generation of applications.
@@ -88,9 +90,12 @@ Dive into the latest key technologies and capabilities:
 - **SwiftUI fix**: `.userActivity` now correctly surfaces as the current user activity
 - **Networking fix**: Resolves `CFRunLoopSource` leaks when PAC or Auto proxy discovery is configured
 
-### visionOS 26.5 (Developer Beta — Beta 4 as of May 2026)
-- Update your apps to use the new features and test against API changes
-- See the [visionOS 26.5 Beta 4 Release Notes](https://developer.apple.com/documentation/visionOS-Release-Notes/visionos-26_5-release-notes) for the latest changes
+### visionOS 26.5 and 26.6 Updates
+- visionOS 26.5 shipped during spring 2026
+- **visionOS 26.6 (July 27, 2026)** is the current shipping release of the OS 26 line
+- See the [visionOS Release Notes](https://developer.apple.com/documentation/visionos-release-notes) for the latest changes
+
+> **Looking ahead:** visionOS 27 is in developer beta as of August 2026. See the [visionOS 27 Developer Introduction](../os27-intro/visionOS.md).
 
 ## Getting Started
 
@@ -156,3 +161,5 @@ Join the [Apple Developer Program](Program.md) to access beta software, advanced
 ---
 
 *Platform requirements and feature availability may vary. Apple Vision Pro availability varies by region. Some capabilities may require specific hardware features.*
+
+*Reviewed 2026-08-09 against the OS 27 generation. See [os27-intro](../os27-intro/) for the current beta line.*

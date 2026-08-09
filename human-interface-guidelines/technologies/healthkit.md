@@ -14,6 +14,8 @@ For example, a nutrition app might ask for permission to retrieve people's weigh
 
 For developer guidance, see HealthKit.
 
+> **iOS 27+, watchOS 27+:** Cycle Tracking notifies people when logged patterns suggest **perimenopause**, with support for logging associated symptoms, and Fitness+ adds perimenopause and menopause workout categories. The Health app's Browse tab is redesigned around colorful cards. **GymKit now pairs with gym equipment directly from iPhone**, without requiring an Apple Watch.
+
 ## Topics
 
 ### Privacy Protection
@@ -72,5 +74,7 @@ No additional considerations for iOS, iPadOS, or watchOS. Not supported in macOS
 - [HKActivityRingView](https://developer.apple.com/documentation/healthkitui/hkactivityringview) - HealthKitUI
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/healthkit)*

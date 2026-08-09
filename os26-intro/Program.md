@@ -4,6 +4,8 @@ From code to customer — join the Apple Developer Program to reach customers ar
 
 **Annual Membership:** $99 USD
 
+> **Generation status:** This page covers the OS 26 generation. For OS 27 beta access, SDK requirements, and 2026 App Store and regulatory changes, see [os27-intro/Program.md](../os27-intro/Program.md).
+
 ## Overview
 
 The Apple Developer Program is your gateway to building and distributing apps across all Apple platforms. Whether you're an individual developer, a small team, or a large organization, the program provides everything you need to create exceptional experiences for Apple users worldwide.
@@ -16,12 +18,12 @@ The Apple Developer Program is your gateway to building and distributing apps ac
 Apple customers adopt new software rapidly, so you can keep innovating. Integrate the latest Apple technologies in your apps to deliver incredible experiences on Apple platforms as soon as they're released.
 
 **Early Access Includes:**
-- iOS 26.5 beta releases and developer previews
-- macOS Tahoe 26.5 beta software
-- iPadOS 26.5 beta releases
-- watchOS 26.5 beta releases
-- tvOS 26.5 beta releases
-- visionOS 26.5 beta releases
+- iOS 27 and iPadOS 27 beta releases and developer previews
+- macOS Golden Gate 27 beta software
+- watchOS 27, tvOS 27, and visionOS 27 beta releases
+- Xcode 27 pre-release toolchains
+
+> **OS 27 generation:** Developer beta 1 arrived June 8, 2026 and public beta 1 on July 13, 2026, with public releases expected in fall 2026. Apple has not announced release dates. See [os27-intro/Program.md](../os27-intro/Program.md) for OS 27 program details, SDK requirements, and 2026 policy changes.
 
 ### Access Comprehensive Services and Capabilities
 
@@ -142,3 +144,5 @@ Build apps for all Apple platforms with a single membership:
 ---
 
 *Membership fees and availability may vary by region. Some program benefits may require additional verification or approval.*
+
+*Reviewed 2026-08-09 against the OS 27 generation. See [os27-intro](../os27-intro/) for the current beta line.*

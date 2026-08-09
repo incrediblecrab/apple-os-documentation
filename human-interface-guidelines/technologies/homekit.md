@@ -18,6 +18,8 @@ Your iOS, tvOS, or watchOS app can integrate with HomeKit (and by extension the 
 
 For developer guidance, see HomeKit. If you're an MFi licensee, visit the MFi portal for guidance on naming and messaging for accessory packaging.
 
+> **iOS 27+, iPadOS 27+:** Notification grouping is smarter system-wide, and **Home consolidates camera alerts** into aggregated notifications. Re-check how your accessory and camera notifications read once the system groups them.
+
 ## Topics
 
 ### Terminology and Layout
@@ -144,5 +146,7 @@ No additional considerations for iOS, iPadOS, macOS, tvOS, visionOS, or watchOS.
 - Consolidated guidance into one page.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/homekit)*

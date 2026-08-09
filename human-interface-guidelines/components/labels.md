@@ -20,6 +20,8 @@ The term label refers to uneditable text that can appear in various places. For 
 
 ### Best Practices
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Liquid Glass now diffuses busy background content more aggressively, adds a subtle darkened edge ring, and renders brighter specular highlights, improving legibility without extra visual noise. People can tune overall translucency with the transparency slider in Settings > Appearance, and the material also responds to Reduce Transparency and Increase Contrast.
+
 - **Use a label to display a small amount of text that people don't need to edit** - If you need to let people edit a small amount of text, use a text field. If you need to display a large amount of text, and optionally let people edit it, use a text view.
 - **Prefer system fonts** - A label can display plain or styled text, and it supports Dynamic Type (where available) by default. If you adjust the style of a label or use custom fonts, make sure the text remains legible.
 - **Use system-provided label colors to communicate relative importance** - The system defines four label colors that vary in appearance to help you give text different levels of visual importance. For additional guidance, see Color.
@@ -66,5 +68,7 @@ No additional considerations for iOS, iPadOS, tvOS, or visionOS.
 - Updated guidance to reflect changes in watchOS 10.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/labels)*

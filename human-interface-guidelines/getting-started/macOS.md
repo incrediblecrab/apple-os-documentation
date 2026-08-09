@@ -23,6 +23,8 @@ As you begin designing your app or game for macOS, start by understanding the fu
 - Going full screen
 - Dock menus
 
+> **macOS Golden Gate 27+:** The first **Apple-silicon-only** macOS — the final four Intel Macs are dropped, and it is the last release with full Rosetta 2. Sidebars extend to the full window edge with refraction continuing beneath, and sidebar icons retain their tint. A continuous transparency slider in System Settings > Appearance replaces the Clear/Tinted toggle. **Xcode 27 requires macOS 27.**
+
 ## Topics
 
 ### Best Practices
@@ -56,5 +58,7 @@ Great Mac experiences integrate the platform and device capabilities that people
 - [Build an AppKit app with the new design](https://developer.apple.com/videos/play/wwdc2025/10005/)
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/designing-for-macos)*

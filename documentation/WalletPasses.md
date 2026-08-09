@@ -16,6 +16,8 @@ To enable a user to install your pass, you need to:
 
 For information on creating and building a pass, see Creating the Source for a Pass and Building a Pass. For information on distributing a pass, see Distributing and updating a pass.
 
+> **iOS 27+, iPadOS 27+, watchOS 27+:** The **Create a Pass** flow lets people generate passes themselves from the camera or manual entry, using Standard, Membership, and Event templates. Passes support 12 background colors plus 7 themed backgrounds, up to two action buttons, and a "Poster Generic" card style. If you issue passes, review how user-created passes coexist with yours in Wallet.
+
 ## Topics
 
 ### Essentials
@@ -44,5 +46,7 @@ For information on creating and building a pass, see Creating the Source for a P
 - **PersonalizationDictionary** - An object that contains the information you use to personalize a pass.
 
 ---
+
+*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/WalletPasses)*

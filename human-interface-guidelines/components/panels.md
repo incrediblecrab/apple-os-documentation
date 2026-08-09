@@ -14,6 +14,8 @@ When your app runs in other platforms, consider using a modal view to present su
 
 ### Best Practices
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Liquid Glass now diffuses busy background content more aggressively, adds a subtle darkened edge ring, and renders brighter specular highlights, improving legibility without extra visual noise. People can tune overall translucency with the transparency slider in Settings > Appearance, and the material also responds to Reduce Transparency and Increase Contrast.
+
 - **Use a panel to give people quick access to important controls or information related to the content they're working with** - For example, you might use a panel to provide controls or settings that affect the selected item in the active document or window.
 - **Consider using a panel to present inspector functionality** - An inspector displays the details of the currently selected item, automatically updating its contents when the item changes or when people select a new item. In contrast, if you need to present an Info window — which always maintains the same contents, even when the selected item changes — use a regular window, not a panel. Depending on the layout of your app, you might also consider using a split view pane to present an inspector.
 - **Prefer simple adjustment controls in a panel** - As much as possible, avoid including controls that require typing text or selecting items to act upon because these actions can require multiple steps. Instead, consider using controls like sliders and steppers because these components can give people more direct control.
@@ -50,5 +52,7 @@ Not supported in iOS, iPadOS, tvOS, visionOS, or watchOS.
 - [hudWindow](https://developer.apple.com/documentation/appkit/nswindow/1419215-hudwindow) - AppKit
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/panels)*

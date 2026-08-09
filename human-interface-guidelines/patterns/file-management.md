@@ -10,6 +10,8 @@ Document-based apps — such as Pages, Keynote, Photos, and Preview — help peo
 
 People also expect to browse documents without first opening a document-based app. On a Mac, for example, people use the Finder to access the macOS file system; on iPhone, iPad, and Apple Vision Pro, people use the Files app to manage the documents and files on their device. In watchOS and tvOS, people don't typically create, edit, or manage documents, so these systems don't provide a document-browsing interface.
 
+> **iOS 27+, iPadOS 27+:** File uploads to iCloud or third-party services and long photo or video exports **continue in the background** when someone leaves your app or locks the device. Design long-running transfer and export flows to survive backgrounding rather than pausing or failing. Files also gains more robust in-place document viewing and smarter quick actions.
+
 ## Topics
 
 ### Creating and opening files
@@ -124,5 +126,7 @@ No additional considerations.
 - Updated to include guidance for visionOS.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/file-management)*

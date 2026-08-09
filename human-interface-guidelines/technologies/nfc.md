@@ -8,6 +8,8 @@ Near-field communication (NFC) allows devices within a few centimeters of each o
 
 iOS apps running on supported devices can use NFC scanning to read data from electronic tags attached to real-world objects. For example, a person can scan a toy to connect it with a video game, a shopper can scan an in-store sign to access coupons, or a retail employee can scan products to track inventory.
 
+> **iOS 27+:** Wallet's **Create a Pass** lets people digitize tickets, memberships, gift cards, and loyalty cards themselves. If you issue passes, review how user-created passes coexist with yours.
+
 ## Topics
 
 ### In-App Tag Reading
@@ -49,5 +51,7 @@ Note that background reading isn't available when an NFC scanning sheet is visib
 - [Core NFC](https://developer.apple.com/documentation/corenfc) - Core NFC
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/nfc)*

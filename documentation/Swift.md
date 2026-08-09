@@ -29,6 +29,28 @@ If you're new to Swift, read The Swift Programming Language for a quick tour, a 
 
 Swift is developed in the open. To learn more about the open source Swift project and community, visit Swift.org.
 
+## What's New in Swift 6.4
+
+Swift 6.4 ships with the Xcode 27 toolchain.
+
+| Feature | What it does |
+|---|---|
+| `@available(anyAppleOS 27, *)` | A single availability spelling across all Apple platforms, replacing long per-platform availability lists |
+| `@diagnose` | Author custom compile-time diagnostics that fire when an API is misused |
+| `weak let` | Immutable weak references, eliminating a class of accidental reassignment bugs |
+| `~Sendable` | Explicitly opt a type out of `Sendable` inference |
+| `@C` | Improved C interoperability declarations |
+| Task Cancellation Shield | Protect a critical section from cancellation mid-flight |
+
+```swift
+@available(anyAppleOS 27, *)
+func refinedGlassPresentation() { }
+```
+
+**Toolchain requirements**
+
+Swift 6.4 arrives with Xcode 27, which **requires macOS 27 Golden Gate on Apple silicon**. There is no supported configuration for running the Xcode 27 toolchain on macOS Tahoe 26 or on Intel hardware.
+
 ## Topics
 
 ### Essentials
@@ -82,5 +104,7 @@ Swift is developed in the open. To learn more about the open source Swift projec
 - **detach** functions - Deprecated, available only for source compatibility reasons
 
 ---
+
+*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/Swift)*

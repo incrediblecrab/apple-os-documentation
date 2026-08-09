@@ -9,6 +9,8 @@ To learn more about CareKit, see [Research & Care > CareKit](https://developer.a
 
 CareKit 2.0 contains two projects, CareKit UI and CareKit Store. CareKit UI provides a wide variety of prebuilt views you can use to create a custom CareKit app. CareKit Store defines a database scheme that incorporates CareKit entities — such as patients, care plans, tasks, and contacts — so you can store and manage data on the patient's device. CareKit 2.0 provides seamless synchronization between your database and the UI, so you can always keep a care plan up to date. For developer guidance, see [CareKit](https://developer.apple.com/documentation/carekit).
 
+> **iOS 27+, watchOS 27+:** Cycle Tracking adds **perimenopause** notifications and symptom logging, and the Health app's Browse tab is redesigned around colorful cards. Care plans surfacing Health data should account for the new categories and layout.
+
 ## Topics
 
 ### Data and Privacy
@@ -182,5 +184,7 @@ No additional considerations for iOS or iPadOS. Not supported in macOS, tvOS, vi
 - Consolidated guidance into one page.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/carekit)*

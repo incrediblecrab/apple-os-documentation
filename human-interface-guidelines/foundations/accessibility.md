@@ -20,6 +20,8 @@ As you design your app, audit the accessibility of your interface. Use Accessibi
 
 ### Vision
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** The transparency slider in Settings > Appearance sets the baseline for Liquid Glass translucency, and Reduce Transparency and Increase Contrast push glass farther toward opacity and separation for accessibility.
+
 The people who use your interface may be blind, color blind, or have low vision or light sensitivity. They may also be in situations where lighting conditions and screen brightness affect their ability to interact with your interface.
 
 **Support larger text sizes.** Make sure people can adjust the size of your text or icons to make them more legible, visible, and comfortable to read. Ideally, give people the option to enlarge text by at least 200 percent (or 140 percent in watchOS apps). Your interface can support font size enlargement either through custom UI, or by adopting Dynamic Type. Dynamic Type is a systemwide setting that lets people adjust the size of text for comfort and legibility. For more guidance, see [Supporting Dynamic Type](https://developer.apple.com/design/human-interface-guidelines/typography#Supporting-Dynamic-Type).
@@ -189,5 +191,7 @@ For additional guidance, see [Create accessible spatial experiences](https://dev
 - Updated to include guidance for visionOS.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/accessibility)*

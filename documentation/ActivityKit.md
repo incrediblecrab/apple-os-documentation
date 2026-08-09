@@ -23,6 +23,8 @@ However, Live Activities use a different mechanism to receive updates compared t
 
 **Note**: visionOS doesn't support Live Activities. Requests to start a Live Activity from a compatible iPad or iPhone app fail.
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Live Activities render against the refined Liquid Glass material. Notification grouping is smarter system-wide — group-thread Tapbacks collapse into a single notification, and Home consolidates camera alerts — so re-check how your activity updates read when the system aggregates them.
+
 ## Topics
 
 ### Essentials
@@ -50,5 +52,7 @@ However, Live Activities use a different mechanism to receive updates compared t
 - **WidgetKit** - Extend the reach of your app by creating widgets, watch complications, Live Activities, and controls.
 
 ---
+
+*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/ActivityKit)*

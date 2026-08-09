@@ -8,6 +8,8 @@ Work with image and video assets that the Photos app manages, including those fr
 
 PhotoKit is the combination of the Photos and PhotosUI frameworks, which together enable you to access image and video assets that the Photos app manages. You might use PhotoKit to edit or display a person's photos, or to manage collections of assets such as albums, Moments, and Shared Albums. The framework provides access to photos on the person's device and in iCloud.
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Photos gains AI editing — **Spatial Reframing** changes a photo's apparent camera angle after capture using Portrait mode depth data, and the **Extend** tool expands an image beyond its original borders (capped at 25% per side, once per image). Clean Up background reconstruction is substantially improved. All AI-edited photos carry a **SynthID watermark**, which matters if your app inspects or re-encodes edited assets. Photos also adds keywords and star ratings, and Shared Albums now work with Android and Windows users.
+
 ## Topics
 
 ### Frameworks
@@ -35,5 +37,7 @@ Browse articles that cover high-level Photos and PhotosUI tasks.
 - [Creating Photo Editing Extensions](https://developer.apple.com/documentation/photokit/creating_photo_editing_extensions) - Provide custom functionality in the Photos app by bundling an app extension.
 
 ---
+
+*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/PhotoKit)*

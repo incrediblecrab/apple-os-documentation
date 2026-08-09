@@ -14,6 +14,8 @@ A sidebar requires a large amount of vertical and horizontal space. When space i
 
 ### Best Practices
 
+> **iPadOS 27+, macOS Golden Gate 27+:** Sidebars extend to the full window edge with refraction continuing beneath them, and sidebar icons retain their tint color. The refined glass treatment also responds to the transparency slider and accessibility contrast settings.
+
 - **Extend content beneath the sidebar** - In iOS, iPadOS, and macOS, as with other controls such as toolbars and tab bars, sidebars float above content in the Liquid Glass layer. To reinforce the separation and floating appearance of the sidebar, extend content beneath it either by letting it horizontally scroll or applying a background extension view, which mirrors adjacent content to give the impression of stretching it under the sidebar. For developer guidance, see [backgroundExtensionEffect()](https://developer.apple.com/documentation/swiftui/view/backgroundextensioneffect()).
 
 - **Let people customize the contents when possible** - A sidebar lets people navigate to important areas in your app, so it works well when people can decide which areas are most important and in what order they appear.
@@ -85,5 +87,7 @@ Developer note: To display a sidebar only, use NavigationSplitView to present a 
 - Updated to include guidance for visionOS
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/sidebars)*

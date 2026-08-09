@@ -24,6 +24,8 @@ As you begin designing your app or game for visionOS, start by understanding the
 
 > **Important:** When building your app for Apple Vision Pro, be sure to consider the unique characteristics of the device and its spatial computing environment, and pay special attention to your user's safety; for more details about these characteristics, see [Apple Vision Pro User Guide](https://support.apple.com/guide/apple-vision-pro/welcome/visionos). For example, Apple Vision Pro should not be used while operating a vehicle or heavy machinery. The device is also not designed to be used while moving around unsafe environments such as near balconies, streets, stairs, or other potential hazards. Note that Apple Vision Pro is designed to be fit and used only by individuals 13 years of age or older.
 
+> **visionOS 27+:** Windows and ornaments use the refined Liquid Glass material. In passthrough the background is the uncontrolled real world, so validate legibility in bright, dark, and high-motion environments rather than a fixed test scene. Reduce Transparency, Increase Contrast, and Reduce Motion carry outsized importance in an immersive context.
+
 ## Topics
 
 ### Best Practices
@@ -72,5 +74,7 @@ Great visionOS apps and games are approachable and familiar, while offering extr
 - New page.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/designing-for-visionos)*

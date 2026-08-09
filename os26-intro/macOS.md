@@ -4,6 +4,8 @@ Build great apps and games for macOS that take full advantage of the powerful ca
 
 **Platform:** macOS Tahoe 26.0+
 
+> **Generation status:** macOS Tahoe 26 is the current shipping line — **macOS Tahoe 26.6.1**, released August 6, 2026. It is the **final macOS release supporting Intel Macs**. macOS Golden Gate 27 is Apple-silicon-only; see [os27-intro/macOS.md](../os27-intro/macOS.md).
+
 ## Overview
 
 macOS Tahoe 26.0 represents a significant evolution in desktop computing, bringing Liquid Glass design, Apple Intelligence, and powerful new capabilities to Mac. This release emphasizes performance, creativity, and seamless integration across the Apple ecosystem.
@@ -112,3 +114,5 @@ Join the [Apple Developer Program](Program.md) to access beta software, advanced
 ---
 
 *Platform requirements and feature availability may vary. Some capabilities and services may not be available in all regions or all languages.*
+
+*Reviewed 2026-08-09 against the OS 27 generation. See [os27-intro](../os27-intro/) for the current beta line.*

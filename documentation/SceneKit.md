@@ -12,6 +12,10 @@ SceneKit combines a high-performance rendering engine with a descriptive API for
 
 > **Note:** In visionOS, you can display SceneKit content only in 2D views and textures. For information about how to create immersive 3D content, see Creating fully immersive experiences in your app.
 
+> **Deprecated.** Apple has directed new 3D work to [RealityKit](RealityKit.md). SceneKit continues to function for existing projects, but treat it as maintenance-only for new development.
+
+> **Note:** Report the deprecation status against Apple's current SceneKit documentation before relying on a specific removal timeline; no removal date has been published.
+
 ## Topics
 
 ### Essentials
@@ -83,5 +87,7 @@ SceneKit combines a high-performance rendering engine with a descriptive API for
 - **SceneKit Constants** - Constants used throughout the SceneKit framework.
 
 ---
+
+*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/SceneKit)*

@@ -56,6 +56,8 @@ Controls don’t use timelines to update their content. Instead, your controls u
 Create a focused, glanceable design
 Widgets, watch complications, Live Activities, and controls are small and require a focused, glanceable design. For design guidance, refer to Human Interface Guidelines > Widgets, Human Interface Guidelines > Complications, Human Interface Guidelines > Live Activities, and Human Interface Guidelines > Controls.
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+, watchOS 27+:** Widgets render against the refined Liquid Glass material — stronger content diffusion, a darkened edge ring, and brighter specular highlights. Because people can now tune translucency with a continuous slider in Settings > Appearance, validate widget legibility across the full range and under Reduce Transparency and Increase Contrast.
+
 ## Topics
 
 ### Essentials
@@ -180,5 +182,7 @@ Widgets, watch complications, Live Activities, and controls are small and requir
 - **ControlPushHandler** - A type that can receive push information about user-configured controls.
 - **ControlPushInfo** - A structure that contains information about the push token of a user-configured control.
 ---
+
+*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/WidgetKit)*

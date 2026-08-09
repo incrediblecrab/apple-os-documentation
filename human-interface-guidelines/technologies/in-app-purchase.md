@@ -21,6 +21,8 @@ For marketing and business guidance, see In-app purchase and Auto-renewable subs
 
 **Note:** For apps with exceptionally large, frequently updated catalogs of one-time purchases or subscription content from multiple creators, or apps that provide subscriptions with optional add-on content as a single purchase within the app, the Advanced Commerce API allows you to manage your In-App Purchase catalog directly. See the Advanced Commerce API App Store support page for an overview, and see Advanced Commerce API for developer guidance.
 
+> **2026 App Store Review Guidelines:** **3.2.2(ix)** caps loan apps at **36% APR** with a minimum repayment term over 60 days, and **5.1.1(ix)** adds crypto exchanges to highly-regulated fields. In the US storefront, external purchase links and buttons are permitted without an entitlement under **3.1.1**; the Supreme Court granted certiorari in *Apple v. Epic Games* in June 2026 and the outcome is pending. Alternative distribution is available in the **EU, Brazil, and Japan**. See [os27-intro/Program.md](../../os27-intro/Program.md).
+
 ## Topics
 
 ### Best Practices
@@ -122,5 +124,7 @@ The sign-up screen in your watchOS app needs to display the same set of informat
 - Added a guideline for displaying the total billing price for every in-app purchase item and consolidated guidance into one page.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/in-app-purchase)*

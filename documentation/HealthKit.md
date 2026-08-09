@@ -22,6 +22,8 @@ HealthKit is also designed to manage and merge data from multiple sources. For e
 
 **Note:** Because health data may contain sensitive, personal information, apps must receive permission from the user to read data from or write data to the HealthKit store. They must also take steps to protect that data at all times. For more information, see Protecting user privacy.
 
+> **iOS 27+, iPadOS 27+, watchOS 27+:** Cycle Tracking notifies people when logged patterns suggest **perimenopause**, with support for logging associated symptoms. The Health app's Browse tab is redesigned around colorful cards. **GymKit now pairs with gym equipment directly from iPhone**, without requiring an Apple Watch to be present. Workout route and treadmill distance accuracy are improved.
+
 ## Topics
 
 ### Essentials
@@ -67,5 +69,7 @@ HealthKit is also designed to manage and merge data from multiple sources. For e
 - **HealthKit Variables**
 
 ---
+
+*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/HealthKit)*

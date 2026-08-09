@@ -12,6 +12,8 @@ Keyboard users often appreciate using keyboard shortcuts to speed up their inter
 
 Apple defines standard keyboard shortcuts to work consistently across the system and most apps, helping people transfer their knowledge to new experiences. Some apps define custom keyboard shortcuts for the app-specific commands people use most; most games define custom key bindings that make it quick and efficient to use the keyboard to control the game.
 
+> **iOS 27+, iPadOS 27+:** A **Write with Siri** button appears above the keyboard in Messages, offering systemwide composition, proofreading, and style-matched feedback. Where your app accepts substantial text, expect assisted drafts and provide clear review affordances.
+
 ## Topics
 
 ### Best Practices
@@ -113,5 +115,7 @@ Not supported in watchOS.
 - Updated to include guidance for visionOS.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/keyboards)*

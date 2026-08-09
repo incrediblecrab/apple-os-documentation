@@ -16,6 +16,8 @@ Use the WebKit framework to integrate richly styled web content into your app's 
 
 For more information about WebKit, go to https://webkit.org.
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Safari 27 adds automatic tab grouping by topic, extension generation from a natural-language description, and webpage change monitoring that alerts people to changes such as price drops or restocks. Verify API-level detail against the [Safari release notes](safari-release-notes.md) before depending on it.
+
 ## Topics
 
 ### WebKit APIs
@@ -35,5 +37,7 @@ For more information about WebKit, go to https://webkit.org.
 - [Testing with WebDriver in Safari](https://developer.apple.com/documentation/WebKit/testing_with_webdriver_in_safari) - Enable WebDriver and run a test.
 
 ---
+
+*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/WebKit)*

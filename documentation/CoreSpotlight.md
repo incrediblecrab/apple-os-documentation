@@ -16,6 +16,10 @@ In addition to indexing content, iOS provides additional strategies for making y
 
 - Use web markup to index content on your web server in Apple's server-side index, which makes the data available to all iOS users in Spotlight and Safari search results. For more information, see Mark Up Web Content in App Search Programming Guide.
 
+## What's New in the OS 27 SDK
+
+App Intents entity schemas can contribute app content to Spotlight's semantic index. On macOS Golden Gate 27, Siri AI is built into Spotlight with rebuilt search infrastructure for natural-language queries, plus an "Ask Siri" escalation path for complex queries.
+
 ## Topics
 
 ### Essentials
@@ -57,5 +61,7 @@ In addition to indexing content, iOS provides additional strategies for making y
 - **CoreSpotlightAPIVersion** - The API version number for Core Spotlight.
 
 ---
+
+*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/CoreSpotlight)*

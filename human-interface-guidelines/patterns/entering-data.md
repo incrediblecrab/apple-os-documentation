@@ -11,6 +11,8 @@ Entering information can be a tedious process regardless of the interaction meth
 - Pre-gathering as much information as possible to minimize the amount of data that people need to supply
 - Supporting all available input methods so people can choose the method that works for them
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** **Write with Siri** offers systemwide composition, proofreading, and feedback that matches the person's writing style, appearing as a dedicated button above the keyboard in Messages. Where your app accepts substantial text, expect people to arrive with assisted drafts and design review affordances accordingly.
+
 ## Topics
 
 ### Best practices
@@ -59,5 +61,7 @@ Consider using an expansion tooltip to show the full version of clipped or trunc
 - Updated to include guidance for visionOS.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/entering-data)*

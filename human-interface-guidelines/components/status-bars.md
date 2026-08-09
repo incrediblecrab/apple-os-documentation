@@ -12,6 +12,8 @@ A status bar appears along the upper edge of the screen and displays information
 
 ### Best Practices
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Scroll-under toolbars automatically become uniform and less translucent while content passes beneath them, improving control legibility over busy content. This behavior uses the existing Liquid Glass API surface and responds to the transparency slider and accessibility contrast settings.
+
 - **Obscure content under the status bar** - By default, the background of the status bar is transparent, allowing content beneath to show through. This can make it difficult to see the information presented in the status bar. If controls are visible behind the status bar, people may attempt to interact with them and be unable to do so. Be sure to keep the status bar readable and don't imply that content behind it is interactive. There are several common techniques for doing this:
   - Use a top toolbar that automatically displays a status bar background.
   - Display a custom image, like a gradient or solid color, behind the status bar.
@@ -38,5 +40,7 @@ No additional considerations for iOS or iPadOS. Not supported in macOS, tvOS, vi
 - Guidelines for full-screen media handling
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/status-bars)*

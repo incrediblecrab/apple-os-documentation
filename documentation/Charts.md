@@ -12,6 +12,8 @@ There are many ways you can use Swift Charts to communicate patterns or trends i
 
 Swift Charts supports localization and accessibility features. You can also override default behavior to customize your charts by using chart modifiers. For example, you can create a dynamic experience by adding animations to your charts.
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+, watchOS 27+, visionOS 27+:** Charts drawn over or near glass surfaces should be validated across the range of the new transparency slider in Settings > Appearance, and under Reduce Transparency and Increase Contrast. Do not rely on translucency to distinguish series.
+
 ## Topics
 
 ### Essentials
@@ -107,5 +109,7 @@ Swift Charts supports localization and accessibility features. You can also over
 - **ChartScrollTargetBehaviorContext** - Contextual information that you can use to determine how to best adjust how charts scroll.
 
 ---
+
+*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/Charts)*

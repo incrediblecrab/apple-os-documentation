@@ -4,6 +4,9 @@ People expect to enjoy rich video experiences on their devices, regardless of th
 
 ## Overview
 
+> **iOS 27+:** CarPlay gains **native video app support**, with playback restricted to when the vehicle is parked. If you ship a video app targeting CarPlay, design explicitly for the parked-state requirement.
+
+
 The system provides video players designed for you to use to embed playback experiences within your app or game in iOS, iPadOS, macOS, tvOS, and visionOS. You can also offer your content through the TV app in these platforms, which gives people a convenient and consistent viewing experience.
 
 The system-provided video players support different aspect-ratio playback modes and in most platforms, Picture in Picture (PiP) viewing mode. Although people can switch modes during playback, by default, the system selects one of the following playback modes based on a video's aspect ratio:
@@ -135,3 +138,5 @@ In watchOS, the system manages video playback. Apps can play short video clips w
 |------|---------|
 | September 12, 2023 | Corrected the recommended width for a thumbnail in visionOS. |
 | June 21, 2023 | Updated to include guidance for visionOS. |
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*

@@ -8,6 +8,8 @@ AirPlay lets people stream media content wirelessly from iOS, iPadOS, macOS, and
 
 AirPlay enables wireless streaming of audio, video, and screen mirroring from Apple devices to compatible receivers. It provides a seamless way for users to extend their media experience beyond their device's screen.
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+, tvOS 27+:** Playback chrome uses the refined Liquid Glass material. On iPadOS 27, external displays support per-display app pinning and resizable iPhone apps, so re-test how your playback UI behaves across displays.
+
 ## Topics
 
 ### Best Practices
@@ -98,5 +100,7 @@ No additional considerations for iOS, iPadOS, macOS, tvOS, or visionOS. Not supp
 - Consolidated guidance into one page
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/airplay)*

@@ -28,6 +28,8 @@ Consider creating an App Clip to let people experience your app or game before c
 
 For developer guidance, see [App Clips](https://developer.apple.com/documentation/app_clips).
 
+> **iOS 27+, iPadOS 27+:** App Clips benefit from App Intents **entity schemas**, which contribute content to Spotlight's semantic index so the system can reason about and act on it. **2026 guideline 4.7** brings HTML5/JavaScript mini apps and mini games explicitly into scope, and **4.7.2** prohibits extending or exposing native platform APIs without Apple's prior permission.
+
 ## Topics
 
 ### Best Practices
@@ -116,5 +118,7 @@ App Clip Codes are the best way for people to discover your App Clip. Their dist
 - Consolidated guidance into one page
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/app-clips)*

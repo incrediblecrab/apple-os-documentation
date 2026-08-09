@@ -10,6 +10,8 @@ On all Apple platforms, the system-provided Settings app lets people adjust thin
 
 When necessary, you can provide a custom settings area within your app or game to offer general settings that affect your overall experience, like interface style or game-saving behavior. If you need to offer settings that affect only a specific task, you can provide these options within the task itself, so people don't have to leave the experience to customize it.
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** A continuous **transparency slider** at Settings > Appearance (System Settings > Appearance on macOS) replaces the OS 26 Clear/Tinted toggle. Translucency is now a spectrum people control, not two presets — your settings screens and every other surface must remain legible across the full range, and under Reduce Transparency and Increase Contrast.
+
 ## Topics
 
 ### Best Practices
@@ -75,5 +77,7 @@ In watchOS, apps and games don't add custom settings to the system-provided Sett
 - Reorganized some guidance into new topics and added game-specific examples
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/settings)*

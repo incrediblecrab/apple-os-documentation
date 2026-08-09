@@ -4,6 +4,8 @@ Bring the best of your app to the wrist. Take advantage of health and fitness AP
 
 **Platform:** watchOS 26.0+
 
+> **Generation status:** watchOS 26 is the current shipping line — **watchOS 26.6**, released July 27, 2026. watchOS 27 is in beta; see [os27-intro/watchOS.md](../os27-intro/watchOS.md).
+
 ## Overview
 
 watchOS 26.0 transforms the wrist experience with enhanced health capabilities, intelligent widget integration, and the beautiful new Liquid Glass design. This release focuses on delivering timely, relevant information in glanceable interactions while maintaining the personal and intimate nature of Apple Watch.
@@ -135,3 +137,5 @@ Join the [Apple Developer Program](Program.md) to access beta software, advanced
 ---
 
 *Platform requirements and feature availability may vary. Some health features may require specific Apple Watch models. Health data access requires user permission.*
+
+*Reviewed 2026-08-09 against the OS 27 generation. See [os27-intro](../os27-intro/) for the current beta line.*

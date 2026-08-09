@@ -14,6 +14,8 @@ Important: To help preserve people's privacy, visionOS doesn't provide direct in
 
 visionOS also supports focus effects that help people navigate apps and the system using a connected input device like a keyboard or game controller. Focus effects are unrelated to the hover effect; to learn more, see Focus and selection.
 
+> **visionOS 27+:** Eye-driven targeting composites against the refined Liquid Glass material used for windows and ornaments. In passthrough the background is the uncontrolled real world — validate hover and selection feedback in bright, dark, and high-motion environments, and honor Reduce Transparency and Reduce Motion.
+
 ## Topics
 
 ### Best Practices
@@ -90,5 +92,7 @@ Not supported in iOS, iPadOS, macOS, tvOS, or watchOS.
 - New page.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/eyes)*

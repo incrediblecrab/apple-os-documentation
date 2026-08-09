@@ -9,6 +9,8 @@ When you use Mac Catalyst to create a Mac version of your iPad app, you give peo
 **Developer note**  
 To discover how views and controls can change when you create a Mac app using Mac Catalyst, download UIKit Catalog: Creating and customizing views and controls and build the macOS target.
 
+> **macOS Golden Gate 27+:** macOS 27 is **Apple-silicon-only** and the last release with full Rosetta 2 support. **Xcode 27 requires macOS 27**, so migrate build machines and CI runners before adopting the OS 27 SDK. Catalyst apps adopt the refined Liquid Glass appearance on recompile, with no supported opt-out.
+
 ## Topics
 
 ### Before You Start
@@ -100,5 +102,7 @@ To support keyboard shortcuts for menu commands, use UIKeyCommand. To add and re
 - Consolidated guidance into one page.
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/mac-catalyst)*

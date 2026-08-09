@@ -8,6 +8,10 @@ Work with audiovisual assets, control device cameras, process audio, and configu
 
 AVFoundation combines several major technology areas that together encompass a wide range of tasks for inspecting, playing, capturing, and processing audiovisual media on Apple platforms.
 
+## What's New in the OS 27 SDK
+
+Apple Music supports Hi-Res Lossless playback up to 24-bit/192 kHz on supported hardware in tvOS 27. CarPlay also gains native video apps, with playback only while parked.
+
 ## Topics
 
 ### Essentials
@@ -63,5 +67,7 @@ AVFoundation combines several major technology areas that together encompass a w
 ### Enumerations
 - **AVCaptureCameraLensSmudgeDetectionStatus**
 ---
+
+*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/AVFoundation)*

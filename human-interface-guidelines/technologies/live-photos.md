@@ -8,6 +8,8 @@ Live Photos lets people capture favorite memories in a sound- and motion-rich in
 
 When Live Photos is available, the Camera app captures additional content — including audio and extra frames — before and after people take a photo. People press a Live Photo to see it spring to life.
 
+> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Photos gains AI editing including Spatial Reframing and Extend, and all AI-edited photos carry a **SynthID watermark**. Photos also adds keywords and star ratings for organization.
+
 ## Topics
 
 ### Best Practices
@@ -40,5 +42,7 @@ When Live Photos is available, the Camera app captures additional content — in
 - [LivePhotosKit JS](https://developer.apple.com/documentation/livephotoskitjs) - LivePhotosKit JS
 
 ---
+
+*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/live-photos)*

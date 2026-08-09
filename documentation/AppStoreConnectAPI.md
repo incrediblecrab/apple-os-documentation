@@ -27,6 +27,8 @@ The API provides resources to automate these areas of App Store Connect:
 
 The App Store Connect API returns responses from resources that are consistent JSON data and contain links to additional related resources. Use these relationships to navigate to the related resources—for example, to find beta testers within specific beta groups in TestFlight. Apply filtering to requests on specific resources to refine the response.
 
+> **2026:** App Store Connect API 4.4.1 shipped July 15, 2026, and App Store Connect 3.2 on April 1, 2026. TestFlight 4.3 shipped July 21, 2026 (10,000 external testers, 100 internal). App Store Connect uploads have required the OS 26 SDK or later since April 28, 2026; **no OS 27 SDK deadline has been announced**. See [os27-intro/Program.md](../os27-intro/Program.md).
+
 ## Topics
 
 ### Essentials
@@ -120,5 +122,7 @@ The App Store Connect API returns responses from resources that are consistent J
 - **TerritoryCode** - The App Store territory codes.
 
 ---
+
+*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/AppStoreConnectAPI)*
