@@ -23,24 +23,79 @@
 !bot-instructions.md
 
 # Exclude system files
-.DS_Store
 # --- OS / editor junk & local env (added 2026-08-04) ---
-.DS_Store?
-._*
 .AppleDouble
 .LSOverride
-.Spotlight-V100
-.Trashes
-Thumbs.db
 ehthumbs.db
 desktop.ini
-.env
 .env.local
 .env.*.local
 
 # --- project-specific (auto-added 2026-08-04) ---
-DerivedData/
-*.xcuserstate
-xcuserdata/
-.swiftpm/
 *.moved-aside
+
+# --- consolidated from os26-liquid-glass-example/.gitignore ---
+**/*.xcodeproj/project.xcworkspace/*
+!**/*.xcodeproj/project.xcworkspace/xcshareddata
+**/*.xcodeproj/project.xcworkspace/xcshareddata/*
+!**/*.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
+**/*.playground/playground.xcworkspace/*
+!**/*.playground/playground.xcworkspace/xcshareddata
+**/*.playground/playground.xcworkspace/xcshareddata/*
+!**/*.playground/playground.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
+
+# ===== BEGIN standardized =====
+# --- OS ---
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+
+# --- Editors / IDE ---
+# `**/.vscode/*` (not `.vscode/`): the `/*` keeps the dir itself un-excluded so
+# the negations below still work, and `**/` makes it apply at every depth
+# (a pattern with an internal slash is otherwise anchored to this file's dir).
+**/.vscode/*
+!**/.vscode/launch.json
+!**/.vscode/tasks.json
+!**/.vscode/extensions.json
+!**/.vscode/modular-clipboard.json
+.vscode-test/
+.idea/
+*.swp
+*.swo
+*~
+.hidden-items.json
+.pseudo-folders.json
+
+# --- AI assistants ---
+.claude/
+.cursor/
+CLAUDE.local.md
+
+# --- Environment / secrets ---
+.env
+.env.*
+!.env.example
+*.pem
+*.p8
+*.key
+*.keystore
+
+# --- Logs ---
+*.log
+
+# --- Caches / temp ---
+.cache/
+*.tmp
+*.temp
+
+# --- Xcode / Swift ---
+DerivedData/
+.build/
+xcuserdata/
+*.xcuserstate
+.swiftpm/
+# ===== END standardized =====
