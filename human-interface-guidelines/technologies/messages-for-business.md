@@ -1,6 +1,6 @@
 # Messages for Business
 
-Messages for Business helps customers connect with businesses through the Messages app in iOS, iPadOS, macOS, visionOS, and watchOS.
+Apple Messages for Business lets customers communicate with participating businesses through the Messages app.
 
 **Platforms:** iOS | iPadOS | macOS | visionOS | watchOS
 
@@ -8,17 +8,17 @@ Messages for Business helps customers connect with businesses through the Messag
 
 Using the Messages app, people can contact your company to ask questions, get support, schedule appointments, make payments with Apple Pay, and more.
 
-People can use apps, features, and services like Maps and Spotlight to discover businesses and seamlessly initiate conversations with them. The familiar Messages app interface on iPhone, iPad, Mac, and Apple Watch ensures that customer interaction is intuitive and efficient, and the informality of messaging produces a customer service experience that feels personal and meaningful.
+People can discover participating businesses through entry points such as Maps, websites, app buttons, and Message Suggest. Design conversations for asynchronous replies: customers should be able to return later without repeating information or being pressured to respond immediately.
 
-For developer guidance, and to sign up, see [Messages for Business Accounts](https://developer.apple.com/documentation/businesschat).
+Start with an Apple-approved Messaging Service Provider (MSP), register a test account, and complete Apple's experience and commercial-account review before enabling public entry points. See [Messages for Business Accounts](https://register.apple.com/messages) and the [current account guide](https://register.apple.com/resources/messages/messaging-documentation/).
 
-> **iOS 27+, iPadOS 27+:** Messages adds systemwide **Write with Siri** assistance and automatic retry on send failure, and notification grouping is smarter. Business conversations should tolerate aggregated notification presentation.
+This page distinguishes the current account guide — version 3.1, updated July 21, 2026 — from historical HIG material preserved in an [Apple article snapshot captured May 21, 2025](https://web.archive.org/web/20250521171308id_/https://developer.apple.com/tutorials/data/design/human-interface-guidelines/messages-for-business.json). The platform list above records that archived HIG's scope, including visionOS; current client and entry-point requirements come from the account guide and your MSP. The former HIG endpoint's absence isn't a service-deprecation notice.
 
 ## Topics
 
 ### Branding
 
-Although Messages for Business conversations occur within the experience of the Messages app, you can still leverage your logo and color scheme to call attention to your brand and build a memorable conversation experience.
+Use approved business branding within the conversation experience, without implying that your business is Apple. Verify how supported branding options appear in the clients you support rather than expecting every historical header treatment to remain configurable.
 
 - **Strive for uniqueness** - It's critical to avoid building an experience that might cause people to confuse your brand with other brands. In particular, your logo design and use of color must never cause people to think they're conversing with Apple.
 
@@ -26,7 +26,7 @@ Although Messages for Business conversations occur within the experience of the 
 
 Customers use Messages for Business buttons to start a conversation with your company. You can also support system features like Maps and Spotlight, so that customers can use them to locate your business and start a conversation.
 
-- **Let people start conversations anytime** - Don't dim or turn off buttons or links that initiate conversations outside of your business hours. Even if you only respond to customer service inquiries during certain hours, people need to be able to start a conversation anytime.
+- **Let people start conversations anytime after launch approval** - Don't disable entry points outside business hours. Explain when live support will return. Current channel policies require live-agent access during regular business hours, not a bot-only service.
 
 - **Let the default button title encourage customers to contact you** - System-provided button titles like "Message Us," "Get Help," "Ask a Question," or "Contact an Agent" help people understand what the button does.
 
@@ -36,19 +36,19 @@ Customers use Messages for Business buttons to start a conversation with your co
 
 - **Display the button prominently** - Make Messages for Business buttons the same size or larger than similar contact initiation buttons, such as an email button.
 
-- **Use only approved button styles** - For guidance, see Design your website and app to include the Messages buttons.
+- **Use only approved button styles** - Follow [the current entry-point and button guide](https://register.apple.com/resources/messages/messaging-documentation/message-with-customers). Don't publish working entry points before your account is approved.
 
-- **Maintain minimum and maximum button sizes and inner side margins** - Use appropriate values for maximum width (1000 pt), minimum height (40 pt), maximum height (150 pt), and minimum side margins (5% of height).
+- **Historical HIG button metrics** - The archived HIG specified a maximum width of 1000 pt, heights from 40 to 150 pt, and inner side margins of at least 5% of height. These are selected legacy design values, not a universal CSS or current-client sizing contract; use the currently approved button implementation for new integrations.
 
 - **Don't make any other visual or functional modifications to buttons** - For example, don't change transparency values or add drop shadows.
 
-- **Maintain minimum clear space** - The minimum amount of clear space required around the buttons is 10% of the button's height.
+- **Historical HIG clear space** - The archived guide required surrounding clear space of at least 10% of button height. Keep current approved buttons unobscured and follow their applicable placement requirements.
 
 ### Referring to Apple Messages for Business
 
 - **Use the terms Apple Messages for Business or Apple Messages** - In customer-facing communications, avoid using the term Messages by itself, especially when paired with a logo-only button.
 
-- **Use proper capitalization** - Use four words with an uppercase A, an uppercase M, and an uppercase B, and lowercase for all other letters.
+- **Use proper capitalization** - Write the full name exactly as Apple Messages for Business; Apple Messages is the permitted short form. Don't substitute iMessage for the business channel.
 
 - **Avoid using other terms** - Don't use terms like chat or text to refer to a Messages for Business button or flow.
 
@@ -56,13 +56,13 @@ Customers use Messages for Business buttons to start a conversation with your co
 
 ### Color
 
-When configuring your Messages for Business experience, you can customize the colors of the top toolbar and its Back and Info buttons in iOS. These same colors appear in the message header in watchOS, brand name in watchOS, and recipient bubble in macOS.
+The archived HIG described custom conversation-bar and button colors, with related treatments on watchOS and macOS. Treat those descriptions as historical UI behavior, not a guarantee about the customization available in every current client.
 
-- **Use sufficient color contrast ratios** - Insufficient contrast makes content hard to see and can cause logos and buttons to blend in with the background. Strive for a minimum contrast ratio of 4.5:1, although 7:1 is preferred.
+- **Check contrast for the actual content** - For normal text, 4.5:1 is the WCAG minimum-contrast target and 7:1 is the stricter target. Large text, incidental content, and logotypes have different criteria or exceptions; don't treat a palette or logo as blanket proof of accessibility. See [Accessibility](../foundations/accessibility.md).
 
 - **Consider Dark Mode** - On iPhone, your customers can use the system-wide appearance called Dark Mode. You might need to redesign your logo and picker icons so that they look good in both light and dark appearances.
 
-- **Use colors that contrast well with both light and dark color palettes** - Dark transparencies and colors aren't visible in Dark Mode.
+- **Test colors against the backgrounds actually displayed** - A dark color can disappear against a dark surface, but dark colors aren't inherently invisible in Dark Mode. Check both appearances rather than assuming one color treatment always works.
 
 ### Logo
 
@@ -70,7 +70,7 @@ Your logo visually identifies your business in Messages and other contexts throu
 
 - **Test your logo's appearance in all contexts** - View your logo in the message list, top toolbar, and notifications, and make sure it's clear and distinct.
 
-- **Provide your logo in both square and wide variations** - Make sure your logo looks great everywhere by creating a separate version for each variation.
+- **Prioritize the square logo for current clients** - The [current registration guide](https://register.apple.com/resources/messages/messaging-documentation/register-your-acct) says iOS 26 and macOS 26 removed wide-logo support. It still documents a legacy wide asset for older clients; don't present that asset as the current conversation-header design.
 
 - **Use adequate padding in your logo** - Unless your logo has full-bleed elements, it's best to inset key elements from the edges by 10% of the image's width and height.
 
@@ -78,18 +78,19 @@ Your logo visually identifies your business in Messages and other contexts throu
 
 #### Square Logo Specifications
 
-Your square logo appears on the contact card for your business, in search results, in the message list view, and in the top toolbar of a conversation if you don't provide a wide logo.
+The current registration guide uses the square logo throughout the modern experience. Test legibility at small sizes as well as in larger business-information views.
 
 - **Format:** PNG or JPEG
 - **Minimum dimensions:** 1024x1024 px
 - **Maximum file size:** 2 MB
-- **Background:** Full color
+- **Background:** Full color, not a photograph
+- **Color space:** sRGB or P3
 - **Transparency:** No
 - **Padding:** 10% of the image's width and height
 
 #### Wide Logo Specifications
 
-Your wide logo appears in the top toolbar of a conversation.
+These are legacy specifications retained for older-client compatibility. The registration guide identifies the wide logo with iOS 18 and earlier and explicitly says wide-logo support was removed in iOS 26 and macOS 26.
 
 - **Format:** PNG
 - **Maximum width:** 1706 px
@@ -101,37 +102,41 @@ Your wide logo appears in the top toolbar of a conversation.
 
 ### Message Bubble Content
 
-Message bubbles for standard interactive messages like Apple Pay payment requests, rich links, and pickers include a title, and can optionally include additional text and an image.
+Follow the [current conversation design standards](https://register.apple.com/resources/messages/messaging-documentation/conversation-best-practices) for each interactive feature. Introduce a picker or other interactive control with clear text outside it, use its appropriate title and imagery, and avoid long instructions that get cropped inside the control. The guide recommends Quick Reply for simple text-only choices with five options or fewer.
+
+For Rich Link logos, the current guide specifies an image under 150 pixels wide. Don't confuse that rule with the historical native-bubble presets below.
 
 - **Scale images based on the layout style** - When using the same image for multiple layout styles, provide a scaled image variation for each layout style.
 
-- **Provide images at appropriate sizes** - Use 40x40 pt for icons, 60x60 pt for small images, and 263x150 pt for large images in interactive message bubbles.
+- **Historical HIG image sizes** - The archived native-bubble guidance specified 40x40 pt icons, 60x60 pt small images, and 263x150 pt large images. These describe that older layout system, not a fixed size for every current message type.
 
-- **Always provide high-resolution images with a scale factor of @3x** - The @3x images you provide automatically scale down to @2x or @1x for display at lower resolutions.
+- **Historical HIG resolution guidance** - Those presets used @3x assets, with downscaling for lower-resolution presentation. Check the current message type's asset requirements rather than treating @3x as a universal web-image rule.
 
 - **Produce artwork in the appropriate format** - Use de-interlaced PNG files for bitmap/raster artwork. Use JPEG for photos.
 
 ### Screenshots
 
-By creating screenshots to display on your website or in emails, you can show customers the benefits of using Messages for Business to communicate with your company.
+Use accurate, privacy-safe examples of the approved experience when showing customers how to communicate with your business. A screenshot or template must not imply account approval or features that your service doesn't provide.
 
-- **Use realistic conventions** - Use SF Pro Regular for conversation text and include the status bar with time set to 9:41.
+- **Historical template conventions** - The archived HIG specified SF Pro Regular and a 9:41 status-bar time. These were marketing-template conventions, not mandatory runtime settings.
 
-- **Create consistent message bubbles** - Use #848E99 background with white text for customer messages, and #E6E5EB background with black text for agent messages.
+- **Historical template palette** - That template used #848E99 with white text for customer bubbles and #E6E5EB with black text for agent bubbles. This records an older mockup style, not current Messages rendering or proof that the colors meet a contrast target.
 
-- **Include proper toolbar elements** - Add a Back button, Info button, your company logo, and your company name with verification checkmark.
+- **Represent the actual client and account status** - The old template showed Back and Info controls, a logo, and a verified business name. Don't manufacture a verification badge or reuse an obsolete header to imply that it is a current screenshot. Follow the applicable Apple asset terms; this documentation doesn't grant rights to unrelated local artwork.
 
 ### Related Technologies
 
-- [Messages for Business Accounts](https://developer.apple.com/documentation/businesschat) - Account setup and developer guidance
+- [Messages for Business Accounts](https://register.apple.com/messages) - Account entry point
+- [Apple Messages for Business guide](https://register.apple.com/resources/messages/messaging-documentation/) - Current registration and implementation guidance
+- [Channel policies](https://register.apple.com/resources/messages/messaging-documentation/policies) - Live support, consent, and permitted-use requirements
 
 ## Changelog
+
+This entry is verified against the archived Apple HIG article, not presented as the current account guide's publication history.
 
 ### May 2, 2023
 - Consolidated guidance into one page.
 
 ---
 
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
-
-*Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/messages-for-business)*
+*Sources: [Current Apple Messages for Business documentation](https://register.apple.com/resources/messages/messaging-documentation/), [registration assets](https://register.apple.com/resources/messages/messaging-documentation/register-your-acct), and the [archived Apple HIG article](https://web.archive.org/web/20250521171308id_/https://developer.apple.com/tutorials/data/design/human-interface-guidelines/messages-for-business.json).*

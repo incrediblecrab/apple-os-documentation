@@ -49,8 +49,8 @@ No additional considerations for iOS, iPadOS, macOS, tvOS, visionOS, or watchOS.
 
 ## Videos
 
-- [Discoverable design](https://developer.apple.com/videos/play/wwdc2023/10037/)
-- [Designing Award Winning Apps and Games](https://developer.apple.com/videos/play/wwdc2020/10094/)
+- [Discoverable design](https://developer.apple.com/videos/play/wwdc2021/10126)
+- [Designing Award Winning Apps and Games](https://developer.apple.com/videos/play/wwdc2019/802)
 - [Love at First Launch](https://developer.apple.com/videos/play/wwdc2017/816/)
 
 ## Changelog
@@ -60,5 +60,4 @@ No additional considerations for iOS, iPadOS, macOS, tvOS, visionOS, or watchOS.
 | June 10, 2024 | Clarified different approaches to onboarding and added a guideline on displaying a splash screen. |
 | June 21, 2023 | Updated to include guidance for visionOS. |
 
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
-> **iOS 27+, iPadOS 27+:** Setup Assistant lets parents choose which system apps a child can use — a few essentials, a recommended set, or a custom selection — with more added later through Ask to Buy. If your app is used by children, expect a narrower initial app set and design onboarding that tolerates restricted capability.
+*Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/onboarding)*

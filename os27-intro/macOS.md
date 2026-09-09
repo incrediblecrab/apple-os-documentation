@@ -1,120 +1,82 @@
 # macOS Golden Gate 27.0 Developer Introduction
 
-macOS Golden Gate 27 is the first fully Apple-silicon-only release of macOS. Freed from Intel support, it delivers a refined Liquid Glass interface, a rebuilt Siri, deeper iPhone continuity, and a development toolchain — Xcode 27 and Swift 6.4 — that assumes a modern Mac throughout.
+Prepare Mac apps for macOS Golden Gate 27 by reviewing AppKit behavior, document handling, installer architecture, and Intel-only dependencies. Keep the development Mac's requirements separate from the architectures and older OS releases your app supports.
 
 **Platform:** macOS Golden Gate 27.0+
 
-> **Status:** macOS 27 is in developer and public beta as of August 2026 (developer beta 1 on June 8, 2026; public beta 1 on July 13, 2026). A public release is expected in fall 2026. Apple has not announced a release date. The current shipping line is macOS Tahoe 26.6.1, released August 6, 2026.
+> **Status checked September 8, 2026:** macOS 27 **beta 8** (`26A5425a`) was released August 31. The shipping release is **macOS Tahoe 26.6.2** (`25G83`), released August 17. The [release listings](https://developer.apple.com/news/releases/) do not establish a macOS 27 general-availability date.
 
 ## Overview
 
-Two facts define this release for developers. First, macOS 27 runs only on Apple silicon — every remaining Intel Mac is dropped. Second, **Xcode 27 requires macOS 27**, which means adopting the new SDK requires upgrading your build machines and CI fleet to Apple silicon running Golden Gate. Plan that migration before it becomes urgent.
+The [macOS 27 beta 8 notes](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes) document changes that affect existing apps, not just new features. Test a shipping build on the new OS and a newly linked build separately. Continue testing Tahoe and other supported deployment targets instead of treating SDK adoption as an automatic deployment-floor increase.
 
-## Key Features
+## Toolchain and Architecture
 
-### Apple Silicon Only
+### Xcode 27 beta 6
 
-macOS Golden Gate 27 requires an Apple silicon Mac (M1 or later). The final four Intel Macs supported by macOS Tahoe 26 are dropped:
+Released August 24, **Xcode 27 beta 6 requires an Apple silicon Mac running macOS Tahoe 26.4 or later** and includes Swift 6.4 and the 27 SDKs. **It does not require macOS 27.** The [Xcode notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) explicitly exclude Intel Macs as hosts, while allowing the macOS 27 SDK to build universal Intel/Apple-silicon apps that back-deploy to macOS 12 or later.
 
-| Dropped device |
-|----------------|
-| iMac (2020) |
-| Mac Pro (2019) |
-| MacBook Pro 16-inch (2019) |
-| MacBook Pro 13-inch (2020, four Thunderbolt ports) |
+For CI, verify the runner architecture, host OS, selected Xcode, SDK, deployment target, and architectures of build-time tools independently. Running an Intel executable through Rosetta on an Apple silicon host does not make an Intel Mac eligible to run Xcode 27.
 
-macOS Tahoe 26 is the terminal release for those machines. If you ship Mac software, macOS 27 is the point at which universal binaries stop being a requirement for new work and become a compatibility choice for users still on Tahoe.
+For a minimum macOS deployment target of 27 or later, `ARCHS_STANDARD` no longer includes `x86_64`. The notes allow an explicit `ARCHS` setting to add it; default build architectures and OS installation eligibility are different questions (161837535).
 
-### Rosetta 2
+### Rosetta and installers
 
-macOS 27 is the **last release with full Rosetta 2 support**. Beginning with macOS 28, Rosetta is expected to be retained only as a limited compatibility layer for older unmaintained games and their dependent frameworks — not as a general-purpose translation environment. Any Intel-only binary in your distribution chain, including build tooling, test harnesses, and bundled helper executables, needs a native Apple silicon replacement.
+The macOS notes document these migration considerations:
 
-> **Note:** The specific scope of Rosetta in macOS 28 is drawn from Apple's stated direction rather than shipped documentation. Verify against Apple's platform release notes before making irreversible plans.
+- An upgrade to macOS 27 does not automatically restore a prior Rosetta installation.
+- Apps previously configured to “Open using Rosetta” launch natively; reassess the compatibility problem that required translation.
+- Installer packages without `hostArchitecture` default to `arm64`. Check pre/post-install scripts and installer plug-ins on Apple silicon.
+- Intel plug-ins and loaders may not appear in the system's incompatibility warnings. Audit bundled helpers and dependencies rather than relying on that list.
+- Apple states that Intel-based software will not be compatible with macOS 28, excluding legacy games. This is a documented future migration direction, not a claim that all Intel apps are already unusable on macOS 27.
 
-### Supported Macs
+**Exact macOS 27 model list: not verified by the sources reviewed here.** The Xcode host architecture requirement is verified; it is not evidence that every Mac with a particular chip can install every OS beta. Check OS installation eligibility separately.
 
-- MacBook Air (M1, 2020) and later
-- MacBook Pro (M1, 2020) and later
-- Mac mini (M1, 2020) and later
-- iMac (M1, 2021) and later
-- Mac Studio (M1 Max/Ultra, 2022) and later
-- Mac Pro (M2 Ultra, 2023) and later
+## Developer-Facing Changes
 
-### New Design
+### AppKit and Mac Catalyst
 
-**Liquid Glass, refined**
-The Mac interface adopts the same refinements as the rest of the generation: stronger diffusion of busy background content, a subtle darkened edge ring for separation, and brighter specular highlights. Toolbars become uniform and less translucent as content scrolls beneath.
+- **Menus:** linked-SDK behavior changes image visibility. For apps linked with the macOS 27 SDK, both symbol and non-symbol images can be hidden automatically, including image-only items. Use `NSMenuItem.preferredImageVisibility` where needed and verify accessible names.
+- **Refresh and selection:** `NSRefreshController` adds pull-to-refresh support to `NSScrollView`; `NSTextSelectionManager` provides gesture-based selection handling. Test existing text-view subclasses rather than assuming every mouse override must be rewritten.
+- **Semantic tabs:** toolbar groups and segmented controls gain roles, including tabs, improving the distinction between navigation and value selection.
+- **Mac Catalyst:** switching to an app with no open windows no longer automatically creates a window unless activation comes through Dock or Spotlight. Test reopen and document commands.
+- **UIKit life cycle:** Catalyst apps built with the latest SDK must adopt scenes or fail to launch on Mac Catalyst 27. This requirement does not turn native AppKit apps into UIKit scene apps. See [scene migration](https://developer.apple.com/documentation/uikit/transitioning-to-the-uikit-scene-based-life-cycle).
 
-**Transparency slider**
-A continuous transparency slider in System Settings > Appearance replaces the Clear/Tinted toggle from macOS Tahoe 26, letting people tune translucency to their preference and environment.
+### Documents, assets, and diagnostics
 
-**Sidebars**
-Sidebars extend to the full window edge with refraction continuing beneath them, and sidebar icons retain their tint color rather than washing out.
+- SwiftUI adds asynchronous document reading/writing through `ReadableDocument`, `WritableDocument`, and `Document`; older `FileDocument`/`ReferenceFileDocument` APIs are deprecated. Test autosave, package documents, cancellation, and older-OS code paths.
+- Background Assets adds localized asset packs. Keep offline and missing-asset behavior explicit.
+- `DiskImageKit` provides Swift disk-image management APIs for use with Virtualization. Check the API's format and availability constraints instead of treating every disk-image workflow as supported.
+- Unified Logging archives produced by 27 releases require macOS 26.2 or later to read. Upgrade diagnostic workstations as well as build runners.
 
-### Siri AI
+### Intelligence and security
 
-Siri on Mac is rebuilt on Apple Foundation Models, with extended conversational context, awareness of on-device personal data, and the ability to perform multi-step in-app actions. The standalone Siri app syncs conversations with iPhone, iPad, Apple Watch, and Apple Vision Pro.
+- Audit App Intents schema changes and preserve [SiriKit's documented legacy support](https://developer.apple.com/documentation/sirikit). App Intents is the route for modern Siri and Apple Intelligence integration.
+- Foundation Models' PCC access has separate entitlement, eligibility, availability, and error handling; see the [PCC guide](../guides/private-cloud-compute.md).
+- Selected system connections used for MDM/DDM, enrollment, profiles, app installation, and software updates require TLS 1.2 or later with ATS-compliant certificates and ciphers. Use Apple's [network audit guidance](https://support.apple.com/en-us/126655), including its SCEP and content-caching exceptions; don't generalize this to all app networking.
 
-### Continuity
+## Migration Checklist
 
-Deeper iPhone integration continues the direction set by Tahoe — including Live Activities and Phone app features that let Mac act as a full extension of the iPhone rather than a peripheral to it.
-
-## Developer Toolchain
-
-### Xcode 27
-
-**Xcode 27 requires macOS 27 Golden Gate.** There is no supported configuration for building with the Xcode 27 toolchain on macOS Tahoe 26 or on Intel hardware. Sequence your migration: upgrade a build machine, validate your project, then move CI.
-
-Highlights include a rebuilt Instruments with lower-overhead sampling, improved SwiftUI previews, and coding assistance integrated across the editor. See [Xcode](../documentation/Xcode.md) for detail.
-
-### Swift 6.4
-
-Swift 6.4 ships with the Xcode 27 toolchain. Notable additions:
-
-- `@available(anyAppleOS 27, *)` — a single availability spelling across Apple platforms, replacing long per-platform availability lists
-- `@diagnose` — author custom compile-time diagnostics for misused APIs
-- `weak let` — immutable weak references, eliminating a class of accidental reassignment bugs
-- `~Sendable` — explicitly opt a type out of `Sendable` inference
-- `@C` — improved C interoperability declarations
-- Task Cancellation Shield — protect critical sections from cancellation mid-flight
-
-See [Swift](../documentation/Swift.md) for detail.
-
-## What's New in macOS Golden Gate 27
-
-- **Apple silicon only**: M1 and later; final Intel Macs dropped
-- **Last full Rosetta 2 release**
-- **Xcode 27 requires macOS 27** — plan build and CI migration
-- **Swift 6.4**: `anyAppleOS`, `@diagnose`, `weak let`, `~Sendable`, `@C`
-- **Liquid Glass refinements** and a continuous transparency slider
-- **Siri AI**: rebuilt assistant with a standalone, cross-device app
-- **Evaluations framework**: validate AI feature behavior
-- **Deeper iPhone continuity**
-
-## Migrating to macOS 27
-
-**Migrate CI first, not last.** Xcode 27's macOS 27 requirement makes your build fleet the critical path. Audit for any Intel runner still in service.
-
-**Purge Intel-only binaries.** Command-line tools, code generators, linters, bundled helpers, and third-party frameworks all need Apple silicon builds before Rosetta's scope narrows in macOS 28.
-
-**Liquid Glass is gated on the linked SDK.** Rebuilding with Xcode 27 opts your app fully into the current appearance; `UIDesignRequiresCompatibility` is ignored. Custom window chrome and blur effects need manual migration to `glassEffect(_:in:)` / `GlassEffectContainer` in SwiftUI or the equivalent AppKit materials.
-
-**Decide your minimum.** Supporting macOS Tahoe 26 keeps the last Intel Macs in your audience; dropping to macOS 27 lets you assume Apple silicon throughout.
+1. Move Xcode 27 build jobs to eligible Apple silicon runners on Tahoe 26.4 or later; validate native build tools before switching production CI.
+2. Decide deliberately whether universal binaries and older deployment targets remain necessary. Replace Intel-only dependencies without dropping users merely because the SDK changed.
+3. Finish UI work instead of relying on [`UIDesignRequiresCompatibility`](https://developer.apple.com/documentation/bundleresources/information-property-list/uidesignrequirescompatibility), which is ignored when building for macOS 27 or later. Test menu visibility, keyboard focus, window restoration, and accessibility.
+4. Re-test corrected beta failures. For example, beta 8 lists Accessory Access sandbox/VM issues as resolved; those are not permanent framework limitations.
+5. Check [App Store readiness](../guides/app-store-readiness.md) separately from SDK migration. App Store and Developer ID distribution have different workflows.
 
 ## Getting Started
 
 **New to macOS development?**
-Check out the [macOS Pathway](https://developer.apple.com/macos/) for resources on building Mac apps.
+Check out the [macOS Pathway](https://developer.apple.com/macos/get-started/) for resources on building Mac apps.
 
 ## Resources
 
 ### Development Tools
-- [Xcode](https://developer.apple.com/xcode/) - Requires macOS 27 Golden Gate on Apple silicon
+- [Xcode](https://developer.apple.com/xcode/) - Xcode 27 beta 6: Apple silicon, macOS Tahoe 26.4 or later
 - [TestFlight](https://developer.apple.com/testflight/) - Beta testing platform
 - [App Store Connect](https://developer.apple.com/app-store-connect/) - App management and analytics
 
 ### Documentation
-- [macOS Developer Documentation](https://developer.apple.com/documentation/macos/)
+- [macOS Release Notes](https://developer.apple.com/documentation/macos-release-notes)
 - [AppKit Documentation](https://developer.apple.com/documentation/appkit/)
 - [Apple Silicon](../documentation/apple-silicon.md)
 - [Metal Documentation](https://developer.apple.com/documentation/metal/)
@@ -136,4 +98,6 @@ Check out the [macOS Pathway](https://developer.apple.com/macos/) for resources 
 
 ---
 
-*Reviewed 2026-08-09. macOS 27 is pre-release software; features and availability may change before general release. Platform requirements and feature availability may vary, and some capabilities may not be available in all regions or languages.*
+## Sources
+
+[Apple Developer releases](https://developer.apple.com/news/releases/), [macOS 27 notes](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes), and [Xcode 27 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes), with additional scoped citations above. Reviewed September 8, 2026; beta behavior, model eligibility, and future Rosetta scope should be rechecked before release.

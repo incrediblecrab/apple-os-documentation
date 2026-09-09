@@ -16,38 +16,38 @@ This collection of documents provides the API reference for the Quartz framework
 
 ### Displaying PDFs
 
-- [PDFKit](https://developer.apple.com/documentation/pdfkit)
+- [PDFKit](https://developer.apple.com/documentation/quartz/pdfkit)
 
 ### Quartz Composer
 
-- [Quartz Composer](https://developer.apple.com/documentation/quartz/quartz_composer)
+- [Quartz Composer](https://developer.apple.com/documentation/quartz/quartz-composer)
 
 ### Using Quick Look
 
-- [Quick Look](https://developer.apple.com/documentation/quicklook)
+- [Quick Look](https://developer.apple.com/documentation/quartz/quick-look)
 
 ### Conversion Filters
 
-- [Quartz Filter](https://developer.apple.com/documentation/quartz/quartz_filter)
+- [Quartz Filter](https://developer.apple.com/documentation/quartz/quartz-filter)
 
 ### Constants
 
-- [Quartz Constants](https://developer.apple.com/documentation/quartz/constants)
+- [Quartz Constants](https://developer.apple.com/documentation/quartz/quartz-constants)
 
 ### Macros
 
-- [Macros](https://developer.apple.com/documentation/quartz/macros)
+- [Macros](https://developer.apple.com/documentation/quartz/quartz-macros)
 
 ### See Also
 
 #### Related Documentation
 
-- [Quartz Composer Custom Patch Programming Guide](https://developer.apple.com/library/archive/documentation/GraphicsImaging/Conceptual/QuartzComposerUserGuide/)
+These archived guides describe historical macOS APIs and tooling. The custom-patch plug-in workflow starts in OS X 10.5, later than the Quartz framework's 10.4 minimum.
+
+- [Quartz Composer Custom Patch Programming Guide](https://developer.apple.com/library/archive/documentation/GraphicsImaging/Conceptual/QuartzComposer_Patch_PlugIn_ProgGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40004787)
 - [PDF Kit Programming Guide](https://developer.apple.com/library/archive/documentation/GraphicsImaging/Conceptual/PDFKitGuide/)
 - [Image Kit Programming Guide](https://developer.apple.com/library/archive/documentation/GraphicsImaging/Conceptual/ImageKitProgrammingGuide/)
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/Quartz)*

@@ -16,11 +16,11 @@ You may also want to use custom colors to enhance the visual experience of your 
 
 **Avoid using the same color to mean different things.** Use color consistently throughout your interface, especially when you use it to help communicate information like status or interactivity. For example, if you use your brand color to indicate that a borderless button is interactive, using the same or similar color to stylize noninteractive text is confusing.
 
-**Make sure your app's colors work well in both light and dark contexts.** iOS, iPadOS, macOS, and tvOS offer both light and dark appearance settings. System colors vary subtly depending on the system appearance, adjusting to ensure proper color differentiation and contrast for text, symbols, and other elements. With the Increase Contrast setting turned on, the color differences become far more apparent. If you use a custom color, supply light and dark variants, and an increased contrast option for each variant.
+**Make sure your app's colors work well in light, dark, and increased-contrast contexts.** iOS, iPadOS, macOS, and tvOS offer light and dark appearance settings. Prefer system colors that already adapt to these contexts. For custom colors, supply light and dark variants and an increased-contrast version of each with substantially clearer differentiation. Provide both appearance variants even for an app with a single appearance, because Liquid Glass can adapt independently.
 
 **Test your app's color scheme under a variety of lighting conditions.** Colors can look different when you view your app outside on a sunny day or in dim light. In bright surroundings, colors look darker and more muted. In dark environments, colors appear bright and saturated. In visionOS, colors can look different depending on the colors of a wall or object in a person's physical surroundings and how it reflects light. Adjust app colors to provide an optimal viewing experience in the majority of use cases.
 
-**Test your app on different devices.** For example, the True Tone display — available on certain iPhone, iPad, and Mac models — uses ambient light sensors to automatically adjust the white point of the display to adapt to the lighting conditions of the current environment. Apps that primarily support reading, photos, video, and gaming can strengthen or weaken this effect by specifying a white point adaptivity style (for developer guidance, see [UIWhitePointAdaptivityStyle](https://developer.apple.com/documentation/uikit/uiwhitepointadaptivitystyle)). Test tvOS apps on multiple brands of HD and 4K TVs, and with different display settings. You can also test the appearance of your app using different color profiles on a Mac — such as P3 and Standard RGB (sRGB) — by choosing a profile in System Settings > Displays. For guidance, see Color management.
+**Test across displays and environments.** Ambient lighting, True Tone on supported devices, TV settings, and a Mac's selected color profile can change the result. Check representative HD and 4K televisions and relevant P3 and sRGB configurations. For applications that need to adjust white-point adaptation, consult [UIWhitePointAdaptivityStyle](https://developer.apple.com/documentation/bundleresources/information-property-list/uiwhitepointadaptivitystyle) and its platform availability.
 
 **Consider how artwork and translucency affect nearby colors.** Variations in artwork sometimes warrant changes to nearby colors to maintain visual continuity and prevent interface elements from becoming overpowering or underwhelming. Maps, for example, displays a light color scheme when in map mode but switches to a dark color scheme when in satellite mode. Colors can also appear different when placed behind or applied to a translucent element like a toolbar.
 
@@ -44,8 +44,6 @@ iOS, iPadOS, macOS, and visionOS also define sets of dynamic system colors that 
 
 ### Liquid Glass Color
 
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Liquid Glass now diffuses busy background content more aggressively, adds a subtle darkened edge ring, and renders brighter specular highlights, improving legibility without extra visual noise. People can tune overall translucency with the transparency slider in Settings > Appearance, and the material also responds to Reduce Transparency and Increase Contrast.
-
 For smaller elements like toolbars and tab bars, the system can adapt Liquid Glass between a light and dark appearance in response to the underlying content. Symbols and text on these elements follow a monochromatic color scheme, becoming darker when the underlying content is light, and lighter when it's dark.
 
 Liquid Glass appears more opaque in larger elements like sidebars to preserve legibility over complex backgrounds and accommodate richer content on the material's surface.
@@ -62,7 +60,7 @@ A color profile describes the colors in a color space using, for example, mathem
 
 **Apply color profiles to your images.** Color profiles help ensure that your app's colors appear as intended on different displays. The sRGB color space produces accurate colors on most displays.
 
-**Use wide color to enhance the visual experience on compatible displays.** Wide color displays support a P3 color space, which can produce richer, more saturated colors than sRGB. As a result, photos and videos that use wide color are more lifelike, and visual data and status indicators that use wide color can be more meaningful. When appropriate, use the Display P3 color profile at 16 bits per pixel (per channel) and export images in PNG format. Note that you need to use a wide color display to design wide color images and select P3 colors.
+**Use wide color to enhance the visual experience on compatible displays.** Wide color displays support a P3 color space, which can produce richer, more saturated colors than sRGB. As a result, photos and videos that use wide color are more lifelike, and visual data and status indicators that use wide color can be more meaningful. When appropriate, use the Display P3 color profile at 16 bits per channel and export images in PNG format. Note that you need to use a wide color display to design wide color images and select P3 colors.
 
 **Provide color space–specific image and color variations if necessary.** In general, P3 colors and images appear fine on sRGB displays. Occasionally, it may be hard to distinguish two very similar P3 colors when viewing them on an sRGB display. Gradients that use P3 colors can also sometimes appear clipped on sRGB displays. To avoid these issues and to ensure visual fidelity on both wide color and sRGB displays, you can use the asset catalog of your Xcode project to provide different versions of images and colors for each color space.
 
@@ -134,7 +132,7 @@ macOS defines the following dynamic system colors (you can also view them in the
 
 **App accent colors**
 
-Beginning in macOS 11, you can specify an accent color to customize the appearance of your app's buttons, selection highlighting, and sidebar icons. The system applies your accent color when the current value in General > Accent color settings is multicolor.
+Beginning in macOS 11, you can specify an accent color to customize the appearance of your app's buttons, selection highlighting, and sidebar icons. The system applies your accent color when the person's accent-color setting is multicolor.
 
 If people set their accent color setting to a value other than multicolor, the system applies their chosen color to the relevant items throughout your app, replacing your accent color. The exception is a sidebar icon that uses a fixed color you specify. Because a fixed-color sidebar icon uses a specific color to provide meaning, the system doesn't override its color when people change the value of accent color settings. For guidance, see [Sidebars](https://developer.apple.com/design/human-interface-guidelines/sidebars).
 
@@ -172,7 +170,7 @@ If people set their accent color setting to a value other than multicolor, the s
 | Teal | teal | R-0,G-195,B-208 | R-0,G-210,B-224 | R-0,G-129,B-152 | R-59,G-221,B-236 |
 | Cyan | cyan | R-0,G-192,B-232 | R-60,G-211,B-254 | R-0,G-126,B-174 | R-109,G-217,B-255 |
 | Blue | blue | R-0,G-136,B-255 | R-0,G-145,B-255 | R-30,G-110,B-244 | R-92,G-184,B-255 |
-| Indigo | indigo | R-97,G-85,B-245 | R-107,G-93,B-255 | R-86,G-74,B-222 | R-167,G-170,B-255 |
+| Indigo | indigo | R-97,G-85,B-245 | R-109,G-124,B-255 | R-86,G-74,B-222 | R-167,G-170,B-255 |
 | Purple | purple | R-203,G-48,B-224 | R-219,G-52,B-242 | R-176,G-47,B-194 | R-234,G-141,B-255 |
 | Pink | pink | R-255,G-45,B-85 | R-255,G-55,B-95 | R-231,G-18,B-77 | R-255,G-138,B-196 |
 | Brown | brown | R-172,G-127,B-94 | R-183,G-138,B-102 | R-149,G-109,B-81 | R-219,G-166,B-121 |
@@ -206,7 +204,7 @@ In SwiftUI, the equivalent of systemGray is gray.
 - [Color — AppKit](https://developer.apple.com/documentation/appkit/nscolor)
 
 **Videos**
-- [Meet Liquid Glass](https://developer.apple.com/videos/play/wwdc2025/10210)
+- [Meet Liquid Glass](https://developer.apple.com/videos/play/wwdc2025/219)
 
 ## Changelog
 
@@ -229,7 +227,5 @@ In SwiftUI, the equivalent of systemGray is gray.
 - Corrected RGB values for system mint color (Dark Mode) in iOS and iPadOS.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/color)*

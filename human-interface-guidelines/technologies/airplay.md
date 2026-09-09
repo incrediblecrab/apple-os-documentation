@@ -8,8 +8,6 @@ AirPlay lets people stream media content wirelessly from iOS, iPadOS, macOS, and
 
 AirPlay enables wireless streaming of audio, video, and screen mirroring from Apple devices to compatible receivers. It provides a seamless way for users to extend their media experience beyond their device's screen.
 
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+, tvOS 27+:** Playback chrome uses the refined Liquid Glass material. On iPadOS 27, external displays support per-display app pinning and resizable iPhone apps, so re-test how your playback UI behaves across displays.
-
 ## Topics
 
 ### Best Practices
@@ -18,23 +16,23 @@ AirPlay enables wireless streaming of audio, video, and screen mirroring from Ap
 
 - **Provide content in the highest possible resolution** - Your HTTP Live Streaming (HLS) playlist needs to include the full range of available resolutions so that people can experience your content in the resolution that's appropriate for the device they're using (AVFoundation automatically selects the resolution based on the device). If you don't include a range of resolutions, your content looks low quality when people stream it to a device that can play at higher resolutions. For example, content that looks great on iPhone at 720p will look low quality when people use AirPlay to stream it to a 4K TV.
 
-- **Stream only the content people expect** - Avoid streaming content like background loops and short video experiences that make sense only within the context of the app itself. For developer guidance, see [usesExternalPlaybackWhileExternalScreenIsActive](https://developer.apple.com/documentation/avfoundation/avplayer/1624255-usesexternalplaybackwhileexterna).
+- **Stream only the intended media** - Keep incidental video and app-only background loops on the local device rather than sending them to an external playback destination. See [usesExternalPlaybackWhileExternalScreenIsActive](https://developer.apple.com/documentation/avfoundation/avplayer/usesexternalplaybackwhileexternalscreenisactive).
 
 - **Support both AirPlay streaming and mirroring** - Supporting both features gives people the most flexibility.
 
-- **Support remote control events** - When you do, people can choose actions like play, pause, and fast forward on the lock screen, and through interaction with Siri or HomePod. For developer guidance, see [Remote command center events](https://developer.apple.com/documentation/mediaplayer/mpremotecommandcenter).
+- **Support playback commands outside your app** - Handle relevant play, pause, and transport actions through [Remote command center events](https://developer.apple.com/documentation/mediaplayer/remote-command-center-events), so people can control the media from the system's playback interfaces.
 
 - **Don't stop playback when your app enters the background or when the device locks** - For example, people expect the TV show they started streaming from your app to continue while they check their mail or put their device to sleep. In this type of scenario, it's also crucial to avoid automatic mirroring because people don't want to stream other content on their device without explicitly choosing to do so.
 
-- **Don't interrupt another app's playback unless your app is starting to play immersive content** - For example, if your app plays a video when it launches or auto-plays inline videos, play this content on only the local device, while allowing current playback to continue. For developer guidance, see [ambient](https://developer.apple.com/documentation/avfaudio/avaudiosession/category/1616560-ambient).
+- **Avoid interrupting other playback for incidental content** - Choose audio-session behavior appropriate to the task instead of taking over another app's audio merely to play a launch or inline video. See the [ambient](https://developer.apple.com/documentation/avfaudio/avaudiosession/category-swift.struct/ambient) category for content that can coexist with other audio.
 
 - **Let people use other parts of your app during playback** - When AirPlay is active, your app needs to remain functional. If people navigate away from the playback screen, make sure other in-app videos don't begin playing and interrupt the streaming content.
 
-- **If necessary, provide a custom interface for controlling media playback** - If you can't use the system-provided media player, you can create a custom media player that gives people an intuitive way to enter AirPlay. If you need to do this, be sure to provide custom buttons that match the appearance and behavior of the system-provided ones, including distinct visual states that indicate when playback starts, is occurring, or is unavailable. Use only Apple-provided symbols in custom controls that initiate AirPlay, and position the AirPlay icon correctly in your custom player — that is, in the lower-right corner (in iOS 16 and iPadOS 16 and later).
+- **If necessary, provide a custom interface for controlling media playback** - If you can't use the system-provided media player, preserve familiar playback controls and clear active and unavailable states. Use a system route-selection control such as [`AVRoutePickerView`](https://developer.apple.com/documentation/avkit/avroutepickerview), where available, rather than repurposing downloadable branding artwork as a button.
 
 ### Using AirPlay Icons
 
-You can download AirPlay icons in Resources. You have the following options for displaying the AirPlay icon in your app.
+You can download AirPlay branding icons in Resources. The following rules concern noninteractive references to the technology; they don't prohibit the system AirPlay route-selection controls described above.
 
 **Black AirPlay icon**  
 Use the black AirPlay icon on white or light backgrounds when other technology icons also appear in black. The audio AirPlay icon is represented by a triangle below three concentric lines. The video AirPlay icon is represented by a triangle below a rounded rectangle.
@@ -92,7 +90,7 @@ No additional considerations for iOS, iPadOS, macOS, tvOS, or visionOS. Not supp
 
 ### Videos
 
-- [Reaching the Big Screen with AirPlay 2](https://developer.apple.com/videos/play/wwdc2018/501/) - WWDC session on implementing AirPlay 2
+- [Reaching the Big Screen with AirPlay 2](https://developer.apple.com/videos/play/wwdc2019/501) - WWDC session on implementing AirPlay 2
 
 ## Changelog
 
@@ -100,7 +98,5 @@ No additional considerations for iOS, iPadOS, macOS, tvOS, or visionOS. Not supp
 - Consolidated guidance into one page
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/airplay)*

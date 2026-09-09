@@ -1,91 +1,115 @@
 # Symbols
 
-Apply universal animations to symbol-based images.
+Animate symbol-based images with shared effect types.
 
 **Platforms:** iOS 17.0+ | iPadOS 17.0+ | Mac Catalyst 17.0+ | macOS 14.0+ | tvOS 17.0+ | visionOS 1.0+ | watchOS 10.0+
 
 ## Overview
 
-The Symbols framework provides access to symbol effects you can use to animate SF Symbols in your AppKit, UIKit, and SwiftUI apps. These animations exhibit different behaviors:
+The Symbols framework provides effects for [SF Symbols](https://developer.apple.com/design/human-interface-guidelines/sf-symbols) in AppKit, UIKit, and SwiftUI. An effect's supported behaviors determine how to apply it:
 
 - **Discrete** - An effect that runs from start to finish
 - **Indefinite** - An effect that lasts until you remove or disable it
 - **Transition** - An effect that animates a symbol in or out of visibility
 - **Content Transition** - An effect that replaces one symbol with another symbol, or with a different configuration of itself
 
-A symbol effect can exhibit multiple types of behavior. For instance, you can add a pulse effect with an option to occur a finite number of times — a discrete behavior. You can also add a pulse effect with an option to loop forever — an indefinite behavior.
+A type can support more than one behavior. In SwiftUI, use the [`value:` overload](https://developer.apple.com/documentation/swiftui/view/symboleffect(_:options:value:)) to trigger a discrete effect when an `Equatable` value changes. Use [`isActive:`](https://developer.apple.com/documentation/swiftui/view/symboleffect(_:options:isactive:)) to control an indefinite effect. Specifying a repeat count alone doesn't select the discrete overload.
 
 ```swift
-// Add an effect in SwiftUI.
-Image(systemName: "globe")
-    // Add effect with discrete behavior to image view.
-    .symbolEffect(.pulse, options: .repeat(3))
+import SwiftUI
+import Symbols
 
-Image(systemName: "globe")
-    // Add effect with indefinite behavior to image view.
-    .symbolEffect(.pulse)
+struct PulseExample: View {
+    @State private var pulseTrigger = 0
+    @State private var isPulsing = true
+
+    var body: some View {
+        VStack {
+            Button("Pulse") {
+                pulseTrigger += 1
+            }
+            Image(systemName: "globe")
+                .symbolEffect(.pulse, value: pulseTrigger)
+
+            Toggle("Keep pulsing", isOn: $isPulsing)
+            Image(systemName: "globe")
+                .symbolEffect(.pulse, isActive: isPulsing)
+        }
+    }
+}
 ```
 
-You can apply universal animation effects to symbol-based images that you display in image views. The Symbols framework provides a consistent set of effects to use regardless of your UI framework or language choices.
+Not every symbol has the same animation data. Variable-color effects require variable-color layers, and draw effects animate portions carrying draw data. These effects aren't general animations for arbitrary bitmap images.
 
-Consider a SwiftUI app that displays a variable color effect on a Wi-Fi symbol while the system searches for Wi-Fi networks.
+This view visualizes an app-supplied activity flag; it doesn't discover or connect to Wi-Fi networks:
 
 ```swift
-// Add an effect in SwiftUI.
-Image(systemName: "wifi")
-    .symbolEffect(.variableColor.reversing)
+import SwiftUI
+import Symbols
+
+struct SearchIndicator: View {
+    var isSearching: Bool
+
+    var body: some View {
+        Image(systemName: "wifi")
+            .symbolEffect(.variableColor.reversing, isActive: isSearching)
+    }
+}
 ```
 
-Now consider an AppKit or UIKit version of the app. You can apply the same effect to animate the search for Wi-Fi networks.
+In a main-actor AppKit or UIKit context, `imageView` below is an `NSImageView` or `UIImageView` containing a symbol image. Native discrete effects start when added, unlike SwiftUI's value-triggered overload:
 
 ```swift
-// Add an effect in AppKit and UIKit.
 imageView.addSymbolEffect(.variableColor.reversing)
 ```
+
+### Later effects and repetition options
+
+`BreatheSymbolEffect`, `RotateSymbolEffect`, and `WiggleSymbolEffect` require iOS/iPadOS/Mac Catalyst/tvOS 18, macOS 15, visionOS 2, or watchOS 11. `DrawOnSymbolEffect` and `DrawOffSymbolEffect` require the 26 generation on all seven platforms; they aren't OS 27-only.
+
+The integer-count [`SymbolEffectOptions.repeat(_:)`](https://developer.apple.com/documentation/symbols/symboleffectoptions/repeat(_:)-33816) is deprecated in the 27 generation. The [`RepeatBehavior` overload](https://developer.apple.com/documentation/symbols/symboleffectoptions/repeat(_:)-3klm2) is the newer form, available from the 18/macOS 15/visionOS 2/watchOS 11 generation. Keep availability checks for apps supporting the framework's original minimum. Repetition options express a preferred behavior, not a guarantee that every animation is rendered.
 
 ## Topics
 
 ### Symbol Effects
-- **appear** - An animation that makes the layers of a symbol-based image appear separately or as a whole
-- **bounce** - An animation that applies a transitory scaling effect, or bounce, to the layers in a symbol-based image separately or as a whole
-- **disappear** - An animation that makes the layers of a symbol-based image disappear separately or as a whole
-- **pulse** - An animation that fades the opacity of some or all layers in a symbol-based image
-- **scale** - An animation that scales the layers in a symbol-based image separately or as a whole
-- **variableColor** - An animation that replaces the opacity of variable layers in a symbol-based image in a repeatable sequence
+- [`appear`](https://developer.apple.com/documentation/symbols/symboleffect/appear) - Makes symbol layers appear individually or together.
+- [`bounce`](https://developer.apple.com/documentation/symbols/symboleffect/bounce) - Applies a transient scaling animation.
+- [`disappear`](https://developer.apple.com/documentation/symbols/symboleffect/disappear) - Makes layers disappear individually or together.
+- [`pulse`](https://developer.apple.com/documentation/symbols/symboleffect/pulse) - Varies the opacity of participating layers.
+- [`scale`](https://developer.apple.com/documentation/symbols/symboleffect/scale) - Scales layers individually or together.
+- [`variableColor`](https://developer.apple.com/documentation/symbols/symboleffect/variablecolor) - Animates the opacity of variable-color layers.
 
 ### Symbol Content Transitions
-- **replace** - An animation that replaces the layers of one symbol-based image with those of another
-- **automatic** - A transition that applies the default animation to a symbol-based image in a context-sensitive manner
+- [`replace`](https://developer.apple.com/documentation/symbols/symboleffect/replace) - Transitions between symbols or configurations.
+- [`automatic`](https://developer.apple.com/documentation/symbols/symboleffect/automatic) - Uses the context's default symbol transition.
 
 ### Symbol Effect Types
-- **AppearSymbolEffect** - A type that makes the layers of a symbol-based image appear separately or as a whole
-- **AutomaticSymbolEffect** - A type that applies the default animation to a symbol-based image in a context-sensitive manner
-- **BounceSymbolEffect** - A type that applies a transitory scaling effect, or bounce, to the layers in a symbol-based image separately or as a whole
-- **DisappearSymbolEffect** - A type that makes the layers of a symbol-based image disappear separately or as a whole
-- **PulseSymbolEffect** - A type that fades the opacity of some or all layers in a symbol-based image
-- **ReplaceSymbolEffect** - A type that replaces the layers of one symbol-based image with those of another
-- **ScaleSymbolEffect** - A type that scales the layers in a symbol-based image separately or as a whole
-- **VariableColorSymbolEffect** - A type that replaces the opacity of variable layers in a symbol-based image in a repeatable sequence
-- **BreatheSymbolEffect**
-- **RotateSymbolEffect**
-- **WiggleSymbolEffect**
+- [`AppearSymbolEffect`](https://developer.apple.com/documentation/symbols/appearsymboleffect) - Appearance behavior.
+- [`AutomaticSymbolEffect`](https://developer.apple.com/documentation/symbols/automaticsymboleffect) - Context-sensitive transition behavior.
+- [`BounceSymbolEffect`](https://developer.apple.com/documentation/symbols/bouncesymboleffect) - Transient bounce behavior.
+- [`DisappearSymbolEffect`](https://developer.apple.com/documentation/symbols/disappearsymboleffect) - Disappearance behavior.
+- [`PulseSymbolEffect`](https://developer.apple.com/documentation/symbols/pulsesymboleffect) - Layer-opacity pulsing.
+- [`ReplaceSymbolEffect`](https://developer.apple.com/documentation/symbols/replacesymboleffect) - Symbol replacement behavior.
+- [`ScaleSymbolEffect`](https://developer.apple.com/documentation/symbols/scalesymboleffect) - Layer-scaling behavior.
+- [`VariableColorSymbolEffect`](https://developer.apple.com/documentation/symbols/variablecolorsymboleffect) - Cumulative or iterative variable-layer animation.
+- [`BreatheSymbolEffect`](https://developer.apple.com/documentation/symbols/breathesymboleffect)
+- [`RotateSymbolEffect`](https://developer.apple.com/documentation/symbols/rotatesymboleffect)
+- [`WiggleSymbolEffect`](https://developer.apple.com/documentation/symbols/wigglesymboleffect)
 
 ### Symbol Effect Options
-- **SymbolEffectOptions** - Options that configure how effects apply to symbol-based images
+- [`SymbolEffectOptions`](https://developer.apple.com/documentation/symbols/symboleffectoptions) - Configures repetition, speed, and other effect preferences.
 
 ### Symbol Effect Protocols
-- **SymbolEffect** - A presentation effect that you apply to a symbol-based image
-- **DiscreteSymbolEffect** - An effect that performs a transient animation
-- **IndefiniteSymbolEffect** - An animation that continually affects a symbol until it's disabled or removed
-- **ContentTransitionSymbolEffect** - An effect that animates between symbols or different configurations of the same symbol
-- **TransitionSymbolEffect** - An effect that animates a symbol in or out
+- [`SymbolEffect`](https://developer.apple.com/documentation/symbols/symboleffect) - The base effect protocol.
+- [`DiscreteSymbolEffect`](https://developer.apple.com/documentation/symbols/discretesymboleffect) - Marks transient animation behavior.
+- [`IndefiniteSymbolEffect`](https://developer.apple.com/documentation/symbols/indefinitesymboleffect) - Marks behavior controlled by activation and removal.
+- [`ContentTransitionSymbolEffect`](https://developer.apple.com/documentation/symbols/contenttransitionsymboleffect) - Marks transitions between symbols or configurations.
+- [`TransitionSymbolEffect`](https://developer.apple.com/documentation/symbols/transitionsymboleffect) - Marks appearance/disappearance transitions.
 
 ### Structures
-- **DrawOffSymbolEffect** - A symbol effect that applies the DrawOff animation to symbol images
-- **DrawOnSymbolEffect** - A symbol effect that applies the DrawOn animation to symbol images
+- [`DrawOffSymbolEffect`](https://developer.apple.com/documentation/symbols/drawoffsymboleffect) - Hides a symbol using its draw data.
+- [`DrawOnSymbolEffect`](https://developer.apple.com/documentation/symbols/drawonsymboleffect) - Reveals a symbol using its draw data.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/Symbols)*

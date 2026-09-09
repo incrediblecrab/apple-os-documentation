@@ -2,13 +2,13 @@
 
 Manage merchant registration through your web platform.
 
-**Platforms:** Apple Pay Web Merchant Registration API 1.0+
+**Service version:** Apple Pay Web Merchant Registration API 1.0+. This server API has its own versioning, not an OS 27 deployment target.
 
 ## Overview
 
 The Apple Pay Web Merchant Registration API is a REST API that enables platform integrators such as payment-service providers and e-commerce platforms to register web merchants who want to offer Apple Pay on the web.
 
-As a platform integrator, you manage Apple Pay configuration on the merchants' behalf when you call Register Merchant. Merchants aren't required to set up an Apple Developer account or configure their own keys and certificates — you set up a shared set of keys and certificates for your entire merchant portfolio. Register merchants with their own website domains, or with web pages hosted by your platform.
+As a platform integrator, you manage Apple Pay configuration on merchants' behalf. Your merchants do not need their own Apple Developer accounts or certificate setup. Register their own checkout domains or pages hosted by your platform. The request's `encryptTo` identifies the integrator or merchant whose payment processing certificate should protect the payment data; this can identify another processor rather than always the calling platform.
 
 Note: This API is available in production and in sandbox environments. To use this API in the sandbox environment, call the endpoints using the domain apple-pay-gateway-cert.apple.com. For example, the sandbox endpoint for Register Merchant is: POST https://apple-pay-gateway-cert.apple.com/paymentservices/registerMerchant.
 
@@ -16,30 +16,39 @@ Note: This API is available in production and in sandbox environments. To use th
 
 To use the Apple Pay Web Merchant Registration API, you must meet the following requirements:
 
-- Your organization must be enrolled in the Apple Developer program. For more information about enrollment, see the "Enrolling as an Organization" section in What You Need To Enroll.
-- You must apply for access to the API. For more information about applying, see Registering with Apple Pay and Applying to Use the API.
-- Your server must call the API using mutual authentication with Transport Layer Security (TLS) 1.2 or later, and one of the supported cipher suites. For a list of supported cipher suites, see Setting Up Your Server.
+- Your organization must be enrolled in the Apple Developer Program and approved for API access.
+- Follow [Applying to use the registration API and configuring IDs](https://developer.apple.com/documentation/applepaywebmerchantregistrationapi/applying-to-use-the-registration-api-and-configuring-ids). An Account Holder or Admin creates the payment platform integrator ID and its certificates.
+- Keep certificate roles separate: the payment processing certificate protects payment data; the platform integrator identity certificate authenticates communication with Apple.
+- Call the API using mutual TLS 1.2 or later and a supported cipher suite. Follow [Setting Up Your Server](https://developer.apple.com/documentation/applepayontheweb/setting-up-your-server), including SNI and the appropriate production or sandbox network configuration.
+
+### Registration and failure handling
+
+For production registration, host the verification file associated with the calling integrator ID and identity certificate at `https://[DOMAIN_NAME]/.well-known/apple-developer-merchantid-domain-association` on each submitted domain. The [verification guide](https://developer.apple.com/documentation/applepaywebmerchantregistrationapi/preparing-merchant-domains-for-verification) explicitly says sandbox does not require domain verification.
+
+[`RegisterMerchantRequest`](https://developer.apple.com/documentation/applepaywebmerchantregistrationapi/registermerchantrequest) requires `domainNames`, `encryptTo`, `partnerInternalMerchantIdentifier`, and `partnerMerchantName`. The internal identifier is unique per merchant and is also used as the merchant identifier in the documented payment-session flow. The limit is **99 domains per internal merchant identifier**, not 99 per request with an unlimited cumulative total.
+
+A successful registration returns `200` with **no response body**. The endpoints distinguish invalid requests (`400`), lack of API permission (`401`), an unregistered platform (`417`), and server failures (`500`). Get Merchant Details also uses `400` for an unregistered merchant. Repair configuration or input errors rather than retrying them indefinitely; use bounded retries for transient failures.
+
+Removing a subset of registered domains keeps the merchant active. Removing its last domain deletes the merchant registration. [`MerchantDetails`](https://developer.apple.com/documentation/applepaywebmerchantregistrationapi/merchantdetails) reports the current domains and returns `encryptTo` as a **SHA-256 hash** of the configured ID, not the original identifier string.
 
 ## Topics
 
 ### Essentials
-- [Registering with Apple Pay and Applying to Use the API](https://developer.apple.com/documentation/ApplePayWebMerchantRegistrationAPI/registering_with_apple_pay_and_applying_to_use_the_api) - Register a commerce partner with Apple Pay and apply to use the web service.
+- [Applying to use the registration API and configuring IDs](https://developer.apple.com/documentation/applepaywebmerchantregistrationapi/applying-to-use-the-registration-api-and-configuring-ids) - Apply for access and create the integrator's ID and certificates.
 
 ### Web Merchant Registration
-- [Preparing Merchant Domains for Verification](https://developer.apple.com/documentation/ApplePayWebMerchantRegistrationAPI/preparing_merchant_domains_for_verification) - Host a domain verification file on each domain before requesting registration.
-- [Register Merchant](https://developer.apple.com/documentation/ApplePayWebMerchantRegistrationAPI/register_merchant) - Register a merchant and its corresponding set of fully qualified domains.
-- **RegisterMerchantRequest** - The request body you use to register merchants.
+- [Preparing merchant domains for verification](https://developer.apple.com/documentation/applepaywebmerchantregistrationapi/preparing-merchant-domains-for-verification) - Host the correct domain-verification file before production registration.
+- [Register Merchant](https://developer.apple.com/documentation/applepaywebmerchantregistrationapi/register-merchant) - Register a merchant and its corresponding set of fully qualified domains.
+- [`RegisterMerchantRequest`](https://developer.apple.com/documentation/applepaywebmerchantregistrationapi/registermerchantrequest) - The request body you use to register merchants.
 
 ### Web Merchant Unregistration
-- [Unregister Merchant](https://developer.apple.com/documentation/ApplePayWebMerchantRegistrationAPI/unregister_merchant) - Unregister one or more domains associated with a previously registered merchant.
-- **UnregisterMerchantRequest** - The request body you use to unregister one or more merchant domains.
+- [Unregister Merchant](https://developer.apple.com/documentation/applepaywebmerchantregistrationapi/unregister-merchant) - Unregister one or more domains associated with a previously registered merchant.
+- [`UnregisterMerchantRequest`](https://developer.apple.com/documentation/applepaywebmerchantregistrationapi/unregistermerchantrequest) - The request body you use to unregister one or more merchant domains.
 
 ### Web Merchant Details
-- [Get Merchant Details](https://developer.apple.com/documentation/ApplePayWebMerchantRegistrationAPI/get_merchant_details) - Retrieve information about a registered merchant's current state by using the merchant's internal merchant identifier.
-- **MerchantDetails** - Detailed information for a single registered merchant.
+- [Get Merchant Details](https://developer.apple.com/documentation/applepaywebmerchantregistrationapi/get-merchant) - Retrieve information about a registered merchant's current state by using the merchant's internal merchant identifier.
+- [`MerchantDetails`](https://developer.apple.com/documentation/applepaywebmerchantregistrationapi/merchantdetails) - Detailed information for a single registered merchant.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/ApplePayWebMerchantRegistrationAPI)*

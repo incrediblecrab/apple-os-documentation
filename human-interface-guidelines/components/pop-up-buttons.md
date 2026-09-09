@@ -29,7 +29,7 @@ After people choose an item from a pop-up button's menu, the menu closes, and th
 **iOS, macOS, visionOS**  
 No additional considerations for iOS, macOS, or visionOS.
 
-Not supported in tvOS or watchOS.
+The HIG excludes tvOS and watchOS from this component's platform coverage. This is not a universal API restriction: [MenuPickerStyle](https://developer.apple.com/documentation/swiftui/menupickerstyle) and UIKit's [selection-tracking button property](https://developer.apple.com/documentation/uikit/uibutton/changesselectionasprimaryaction) both list tvOS 17 or later. Check the specific API when choosing a platform implementation.
 
 ### Related Components
 
@@ -40,10 +40,12 @@ Not supported in tvOS or watchOS.
 ### Developer Documentation
 
 - [MenuPickerStyle](https://developer.apple.com/documentation/swiftui/menupickerstyle) - SwiftUI
-- [changesSelectionAsPrimaryAction](https://developer.apple.com/documentation/uikit/uibutton/3601223-changesselectionasprimaryaction) - UIKit
+- [changesSelectionAsPrimaryAction](https://developer.apple.com/documentation/uikit/uibutton/changesselectionasprimaryaction) - UIKit
 - [NSPopUpButton](https://developer.apple.com/documentation/appkit/nspopupbutton) - AppKit
 
 ## Changelog
+
+These dates describe changes to Apple's HIG article, not edits to this repository.
 
 ### October 24, 2023
 - Added artwork.
@@ -52,7 +54,5 @@ Not supported in tvOS or watchOS.
 - Added a guideline on using a pop-up button in a popover or modal view in iPadOS.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/pop-up-buttons)*

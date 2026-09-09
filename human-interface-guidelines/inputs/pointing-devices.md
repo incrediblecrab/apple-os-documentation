@@ -8,7 +8,7 @@ People can use a pointing device like a trackpad or mouse to navigate the interf
 
 People appreciate the precision and flexibility that pointing devices offer. On a Mac, people typically expect to combine a pointing device with a keyboard as they navigate apps and the system. On iPad and Apple Vision Pro, a pointing device gives people an additional way to interact with apps and content, without replacing touch, eyes, or gestures.
 
-> **iPadOS 27+:** Windowing is refined for large iPads paired with a Magic Keyboard — smoother resize, move, and close, with more Mac-like overlapping windows and an optional **persistent menu bar**. Re-test pointer targeting across free-form window sizes and external displays.
+Test pointer targeting as windows resize and on supported external displays. Keep touch and keyboard alternatives usable, and do not hide an essential action behind hover alone. See [Designing for iPadOS](../getting-started/iPadOS.md).
 
 ## Topics
 
@@ -25,10 +25,16 @@ People appreciate the precision and flexibility that pointing devices offer. On 
 **iPadOS**  
 iPadOS builds on the traditional pointer experience, automatically adapting the pointer to the current context and providing rich visual feedback at a level of precision that enhances productivity and simplifies common tasks on a touchscreen device. The iPadOS pointing system gives people an additional way to interact with apps and content — it doesn't replace touch.
 
+**iPadOS 26 and later**
+
+Apple introduced a more precise pointer and a Liquid Glass highlight treatment in iPadOS 26. The pointer tracks input directly rather than magnetizing or rubber-banding to controls. Test existing pointer effects against that behavior. Apple's [Elevate the design of your iPad app](https://developer.apple.com/videos/play/wwdc2025/208) session describes the change in its Pointer chapter.
+
 - **Allow multiple selection in custom views when necessary** - In iPadOS 15 and later, people can click and drag the pointer over multiple items to select them. As people use the pointer in this way, it expands into a visible rectangle that selects the items it encompasses. Standard nonlist collection views support this interaction by default; if you want to support multiple selection in custom views, you need to implement it yourself.
 - **Distinguish between pointer and finger input only if it provides value** - For example, a scrubber can give people an additional way to target a location in a video when they're using the pointer. In this scenario, people can drag the playhead using either the pointer or touch, but they can use the pointer to click a precise seek destination.
 
 **Pointer Shape and Content Effects**  
+
+The circular pointer, shape-morphing effects, and magnetism described below document the earlier iPadOS design retained in the HIG. They aren't a description of the iPadOS 26 pointer.
 iPadOS integrates the appearance and behavior of both the pointer and the element it moves over, bringing focus to the item the pointer is targeting. You can support the system-provided pointer effects or modify them to suit your experience.
 
 By default, the pointer's shape is a circle, but it can display a system-defined or custom shape when people move it over specific elements or regions. For example, the pointer automatically uses the familiar I-beam shape when people move it over a text-entry area.
@@ -68,7 +74,8 @@ Common mouse and trackpad gestures include:
 - **Pinch to zoom** - Zoom in or out
 - **Rotate** - Rotate content
 
-**iOS, visionOS**  
+**iOS**
+
 No additional considerations for iOS.
 
 Not supported in tvOS or watchOS.
@@ -81,11 +88,9 @@ Not supported in tvOS or watchOS.
 ### Developer Documentation
 
 - [UIPointerAccessory](https://developer.apple.com/documentation/uikit/uipointeraccessory) - UIKit
-- [UIPointerShape.roundedRect(_:radius:)](https://developer.apple.com/documentation/uikit/uipointershape/3539043-roundedrect) - UIKit
+- [UIPointerShape.roundedRect(_:radius:)](https://developer.apple.com/documentation/uikit/uipointershape-swift.enum/roundedrect(_:radius:)) - UIKit
 - [UIBandSelectionInteraction](https://developer.apple.com/documentation/uikit/uibandselectioninteraction) - UIKit
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/pointing-devices)*

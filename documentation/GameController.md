@@ -24,22 +24,36 @@ Users may remap game controller elements in Settings and Preferences, so be sure
 
 To support racing wheel devices in your macOS app, see Racing wheel device support.
 
+## OS 27 controller testing
+
+The [iOS and iPadOS](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes#Game-Controller) and [macOS](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes#Game-Controller) Beta 8 notes checked September 8, 2026 add support for the **PlayStation Access controller** on those three platforms, including device-local custom input profiles (168071382). Do not extend that announcement to tvOS or visionOS without separate support evidence.
+
+The macOS notes mark lightbar changes persisting after focus loss (163514369) and incorrect `supportsHIDDevice:` results shortly after connection (176985783) as **resolved**. Keep focus changes, device connection, and profile remapping in the regression suite rather than describing these defects as ongoing limitations.
+
+For spatial controllers and styli, follow [Apple's discovery and tracking guide](https://developer.apple.com/documentation/gamecontroller/discovering-and-tracking-spatial-game-controllers-and-styli):
+
+- Use connection notifications for initial discovery; an immediate list query can be empty while discovery is still completing.
+- Obtain input through Game Controller and spatial tracking through ARKit or RealityKit. Accessory transforms require the documented `NSAccessoryTrackingUsageDescription` and tracking authorization.
+- Use the accessory's supported locations and inputs rather than assuming every controller has the same buttons, haptics, or tracking points.
+
+The [visionOS 27 Bluetooth notes](https://developer.apple.com/documentation/visionos-release-notes/visionos-27-release-notes#Bluetooth) still list initial spatial-accessory tracking failure after pairing as a **known issue** (181827411), with an accessory or Bluetooth off/on cycle as the workaround. This is separate from the resolved macOS controller issues.
+
 ## Topics
 
 ### Essentials
-- [Game Controller updates](https://developer.apple.com/documentation/gamecontroller/game_controller_updates) - Learn about important changes to Game Controller.
+- [Game Controller updates](https://developer.apple.com/documentation/updates/gamecontroller) - Learn about important changes to Game Controller.
 - **GCSupportsControllerUserInteraction** - A Boolean value indicating whether the app supports a game controller.
 - **GCSupportedGameControllers** - The types of game controller profiles that the app supports or requires.
 - **GCSupportsMultipleMicroGamepads** - A Boolean value indicating whether the physical Apple TV Remote and the Apple TV Remote app operate as separate game controllers.
-- [Handling input events](https://developer.apple.com/documentation/gamecontroller/handling_input_events) - Receive controller input using either polling or callbacks.
+- [Handling input events](https://developer.apple.com/documentation/gamecontroller/handling-input-events) - Receive controller input using either polling or callbacks.
 
 ### View Controller
 - **GCEventViewController** - A view controller that delivers input either from the responder chain to views, or from game controllers to profiles.
 
 ### Game Controllers
-- [Supporting Game Controllers](https://developer.apple.com/documentation/gamecontroller/supporting_game_controllers) - Support a physical controller or add a virtual controller to enhance how people interact with your game through haptics, lighting, and motion sensing.
-- [Letting players use their second-generation Siri Remote as a game controller](https://developer.apple.com/documentation/gamecontroller/letting_players_use_their_second-generation_siri_remote_as_a_game_controller) - Support the second-generation Siri Remote as a game controller in your Apple TV game.
-- [Discovering and tracking spatial game controllers and styli](https://developer.apple.com/documentation/gamecontroller/discovering_and_tracking_spatial_game_controllers_and_styli) - Receive controller and stylus input to interact with content in your augmented reality app.
+- [Supporting Game Controllers](https://developer.apple.com/documentation/gamecontroller/supporting-game-controllers) - Support a physical controller or add a virtual controller to enhance how people interact with your game through haptics, lighting, and motion sensing.
+- [Letting players use their second-generation Siri Remote as a game controller](https://developer.apple.com/documentation/gamecontroller/letting-players-use-their-second-generation-siri-remote-as-a-game-controller) - Support the second-generation Siri Remote as a game controller in your Apple TV game.
+- [Discovering and tracking spatial game controllers and styli](https://developer.apple.com/documentation/gamecontroller/discovering-and-tracking-spatial-game-controllers-and-styli) - Receive controller and stylus input to interact with content in your augmented reality app.
 - **GCDevice** - A protocol that defines a common interface for game input devices.
 - **GCController** - A representation of a real game controller, a virtual controller, or a snapshot of a controller.
 - **GCRacingWheel** - An object that represents a physical racing wheel controller connected to a device.
@@ -54,7 +68,7 @@ To support racing wheel devices in your macOS app, see Racing wheel device suppo
 - **GCDeviceLight** - The colored light on a device.
 
 ### Touch Controller
-- [Adding touch controls to games that support game controllers in iOS](https://developer.apple.com/documentation/gamecontroller/adding_touch_controls_to_games_that_support_game_controllers_in_ios) - Use touch input and virtual controllers to make your game available to players without controllers.
+- [Adding virtual controls to games that support game controllers in iOS](https://developer.apple.com/documentation/gamecontroller/adding-virtual-controls-to-games-that-support-game-controllers-in-ios) - Use `GCVirtualController` for players without physical controllers. This is separate from the newer Touch Controller framework.
 - **GCVirtualController** - A software emulation of a real controller that you configure specifically for your game.
 
 ### Button Elements and Names
@@ -62,9 +76,8 @@ To support racing wheel devices in your macOS app, see Racing wheel device suppo
 - **GCPressedStateInput** - The common properties for an element that has press state input, such as input from a button.
 
 ### Racing Wheels
-- [Racing wheel device support](https://developer.apple.com/documentation/gamecontroller/racing_wheel_device_support) - Add support for racing wheel devices in macOS.
-- [Game Controller framework migration from IOKit](https://developer.apple.com/documentation/gamecontroller/game_controller_framework_migration_from_iokit) - Deploy an app that takes advantage of advanced game controller features using the Game Controller framework, while supporting game controllers on older macOS releases using IOKit.
-- [Understanding game controller backward compatibility](https://developer.apple.com/documentation/gamecontroller/understanding_game_controller_backward_compatibility) - Learn how macOS brings support for the latest game controllers to software that predates the introduction of the Game Controller framework.
+- [Racing wheel device support](https://developer.apple.com/documentation/gamecontroller/racing-wheel-device-support) - Add support for racing wheel devices in macOS.
+- [Understanding game controller backward compatibility](https://developer.apple.com/documentation/gamecontroller/understanding-game-controller-backward-compatibility) - Learn how macOS brings support for the latest game controllers to software that predates the introduction of the Game Controller framework.
 - **kIOHIDGCSyntheticDeviceKey** - A key that specifies whether the device is a game controller synthetic HID device.
 
 ### Aliases for Backward Compatibility
@@ -75,10 +88,8 @@ To support racing wheel devices in your macOS app, see Racing wheel device suppo
 - **GCDeviceDirectionPad** - An alias for a symbol name for backward compatibility with a previous SDK version.
 
 ### Deprecated Symbols
-- [Deprecated symbols](https://developer.apple.com/documentation/gamecontroller/deprecated_symbols)
+- [Deprecated symbols](https://developer.apple.com/documentation/gamecontroller/deprecated-symbols)
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/GameController)*

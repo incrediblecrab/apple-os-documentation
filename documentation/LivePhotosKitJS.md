@@ -15,23 +15,27 @@ The JavaScript API presents the player in the form of a DOM element, much like a
 
 Use the script tag and link to Apple’s hosted version of LivePhotosKit JS at https://cdn.apple-livephotoskit.com/lpk/1/livephotoskit.js.
 
+```html
 <script src="https://cdn.apple-livephotoskit.com/lpk/1/livephotoskit.js"></script>
-Note
+```
 
-The LivePhotosKit JS version number is in the URL. For example, 1 specifies LivePhotosKit JS 1.0.0.
+The `/lpk/1/` URL selects the version-1 library line, not an exact 1.0.0 build. The hosted script captured for this review identifies itself as 1.5.8; the NPM package metadata separately reports 1.5.6. Do not assume the hosted and packaged builds are identical.
 
 ### Enable JavaScript strict mode
 
-To enable strict mode for an entire script, put 'use strict' before any other statements.
+To enable strict mode for an entire script, put `'use strict'` before any other statements.
 
- 'use strict';
-Note
+```javascript
+'use strict';
+```
 
 LivePhotosKit JS is also available through NPM at https://www.npmjs.com/package/livephotoskit.
 
 The install command is:
 
+```shell
 npm install --save livephotoskit
+```
 
 ## Declarative HTML
 
@@ -51,6 +55,9 @@ data-shows-native-controls: Whether or not the playback controls are enabled for
 
 Each DOM element assigned to be a Player will be decorated with a playback control.
 
+This declarative example needs real, paired photo and video URLs in place of the placeholders.
+
+```html
 <!DOCTYPE html>
 <html>
     <head>
@@ -62,19 +69,28 @@ Each DOM element assigned to be a Player will be decorated with a playback contr
             data-live-photo
             data-photo-src="https://..."
             data-video-src="https://..."
-            style="width: 320px; height: 320px">            
+            style="width: 320px; height: 320px">
         </div>
     </body>
 </html>
+```
+
 ## JavaScript API
 
 Create a new LivePhotosKit.Player by invoking it either as a wrapper around a pre-existing DOM element, or by calling it without an argument, which will create a new DOM element.
 
+These are alternative construction examples. A player created in JavaScript still needs nonzero dimensions and media sources before it can display a Live Photo.
+
+```javascript
 // A Player built from a new DIV:
 const myNewPlayer = LivePhotosKit.Player();
+myNewPlayer.style.width = '320px';
+myNewPlayer.style.height = '320px';
 document.body.appendChild(myNewPlayer);
 // A Player built from a pre-existing element:
 LivePhotosKit.Player(document.getElementById('myExistingElement'));
+```
+
 After a Player is created, use the properties and methods to set it up and use it, just as you would with a native image or video element.
 
 The player will emit these events:
@@ -89,6 +105,9 @@ videoload when the video component of the Live Photo has finished loading.
 
 photoload when the photo component of the Live Photo has finished loading.
 
+The next example assumes a sized element with the indicated ID already exists. Replace both asset URL placeholders. The playback and seek calls demonstrate separate operations, not an initialization sequence; wait until the media is ready before using them.
+
+```javascript
 // Create the player using a pre-existing DOM element.
 const player = LivePhotosKit.Player(document.getElementById('my-live-photo-target-element'));
 player.photoSrc = 'https://...';
@@ -108,12 +127,17 @@ player.stop();
 player.currentTime = 0.25 * player.duration;
 // Seek the animation to 0.1 seconds into the Live Photo.
 player.currentTime = 0.1;
+```
+
 ## Error Handling
 
 A Player will emit error events, if and when errors occur while attempting to load or play. If a Player does experience an error, it will also publish the error to its public property errors as a way to convey whether or not it is in an error state, and, if so, what the errors were.
 
 The error states can be seen here LivePhotosKit.Errors.
 
+This handler uses the `player` created in the previous example.
+
+```javascript
 player.addEventListener('error', (ev) => {
     if (typeof ev.detail.errorCode === 'number') {
         switch (ev.detail.errorCode) {
@@ -128,10 +152,12 @@ player.addEventListener('error', (ev) => {
         // Extract error.
         console.error(ev.detail.error);
     }
-})
+});
+```
+
 ## Browser Compatibility
 
-The LivePhotosKit JS player is supported on the following browsers:
+Apple's version-1 reference publishes the following compatibility matrix. It includes legacy browser entries and is not a record of testing against current browser versions. Validate your target versions and media formats; the JavaScript examples above use modern syntax.
 
 | Device | Browser |
 |--------|--------|
@@ -142,13 +168,11 @@ The LivePhotosKit JS player is supported on the following browsers:
 
 ## How to obtain Live Photo assets
 
-Live Photos consist of two components: a still photo and a video of the moments just before and after the photo is taken. Using one of the following methods will let you obtain the still photo as a JPG and the video as a MOV file.
+Live Photos consist of a still image and a paired video of the moments around capture. Preserve both components when exporting. [Photos exports unmodified originals in their original formats](https://support.apple.com/guide/photos/export-photos-videos-and-slideshows-pht6e157c5f/mac), so the still image is not guaranteed to be JPEG; it may be HEIC. Prepare a browser-compatible still image and video for web playback rather than assuming the original files will decode on every target browser.
 
 Important
 
-If the assets are large, they will take a long time to download. If the photo takes too long, it will not be able to show the progress badge. To avoid this problem, the element that is being decorated to be a player should explicitly specify its height and width. Downsizing assets will greatly improve performance and reduce bandwidth usage.
-
-A sample project is also available.
+Keep download and decode costs within the target browser's budget. Give the player explicit dimensions before its photo loads so loading UI has a visible area. Test appropriately sized assets and encodings instead of assuming that every original Live Photo is suitable for web delivery.
 
 ### Using macOS Photos
 
@@ -170,7 +194,7 @@ Choose the destination folder and click on Import.
 
 ### Using Windows 10 File Explorer
 
-Ensure that iTunes for Windows is installed. You can download it from here: http://www.apple.com/itunes/download/
+This is the legacy File Explorer workflow retained in the version-1 reference, not a current Windows-version requirement. Apple's [current transfer guide](https://support.apple.com/en-us/120267) uses the Apple Devices app rather than requiring iTunes: connect the device by USB, unlock it, and approve the trust prompt. If iCloud Photos is enabled, download the original full-resolution assets to the device before a PC import.
 
 Open File Explorer. This can be opened by pressing the Windows Key and E at the same time.
 
@@ -180,7 +204,7 @@ You should see your iOS device in the “This PC” folder.
 
 Navigate to the following folder: (your device) > Internal Storage > DCIM and look for the Live Photo you wish to import.
 
-Your Live Photo will be stored as a pair of files: a JPG file and a MOV file.
+Find the matching still-image and video files. Their formats depend on the original asset and transfer settings; do not assume that every pair is JPG plus MOV.
 
 Drag the pair of files to your local file system.
 
@@ -196,7 +220,5 @@ Drag the pair of files to your local file system.
 - **LivePhotosKit.EffectType**
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/LivePhotosKitJS)*

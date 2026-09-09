@@ -6,7 +6,7 @@ Post content to supported social networking services, using standard system inte
 
 ## Overview
 
-On iOS and macOS, this framework provides a template for creating HTTP requests. On iOS only, the Social framework provides a generalized interface for posting requests on behalf of the user.
+Social provides HTTP request templates and composition interfaces with different platform scopes. `SLComposeViewController` is the iOS/iPadOS/Mac Catalyst service composer; `SLComposeServiceViewController` supports custom sharing extensions on iOS and macOS.
 
 A common way to use this framework is:
 
@@ -16,17 +16,17 @@ A common way to use this framework is:
 4. Set properties on a post, add attachments, etc.
 5. Publish a post to an activity feed.
 
+An `SLRequest` still needs the target service's URL, parameters, and applicable account authorization. This legacy framework reference does not establish that any particular social network's historical integration remains available.
+
 ## Topics
 
 ### Composition Interfaces
-- **SLComposeServiceViewController** - A view controller that you present from your share app extension, allowing the user to compose social media posts.
-- **SLComposeViewController** - A view controller that allows the user to compose social media posts.
+- [`SLComposeServiceViewController`](https://developer.apple.com/documentation/social/slcomposeserviceviewcontroller) - A sharing-extension composer, available from iOS/iPadOS 8.0, Mac Catalyst 13.1, and macOS 10.10.
+- [`SLComposeViewController`](https://developer.apple.com/documentation/social/slcomposeviewcontroller) - A service composer on iOS/iPadOS 6.0+ and Mac Catalyst 13.1+. Check service availability before presentation; set initial content before presenting the controller.
 
 ### Server Communication
-- **SLRequest** - An object that you use to assemble an HTTP request for communicating with a social media service.
+- [`SLRequest`](https://developer.apple.com/documentation/social/slrequest) - Assemble a service-specific HTTP request; available from iOS/iPadOS 6.0, Mac Catalyst 13.1, and macOS 10.8.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/Social)*

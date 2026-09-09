@@ -14,14 +14,14 @@ At the end of a chain of publishers, a Subscriber acts on elements as it receive
 
 Several Foundation types expose their functionality through publishers, including Timer, NotificationCenter, and URLSession. Combine also provides a built-in publisher for any property that's compliant with Key-Value Observing.
 
-You can combine the output of multiple publishers and coordinate their interaction. For example, you can subscribe to updates from a text field's publisher, and use the text to perform URL requests. You can then use another publisher to process the responses and use them to update your app.
+You can combine the output of multiple publishers and coordinate their interaction. For example, observe text-change notifications through a notification-center publisher, use the text to perform URL requests, and transform the responses before updating your app. This does not imply that every UIKit control has a built-in Combine publisher.
 
-By adopting Combine, you'll make your code easier to read and maintain, by centralizing your event-processing code and eliminating troublesome techniques like nested closures and convention-based callbacks.
+Combine can centralize event-processing code and replace chains of callbacks with explicit operators and subscriptions.
 
 ## Topics
 
 ### Essentials
-- [Receiving and Handling Events with Combine](https://developer.apple.com/documentation/Combine/receiving_and_handling_events_with_combine) - Customize and receive events from asynchronous sources.
+- [Receiving and Handling Events with Combine](https://developer.apple.com/documentation/combine/receiving-and-handling-events-with-combine) - Customize and receive events from asynchronous sources.
 
 ### Publishers
 - **Publisher** - Declares that a type can transmit a sequence of values over time.
@@ -40,11 +40,11 @@ By adopting Combine, you'll make your code easier to read and maintain, by centr
 - **Record** - A publisher that allows for recording a series of inputs and a completion, for later playback to each subscriber.
 
 ### Connectable Publishers
-- [Controlling Publishing with Connectable Publishers](https://developer.apple.com/documentation/Combine/controlling_publishing_with_connectable_publishers) - Coordinate when publishers start sending elements to subscribers.
+- [Controlling Publishing with Connectable Publishers](https://developer.apple.com/documentation/combine/controlling-publishing-with-connectable-publishers) - Coordinate when publishers start sending elements to subscribers.
 - **ConnectablePublisher** - A publisher that provides an explicit means of connecting and canceling publication.
 
 ### Subscribers
-- [Processing Published Elements with Subscribers](https://developer.apple.com/documentation/Combine/processing_published_elements_with_subscribers) - Apply back pressure to precisely control when publishers produce elements.
+- [Processing Published Elements with Subscribers](https://developer.apple.com/documentation/combine/processing-published-elements-with-subscribers) - Control subscription demand and delivery using back pressure.
 - **Subscriber** - A protocol that declares a type that can receive input from a publisher.
 - **Subscribers** - A namespace for types that serve as subscribers.
 - **AnySubscriber** - A type-erasing subscriber.
@@ -62,10 +62,10 @@ By adopting Combine, you'll make your code easier to read and maintain, by centr
 - **SchedulerTimeIntervalConvertible** - A protocol that provides a scheduler with an expression for relative time.
 
 ### Combine Migration
-- [Routing Notifications to Combine Subscribers](https://developer.apple.com/documentation/Combine/routing_notifications_to_combine_subscribers) - Deliver notifications to subscribers by using notification centers' publishers.
-- [Replacing Foundation Timers with Timer Publishers](https://developer.apple.com/documentation/Combine/replacing_foundation_timers_with_timer_publishers) - Publish elements periodically by using a timer.
-- [Performing Key-Value Observing with Combine](https://developer.apple.com/documentation/Combine/performing_key-value_observing_with_combine) - Expose KVO changes with a Combine publisher.
-- [Using Combine for Your App's Asynchronous Code](https://developer.apple.com/documentation/Combine/using_combine_for_your_app_s_asynchronous_code) - Apply common patterns to migrate your closure-based, event-handling code.
+- [Routing Notifications to Combine Subscribers](https://developer.apple.com/documentation/combine/routing-notifications-to-combine-subscribers) - Deliver notifications to subscribers by using notification centers' publishers.
+- [Replacing Foundation Timers with Timer Publishers](https://developer.apple.com/documentation/combine/replacing-foundation-timers-with-timer-publishers) - Publish elements periodically by using a timer.
+- [Performing Key-Value Observing with Combine](https://developer.apple.com/documentation/combine/performing-key-value-observing-with-combine) - Expose KVO changes with a Combine publisher.
+- [Using Combine for Your App's Asynchronous Code](https://developer.apple.com/documentation/combine/using-combine-for-your-app-s-asynchronous-code) - Apply common patterns to migrate your closure-based, event-handling code.
 
 ### Observable Objects
 - **ObservableObject** - A type of object with a publisher that emits before the object has changed.
@@ -84,7 +84,5 @@ By adopting Combine, you'll make your code easier to read and maintain, by centr
 - **CombineIdentifier** - A unique identifier for identifying publisher streams.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/Combine)*

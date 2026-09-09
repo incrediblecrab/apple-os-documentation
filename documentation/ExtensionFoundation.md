@@ -6,41 +6,49 @@ Create executable bundles to extend the functionality of other apps.
 
 ## Overview
 
-Extensions are executable code bundles, in one app that perform functions in a second, host app. Host apps declare extension points that control the kinds of functionality its extensions can implement. Extensions allow iOS and Mac apps to include code that runs inside system apps. For example, Messages provides extension points so apps can create iMessage apps. Messages automatically finds extension bundles that target its extension points and makes them available in its app drawer. A Mac app can also declare its own extension points so that other apps can extend the Mac app's functionality.
+An app extension is an executable bundle embedded in an app. A host can discover and launch extensions implementing its extension points, but the extension's code runs in a **separate process**, not in the host's address space. The host and extension communicate through an agreed XPC interface.
 
-Prior to macOS 13, apps use NSExtension property lists to declare and configure extensions. ExtensionKit supports this approach, but also adds the ability to configure extensions and extension points entirely in Swift code.
+Use ExtensionFoundation for the entry point, discovery, process management, and non-UI connection configuration. If the extension also provides remote UI, add [ExtensionKit](ExtensionKit.md). UI hosting and service execution are related workflows, not different rules for loading arbitrary code into the host.
 
-Extensions come in two basic forms: UI and non-UI.
+## Choosing an extension workflow
 
-**UI extensions**  
-Vend remote views and view controllers that the host app adds to its own view hierarchy.
+Use a system feature's own framework for its extension model — for example [WidgetKit](WidgetKit.md) or [AppMigrationKit](AppMigrationKit.md). Adopt ExtensionFoundation directly when defining extension points for your own host app, discovering implementations, and communicating with them over XPC. Custom UI also needs [ExtensionKit](ExtensionKit.md).
 
-**Non-UI extensions**  
-Present no user interface, but perform some work on behalf of the host app.
+The [current host-app guide](https://developer.apple.com/documentation/extensionfoundation/adding-support-for-app-extensions-to-your-app) describes `AppExtensionPoint.Definition` and an `.appext` file generated from code. Programmatic generation is a **26-generation** workflow enabled by `EX_ENABLE_EXTENSION_POINT_GENERATION = YES`; it is not a requirement to relabel every extension as OS 27-only. Existing hand-authored `.appext` files remain supported.
 
-An iMessage app, which can include sophisticated user interfaces — even entire games — is an example of a UI extension. SiriKit app intents, which gives people the ability to interact with your app using Siri, is an example of a non-UI extension.
+The host defines supported extension points and each extension binds to one. Keep the process handle while using its XPC connection and release it with `invalidate()` when finished. Discovery only exposes extensions that are available and enabled; separately shipped extensions require the person's approval.
 
-Use ExtensionFoundation by itself to create extensions and extension points that don't present a user interface. Use ExtensionFoundation in combination with ExtensionKit to create extensions that vend remote view controllers to the host app.
+### Per-symbol availability
+
+- `AppExtension` and `AppExtensionConfiguration` declarations begin at iOS/iPadOS/Mac Catalyst/tvOS 16, macOS 13, watchOS 9, and visionOS 1.1. The framework catalog's tvOS 17.4 label differs from those declarations.
+- `AppExtensionIdentity` and `AppExtensionProcess` begin at iOS/iPadOS/Mac Catalyst/tvOS/watchOS 26, macOS 13, and visionOS 1.1.
+- `AppExtensionPoint`, `Definition`, and `ExtensionPointDefining` list 26 on the platforms above except visionOS, where their declarations retain 1.1.
+- `ConnectionHandler` lists iOS/iPadOS/Mac Catalyst/macOS 26 and visionOS 1.1, without tvOS/watchOS declarations.
+
+`Definition` is declared as an `@resultBuilder` structure, even though the guide calls it a property wrapper. Follow the declaration and compiler-supported syntax rather than expecting a `wrappedValue` property.
 
 ## Topics
 
+### Essentials
+- [Adding support for app extensions to your app](https://developer.apple.com/documentation/extensionfoundation/adding-support-for-app-extensions-to-your-app) - Define extension points and runtime communication.
+- [Building an app extension to support a host app](https://developer.apple.com/documentation/extensionfoundation/building-an-app-extension-to-support-a-host-app) - Implement the separate extension process.
+- [Discovering app extensions](https://developer.apple.com/documentation/extensionfoundation/discovering-app-extensions-from-your-app) - Find implementations that match the host's extension points.
+
 ### App Extensions
-- **AppExtensionIdentity** - An object that uniquely identifies an app extension.
-- **AppExtension** - Declares a type used by app extensions.
-- **AppExtensionConfiguration** - An object that holds configuration options for an app extension.
+- [`AppExtensionIdentity`](https://developer.apple.com/documentation/extensionfoundation/appextensionidentity) - An identity value obtained through discovery, not directly constructed.
+- [`AppExtension`](https://developer.apple.com/documentation/extensionfoundation/appextension) - The extension entry-point protocol and configuration.
+- [`AppExtensionConfiguration`](https://developer.apple.com/documentation/extensionfoundation/appextensionconfiguration) - A `Sendable` protocol for accepting the host's XPC connection.
 
 ### Host Apps
-- **AppExtensionProcess** - An object that represents a running app extension process.
+- [`AppExtensionProcess`](https://developer.apple.com/documentation/extensionfoundation/appextensionprocess) - A structure that launches or connects to a running extension process and manages the host's reference to it.
 
 ### Protocols
-- **ExtensionPointDefining**
+- [`ExtensionPointDefining`](https://developer.apple.com/documentation/extensionfoundation/extensionpointdefining) - Identifies extension-point types.
 
 ### Structures
-- **AppExtensionPoint** - A type representing an extension point
-- **ConnectionHandler** - ConnectionHandler handles incoming XPC connections.
+- [`AppExtensionPoint`](https://developer.apple.com/documentation/extensionfoundation/appextensionpoint) - Defines host extension points and extension bindings.
+- [`ConnectionHandler`](https://developer.apple.com/documentation/extensionfoundation/connectionhandler) - Configures a closure accepting Foundation XPC connections or XPC sessions.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/ExtensionFoundation)*

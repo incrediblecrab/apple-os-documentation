@@ -3,9 +3,9 @@
 An iOS, iPadOS, macOS, or visionOS app can integrate system-provided print functionality when it makes sense, presenting custom printer- and document-specific options if necessary.
 
 ## Best practices
-**Make printing discoverable.** Help people find your print action by placing it in standard system locations. For example, include a Print item in your macOS app's File menu; in your iOS or iPadOS app, add a toolbar button that opens an action sheet. If your macOS app has a toolbar, you might want to put a Print button there, too, but consider making it an optional button that people can add when they customize the toolbar.
+**Make printing discoverable.** Help people find your print action by placing it in standard system locations. For example, include a Print item in your macOS app's File menu; in your iOS or iPadOS app, expose Print through the share sheet when it applies to the content. If your macOS app has a toolbar, you might want to put a Print button there, too, but consider making it an optional button that people can add when they customize the toolbar.
 
-**Present a printing option only when it's possible.** If there's nothing onscreen to print, or no printers are available, dim the Print item in a macOS app's File menu and remove the Print action from the Action sheet in an iOS or iPadOS app. If you implement a custom print button, dim or hide it when printing isn't possible.
+**Present a printing option only when it's useful.** If there's no printable content, disable the Print item in a macOS app's File menu or omit the inapp sharing action. Don't disable macOS printing merely because no physical printer is available: the print workflow can also save a PDF.
 
 **Present relevant printing options.** If it makes sense to offer options like selecting a page range, requesting multiple copies, or printing on both sides — and the printer supports the options — use the system-provided view to present them.
 
@@ -29,7 +29,7 @@ Consider storing modified settings with the document. At minimum, it makes sense
 ## Related
 
 - [File management](../patterns/file-management.md)
-- [File menu](../components/menus.md)
+- [File menu](../components/the-menu-bar.md#file-menu)
 
 ## Developer documentation
 
@@ -37,4 +37,4 @@ Consider storing modified settings with the document. At minimum, it makes sense
 - [NSDocument — AppKit](https://developer.apple.com/documentation/appkit/nsdocument)
 
 
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
+*Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/printing)*

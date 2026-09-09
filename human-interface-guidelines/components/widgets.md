@@ -2,32 +2,40 @@
 
 A widget elevates and displays a small amount of timely, relevant information from your app or game so people can see it at a glance in additional contexts.
 
-**Platforms:** iOS | iPadOS | macOS | watchOS
+**Platforms:** iOS | iPadOS | macOS | visionOS | watchOS
 
 ## Overview
 
-Widgets display content and offer specific functionality without requiring people to open your app. People can use widgets to organize and personalize their devices, quickly accessing the information and features they need.
+Widgets offer focused information and, in supported contexts, simple actions without opening the app. They aren't miniature replacements for the app's complete interface.
 
-The system can display widgets in different places depending on a person's device. In iOS and iPadOS, widgets appear on the Home Screen, in Today View, and on the Lock Screen. In macOS, people can find widgets on the desktop and in Notification Center. In watchOS, widgets appear in the Smart Stack when people turn the Digital Crown.
+Placement depends on the platform and widget family. iPhone and iPad offer Home Screen, Today View, and Lock Screen contexts; Mac offers the desktop and Notification Center. Apple Watch presents widgets in its Smart Stack. visionOS 26 adds spatially placed widgets, and CarPlay with iOS 26 supports small system widgets.
 
-People can access the widget gallery from the same places where widgets can appear by going into edit mode — for example, by tapping Edit on the Home Screen. The widget gallery contains a collection of widgets that people can add to their device. People can also make changes to editable widgets in the gallery, such as choosing a location in a Weather widget, or selecting a topic in a News widget. In macOS, the gallery also includes iPhone widgets from devices that use the same Apple Account. In watchOS, apps offer preconfigured widgets that the system displays in the Smart Stack, which can include up to 10 widgets. People can pin widgets to a fixed position in the Smart Stack to customize their experience.
+People choose widgets through the system's platform-specific gallery and editing interface. Configuration, such as selecting a Weather location, isn't necessarily performed in the gallery itself. Supported iPhone widgets can also appear on Mac through Continuity. On Apple Watch, people can add, remove, rearrange, and pin Smart Stack widgets; don't apply the iPhone stack limit to Watch.
 
-In iOS and iPadOS, the widget gallery also supports widget stacks, including a Smart Stack. A stack contains up to 10 same-size widgets; people view one widget at a time by scrolling through the stack. In a Smart Stack, the stack automatically rotates its widgets to display the widget that's most likely to be relevant in the current context. Smart Stacks aren't available on the Lock Screen on iPhone and iPad. A suggested widget doesn't stay in the Smart Stack unless people choose to keep it. For developer guidance, see Increasing the visibility of widgets in Smart Stacks.
+On iPhone and iPad, people can stack same-size Home Screen widgets. Apple's [iPhone instructions](https://support.apple.com/en-us/118610) specify up to 10 widgets per stack. Smart Rotate and Widget Suggestions are optional: suggestions can appear when relevant, and people can add one to keep it in the stack. These Home Screen stacks aren't Lock Screen accessory widgets. See also the [iPad widget guide](https://support.apple.com/guide/ipad/add-edit-and-remove-widgets-ipadb0de8630/ipados).
 
-Widgets come in different sizes, ranging from small accessory widgets on the Lock Screen in iOS and iPadOS, to extra large widgets in iPadOS and macOS.
+Widgets range from compact accessory families to large system families. A symbol's SDK availability alone doesn't establish every place its family can appear.
 
-The following table shows the available widget sizes for each platform:
+System-family contexts include:
 
-| Widget size | iPhone | iPad | Apple Watch | Mac |
+| Widget family | iPhone | iPad | Mac | visionOS |
 | --- | --- | --- | --- | --- |
-| System small | Home Screen, Today View, and StandBy | Home Screen, Today View, and Lock Screen | No | Desktop and Notification Center |
-| System medium | Home Screen and Today View | Home Screen and Today View | No | Desktop and Notification Center |
-| System large | Home Screen and Today View | Home Screen and Today View | No | Desktop and Notification Center |
-| System extra large | No | Home Screen and Today View | No | Desktop and Notification Center |
-| Accessory circular | Lock Screen | Lock Screen | Watch complications and in the Smart Stack | No |
-| Accessory corner | No | No | Watch complications | No |
-| Accessory rectangular | Lock Screen | Lock Screen | Watch complications and in the Smart Stack | No |
-| Accessory inline | Lock Screen | Lock Screen | Watch complications | No |
+| System small | Home Screen, Today View, StandBy; also CarPlay | Home Screen, Today View, Lock Screen | Desktop, Notification Center | Spatial placement |
+| System medium | Home Screen, Today View | Home Screen, Today View | Desktop, Notification Center | Spatial placement |
+| System large | Home Screen, Today View | Home Screen, Today View | Desktop, Notification Center | Spatial placement |
+| System extra large | Not a regular iPhone placement | Home Screen, Today View | Desktop, Notification Center | Compatible iPhone/iPad widgets map to portrait; native apps use the portrait family |
+| System extra large portrait | Home Screen and Today View, iOS 27 beta | Today View, iPadOS 27 beta | Desktop, macOS 27 beta | Native portrait family from visionOS 26 |
+
+The portrait row follows the current [`systemExtraLargePortrait`](https://developer.apple.com/documentation/widgetkit/widgetfamily/systemextralargeportrait) declaration and its documented contexts, including the 27 beta additions. The [`systemExtraLarge`](https://developer.apple.com/documentation/widgetkit/widgetfamily/systemextralarge) documentation distinguishes native visionOS widgets from compatible iPhone/iPad widgets; don't assume one extra-large orientation rule applies to both.
+
+Accessory-family contexts include:
+
+| Widget family | iPhone | iPad | Apple Watch |
+| --- | --- | --- | --- |
+| Accessory circular | Lock Screen | Lock Screen | Complications and Smart Stack |
+| Accessory corner | — | — | Complications |
+| Accessory rectangular | Lock Screen | Lock Screen | Complications and Smart Stack |
+| Accessory inline | Lock Screen | Lock Screen | Complications |
 
 ## Topics
 
@@ -41,7 +49,7 @@ The following table shows the available widget sizes for each platform:
 
 - **Aim to create a widget that gives people quick access to the content they want** - People appreciate widgets that display meaningful content and offer useful actions and deep links to key areas of your app. When a widget merely behaves like an app icon, it offers little additional value and people may be less likely to keep it on their screens.
 
-- **Prefer dynamic information that changes throughout the day** - If a widget's content never appears to change, people may not keep it in a prominent position. Although widgets don't update from minute to minute, it's important to find ways to keep their content fresh to invite frequent viewing.
+- **Prefer timely information** - Choose content that remains useful between updates. Avoid implying a fixed refresh interval: system-rendered dates and timers can change without requesting a new timeline.
 
 - **Look for opportunities to surprise and delight** - For example, you might design a unique visual treatment for your calendar widget to display on meaningful occasions, like birthdays or holidays.
 
@@ -49,35 +57,35 @@ The following table shows the available widget sizes for each platform:
 
 ### Updating Widget Content
 
-To remain relevant and useful, widgets periodically refresh their information. Widgets don't support continuous, real-time updates, and the system may adjust the limits for updates depending on various factors.
+A widget extension isn't continuously running, even while its widget is visible. Use timelines, appropriate reload requests, and supported WidgetKit push updates rather than continuous polling. The system budgets updates; push notifications supplement timelines and don't guarantee immediate delivery.
 
-- **Keep your widget up to date** - Finding the appropriate update frequency for your widget depends on knowing how often the data changes, and estimating when people need to see the new data. For example, a widget that helps people track tides at a beach could provide useful information on an hourly basis, even though tide conditions change constantly. If people are likely to check your widget more frequently than you can update it, consider displaying text that describes when the data was last updated. For developer guidance, see Keeping a widget up to date.
+- **Match updates to the information** - Plan predictable changes in a timeline and request reloads when appropriate. Show an update time when freshness matters, rather than presenting old information as current. See [Keeping a widget up to date](https://developer.apple.com/documentation/widgetkit/keeping-a-widget-up-to-date).
 
 - **Use system functionality to refresh dates and times in your widget** - Widget update frequency is limited, and you can preserve some of your update opportunities by letting the system refresh date and time information.
 
-- **Encourage the system to display or elevate the position of your watchOS widget in the Smart Stack** - Relevancy information helps the system show your widget when people need it most. Relevance can be location-based or specific to ongoing system actions, like a workout. For developer guidance, see RelevantContext.
+- **Provide useful Smart Stack relevance information** - Describe when your content is relevant so the system can consider surfacing it. Relevance is a signal, not a guarantee of placement, and must respect people's settings. See [RelevanceKit](https://developer.apple.com/documentation/relevancekit).
 
 - **Show content quickly** - When you determine the update frequency that fits with the data you display, you don't need to hide stale data behind placeholder content.
 
-- **Use animated transitions to bring attention to data updates** - By default, many SwiftUI views animate content updates. Use standard and custom animations with a duration of up to two seconds to let people know when new information is available or when content displays differently.
+- **Use brief transitions for meaningful changes** - Supported widget animations have a maximum duration of two seconds. Widgets and Live Activities don't animate in reduced-luminance Always On presentations. Respect Reduce Motion and check the target OS behavior; older systems have different animation support. See [Animating data updates](https://developer.apple.com/documentation/widgetkit/animating-data-updates-in-widgets-and-live-activities).
 
-- **Offer Live Activities to show real-time updates** - Widgets don't show real-time information. If your app allows people to track the progress of a task or event for a limited amount of time with frequent updates, consider offering Live Activities in your app. Widgets and Live Activities use the same underlying frameworks and share design similarities. As a result, it can be a good idea to develop widgets and Live Activities in tandem and reuse code and design components for both features. For design guidance on Live Activities, see Live Activities; for developer guidance, see ActivityKit.
+- **Consider a Live Activity for a bounded ongoing event** - On supported platforms, a Live Activity can keep an event's changing status visible. Its SwiftUI presentation can share code with widgets, but [ActivityKit](https://developer.apple.com/documentation/activitykit) manages a different lifecycle and update mechanism. Neither feature is an unrestricted real-time stream.
 
 ### Configuring Widgets
 
 In some cases, people need to edit a widget to ensure it displays the information that's most useful for them. For example, people choose a stock symbol for a Stocks widget. In contrast, some widgets — like the Podcasts widget — automatically display recent content, so people don't need to customize them.
 
-- **Make editable widgets easy for people to customize** - If your widget is editable, avoid requiring too many settings or asking for information that might be hard for people to find. You don't have to design an editing-mode user interface for your widget because the system automatically generates it for you. For developer guidance, see Making a configurable widget.
+- **Keep configuration focused** - Offer a small set of useful choices with sensible defaults. With App Intents configuration, the system builds editing UI from your `WidgetConfigurationIntent` parameters; your app still supplies the intent, available choices, and timeline provider. Older deployment targets can use the appropriate SiriKit-based configuration rather than assuming SiriKit is universally deprecated. See [Making a configurable widget](https://developer.apple.com/documentation/widgetkit/making-a-configurable-widget).
 
 ### Adding Interactivity to Widgets
 
-People tap or click a widget to launch its corresponding app. In iOS, iPadOS, macOS, and watchOS, widgets can also include buttons and toggles to offer additional functionality without launching the app. For example, the Reminders widget helps people mark a task as completed, and the widget of an app people use to log their daily caffeine intake can include a button that increases the caffeine total for the day.
+Where the family and presentation context support interactivity, App Intent-backed buttons and toggles can perform a focused action without launching the app. Use links for navigation instead of making an action button merely open the app. Check the actual supported families and contexts in [Adding interactivity to widgets and Live Activities](https://developer.apple.com/documentation/widgetkit/adding-interactivity-to-widgets-and-live-activities); don't infer identical support for every complication, Smart Stack widget, or vehicle.
 
 - **Offer simple, relevant functionality in a widget, reserving complex functionality for your app** - Useful widgets offer an easy way to complete a task or action that's directly related to its content.
 
-- **Ensure that a widget interaction opens your app at the right location** - When people interact with your widget in areas that aren't buttons or toggles, the interaction launches your app. Avoid making people navigate to the relevant area in the app, and instead deep link to the place where you offer details and actions that directly relate to the widget's content. For example, when people click or tap a medium Stocks widget, the Stocks app opens to a page that displays information about the symbol.
+- **Deep link to the relevant destination when launching is supported** - Open the matching content rather than an unrelated landing screen. Use one `widgetURL(_:)` per widget view hierarchy; supported families can add `Link` targets. Multiple `widgetURL` modifiers have undefined behavior. CarPlay has additional restrictions described below. See [Linking to specific app scenes](https://developer.apple.com/documentation/widgetkit/linking-to-specific-app-scenes-from-your-widget-or-live-activity).
 
-- **Provide options for interaction while remaining glanceable and uncluttered** - In iOS, iPadOS, macOS, and watchOS, widgets can offer multiple deep links that open the app and can include controls that perform app functions without launching the app. Multiple interaction targets — SwiftUI links, buttons, and toggles — might make sense for your content, but avoid creating app-like layouts in your widgets. Pay attention to the size of targets and make sure people can tap or click them with confidence and without accidentally performing unintended interactions. In watchOS, use a confirmation prompt to avoid unintended interactions. Note that inline accessory widgets offer only one tap target.
+- **Keep interaction targets clear and limited** - Avoid dense app-like controls. Give each supported target enough space, an understandable label, and useful feedback. Confirm consequential actions where appropriate, not every routine Watch interaction. An inline accessory widget has a single tap target.
 
 ### Interface Design
 
@@ -85,7 +93,7 @@ Widgets use vivid colors, rich images, and clear, crisp text that's easy to read
 
 - **Help people recognize your widget by including design elements linked to your brand's identity** - Design elements like brand colors, typeface, and stylized glyphs can make a widget instantly recognizable. Take care to keep brand-related design elements from crowding out useful information or making your widget look out of place in its context.
 
-Note: When a widget appears in Notification Center in macOS or on the Home Screen in iOS, the system displays the app name below it. In Today View, the Lock Screen in iOS, and the iPadOS Home Screen, the app name doesn't appear below a widget.
+App-name labels vary by context and appearance. Test the widget in its actual placement instead of relying on a universal caption rule.
 
 - **Consider carefully before displaying a logo, wordmark, or app icon in your widget** - When you include brand-related design elements like colors and fonts, people seldom need your logo or app icon to help them recognize your widget. Also, the widget gallery displays your app name and icon when it lists the various types and sizes of widgets you offer. In some widgets — for example, those that display content from multiple sources — it may make sense to include a small logo in the top-right corner to subtly identify the app that provides the widget.
 
@@ -99,21 +107,21 @@ Note: When a widget appears in Notification Center in macOS or on the Home Scree
 
 Widgets scale to adapt to the screen sizes of different devices and onscreen areas. Ensure that your widget looks great on every device by supplying content at appropriate sizes.
 
-- **Design content to look great in all situations by letting the system resize or scale it as necessary** - In iOS, the system ensures that your widget looks good on small devices by resizing the content you design for large devices. In iPadOS, the system renders your widget at a large size before scaling it down for display on the Home Screen. As you create design comprehensives for various devices and scale factors, use the values listed in Specifications for guidance; for your production widget, use SwiftUI to ensure flexibility.
+- **Use flexible layouts and test each context** - System sizing and scaling don't guarantee that a dense design remains readable. Use the specifications as design references, not fixed production geometry. Inspect the family and available size, and test localization, larger text, and supported appearances.
 
-- **Coordinate the corner radius of your content with the corner radius of the widget** - To ensure that your content looks good within a widget's rounded corners, use a SwiftUI container to apply the correct corner radius. For developer guidance, see ContainerRelativeShape.
+- **Coordinate shapes with their container** - [`ContainerRelativeShape`](https://developer.apple.com/documentation/swiftui/containerrelativeshape) derives an inset of the current container shape; without one, it becomes a rectangle. Use it where appropriate instead of hardcoding a radius for every widget context.
 
-Note: In iOS, widgets support Dynamic Type sizes from Large to AX5 when you use Font to choose a system font or custom(_:size:) to choose a custom font. For more information about Dynamic Type sizes, see Specifications
+The HIG specifies the Large through AX5 Dynamic Type range for widgets on iOS, iPadOS, and visionOS. Use scalable system or custom fonts and verify that important text and actions remain accessible throughout that range.
 
-- **In general, use standard margins to ensure your content is comfortably legible** - Use the standard margin width for widgets — 16 points for most widgets — to avoid crowding the edges of widgets and creating a cluttered appearance. For example, as you place graphics or buttons or you use background shapes to create visual content groupings, you might need to use tighter, custom margins. Setting tight margins of 11 points can work well for those cases. Additionally, note that widgets use smaller margins on the desktop on Mac and on the Lock Screen — including in StandBy. For developer guidance, see padding(_:_:).
+- **Start with system content margins** - WidgetKit applies context-dependent margins; read [`widgetContentMargins`](https://developer.apple.com/documentation/swiftui/environmentvalues/widgetcontentmargins) when adapting a layout. The HIG's typical 16-point margin and tighter 11-point examples are design guidance, not universal constants. Don't automatically add another 16 points on top of system margins.
 
 ### Displaying Text in Widgets
 
-- **Consider using the system font, text styles, and SF Symbols** - Using the system font helps your widget look at home on any platform, while making it easier for you to display great-looking text in a variety of weights, styles, and sizes. Use SF Symbols to align and scale symbols with text that uses the system font. If you need to use a custom font, consider using it sparingly, and be sure it's easy for people to read at a glance. It often works well to use a custom font for the large text in a widget and SF Pro for the smaller text. For guidance, see Typography and SF Symbols.
+- **Consider using the system font, text styles, and SF Symbols** - Using the system font helps your widget look at home on its platform and supports coordinated weights, styles, and sizes. Use SF Symbols where suitable to align and scale symbols with text. If you need a custom font, use it sparingly and verify glanceability; a distinctive headline can work alongside smaller labels in the platform's system font. For guidance, see Typography and SF Symbols.
 
 - **Avoid using very small font sizes** - In general, display text using fonts at 11 points or larger. Text in a font that's smaller than 11 points can be too hard for many people to read.
 
-- **Always use text elements in a widget to ensure that your text scales well** - In particular, don't rasterize text — doing so prevents VoiceOver from speaking your content.
+- **Preserve semantic text and accessible meaning** - Prefer text views so content can scale and remain available to assistive technologies. Rasterized text needs an appropriate accessible alternative; an image can have an accessibility label, so rasterization doesn't inherently make VoiceOver speech impossible. Don't rely on OCR to recover essential content.
 
 ### Supporting Different Appearances and Modes
 
@@ -124,50 +132,47 @@ For every appearance, a unique, beautiful widget not only provides useful inform
 
 For example, a small system widget appears as follows:
 
-- On the Home Screen of iPhone and iPad, the widget takes on a rich, full color appearance that supports light and dark appearances.
+- On the Home Screen of iPhone and iPad, widgets can use full-color light/dark appearances or an accented treatment for supported clear and tinted styles.
 - On the Lock Screen of iPad, the widget takes on a vibrant appearance.
-- On the Lock Screen of iPhone in StandBy, the widget appears scaled up in size, and uses the vibrant appearance. When the ambient light falls below a threshold, StandBy in Night mode renders widget content in a monochromatic red tint.
-- In Notification Center in macOS, the widget uses rich, full colors and supports both light and dark appearances.
-- On the desktop on Mac, the widget uses rich, full colors when people interact with it. When people interact with apps instead, the widget uses vibrancy and a blurred background to recede.
+- In StandBy, small widgets are enlarged and ordinarily use full color with the background removed. Low-light Night mode applies a red treatment; don't assume all StandBy presentations use the same rendering mode.
+- In Notification Center in macOS, widgets can use full-color light/dark appearances; account for the actual system presentation rather than assuming one permanent style.
+- On the desktop on Mac, the appearance can depend on context and the person's widget-style settings. Don't assume interacting with another app always forces every widget into a monochrome presentation.
+- In CarPlay, a small widget uses full color with its removable background omitted.
+- In visionOS, widgets normally use full color; a tinted customization uses accented rendering.
 
 Similarly, a rectangular accessory widget appears as follows:
 - On the Lock Screen of iPhone and iPad, it takes on a vibrant appearance.
 - On Apple Watch, the widget can appear as a watch complication in both full-color and tinted appearances, and it can also appear in the Smart Stack.
 
-The following table lists the available rendering modes for various types and sizes of widgets. For developer guidance, see Preparing widgets for additional platforms, contexts, and appearances.
+The system chooses a rendering mode according to the family and context. Read [`widgetRenderingMode`](https://developer.apple.com/documentation/widgetkit/widgetrenderingmode) and design for its actual result; a family doesn't support every appearance in every placement.
 
-| Widget size | Full color | Accented | Vibrant (receded in macOS) |
-| --- | --- | --- | --- |
-| System small | Yes | Yes | Yes |
-| System medium | Yes | Yes | Yes |
-| System large | Yes | Yes | Yes |
-| System extra large | Yes | Yes | Yes |
-| Accessory circular | Yes | Yes | Yes |
-| Accessory corner | Yes | Yes | No |
-| Accessory rectangular | Yes | Yes | Yes |
-| Accessory inline | Yes | Yes | Yes |
+| Mode | Meaning for the design |
+| --- | --- |
+| Full color | Preserve meaningful color and imagery while supporting the applicable light/dark appearance. |
+| Accented | The system styles primary and accent groups, rather than simply preserving every nonaccented view's original color. |
+| Vibrant | Content participates in a reduced-color, material-based treatment; establish hierarchy and contrast without relying on hue. |
+
+Current WidgetKit guidance explicitly includes accented and clear treatments on Mac. The HIG's platform rendering table conflicts with that guidance, so its “not supported” Mac accented entry isn't a reliable current SDK restriction. See [Preparing widgets for additional contexts and appearances](https://developer.apple.com/documentation/widgetkit/preparing-widgets-for-additional-contexts-and-appearances).
 
 - **Support Dark Mode** - Ideally, a widget looks great in both the light and dark appearances. In general, avoid displaying dark text on a light background for the dark appearance, or light text on a dark background for the light appearance. When you use the semantic system colors for text and backgrounds, the colors dynamically adapt to the current appearance. You can also support different appearances by putting color variants in your asset catalog. For guidance, see Dark Mode; for developer guidance, see Asset management and Supporting Dark Mode in your interface.
 
-- **Support StandBy and Night mode** - In StandBy, the system displays two small system family widgets side-by-side, scaled up so they fill the Lock Screen. Widgets that appear in StandBy typically don't use rich images or color to convey meaning but instead make use of the additional space by scaling up and rearranging text so people can glance at the widget content from a greater distance. To seamlessly blend with the black background, don't use background colors for your widget when it appears in StandBy.
+- **Support StandBy and Night mode** - StandBy displays two small system widgets side by side. Favor larger, glanceable content. Group the background with `containerBackground(for: .widget)` so the system can remove it where appropriate, rather than painting an unwanted foreground-colored box. Verify contrast when Night mode applies a red treatment.
 
-In Night mode, the system applies a red tint to widgets.
-
-- **Adjust colors and images for the vibrant rendering mode** - The system renders widgets on the Lock Screen and the desktop on Mac using a vibrant, blurred appearance. The opacity of pixels within your image determines the strength of the blurred material effect. Fully transparent pixels let the background wallpaper pass through as–is. When creating assets for the vibrant rendering mode, render content like images, numbers, or text at full opacity. The brightness of pixels determines how vibrant they appear on the Lock Screen: Brighter gray values provide more contrast, and darker values provide less contrast. To establish hierarchy, use white or light gray for the most prominent content and darker grayscale values for secondary elements.
+- **Prepare assets for vibrant rendering** - In contexts that use vibrancy, pixel opacity influences the material effect, and transparent areas reveal the background. Prefer opaque grayscale values for hierarchy instead of assuming translucent white behaves identically. Test meaningful images, numbers, and labels against varied backgrounds; a darker gray can lose contrast even when it looks satisfactory on a single wallpaper.
 
 To make sure images look great in the vibrant rendering mode:
 - Confirm that image content has sufficient contrast in grayscale.
 - Use opaque grayscale values, rather than opacities of white, to achieve the best vibrant material effect.
 
-- **Support both full color and vibrancy for widgets in macOS** - Widgets that people place on the desktop on Mac use rich, full colors when people interact with them; when people switch to using apps, widgets use a vibrant, monochromatic rendering that appears to recede. Be sure to prepare your widget to offer enough contrast to be glanceable and show its information when it takes on the vibrant appearance. People can also place iPhone widgets on the desktop on Mac, so you want to make sure your iPhone widgets support the vibrant appearance in macOS.
+- **Test the Mac's actual rendering modes** - Prepare for full color, vibrancy, and supported accented treatments according to context and settings. Receding content still needs sufficient contrast. Test iPhone widgets displayed on Mac as well as native Mac widgets; don't assume every switch to another app triggers the same appearance.
 
 #### Accented Widgets
 
 In iOS 18 and later and iPadOS 18 and later, people can select a tint color on the Home Screen. The system applies the selected tint color to widgets and app icons on the Home Screen and in the Today View, similar to how the system applies a tint color to complications on the watch face.
 
-Widgets are fully tinted by default, but you can choose views to accent instead. If a widget contains any accented views, only those views are tinted. Consider using accented views to display important information. For developer guidance, see widgetAccentable(_:)
+Accented rendering separates content into primary and accent groups. `widgetAccentable(_:)` selects the accent group; the system still styles both groups. A nonaccented view isn't automatically exempt from tinting. Clear and tinted user appearances use the existing accented rendering mode, not a fourth mode. See [Optimizing for accented rendering and Liquid Glass](https://developer.apple.com/documentation/widgetkit/optimizing-your-widget-for-accented-rendering-mode-and-liquid-glass).
 
-- **Use full color to highlight images** - In iOS and iPadOS, you can specify images in a widget to render in full color. For example, you can make the album artwork full color for a music app. Note that full-color images need to have smaller dimensions than the size of the widget.
+- **Use full-color images selectively** - [`Image.widgetAccentedRenderingMode(_:)`](https://developer.apple.com/documentation/swiftui/image/widgetaccentedrenderingmode(_:)) controls an image's accented treatment. Full-color artwork can help recognition, but shouldn't overwhelm surrounding information; keeping it smaller than the whole widget is design guidance, not a universal API size limit. The full-color image treatment is ignored in watchOS. Test grouping carefully because an accentable parent can conflict with the image modifier.
 
 - **Convey meaning without relying on specific colors to represent information** - Someone may choose a color that changes the purpose of the information you're showing. In watchOS, the system may invert colors depending on the watch face a person chooses.
 
@@ -175,41 +180,61 @@ Widgets are fully tinted by default, but you can choose views to accent instead.
 
 - **Design a realistic preview to display in the widget gallery** - Highlighting your widget's capabilities — and clearly representing the experiences each widget type or size can provide — helps people make an informed decision. You can display real data in your widget preview, but if the data takes too long to generate or load, display realistic simulated data instead.
 
-- **Design placeholder content that helps people recognize your widget** - An installed widget displays placeholder content while its data loads. You can create an effective placeholder appearance by combining static interface components with semi-opaque shapes that stand in for dynamic content. For example, you can use rectangles of different widths to suggest lines of text, and circles or squares in place of glyphs and images.
+- **Provide a recognizable placeholder when requested** - Use stable layout and redacted shapes to communicate the widget's structure before personalized content is available. Don't assume every refresh must replace useful cached content with a loading placeholder.
 
 - **Write a succinct description of your widget** - The widget gallery displays descriptions that help people understand what each widget does. It generally works well to begin a description with an action verb — for example, "See the current weather conditions and forecast for a location" or "Keep track of your upcoming events and meetings." Avoid including unnecessary phrases that reference the widget itself, like "This widget shows…," "Use this widget to…," or "Add this widget." Use approachable language and sentence-style capitalization.
 
 - **Group your widget's sizes together, and provide a single description** - If your widget is available in multiple sizes, group the sizes together so people don't think each size is a different widget. Provide a single description of your widget — regardless of how many sizes you offer — to avoid repetition and to help people understand how each size provides a slightly different perspective on the same content and functionality.
 
-- **Consider coloring the Add button** - After people choose your app in the widget gallery, an Add button appears below the group of widgets you offer. You can specify a color for this button to help remind people of your brand.
-
 ### Platform Considerations
 
-**iOS, iPadOS**
+#### iOS and iPadOS
 
 Widgets on the Lock Screen are functionally similar to watch complications and follow design principles for Complications in addition to design principles for widgets. Provide useful information in your Lock Screen widget, and don't treat it only as an additional way for people to launch into your app. Additionally, the vibrant rendering mode that widgets on the Lock Screen use is similar to the accented rendering mode for watch complications because they both communicate information without relying on color only. In many cases, a design for complications also works well for widgets on the Lock Screen (and vice versa), so consider creating them in tandem.
 
-Your app can offer widgets on the Lock Screen in three different shapes: as inline text that appears above the clock, and as circular and rectangular shapes that appear below the clock.
+The Lock Screen supports inline, circular, and rectangular accessory families. Don't assume iPhone and iPad use the same arrangement in every orientation; iPad also has a small system-family Lock Screen context.
 
 Support Always-On display on iPhone. Devices with Always-On display render widgets on the Lock Screen with reduced luminance. Use levels of gray that provide enough contrast in Always-On display, and make sure your content is legible.
 
-For developer guidance, see Creating accessory widgets and watch complications, WidgetRenderingMode, and vibrant.
+See [Creating accessory widgets and watch complications](https://developer.apple.com/documentation/widgetkit/creating-accessory-widgets-and-watch-complications).
 
-**macOS**
+#### CarPlay
 
-No additional considerations.
+Prepare the small system family with a removable background, generous readable text, and driving-appropriate information. Supporting widgets doesn't itself require a CarPlay app entitlement, but opening an app in CarPlay requires a supported CarPlay integration.
 
-**tvOS, visionOS**
+In touchscreen vehicles, supported buttons and toggles can perform actions; a widget can open the corresponding CarPlay app when that integration exists. Without a touchscreen, widget controls and widget-to-app launching are inactive. Never design an interaction that requires handling the connected iPhone while driving.
 
-Not supported.
+Mark an unsuitable context with `disfavoredLocations` rather than assuming this hides the widget completely. Apple's June 2026 CarPlay guide says people can still choose such a widget, but its interaction is disabled. See [Adding StandBy and CarPlay support](https://developer.apple.com/documentation/widgetkit/adding-standby-and-carplay-support-to-your-widget) and the [CarPlay Developer Guide](https://developer.apple.com/download/files/CarPlay-Developer-Guide.pdf).
 
-**watchOS**
+#### macOS
 
-Provide a colorful background that conveys meaning. By default, widgets in the Smart Stack use a black background. Consider using a custom color that provides additional meaning. For example, the Stocks app uses a red background for falling stock values and a green background if a stock's value rises.
+Test desktop and Notification Center placements, widget-style preferences, and available background treatments. Native Mac widgets use macOS font metrics; iPhone widgets shown on Mac use iOS metrics. Don't assume the same nominal font choice produces identical spacing. Keep content legible when a background recedes or is removed.
+
+#### visionOS
+
+Spatial widgets can be mounted on horizontal or vertical surfaces and remain placed between uses. Preserve a clear visual hierarchy at different sizes, viewing distances, and lighting conditions.
+
+- **Adapt to distance.** Read the `levelOfDetail` environment value: `.default` is the normal nearby presentation, while `.simplified` calls for fewer, larger elements farther away. The HIG recommends removing interaction controls in the simplified presentation. Don't substitute an invented fixed distance threshold.
+- **Allow comfortable scaling.** People can scale widgets from 75% to 125%. The reference dimensions below use 100%; they aren't device-pixel measurements.
+- **Choose supported mounting styles deliberately.** Elevated widgets work on horizontal or vertical surfaces; recessed widgets require a vertical surface. The API supports both styles by default, although the HIG describes elevated as the default presentation. Use the configuration modifier `supportedMountingStyles(_:)` to restrict the set; a recessed-only configuration can't be placed horizontally. Different support sets need separate configurations.
+- **Test frame variations.** People can change the system frame width. Layouts can't query the selected frame width, so don't depend on one particular border measurement.
+- **Use the appropriate texture.** Native visionOS widgets use glass by default and can select paper with the configuration modifier `widgetTexture(_:)`. Paper responds to ambient lighting; glass treats the foreground separately from the background. Neither choice removes the need to test contrast. If a design depends on blend modes interacting with the container background, the developer guide directs it to paper rather than glass.
+
+See [Updating your widgets for visionOS](https://developer.apple.com/documentation/widgetkit/updating-your-widgets-for-visionos).
+
+#### watchOS
+
+Design for brief glances and the Smart Stack's limited space. Its default background is a dark material, not a guaranteed pure-black fill. Use a custom background only when it adds meaning, and don't depend on red/green alone to communicate a value or trend. See [Displaying the right widget background](https://developer.apple.com/documentation/widgetkit/displaying-the-right-widget-background).
+
+People can add, remove, reorder, and pin widgets using the [Smart Stack interface](https://support.apple.com/guide/watch/see-widgets-in-the-smart-stack-apdecf142fb9/watchos). Keep VoiceOver labels, focus order, and Crown-based browsing useful; a widget shouldn't require a dense set of precise targets.
+
+#### tvOS
+
+The HIG doesn't define a tvOS WidgetKit widget presentation. This isn't a claim about every similarly named interface or API.
 
 ### Specifications
 
-As you design your widgets, use the following values for guidance.
+These are selected published HIG design-reference entries, not an exhaustive current device catalogue or fixed production constraints. They don't provide dimensions for every newer device or the 27 beta portrait-family contexts. Use adaptive layout and the actual widget context; preserve the distinction between iPad design canvas and displayed device sizes.
 
 #### iOS widget dimensions
 
@@ -263,6 +288,19 @@ As you design your widgets, use the following values for guidance.
 | 45mm | 184x80.5 |
 | 49mm | 191x81.5 |
 
+#### visionOS reference dimensions
+
+Selected native-family references at 100% scale:
+
+| Widget family | Layout size (pt) | Nominal spatial size (mm) |
+| --- | --- | --- |
+| Small | 158×158 | 268×268 |
+| Medium | 338×158 | 574×268 |
+| Large | 338×354 | 574×600 |
+| Extra large portrait | 338×450 | 574×763 |
+
+The HIG also publishes landscape extra-large reference geometry. Follow the SDK's native-versus-compatible family mapping above rather than treating that reference row as a promise that every app can offer both orientations.
+
 ### Related Components
 
 - [Layout](https://developer.apple.com/design/human-interface-guidelines/layout) - Layout guidance
@@ -271,14 +309,18 @@ As you design your widgets, use the following values for guidance.
 
 - [WidgetKit](https://developer.apple.com/documentation/widgetkit)
 - [Developing a WidgetKit strategy](https://developer.apple.com/documentation/widgetkit/developing-a-widgetkit-strategy) - WidgetKit
+- [Updating widgets with WidgetKit push notifications](https://developer.apple.com/documentation/widgetkit/updating-widgets-with-widgetkit-push-notifications) - Budgeted updates that supplement timelines
 
 ### Videos
 
-- [What's new in widgets](https://developer.apple.com/videos/play/wwdc2023/10027/)
+- [What's new in widgets](https://developer.apple.com/videos/play/wwdc2025/278)
 - [Bring widgets to life](https://developer.apple.com/videos/play/wwdc2023/10028/)
-- [Design widgets for visionOS](https://developer.apple.com/videos/play/wwdc2023/10108/)
+- [Design widgets for visionOS](https://developer.apple.com/videos/play/wwdc2025/255)
 
 ## Changelog
+
+### December 16, 2025
+- Updated the HIG's platform guidance, including visionOS and CarPlay widgets.
 
 ### January 17, 2025
 - Corrected watchOS widget dimensions.
@@ -293,7 +335,5 @@ As you design your widgets, use the following values for guidance.
 - Added guidance for widgets on the iPhone Lock Screen and updated design comprehensives for iPhone 14, iPhone 14 Pro, and iPhone 14 Pro Max.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/widgets)*

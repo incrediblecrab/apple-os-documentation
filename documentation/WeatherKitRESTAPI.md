@@ -2,7 +2,7 @@
 
 Obtain historical, current, and predictive weather for your app or service.
 
-**Platforms:** Weather API 1.0.0+
+**Service version:** Weather API 1.0.0+. This is not an Apple OS or compiler minimum.
 
 ## Overview
 
@@ -10,16 +10,18 @@ Use the WeatherKit REST API web service to provide weather data to your apps and
 
 To provide weather information to a web app or other platform, like Android, use the WeatherKit REST API. For native iOS, macOS, tvOS, and watchOS apps, use WeatherKit.
 
-Important: Using this API requires attribution. See WeatherKit - Data Sources to learn more.
+**Important:** This API requires [data-source attribution](https://developer.apple.com/weatherkit/data-source-attribution/).
+
+Authorize requests using a developer token signed with your WeatherKit private key, not an App Store Connect token. The [authentication guide](https://developer.apple.com/documentation/weatherkitrestapi/request-authentication-for-weatherkit-rest-api) specifies ES256, a WeatherKit key and Service ID, the `id` header claim combining Team ID and Service ID, and `Authorization: Bearer`. Keep the private key server-side and handle token expiry and authorization failures.
 
 ## Topics
 
 ### Fundamentals
-- [Request authentication for WeatherKit REST API](https://developer.apple.com/documentation/WeatherKitRESTAPI/request_authentication_for_weatherkit_rest_api) - Create a developer token to access weather data.
+- [Request authentication for WeatherKit REST API](https://developer.apple.com/documentation/weatherkitrestapi/request-authentication-for-weatherkit-rest-api) - Create a developer token to access weather data.
 
 ### Obtaining weather information for a location
-- [GET /api/v1/availability/{latitude}/{longitude}](https://developer.apple.com/documentation/WeatherKitRESTAPI/get_api_v1_availability_latitude_longitude) - Determine the data sets available for the specified location.
-- [GET /api/v1/weather/{language}/{latitude}/{longitude}](https://developer.apple.com/documentation/WeatherKitRESTAPI/get_api_v1_weather_language_latitude_longitude) - Obtain weather data for the specified location.
+- [GET /api/v1/availability/{latitude}/{longitude}](https://developer.apple.com/documentation/weatherkitrestapi/get-api-v1-availability-_latitude_-_longitude_) - Determine the data sets available for the specified location.
+- [GET /api/v1/weather/{language}/{latitude}/{longitude}](https://developer.apple.com/documentation/weatherkitrestapi/get-api-v1-weather-_language_-_latitude_-_longitude_) - Obtain weather data for the specified location.
 - **Weather** - The collection of all requested weather data.
 - **Latitude** - A numeric value indicating the latitude of the coordinate between -90 and 90.
 - **Longitude** - A numeric value indicating the longitude of the coordinate between -180 and 180.
@@ -45,7 +47,7 @@ Important: Using this API requires attribution. See WeatherKit - Data Sources to
 - **DailyForecast** - A collection of day forecasts for a specified range of days.
 
 ### Obtaining weather alerts
-- [GET /api/v1/weatherAlert/{language}/{id}](https://developer.apple.com/documentation/WeatherKitRESTAPI/get_api_v1_weatheralert_language_id) - Receive an active weather alert.
+- [GET /api/v1/weatherAlert/{language}/{id}](https://developer.apple.com/documentation/weatherkitrestapi/get-api-v1-weatheralert-_language_-_id_) - Receive an active weather alert.
 - **WeatherAlert** - An official message indicating severe weather from a reporting agency.
 - **WeatherAlertCollection** - A collection of severe weather alerts for a specified location.
 - **WeatherAlertSummary** - Detailed information about the weather alert.
@@ -64,11 +66,9 @@ Important: Using this API requires attribution. See WeatherKit - Data Sources to
 - **Certainty** - How likely the event is to occur.
 
 ### Performing attribution
-- [GET /attribution/{language}](https://developer.apple.com/documentation/WeatherKitRESTAPI/get_attribution_language) - Receive attribution information.
+- [GET /attribution/{language}](https://developer.apple.com/documentation/weatherkitrestapi/get-attribution-_language_) - Receive attribution information.
 - **Attribution** - A list of image asset URLs for attribution.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/WeatherKitRESTAPI)*

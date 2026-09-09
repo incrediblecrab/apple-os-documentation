@@ -1,44 +1,42 @@
 # EventKit UI
 
-Display an interface for viewing, selecting, and editing calendar events and reminders.
+Present system interfaces for calendar events and calendar selection.
 
 **Platforms:** iOS 4.0+ | iPadOS 4.0+ | Mac Catalyst 13.0+ | visionOS 1.0+
 
 ## Overview
 
-On iOS, use the EventKitUI framework to show calendar and reminder information to the user modally. EventKitUI provides view controllers for viewing and editing calendar and reminder information, choosing which calendar to view, and for determining whether to present calendars as read-only or readable and writeable.
+EventKitUI provides event viewers, editors, and calendar choosers. The event controllers work with `EKEvent`, not `EKReminder`; choosing a reminder calendar doesn't make them reminder-editing controllers.
 
 The view controllers you'll use on iOS are:
 
 - **EKEventViewController**, for displaying existing events.
 - **EKEventEditViewController**, for creating, editing, or deleting events.
-- **EKCalendarChooser**, for selecting one or more calendars, and to determine whether a calendar has read-only or read-write access.
+- **EKCalendarChooser**, for selecting one or more calendars. Its display style filters all calendars versus writable calendars; it doesn't change their permissions. Its entity-type initializer can choose event or reminder calendars.
 
-You present these interfaces from within your app. Upon presentation, the system manages all interactions with the user, notifying you when the interfaces are dismissed.
+Present the editor modally; the calendar chooser can also be pushed on a navigation stack. Handle delegate callbacks and dismiss the event interface yourself when the interaction completes.
 
-EventKitUI also provides several configurable classes for selecting a default calendar, displaying buttons, or to enabling the user to select one or more calendars.
+On iOS 17+, the system hosts chooser/editor UI outside your app's process, allowing event creation with `EKEventEditViewController` without requesting write-only or full calendar access. This doesn't grant your app direct access to the calendar database.
 
-> **Note:** To access the event store, which contains calendar and reminder data, use EventKit. For more information, see Accessing the event store.
+For direct event/reminder data access, use [EventKit](EventKit.md) and follow [Accessing the event store](https://developer.apple.com/documentation/eventkit/accessing-the-event-store). Store authorization, required usage descriptions, and writable-calendar filtering are separate concerns; older OS versions have different requirements.
 
 ## Topics
 
 ### Calendar Views
-- **EKEventViewController** - A view controller for displaying existing calendar and reminder events, and for optionally editing those events.
+- [`EKEventViewController`](https://developer.apple.com/documentation/eventkitui/ekeventviewcontroller) - Displays a calendar event with optional editing. Set its `event: EKEvent!` before presentation.
 
 ### Calendar Edits
-- **EKEventEditViewController** - A view controller for creating, editing, and deleting calendar events.
+- [`EKEventEditViewController`](https://developer.apple.com/documentation/eventkitui/ekeventeditviewcontroller) - Creates, edits, or deletes calendar events.
 
 ### Calendar Selection
-- **EKCalendarChooser** - A view controller for determining whether a user may select one or more calendars.
+- [`EKCalendarChooser`](https://developer.apple.com/documentation/eventkitui/ekcalendarchooser) - Presents single or multiple calendar selection with an optional writable-calendar filter.
 
 ### EventKit Bundle Access
-- **EventKitUIBundle()** - Use to access resources within the app bundle.
+- [`EventKitUIBundle()`](https://developer.apple.com/documentation/eventkitui/eventkituibundle()) - A function returning `Bundle!`; don't substitute it for `Bundle.main` when locating your app's own resources.
 
 ### Reference
-- **EventKitUI Constants**
+- [EventKitUI Constants](https://developer.apple.com/documentation/eventkitui/eventkitui-constants) - Reference availability/export macros.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/EventKitUI)*

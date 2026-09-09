@@ -1,121 +1,71 @@
 # iPadOS 27.0 Developer Introduction
 
-Build iPad apps that behave like desktop software when people want them to. iPadOS 27 refines the windowing system introduced in iPadOS 26, adds a persistent menu bar, makes external displays substantially more capable, and brings the rebuilt Siri AI and Apple Pencil–driven Visual Intelligence to the largest Apple touch canvas.
+Prepare document, drawing, and productivity apps for iPadOS 27 by testing scene restoration, flexible window sizes, external displays, and the new document APIs. Treat SDK adoption separately from the decision to keep supporting older iPads.
 
 **Platform:** iPadOS 27.0+
 
-> **Status:** iPadOS 27 is in developer and public beta as of August 2026 (developer beta 1 on June 8, 2026; public beta 1 on July 13, 2026). A public release is expected in September 2026. Apple has not announced a release date. The current shipping line is iPadOS 26.6, released July 27, 2026.
+> **Status checked September 8, 2026:** iPadOS 27 **beta 8** (`24A5430a`) was released August 31. The shipping release is **iPadOS 26.6.2** (`23G90`), released September 8. The [release listings](https://developer.apple.com/news/releases/) do not establish a general-availability date for iPadOS 27.
 
 ## Overview
 
-iPadOS 27 is the release where the iPad windowing model settles. Windows resize, move, and close more smoothly, Split View and Slide Over now operate inside the windowing framework rather than alongside it, and a persistent menu bar option gives multitasking a stable anchor. Paired with a rebuilt Siri and Apple Pencil–driven Visual Intelligence, iPad becomes materially more useful for sustained, document-centric work.
+iPadOS 26's windowing and Liquid Glass work remains relevant. The 27 SDK adds concrete changes to how apps restore scenes, supply external-display content, read and write documents, and present menus. Use the [iOS & iPadOS 27 beta 8 notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes) to distinguish new behavior from resolved beta regressions.
 
-## Key Features
+## Developer-Facing Changes
 
-### Multitasking and Windowing
+### Scenes and external displays
 
-**A refined windowing system**
-Windows resize, move, and close more smoothly than in iPadOS 26, with tuning aimed at large iPads paired with a Magic Keyboard. Multiple overlapping windows behave much closer to the Mac.
+- UIKit apps built with the latest SDK must adopt the **scene-based life cycle** or fail to launch on iPadOS 27. A single-window app still needs scenes; multiple-window support is optional.
+- `UIScene.extendStateRestoration` and `completeStateRestoration` allow restoration to span background-to-foreground transitions. Keep restoration state associated with its scene, not one global window.
+- For apps built with the iOS 27 SDK, the system no longer automatically offers `windowExternalDisplayNonInteractive` scenes. Register a `UISceneAccessory.externalNonInteractive` through `UIViewController.registerSceneAccessory(_:)` when you need that role.
+- Test resizing, rotation, scene reconnection, and disconnecting an external display. Beta 8 lists several earlier `UIRequiresFullScreen`, orientation, and `UIScreen` problems as resolved; those bugs are not permanent windowing rules.
 
-**Persistent menu bar**
-People can keep the menu bar visible during multitasking, with the active app's name displayed for orientation.
+See [UIKit scene migration](https://developer.apple.com/documentation/uikit/transitioning-to-the-uikit-scene-based-life-cycle) for the configuration and life-cycle responsibilities.
 
-**Split View and Slide Over, unified**
-Split View and Slide Over remain available but now operate within the windowing framework. There is no separate classic mode; people invoke them through windowing controls.
+### Documents, menus, and input
 
-**Stage Manager refinements**
-Window arrangement gains more granular control, particularly when an external display is attached.
+- SwiftUI's `ReadableDocument`, `WritableDocument`, and combined `Document` protocol support asynchronous document operations. Updated `DocumentGroup` APIs expose progress reporting and URL access, but beta 8 lists a known issue where read/write progress might not be presented (158441261). `FileDocument` and `ReferenceFileDocument` are deprecated, not removed; retain appropriate code paths for older deployment targets.
+- Menu bars and context menus use fewer images by default. Set `UIMenuElement.preferredImageVisibility` deliberately where an image communicates something essential; don't rely on every supplied icon remaining visible.
+- Re-test custom gestures on selectable SwiftUI `Text`, which gains system selection interactions when linked with the 27 SDK.
+- PencilKit renames `__PKStrokeRenderState` to `PKStrokeRenderStateReference`, replacing the earlier Objective-C render-state conversion path. Audit code that uses those APIs rather than assuming all PencilKit drawing code needs replacement.
 
-### External Display
+### Assets, background work, and intelligence
 
-The external display experience moves closer to macOS: improved windowing, the persistent menu bar, resizable iPhone apps on the external screen, and the ability to pin different apps to the iPad and the external display independently.
+- Background Assets adds localized asset packs, while On Demand Resources and `NSBundleResourceRequest` are deprecated. Handle offline availability and storage pressure in document-template, media, and model downloads.
+- Leaving an app or locking an iPad is **not a guarantee of unlimited background execution**. Use the appropriate transfer or background-task API, expose progress, and handle expiration, interruption, and retry.
+- App Intents schema changes include the `calendar.deleteEvent` rename and additional `.photos.asset` conformance requirements. Test actual intent invocation and entity resolution.
+- [SiriKit](https://developer.apple.com/documentation/sirikit) retains legacy support for Shortcuts, widget configuration, and most existing Siri interactions. Adopt App Intents for modern Siri/Apple Intelligence integration rather than describing all SiriKit APIs as deprecated.
+- [Private Cloud Compute](../guides/private-cloud-compute.md) access through Foundation Models is gated by developer eligibility, entitlement, and runtime availability. It is not automatically enabled by installing iPadOS 27.
 
-### Files and Background Work
+## Migration Checklist
 
-**Background uploads and exports**
-File uploads to iCloud or third-party services and long photo or video exports no longer pause or fail when someone leaves your app or locks the iPad. Design long-running transfer and export flows to continue in the background.
+1. Migrate scene handling and ensure the app declares a launch screen before submitting a 27-SDK build.
+2. Remove dependence on [`UIDesignRequiresCompatibility`](https://developer.apple.com/documentation/bundleresources/information-property-list/uidesignrequirescompatibility): the system ignores it for builds targeting the iPadOS 27 SDK or later. Test toolbars, sidebars, keyboard focus, and accessibility settings.
+3. Test document read/write failures, conflicting changes, cancellation, and restoration after termination; asynchronous I/O does not remove these responsibilities.
+4. Audit system-managed installation and enrollment servers for the [stricter TLS requirements](https://support.apple.com/en-us/126655). Their scope is selected system processes, not every app connection.
+5. Keep your shipping iPadOS 26 test matrix while adding beta 8 tests. Do not raise deployment targets based on an unverified device list.
 
-**Preview and quick actions**
-Files gains more robust in-place document viewing, smarter quick actions, and improved annotation for documents on external media.
+## Devices and Toolchain
 
-### Siri AI and Apple Intelligence
+**Exact iPadOS 27 device list: not verified by the sources reviewed here.** This page does not claim that all A12-class iPads are dropped or that any particular iPad has reached its final OS release. Hardware requirements for Apple Intelligence, Pencil features, and external displays must be checked separately.
 
-Siri is rebuilt on Apple Foundation Models — conversational, context-aware across apps, and able to perform multi-step in-app actions. The standalone Siri app syncs conversations across iPhone, iPad, Mac, Apple Watch, and Apple Vision Pro.
+**Xcode 27 beta 6**, released August 24, requires **an Apple silicon Mac running macOS Tahoe 26.4 or later**, not macOS 27. It includes Swift 6.4 and the 27 SDKs. Intel-host eligibility is separate from Rosetta's ability to run Intel apps on Apple silicon. See the [Xcode release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes).
 
-### Visual Intelligence
-
-**Point and understand**
-Photograph a meal and Siri breaks down nutritional information, ingredients, and dietary guidance. Photograph a restaurant receipt and Siri identifies and splits items per person; in the US, Apple Cash requests can be sent directly from the result.
-
-**Apple Pencil as an intelligence input**
-Circle or tap anything on screen with Apple Pencil to ask Siri about it — the interaction modality that most distinguishes iPad from iPhone in this release.
-
-### App Intents
-
-Entity schemas contribute your app's content to Spotlight's semantic index, and intent schemas let people act on that content in natural language without fixed phrases. The new View Annotations API maps SwiftUI views to entities so people can reference on-screen content conversationally — a natural fit for the larger iPad canvas.
-
-## What's New in iPadOS 27
-
-- **Refined windowing**: smoother resize, move, and close; Mac-like overlapping windows
-- **Persistent menu bar**: always-visible option with active app name
-- **Unified Split View and Slide Over**: now inside the windowing framework
-- **External display**: pinning, resizable iPhone apps, persistent menu bar
-- **Background file uploads and exports**: continue when leaving the app or locking the device
-- **Siri AI**: rebuilt assistant with a standalone, cross-device Siri app
-- **Apple Pencil Visual Intelligence**: circle or tap to ask
-- **Liquid Glass refinements**: including sidebars that extend to the full window edge with refraction continuing beneath, and sidebar icons that retain their tint color
-
-## Device Support
-
-iPadOS 27 drops every A12-class iPad — the largest iPad compatibility pruning in recent memory.
-
-**Supported:**
-
-- **iPad Pro** — 13-inch (M4 and later), 12.9-inch (4th generation and later), 11-inch (2nd generation and later)
-- **iPad Air** — 13-inch and 11-inch (M2 and later), and 4th generation and later
-- **iPad** — 9th generation (2021) and later, plus iPad with A16
-- **iPad mini** — 6th generation (2021) and later, including iPad mini with A17 Pro
-
-**Dropped versus iPadOS 26:**
-
-| Device | Chip |
-|--------|------|
-| iPad Pro 12.9-inch (3rd generation, 2018) | A12X |
-| iPad Pro 11-inch (1st generation, 2018) | A12X |
-| iPad Air (3rd generation, 2019) | A12 |
-| iPad mini (5th generation, 2019) | A12 |
-| iPad (8th generation, 2020) and earlier | A12 / A10 |
-
-If your app still supports A12-class hardware, iPadOS 26 is now its terminal iPad release — plan deployment targets accordingly.
-
-### Apple Intelligence availability
-
-Advanced on-device features target iPad Air M4 and iPad Pro M4 and later. Core Apple Intelligence is available on iPad mini with A17 Pro and any iPad with an M1 chip or newer. Exact cutoffs for iPad 9th generation (A13) and iPad Air 4th generation (A14) should be confirmed against Apple's official feature availability page.
-
-## Migrating to iPadOS 27
-
-**Liquid Glass is mandatory once you rebuild.** The `UIDesignRequiresCompatibility` key is ignored by the iPadOS 27 SDK. Appearance is gated on the linked SDK, not the running OS.
-
-**Audit your multitasking assumptions.** With Split View and Slide Over folded into the windowing framework, apps that hard-code size-class transitions or assume a fixed set of multitasking states should be re-tested across free-form window sizes and external displays.
-
-**Raise your deployment floor deliberately.** With A12 hardware gone, confirm whether your minimum deployment target still needs to accommodate devices that can no longer receive the current OS.
-
-**SiriKit is deprecated.** Migrate to App Intents.
+Since April 28, 2026, uploads require Xcode 26 or later and the iPadOS 26 SDK or later; deployment targets can be older. The checked [Upcoming Requirements](https://developer.apple.com/news/upcoming-requirements/) page gives no OS 27 SDK deadline. See [App Store readiness](../guides/app-store-readiness.md).
 
 ## Getting Started
 
 **New to iPad development?**
-Check out the [iPadOS Pathway](https://developer.apple.com/ipados/) for resources on building iPad apps.
+Check out the [iPadOS Pathway](https://developer.apple.com/ipados/get-started/) for resources on building iPad apps.
 
 ## Resources
 
 ### Development Tools
-- [Xcode](https://developer.apple.com/xcode/) - Xcode 27 requires macOS 27 Golden Gate on Apple silicon
+- [Xcode](https://developer.apple.com/xcode/) - See the version-specific host requirements above
 - [TestFlight](https://developer.apple.com/testflight/) - Beta testing platform
 - [App Store Connect](https://developer.apple.com/app-store-connect/) - App management and analytics
 
 ### Documentation
-- [iPadOS Developer Documentation](https://developer.apple.com/documentation/ipados/)
+- [UIKit Documentation](https://developer.apple.com/documentation/uikit)
 - [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/)
 - [Multitasking guidance](https://developer.apple.com/design/human-interface-guidelines/multitasking)
 
@@ -132,4 +82,6 @@ Check out the [iPadOS Pathway](https://developer.apple.com/ipados/) for resource
 
 ---
 
-*Reviewed 2026-08-09. iPadOS 27 is pre-release software; features and availability may change before general release. Platform requirements and feature availability may vary, and some capabilities may not be available in all regions or languages.*
+## Sources
+
+[Apple Developer releases](https://developer.apple.com/news/releases/), [iOS/iPadOS 27 notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes), and [Xcode 27 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes), with additional scoped citations above. Reviewed September 8, 2026; beta changes and hardware/feature eligibility must be rechecked before release.

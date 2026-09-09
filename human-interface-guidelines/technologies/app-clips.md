@@ -26,9 +26,7 @@ Consider creating an App Clip to let people experience your app or game before c
 - A fitness app might offer an App Clip with a free workout and a guided meditation.
 - A text editor might allow people to create and save a document using the demo App Clip.
 
-For developer guidance, see [App Clips](https://developer.apple.com/documentation/app_clips).
-
-> **iOS 27+, iPadOS 27+:** App Clips benefit from App Intents **entity schemas**, which contribute content to Spotlight's semantic index so the system can reason about and act on it. **2026 guideline 4.7** brings HTML5/JavaScript mini apps and mini games explicitly into scope, and **4.7.2** prohibits extending or exposing native platform APIs without Apple's prior permission.
+For developer guidance, see [App Clips](https://developer.apple.com/documentation/appclip).
 
 ## Topics
 
@@ -82,7 +80,7 @@ App Clip Codes are the best way for people to discover your App Clip. Their dist
 
 - **Use Apple-provided designs** - App Clip Codes always use the designs Apple provides. Choose between the badge design with the App Clip logo or a design without it when space is limited.
 - **Choose the right variant** - Use NFC-integrated codes when people can physically access them, and scan-only codes for inaccessible or digital placements.
-- **Follow size requirements** - Minimum 3/4 inch (1.9 cm) diameter for printed materials, 256×256 px for digital, and consider viewing distance ratios.
+- **Follow size requirements** - Printed codes have a minimum diameter of 3/4 inch (1.9 cm); digital codes need at least 256×256 px. NFC-integrated codes also need an NFC tag at least 35 mm in diameter or equivalent size, so the printed code must accommodate that larger tag. Consider scanning distance: Apple's guidance sets a maximum distance-to-code-size ratio of 20:1 and prefers 10:1.
 - **Ensure proper placement** - Place on flat or cylindrical surfaces only, keep unobstructed, display upright, and provide adequate clear space.
 - **Use clear messaging** - Add call-to-action text that explains how to use the code, especially for designs without the App Clip logo.
 - **Follow printing guidelines** - Use high-quality materials, proper resolution settings, and test codes before distribution.
@@ -94,7 +92,7 @@ App Clip Codes are the best way for people to discover your App Clip. Their dist
 - Support for location-based suggestions and Smart App Banners
 
 **iPadOS**
-- Full App Clip functionality available on iPad devices
+- App Clips run on iPad, but invocation methods depend on device capabilities; don't assume iPhone NFC interactions are available.
 - Optimized for larger screen experiences while maintaining the lightweight nature
 
 ### Related Components
@@ -105,7 +103,7 @@ App Clip Codes are the best way for people to discover your App Clip. Their dist
 
 ### Developer Documentation
 
-- [App Clips](https://developer.apple.com/documentation/app_clips) - App Clips framework
+- [App Clips](https://developer.apple.com/documentation/appclip) - App Clips framework
 - [App Store Connect](https://developer.apple.com/app-store-connect/) - App Clip configuration and management
 - [Guidelines for Using Apple Trademarks](https://www.apple.com/legal/intellectual-property/guidelinesfor3rdparties.html) - Legal requirements for App Clip Codes
 
@@ -118,7 +116,5 @@ App Clip Codes are the best way for people to discover your App Clip. Their dist
 - Consolidated guidance into one page
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/app-clips)*

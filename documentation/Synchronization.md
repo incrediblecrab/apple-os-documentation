@@ -4,6 +4,12 @@ Build synchronization constructs using low-level, primitive operations.
 
 **Platforms:** iOS 18.0+ | iPadOS 18.0+ | Mac Catalyst 18.0+ | macOS 15.0+ | tvOS 18.0+ | visionOS 2.0+ | watchOS 11.0+
 
+## Concurrency model
+
+[`Mutex`](https://developer.apple.com/documentation/synchronization/mutex) protects synchronous access to shared state with a nonrecursive lock. Keep `withLock` work short and synchronous; do not block while waiting for an actor or task that may need the same state. Use Swift actors for state whose operations need suspension, and atomics only with a deliberate memory-ordering design.
+
+These primitives predate OS 27. Changes to SwiftUI state initialization or SwiftData background work do not relax their locking rules. See [Swift](Swift.md), [Observation](Observation.md), and [SwiftData](SwiftData.md) for the separate language and framework models.
+
 ## Topics
 
 ### Atomic Values
@@ -23,7 +29,5 @@ Build synchronization constructs using low-level, primitive operations.
 - **Mutex** - A synchronization primitive that protects shared mutable state via mutual exclusion
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/Synchronization)*

@@ -6,13 +6,13 @@ Augmented reality (or AR) lets you deliver immersive, engaging experiences that 
 
 ## Overview
 
-Using the device's camera to present the physical world onscreen live, your app can superimpose three-dimensional virtual objects, creating the illusion that these objects actually exist. Depending on the platform and the experiences your app offers, people can reorient the device to explore the objects from different angles, interact with objects using gestures and movement, and even join other people in multiuser AR experiences. For developer guidance, see [ARKit](https://developer.apple.com/documentation/arkit).
+On iPhone and iPad, an AR app can combine a live camera view with rendered virtual objects. ARKit supplies tracking and environmental information, while the app's rendering and interaction layers create the experience. People can explore from different viewpoints, interact with content, or join a supported multiuser session. visionOS uses a different, provider-based ARKit interface; don't assume the handheld camera-view architecture applies unchanged. See [ARKit](https://developer.apple.com/documentation/arkit).
 
-**Offer AR features only on capable devices.** If your app's primary purpose is AR, make your app available only to devices that support ARKit. If your app includes features that require specific AR capabilities, or if AR features are optional in your app, don't show people an error if they try to use these features on a device that doesn't support them; instead, simply avoid offering the feature on an unsupported device. For developer guidance, see [Verifying Device Support and User Permission](https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission).
+**Check capabilities before offering AR.** An AR-first app needs an appropriate device requirement. For optional AR features, check the specific capability and avoid presenting an action that can only fail on the current device. See [Verifying Device Support and User Permission](https://developer.apple.com/documentation/arkit/verifying-device-support-and-user-permission).
 
 **Note:** The following guidance applies to apps that run in iOS and iPadOS. To learn about using ARKit to create immersive augmented reality experiences in visionOS, see [ARKit](https://developer.apple.com/documentation/arkit).
 
-> **iOS 27+, iPadOS 27+, visionOS 27+:** Interface chrome layered over camera or passthrough content uses the refined Liquid Glass material, with stronger content diffusion and a darkened edge ring. Because the background is live and uncontrolled, test controls against bright, dark, and rapidly changing scenes. New 3D work should target RealityKit rather than SceneKit.
+Test controls against bright, dark, and changing camera or passthrough content. Preserve contrast and useful feedback with supported [accessibility preferences](../foundations/accessibility.md), and avoid overwhelming motion or interactions that require unsafe movement.
 
 ## Topics
 
@@ -20,7 +20,7 @@ Using the device's camera to present the physical world onscreen live, your app 
 
 **Let people use the entire display.** Devote as much of the screen as possible to displaying the physical world and your app's virtual objects. Avoid cluttering the screen with controls and information that diminish the immersive experience.
 
-**Strive for convincing illusions when placing realistic objects.** Design detailed 3D assets with lifelike textures to create objects that appear to inhabit the physical environment in which you place them. Using information from ARKit, you can scale objects properly and position them on detected real-world surfaces, reflect environmental lighting conditions and simulate camera grain, cast top-down diffuse object shadows on real-world surfaces, and update visuals as the camera's position changes. To help avoid breaking the illusion you create, make sure your app updates scenes 60 times per second so objects don't appear to jump or flicker.
+**Strive for convincing placement and consistent motion.** Use appropriate scale, textures, lighting, and contact shadows so realistic objects appear grounded in detected surroundings. The HIG describes 60 scene updates per second as a handheld AR design target, not a guaranteed rate for every device or configuration. Profile your rendering and selected capture format; camera frame rate and rendering cadence are separate concerns, and merely requesting a rate doesn't guarantee smooth output.
 
 **Consider how virtual objects with reflective surfaces show the environment.** Reflections in ARKit are approximations based on the environment captured by the camera. To help maintain the illusion that an AR experience is real, prefer small or coarse reflective surfaces that downplay the effect of these approximations.
 
@@ -28,7 +28,7 @@ Using the device's camera to present the physical world onscreen live, your app 
 
 **Minimize text in the environment.** Display only the information that people need for your app experience.
 
-**If additional information or controls are necessary, consider displaying them in screen space.** Content in screen space appears fixed to a consistent location either in the virtual world or, less commonly, on the device screen. It's typically easy for people to find and view content in screen space because it remains stationary while the underlying AR environment moves with the device.
+**Distinguish screen-space overlays from world-anchored content.** A screen-space control stays in the device view's coordinate system while the camera scene changes beneath it. A world-anchored label or object instead stays associated with an environmental position and changes its projected screen position as the device moves. Choose deliberately rather than describing both as screen space.
 
 **Consider using indirect controls when you need to provide persistent controls.** Indirect controls are not part of the virtual environment — instead, they are 2D controls displayed in screen space. If people need access to persistent controls in your app, consider placing the controls so that people don't have to adjust how they're holding the device to reach them. Also, consider using translucency in an indirect control to help avoid blocking the underlying scene. For example, the Measure app uses screen space to display a mix of translucent and opaque controls that people use to measure objects in the real world.
 
@@ -42,9 +42,9 @@ Using the device's camera to present the physical world onscreen live, your app 
 
 ### Providing Coaching
 
-**Before people can enjoy an AR experience in your app, they need to move their device in ways that lets ARKit evaluate the surroundings and detect surfaces.** Consider using the built-in coaching view to show people what to do and provide feedback during the initialization process. You can also use the coaching view to help people reinitialize AR — a process known as relocalization — after an AR experience is interrupted by, for example, people switching briefly to a different app. For guidance on relocalization, see Handling interruptions; for developer guidance, see [ARCoachingOverlayView](https://developer.apple.com/documentation/arkit/arcoachingviewoverlay).
+**Guide setup and recovery.** When tracking needs information about the surroundings, show understandable instructions and progress. The system's [ARCoachingOverlayView](https://developer.apple.com/documentation/arkit/arcoachingoverlayview) can help during initial setup and relocalization after an interruption.
 
-**Hide unnecessary app UI while people are using a coaching view.** By default, the coaching view appears automatically when initialization or relocalization starts, so be prepared to hide unrelated UI to help people concentrate on the coaching view's instructions.
+**Hide unnecessary app UI while coaching is visible.** A configured coaching overlay has automatic activation enabled by default and responds to its goal and the session's tracking state, including initialization or degraded tracking. Coordinate your app's controls with the overlay rather than assuming every AR session automatically supplies coaching UI.
 
 **If necessary, offer a custom coaching experience.** Although you can configure the system-provided coaching view to help people provide specific information — such as the detection of a horizontal or vertical plane — you might need additional information or want to use a different visual style. If you want to design a custom coaching experience, use the system-provided coaching view for reference.
 
@@ -52,13 +52,13 @@ Using the device's camera to present the physical world onscreen live, your app 
 
 **Show people when to locate a surface and place an object.** You can use the system-provided coaching view to help people find a horizontal or vertical flat surface on which to place an object. After ARKit detects a surface, your app can display a custom visual indicator to show when object placement is possible. You can help people understand how the placed object will look in the environment by aligning your indicator with the plane of the detected surface.
 
-**When people place an object, immediately integrate that object into the AR environment.** Although surface detection quickly and progressively refines accuracy, it's best to avoid waiting for more accurate data before placing an object. Use the information available to respond instantly when people place an object; then, when surface detection completes, subtly refine the object's position if necessary. For example, if people place an object beyond the bounds of the detected surface, gently nudge the object back onto the surface. For developer guidance on refining an object's position, see [ARTrackedRaycast](https://developer.apple.com/documentation/arkit/artrackedraycast).
+**Respond promptly to placement, then refine carefully.** Use the best available placement estimate and, when appropriate, make subtle corrections as tracking improves. Surface understanding is ongoing, not a one-time process with a universal completion event. Avoid abrupt jumps or silently changing an important user choice. See [ARTrackedRaycast](https://developer.apple.com/documentation/arkit/artrackedraycast) for queries that produce refined positions over time.
 
 **Consider guiding people toward offscreen virtual objects.** Sometimes, it can be difficult for people to locate an object that's positioned offscreen. When this is the case, you can help people find such objects by offering visual or audible cues. For example, if an object is offscreen to the left, you could display an indicator along the left edge of the screen that guides people to point the camera in that direction.
 
 **Avoid trying to precisely align objects with the edges of detected surfaces.** In AR, surface boundaries are approximations that may change as people's surroundings are further analyzed.
 
-**Incorporate plane classification information to inform object placement.** For example, only let people place a virtual piece of furniture on a plane that's classified as "floor," or require a plane to be classified as "table" in order to place a virtual game board.
+**Use plane classification only when supported and appropriate.** A floor or table classification can help guide furniture or game-board placement, but not every device supplies classification. Check [isClassificationSupported](https://developer.apple.com/documentation/arkit/arplaneanchor/isclassificationsupported), account for unclassified results, and provide a suitable fallback or explain a genuine capability requirement.
 
 ### Designing Object Interactions
 
@@ -82,19 +82,21 @@ Using the device's camera to present the physical world onscreen live, your app 
 
 ### Offering a Multiuser Experience
 
-**When multiple people share your app's AR experience, each participant maps the environment independently and ARKit automatically merges the maps.** For developer guidance, see [isCollaborationEnabled](https://developer.apple.com/documentation/arkit/arsession/3089244-iscollaborationenabled).
+**Plan for a shared understanding of the environment.** In a multiuser experience, each participant's tracking must contribute to consistent placement of shared content. Review ARKit's collaboration support and its implementation requirements through [isCollaborationEnabled](https://developer.apple.com/documentation/arkit/arworldtrackingconfiguration/iscollaborationenabled).
 
-**Consider allowing people occlusion.** If your app supports placing virtual objects behind people who appear in the device's camera feed, enhance the illusion of reality by letting the people occlude the objects. For developer guidance, see [Occluding virtual content with people](https://developer.apple.com/documentation/arkit/arkit_in_ios/occluding_virtual_content_with_people).
+**Use occlusion when it supports believable placement.** On supported devices, letting a person in the camera view obscure virtual content can clarify its position in the scene. See [Occluding virtual content with people](https://developer.apple.com/documentation/arkit/occluding-virtual-content-with-people).
 
-**When possible, let new participants enter a multiuser AR experience.** Unless your app requires all participants to join before the experience begins, consider using implicit map merging to let new people quickly join an ongoing AR experience. For developer guidance, see [isCollaborationEnabled](https://developer.apple.com/documentation/arkit/arsession/3089244-iscollaborationenabled).
+**Let people join an ongoing experience when appropriate.** Avoid requiring everyone to restart merely to add a participant. Account for the joining person's tracking and shared-content state when implementing [isCollaborationEnabled](https://developer.apple.com/documentation/arkit/arworldtrackingconfiguration/iscollaborationenabled).
 
 ### Reacting to Real-World Objects
 
-**You can enhance an AR experience by using known images and objects in the real-world environment to make virtual content appear.** For example, an app that recognizes theater posters for a sci-fi film could cause virtual space ships to emerge from the posters and fly around the environment. Another example is an app for an art museum that presents a virtual tour guide when it recognizes a sculpture. To support experiences like these, your app provides a set of 2D reference images or 3D reference objects, and ARKit indicates when and where it detects any of these items in the current environment. For developer guidance, see [Detecting Images in an AR Experience](https://developer.apple.com/documentation/arkit/arkit_in_ios/detecting_images_in_an_ar_experience).
+**Use recognizable real-world references purposefully.** A detected image or object can anchor relevant virtual content, such as an explanation next to an exhibit. Provide suitable reference data and guide people toward what the experience can recognize. See [Detecting Images in an AR Experience](https://developer.apple.com/documentation/arkit/detecting-images-in-an-ar-experience).
 
-**When a detected image first disappears, consider delaying the removal of virtual objects that are attached to it.** ARKit doesn't track changes to the position or orientation of each detected image. To help prevent virtual objects from flickering, consider waiting up to one second before fading them out or removing them.
+**Distinguish image detection from continuous image tracking.** In a world-tracking configuration, `detectionImages` identifies candidate images; a nonzero `maximumNumberOfTrackedImages` enables close pose tracking for up to four images simultaneously. Its default of zero disables that tracking, although detected anchors can still receive infrequent position updates. This isn't a claim that all ARKit configurations share the four-image limit.
 
-**Limit the number of reference images in use at one time.** Image detection performance works best when ARKit looks for 100 or fewer distinct images in the real-world environment. If you need more than 100 reference images, you can change the set of active reference images based on context. For example, a museum guide app could ask permission to use location services to determine the part of the museum a person is in, and then look only for images displayed in that area.
+**Use a brief grace period for transient tracking loss when appropriate.** The HIG suggests waiting up to one second before fading or removing attached content to reduce flicker. This is a visual-design recommendation, not a guaranteed detection timeout.
+
+**Keep the detection set manageable.** The [`detectionImages`](https://developer.apple.com/documentation/arkit/arworldtrackingconfiguration/detectionimages) documentation recommends around 100 reference images or fewer for accuracy and performance; this isn't a hard limit or the number that can be continuously tracked at once. For larger collections, change the active set by context and rerun the updated configuration as the API requires. A museum app, for example, could narrow the set to the current exhibit, requesting location access only if it actually uses location services.
 
 **Limit the number of reference images requiring an accurate position.** Updating the position of a reference image requires more resources. Use a tracked image when the image may move in the environment or when an attached animation or virtual object is small compared to the size of the image.
 
@@ -111,13 +113,13 @@ Using the device's camera to present the physical world onscreen live, your app 
 
 **In a three-dimensional context, prefer 3D hints.** For example, placing a 3D rotation indicator around an object is more intuitive than displaying text-based instructions in a 2D overlay. Avoid displaying textual overlay hints in a 3D context unless people aren't responding to contextual hints.
 
-**Make important text readable.** Use screen space to display text used for critical labels, annotations, and instructions. If you need to display text in 3D space, make sure the text faces people and that you use the same type size regardless of the distance between the text and the labeled object.
+**Make important text readable.** Screen-space labels can keep critical instructions accessible as the camera moves. For text placed in 3D, face it toward the viewer and preserve a readable apparent size; don't let an object's distance make its annotation too small to read.
 
 **If necessary, provide a way to get more information.** Design a visual indicator that fits with your app experience to show people that they can tap for more information.
 
 ### Handling Interruptions
 
-**ARKit can't track device position and orientation during an interruption, such as when people briefly switch to another app or accept a phone call.** After an interruption ends, previously placed virtual objects are likely to appear in the wrong real-world positions. When you support relocalization, ARKit attempts to restore those virtual objects to their original real-world positions using new information. For developer guidance, see [Managing Session Life Cycle and Tracking Quality](https://developer.apple.com/documentation/arkit/arkit_in_ios/managing_session_life_cycle_and_tracking_quality).
+**Handle interruptions explicitly.** After tracking stops, previously placed content may no longer align with the surroundings. Explain the recovery process and support relocalization rather than treating stale placement as accurate. See [Managing Session Life Cycle and Tracking Quality](https://developer.apple.com/documentation/arkit/managing-session-life-cycle-and-tracking-quality).
 
 **Consider using the system-provided coaching view to help people relocalize.** During relocalization, ARKit attempts to reconcile its previous state with new observations of the current environment. To make these observations more useful, you can use the coaching view to help people return the device to its previous position and orientation.
 
@@ -125,9 +127,9 @@ Using the device's camera to present the physical world onscreen live, your app 
 
 **Minimize interruptions if your app supports both AR and non-AR experiences.** One way to avoid interruptions is by embedding a non-AR experience within an AR experience so that people can handle the task without exiting and re-entering AR. For example, if your app helps people decide on a piece of furniture to purchase by placing the item in a room, you might let them change the upholstery without leaving the AR experience.
 
-**Allow people to cancel relocalization.** If people don't position and orient their device near where it was before an interruption, relocalization continues indefinitely without success. If coaching people to resume their session isn't successful, consider providing a reset button or other way to restart the AR experience.
+**Allow people to cancel relocalization.** Without a useful view near the previous position and orientation, relocalization can remain unresolved indefinitely. Recovery isn't guaranteed, especially when the surroundings have changed. If coaching doesn't help, offer a reset or another way to restart.
 
-**Indicate when the front-facing camera is unable to track a face for more than about half a second.** Use a visual indicator to indicate that the camera can no longer track the person's face. If you need to provide text instructions in this situation, keep them to a minimum.
+**For face-tracking experiences, indicate sustained tracking loss.** The HIG suggests showing concise feedback after roughly half a second without face tracking. Treat this as feedback-timing guidance, not an ARKit timeout or a claim that every device supports the same face-tracking capabilities.
 
 ### Suggesting Problem Resolutions
 
@@ -164,10 +166,10 @@ Using the device's camera to present the physical world onscreen live, your app 
 ### Platform Considerations
 
 **iOS | iPadOS**  
-No additional considerations for iOS or iPadOS. Not supported in macOS, tvOS, or watchOS.
+The handheld guidance above describes the iOS and iPadOS experience. Don't treat HIG coverage as a complete SDK availability list: current [ARKitSession](https://developer.apple.com/documentation/arkit/arkitsession) and [WorldTrackingProvider](https://developer.apple.com/documentation/arkit/worldtrackingprovider) declarations also include macOS 26, while specific hardware, runtime, provider, and authorization requirements still apply.
 
 **visionOS**  
-With the wearer's permission, you can use ARKit in your visionOS app to detect surfaces in a person's surroundings, use a person's hand and finger positions to inform your custom gestures, support interactions that incorporate nearby physical objects into your immersive experience, and more. For developer guidance, see [ARKit](https://developer.apple.com/documentation/arkit).
+Use individual ARKit data providers for capabilities such as planes, world anchors, hand tracking, and scene reconstruction. Check each provider's support and required authorizations, explain requested access, and handle denial or revocation with usable alternatives. Hand-tracking data and world-sensing data have distinct privacy requirements. See [ARKit in visionOS](https://developer.apple.com/documentation/arkit/arkit-in-visionos) and [Setting up access to ARKit data](https://developer.apple.com/documentation/visionos/setting-up-access-to-arkit-data).
 
 ### Related Components
 
@@ -178,20 +180,20 @@ With the wearer's permission, you can use ARKit in your visionOS app to detect s
 ### Developer Documentation
 
 - [ARKit](https://developer.apple.com/documentation/arkit) - Framework (ARKit)
+- [maximumNumberOfTrackedImages](https://developer.apple.com/documentation/arkit/arworldtrackingconfiguration/maximumnumberoftrackedimages) - World-tracking image updates and limits
+- [ARImageTrackingConfiguration](https://developer.apple.com/documentation/arkit/arimagetrackingconfiguration) - Distinct image-only tracking configuration
+- [ARConfiguration.VideoFormat](https://developer.apple.com/documentation/arkit/arconfiguration/videoformat-swift.class) - Supported capture resolution and frame rate
 
-## Changelog
+## Historical API Context
+
+These are framework-availability notes, not HIG article-update dates.
 
 ### visionOS 1.0
-- Added support for ARKit in visionOS applications
-- Updated guidance for hand and finger position detection
+- The provider-based ARKit interface, including `ARKitSession` and `WorldTrackingProvider`, is documented from visionOS 1.0. Check individual providers for their own availability.
 
 ### iOS 11.0
-- Initial ARKit framework introduction
-- Basic AR experience guidelines established
+- ARKit and `ARWorldTrackingConfiguration` are documented from iOS 11.0. Later capabilities have separate OS and device requirements.
 
 ---
 
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
-
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/augmented-reality)*
-

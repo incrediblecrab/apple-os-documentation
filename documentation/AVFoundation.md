@@ -8,16 +8,22 @@ Work with audiovisual assets, control device cameras, process audio, and configu
 
 AVFoundation combines several major technology areas that together encompass a wide range of tasks for inspecting, playing, capturing, and processing audiovisual media on Apple platforms.
 
-## What's New in the OS 27 SDK
+## Capture and playback integration
 
-Apple Music supports Hi-Res Lossless playback up to 24-bit/192 kHz on supported hardware in tvOS 27. CarPlay also gains native video apps, with playback only while parked.
+- **Authorize before capture.** Follow [Requesting authorization to capture and save media](https://developer.apple.com/documentation/avfoundation/requesting-authorization-to-capture-and-save-media). Camera, microphone, and Photos access are separate concerns; configure usage descriptions and applicable macOS entitlements before requesting access.
+- **Query capture capability.** A framework deployment target does not establish that a camera or active configuration supports spatial capture. Check [AVCaptureMovieFileOutput.isSpatialVideoCaptureSupported](https://developer.apple.com/documentation/avfoundation/avcapturemoviefileoutput/isspatialvideocapturesupported) before offering it. That API predates OS 27 and has its own platform availability.
+- **Keep playback and presentation separate.** AVFoundation supplies players and assets; [AVKit](AVKit.md) supplies system playback UI. Use the asynchronous export and playback-metrics guidance in [AVFoundation updates](https://developer.apple.com/documentation/updates/avfoundation) without treating its June 2024 changes as new OS 27 APIs.
+- **Choose the correct capture path.** For screen streaming and mirroring, the OS 27 [ScreenCaptureKit](ScreenCaptureKit.md) expansion is distinct from camera capture through `AVCaptureSession`. Screen capture still requires the person's selection and authorization.
+- **Integrate new system services deliberately.** [AVSystemRouting](AVSystemRouting.md) handles provider-supported remote playback on its OS 27 targets. [Now Playing](NowPlaying.md) publishes metadata and commands, with different local and remote availability. Neither service guarantees a receiver's format support or grants access to protected media.
 
 ## Topics
 
 ### Essentials
-- [AVFoundation updates](https://developer.apple.com/documentation/avfoundation/avfoundation_updates) - Learn about important changes to AVFoundation.
+
+- [AVFoundation updates](https://developer.apple.com/documentation/updates/avfoundation) - Learn about important changes to AVFoundation.
 
 ### Common
+
 - **Media assets** - Load media assets from files and streams to inspect their attributes, tracks, and embedded metadata.
 - **Media reading and writing** - Read images from video, export to alternative formats, and perform sample-level reading and writing of media data.
 - **Media types and utilities** - Identify the types of content and file formats that AVFoundation supports.
@@ -25,49 +31,70 @@ Apple Music supports Hi-Res Lossless playback up to 24-bit/192 kHz on supported 
 - **Audio settings** - Configure audio processing settings using standard key and value constants.
 
 ### Playback
+
 - **Media playback** - Manage the playback of media assets and interstitial content, independent of how you present that content in your interface.
 - **Offline playback and storage** - Download streamed content to disk to allow offline playback, and define policies to automatically remove downloaded assets.
 - **Streaming and AirPlay** - Stream content wirelessly to other devices using AirPlay, and handle requests involving FairPlay-protected assets.
 - **Sample buffer playback** - Create custom controllers to play and synchronize the timing of sample buffer streams.
 
 ### Capture
+
 - **Capture setup** - Configure built-in cameras and microphones, and external capture devices, for media capture.
 - **Photo capture** - Capture high-quality still images, Live Photos, and supporting photo data.
 - **Audio and video capture** - Capture audio and video directly to media files, or capture streams of media for direct access to media sample buffers.
 - **Additional data capture** - Capture additional data including depth and metadata, and synchronize capture from multiple outputs.
 
 ### Editing
+
 - **Composite assets** - Combine tracks and segments of tracks from multiple assets into a composite asset that you can play or process.
 - **QuickTime movies** - Access the contents of a QuickTime movie file, and perform sample-level edits of its media tracks.
 - **Video effects** - Define standard video transition effects, synchronize layer animations with media timing, and create custom video compositors.
 - **Audio mixing** - Define how to mix the audio levels from multiple audio tracks over an asset's duration.
 
 ### Audio
+
 - **Audio playback, recording, and processing** - Play, record, and process audio; configure your app's system audio behavior.
 - **Speech synthesis** - Configure voices to speak strings of text.
 
 ### Errors
+
 - **AVFoundationErrorDomain** - The error domain of AVFoundation errors.
 - **AVError** - A structure that defines the errors that framework operations can generate.
 
 ### Macros
+
 - **Macros**
 
 ### Classes
-- **AVCaptureSpatialAudioMetadataSampleGenerator**- **AVCustomMediaSelectionScheme** - For content that has been authored with the express intent of offering an alternative selection interface for AVMediaSelectionOptions, AVCustomMediaSelectionScheme provides a collection of custom settings for controlling the presentation of the media.- **AVMediaPresentationSelector** - For content that has been authored with the express intent of offering an alternative selection interface for AVMediaSelectionOptions, AVMediaPresentationSelector represents a collection of mutually exclusive settings.- **AVMediaPresentationSetting** - For content that has been authored with the express intent of offering an alternative selection interface for AVMediaSelectionOptions, AVMediaPresentationSetting represents a selectable setting for controlling the presentation of the media.- **AVMetadataCatHeadObject**- **AVMetadataDogHeadObject**- **AVMetricDownloadSummaryEvent** - Represents a summary metric event with aggregated metrics for the entire download task.
-- **AVMetricMediaRendition**- **AVPlaybackCoordinationMedium**
+
+- **AVCaptureSpatialAudioMetadataSampleGenerator**
+- **AVCustomMediaSelectionScheme** - For content that has been authored with the express intent of offering an alternative selection interface for AVMediaSelectionOptions, AVCustomMediaSelectionScheme provides a collection of custom settings for controlling the presentation of the media.
+- **AVMediaPresentationSelector** - For content that has been authored with the express intent of offering an alternative selection interface for AVMediaSelectionOptions, AVMediaPresentationSelector represents a collection of mutually exclusive settings.
+- **AVMediaPresentationSetting** - For content that has been authored with the express intent of offering an alternative selection interface for AVMediaSelectionOptions, AVMediaPresentationSetting represents a selectable setting for controlling the presentation of the media.
+- **AVMetadataCatHeadObject**
+- **AVMetadataDogHeadObject**
+- **AVMetricDownloadSummaryEvent** - Represents a summary metric event with aggregated metrics for the entire download task.
+- **AVMetricMediaRendition**
+- **AVPlaybackCoordinationMedium**
 
 ### Structures
+
 - **AVCIImageFilteringParameters**
 - **AVCIImageFilteringResult** - An output video frame processed with Core Image filtering.
-- **AVCaptureSceneMonitoringStatus**- **AVSpatialVideoConfiguration**
+- **AVCaptureSceneMonitoringStatus**
+- **AVSpatialVideoConfiguration**
 
 ### Variables
-- **AVAssetExportPresetHEVC4320x2160**- **AVAssetExportPresetMVHEVC4320x4320**- **AVAssetExportPresetMVHEVC7680x7680**- **AVContentKeyRequestRandomDeviceIdentifierSeedKey** - Value is an NSData containing a 16-byte seed to randomize the user's deviceID contained in the SPC blob during FairPlay key exchange- **AVContentKeyRequestShouldRandomizeDeviceIdentifierKey** - Value is an Boolean indicating whether the user's deviceID contained in the SPC blob during FairPlay key exchange should be randomized using a system generated seed- **AVURLAssetShouldParseExternalSphericalTagsKey** - Indicates whether additional projected media signaling in the asset should be parsed and resolved as format description extensions.
+
+- **AVAssetExportPresetHEVC4320x2160**
+- **AVAssetExportPresetMVHEVC4320x4320**
+- **AVAssetExportPresetMVHEVC7680x7680**
+- **AVContentKeyRequestRandomDeviceIdentifierSeedKey** - Value is an NSData containing a 16-byte seed to randomize the user's deviceID contained in the SPC blob during FairPlay key exchange
+- **AVContentKeyRequestShouldRandomizeDeviceIdentifierKey** - Value is an Boolean indicating whether the user's deviceID contained in the SPC blob during FairPlay key exchange should be randomized using a system generated seed
+- **AVURLAssetShouldParseExternalSphericalTagsKey** - Indicates whether additional projected media signaling in the asset should be parsed and resolved as format description extensions.
 ### Enumerations
+
 - **AVCaptureCameraLensSmudgeDetectionStatus**
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/AVFoundation)*

@@ -10,8 +10,6 @@ Apple Pencil is a versatile, intuitive tool for iPad apps that offers pixel‑le
 
 For details on Apple Pencil features and compatibility, see [Apple Pencil](https://www.apple.com/apple-pencil/).
 
-> **iPadOS 27+:** Apple Pencil becomes an intelligence input — people can **circle or tap anything on screen with Apple Pencil to ask Siri about it**. This is the interaction modality that most distinguishes iPad from iPhone in this release. Expose your on-screen content through App Intents entity schemas and the View Annotations API so it can be referenced this way.
-
 ## Topics
 
 ### Best Practices
@@ -38,7 +36,7 @@ For details on Apple Pencil features and compatibility, see [Apple Pencil](https
 
 - **Support contextual interactions** - Consider using hover to support relevant interactions close to where people are marking. For example, you might respond to hover by displaying a contextual menu of tool sizes when people perform a gesture like squeeze or press a modifier key on an attached keyboard. Revealing a menu near where people are marking lets them make choices without moving Apple Pencil or their hands to another part of the screen.
 
-- **Restrict hover to Apple Pencil** - Prefer showing hover previews for Apple Pencil, not for a pointing device. Although a pointing device can also respond to hover gestures, it might be confusing to provide the same visual feedback for both devices. If it makes sense in your app, you can restrict your hover preview to Apple Pencil only. For developer guidance, see [Adopting hover support for Apple Pencil](https://developer.apple.com/documentation/uikit/pencil_interactions/adopting_hover_support_for_apple_pencil).
+- **Distinguish Pencil previews from pointer feedback** - A drawing preview appropriate for Apple Pencil can be confusing when shown for a mouse or trackpad. Restrict the preview to Pencil when that distinction serves the task; see [Adopting hover support for Apple Pencil](https://developer.apple.com/documentation/uikit/adopting-hover-support-for-apple-pencil).
 
 ### Double tap
 
@@ -72,7 +70,7 @@ With Scribble and Apple Pencil, people can simply write wherever text is accepte
 
 - **Make text entry fluid** - Make text entry feel fluid and effortless. By default, Scribble works in all standard text components — such as text fields, text views, search fields, and editable fields in web content — except password fields. If you use a custom text field in your app, avoid making people tap or select it before they can begin writing.
 
-- **Enable Scribble everywhere** - Make Scribble available everywhere people might want to enter text. Unlike using the keyboard, using Apple Pencil encourages people to treat the screen the way they treat a sheet of paper. Help strengthen this perception in your app by making Scribble consistently available in places where text entry seems natural. For example, in Reminders, it's natural for people to create a new reminder by writing it in the blank space below the last item, even though the area doesn't contain a text field. For developer guidance, see [UIIndirectScribbleInteraction](https://developer.apple.com/documentation/uikit/uiindirectscribbleinteraction).
+- **Make Scribble available where writing is expected** - Consider natural text-entry regions beyond visible text fields, such as space for a new item at the end of a list. See [UIIndirectScribbleInteraction](https://developer.apple.com/documentation/uikit/uiindirectscribbleinteraction-1nfjm).
 
 - **Minimize distractions** - Avoid distracting people while they write. Some text field behaviors work well for keyboard input, but can disrupt the natural writing experience that Apple Pencil provides. For example, it's best to avoid displaying autocompletion text as people write in a text field because the suggestions can visually interfere with their writing. It's also a good idea to hide a field's placeholder text the moment people begin to write so that their input doesn't appear to overlap it.
 
@@ -88,7 +86,7 @@ Using PencilKit, you can let people take notes, annotate documents and images, a
 
 - **Support drawing on content** - Help people draw on top of existing content. By default, the colors on your PencilKit canvas dynamically adjust to Dark Mode, so people can create content in either mode and the results will look great in both. However, when people draw on top of existing content like a PDF or a photo, you want to prevent the dynamic adjustment of colors so that the markup remains sharp and visible.
 
-- **Avoid obscuring content** - Make sure the tool picker doesn't obscure content when your app runs in a compact environment. In a regular environment, the tool picker floats above the content so people can move it out of the way, but in a compact environment the tool picker stays pinned to the bottom edge of the screen. To avoid obscuring people's content, you can adjust the content view's frame or the scroll view insets to account for the height of the tool picker.
+- **Avoid obscuring content** - Account for the tool picker's actual placement rather than assuming it always floats or stays pinned to a particular edge. Use [frameObscured(in:)](https://developer.apple.com/documentation/pencilkit/pktoolpicker/frameobscured(in:)) to determine the obscured region, and adjust your content or scrolling insets as needed.
 
 - **Provide undo/redo in compact environments** - Consider displaying custom undo and redo buttons when your app runs in a compact environment. In a regular environment, the tool picker includes undo and redo buttons, but in a compact environment it doesn't. In a compact environment, you could display undo and redo buttons in a toolbar. You might also consider supporting the standard 3-finger undo/redo gesture, so people can use it in any environment. For guidance, see [Undo and redo](https://developer.apple.com/design/human-interface-guidelines/undo-and-redo).
 
@@ -107,7 +105,7 @@ Not supported in iOS, macOS, tvOS, visionOS, or watchOS.
 
 ### Videos
 
-- [Meet PaperKit](https://developer.apple.com/videos/play/wwdc2024/10128/)
+- [Meet PaperKit](https://developer.apple.com/videos/play/wwdc2025/285)
 - [Squeeze the most out of Apple Pencil](https://developer.apple.com/videos/play/wwdc2024/10214/)
 
 ## Changelog
@@ -122,7 +120,5 @@ Not supported in iOS, macOS, tvOS, visionOS, or watchOS.
 - Added guidelines for using hover to enhance your app.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/apple-pencil-and-scribble)*

@@ -8,7 +8,7 @@ A map displays outdoor or indoor geographical data in your app or on your websit
 
 A map uses a familiar interface that supports much of the same functionality as the system-provided Maps app, such as zooming, panning, and rotation. A map can also include annotations and overlays and show routing information, and you can configure it to use a standard graphical view, a satellite image-based view, or a view that's a hybrid of both.
 
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Map controls and overlays render against the refined Liquid Glass material. Because map content is dense and high-contrast, verify overlay chrome across the full transparency slider range and under Increase Contrast.
+Keep controls and labels legible over dense map content in different appearances and supported [accessibility configurations](../foundations/accessibility.md). Do not use color or translucency as the only indication of selection or route meaning.
 
 ## Topics
 
@@ -71,16 +71,18 @@ Apps connected with specific venues like shopping malls and stadiums can design 
 ### Platform Considerations
 
 **watchOS**  
-- On Apple Watch, maps are static snapshots of geographic locations. Place a map in your interface at design time and show the appropriate region at runtime.
+- With WatchKit's [WKInterfaceMap](https://developer.apple.com/documentation/watchkit/wkinterfacemap), maps are static snapshots of geographic locations. Place the map in your interface at design time and show the appropriate region at runtime.
 - The displayed region isn't interactive; tapping it opens the Maps app on Apple Watch.
 - You can add up to five annotations to a map to highlight points of interest or other relevant information.
 - Fit the map interface element to the screen and show the smallest region that encompasses the points of interest.
+
+These restrictions describe `WKInterfaceMap`, not every watchOS mapping API. SwiftUI's [Map](https://developer.apple.com/documentation/mapkit/map) also lists watchOS availability; check the specific map initializer and interaction support you use.
 
 ### Developer Documentation
 
 - [MapKit](https://developer.apple.com/documentation/mapkit) - MapKit
 - [MapKit JS](https://developer.apple.com/documentation/mapkitjs) - MapKit JS
-- [Indoor Mapping Data Format](https://developer.apple.com/documentation/mapkit/indoor_mapping_data_format) - Indoor mapping
+- [Indoor Mapping Data Format](https://register.apple.com/resources/imdf/) - Indoor mapping
 
 ## Changelog
 
@@ -94,7 +96,5 @@ Apps connected with specific venues like shopping malls and stadiums can design 
 - Added guidelines for presenting custom information, refined best practices, and consolidated guidance into one page.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/maps)*

@@ -2,11 +2,13 @@
 
 Render, compose, and animate visual elements.
 
-**Platforms:** iOS 2.0+ | iPadOS 2.0+ | Mac Catalyst 13.1+ | macOS 10.3+ | tvOS 9.0+ | visionOS 1.0+ | watchOS 11.0+
+**Platforms (CALayer-based APIs):** iOS 2.0+ | iPadOS 2.0+ | Mac Catalyst 13.1+ | macOS 10.5+ | tvOS 9.0+ | visionOS 1.0+
+
+The framework landing metadata lists macOS 10.3 and watchOS 11, but those collection annotations are not [`CALayer`](https://developer.apple.com/documentation/quartzcore/calayer) minimums. Its concrete declaration starts at macOS 10.5 and does not list watchOS. Apple's installed WatchOS 26.5 SDK explicitly marks both `CALayer` and [`CACurrentMediaTime()`](https://developer.apple.com/documentation/quartzcore/cacurrentmediatime()) as `API_UNAVAILABLE(watchos)`. The root watchOS entry therefore does not make these layer and timing APIs available on Apple Watch; no earlier universal QuartzCore watchOS baseline is inferred.
 
 ## Overview
 
-Core Animation provides high frame rates and smooth animations without burdening the CPU or slowing down your app. Core Animation does most of the work of drawing each frame of an animation for you. You're responsible for configuring the animation parameters, such as the start and end points, and Core Animation does the rest. It accelerates the rendering by handing over most of the work to dedicated graphics hardware. For more details, see [Core Animation Programming Guide](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/CoreAnimation_guide/).
+Core Animation manages much of the frame rendering for layer-based animations and can offload compositing to dedicated graphics hardware. Your app configures the layers and animation parameters and remains responsible for its layout, content updates, and other CPU work. Performance depends on the content and rendering path; using Core Animation does not guarantee a particular frame rate or eliminate CPU cost. For more details, see [Core Animation Programming Guide](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/CoreAnimation_guide/).
 
 ## Topics
 
@@ -48,7 +50,7 @@ Core Animation provides high frame rates and smooth animations without burdening
 - **CAMediaTiming** - Methods that model a hierarchical timing system, allowing objects to map time between their parent and local time.
 - **CADisplayLink** - A timer object that allows your app to synchronize its drawing to the refresh rate of the display.
 - **CAMetalDisplayLink** - A class your Metal app uses to register for callbacks to synchronize its animations for a display.
-- **Update** - Stores information about a single update from a Metal display link instance.
+- **CAMetalDisplayLink.Update** - Stores information about a single update from a Metal display link instance.
 - **CAMetalDisplayLinkDelegate** - A protocol your app implements to respond to callbacks from Core Animation for a Metal display link.
 
 ### Particle Systems
@@ -68,16 +70,16 @@ Core Animation provides high frame rates and smooth animations without burdening
 - **CAMetalLayer** - A Core Animation layer that Metal can render into, typically displayed onscreen.
 - **CAMetalDrawable** - A Metal drawable associated with a Core Animation layer.
 - **CAEAGLLayer** - A layer that supports drawing OpenGL content in iOS and tvOS applications.
+- [CARenderer](https://developer.apple.com/documentation/quartzcore/carenderer) - Renders a layer tree into a destination such as a Metal texture. The class is not deprecated as a whole; do not infer its status from the legacy OpenGL path.
 
 ### Deprecated
 
 - **CAEDRMetadata** - Metadata describing how extended dynamic range (EDR) values should be tone mapped.
 - **CAOpenGLLayer** - A layer that provides a layer suitable for rendering OpenGL content.
-- **CARenderer** - A layer that allows an application to render a layer tree into a Core OpenGL context.
 
 ### ProMotion
 
-- [Optimizing ProMotion refresh rates for iPhone 13 Pro and iPad Pro](https://developer.apple.com/documentation/quartzcore/optimizing_promotion_refresh_rates_for_iphone_13_pro_and_ipad_pro) - Provide custom animated content for ProMotion displays.
+- [Optimizing iPhone and iPad apps to support ProMotion displays](https://developer.apple.com/documentation/quartzcore/optimizing-iphone-and-ipad-apps-to-support-promotion-displays) - Request preferred refresh rates and synchronize animations with the system; a preference is not a guaranteed frame rate.
 
 ### Remote Display of Layer Content
 
@@ -94,10 +96,10 @@ Core Animation provides high frame rates and smooth animations without burdening
 
 ### Reference
 
-- [Core Animation Structures](https://developer.apple.com/documentation/quartzcore/structures)
-- [Core Animation Constants](https://developer.apple.com/documentation/quartzcore/constants)
-- [QuartzCore Functions](https://developer.apple.com/documentation/quartzcore/functions)
-- [Core Animation Data Types](https://developer.apple.com/documentation/quartzcore/data_types)
+- [Core Animation Structures](https://developer.apple.com/documentation/quartzcore/core-animation-structures)
+- [Core Animation Constants](https://developer.apple.com/documentation/quartzcore/core-animation-constants)
+- [QuartzCore Functions](https://developer.apple.com/documentation/quartzcore/quartzcore-functions)
+- [Core Animation Data Types](https://developer.apple.com/documentation/quartzcore/core-animation-data-types)
 
 ### See Also
 
@@ -106,7 +108,5 @@ Core Animation provides high frame rates and smooth animations without burdening
 - [Core Animation Programming Guide](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/CoreAnimation_guide/)
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/QuartzCore)*

@@ -2,11 +2,13 @@
 
 Harness the power of Quartz technology to perform lightweight 2D rendering with high-fidelity output. Handle path-based drawing, antialiased rendering, gradients, images, color management, PDF documents, and more.
 
-**Platforms:** iOS 2.0+ | iPadOS 2.0+ | Mac Catalyst 13.1+ | macOS 10.8+ | tvOS 9.0+ | visionOS 1.0+ | watchOS 2.0+
+**Platforms:** iOS 2.0+ | iPadOS 2.0+ | Mac Catalyst 13.1+ | macOS 10.0+ | tvOS 9.0+ | visionOS 1.0+ | watchOS 2.0+
+
+The macOS baseline above covers longstanding drawing operations. The framework landing page currently annotates macOS 10.8, but concrete [`CGContext.saveGState()`](https://developer.apple.com/documentation/coregraphics/cgcontext/savegstate()) and [`setLineWidth(_:)`](https://developer.apple.com/documentation/coregraphics/cgcontext/setlinewidth(_:)) declarations specify macOS 10.0, as does the installed SDK's `CGContext.h`. The landing annotation does not move those operations to 10.8 or establish the availability of every newer drawing and display API.
 
 ## Overview
 
-The Core Graphics framework is based on the Quartz advanced drawing engine. It provides low-level, lightweight 2D rendering with unmatched output fidelity. You use this framework to handle path-based drawing, transformations, color management, offscreen rendering, patterns, gradients and shadings, image data management, image creation, and image masking, as well as PDF document creation, display, and parsing.
+The Core Graphics framework is based on the Quartz advanced drawing engine. It provides low-level, lightweight 2D rendering with high-fidelity output. You use this framework to handle path-based drawing, transformations, color management, offscreen rendering, patterns, gradients and shadings, image data management, image creation, and image masking, as well as PDF document creation, display, and parsing.
 
 In macOS, Core Graphics also includes services for working with display hardware, low-level user input events, and the windowing system.
 
@@ -72,7 +74,5 @@ In macOS, Core Graphics also includes services for working with display hardware
   - [Quartz 2D Programming Guide](https://developer.apple.com/library/archive/documentation/GraphicsImaging/Conceptual/drawingwithquartz2d/Introduction/Introduction.html)
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/CoreGraphics)*

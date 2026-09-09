@@ -6,9 +6,25 @@ Create host-mode user space drivers for USB devices.
 
 ## Overview
 
-With the IOUSBHost framework, you can access custom and non–class-compliant USB devices from within your apps. Use this framework to connect to cameras, audio devices, scanners, printers, keyboards, mouse devices, MIDI keyboards, and USB hubs.
+IOUSBHost provides application-side access to custom and non–class-compliant USB devices. Device objects manage configuration and requests; interface objects provide pipes and streams for data transfers. A device being a camera, keyboard, audio interface, or other USB peripheral does not by itself mean an app can take it away from an existing driver.
 
-This framework refers to the USB Implementers Forum (USB-IF) Universal Serial Bus 3.2 Specification, Revision 1.0, September 22, 2017. You can view this specification at http://www.usb.org/.
+Apple's reference cites the USB Implementers Forum (USB-IF) USB 3.2 Specification, Revision 1.0, dated September 22, 2017. That identifies the cited specification, not the newest USB standard or a guarantee that every device feature is supported.
+
+### Ownership and transfer lifecycle
+
+Creating an `IOUSBHostDevice` or `IOUSBHostInterface` establishes exclusive ownership of the selected service. Initialization can fail when the service is missing or already has a user client. Monitor service termination, handle transfer errors and disconnects, and call `destroy()` when finished to release the user-client connection and notifications.
+
+A sandboxed app needs Boolean [`com.apple.security.device.usb`](https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.security.device.usb) enabled for USB access. That sandbox permission is separate from exclusive device-capture authorization and from the macOS 27 AccessoryAccess entitlement.
+
+`IOUSBHostObject` sends device requests to the default control endpoint; `IOUSBHostPipe` also supports control transfers on control endpoints, in addition to bulk, interrupt, and isochronous I/O. Synchronous control requests block until completion, and a completion timeout of zero disables the timeout rather than requesting an immediate failure.
+
+For native macOS's legacy device-capture option, a non-root caller needs Boolean [`com.apple.vm.device-access`](https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.vm.device-access) and successful `IOServiceAuthorize` authorization. Capture terminates other device/interface clients and drivers; it is not ordinary discovery or a general permission to claim any peripheral. The macOS 26.5 SDK documents a root-privilege exception to those two checks, not a requirement to run ordinary USB apps as root.
+
+### macOS 27 accessory access
+
+**Reviewed September 8, 2026:** [AccessoryAccess](AccessoryAccess.md) adds a macOS 27 beta workflow for matching connected USB accessories and coordinating exclusive access for IOUSBHost clients. It requires Boolean [`com.apple.developer.accessory-access.usb`](https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.accessory-access.usb) set to `true` and a UI application that appears in the Dock, not a background-only service. Missing the entitlement produces an AccessoryAccess `internalError` with “Unable to communicate with service.” This is not a blanket deprecation of IOUSBHost.
+
+Discovery does not guarantee that an accessory can be opened. Handle exclusive-use conflicts, disconnection, and failed transfers, and keep the new manager's availability separate from IOUSBHost's older minimum versions.
 
 ## Topics
 
@@ -22,7 +38,7 @@ This framework refers to the USB Implementers Forum (USB-IF) Universal Serial Bu
 
 ### Base Classes
 - **IOUSBHostObject** - This class provides basic functionality for sending device requests and retrieving descriptors.
-- **IOUSBHostIOSource** - This class provides basic functionality for deriving pipe and stream classes.
+- **IOUSBHostIOSource** - Base for pipe and stream objects. Do not instantiate or subclass it directly; obtain concrete objects through `copyPipe(withAddress:)` and `copyStream(withStreamID:)`.
 
 ### IOServicePlane Properties
 Properties on the device and interface classes in the service plane.
@@ -40,7 +56,7 @@ Properties on the device and interface classes in the service plane.
 - **IOUSBHostCIDeviceStateMachine**
 - **IOUSBHostCIEndpointStateMachine**
 - **IOUSBHostCIPortStateMachine**
-- **IOUSBHostControllerInterface**
+- [IOUSBHostControllerInterface](https://developer.apple.com/documentation/iousbhost/iousbhostcontrollerinterface) - Creates a user-mode host controller for remote or synthetic USB devices. This is distinct from opening a physical device and requires the separate `com.apple.developer.usb.host-controller-interface` entitlement documented in its public SDK header.
 
 ### Reference
 - **IOUSBHost Structures**
@@ -51,6 +67,6 @@ Properties on the device and interface classes in the service plane.
 
 ---
 
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
-
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/IOUSBHost)*
+
+*27-beta source: [AAUSBAccessoryManager](https://developer.apple.com/documentation/accessoryaccess/aausbaccessorymanager.md).*

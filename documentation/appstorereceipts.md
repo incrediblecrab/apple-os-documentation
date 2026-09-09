@@ -2,25 +2,29 @@
 
 Validate app and In-App Purchase receipts with the App Store.
 
-**Platforms:** App Store Receipts 1.0–1.7
+**Service reference:** Legacy App Store receipt validation; not an OS 27-only API.
 
-**Deprecated**
+**Status:** The receipt collection is deprecated in DocC at service version 1.7, and `verifyReceipt` is deprecated. That service version is not an Apple OS version.
 
-Receipts are deprecated. To validate In-App Purchases on your server without using receipts, call the App Store Server API to get Apple-signed transaction and subscription information for your customers, or verify the AppTransaction and Transaction signed data that your app obtains. You can also get the same signed transaction and subscription information from the App Store Server Notifications V2 endpoint.
+For new purchase handling, prefer StoreKit's automatically verified `AppTransaction`/`Transaction` data. Add [App Store Server API](AppStoreServerAPI.md) and [App Store Server Notifications V2](AppStoreServerNotifications.md) where your server workflow needs them; operating a verification server is not mandatory for every app. [Optional additional signed-data verification](https://developer.apple.com/documentation/storekit/verificationresult) can occur on the device or on a server. The deprecation notice does not say that existing receipt files become invalid or that receipt validation is removed in OS 27.
 
 ## Overview
 
-Important: The verifyReceipt endpoint is deprecated. To validate receipts on your server, follow the steps in Validating receipts on the device on your server.
+For integrations that still need receipt validation, follow [Validating receipts on the device](https://developer.apple.com/documentation/appstorereceipts/validating-receipts-on-the-device); Apple also points server-side implementations to those validation steps. Validate the signature's certificate chain using the receipt creation date, then check app identity, version, and device binding. A receipt's presence or decoded contents alone are not proof of a valid purchase.
 
-Your server can access the verifyReceipt endpoint to validate app and in-app transaction receipts. Submit a receipt to the App Store with your shared secret to receive a JSON response containing the app information and in-app purchase details in the fields that make up the receipt. Each field or combination of fields provides insight you can use to deliver service and content to the user, as you define.
+An existing server integration can call the deprecated `verifyReceipt` endpoint using a Base64-encoded `receipt-data` value. The [`requestBody`](https://developer.apple.com/documentation/appstorereceipts/requestbody) requires the app's shared-secret `password` for receipts containing subscriptions and strongly recommends it otherwise. Keep that secret on the server; do not call `verifyReceipt` directly from the app. For auto-renewable subscriptions, `exclude-old-transactions: true` limits the response to the latest renewal transaction for each subscription rather than its full history.
 
-In-app transactions that your app doesn't mark as finished using finishTransaction(_:) or finish() remain in the App Store receipt. Auto-renewable subscriptions, non-renewing subscriptions, and non-consumables remain in the receipt indefinitely, and appear in the customer transaction history when you call the Get Transaction History V1 endpoint.
+In-app transactions that your app doesn't mark as finished using `finishTransaction(_:)` or `finish()` remain in the App Store receipt. Subscriptions and non-consumables can remain in purchase history after their entitlements change. For current server reconciliation, use [Get Transaction History](https://developer.apple.com/documentation/appstoreserverapi/get-transaction-history), not its separately deprecated V1 endpoint, and evaluate expiration and revocation.
 
-The responseBody.Latest_receipt_info object for auto-renewable subscriptions can grow over time because the renewal transactions stay in the receipt indefinitely. To optimize performance, the App Store may truncate receipts in the sandbox environment to remove old transactions.
+The [`latest_receipt_info`](https://developer.apple.com/documentation/appstorereceipts/responsebody/latest_receipt_info-data.dictionary) transaction array can grow with subscription renewals; finished consumable transactions are excluded. To optimize performance, the App Store may truncate receipts in the sandbox environment to remove old transactions.
 
-You can test validating receipts in the sandbox environment. For more information, see Testing In-App Purchases with sandbox and Test in-app purchases.
+You can test validation in the sandbox environment. See [Testing In-App Purchases with sandbox](https://developer.apple.com/documentation/storekit/testing-in-app-purchases-with-sandbox). For legacy server verification, Apple's documented routing pattern is to try `https://buy.itunes.apple.com/verifyReceipt` first and retry at `https://sandbox.itunes.apple.com/verifyReceipt` only for receipt status `21007`. The endpoint requires TLS 1.2 or later.
 
-You can validate receipts from the App Store using server-side receipt validation or on-device validation. For more information about receipt validation options, see Choosing a receipt validation technique.
+TestFlight In-App Purchases use the sandbox, not production. In contrast, receipts generated by [StoreKit Testing in Xcode](https://developer.apple.com/documentation/xcode/setting-up-storekit-testing-in-xcode) are locally signed and validated with the test environment's certificate; they are not App Store-signed receipts for this `verifyReceipt` routing flow.
+
+HTTP success alone is not receipt validation. Inspect the JSON [`status`](https://developer.apple.com/documentation/appstorereceipts/status); even `0` validates the receipt as a whole, not the current entitlement for every transaction it contains. An expired subscription can be present in a valid receipt. Evaluate expiration, refund/revocation, and ownership fields for the specific entitlement.
+
+For the choice between legacy receipt handling and signed StoreKit data, see [Choosing a receipt validation technique](https://developer.apple.com/documentation/storekit/choosing-a-receipt-validation-technique).
 
 ### Related sessions from WWDC22
 
@@ -29,19 +33,23 @@ Session 110404: Implement proactive in-app purchase restore.
 ## Topics
 
 ### Receipt data
-- [App Store receipt data types](https://developer.apple.com/documentation/appstorereceipts/app_store_receipt_data_types) - Data types of objects that return in the receipt.
+- [App Store receipt data types](https://developer.apple.com/documentation/appstorereceipts/app-store-receipt-data-types) - Data types of objects that return in the receipt.
 
 ### Local receipt validation
-- [Validating receipts on the device](https://developer.apple.com/documentation/appstorereceipts/validating_receipts_on_the_device) - Verify the contents of app receipts by decoding and parsing the receipt on the device.
+- [Validating receipts on the device](https://developer.apple.com/documentation/appstorereceipts/validating-receipts-on-the-device) - Validate the receipt using Apple's documented verification steps.
 
 ### Deprecated
-- [verifyReceipt](https://developer.apple.com/documentation/appstorereceipts/verifyreceipt) - Send a receipt to the App Store for verification.
+- [verifyReceipt](https://developer.apple.com/documentation/appstorereceipts/verify-receipt) - Deprecated server receipt-verification endpoint.
 - **requestBody** - The JSON contents you submit with the request to the App Store.
 - **responseBody** - The JSON data that returns in the response from the App Store.
 - **error** - Error information that returns in the response body when a request isn't successful.
 
----
+## Migration and failure handling
 
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
+Keep legacy shared secrets separate from the signing keys used to authorize App Store Server API calls. Validate environment and app identity, preserve access only for verified current entitlements, and reconcile rather than granting a purchase when verification or networking fails. For internal errors `21100–21199`, the response's `is_retryable` field distinguishes retryable (`1`) from unresolvable (`0`) errors; it is not a universal retry flag for every status.
+
+Handle missing receipts and validation failures with an appropriate recovery UI rather than terminating the app. Exercise sandbox and production paths separately; truncated sandbox receipt history is not proof of equivalent production behavior.
+
+---
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/appstorereceipts)*

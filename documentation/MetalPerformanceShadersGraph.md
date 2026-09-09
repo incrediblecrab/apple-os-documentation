@@ -11,9 +11,9 @@ Metal Performance Shaders Graph provides high-performance, energy-efficient comp
 ## Topics
 
 ### Essentials
-- [Adding Custom Functions to a Shader Graph](https://developer.apple.com/documentation/metalperformanceshadersgraph/adding_custom_functions_to_a_shader_graph) - Run your own graph functions on the GPU by building the function programmatically.
-- [Training a Neural Network using MPS Graph](https://developer.apple.com/documentation/metalperformanceshadersgraph/training_a_neural_network_using_mps_graph) - Train a simple neural network digit classifier.
-- [Filtering Images with MPSGraph FFT Operations](https://developer.apple.com/documentation/metalperformanceshadersgraph/filtering_images_with_mpsgraph_fft_operations) - Filter an image with MPSGraph fast Fourier transforms using the convolutional theorem.
+- [Adding Custom Functions to a Shader Graph](https://developer.apple.com/documentation/metalperformanceshadersgraph/adding-custom-functions-to-a-shader-graph) - Run your own graph functions on the GPU by building the function programmatically.
+- [Training a Neural Network using MPS Graph](https://developer.apple.com/documentation/metalperformanceshadersgraph/training-a-neural-network-using-mps-graph) - Train a simple neural network digit classifier.
+- [Filtering Images with MPSGraph FFT Operations](https://developer.apple.com/documentation/metalperformanceshadersgraph/filtering-images-with-mpsgraph-fft-operations) - Filter an image with MPSGraph fast Fourier transforms using the convolutional theorem.
 
 ### Classes
 - **MPSGraph** - The optimized representation of a compute graph of operations and tensors.
@@ -81,7 +81,5 @@ Metal Performance Shaders Graph provides high-performance, energy-efficient comp
 - **MPSGraphTensorNamedDataLayout** - The tensor layout.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/MetalPerformanceShadersGraph)*

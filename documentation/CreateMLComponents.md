@@ -13,8 +13,8 @@ Use components to configure your machine learning tasks with a detailed level of
 ## Topics
 
 ### Image Components
-- [Augmenting images to expand your training data](https://developer.apple.com/documentation/createmlcomponents/augmenting_images_to_expand_your_training_data) - Improve your model by using transformed versions of your training images.
-- [Creating a multi-label image classifier](https://developer.apple.com/documentation/createmlcomponents/creating_a_multi-label_image_classifier) - Train a machine learning model to assign multiple labels to an image.
+- [Augmenting images to expand your training data](https://developer.apple.com/documentation/createmlcomponents/augmenting-images-to-expand-your-training-data.md) - Improve your model by using transformed versions of your training images.
+- [Creating a multi-label image classifier](https://developer.apple.com/documentation/createmlcomponents/creating-a-multi-label-image-classifier.md) - Train a machine learning model to assign multiple labels to an image.
 - **ImageReader** - An image file reader.
 - **ImageFeatureExtractor** - A transformer that takes an image and outputs image features.
 - **ImageCropper** - An image crop transformer.
@@ -29,7 +29,7 @@ Use components to configure your machine learning tasks with a detailed level of
 - **MLModelImageFeatureExtractor** - An image feature extractor provided by an MLModel.
 
 ### Pose Components
-- [Counting human body action repetitions in a live video feed](https://developer.apple.com/documentation/createmlcomponents/counting_human_body_action_repetitions_in_a_live_video_feed) - Use Create ML Components to analyze a series of video frames and count a person's repetitive or periodic body movements.
+- [Counting human body action repetitions in a live video feed](https://developer.apple.com/documentation/createmlcomponents/counting-human-body-action-repetitions-in-a-live-video-feed.md) - Use Create ML Components to analyze a series of video frames and count a person's repetitive or periodic body movements.
 - **Pose** - A pose that contains joint keypoints from a person, a hand, or a combination.
 - **JointKey** - A key that uniquely identifies a joint.
 - **JointPoint** - A joint in a pose that contains a location and scoring information.
@@ -47,8 +47,8 @@ Use components to configure your machine learning tasks with a detailed level of
 - **AudioConvertingTransformer** - A transformer for audio conversion.
 
 ### Time-based Components
-- [Creating a time-series classifier](https://developer.apple.com/documentation/createmlcomponents/creating_a_time-series_classifier) - Train a machine learning model to predict the class label of time-series signals.
-- [Creating a time-series forecaster](https://developer.apple.com/documentation/createmlcomponents/creating_a_time-series_forecaster) - Forecast future data points by training a machine learning model using historical data.
+- [Creating a time-series classifier](https://developer.apple.com/documentation/createmlcomponents/creating-a-time-series-classifier.md) - Train a machine learning model to predict the class label of time-series signals.
+- [Creating a time-series forecaster](https://developer.apple.com/documentation/createmlcomponents/creating-a-time-series-forecaster.md) - Forecast future data points by training a machine learning model using historical data.
 - **DateFeatures** - A set of date and time features.
 - **DateFeatureExtractor** - A time and date feature extractor.
 - **LinearTimeSeriesForecaster** - A time-series forecasting estimator.
@@ -57,7 +57,7 @@ Use components to configure your machine learning tasks with a detailed level of
 - **TimeSeriesForecasterAnnotatedWindows** - A sequence of forecasting windows on a time series shaped array.
 - **TemporalFeature** - A temporal feature contains a segment identifier and a feature value.
 - **TemporalSequence** - Async sequence for temporal features.
-- **TemporalSegmentIdentifier** - Uniquely identifiers a segment of a temporal sequence.
+- **TemporalSegmentIdentifier** - Uniquely identifies a segment of a temporal sequence.
 - **SlidingWindows** - A sequence of windows on a time series shaped array.
 - **SlidingWindowTransformer** - A temporal transformer that groups input elements.
 - **Downsampler** - A temporal transformer that down samples the input stream.
@@ -79,7 +79,7 @@ Use components to configure your machine learning tasks with a detailed level of
 - **ColumnSelector** - An operation that applies an estimator to a selection of columns.
 - **ColumnSelectorTransformer** - A transformer that applies a base transformer to specific columns in a data frame.
 - **ColumnSelection** - A selection of columns from a data frame.
-- **ColumnConcatenator** - A transformer that concatenates every numerical column in a dataframe into to a shaped array for each row.
+- **ColumnConcatenator** - A transformer that concatenates every numerical column in a data frame into a shaped array for each row.
 - **PreprocessingSupervisedTabularEstimator** - A supervised tabular estimator that composes a preprocessing transformer and a supervised tabular estimator.
 - **PreprocessingTabularEstimator** - An estimator that composes a preprocessing transformer and an estimator.
 - **PreprocessingUpdatableSupervisedTabularEstimator** - An updatable supervised estimator that composes a preprocessing transformer and an updatable supervised estimator.
@@ -90,8 +90,8 @@ Use components to configure your machine learning tasks with a detailed level of
 - **TemporalTransformer** - A transformer that takes an asynchronous input sequence of temporal features and produces an asynchronous output sequence.
 - **RandomTransformer** - A transformer that takes an input and a random number generator and produces a randomized output.
 - **Estimator** - An estimator that creates a transformer by fitting to a data set.
-- **TemporalEstimator** - An estimator that creates a transformer by fitting to a sequence of temporal features.
-- **SupervisedEstimator** - An estimator that creates a transformer by fitting to a data set. (Deprecated)
+- **TemporalEstimator** - An estimator that creates a transformer by fitting to a sequence of temporal features. (Deprecated)
+- **SupervisedEstimator** - An estimator that creates a transformer by fitting to a data set.
 - **SupervisedTemporalEstimator** - An estimator that creates a transformer by fitting to a sequence of annotated temporal features. (Deprecated)
 - **UpdatableEstimator** - An estimator that can be incrementally updated.
 - **UpdatableSupervisedEstimator** - A supervised estimator that can be incrementally updated.
@@ -155,7 +155,7 @@ Use components to configure your machine learning tasks with a detailed level of
 - **LinearRegressorModel** - A trained linear regressor model.
 - **MultivariateLinearRegressor** - A multivariate linear regressor.
 - **MultivariateLinearRegressorConfiguration** - A linear regressor configuration.
-- **Model** - A trained multivariate linear regressor model.
+- **MultivariateLinearRegressor.Model** - A trained multivariate linear regressor model.
 - **FullyConnectedNetworkRegressor** - A regressor that uses a fully connected network.
 - **FullyConnectedNetworkRegressorModel** - A regressor model that uses a fully connected network.
 - **BoostedTreeRegressor** - A gradient boosted decision tree regressor.
@@ -167,7 +167,7 @@ Use components to configure your machine learning tasks with a detailed level of
 - **EstimatorEncoder** - A type that can encode values into a model representation.
 
 ### Classifiers
-- **Classifier** - An estimator that predicts classification probabilities.
+- [Classifier](https://developer.apple.com/documentation/createmlcomponents/classifier.md) - A protocol that inherits from `Transformer` and predicts classification probabilities.
 - **LogisticRegressionClassifier** - A logistic regression classifier.
 - **LogisticRegressionClassifierModel** - A trained logistic regression classifier model.
 - **BoostedTreeClassifier** - A gradient boosted decision tree classifier.
@@ -186,15 +186,15 @@ Use components to configure your machine learning tasks with a detailed level of
 - **ClassificationDistribution** - A classification distribution that contains a probability for each classification label.
 - **ClassificationMetrics** - Classification metrics.
 - **MultiLabelClassificationMetrics** - Multi-label classification metrics.
-- **rootMeanSquaredError<T>([AnnotatedPrediction<T, T>]) -> T** - Computes the root mean squared error between predicted and ground truth values.
-- **rootMeanSquaredError<T>(some Collection, some Collection) -> T** - Computes the root mean squared error between predicted and ground truth values.
-- **maximumAbsoluteError<T>([AnnotatedPrediction<T, T>]) -> T** - Computes the maximum absolute error between predicted and ground truth values.
-- **maximumAbsoluteError<T>(some Collection, some Collection) -> T** - Computes the maximum absolute error between predicted and ground truth values.
-- **meanAbsoluteError<T>([AnnotatedPrediction<T, T>]) -> T** - Computes the mean absolute error between predicted and ground truth values.
-- **meanAbsoluteError<T>(some Collection, some Collection) -> T** - Computes the mean absolute error between predicted and ground truth values.
-- **meanAbsolutePercentageError<T>([AnnotatedPrediction<T, T>]) -> T** - Computes the mean absolute percentage error between predicted and ground truth values.
-- **meanSquaredError<T>([AnnotatedPrediction<T, T>]) -> T** - Computes the root mean squared error between predicted and ground truth values.
-- **meanSquaredError<T>(some Collection, some Collection) -> T** - Computes the mean squared error between predicted and ground truth values.
+- [rootMeanSquaredError(_:)](https://developer.apple.com/documentation/createmlcomponents/rootmeansquarederror(_:).md) - Computes root mean squared error from annotated predictions.
+- [rootMeanSquaredError(_:_:)](https://developer.apple.com/documentation/createmlcomponents/rootmeansquarederror(_:_:).md) - Computes root mean squared error from predicted and ground-truth collections.
+- [maximumAbsoluteError(_:)](https://developer.apple.com/documentation/createmlcomponents/maximumabsoluteerror(_:).md) - Computes maximum absolute error from annotated predictions.
+- [maximumAbsoluteError(_:_:)](https://developer.apple.com/documentation/createmlcomponents/maximumabsoluteerror(_:_:).md) - Computes maximum absolute error from predicted and ground-truth collections.
+- [meanAbsoluteError(_:)](https://developer.apple.com/documentation/createmlcomponents/meanabsoluteerror(_:).md) - Computes mean absolute error from annotated predictions.
+- [meanAbsoluteError(_:_:)](https://developer.apple.com/documentation/createmlcomponents/meanabsoluteerror(_:_:).md) - Computes mean absolute error from predicted and ground-truth collections.
+- [meanAbsolutePercentageError(_:)](https://developer.apple.com/documentation/createmlcomponents/meanabsolutepercentageerror(_:).md) - Computes mean absolute percentage error from annotated predictions.
+- [meanSquaredError(_:)](https://developer.apple.com/documentation/createmlcomponents/meansquarederror(_:).md) - Accepts an array of annotated predictions; returns `NaN` for an empty array. Use `rootMeanSquaredError` when your chosen metric is explicitly RMSE.
+- [meanSquaredError(_:_:)](https://developer.apple.com/documentation/createmlcomponents/meansquarederror(_:_:).md) - Computes mean squared error from predicted and ground-truth collections.
 
 ### Transformer Adaptors
 - **TransformerToEstimatorAdaptor** - An estimator that always returns a predefined transformer.
@@ -255,7 +255,5 @@ Use components to configure your machine learning tasks with a detailed level of
 - **VideoReaderError** - Video loader errors.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/CreateMLComponents)*

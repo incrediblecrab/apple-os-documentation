@@ -4,11 +4,15 @@ Implement two-way communication between an iOS app and its paired watchOS app.
 
 **Platforms:** iOS 9.0+ | iPadOS 9.0+ | Mac Catalyst 13.0+ | visionOS 1.0+ | watchOS 2.0+
 
+These are SDK listings, not pairing support on every listed device. `WCSession.isSupported()` returns true on Apple Watch and iPhones that support Apple Watch pairing; Apple's discussion specifies false for other devices.
+
 ## Overview
 
 Use this framework to transfer data between your iOS app and the WatchKit extension of a paired watchOS app. You can pass small amounts of data or entire files. You also use this framework to trigger an update to your watchOS app's complication.
 
-After initiating a transfer from your app, the system assumes responsibility for the transmission of any data. Most transfers happen in the background when the receiving app is inactive. When the app wakes up, it is notified of any data that arrived while it was inactive. Live communication is also possible when both apps are active.
+Configure a delegate and activate the session before transferring data. Immediate message APIs also require a reachable counterpart; activation alone does not guarantee reachability. Background transfers are queued and opportunistic, not instant or guaranteed to finish at a particular time. Handle transfer errors and changes in pairing or app installation.
+
+Complication-specific transfers require an active session and must be tested on paired devices; `transferCurrentComplicationUserInfo(_:)` is not supported in Simulator.
 
 ## Topics
 
@@ -25,7 +29,5 @@ After initiating a transfer from your app, the system assumes responsibility for
 - [Transferring data with Watch Connectivity](https://developer.apple.com/documentation/watchconnectivity/transferring-data-with-watch-connectivity) - Transfer data between a watchOS app and its companion iOS app.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/WatchConnectivity)*

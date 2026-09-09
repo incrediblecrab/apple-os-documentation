@@ -8,7 +8,7 @@ A watch face is a view that people choose as their primary view in watchOS.
 
 The watch face is at the heart of the watchOS experience. People choose a watch face they want to see every time they raise their wrist, and they customize it with their favorite complications. People can even customize different watch faces for different activities, so they can switch to the watch face that fits their current context.
 
-In watchOS 7 and later, people can share the watch faces they configure. For example, a fitness instructor might configure a watch face to share with their students by choosing the Gradient watch face, customizing the color, and adding their favorite health and fitness complications. When the students add the shared watch face to their Apple Watch or the Watch app on their iPhone, they get a custom experience without having to configure it themselves.
+In watchOS 7 and later, people can share the watch faces they configure. For example, a fitness instructor might choose a compatible watch face, customize its color, and add their favorite health and fitness complications to share with students. When the students add the shared watch face to their Apple Watch or the Watch app on their iPhone, they get a custom experience without having to configure it themselves.
 
 You can also configure a watch face to share from within your app, on your website, or through Messages, Mail, or social media. Offering shareable watch faces can help you introduce more people to your complications and your app.
 
@@ -20,9 +20,9 @@ You can also configure a watch face to share from within your app, on your websi
 
 - **Display a preview of each watch face you share** - Displaying a preview that highlights the advantages of your watch face can help people visualize its benefits. You can get a preview by using the iOS Watch app to email the watch face to yourself. The preview includes an illustrated device bezel that frames the face and is suitable for display on websites and in watchOS and iOS apps. Alternatively, you can replace the illustrated bezel with a high-fidelity hardware bezel that you can download from Apple Design Resources and composite onto the preview. For developer guidance, see Sharing an Apple Watch face.
 
-- **Aim to offer shareable watch faces for all Apple Watch devices** - Some watch faces are available on Series 4 and later — such as California, Chronograph Pro, Gradient, Infograph, Infograph Modular, Meridian, Modular Compact, and Solar Dial — and Explorer is available on Series 3 (with cellular) and later. If you use one of these faces in your configuration, consider offering a similar configuration using a face that's available on Series 3 and earlier. To help people make a choice, you can clearly label each shareable watch face with the devices it supports.
+- **Aim to offer shareable watch faces across the devices you support** - Not every watch face is available on every Apple Watch. Offer an alternative configuration when a face isn't compatible, and clearly label the supported devices. Check Apple's [watch-face reference](https://support.apple.com/guide/watch/faces-and-features-apde9218b440/watchos) for the relevant watchOS version rather than treating older face and Series-number examples as a permanent availability list.
 
-- **Respond gracefully if people choose an incompatible watch face** - The system sends your app an error when people try to use an incompatible watch face on Series 3 or earlier. In this scenario, consider immediately offering an alternative configuration that uses a compatible face instead of displaying an error. Along with the previews you provide, help people understand that they might receive an alternative watch face if they choose a face that isn't compatible with their Apple Watch.
+- **Respond gracefully if people choose an incompatible watch face** - Handle errors from adding a shared face and consider offering a compatible configuration instead of only displaying an error. Along with the previews you provide, help people understand that they might receive an alternative watch face if they choose one that isn't compatible with their Apple Watch.
 
 ### Platform Considerations
 
@@ -36,10 +36,8 @@ Not supported.
 
 ### Developer Documentation
 
-- [Sharing an Apple Watch face](https://developer.apple.com/documentation/clockkit/sharing_an_apple_watch_face) - ClockKit
+- [Sharing an Apple Watch face](https://developer.apple.com/documentation/clockkit/sharing-an-apple-watch-face) - ClockKit
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/watch-faces)*

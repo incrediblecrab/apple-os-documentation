@@ -4,9 +4,6 @@ People expect to enjoy rich video experiences on their devices, regardless of th
 
 ## Overview
 
-> **iOS 27+:** CarPlay gains **native video app support**, with playback restricted to when the vehicle is parked. If you ship a video app targeting CarPlay, design explicitly for the parked-state requirement.
-
-
 The system provides video players designed for you to use to embed playback experiences within your app or game in iOS, iPadOS, macOS, tvOS, and visionOS. You can also offer your content through the TV app in these platforms, which gives people a convenient and consistent viewing experience.
 
 The system-provided video players support different aspect-ratio playback modes and in most platforms, Picture in Picture (PiP) viewing mode. Although people can switch modes during playback, by default, the system selects one of the following playback modes based on a video's aspect ratio:
@@ -14,6 +11,8 @@ The system-provided video players support different aspect-ratio playback modes 
 - **Full-screen (aspect-fill) mode**: The video scales to fill the display, and some edge cropping may occur. This mode is the default for wide video (2:1 through 2.40:1). For developer guidance, see `resizeAspectFill`.
 
 - **Fit-to-screen (aspect) mode**: The entire video is visible onscreen, and letterboxing or pillarboxing occurs as needed. This mode is the default for standard video (4:3, 16:9, and anything up to 2:1) and ultrawide video (anything above 2.40:1). For developer guidance, see `resizeAspect`.
+
+These are the HIG's aspect-ratio categories, not a universal AVKit default for every presentation. The source includes exactly 2:1 in both categories; test that boundary in the player and presentation you support rather than inferring a single behavior from the table.
 
 In visionOS and tvOS, the built-in video player also provides transport controls, which let people perform playback tasks, like turning on subtitles or changing the audio language, and actions, like adding a show to a library or favoriting a clip. Below the transport controls, the video player displays content tabs, like Info, Episodes, or Chapters, that can provide supporting information and help streamline navigation. In visionOS, the transport controls appear as an ornament.
 
@@ -29,11 +28,11 @@ In visionOS and tvOS, the built-in video player also provides transport controls
 
 **If people need to access playback options or content-specific information in your tvOS app, consider adding a transport control or a custom content tab.** People typically open a transport control or content tab while they're watching a video, so it's essential to provide only the most useful actions and information. Help people return quickly to the viewing experience by making sure your actions don't take more than a step or two and your content is succinct. Use a transport control to support a playback-related action like favoriting a video; use custom content tabs to display supplementary information or recommendations.
 
-**Avoid allowing audio from different sources to mix as viewers switch between modes.** Mixed audio is an unpleasant and frustrating user experience. In general, audio mixes when at least one of the audio sources fails to handle secondary audio correctly. Here is a typical scenario: While watching a full-screen video, the viewer moves it into the PiP window, where the system automatically mutes the video. In the full-screen window, the viewer starts a game that plays background music, then switches to the PiP window and unmutes the video. If the game doesn't handle secondary audio appropriately, its audio mixes with the audio from the unmuted video. For developer guidance, see `silenceSecondaryAudioHintNotification`.
+**Avoid allowing audio from different sources to mix as viewers switch between modes.** Mixed audio can make a viewing experience confusing. For example, if a video is muted in a PiP window while a game plays background music, unmuting the video can cause competing audio when the game doesn't handle secondary audio appropriately. This example doesn't imply that entering PiP always mutes video. For developer guidance, see `silenceSecondaryAudioHintNotification`.
 
 ## Integrating with the TV app
 
-The TV app provides global access to favorite, recently played, and recommended video content from across the system. When people initiate content playback within your app, the TV app automatically opens your app and transitions to it. Follow these guidelines to help the TV app experience feel like an integrated part of your app.
+The TV app provides access to favorite, recently played, and recommended video content from participating apps. When people choose your app's content in the TV app, the system can open your app and transition to playback. Follow these guidelines to help that handoff feel integrated.
 
 **Ensure a smooth transition to your app.** The TV app fades to black when transitioning to your app and doesn't show your app's launch screen. Maintain visual continuity with this transition by immediately presenting your own black screen before starting to play or resume content.
 
@@ -122,15 +121,15 @@ In watchOS, the system manages video playback. Apps can play short video clips w
 
 ### Developer documentation
 
-- [Configuring your app for media playback — AVFoundation](https://developer.apple.com/documentation/avfoundation/audio_playback_recording_and_processing/configuring_your_app_for_media_playback)
+- [Configuring your app for media playback — AVFoundation](https://developer.apple.com/documentation/avfoundation/configuring-your-app-for-media-playback)
 - [AVKit](https://developer.apple.com/documentation/avkit)
-- [HTTP Live Streaming](https://developer.apple.com/documentation/http_live_streaming)
+- [HTTP Live Streaming](https://developer.apple.com/streaming/)
 
 ### Videos
 
 - [Create a great video playback experience](https://developer.apple.com/videos/play/wwdc2022/10147/)
-- [Explore video experiences for visionOS](https://developer.apple.com/videos/play/wwdc2023/10086/)
-- [Deliver a great playback experience on tvOS](https://developer.apple.com/videos/play/wwdc2019/501/)
+- [Explore video experiences for visionOS](https://developer.apple.com/videos/play/wwdc2025/304)
+- [Deliver a great playback experience on tvOS](https://developer.apple.com/videos/play/wwdc2021/10191)
 
 ## Changelog
 
@@ -139,4 +138,4 @@ In watchOS, the system manages video playback. Apps can play short video clips w
 | September 12, 2023 | Corrected the recommended width for a thumbnail in visionOS. |
 | June 21, 2023 | Updated to include guidance for visionOS. |
 
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
+*Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/playing-video)*

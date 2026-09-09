@@ -2,23 +2,39 @@
 
 Add drawings, shapes, and a consistent markup experience to your app.
 
+**Platforms:** iOS 26.0+ | iPadOS 26.0+ | Mac Catalyst 26.0+ | macOS 26.0+ | visionOS 26.0+
+
 ## Overview
 
-**PaperKit** builds on top of **PencilKit** and **PDFKit** to provide a consistent way to add drawing and shapes in your app.
+PaperKit combines [PencilKit](PencilKit.md) ink with shapes, text boxes, and images in one markup model. Use `PaperMarkupViewController` for the canvas and `PaperMarkup` for saving, loading, and rendering its content. Your app must implement persistence; merely showing the controller doesn't save the model to disk.
+
+Insertion UI is platform-specific: `MarkupEditViewController` on iOS/iPadOS/visionOS, and `MarkupToolbarViewController` on macOS. Both insertion controllers also declare Mac Catalyst 26 support in the structured reference, although the overview's platform prose omits it.
+
+## OS 27 markup model
+
+On iOS/iPadOS/Mac Catalyst/macOS/visionOS 27+, [`Markup`](https://developer.apple.com/documentation/paperkit/markup) describes individual elements, including [`LinkMarkup`](https://developer.apple.com/documentation/paperkit/linkmarkup) for tappable URL links. **Do not implement your own `Markup` conformance**; the protocol is reserved for PaperKit's types. [`MarkupAdornment`](https://developer.apple.com/documentation/paperkit/markupadornment) adds image overlays that can track zoom or retain a fixed size in the base coordinate system. Gate these additions separately from the 26-generation canvas and persistence APIs.
 
 ## Topics
 
-### View controllers
-- **PaperMarkupViewController** - A view controller for interactively creating, and showing markup.
-- **MarkupEditViewController** - A view controller that manages the interface for inserting content into a canvas.- **MarkupToolbarViewController** -
-### Configuration
-- **FeatureSet** - The features supported by PaperKit UI / data models.- **ShapeConfiguration** - A configuration that specifies the appearance of a shape.- **RenderingOptions** - The rendering options for drawing paper data models.
-### Data model
-- **PaperMarkup** - The data model object for storing markup data created from a PaperViewController.
-### Error handling
-- **MarkupError** - The error thrown for encoding / decoding data models.
----
+### Essentials
+- [Integrating PaperKit into your app](https://developer.apple.com/documentation/paperkit/getting-started-with-paperkit) - Set up the canvas, insertion tools, and persistence.
 
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
+### View controllers
+- [PaperMarkupViewController](https://developer.apple.com/documentation/paperkit/papermarkupviewcontroller) - Hosts an editable markup canvas.
+- [MarkupEditViewController](https://developer.apple.com/documentation/paperkit/markupeditviewcontroller) - Supplies insertion controls on iOS, iPadOS, and visionOS.
+- [MarkupToolbarViewController](https://developer.apple.com/documentation/paperkit/markuptoolbarviewcontroller) - Supplies the macOS markup toolbar.
+
+### Configuration
+- [FeatureSet](https://developer.apple.com/documentation/paperkit/featureset) - Selects available markup capabilities.
+- [ShapeConfiguration](https://developer.apple.com/documentation/paperkit/shapeconfiguration) - Configures a shape's appearance.
+- [RenderingOptions](https://developer.apple.com/documentation/paperkit/renderingoptions) - Configures model rendering.
+
+### Data model
+- [PaperMarkup](https://developer.apple.com/documentation/paperkit/papermarkup) - Stores canvas content and supports serialized data representations.
+
+### Error handling
+- [`MarkupError`](https://developer.apple.com/documentation/paperkit/markuperror) - Encoding and decoding errors for the markup data model.
+
+---
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/PaperKit)*

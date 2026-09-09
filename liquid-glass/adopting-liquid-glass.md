@@ -2,7 +2,9 @@
 
 Find out how to bring the new material to your app.
 
-**Platforms:** iOS 26.0+ | iPadOS 26.0+ | macOS Tahoe 26.0+ | tvOS 26.0+ | visionOS 26.0+ | watchOS 26.0+
+**Platforms:** iOS 26.0+ | iPadOS 26.0+ | macOS 26.0+ | tvOS 26.0+ | watchOS 26.0+
+
+Native visionOS uses its own [window glass and material guidance](../human-interface-guidelines/foundations/materials.md#visionos). Check individual APIs rather than treating this platform list as universal availability.
 
 ## Overview
 
@@ -27,7 +29,7 @@ Interfaces across Apple platforms feature a new dynamic material called Liquid G
 **Core Components:**
 - [NavigationStack](https://developer.apple.com/documentation/swiftui/navigationstack) - SwiftUI
 - [NavigationSplitView](https://developer.apple.com/documentation/swiftui/navigationsplitview) - SwiftUI
-- [titleBar](https://developer.apple.com/documentation/swiftui/titlebar) - SwiftUI
+- [titleBar](https://developer.apple.com/documentation/swiftui/windowstyle/titlebar) - SwiftUI
 - [toolbar(content:)](https://developer.apple.com/documentation/swiftui/view/toolbar(content:)) - SwiftUI
 - [glassEffect(_:in:)](https://developer.apple.com/documentation/swiftui/view/glasseffect(_:in:)) - SwiftUI
 
@@ -74,22 +76,19 @@ Liquid Glass applies to the topmost layer of the interface, where you define you
 - **Establish a clear navigation hierarchy** - Clearly separate content from navigation elements
 - **Consider adapting your tab bar into a sidebar automatically** - Use sidebarAdaptable for contextual adaptation
 - **Use split views for sidebar layouts with inspector panels** - Split views provide consistent experiences across platforms
-- **Extend content beneath sidebars and inspectors** - Use background extension effects for full edge-to-edge experiences
+- **Extend backgrounds beneath sidebars and inspectors** - A background extension effect mirrors and blurs adjacent content to create an edge-to-edge appearance; it doesn't move the original content beneath the sidebar or inspector
 
 ### Menus and Toolbars
 
 Menus have a refreshed look across platforms. They adopt Liquid Glass, and menu items for common actions use icons to help people quickly scan and identify those actions. Toolbars provide a grouping mechanism for toolbar items.
 
-**Toolbar Components:**
-- [fixed](https://developer.apple.com/documentation/swiftui/toolbaritemspacing/fixed) - SwiftUI
-- [ToolbarSpacer](https://developer.apple.com/documentation/uikit/uitoolbarspacer) - UIKit
-- [hidden(_:)](https://developer.apple.com/documentation/swiftui/view/hidden(_:)) - SwiftUI
+Use standard toolbar items and grouping APIs instead of reproducing the system background. Keep related actions together, and use deliberate spacing between groups.
 
 **Best Practices:**
 - **Adopt standard icons in menu items** - For common actions like Cut, Copy, and Paste, use standard selectors
 - **Match top menu actions to swipe actions** - Ensure consistency between contextual menus and swipe actions
 - **Determine which toolbar items to group together** - Group items that perform similar actions or affect the same interface parts
-- **Find icons to represent common actions** - Use standard icons instead of text for better interface clarity
+- **Choose recognizable labels and icons** - Use standard icons for familiar actions, keep accessible names, and retain text where an icon alone would be ambiguous
 
 ### Windows and Modals
 
@@ -100,7 +99,7 @@ Windows adopt rounder corners to fit controls and navigation elements. In iPadOS
 - [confirmationDialog(_:isPresented:titleVisibility:presenting:actions:)](https://developer.apple.com/documentation/swiftui/view/confirmationdialog(_:ispresented:titlevisibility:presenting:actions:)) - SwiftUI
 
 **Implementation Guidelines:**
-- **Support arbitrary window sizes** - Allow people to resize windows to their preferred dimensions
+- **Support flexible window sizes** - Adapt continuously as people resize windows within the supported size limits
 - **Use split views to allow fluid resizing of columns** - Split views automatically reflow content with beautiful transitions
 - **Use layout guides and safe areas** - Specify safe areas for automatic window control adjustment
 - **Check content around sheet edges** - Verify content appearance near rounder corners and inset sheets
@@ -126,89 +125,69 @@ Platform conventions for location and behavior of search optimize the experience
 
 ### Platform Considerations
 
-**iOS 26.0+, iPadOS 26.0+, macOS Tahoe 26.0+, tvOS 26.0+, visionOS 26.0+**  
-Liquid Glass can have distinct appearance and behavior across different platforms, contexts, and input methods. Test your app across devices to understand how the material looks and feels.
+#### iOS, iPadOS, and macOS
 
-**watchOS 26.0+**  
-Liquid Glass changes are minimal in watchOS and appear automatically when you open your app on the latest release. However, adopt standard toolbar APIs and button styles from watchOS 10 to ensure proper appearance.
+Rebuild with the SDK you intend to ship, then test on each supported runtime. Check touch, pointer, keyboard, window resizing, and the distinction between content and navigation.
 
-### What Changed in OS 27
+#### tvOS
 
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+, tvOS 27+, visionOS 27+, watchOS 27+:** Liquid Glass is refined rather than replaced. Apple introduced **no new named Liquid Glass API types** in OS 27 — existing code continues to work, and the changes are in how the material renders and how people control it.
+Use standard focus APIs so controls respond consistently when focused. Apple's adoption guide specifies Apple TV 4K (2nd generation) and newer for Liquid Glass effects; older devices retain their existing appearance. Test readable focus feedback on both.
 
-**Material refinements**
+#### watchOS
 
-- **Stronger content diffusion** — busy backgrounds are blurred more aggressively beneath glass surfaces, addressing the most common legibility complaint from OS 26
-- **Darkened edge ring** — a subtle darker border separates glass surfaces from what sits behind them
-- **Brighter specular highlights** — edge highlights are more defined, making surface boundaries easier to perceive
-- **Adaptive toolbars** — toolbars automatically become uniform and less translucent as content scrolls beneath them
+The adoption guide describes a smaller visual change that can appear without rebuilding. Use standard toolbar APIs and button styles from watchOS 10, and check glanceability and the Always On state instead of adding glass to every surface.
 
-**People control the transparency**
+### Appearance and accessibility validation
 
-A continuous **transparency slider** in Settings > Appearance (System Settings > Appearance on macOS) replaces the binary Clear/Tinted toggle from OS 26. People can place translucency anywhere on a spectrum rather than choosing between two presets.
-
-Your interface must remain usable across the full range of that slider, and under Reduce Transparency and Increase Contrast. Do not encode meaning in translucency alone.
-
-**Sidebars**
-
-Sidebars now extend to the full window edge with refraction continuing beneath them, and sidebar icons retain their tint color instead of washing out — a fix for a frequent OS 26 complaint.
-
-**App icons**
-
-Icons gain sharper separation between layers, addressing feedback that OS 26 icons appeared soft at small sizes. Per-layer refraction is authored in Icon Composer 2.
-
-**What to re-test**
-
-1. Every custom control that sits on or near a glass surface, across the transparency slider range
-2. Text contrast over glass against your brightest and busiest background content
-3. Focus and selection states on tvOS, where glass composites over moving video artwork
-4. Passthrough legibility on visionOS in bright, dark, and high-motion real environments
-5. Complications on watchOS against every watch face family you support
+1. Use regular glass for most controls and text-heavy functional surfaces such as sidebars or popovers, not general content backgrounds. Choose clear glass only over appropriate media, and evaluate dimming and foreground contrast as described in [Materials](../human-interface-guidelines/foundations/materials.md).
+2. Test the Liquid Glass appearance choices and accessibility preferences actually offered on each target device. Include Reduce Transparency, Increase Contrast, and Reduce Motion where available; do not assume a particular Settings control or opacity value.
+3. Exercise light and dark appearances over the brightest, darkest, and busiest content your app displays. Keep focus, selection, loading, and failure understandable without relying only on color or translucency.
+4. Test larger text, right-to-left layouts, keyboard navigation, and VoiceOver. Verify that morphing or resizing does not hide controls, lose focus, or change the apparent meaning of an action.
+5. Preview layered app icons in [Icon Composer](https://developer.apple.com/icon-composer/), using the supported appearances and platform-specific icon requirements. Do not bake system lighting or masking into the artwork.
 
 ### Performance Considerations
 
 - **Combine custom Liquid Glass effects** - Use `GlassEffectContainer` to optimize performance when applying effects to custom elements
 - **Performance test your app across platforms** - Regularly assess and improve performance when building with latest SDKs
-- **Budget for material cost** - Liquid Glass is GPU-backed; profile scrolling and animation on your oldest supported device, not only current hardware
+- **Measure the actual workload** - Profile scrolling and animation on your oldest supported devices, with representative content and accessibility settings. Do not assume a numerical performance gain from a new OS release.
 
-### Adoption Timeline
+### SDK, runtime, and deployment targets
 
-> **iOS 26+, iPadOS 26+, macOS Tahoe 26+:** The `UIDesignRequiresCompatibility` Info.plist key lets an app built against the OS 26 SDK retain the pre-Liquid-Glass appearance as a temporary migration aid.
+[`UIDesignRequiresCompatibility`](https://developer.apple.com/documentation/bundleresources/information-property-list/uidesignrequirescompatibility) is a temporary UI migration aid. Where honored, `YES` requests compatibility with the previous SDK's UI; `NO` or an absent key uses the running OS's design for apps linked against the latest SDK.
 
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** `UIDesignRequiresCompatibility` is **ignored by the OS 27 SDK**. There is no supported way to opt out once you build against it.
+Apple explicitly says the system **ignores this key when building for iOS 27 or later, iPadOS 27 or later, Mac Catalyst 27 or later, macOS 27 or later, or tvOS 27 or later**. Do not extend that list to watchOS or visionOS. The setting is not a supported opt-out for the listed 27-generation builds.
 
-**How the appearance is actually decided**
+Keep three independent decisions clear:
 
-The design your app receives is gated on the **SDK you link against**, not on the OS version the device is running:
+- **Build SDK:** the APIs and linked-SDK behavior used to build the binary.
+- **Deployment target:** the oldest OS the binary is intended to run on. Lowering it does not turn a 27-SDK build into a 26-SDK build or restore the compatibility option.
+- **Runtime OS:** the system that supplies the actual controls, rendering, and accessibility behavior. A new SDK does not backport new APIs to an older runtime.
 
-| App built against | Running on OS 26 | Running on OS 27 |
-|---|---|---|
-| OS 25 SDK or earlier | Legacy appearance | Legacy appearance |
-| OS 26 SDK, `UIDesignRequiresCompatibility` set | Legacy appearance | Legacy appearance |
-| OS 26 SDK, key not set | Liquid Glass | Liquid Glass |
-| OS 27 SDK | n/a | Liquid Glass (key ignored) |
+The following cases apply to the platforms listed in the key's documentation:
 
-An app still built against the OS 26 SDK keeps its current appearance when running on OS 27. The change takes effect the moment you recompile with Xcode 27 — so the timing is yours to choose, but the outcome is not.
+| Build SDK | Runtime | Deployment requirement | Appearance and compatibility review |
+|-----------|---------|------------------------|-------------------------------------|
+| 26-generation SDK | Corresponding OS 26 | Minimum target permits OS 26. | `YES` requests the temporary compatibility UI; `NO` or omission uses the OS 26 design. |
+| 26-generation SDK | Corresponding OS 27 | Binary remains eligible to run. | The binary is still a 26-SDK build. Check its key and test the existing binary; an OS update is not a rebuild, and the key documentation is not a guarantee of every older binary's exact rendering. |
+| 27-generation SDK | Corresponding OS 26 | The SDK supports this deployment target and the app's minimum is no higher than 26. | This is not automatically “N/A.” Use runtime availability checks for newer APIs and test the OS 26 presentation. Do not depend on the key as a supported escape hatch for a 27-SDK build. |
+| 27-generation SDK | Corresponding OS 27 | Minimum target permits that runtime. | The key is ignored for the listed build targets; validate the runtime's system design and your custom UI. |
 
-**Key Dates:**
-- **April 28, 2026**: App Store Connect uploads require the OS 26 SDK or later (Xcode 26+) — in effect
-- **OS 27 SDK adoption**: full Liquid Glass adoption, no opt-out
-- **OS 27 SDK submission deadline**: **not announced.** Apple has historically set this requirement in the spring following a release, but no date has been published. Watch [Upcoming Requirements](https://developer.apple.com/news/upcoming-requirements/).
+This is not a universal matrix for binaries built with every historical SDK. The cited key documentation does not enumerate all older-runtime combinations. Record actual test results for the SDK, deployment target, runtime, device, and preferences you ship.
 
-**Recommendation:** Adopt on your own schedule rather than under deadline pressure. Standard SwiftUI, UIKit, and AppKit controls migrate for free on recompile; custom navigation chrome and hand-rolled blur effects do not.
+App Store submission SDK requirements are a separate policy question. Consult [Upcoming Requirements](https://developer.apple.com/news/upcoming-requirements/) rather than deriving a submission deadline from the design's version number.
 
 ### Related Components
 
-- [Icon Composer](https://developer.apple.com/documentation/xcode/icon-composer) - Icon design tool
-- [Improving your app's performance](https://developer.apple.com/documentation/xcode/improving_your_app_s_performance) - Performance guidance
+- [Icon Composer](https://developer.apple.com/icon-composer/) - Icon design tool
+- [Improving your app's performance](https://developer.apple.com/documentation/xcode/improving-your-app-s-performance) - Performance guidance
 
 ### Developer Documentation
 
 - [SwiftUI](https://developer.apple.com/documentation/swiftui) - Framework
 - [UIKit](https://developer.apple.com/documentation/uikit) - Framework  
 - [AppKit](https://developer.apple.com/documentation/appkit) - Framework
-- [Creating your app icon using Icon Composer](https://developer.apple.com/documentation/xcode/creating_your_app_icon_using_icon_composer) - Icon creation guidance
+- [Creating your app icon using Icon Composer](https://developer.apple.com/documentation/xcode/creating-your-app-icon-using-icon-composer) - Icon creation guidance
 
 ---
 
-*Source: [Apple Developer Documentation](https://developer.apple.com/documentation/xcode/adopting-liquid-glass)*
+*Source: [Apple Developer Documentation](https://developer.apple.com/documentation/technologyoverviews/adopting-liquid-glass)*

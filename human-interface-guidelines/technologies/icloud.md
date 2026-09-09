@@ -1,14 +1,12 @@
 # iCloud
 
-iCloud is a service that lets people seamlessly access the content they care about — photos, videos, documents, and more — from any device, without performing explicit synchronization.
+iCloud helps people access the content they care about — photos, videos, documents, and more — across their supported devices without manually initiating each synchronization.
 
 **Platforms:** iOS | iPadOS | macOS | tvOS | visionOS | watchOS
 
 ## Overview
 
-A fundamental aspect of iCloud is transparency. People don't need to know where content resides. They can just assume they're always accessing the latest version.
-
-> **iOS 27+, iPadOS 27+:** Uploads to iCloud continue in the background when people leave your app or lock the device, so long transfers no longer pause or fail. Design sync and upload affordances around work that survives backgrounding.
+A fundamental design goal for iCloud integration is transparency: people shouldn't need to manage where content resides. Aim to provide the latest content while handling offline access, pending updates, and conflicts explicitly when necessary.
 
 ## Topics
 
@@ -17,8 +15,8 @@ A fundamental aspect of iCloud is transparency. People don't need to know where 
 - **Make it easy to use your app with iCloud** - People turn on iCloud in Settings and expect apps to work with it automatically. If you think people might want to choose whether to use iCloud with your app, show a simple option the first time your app opens that provides a choice between using iCloud for all data or not at all.
 - **Avoid asking which documents to keep in iCloud** - Most people expect all of their content to be available in iCloud and don't want to manage the storage of individual documents. Consider how your app handles and exposes content, and try to perform more file-management tasks automatically.
 - **Keep content up to date when possible** - In an app that supports iCloud, it's best when people always have access to the most recent content. However, you need to balance this experience with respect to device storage and bandwidth constraints. If your app works with very large documents, it may be better to let people control when updated content is downloaded.
-- **Respect iCloud storage space** - iCloud is a finite resource for which people pay. Use iCloud to store information people create and understand, and avoid using it for app resources or content you can regenerate. Even if your app doesn't implement iCloud support, remember that iCloud backups include the contents of every app's Documents folder.
-- **Make sure your app behaves appropriately when iCloud is unavailable** - If someone manually turns off iCloud or turns on Airplane Mode, you don't need to display an alert notifying them iCloud is unavailable. However, it may still be helpful to unobtrusively let people know that changes they make won't be available on other devices until they restore iCloud access.
+- **Respect iCloud storage space** - iCloud storage is limited, with additional capacity available through paid plans. Store information people create and understand rather than app resources or regenerable content. On devices using iCloud Backup, eligible app data can be backed up even if your app doesn't implement iCloud synchronization; not every file is necessarily included. Follow [Apple's backup guidance](https://developer.apple.com/documentation/foundation/optimizing-your-app-s-data-for-icloud-backup) for regenerable data and backup exclusions.
+- **Make sure your app behaves appropriately when iCloud is unavailable** - If someone turns off iCloud or loses connectivity, you don't need an intrusive alert merely to announce the condition. Unobtrusively explain when changes are waiting to sync.
 - **Keep app state information in iCloud** - In addition to storing documents and other files, you can use iCloud to store settings and information about the state of your app. For example, a magazine app might store the last page viewed so when the app is opened on another device, someone can continue reading from where they left off.
 - **Warn about the consequences of deleting a document** - When someone deletes a document in an app that supports iCloud, the document is removed from iCloud and all other devices too. Show a warning and ask for confirmation before performing the deletion.
 - **Make conflict resolution prompt and easy** - To the extent possible, try to detect and resolve version conflicts automatically. If this can't be done, display an unobtrusive notification that makes it easy to differentiate and choose between the conflicting versions.
@@ -40,7 +38,5 @@ No additional considerations for iOS, iPadOS, macOS, tvOS, visionOS, or watchOS.
 - Added guidance for synchronizing game data through iCloud.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/icloud)*

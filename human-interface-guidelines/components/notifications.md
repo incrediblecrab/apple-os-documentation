@@ -6,7 +6,7 @@ A notification gives people timely, high-value information they can understand a
 
 ## Overview
 
-Before you can send any notifications to people, you have to get their consent (for developer guidance, see Asking permission to use notifications). After agreeing, people generally use settings to specify the styles of notification they want to receive, and to specify delivery times for notifications that have different levels of urgency. To learn more about the ways people can customize the notification experience, see Managing notifications.
+Obtain the appropriate authorization for user-facing notification interactions and check the person's current settings. Explicit authorization asks for consent; provisional authorization can instead deliver a quiet trial to Notification Center without an initial permission prompt. It doesn't authorize an interrupting banner, sound, or Lock Screen presentation. See [Asking permission to use notifications](https://developer.apple.com/documentation/usernotifications/asking-permission-to-use-notifications) and [Managing notifications](https://developer.apple.com/design/human-interface-guidelines/managing-notifications).
 
 ### Anatomy
 
@@ -22,13 +22,11 @@ In addition, a notification related to direct communication — like a phone cal
 
 ### Best Practices
 
-> **iOS 27+:** Notifications use smarter grouping, including collapsed group-thread Tapbacks and consolidated Home camera alerts, helping reduce visual noise while preserving important updates.
-
 - **Provide concise, informative notifications** - People turn on notifications to get quick updates, so you want to provide valuable information succinctly.
 - **Avoid sending multiple notifications for the same thing, even if someone hasn't responded** - People attend to notifications at their convenience. If you send multiple notifications for the same thing, you fill up Notification Center, and people may turn off all notifications from your app.
 - **Avoid sending a notification that tells people to perform specific tasks within your app** - If it makes sense to offer simple tasks that people can perform without opening your app, you can provide notification actions. Otherwise, avoid telling people what to do because it's hard for people to remember such instructions after they dismiss the notification.
 - **Use an alert — not a notification — to display an error message** - People are familiar with both alerts and notifications, so you don't want to cause confusion by using the wrong component. For guidance, see Alerts.
-- **Handle notifications gracefully when your app is in the foreground** - Your app's notifications don't appear when your app is in the front, but your app still receives the information. In this scenario, present the information in a way that's discoverable but not distracting or invasive, such as incrementing a badge or subtly inserting new data into the current view. For example, when a new message arrives in a mailbox that people are currently viewing, Mail simply adds it to the list of unread messages because sending a notification about it would be unnecessary and distracting.
+- **Handle foreground notifications deliberately** - Foreground presentation isn't universally suppressed: the [notification-center delegate](https://developer.apple.com/documentation/usernotifications/unusernotificationcenterdelegate/usernotificationcenter(_:willpresent:withcompletionhandler:)) can select presentation options. Prefer a quiet, discoverable update when people already see the relevant content, such as inserting a new message into the current mailbox, instead of duplicating it with a distracting banner.
 - **Avoid including sensitive, personal, or confidential information in a notification** - You can't predict what people will be doing when they receive a notification, so it's essential to avoid including private information that could be visible to others.
 
 ### Content
@@ -39,7 +37,7 @@ When a notification includes a title, the system displays it at the top where it
 - **Write succinct, easy-to-read notification content** - Use complete sentences, sentence case, and proper punctuation, and don't truncate your message — the system does this automatically when necessary.
 - **Provide generically descriptive text to display when notification previews aren't available** - In Settings, people can choose to hide notification previews for all apps. In this situation, the system shows only your app icon and the default title Notification. To give people sufficient context to know whether they want to view the full notification, write body text that succinctly describes the notification content without revealing too many details, like "Friend request," "New comment," "Reminder," or "Shipment" (for developer guidance, see hiddenPreviewsBodyPlaceholder). Use sentence-style capitalization for this text.
 - **Avoid including your app name or icon** - The system automatically displays a large version of your app icon at the leading edge of each notification; in a communication notification, the system displays the sender's contact image badged with a small version of your icon.
-- **Consider providing a sound to supplement your notifications** - Sound can be a great way to distinguish your app's notifications and get someone's attention when they're not looking at the device. You can create a custom sound that coordinates with the style of your app or use a system-provided alert sound. If you use a custom sound, make sure it's short, distinctive, and professionally produced. A notification sound can enhance the user experience, but don't rely on it to communicate important information, because people may not hear it. Although people might also want a vibration to accompany alert sounds, you can't provide such a vibration programmatically. For developer guidance, see UNNotificationSound.
+- **Use sound as supplementary feedback** - A short, distinctive sound can help people notice a notification, but essential information must remain understandable without hearing it. [UNNotificationSound](https://developer.apple.com/documentation/usernotifications/unnotificationsound) configures system or custom audio, not a custom notification vibration pattern. Respect notification and device preferences for accompanying feedback.
 
 ### Notification Actions
 
@@ -56,7 +54,7 @@ A badge is a small, filled oval containing a number that can appear on an app ic
 
 - **Use a badge only to show people how many unread notifications they have** - Don't use a badge to convey numeric information that isn't related to notifications, such as weather-related data, dates and times, stock prices, or game scores.
 - **Make sure badging isn't the only method you use to communicate essential information** - People can turn off badging for your app, so if you rely on it to show people when there's important information, people can miss the message. Always make sure that you make important information easy for people to find as soon as they open your app.
-- **Keep badges up to date** - Update your app's badge as soon as people open the corresponding notifications. You don't want people to think there are new notifications available, only to find that they've already viewed them all. Note that reducing a badge's count to zero removes all related notifications from Notification Center.
+- **Keep badges and delivered notifications in sync** - Update the unread count as people handle the corresponding content. A [badge value of zero](https://developer.apple.com/documentation/usernotifications/unnotificationcontent/badge) removes the icon badge; don't rely on it as a portable clear-all operation for Notification Center. Use [removeAllDeliveredNotifications()](https://developer.apple.com/documentation/usernotifications/unusernotificationcenter/removealldeliverednotifications()) when you intend to remove all delivered entries. That operation doesn't cancel pending notification requests.
 - **Avoid creating a custom image or component that mimics the appearance or behavior of a badge** - People can turn off notification badges if they choose, and will become frustrated if they have done so and then see what appears to be a badge.
 
 ### Platform Considerations
@@ -77,16 +75,16 @@ A short look appears when the wearer's wrist is raised and disappears when it's 
 
 #### Long Looks
 
-Long looks provide more detail about a notification. If necessary, people can swipe vertically or use the Digital Crown to scroll a long look. After viewing a long look, people can dismiss it by tapping it or simply by lowering their wrist.
+Long looks provide more detail and can scroll with vertical swipes or the Digital Crown. Keep the system's Dismiss control available; lowering the wrist can also end the onscreen presentation. Don't confuse hiding a long look with deleting its delivered notification.
 
 A custom long-look interface can be static or dynamic. The static interface lets you display a notification's message along with additional static text and images. The dynamic interface gives you access to the notification's full content and offers more options for configuring the appearance of the interface.
 
 You can customize the content area for both static and dynamic long looks, but you can't change the overall structure of the interface. The system-defined structure includes a sash at the top of the interface and a Dismiss button at the bottom, below all custom buttons.
 
 - **Consider using a rich, custom long-look notification to let people get the information they need without launching your app** - You can use SwiftUI Animations to create engaging, interruptible animations; alternatively, you can use SpriteKit or SceneKit.
-- **At the minimum, provide a static interface; prefer providing a dynamic interface too** - The system defaults to the static interface when the dynamic interface is unavailable, such as when there is no network or the iPhone companion app is unreachable. Be sure to create the resources for your static interface in advance and package them with your app.
+- **Provide a static fallback as well as dynamic content** - Package the static interface with the app so essential content remains available if the dynamic representation can't be created. Don't make that fallback depend on network or companion-app reachability.
 - **Choose a background appearance for the sash** - The system-provided sash, at the top of the long-look interface, displays your app icon and name. You can customize the sash's color or give it a blurred appearance. If you display a photo at the top of the content area, you'll probably want to use the blurred sash, which has a light, translucent appearance that gives the illusion of overlapping the image.
-- **Choose a background color for the content area** - By default, the long look's background is transparent. If you want to match the background color of other system notifications, use white with 18% opacity; otherwise, you can use a custom color, such as a color within your brand's palette.
+- **Choose a readable content-area background** - The HIG describes a transparent default and suggests white at 18% opacity as one custom long-look treatment resembling system notifications. Treat that as design guidance, not a fixed rendering constant for every watchOS appearance, and verify the contrast of any custom color.
 - **Provide up to four custom actions below the content area** - For each long look, the system uses the notification's type to determine which of your custom actions to display as buttons in the notification UI. In addition, the system always displays a Dismiss button at the bottom of the long-look interface, below all custom buttons. If your watchOS app has an iPhone companion that supports notifications, the system shares the actionable notification types already registered by your iPhone app and uses them to configure your custom action buttons.
 
 #### Double Tap
@@ -102,7 +100,7 @@ People can double-tap to respond to notifications on supported devices. When a p
 
 ### Developer Documentation
 
-- [Asking permission to use notifications](https://developer.apple.com/documentation/usernotifications/asking_permission_to_use_notifications) - User Notifications
+- [Asking permission to use notifications](https://developer.apple.com/documentation/usernotifications/asking-permission-to-use-notifications) - User Notifications
 - [User Notifications UI](https://developer.apple.com/documentation/usernotificationsui)
 - [User Notifications](https://developer.apple.com/documentation/usernotifications)
 
@@ -113,11 +111,11 @@ People can double-tap to respond to notifications on supported devices. When a p
 
 ## Changelog
 
+These dates describe changes to Apple's HIG article, not edits to this repository.
+
 ### October 24, 2023
 - Updated watchOS platform considerations with guidance for presenting notification responses to double tap.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/notifications)*

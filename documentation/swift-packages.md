@@ -10,6 +10,20 @@ Xcode supports creating and publishing Swift packages, as well as adding, removi
 
 To learn more about the API you use in your package manifest, see Package. To learn more about the Swift Package Manager, see Swift.org and the open source Swift Package Manager repository.
 
+## Xcode 27 beta / Swift 6.4
+
+The [Xcode 27 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md) document two `swift test` improvements: a final summary of failed test targets, and repetition with `--maximum-repetitions` plus `--repeat-until pass` or `--repeat-until fail`. Only cases matching the repetition condition are repeated.
+
+For example, in a package that contains an `ImportTests` suite:
+
+```bash
+swift test --filter ImportTests --maximum-repetitions 10 --repeat-until fail
+```
+
+Use bounded repetition to investigate intermittent failures, not to hide a failure by retrying until green. Retain the initial failure and toolchain version in CI results.
+
+Keep the manifest's **tools version**, target **language mode**, and **deployment platforms** distinct. Installing the Swift 6.4 compiler does not make every dependency Swift 6-mode code or raise its deployment minimum to OS 27. See [PackageDescription](PackageDescription.md), [Swift](Swift.md), [Swift Testing](Testing.md), and the [concurrency migration recipe](../guides/swift-concurrency-migration.md). Use [DocC](docc.md) as the canonical documentation-authoring reference.
+
 ## Topics
 
 ### Package dependencies
@@ -39,7 +53,5 @@ To learn more about the API you use in your package manifest, see Package. To le
 - [Bundles and frameworks](https://developer.apple.com/documentation/xcode/bundles-and-frameworks) - Organize code and resources in bundles and frameworks.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/Xcode/swift-packages)*

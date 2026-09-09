@@ -8,7 +8,7 @@ Stream music directly to HomePod speakers from your media service.
 
 When the user asks an authorized HomePod speaker to play some media, the media device can contact your SiriKitCloudMedia service directly, rather than send requests through an intermediary iOS device.
 
-Download the SiriKit Cloud Media OpenAPI Specification. For details about applying for the SiriKit Media Intents on HomePod program, see the HomePod section of Siri for Developers.
+Apple provides a [SiriKit Cloud Media OpenAPI Specification](https://developer.apple.com/sample-code/siri/sirikit-cloud-media-open-api.zip). Integration is through the SiriKit Media Intents on HomePod program; the API documentation does not by itself grant program access.
 
 ### Configure the User's HomePod
 
@@ -33,36 +33,36 @@ You can also tune algorithmic playlists by incorporating the preferences users s
 ## Topics
 
 ### Device Configuration
-- [Configure Your Service Endpoints](https://developer.apple.com/documentation/sirikitcloudmedia/configure_your_service_endpoints) - Provide configuration details for your media server's endpoints to a HomePod speaker or an Apple TV.
+- [Configure Your Service Endpoints](https://developer.apple.com/documentation/sirikitcloudmedia/configuration-resource.md) - Provide configuration details for your media server's endpoints to a HomePod speaker or an Apple TV.
 - **ExtensionConfigTag** - A unique identifier for a specific media service configuration.
 - **ExtensionConfig** - Instructions for accessing your media service's endpoints.
 - **PlayMediaControlActivity** - Options for reporting playback progress.
 
 ### Media Play Queues
-- [Process a Play Media Intent](https://developer.apple.com/documentation/sirikitcloudmedia/process_a_play_media_intent) - Interpret the user's request to play a media item, and provide instructions to access a corresponding playback queue.
-- [Get a Media Queue](https://developer.apple.com/documentation/sirikitcloudmedia/get_a_media_queue) - Provide a playback queue from a successfully processed play media intent.
+- [Process a Play Media Intent](https://developer.apple.com/documentation/sirikitcloudmedia/playmedia-1g2o9.md) - Interpret the user's request to play a media item, and provide instructions to access a corresponding playback queue.
+- [Get a Media Queue](https://developer.apple.com/documentation/sirikitcloudmedia/playmedia-1onzj.md) - Provide a playback queue from a successfully processed play media intent.
 
 ### Content Protection
-- [Retrieve an Asset's Content Protection Key](https://developer.apple.com/documentation/sirikitcloudmedia/retrieve_an_asset_s_content_protection_key) - Provide the content key for a specific protected asset.
+- [Retrieve an Asset's Content Protection Key](https://developer.apple.com/documentation/sirikitcloudmedia/contentprotectionkey.md) - Provide the content key for a specific protected asset.
 - **ContentProtectionKeyRequest** - A request for an item's content protection key.
 - **ContentProtectionKeyResponse** - A response to a request for an item's content protection key.
 - **ContentProtectionKeySystem** - The content protection key systems that SiriKit Cloud Media supports.
 
 ### Playback Events
 - **QueueActivityReportEvent** - An event that occurs during content playback.
-- [Report Playback Progress and Activity](https://developer.apple.com/documentation/sirikitcloudmedia/report_playback_progress_and_activity) - Monitor progress through the playback queue.
+- [Report Playback Progress and Activity](https://developer.apple.com/documentation/sirikitcloudmedia/updateactivity.md) - Monitor progress through the playback queue.
 - **UpdateActivityRequest** - A report of the client's current playback state and recent user interaction, and an opportunity for your service to modify the client's playback queue.
 - **UpdateActivityResponse** - Updates to the client's queue and user activity in response to a report of playback progress.
-- [Process an Update Media Affinity Intent](https://developer.apple.com/documentation/sirikitcloudmedia/process_an_update_media_affinity_intent) - Record the user's preference for a specific media item or a broader category of media.
+- [Process an Update Media Affinity Intent](https://developer.apple.com/documentation/sirikitcloudmedia/updatemediaaffinity.md) - Record the user's preference for a specific media item or a broader category of media.
 
 ### Playback Failure
-- [Recover from Content Playback Failure](https://developer.apple.com/documentation/sirikitcloudmedia/recover_from_content_playback_failure) - Provide a recovery queue that allows the client to resume playback after an error.
+- [Recover from Content Playback Failure](https://developer.apple.com/documentation/sirikitcloudmedia/contentplaybackfailure.md) - Provide a recovery queue that allows the client to resume playback after an error.
 - **ContentFailure** - An object that describes why the client can't play a specific piece of content.
 - **ContentPlaybackFailureRequest** - A request the client sends to recover from failed content playback.
 - **ContentPlaybackFailureResponse** - A response that allows the client to recover from failed content playback.
 
 ### Library and Playlists
-- [Process an Add Media Intent](https://developer.apple.com/documentation/sirikitcloudmedia/process_an_add_media_intent) - Add media items to the user's library or to a playlist.
+- [Process an Add Media Intent](https://developer.apple.com/documentation/sirikitcloudmedia/addmedia.md) - Add media items to the user's library or to a playlist.
 
 ### Media Items
 - **MediaItem** - A particular piece of media that an intent references, such as a song, podcast episode, or playlist.
@@ -94,7 +94,5 @@ Common objects for processing intents.
 - **UnderlyingError** - An object that describes a system framework error.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/SiriKitCloudMedia)*

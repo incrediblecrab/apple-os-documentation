@@ -8,7 +8,7 @@ Perform multithreaded lossless compression of directories, files, and data.
 
 Apple Archive provides fast compression that includes file attributes, such as, ownership, permissions, flags, times, extended attributes, and error correction. Apple Archive offers these features:
 
-- Multithreaded processing that uses all cores, is energy efficient, and yields faster results
+- Multithreaded archive processing
 - An ability to transport files and their attributes and use Apple File System (APFS) features when they're available, for example, filesystem compression, full clones, and sparse files
 - Flexible encoding formats, so you can use archives, for example, for error correction, digests, manifests, and external data storage
 - API support for in-memory archive processing, streaming access, random access, and back-to-back archive and extraction
@@ -16,17 +16,17 @@ Apple Archive provides fast compression that includes file attributes, such as, 
 ## Topics
 
 ### Apple Archive essentials
-- [Compressing single files](https://developer.apple.com/documentation/applearchive/compressing_single_files) - Compress a single file and store the result on the file system.
-- [Decompressing single files](https://developer.apple.com/documentation/applearchive/decompressing_single_files) - Recreate a single file from a compressed file.
-- [Compressing file system directories](https://developer.apple.com/documentation/applearchive/compressing_file_system_directories) - Compress the contents of an entire directory and store the result on the file system.
-- [Decompressing and extracting an archived directory](https://developer.apple.com/documentation/applearchive/decompressing_and_extracting_an_archived_directory) - Recreate an entire file system directory from an archive file.
-- [Compressing and saving a string to the file system](https://developer.apple.com/documentation/applearchive/compressing_and_saving_a_string_to_the_file_system) - Compress the contents of a Unicode string and store the result on the file system.
-- [Decompressing and Parsing an Archived String](https://developer.apple.com/documentation/applearchive/decompressing_and_parsing_an_archived_string) - Recreate a string from an archive file.
+- [Compressing single files](https://developer.apple.com/documentation/accelerate/compressing-single-files) - Compress a single file and store the result on the file system.
+- [Decompressing single files](https://developer.apple.com/documentation/accelerate/decompressing-single-files) - Recreate a single file from a compressed file.
+- [Compressing file system directories](https://developer.apple.com/documentation/accelerate/compressing-file-system-directories) - Compress the contents of an entire directory and store the result on the file system.
+- [Decompressing and extracting an archived directory](https://developer.apple.com/documentation/accelerate/decompressing-and-extracting-an-archived-directory) - Recreate an entire file system directory from an archive file.
+- [Compressing and saving a string to the file system](https://developer.apple.com/documentation/accelerate/compressing-and-saving-a-string-to-the-file-system) - Compress the contents of a Unicode string and store the result on the file system.
+- [Decompressing and parsing an archived string](https://developer.apple.com/documentation/accelerate/decompressing-and-parsing-an-archived-string) - Recreate a string from an archive file.
 
 ### Apple Encrypted Archive essentials
-- [Encrypting and Decrypting a String](https://developer.apple.com/documentation/applearchive/encrypting_and_decrypting_a_string) - Encrypt the contents of a string and save the result to the file system, then decrypt and recreate the string from the archive file using Apple Encrypted Archive.
-- [Encrypting and Decrypting a Single File](https://developer.apple.com/documentation/applearchive/encrypting_and_decrypting_a_single_file) - Encrypt a single file and save the result to the file system, then decrypt and recreate the original file from the archive file using Apple Encrypted Archive.
-- [Encrypting and Decrypting Directories](https://developer.apple.com/documentation/applearchive/encrypting_and_decrypting_directories) - Compress and encrypt the contents of an entire directory or decompress and decrypt an archived directory using Apple Encrypted Archive.
+- [Encrypting and Decrypting a String](https://developer.apple.com/documentation/applearchive/encrypting-and-decrypting-a-string) - Encrypt the contents of a string and save the result to the file system, then decrypt and recreate the string from the archive file using Apple Encrypted Archive.
+- [Encrypting and Decrypting a Single File](https://developer.apple.com/documentation/applearchive/encrypting-and-decrypting-a-single-file) - Encrypt a single file and save the result to the file system, then decrypt and recreate the original file from the archive file using Apple Encrypted Archive.
+- [Encrypting and Decrypting Directories](https://developer.apple.com/documentation/applearchive/encrypting-and-decrypting-directories) - Compress and encrypt the contents of an entire directory or decompress and decrypt an archived directory using Apple Encrypted Archive.
 - **ArchiveEncryptionContext** - An object that encapsulates all parameters, keys, and data necessary to open an encrypted archive for both encryption and decryption streams.
 
 ### Apple Archive headers
@@ -45,13 +45,11 @@ Apple Archive provides fast compression that includes file attributes, such as, 
 - **APPLE_ARCHIVE_API_VERSION** - The version of the framework at compile time.
 
 ### Reference
-- [Apple Archive structures](https://developer.apple.com/documentation/applearchive/apple_archive_structures)
+- [Apple Archive structures](https://developer.apple.com/documentation/applearchive/apple-archive-structures)
 
 ### See Also
-- [About Apple File System](https://developer.apple.com/documentation/foundation/file_system/about_apple_file_system) - Use high-level APIs to get the most out of Apple File System.
+- [About Apple File System](https://developer.apple.com/documentation/foundation/about-apple-file-system) - Use high-level APIs to get the most out of Apple File System.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/AppleArchive)*

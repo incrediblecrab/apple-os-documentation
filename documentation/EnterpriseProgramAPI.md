@@ -4,9 +4,11 @@ Automate the tasks you perform on the Apple Developer website.
 
 ## Overview
 
-The Enterprise Program API is a REST API that enables the automation of actions you take on the Apple Developer website. Click OpenAPI specification to download the specification file.
+The Enterprise Program API automates developer-team provisioning and account administration through a REST interface. It has its own release cadence, rather than a device OS 27 minimum.
 
-Calls to the API require JSON Web Tokens (JWT) for authorization; you obtain keys to create the tokens from your organization's Enterprise Program account. See Creating API Keys for Enterprise Program API to create your keys and tokens.
+Calls require JSON Web Tokens signed using keys from your organization's Enterprise Program account. Follow [Creating API Keys](https://developer.apple.com/documentation/enterpriseprogramapi/creating-api-keys-for-enterprise-program-api) and [Generating Tokens](https://developer.apple.com/documentation/enterpriseprogramapi/generating-tokens-for-api-requests); keep the private key in your controlled server environment.
+
+An Admin creates the API key and assigns its role. An Admin key can manage users; a Developer key is restricted to provisioning tasks. The JWT uses this service's `apple-developer-enterprise-v1` audience, not an App Store or organization-device-management token.
 
 > **Important:** Changes you make using the Enterprise Program API affect the production data you use for development and distribution.
 
@@ -17,33 +19,39 @@ The API provides resources to automate the following areas of the Apple Develope
 
 The Enterprise Program API returns responses from resources that are consistent JSON data and contain links to additional related resources.
 
+## Scope and failure handling
+
+This service is distinct from [Apple School Manager and Apple Business APIs](AppleSchoolAndBusinessManagerAPI.md), which manage organization resources and device-management assignments. Do not reuse their OAuth scopes or infer Enterprise Program endpoints from similarly named resources.
+
+Follow pagination links, inspect structured `ErrorResponse` details when present, and honor rate-limit responses. Not every failure includes a response body; retain the HTTP status as well. Repair authorization failures before retrying; key revocation or profile deletion can disrupt production distribution and should not be used as a generic recovery action. Review [service release notes](https://developer.apple.com/documentation/enterpriseprogramapi/enterprise-api-release-notes) separately from OS release notes.
+
 ## Topics
 
 ### Essentials
-- [Creating API Keys for Enterprise Program API](https://developer.apple.com/documentation/enterpriseprogramapi/creating_api_keys_for_enterprise_program_api) - Create API keys to sign JSON Web Tokens (JWTs) and authorize API requests.
-- [Generating Tokens for API Requests](https://developer.apple.com/documentation/enterpriseprogramapi/generating_tokens_for_api_requests) - Create JSON Web Tokens (JWTs) signed with your private key to authorize API requests.
-- [Revoking API Keys](https://developer.apple.com/documentation/enterpriseprogramapi/revoking_api_keys) - Revoke unused, lost, or compromised private keys.
-- [Identifying Rate Limits](https://developer.apple.com/documentation/enterpriseprogramapi/identifying_rate_limits) - Recognize the rate limits that REST API responses provide and handle them in your code.
-- [Enterprise Program API Release Notes](https://developer.apple.com/documentation/enterpriseprogramapi/enterprise_program_api_release_notes) - Learn about new features and updates in the Enterprise Program API.
+- [Creating API Keys for Enterprise Program API](https://developer.apple.com/documentation/enterpriseprogramapi/creating-api-keys-for-enterprise-program-api) - Create signing keys for authorized requests.
+- [Generating Tokens for API Requests](https://developer.apple.com/documentation/enterpriseprogramapi/generating-tokens-for-api-requests) - Sign request JWTs.
+- [Revoking API Keys](https://developer.apple.com/documentation/enterpriseprogramapi/revoking-api-keys) - Revoke unused, lost, or compromised keys.
+- [Identifying Rate Limits](https://developer.apple.com/documentation/enterpriseprogramapi/identifying-rate-limits) - Recognize and handle rate limits.
+- [Enterprise Program API Release Notes](https://developer.apple.com/documentation/enterpriseprogramapi/enterprise-api-release-notes) - Service changes.
 
 ### Provisioning
-- [Bundle IDs](https://developer.apple.com/documentation/enterpriseprogramapi/bundle_ids) - Manage the bundle IDs that uniquely identify your apps.
-- [Bundle ID Capabilities](https://developer.apple.com/documentation/enterpriseprogramapi/bundle_id_capabilities) - Manage the app capabilities for a bundle ID.
+- [Bundle IDs](https://developer.apple.com/documentation/enterpriseprogramapi/bundle-ids) - Manage app identifiers.
+- [Bundle ID Capabilities](https://developer.apple.com/documentation/enterpriseprogramapi/bundle-id-capabilities) - Manage capabilities for a bundle ID.
 - [Certificates](https://developer.apple.com/documentation/enterpriseprogramapi/certificates) - Create, download, and revoke signing certificates for app development and distribution.
 - [Devices](https://developer.apple.com/documentation/enterpriseprogramapi/devices) - Register devices for development and testing.
-- [Pass Type Ids](https://developer.apple.com/documentation/enterpriseprogramapi/pass_type_ids) - Create, download, and revoke pass type ids for app development and distribution.
+- [Pass Type Ids](https://developer.apple.com/documentation/enterpriseprogramapi/passtypeids) - Manage pass type identifiers.
 - [Profiles](https://developer.apple.com/documentation/enterpriseprogramapi/profiles) - Create, delete, and download provisioning profiles for development and distribution.
 
 ### Users and Roles
 - [Users](https://developer.apple.com/documentation/enterpriseprogramapi/users) - Manage users on your Enterprise Program team.
-- [User Invitations](https://developer.apple.com/documentation/enterpriseprogramapi/user_invitations) - Email invitations to join your Enterprise Program team.
+- [User Invitations](https://developer.apple.com/documentation/enterpriseprogramapi/user-invitations) - Email team invitations.
 
 ### Error Handling
-- [Interpreting and Handling Errors](https://developer.apple.com/documentation/enterpriseprogramapi/interpreting_and_handling_errors) - Learn how the Enterprise Program API returns errors and handle them in your code.
-- **ErrorResponse** - The error details that an API returns in the response body whenever the API request isn't successful.
+- [Interpreting and Handling Errors](https://developer.apple.com/documentation/enterpriseprogramapi/interpreting-and-handling-errors) - Handle structured API errors.
+- **ErrorResponse** - Structured details for an unsuccessful API request, when an error body is provided.
 
 ### Paging
-- [Large Data Sets](https://developer.apple.com/documentation/enterpriseprogramapi/large_data_sets) - Retrieve large data sets with paging information.
+- [Large Data Sets](https://developer.apple.com/documentation/enterpriseprogramapi/large-data-sets) - Retrieve paginated results.
 
 ### Dictionaries
 - **JsonPointer** - An object that contains the JSON pointer that indicates the location of the error.
@@ -51,7 +59,5 @@ The Enterprise Program API returns responses from resources that are consistent 
 - **RelationshipLinks** - The links to the related data and the relationship's self-link.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/EnterpriseProgramAPI)*

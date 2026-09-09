@@ -13,34 +13,32 @@ You can also use WebDriver to automate testing your webpages in Safari. As the w
 ## Topics
 
 ### Essentials
-- [Enabling features for web developers](https://developer.apple.com/documentation/safari-developer-tools/enabling_features_for_web_developers) - Enable features and settings for web developers in Safari.
+- [Enabling features for web developers](https://developer.apple.com/documentation/safari-developer-tools/enabling-developer-features.md) - Enable features and settings for web developers in Safari.
 
 ### Tools
-- [Develop menu](https://developer.apple.com/documentation/safari-developer-tools/develop_menu) - Access tools for debugging webpages in Safari, as well as tools for debugging web content in other apps and on other devices.
-- [Web Inspector](https://developer.apple.com/documentation/safari-developer-tools/web_inspector) - Use Web Inspector to inspect and debug your HTML, CSS, and JavaScript.
-- [Responsive Design Mode](https://developer.apple.com/documentation/safari-developer-tools/responsive_design_mode) - Use Responsive Design Mode to test your media queries and other dynamic styles to ensure your webpages look great on any screen.
+- [Develop menu](https://developer.apple.com/documentation/safari-developer-tools/develop-menu.md) - Access tools for debugging webpages in Safari, as well as tools for debugging web content in other apps and on other devices.
+- [Web Inspector](https://developer.apple.com/documentation/safari-developer-tools/web-inspector.md) - Use Web Inspector to inspect and debug your HTML, CSS, and JavaScript.
+- [Responsive Design Mode](https://developer.apple.com/documentation/safari-developer-tools/responsive-design-mode.md) - Use Responsive Design Mode to test your media queries and other dynamic styles to ensure your webpages look great on any screen.
 - [WebDriver](https://developer.apple.com/documentation/safari-developer-tools/webdriver) - Use WebDriver to write robust, comprehensive tests and run them against any browser that has a WebDriver-compliant driver, including Safari.
 
 ### Content inspection
-- [Inspecting Safari on macOS](https://developer.apple.com/documentation/safari-developer-tools/inspecting_safari_on_macos) - Inspect webpages, Service Workers, and extensions in Safari on macOS.
-- [Inspecting iOS and iPadOS](https://developer.apple.com/documentation/safari-developer-tools/inspecting_ios_and_ipados) - Inspect webpages, Service Workers, Home Screen web apps, extensions, and content inside apps on iOS and iPadOS devices and simulators from a connected Mac.
-- [Inspecting visionOS](https://developer.apple.com/documentation/safari-developer-tools/inspecting_visionos) - Inspect webpages, service workers, extensions, and content inside apps in visionOS from a Mac on the same network.
-- [Inspecting tvOS](https://developer.apple.com/documentation/safari-developer-tools/inspecting_tvos) - Inspect JavaScript and TVML content on tvOS from a Mac on the same network.
-- [Enabling inspecting content in your apps](https://developer.apple.com/documentation/safari-developer-tools/enabling_inspecting_content_in_your_apps) - Enable the inspection of webpages and JavaScript in apps you develop when inspected from a connected Mac.
+- [Inspecting Safari on macOS](https://developer.apple.com/documentation/safari-developer-tools/inspecting-safari-macos.md) - Inspect webpages, Service Workers, and extensions in Safari on macOS.
+- [Inspecting iOS and iPadOS](https://developer.apple.com/documentation/safari-developer-tools/inspecting-ios.md) - Inspect webpages, Service Workers, Home Screen web apps, extensions, and content inside apps on iOS and iPadOS devices and simulators from a connected Mac.
+- [Inspecting visionOS](https://developer.apple.com/documentation/safari-developer-tools/inspecting-visionos.md) - Inspect webpages, service workers, extensions, and content inside apps in visionOS from a Mac on the same network.
+- [Inspecting tvOS](https://developer.apple.com/documentation/safari-developer-tools/inspecting-tvos.md) - Inspect JavaScript and TVML content on tvOS from a Mac on the same network.
+- [Enabling inspecting content in your apps](https://developer.apple.com/documentation/safari-developer-tools/enabling-inspecting-content-in-your-apps.md) - Enable the inspection of webpages and JavaScript in apps you develop when inspected from a connected Mac.
 
 ### Simulators
-- [Installing Xcode and Simulators](https://developer.apple.com/documentation/safari-developer-tools/installing_xcode_and_simulators) - Install simulators to use for web development.
-- [Adding additional simulators](https://developer.apple.com/documentation/safari-developer-tools/adding_additional_simulators) - Add simulators for different devices and iOS versions to use for web development.
+- [Installing Xcode and Simulators](https://developer.apple.com/documentation/safari-developer-tools/installing-xcode-and-simulators.md) - Install simulators to use for web development.
+- [Adding additional simulators](https://developer.apple.com/documentation/safari-developer-tools/adding-additional-simulators.md) - Add simulators for different devices and iOS versions to use for web development.
 
 ### Settings
-- [Changing Developer settings in Safari on macOS](https://developer.apple.com/documentation/safari-developer-tools/changing_developer_settings_in_safari_on_macos) - Change developer-centric settings that change the behavior of Safari.
-- [Changing Feature Flag settings in Safari on macOS](https://developer.apple.com/documentation/safari-developer-tools/changing_feature_flag_settings_in_safari_on_macos) - Test new web platform features before they ship in Safari.
+- [Changing Developer settings in Safari on macOS](https://developer.apple.com/documentation/safari-developer-tools/developer-settings.md) - Change developer-centric settings that change the behavior of Safari.
+- [Changing Feature Flag settings in Safari on macOS](https://developer.apple.com/documentation/safari-developer-tools/feature-flag-settings.md) - Test new web platform features before they ship in Safari.
 
 ### AutoFill
-- [Improving AutoFill experiences for your forms](https://developer.apple.com/documentation/safari-developer-tools/improving_autofill_experiences_for_your_forms) - Use well-structured, standardized markup to enable a more reliable AutoFill experience for forms on your website.
+- [Improving AutoFill experiences for your forms](https://developer.apple.com/documentation/safari-developer-tools/autofill.md) - Use well-structured, standardized markup to enable a more reliable AutoFill experience for forms on your website.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/safari-developer-tools)*

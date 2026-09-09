@@ -8,6 +8,18 @@ A unified logging system for the reading of historical data.
 
 The **OSLog** framework allows you to read logs. With the unified logging system, you can build custom debugging and analysis tools to be used alongside Apple tools like Instruments and Console. To learn more about how to create logs, see [Logging](https://developer.apple.com/documentation/os/logging).
 
+### Store scope and access
+
+Choose a store scope appropriate to the task. `OSLogStore.Scope.currentProcessIdentifier` limits a store to the calling process; it is not access to every app's logs. The macOS-only `OSLogStore.local()` interface requires an administrator account and the `com.apple.logging.local-store` entitlement. Handle store-creation and access errors rather than assuming that linking OSLog grants system-wide visibility.
+
+### Reading archives from the 27 generation
+
+**Reviewed September 8, 2026:** The macOS 27 release notes document an updated Unified Logging archive format. Archives generated on 27.0 releases require **macOS 26.2 or later** to read; macOS 26.1 and earlier cannot read them.
+
+This is an archive-reader compatibility requirement, not a change to every OSLog API's minimum version. Use a compatible analysis Mac when collecting 27-device logs for management-network audits or diagnosing app failures.
+
+For structured app-state context in Instruments and MetricKit, see [StateReporting](StateReporting.md). Avoid putting secrets or personal content into diagnostic metadata.
+
 ## Topics
 
 ### Read Log Entries
@@ -32,6 +44,6 @@ The **OSLog** framework allows you to read logs. With the unified logging system
 
 ---
 
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
-
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/OSLog)*
+
+*27-beta source: [macOS release notes — Apple Unified Logging System](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes.md).*

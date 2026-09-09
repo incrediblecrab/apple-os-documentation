@@ -2,7 +2,7 @@
 
 Create and run tests for your Swift packages and Xcode projects.
 
-**Platforms:** Swift 6.0+ | Xcode 16.0+
+**Tools:** Swift 6.0+ | Xcode 16.0+
 
 ## Overview
 
@@ -24,43 +24,40 @@ With **Swift Testing** you leverage powerful and expressive capabilities of the 
 - Meet Swift Testing
 - Go further with Swift Testing
 
-## What's New in OS 27
+## Xcode 27 beta testing changes
 
-> **Xcode 27, Swift 6.4:** Two testing surfaces are added alongside Swift Testing.
+The [Xcode 27 beta 6 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md) document individually identifiable parameterized-test links and improved handling of large parameterized suites. SwiftPM adds repeat-until-pass/fail execution; see [Swift packages](swift-packages.md).
 
-**App Intents Testing**
+Choose a test surface according to the behavior under test:
 
-Validates your Siri, Shortcuts, and Spotlight integration by exercising real system pathways rather than driving the UI. Because [SiriKit is deprecated](SiriKit.md) and App Intents is now the primary assistant integration point, this is the mechanism for catching integration regressions before shipping.
+- **Swift Testing:** Keep deterministic unit tests, including error, cancellation, and concurrency cases. The framework's introduction in Swift 6/Xcode 16 is unchanged.
+- **[XCTest](XCTest.md) and [XCUIAutomation](XCUIAutomation.md):** Continue to use these for UI tests, and XCTest for performance tests. Both unit-test frameworks can coexist in one target, but do not mix their assertion APIs within one test.
+- **[App Intents Testing](AppIntentsTesting.md):** Run out-of-process intent, query, Spotlight, and view-annotation tests in an XCTest UI testing bundle. This is not a replacement for all UI tests.
+- **[Evaluations](Evaluations.md):** Define datasets and metrics, attach `EvaluationTrait` with `@Test(.evaluates(...))`, and inspect `EvaluationContext.current.result`. Model-quality measurement supplements unit tests.
 
-**Evaluations**
-
-Model-backed features produce non-deterministic output, which unit tests express poorly. The [Evaluations](Evaluations.md) framework is designed for validating AI feature behavior against expectations rather than exact strings.
-
-**Toolchain note**
-
-Both require Xcode 27, which requires macOS 27 Golden Gate on Apple silicon.
+Xcode 27 reports a warning when an assertion from one test framework fails inside a test from the other framework; the test-plan **Swift Testing and XCTest Interoperability** setting controls this behavior. It does not make mixing frameworks in a test recommended. Xcode 27 beta 6 requires **Apple silicon and macOS Tahoe 26.4+**; the new App Intents Testing and Evaluations APIs have their own OS 27 availability.
 
 ## Topics
 
 ### Essentials
-- [Defining test functions](https://developer.apple.com/documentation/testing/defining_test_functions) - Define a test function to validate that code is working correctly.
-- [Organizing test functions with suite types](https://developer.apple.com/documentation/testing/organizing_test_functions_with_suite_types) - Organize tests into test suites.
-- [Migrating a test from XCTest](https://developer.apple.com/documentation/testing/migrating_a_test_from_xctest) - Migrate an existing test method or test class written using XCTest.
-- **Test** - Declare a test.
+- [Defining test functions](https://developer.apple.com/documentation/testing/definingtests.md) - Define a test function to validate that code is working correctly.
+- [Organizing test functions with suite types](https://developer.apple.com/documentation/testing/organizingtests.md) - Organize tests into test suites.
+- [Migrating a test from XCTest](https://developer.apple.com/documentation/testing/migratingfromxctest.md) - Migrate an existing test method or test class written using XCTest.
+- **@Test** - Declare a test with a macro.
 - **Test** - A type representing a test or suite.
-- **Suite** - Declare a test suite.
+- **@Suite** - Declare a test suite with a macro.
 
 ### Test Parameterization
-- [Implementing parameterized tests](https://developer.apple.com/documentation/testing/implementing_parameterized_tests) - Specify different input parameters to generate multiple test cases from a test function.
-- **Test** - Declare a test parameterized over a collection of values.
-- **Test** - Declare a test parameterized over two collections of values.
-- **Test** - Declare a test parameterized over two zipped collections of values.
+- [Implementing parameterized tests](https://developer.apple.com/documentation/testing/parameterizedtesting.md) - Specify different input parameters to generate multiple test cases from a test function.
+- **@Test** - Declare a test parameterized over a collection of values.
+- **@Test** - Declare a test parameterized over two collections of values.
+- **@Test** - Declare a test parameterized over two zipped collections of values.
 - **CustomTestArgumentEncodable** - A protocol for customizing how arguments passed to parameterized tests are encoded, which is used to match against when running specific arguments.
-- **Case** - A single test case from a parameterized Test.
+- **Test.Case** - A single test case from a parameterized test.
 
 ### Behavior Validation
-- [Expectations and confirmations](https://developer.apple.com/documentation/testing/expectations_and_confirmations) - Check for expected values, outcomes, and asynchronous events in tests.
-- [Known issues](https://developer.apple.com/documentation/testing/known_issues) - Mark issues as known when running tests.
+- [Expectations and confirmations](https://developer.apple.com/documentation/testing/expectations.md) - Check for expected values, outcomes, and asynchronous events in tests.
+- [Known issues](https://developer.apple.com/documentation/testing/known-issues.md) - Mark issues as known when running tests.
 
 ### Test Customization
 - [Traits](https://developer.apple.com/documentation/testing/traits) - Annotate test functions and suites, and customize their behavior.
@@ -69,7 +66,5 @@ Both require Xcode 27, which requires macOS 27 Golden Gate on Apple silicon.
 - [Attachments](https://developer.apple.com/documentation/testing/attachments) - Attach values to tests to help diagnose issues and gather feedback.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/Testing)*

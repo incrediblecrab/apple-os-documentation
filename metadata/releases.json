@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-09-08",
+  "releases": [
+    {
+      "product": "iOS",
+      "version": "26.6.2",
+      "status": "shipping",
+      "build": "23G90",
+      "released_on": "2026-09-08",
+      "checked_on": "2026-09-08",
+      "source": "https://developer.apple.com/news/releases/"
+    },
+    {
+      "product": "iPadOS",
+      "version": "26.6.2",
+      "status": "shipping",
+      "build": "23G90",
+      "released_on": "2026-09-08",
+      "checked_on": "2026-09-08",
+      "source": "https://developer.apple.com/news/releases/"
+    },
+    {
+      "product": "macOS Tahoe",
+      "version": "26.6.2",
+      "status": "shipping",
+      "build": "25G83",
+      "released_on": "2026-08-17",
+      "checked_on": "2026-09-08",
+      "source": "https://developer.apple.com/news/releases/"
+    },
+    {
+      "product": "tvOS",
+      "version": "26.6",
+      "status": "shipping",
+      "build": "23L773",
+      "released_on": "2026-07-27",
+      "checked_on": "2026-09-08",
+      "source": "https://developer.apple.com/news/releases/"
+    },
+    {
+      "product": "watchOS",
+      "version": "26.6",
+      "status": "shipping",
+      "build": "23U67",
+      "released_on": "2026-07-27",
+      "checked_on": "2026-09-08",
+      "source": "https://developer.apple.com/news/releases/"
+    },
+    {
+      "product": "visionOS",
+      "version": "26.6.1",
+      "status": "shipping",
+      "build": "23O780",
+      "released_on": "2026-08-17",
+      "checked_on": "2026-09-08",
+      "source": "https://developer.apple.com/news/releases/"
+    },
+    {
+      "product": "Xcode",
+      "version": "26.6",
+      "status": "shipping",
+      "build": "17F113",
+      "released_on": "2026-06-25",
+      "checked_on": "2026-09-08",
+      "source": "https://developer.apple.com/news/releases/"
+    },
+    {
+      "product": "iOS",
+      "version": "27 beta 8",
+      "status": "beta",
+      "build": "24A5430a",
+      "released_on": "2026-08-31",
+      "checked_on": "2026-09-08",
+      "source": "https://developer.apple.com/news/releases/"
+    },
+    {
+      "product": "iPadOS",
+      "version": "27 beta 8",
+      "status": "beta",
+      "build": "24A5430a",
+      "released_on": "2026-08-31",
+      "checked_on": "2026-09-08",
+      "source": "https://developer.apple.com/news/releases/"
+    },
+    {
+      "product": "macOS Golden Gate",
+      "version": "27 beta 8",
+      "status": "beta",
+      "build": "26A5425a",
+      "released_on": "2026-08-31",
+      "checked_on": "2026-09-08",
+      "source": "https://developer.apple.com/news/releases/",
+      "additional_sources": [
+        "https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes.md"
+      ],
+      "source_locator": "Developer release list for build/date; macOS 27 release-note title and Overview for Golden Gate naming."
+    },
+    {
+      "product": "tvOS",
+      "version": "27 beta 8",
+      "status": "beta",
+      "build": "24J5360a",
+      "released_on": "2026-08-31",
+      "checked_on": "2026-09-08",
+      "source": "https://developer.apple.com/news/releases/"
+    },
+    {
+      "product": "watchOS",
+      "version": "27 beta 8",
+      "status": "beta",
+      "build": "24R5360a",
+      "released_on": "2026-08-31",
+      "checked_on": "2026-09-08",
+      "source": "https://developer.apple.com/news/releases/"
+    },
+    {
+      "product": "visionOS",
+      "version": "27 beta 8",
+      "status": "beta",
+      "build": "24M5361a",
+      "released_on": "2026-08-31",
+      "checked_on": "2026-09-08",
+      "source": "https://developer.apple.com/news/releases/"
+    },
+    {
+      "product": "Xcode",
+      "version": "27 beta 6",
+      "status": "beta",
+      "build": "27A5252f",
+      "released_on": "2026-08-24",
+      "checked_on": "2026-09-08",
+      "source": "https://developer.apple.com/news/releases/",
+      "host_requirement": "macOS Tahoe 26.4 or later",
+      "host_architecture": "Apple silicon",
+      "host_architecture_locator": "Intel Deprecation / Deprecations in Xcode 27 Beta / 162138432",
+      "swift_compiler": "6.4",
+      "requirements_source": "https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md"
+    },
+    {
+      "product": "Safari (Sonoma and Sequoia security update)",
+      "version": "26.6.1",
+      "status": "shipping",
+      "build": null,
+      "released_on": "2026-08-18",
+      "checked_on": "2026-09-08",
+      "source": "https://support.apple.com/en-us/100100",
+      "scope": "Standalone security update; not a statement about every OS-bundled WebKit build."
+    },
+    {
+      "product": "Safari",
+      "version": "27 beta",
+      "status": "beta",
+      "build": "20625.1.24",
+      "released_on": "2026-07-20",
+      "checked_on": "2026-09-08",
+      "source": "https://developer.apple.com/documentation/safari-release-notes/safari-27-release-notes",
+      "scope": "Date/build from the captured Safari 27 beta release-note header; independent of OS 27 beta 8 dates and OS-bundled browser builds.",
+      "source_locator": "Release-note header and Overview",
+      "source_snapshot_url": "https://developer.apple.com/documentation/safari-release-notes/safari-27-release-notes.md"
+    }
+  ]
+}

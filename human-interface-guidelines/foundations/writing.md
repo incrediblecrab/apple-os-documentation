@@ -16,7 +16,7 @@ Whether you're building an onboarding experience, writing an alert, or describin
 
 **Match your tone to the context.** Once you've established your app's voice, vary your tone based on the situation. Consider what people are doing while they're using your app — both in the physical world and within the app itself. Are they exercising and reached a goal? Or are they trying to make a payment and received an error? Situational factors affect both what you say and how you display the text on the screen.
 
-Compare the tone of these two examples from Apple Watch. In the first, the tone is straightforward and direct, reflecting the seriousness of the situation. In the second, the tone is light and congratulatory.
+For example, a safety-related Apple Watch message calls for a direct, serious tone, while a message celebrating an achievement can be lighter and congratulatory.
 
 **Be clear.** Choose words that are easily understood and convey the right thing. Check each word to be sure it needs to be there. If you can use fewer words, do so. When in doubt, read your writing out loud.
 
@@ -59,14 +59,14 @@ No additional considerations for iOS, iPadOS, macOS, tvOS, visionOS, or watchOS.
 ### Related Components
 
 - [Apple Style Guide](https://help.apple.com/applestyleguide/)
-- [Writing inclusively](https://developer.apple.com/design/human-interface-guidelines/writing-inclusively)
+- [Inclusion — Welcoming language](https://developer.apple.com/design/human-interface-guidelines/inclusion#Welcoming-language)
 - [Inclusion](https://developer.apple.com/design/human-interface-guidelines/inclusion)
 - [Accessibility](https://developer.apple.com/design/human-interface-guidelines/accessibility)
 - [Color](https://developer.apple.com/design/human-interface-guidelines/color)
 
 ### Videos
 
-- [Make a big impact with small writing changes](https://developer.apple.com/videos/play/wwdc2023/10272)
+- [Make a big impact with small writing changes](https://developer.apple.com/videos/play/wwdc2025/404)
 - [Writing for interfaces](https://developer.apple.com/videos/play/wwdc2022/10037)
 
 ## Changelog
@@ -75,7 +75,5 @@ No additional considerations for iOS, iPadOS, macOS, tvOS, visionOS, or watchOS.
 - New page.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/writing)*

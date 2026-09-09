@@ -2,11 +2,11 @@
 
 Detect and respond to car crash events in your app.
 
-**Platforms:** iOS 16.0+ | iPadOS 16.0+ | Mac Catalyst 16.1+ | macOS 13.0+ | watchOS 10.1+
+**SDK platforms:** iOS 16.0+ | iPadOS 16.0+ | Mac Catalyst 16.1+ | macOS 13.0+ | watchOS 10.1+. Runtime support requires an availability check.
 
 ## Overview
 
-SafetyKit provides Crash Detection, a feature that sends a crash event to an authorized app if a person is in a severe vehicular crash as detected by their iPhone 14, iPhone 14 Pro, Apple Watch Series 8, Apple Watch SE (2nd generation), or Apple Watch Ultra. These devices provide a feature called Emergency SOS - Call After Severe Crash. If enabled, Emergency SOS dials a municipal emergency service such as 911 in the event of a vehicular crash. After Emergency SOS places its call, Crash Detection can assist someone by initiating a call to a contact designated by the app, such as a roadside assistance provider.
+SafetyKit delivers severe vehicular Crash Detection events to an authorized app on supported hardware. Apple's introductory examples include iPhone 14 and 14 Pro, Apple Watch Series 8, Apple Watch SE (2nd generation), and Apple Watch Ultra; this is not a current exhaustive device list. Emergency SOS can call the local emergency service, such as 911, when enabled. Third-party assistance, such as contacting a roadside assistance provider, is a separate response and does not replace that emergency workflow.
 
 SafetyKit supports three crash scenarios. In each scenario, Apple is the first party, and your app is the third party.
 
@@ -16,11 +16,19 @@ In the second scenario, first-party Emergency SOS and third-party sharing are tu
 
 In the third scenario, first-party Emergency SOS is turned on and there's no third-party sharing. When the device detects a crash, the first-party Emergency SOS runs automatically.
 
-> **Important:** Crash Detection requires the com.apple.developer.severe-vehicular-crash-event entitlement. To apply for this entitlement, see Request Access to the Vehicular Crash Event Entitlement.
+> **Important:** Crash Detection requires the Boolean [`com.apple.developer.severe-vehicular-crash-event`](https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.severe-vehicular-crash-event) entitlement. Its reference links to Apple's access-request process.
 
 To support Crash Detection, use SACrashDetectionManager to determine whether it's available and if so, ask permission to allow your app to receive crash events. Then set delegate to the object that receives the events. Only one app on the device can receive Crash Detection events.
 
 If your app receives a Crash Detection event, use SAEmergencyResponseManager to provide assistance.
+
+### Availability, denied access, and revocation
+
+Use [`SACrashDetectionManager.isAvailable`](https://developer.apple.com/documentation/safetykit/sacrashdetectionmanager/isavailable) and its current `authorizationStatus`, not the SDK platform list or the historical hardware examples above, to decide whether the feature can be offered.
+
+The severe-vehicular-crash entitlement does not grant the person's authorization. Only one app can receive these events; handle refusal and later authorization changes without continuing to claim active monitoring. Install the delegate promptly at app launch, including when the system launches the app to deliver an event.
+
+Keep request and response failures visible to the app's state management. Do not present third-party assistance as a replacement for Emergency SOS or assume an event notification guarantees that an assistance call completed.
 
 ## Topics
 
@@ -33,15 +41,15 @@ If your app receives a Crash Detection event, use SAEmergencyResponseManager to 
 ### Responding to a crash
 - **SAEmergencyResponseManager** - Provides actions in response to a Crash Detection event.
 - **SAEmergencyResponseDelegate** - The interface for receiving updates about a requested emergency response action.
-- **Response** - An enumeration that defines possible emergency responses to a Crash Detection event.
+- **SACrashDetectionEvent.Response** - An enumeration that defines possible emergency responses to a Crash Detection event.
 
 ### Handling errors
 - **SAErrorDomain** - The domain for error objects that SafetyKit produces.
-- **Code** - Codes for identifying errors in SafetyKit.
+- **SAError.Code** - Codes for identifying errors in SafetyKit.
 - **SAError** - An error reported by SafetyKit.
 
 ---
 
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
-
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/SafetyKit)*
+
+*Changed-content sources, reviewed September 8, 2026: [SACrashDetectionManager](https://developer.apple.com/documentation/safetykit/sacrashdetectionmanager.md) and [SACrashDetectionDelegate](https://developer.apple.com/documentation/safetykit/sacrashdetectiondelegate.md).*

@@ -12,11 +12,17 @@ The Model I/O framework provides a system-level understanding of 3D model assets
 
 **Importing and exporting 3D assets.** A MDLAsset object represents a collection of objects that describe elements of a 3D scene—MDLMesh, MDLLight, and MDLCamera objects. Use the MDLAsset class to load these objects from a file or to create a collection of 3D objects for export to a file.
 
-**Working with 3D model data.** Use the MDLVertexDescriptor class to inspect or rearrange a mesh's vertex and index data format. Use classes that adopt the MDLMeshBuffer and MDLMeshBufferAllocator protocols to minimize the number of times a mesh's vertex and index data is copied and translated between loading, processing, and rendering on a GPU. The MetalKit and GLKit frameworks provide such classes—see MetalKit and GLKit.
+**Working with 3D model data.** Use `MDLVertexDescriptor` to describe a mesh's vertex attributes and buffer layout; `MDLSubmesh` describes index data and how vertices form primitives. Types that adopt `MDLMeshBuffer` and `MDLMeshBufferAllocator` can reduce data copying and translation between loading, processing, and GPU rendering. MetalKit provides interoperable resources for current Metal workflows; retain GLKit integrations only where your legacy renderer needs them.
 
 **Processing and generating asset data.** Use MDLMesh methods (for example, the addNormals(withAttributeNamed:creaseThreshold:) method) to process a model, generating additional data—such as surface normals, tangent basis vectors, ambient occlusion, or light maps—for use in rendering. Use the MDLTexture class and its subclasses to generate procedural textures such as noise, normal maps, and realistic sky boxes. Use the MDLLightProbe class to generate light sources whose illumination is based on the contents of a scene. Use the MDLVoxelArray class to work with a volumetric description of a model.
 
 **Describing realistic rendering parameters.** The MDLPhysicallyPlausibleScatteringFunction class—one of many ways to describe the surface appearance for a MDLMaterial object associated with a mesh—defines the intended rendering of a surface using the same physically based shading systems seen in popular feature films and high-end game engines. The MDLPhotometricLight and MDLPhysicallyPlausibleLight classes describe realistic lighting properties for use in rendering, and the MDLCamera class also supports physically based rendering parameters.
+
+### USD and renderer selection
+
+Keep Model I/O's asset-processing role separate from scene composition and rendering. [USDKit](USDKit.md) adds system Swift USD authoring on OS 27, while Model I/O remains relevant to earlier-deployment asset pipelines.
+
+For new 3D presentation, prefer [RealityKit](RealityKit.md) over deprecated [SceneKit](SceneKit.md). Preserve original assets and validate converted materials, animation, and geometry using the [USD import support guide](https://developer.apple.com/documentation/usd/validating-usd-files). Sharing a file format does not make all renderers' imported features equivalent.
 
 ## Topics
 
@@ -140,7 +146,5 @@ Voxels provide an alternate way of working with 3D objects, which can be useful 
 - **MDLTransformOp**
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/ModelIO)*

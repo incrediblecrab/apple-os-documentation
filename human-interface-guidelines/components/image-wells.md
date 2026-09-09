@@ -13,7 +13,7 @@ After selecting an image well, people can copy and paste its image or delete it.
 ### Best Practices
 
 - **Revert to a default image when necessary** - If your image well requires an image, display the default image again if people clear the content of the image well.
-- **Make sure the standard copy and paste menu items are available** - People generally expect to choose these menu items — or use the standard keyboard shortcuts — to interact with an image well. For guidance, see Edit menu.
+- **Provide standard menu commands when the well supports copy and paste** - Make these actions available through the Edit menu and familiar keyboard shortcuts. See [Edit menu](https://developer.apple.com/design/human-interface-guidelines/the-menu-bar#Edit-menu).
 
 ### Platform Considerations
 
@@ -28,7 +28,5 @@ Not supported in iOS, iPadOS, tvOS, visionOS, or watchOS.
 - [NSImageView](https://developer.apple.com/documentation/appkit/nsimageview) - AppKit
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/image-wells)*

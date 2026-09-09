@@ -2,7 +2,7 @@
 
 Embed interactive Apple Maps on your website, annotate points of interest, and perform georelated searches.
 
-**Platforms:** MapKit JS 5.0+
+**Availability:** A versioned JavaScript library for supported web browsers, independent of the native OS SDK. Review version 6's migration requirements when upgrading a version 5 integration.
 
 ## Overview
 
@@ -12,25 +12,37 @@ MapKit JS also provides interactive views for place details, and Look Around ima
 
 MapKit JS requires authorization through a Maps token for initialization and some API calls. To create a Maps token, see Creating a Maps token.
 
+Choose a **MapKit JS** token when provisioning through the developer account. For dynamically signed tokens, the current [token guide](https://developer.apple.com/documentation/mapkitjs/creating-a-maps-token) requires the `mapkit_js` scope and an `origin`. Sharing Maps infrastructure does not make every product-scoped token interchangeable.
+
+Load the libraries your feature needs using the [current loader or core script](https://developer.apple.com/documentation/mapkitjs/loading-the-latest-version-of-mapkit-js). In particular, Look Around needs the `look-around` library; the full `mapkit.js` bundle does not contain that newer feature.
+
 ### Browser compatibility
 
-MapKit JS supports the following browser versions:
+Use the current [browser support reference](https://developer.apple.com/documentation/mapkitjs/browser-support) for the library version you deploy. Native MapKit's OS availability does not establish a JavaScript browser baseline.
 
-- Firefox 79 or later
-- Google Chrome 109 or later (desktop mode only)
-- Microsoft Edge
-- Safari 13.1 or later
+## Version 6 migration
+
+The [version 5-to-6 migration guide](https://developer.apple.com/documentation/mapkitjs/migrating-from-version-5-to-version-6), reviewed September 8, 2026, distinguishes breaking changes from retained-but-deprecated interfaces:
+
+- The custom event system is replaced by DOM `EventTarget`. The third `addEventListener` argument is now event-listener options, not a `thisObject`; explicitly bind listener context when needed.
+- Optional API properties, return values, and callback/event data use `null` rather than `undefined` for absence. Review strict equality checks and TypeScript nullability.
+- Images, including tiles and annotations, require CORS-clean data. Test your asset hosts rather than assuming previously working image URLs remain sufficient.
+- Asynchronous services return Promises. Callbacks still work but are deprecated; prefer `AbortController`/`AbortSignal` to numeric request cancellation. An aborted request rejects with `AbortError`, while `RequestError` represents network/HTTP failures.
+- `TileOverlay.urlTemplate` remains a deprecated alias of `imageForTile`; old enumeration accessors also remain with warnings. These are not immediate removals.
+
+Use a valid Maps token, handle initialization/load rejection and service failures, and stop obsolete searches when the query changes. Keep the signing key off the website; the browser receives only the intended token. [Apple Maps Server API](AppleMapsServerAPI.md) shares the Maps authorization infrastructure and service quota.
 
 ## Topics
 
 ### Essentials
-- [Displaying place information using the Maps Embed API](https://developer.apple.com/documentation/mapkitjs/displaying_place_information_using_the_maps_embed_api) - Show place information on a map using a URL.
-- [Creating a Maps token](https://developer.apple.com/documentation/mapkitjs/creating_a_maps_token) - Generate your token to access MapKit services with proper authorization.
-- [Loading the latest version of MapKit JS](https://developer.apple.com/documentation/mapkitjs/loading_the_latest_version_of_mapkit_js) - Link to the most recent autoupdating version of MapKit JS, or a version of your choice.
+- [Displaying place information using the Maps Embed API](https://developer.apple.com/documentation/mapkitjs/displaying-place-information-using-the-maps-embed-api) - Show place information on a map using a URL.
+- [Creating a Maps token](https://developer.apple.com/documentation/mapkitjs/creating-a-maps-token) - Generate your token to access MapKit services with proper authorization.
+- [Loading the latest version of MapKit JS](https://developer.apple.com/documentation/mapkitjs/loading-the-latest-version-of-mapkit-js) - Link to the most recent autoupdating version of MapKit JS, or a version of your choice.
 - **mapkit** - The JavaScript API for embedding Apple Maps on your website.
 
 ### Version notes
-- [MapKit JS Release Notes](https://developer.apple.com/documentation/mapkitjs/mapkit_js_release_notes) - Learn about updates, bug fixes, and API changes for MapKit JS.
+- [MapKit JS Release Notes](https://developer.apple.com/documentation/mapkitjs/mapkit-js-release-notes) - Learn about updates, bug fixes, and API changes for MapKit JS.
+- [Migrating from Version 5 to Version 6](https://developer.apple.com/documentation/mapkitjs/migrating-from-version-5-to-version-6) - Review breaking changes, deprecations, and modern web API conventions.
 
 ## See Also
 
@@ -39,7 +51,5 @@ MapKit JS supports the following browser versions:
 - [Apple Maps Server API](https://developer.apple.com/documentation/applemapsserverapi) - Reduce API calls and conserve device power by streamlining your app's georelated searches.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/MapKitJS)*

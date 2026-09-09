@@ -2,7 +2,7 @@
 
 Convert iWork documents to Portable Document Format (PDF) files using a web API.
 
-**Platforms:** iWork 14.0+
+**Availability:** Web service documented with an iWork 14.0 version label; this is not a requirement to install iWork or deploy an app on OS 27.
 
 ## Overview
 
@@ -31,7 +31,7 @@ To create a new identifier, perform these steps:
 
 1. Click the + button to create a new identifier.
 2. On the Register a new identifier page, click Services IDs, and then click Continue.
-3. Enter a description for the new service ID and a unique identifier. Use a reverse domain style sting, such as com.example.myAppName, and click Continue.
+3. Enter a description for the new service ID and a unique identifier. Use a reverse domain style string, such as com.example.myAppName, and click Continue.
 4. Click Register to save your new service ID; the developer portal then displays a list of available identifiers.
 5. Click on the newly created identifier.
 6. Enable iWork Document Export, click Continue, and then click Save.
@@ -48,13 +48,19 @@ To create a new key, perform these steps:
 6. Click Save to bind the service name to the key.
 7. Click Download to save the new key. This key can't be downloaded again; if it's lost or compromised, you'll need to revoke it and generate a new key. Keep copies of the key in a safe place.
 
+## Authorization and failure handling
+
+The [export operation](https://developer.apple.com/documentation/iworkdocumentexportingapi/create-an-export-job-(v2)) uses an ES256-signed JWT containing the team identity and export request details. Put the signed JWT **as-is** in the HTTP `authorization` header; do not assume this service uses the Bearer prefix of other Apple APIs. Keep the private key server-side.
+
+Encode the original filename as UTF-8 followed by URL-safe Base64, request `com.adobe.pdf`, and keep the server clock accurate. Apple caps token lifetime at four hours and instructs clients to generate a freshly dated, signed token for **each request, including retries**.
+
+Reject oversized or password-protected input before upload, respect the person's preview opt-out, and report conversion/authentication failures without claiming a preview exists.
+
 ## Topics
 
 ### Endpoints
-- [Export a PDF document from an iWork file](https://developer.apple.com/documentation/iworkdocumentexportingapi/export_a_pdf_document_from_an_iwork_file) - Create a PDF preview of an iWork document using JSON Web Token (JWT) authorization.
+- [Export a PDF document from an iWork file](https://developer.apple.com/documentation/iworkdocumentexportingapi/create-an-export-job-(v2)) - Create a PDF preview using JWT authorization.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/iWorkDocumentExportingAPI)*

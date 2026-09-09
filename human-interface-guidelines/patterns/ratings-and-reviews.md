@@ -8,9 +8,9 @@ People often view the ratings and reviews for an app or game before they downloa
 
 Delivering a great overall experience is the best way to encourage positive ratings and reviews, but it's also crucial to choose the right time to ask people for feedback. Although every app is different, some possible ways to do this involve looking at how many times or how frequently people launch your app, the number of features someone explores, or the number of tasks they complete.
 
-People can always rate your app within the App Store.
+People can also rate and review your app directly in the App Store.
 
-> **2026 App Store Review Guidelines:** Guideline **1.2.1(a)** requires apps with user-generated content to provide a way to flag content exceeding the app's age rating plus an age restriction mechanism based on verified or declared age. See [os27-intro/Program.md](../../os27-intro/Program.md).
+> **Separate creator-content policy:** [App Review Guideline 1.2.1(a)](https://developer.apple.com/app-store/review/guidelines/#creator-content) requires creator apps to let people identify content above the app's age rating and restrict underage access using verified or declared age. This provision is scoped to creator apps, not a general condition for requesting an App Store review. See also [program guidance](../../os27-intro/Program.md).
 
 ## Topics
 
@@ -22,9 +22,11 @@ People can always rate your app within the App Store.
 
 - **Avoid pestering people** - Repeated rating requests can be irritating, and may even negatively influence people's opinion of your app. Consider allowing at least a week or two between requests, prompting again after people demonstrate additional engagement with your experience.
 
-- **Prefer the system-provided prompt** - iOS, iPadOS, and macOS offer a consistent, nonintrusive way for apps and games to request ratings and reviews. When you identify places in your experience where it makes sense to ask for feedback, the system checks for previous feedback and — if there isn't any — displays an in-app prompt that asks for a rating and an optional written review. People can supply feedback or dismiss the prompt with a single tap or click; they can also opt out of receiving these prompts for all apps they have installed. The system automatically limits the display of the prompt to three occurrences per app within a 365-day period. For developer guidance, see [SKStoreReviewController](https://developer.apple.com/documentation/storekit/skstorereviewcontroller).
+- **Prefer the system-provided prompt** - In SwiftUI, use StoreKit's [RequestReviewAction](https://developer.apple.com/documentation/storekit/requestreviewaction) where available. StoreKit decides whether a request actually displays, and people can opt out of these prompts. If a person hasn't rated or reviewed the app on that device, the limit is three presentations within 365 days. If they have, StoreKit requires a new app version and more than 365 days since their previous review.
 
-- **Weigh the benefits of resetting your summary rating against the potential disadvantage of showing fewer ratings** - When you release a new version of your app or game, you can reset the summary of individual ratings you received since the last reset. Although resetting means that the ratings reflect the current version, it also tends to result in having fewer ratings overall, which can discourage some people from downloading your app. For developer guidance, see [Reset app summary rating](https://developer.apple.com/help/app-store-connect/manage-your-apps-availability/reset-app-summary-rating).
+- **Don't make a button depend on the prompt appearing** - A request isn't guaranteed to show an alert. For an explicit “Write a review” action, use a persistent App Store product-page link with `action=write-review`. Development builds display the test prompt, but this review-request API has no effect in TestFlight builds.
+
+- **Consider a rating reset carefully** - A new version can start a fresh aggregate rating, but fewer ratings may discourage downloads. Resetting doesn't remove written reviews. App Store Connect applies the reset to the selected platform version across all countries and regions when that version releases; the previous rating can't then be restored. See [Reset an app overview rating](https://developer.apple.com/help/app-store-connect/monitor-ratings-and-reviews/reset-an-app-overview-rating).
 
 ### Platform Considerations
 
@@ -32,19 +34,20 @@ No additional considerations for iOS, iPadOS, macOS, tvOS, visionOS, or watchOS.
 
 ### Related Resources
 
-- [Ratings, reviews, and responses](https://developer.apple.com/help/app-store-connect/manage-ratings-and-reviews/ratings-reviews-and-responses)
+- [Ratings, reviews, and responses](https://developer.apple.com/app-store/ratings-and-reviews/)
 
 ### Developer Documentation
 
-- [SKStoreReviewController](https://developer.apple.com/documentation/storekit/skstorereviewcontroller) - StoreKit
+- [RequestReviewAction](https://developer.apple.com/documentation/storekit/requestreviewaction) - StoreKit's SwiftUI review action
+- [SKStoreReviewController](https://developer.apple.com/documentation/storekit/skstorereviewcontroller) - Legacy controller; deprecated in iOS/iPadOS/Mac Catalyst 18, macOS 15, and visionOS 2
 
 ## Changelog
+
+These dates describe changes to Apple's HIG article, not edits to this repository.
 
 ### September 12, 2023
 - Added artwork
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/ratings-and-reviews)*

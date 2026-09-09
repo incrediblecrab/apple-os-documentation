@@ -6,11 +6,11 @@ Provide apps with access to an advertising identifier.
 
 ## Overview
 
-Use the AdSupport framework to obtain an advertising identifier. The advertisingIdentifier is an alphanumeric string that's unique to each device, and which you only use for advertising. On devices running iOS 14.5 and later and iPadOS 14.5 and later, your app must support App Tracking Transparency and define the purpose string NSUserTrackingUsageDescription before it can get the advertisingIdentifier property.
+Use AdSupport to obtain an advertising UUID, subject to system settings and authorization. On iOS/iPadOS 14.5 and later, request App Tracking Transparency authorization and provide `NSUserTrackingUsageDescription` before accessing a nonzero identifier.
 
 ### Get an Advertising Identifier
 
-Before requesting the advertising identifier for the first time, your app must make a one-time call to requestTrackingAuthorization(completionHandler:). That method presents the app-tracking authorization request to the user. The user chooses whether to allow tracking, but can change your app's authorization at any time in Settings > Privacy > Tracking. You can determine the user's intent by checking your app's authorization status with trackingAuthorizationStatus.
+Use [`requestTrackingAuthorization(completionHandler:)`](https://developer.apple.com/documentation/apptrackingtransparency/attrackingmanager/requesttrackingauthorization(completionhandler:)) when authorization is not determined. iOS prompts only while the app is active, with no other permission prompt pending; extension calls do not prompt. A call therefore does not guarantee that an alert appeared. The system remembers the person's decision, and they can change it in Settings. Inspect `trackingAuthorizationStatus` rather than repeatedly requesting a decided permission.
 
 To get the advertising identifier, follow these steps:
 
@@ -18,7 +18,7 @@ To get the advertising identifier, follow these steps:
 
 2. Use the advertisingIdentifier property to obtain the UUID.
 
-The code below shows how to retrieve the advertising identifier.
+The code below reads the current identifier only; it does not request permission.
 
 ```swift
 import AdSupport
@@ -27,17 +27,15 @@ let sharedASIdentifierManager = ASIdentifierManager.shared()
 var adID = sharedASIdentifierManager.advertisingIdentifier
 ```
 
-The advertising identifier returns either a unique UUID, or all zeros. For more information on the returned value, see advertisingIdentifier.
+The [`advertisingIdentifier`](https://developer.apple.com/documentation/adsupport/asidentifiermanager/advertisingidentifier) reference specifies **all zeros on macOS and in Simulator**, and for compatible iPhone/iPad apps running in visionOS. It also returns zeros when the required tracking authorization is absent, denied, or restricted. Framework availability is not a promise of a usable advertising identifier. The property itself is available from Mac Catalyst 13.1.
 
-For more information about asking users for permission to track, see User Privacy and Data Use.
+Do not store the identifier as a permanent identity: obtain the current value and authorization status when needed. See [User Privacy and Data Use](https://developer.apple.com/app-store/user-privacy-and-data-use/).
 
 ## Topics
 
 ### Essentials
-- **ASIdentifierManager** - The object that contains the advertising identifier.
+- [`ASIdentifierManager`](https://developer.apple.com/documentation/adsupport/asidentifiermanager) - The object that provides the advertising identifier.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/AdSupport)*

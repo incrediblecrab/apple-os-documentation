@@ -11,7 +11,7 @@ VideoSubscriberAccount provides APIs to help you create apps that require secure
 ## Topics
 
 ### Essentials
-- [Video Subscriber Account updates](https://developer.apple.com/documentation/videosubscriberaccount/video_subscriber_account_updates) - Learn about important changes in Video Subscriber Account.
+- [Video Subscriber Account updates](https://developer.apple.com/documentation/updates/videosubscriberaccount) - Learn about important changes in Video Subscriber Account.
 
 ### TV provider authentication
 - **VSAccountManager** - The object that coordinates your app's authentication requests with a TV provider's authentication service.
@@ -22,7 +22,7 @@ VideoSubscriberAccount provides APIs to help you create apps that require secure
 - **VSAccountApplicationProvider** - An object to display app-specific providers in your app.
 
 ### User account management
-- [Signing people in to their media accounts automatically](https://developer.apple.com/documentation/videosubscriberaccount/signing_people_in_to_their_media_accounts_automatically) - Implement single sign-on for media-streaming apps by managing a sign-in token on a person's Apple Account.
+- [Signing people in to their media accounts automatically](https://developer.apple.com/documentation/videosubscriberaccount/signing-people-in-to-media-apps-automatically) - Implement single sign-on for media-streaming apps by managing a sign-in token on a person's Apple Account.
 - **VSUserAccountManager** - The object that coordinates your app's user account actions.
 - **VSUserAccount** - An object that represents a user's account.
 
@@ -39,7 +39,5 @@ VideoSubscriberAccount provides APIs to help you create apps that require secure
 - **VSSubscription** - An object that describes a subscriber's access to content. (Deprecated)
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/VideoSubscriberAccount)*

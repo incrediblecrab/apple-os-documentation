@@ -1,15 +1,14 @@
 # CareKit
+
 People can use CareKit apps to manage care plans related to a chronic illness like diabetes, recover from an injury or surgery, or achieve health and wellness goals.
 
 **Platforms:** iOS | iPadOS
 
 ## Overview
 
-To learn more about CareKit, see [Research & Care > CareKit](https://developer.apple.com/health-fitness/).
+To learn more about CareKit, see [Research & Care > CareKit](https://www.researchandcare.org/carekit/).
 
-CareKit 2.0 contains two projects, CareKit UI and CareKit Store. CareKit UI provides a wide variety of prebuilt views you can use to create a custom CareKit app. CareKit Store defines a database scheme that incorporates CareKit entities — such as patients, care plans, tasks, and contacts — so you can store and manage data on the patient's device. CareKit 2.0 provides seamless synchronization between your database and the UI, so you can always keep a care plan up to date. For developer guidance, see [CareKit](https://developer.apple.com/documentation/carekit).
-
-> **iOS 27+, watchOS 27+:** Cycle Tracking adds **perimenopause** notifications and symptom logging, and the Health app's Browse tab is redesigned around colorful cards. Care plans surfacing Health data should account for the new categories and layout.
+Apple's HIG uses CareKit 2.0 as the context for the component examples below. CareKitUI supplies reusable views, and CareKitStore supplies persistence for entities such as patients, care plans, tasks, and contacts. The CareKit integration layer coordinates store changes with configured view controllers. You can use the UI or store separately; choosing a view doesn't automatically implement data synchronization or keep a remote clinical record current. See the [CareKit project documentation](https://carekit-apple.github.io/CareKit/documentation/carekit).
 
 ## Topics
 
@@ -17,25 +16,25 @@ CareKit 2.0 contains two projects, CareKit UI and CareKit Store. CareKit UI prov
 
 Nothing is more important than protecting people's privacy and safeguarding the extremely sensitive data your CareKit app collects and stores.
 
-- **Provide a coherent privacy policy** - During the app submission process, you must provide a URL to a clearly stated privacy policy, so that people can view the policy when they click the link in the App Store page for your app. For developer guidance, see [App information > App Store Connect help](https://help.apple.com/app-store-connect/).
+- **Provide a coherent privacy policy** - [App Review Guidelines 5.1.1](https://developer.apple.com/app-store/review/guidelines/) requires a privacy-policy link in App Store Connect metadata and easy access within the app. Explain collection, uses, sharing, retention, deletion, and consent withdrawal rather than relying on the framework's presence as a privacy guarantee.
 
-- **Protect data from all sources** - In addition to the data that people enter into your CareKit app, you may be able to access data through iOS features and capabilities. You must receive people's permission before accessing data through these features, and you must protect people's data whether people enter it into your app or you get it from the device or the system. For developer guidance, see [Protecting user privacy](https://developer.apple.com/documentation/healthkit/protecting_user_privacy).
+- **Protect data regardless of its source** - Apply appropriate privacy safeguards to both information people enter and information obtained through system capabilities. Obtain the required permission before access; see [Protecting user privacy](https://developer.apple.com/documentation/healthkit/protecting-user-privacy).
 
 ### HealthKit Integration
 
-HealthKit is the central repository for health and fitness data in iOS and watchOS. When you support HealthKit in your CareKit app, you can ask people for permission to access and share their health and fitness data with designated caregivers.
+HealthKit provides a protected health-data store on supported devices, including iPad with iPadOS 17 or later. Check availability and request only the data types the task needs. HealthKit authorization permits reading from or writing to that store; the API's `toShare` parameter means saving data to HealthKit, not permission to disclose it to caregivers. Explain and obtain the appropriate consent for your app's separate care-team sharing flow.
 
-- **Request access to health data only when you need it** - It makes sense to request access to weight information when people log their weight, for example, but not immediately after your app launches. When your request is clearly related to the current context, you help people understand your app's intentions. Also, people can change the permissions they grant, so it's a good idea to make a request every time your app needs access. For developer guidance, see [requestAuthorization(toShare:read:completion:)](https://developer.apple.com/documentation/healthkit/hkhealthstore/1614152-requestauthorization).
+- **Request health access in context** - Ask when a task needs the information, not merely because the app launched. Account for permission changes and follow the authorization API's behavior; see [requestAuthorization(toShare:read:completion:)](https://developer.apple.com/documentation/healthkit/hkhealthstore/requestauthorization(toshare:read:completion:)).
 
 - **Clarify your app's intent by adding descriptive messages** - People expect to see the system-provided permission screen when asked to approve access to health data. Write a few succinct sentences that explain why you need the information and how people can benefit from sharing it with your app. Avoid adding custom screens that replicate the standard permission screen's behavior or content.
 
-- **Manage health data sharing solely through the system's privacy settings** - People expect to globally manage access to their health information in Settings > Privacy. Don't confuse people by building additional screens in your app that affect the flow of health data.
+- **Distinguish system authorization from app-controlled sharing** - Don't imitate HealthKit's permission screen or present app toggles as if they change system authorization. Help people find the system's health-access controls, while providing understandable controls for your app's own sharing and consent choices.
 
 For related design guidance, see [HealthKit](https://developer.apple.com/design/human-interface-guidelines/healthkit). For developer guidance, see [HealthKit](https://developer.apple.com/documentation/healthkit).
 
 ### Motion Data
 
-If it's useful for treatment and if people give permission, your app can get motion information from the device to determine if people are standing still, walking, running, cycling, or driving. When people are walking or running, you can also determine the step count, pace, and number of flights of stairs ascended or descended.
+When relevant and authorized, Core Motion can report activity classifications and supported pedometer measurements. Activity flags aren't mutually exclusive: stationary and automotive can both be true at a stoplight. Check availability separately for measurements such as steps, pace, and floors; don't present unavailable or estimated device data as a certain clinical measurement.
 
 Motion information can also include custom data collected as part of physical therapy. For example, some ResearchKit tasks use device sensors to test flexibility, range of motion, and ambulatory capability.
 
@@ -43,19 +42,19 @@ For developer guidance, see [Core Motion](https://developer.apple.com/documentat
 
 ### Photos
 
-Pictures are a great way to communicate treatment progress. With people's permission, your app can access the device's camera and photos to share pictures with a care team. For example, a care plan might include a request for people to share periodic photos of an injury, so the physician can monitor the healing process.
+Pictures can help communicate treatment progress when a care plan calls for them. Let people choose the photos to share, explain the destination, and obtain the appropriate consent; taking or selecting a photo isn't permission to upload it to a care team.
 
-For developer guidance, see [UIImagePickerController](https://developer.apple.com/documentation/uikit/uiimagepickercontroller).
+Use [PhotosPicker](https://developer.apple.com/documentation/photosui/photospicker) or [PHPickerViewController](https://developer.apple.com/documentation/photosui/phpickerviewcontroller) for supported photo-selection workflows. For camera capture, see [UIImagePickerController](https://developer.apple.com/documentation/uikit/uiimagepickercontroller) and request the necessary camera permission.
 
 ### ResearchKit Integration
 
-A ResearchKit app lets people participate in important medical research studies. Your CareKit app can incorporate ResearchKit features to display related surveys, tasks, and charts, if appropriate. ResearchKit also includes an informed consent module, which your CareKit app can use to request people's permission to collect and share data.
+A ResearchKit app lets people participate in medical research studies. Your CareKit app can incorporate relevant surveys, tasks, charts, and consent screens. Those screens help present and record consent; they don't automatically satisfy legal, ethics-review, HealthKit authorization, or caregiver-sharing requirements.
 
-For related design guidance, see [ResearchKit](https://developer.apple.com/design/human-interface-guidelines/researchkit). For developer guidance, see [Research & Care > Developers](https://developer.apple.com/health-fitness/).
+For related design guidance, see [ResearchKit](https://developer.apple.com/design/human-interface-guidelines/researchkit). For developer guidance, see [Research & Care > Developers](https://www.researchandcare.org/developers/).
 
 ### CareKit Views
 
-CareKit UI provides customizable views organized into three categories — tasks, charts, and contacts — and defines several default view styles in each. To design a CareKit app, you simply choose the view styles you need and supply CareKit Store data to display in them.
+The HIG highlights three groups of CareKitUI views — tasks, charts, and contacts — rather than an exhaustive inventory of the evolving package. Choose appropriate views and configure their data or controller bindings.
 
 Each view category is designed to support specific types of content and interaction. To ensure a consistent experience, use each view type for its intended purpose.
 
@@ -65,23 +64,23 @@ Each view category is designed to support specific types of content and interact
 | Charts | Display graphical data that can help people understand how their treatment is progressing. |
 | Contact views | Display contact information. Support communication through phone, message, and email, and link to a map of the contact's location. |
 
-A CareKit UI view consists of a header and may include a stack of content subviews. Located at the top of the view, the header can display text, a symbol, and a disclosure indicator, and can include a separator at its bottom edge. The content stack appears below the header and displays your content subviews in a vertical arrangement.
+The HIG's card examples use a header and, where appropriate, a vertical stack of content subviews. The header can contain text, a symbol, a disclosure indicator, and a separator; the content appears below it. This isn't a structural requirement for every helper view in CareKitUI.
 
-CareKit UI takes care of all the layout constraints within a view, so you don't have to worry about breaking existing constraints when you add new subviews to the stack.
+Use the provided stack and customization interfaces for internal layout. Custom subviews and additional constraints still need testing; the framework doesn't make conflicting constraints impossible.
 
 #### Tasks
 A care plan generally presents a set of prescribed actions for people to perform, such as taking medication, eating specific foods, exercising, or reporting symptoms. CareKit UI defines several styles of task views you can use to display prescribed actions. Typically, you customize a task view by providing the information to display, often by specifying data stored in an on-device CareKit Store database. In some cases, you might also supply custom UI elements.
 
-A task can contain the following types of information.
+A task can contain the following information. The expectations below describe the HIG's presentation guidance, not Swift property nullability. Example values illustrate UI content, not a prescribed treatment or medication dose.
 
-| Information | Required | Description | Example value |
+| Information | HIG design expectation | Description | Example value |
 |-------------|----------|-------------|---------------|
-| Title | Yes | A word or short phrase that introduces the task. | Ibuprofen |
-| Schedule | Yes | The schedule on which a task must be completed. | Four times a day |
-| Instructions | No | Detailed instructions, recommendations, and warnings. | Take 1 tablet every 4–6 hours (not to exceed 4 tablets daily). |
+| Title | Provide | A word or short phrase that introduces the task. | Daily check-in |
+| Schedule | Provide | When the task is intended to be completed. | Once daily |
+| Instructions | As needed | Explanations, recommendations, or warnings supplied for the task. | Record notes for your care team. |
 | Group ID | No | An identifier you can use to group similar tasks in ways that make sense in your app. | A category identifier like medication or exercise. |
 
-In CareKit 2.0, CareKit UI defines five styles of task views: simple, instructions, log, checklist, and grid. Each style is designed to support a particular use case.
+The HIG's CareKit 2.0 examples cover five task styles: simple, instructions, log, checklist, and grid. Each supports a particular use case; consult the chosen package version for its complete view inventory.
 
 - **Use the simple style for a one-step task** - The default simple-style view consists of a header area that contains a title, subtitle, and button. You provide the title and subtitle, and you can provide a custom image to display in the button when the task is complete. If you don't supply an image, CareKit shows that a task is complete by filling in the button and displaying a checkmark. Because the default simple-style view doesn't include a content stack, consider using a different task style if you need to display additional content.
 
@@ -95,17 +94,17 @@ In CareKit 2.0, CareKit UI defines five styles of task views: simple, instructio
 
 - **Consider using color to reinforce the meaning of task items** - Color can be a good way to help people understand information at a glance. For example, you could use one color for medications and a different color for physical activities. Always avoid using color as the only way to convey information. For guidance, see [Color](https://developer.apple.com/design/human-interface-guidelines/color).
 
-- **Combine accuracy with simplicity when describing a task and its steps** - For example, use a medication's marketing name instead of its chemical description. Also, when the context of a task helps to clarify meaning, minimize the number of words you use. For example, a daily medication task generally tells people when to take specific medications, so it may be unnecessary to repeat words like take.
+- **Combine accuracy with simplicity when describing a task and its steps** - Use the recognizable medication or task name supplied by the care plan instead of an unfamiliar chemical description. Don't substitute a brand or omit clinically necessary dose, unit, or timing information merely to shorten a label. Remove repetition only when the meaning remains unambiguous.
 
 - **Consider supplementing multistep or complex tasks with videos or images** - Visually demonstrating how to perform a task can help people avoid mistakes.
 
 #### Charts
 
-Chart views let you present data and trends in graphical ways that can help people visualize their progress in a care plan. CareKit chart views can display both current and historical data, and update automatically with new data.
+Chart views can present current and historical care-plan data. Configured CareKit chart controllers can synchronize the displayed data with a store; a standalone chart view doesn't automatically obtain new health measurements.
 
 In CareKit 2.0, CareKit UI provides three chart styles: bar, scatter, and line. For each style, you provide a descriptive title and subtitle, supply axis markers — like days of the week — and specify the data set.
 
-- **Consider highlighting narratives and trends to illustrate progress** - For example, your app could display a bar chart that shows a correlation between the number of times people took medication and their level of pain. Displaying such data can encourage better adherence to a care plan.
+- **Highlight meaningful patterns without overstating them** - For example, a chart can compare recorded medication adherence and reported symptoms. An observed association alone doesn't establish that one caused the other or that a treatment is effective.
 
 - **Label chart elements clearly and succinctly** - Long, detailed labels can make a chart difficult to read and understand. Keep labels short and avoid repeating the same information. For example, a heart rate chart might use the term BPM in an axis label instead of using it in the label of every data point.
 
@@ -117,9 +116,9 @@ In CareKit 2.0, CareKit UI provides three chart styles: bar, scatter, and line. 
 
 - **Consolidate large data sets for greater readability** - A large amount of data can make a chart unreadable by reducing the size of individual data points and presenting too much visible information. Look for ways to group and organize data for clarity and simplicity.
 
-- **If necessary, offset data to keep charts proportional** - It's easy for very small data points to get lost or become unreadable in a chart that also contains very large data points. If the difference between data points is significant, find ways to offset or restructure the data so all data points are readable.
+- **Choose a readable, honest chart structure** - If large and small values are difficult to compare, use a suitable scale or separate views and explain any transformation. Don't silently alter values or use misleading axes to exaggerate progress. See [Charting data](https://developer.apple.com/design/human-interface-guidelines/charting-data).
 
-For developer guidance, see [CareKit > Chart Interfaces](https://developer.apple.com/documentation/carekit). To learn about ResearchKit charts, see the [ResearchKit GitHub project](https://github.com/ResearchKit/ResearchKit).
+For developer guidance, see [CareKit > Chart Interfaces](https://carekit-apple.github.io/CareKit/documentation/carekit/chart-interfaces). To learn about ResearchKit charts, see the [ResearchKit GitHub project](https://github.com/ResearchKit/ResearchKit).
 
 #### Contact Views
 
@@ -158,8 +157,7 @@ Using SF Symbols in your app gives you:
 
 ### Platform Considerations
 
-**iOS**  
-No additional considerations for iOS or iPadOS. Not supported in macOS, tvOS, visionOS, or watchOS.
+The HIG's care-interface guidance is scoped to iOS and iPadOS; it isn't a complete declaration of library support. The [package manifest at the January 24, 2026 commit](https://github.com/carekit-apple/CareKit/blob/308f7051df6eb861dfab15248a5504e47bae4921/Package.swift) declares iOS 18, macOS 15, and watchOS 11 minimums and includes CareKit, CareKitUI, CareKitStore, and CareKitFHIR products. This is a dated branch snapshot, not a claim about every release or every component's availability. Check the release and modules you adopt rather than applying the HIG's older platform exclusions to the entire project.
 
 ### Related Components
 
@@ -168,23 +166,25 @@ No additional considerations for iOS or iPadOS. Not supported in macOS, tvOS, vi
 
 ### Developer Documentation
 
-- [CareKit](https://developer.apple.com/documentation/carekit) - CareKit Framework
-- [Research & Care > Developers](https://developer.apple.com/health-fitness/) - Development resources
-- [Protecting user privacy — HealthKit](https://developer.apple.com/documentation/healthkit/protecting_user_privacy) - Privacy guidelines
+- [CareKit](https://carekit-apple.github.io/CareKit/documentation/carekit) - Project API and integration documentation
+- [Research & Care > Developers](https://www.researchandcare.org/developers/) - Development resources
+- [Protecting user privacy — HealthKit](https://developer.apple.com/documentation/healthkit/protecting-user-privacy) - Privacy guidelines
+- [CMPedometer](https://developer.apple.com/documentation/coremotion/cmpedometer) - Measurement-specific capability checks
+- [CMMotionActivity](https://developer.apple.com/documentation/coremotion/cmmotionactivity) - Activity classification and overlapping flags
 - [ResearchKit GitHub project](https://github.com/ResearchKit/ResearchKit) - Open source project
 
 ### Videos
 
 - [What's new in CareKit](https://developer.apple.com/videos/play/wwdc2020/10151/) - WWDC 2020
-- [Build a research and care app, part 1: Setup onboarding](https://developer.apple.com/videos/play/wwdc2019/208/) - WWDC 2019
+- [Build a research and care app, part 1: Setup onboarding](https://developer.apple.com/videos/play/wwdc2021/10068) - WWDC 2021
 
 ## Changelog
+
+These dates describe Apple's HIG article history.
 
 ### May 2, 2023
 - Consolidated guidance into one page.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/carekit)*

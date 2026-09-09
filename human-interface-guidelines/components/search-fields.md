@@ -14,9 +14,7 @@ For developer guidance, see Adding a search interface to your app; for guidance 
 
 ### Best Practices
 
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Liquid Glass now diffuses busy background content more aggressively, adds a subtle darkened edge ring, and renders brighter specular highlights, improving legibility without extra visual noise. People can tune overall translucency with the transparency slider in Settings > Appearance, and the material also responds to Reduce Transparency and Increase Contrast.
-
-- **Display placeholder text that describes the type of information people can search for** - For example, the Apple TV app includes the placeholder text Shows, Movies, and More. Avoid using a term like Search for placeholder text because it doesn't provide any helpful information.
+- **Use placeholder text to clarify searchable content** - Describe the scope when people need help understanding what the search can find; do not treat a particular app's placeholder as a universal template.
 - **If possible, start search immediately when a person types** - Searching while someone types makes the search experience feel more responsive because it provides results that are continuously refined as the text becomes more specific.
 - **Consider showing suggested search terms before search begins, or as a person types** - This can help someone search faster by suggesting common searches, even when the search itself doesn't begin immediately.
 - **Simplify search results** - Provide the most relevant search results first to minimize the need for someone to scroll to find what they're looking for. In addition to prioritizing the most likely results, consider categorizing them to help people find what they want.
@@ -24,9 +22,11 @@ For developer guidance, see Adding a search interface to your app; for guidance 
 
 ### Scope Controls and Tokens
 
+Apple's current HIG calls the scope control a **scope bar**. It filters or adjusts a search's scope; its presentation need not be a segmented control.
+
 Scope controls and tokens are components you can use to let someone narrow the parameters of a search either before or after they make it.
 
-- **A scope control** - Acts like a segmented control for choosing a category for the search.
+- **A scope bar** - Lets people filter or adjust the scope of a search.
 - **A token** - Is a visual representation of a search term that someone can select and edit, and acts as a filter for any additional terms in the search.
 
 **Best Practices:**
@@ -49,10 +49,9 @@ There are three main places you can position the entry point for search:
 Where search makes the most sense depends on the layout, content, and navigation of your app.
 
 **Search in a tab bar:**
-- You can place search as a visually distinct tab on the trailing side of a tab bar, which keeps search visible and always available as people switch between the sections of your app.
-- When someone navigates to the search tab, the search field that appears can start as focused or unfocused.
-- **Start with the search field focused** to help people quickly find what they need. When the search field starts focused, the keyboard immediately appears with the search field above it, ready to begin the search. This provides a more transient experience that brings people directly back to their previous tab after they exit search, and is ideal when you want search to resolve quickly and seamlessly.
-- **Start with the search field unfocused** to promote discovery and exploration. When the search field starts unfocused, the search tab expands into an unselected field at the bottom of the screen. This provides space on the rest of the screen for additional discovery or navigation before someone taps the field to begin the search. This is great for an app with a large collection of content to showcase, like Music or TV.
+- Keep search available as people switch sections by giving it a tab.
+- **Choose the button appearance for a quick search.** Activating it immediately presents the keyboard and search field. Exiting this transient search returns people to their previous tab.
+- **Choose a standard search tab for discovery.** A dedicated landing page can present suggestions, categories, or other content before people start typing. This suits a collection that benefits from browsing, such as the genres and categories in Apple TV.
 
 **Search in a toolbar:**
 - As an alternative to search in a tab bar, you can also place search in a toolbar either at the bottom or top of the screen.
@@ -65,10 +64,10 @@ Where search makes the most sense depends on the layout, content, and navigation
 - In some cases you might want your app to include a search field inline with content.
 - **Place search as an inline field when its position alongside the content it searches strengthens that relationship** - When you need to filter or search within a single view, it can be helpful to have search appear directly next to content to illustrate that the search applies to it, rather than globally. For example, although the main search in the Music app is in the tab bar, people can navigate to their library and use an inline search field to filter their songs and albums.
 - **Prefer placing search at the bottom** - Generally, even for search that applies to a subset of your app's content, it's better to locate search where people can reach it easily. The Settings app, for example, places search at the bottom both for its top-level search and for search in the section for individual apps. If there isn't space at the bottom (because it's occupied by a tab bar or other important UI, for example), it's okay to place search inline at the top.
-- **When at the top, position an inline search field above the list it searches, and pin it to the top toolbar when scrolling** - This helps keep it distinct from search that appears in other locations.
+- **When at the top, position an inline search field above the list it searches, and consider pinning it to the top toolbar when scrolling** - This helps keep it distinct from search that appears in other locations.
 
 **iPadOS, macOS**  
-The placement and behavior of the search field in iPadOS and macOS is similar; on both platforms, clearing the field exits search and dismisses the keyboard if present. If your app is available on both iPad and Mac, try to keep the search experience as consistent as possible across both platforms.
+The placement and behavior of the search field in iPadOS and macOS is similar. If your app is available on both iPad and Mac, try to keep the search experience as consistent as possible across both platforms. Do not assume that clearing the query necessarily dismisses the keyboard or exits the search interface.
 
 - **Put a search field at the trailing side of the toolbar for many common uses** - Many apps benefit from the familiar pattern of search in the toolbar, particularly apps with split views or apps that navigate between multiple sources, like Mail, Notes, and Voice Memos. The persistent availability of search at the side of the toolbar gives it a global presence within your app, so it's generally appropriate to start with a global scope for the initial search.
 - **Include search at the top of the sidebar when filtering content or navigation there** - Apps such as Settings take advantage of search to quickly filter the sidebar and expose sections that may be multiple levels deep, providing a simple way for people to search, preview, and navigate to the section or setting they're looking for.
@@ -92,7 +91,7 @@ When someone taps the search field, the system displays a text-input control tha
 ### Developer Documentation
 
 - [Adding a search interface to your app](https://developer.apple.com/documentation/swiftui/adding-a-search-interface-to-your-app) - SwiftUI
-- [searchable(text:placement:)](https://developer.apple.com/documentation/swiftui/view/searchable(text:placement:)) - SwiftUI
+- [searchable(text:placement:prompt:)](https://developer.apple.com/documentation/swiftui/view/searchable(text:placement:prompt:)) - SwiftUI
 - [UISearchBar](https://developer.apple.com/documentation/uikit/uisearchbar) - UIKit
 - [UISearchTextField](https://developer.apple.com/documentation/uikit/uisearchtextfield) - UIKit
 - [NSSearchField](https://developer.apple.com/documentation/appkit/nssearchfield) - AppKit
@@ -109,7 +108,5 @@ When someone taps the search field, the system displays a text-input control tha
 - Added guidance for using search fields in watchOS.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/search-fields)*

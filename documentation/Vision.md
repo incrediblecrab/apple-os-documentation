@@ -2,34 +2,46 @@
 
 Apply computer vision algorithms to perform a variety of tasks on input images and videos.
 
-**Platforms:** iOS 11.0+ | iPadOS 11.0+ | Mac Catalyst 13.0+ | macOS 10.13+ | tvOS 11.0+ | visionOS 1.0+
+**Platforms:** iOS 11.0+ | iPadOS 11.0+ | Mac Catalyst 13.1+ | macOS 10.13+ | tvOS 11.0+ | visionOS 1.0+ | watchOS 27.0+ (selected APIs)
+
+The older minimums above describe the [`VNRequest`](https://developer.apple.com/documentation/vision/vnrequest.md) family. Swift-only requests and OS 27 model tools have later, per-symbol requirements; the framework baseline does not make every API available on every listed platform.
 
 ## Overview
 
 The Vision framework combines machine learning technologies and Swift's concurrency features to perform computer vision tasks in your app. Use the Vision framework to analyze images for a variety of purposes:
 
 - Tracking human and animal body poses or the trajectory of an object
-- Recognizing text in 18 different languages
+- Recognizing text in multiple languages; Apple's current overview lists 26 languages, and [`supportedRecognitionLanguages`](https://developer.apple.com/documentation/vision/recognizetextrequest/supportedrecognitionlanguages.md) reports those supported by a particular text request
 - Detecting faces and face landmarks, such as eyes, nose, and mouth
 - Performing hand tracking to enable new device interactions
-- Calculating an aesthetics score to determine how memorable a photo is
+- Calculating aesthetic quality scores to help rank images or select video thumbnails
 
-To begin using the framework, you create a request for the type of analysis you want to do. Each request conforms to the VisionRequest protocol. You then perform the request to get an observation object — or an array of observations — with the analysis details for the request. There are more than 25 requests available to choose from. Vision also allows the use of custom Core ML models for tasks like classification or object detection.
+To begin using the Swift API, create a request for the type of analysis you want to do. These requests conform to the VisionRequest protocol. Perform the request to obtain observations with the analysis results. The current request catalog offers more than 25 analysis requests. Vision also allows the use of custom Core ML models for tasks like classification or object detection.
 
 **Note:** Starting in iOS 18.0, the Vision framework provides a new Swift-only API. See Original Objective-C and Swift API to view the original API.
 
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Visual Intelligence expands in OS 27 — nutritional breakdown from a meal photo, and receipt understanding that identifies and splits line items per person. On iPad, Apple Pencil can circle or tap on-screen content to query it. These are system experiences; integrate through [App Intents](AppIntents.md) entity schemas so your content participates.
+## OS 27 model tools
+
+[`OCRTool`](https://developer.apple.com/documentation/vision/ocrtool.md) and [`BarcodeReaderTool`](https://developer.apple.com/documentation/vision/barcodereadertool.md) conform to Foundation Models' `Tool` protocol. Add the appropriate tool to a model session and supply image attachments as described in [multimodal prompting](https://developer.apple.com/documentation/foundationmodels/analyzing-images-with-multimodal-prompting.md).
+
+The OCR tool lists iOS, iPadOS, macOS, and visionOS 27.0+; the barcode tool additionally lists watchOS 27.0+. These symbol lists do not enumerate tvOS or Mac Catalyst. Do not extend the framework's older minimums to these new tools or assume that every model supports image input.
+
+Neither `OCRTool` nor `BarcodeReaderTool` is available in Simulator. Validate these model-tool integrations on a supported physical device and handle unavailable models or unsupported image input.
+
+[Visual Intelligence](VisualIntelligence.md) system search and [Media Intelligence](MediaIntelligence.md) face grouping/video highlights are separate integrations. See [App Intents](AppIntents.md) for system content discovery and [Evaluations](Evaluations.md) for model/tool quality checks.
 
 ## Topics
 
 ### Still-image analysis
-- [Classifying images for categorization and search](https://developer.apple.com/documentation/vision/classifying_images_for_categorization_and_search) - Analyze and label images using a Vision classification request.
+- [Classifying images for categorization and search](https://developer.apple.com/documentation/vision/classifying-images-for-categorization-and-search.md) - Analyze and label images using a Vision classification request.
 - **ClassifyImageRequest** - A request to classify an image.
 - **ImageProcessingRequest** - A type for image-analysis requests that focus on a specific part of an image.
 - **ImageRequestHandler** - An object that processes one or more image-analysis requests pertaining to a single image.
 - **VisionRequest** - A type for image-analysis requests.
 - **VisionObservation** - A type for objects produced by image-analysis requests.
-- **DetectLensSmudgeRequest** - A request that detects a smudge on a lens from an image or video frame capture.- **SmudgeObservation** - An observation that provides an overall score of the presence of a smudge in an image or video frame capture.
+- **DetectLensSmudgeRequest** - A request that detects a smudge on a lens from an image or video frame capture.
+- **SmudgeObservation** - An observation that provides an overall score of the presence of a smudge in an image or video frame capture.
+
 ### Image sequence analysis
 - **GeneratePersonSegmentationRequest** - A request that produces a matte image for a person it finds in the input image.
 - **GeneratePersonInstanceMaskRequest** - A request that produces a mask of individual people it finds in the input image.
@@ -37,7 +49,7 @@ To begin using the framework, you create a request for the type of analysis you 
 - **StatefulRequest** - The protocol for a type that builds evidence of a condition over time.
 
 ### Image aesthetics analysis
-- [Generating high-quality thumbnails from videos](https://developer.apple.com/documentation/vision/generating_high-quality_thumbnails_from_videos) - Identify the most visually pleasing frames in a video by using the image-aesthetics scores request.
+- [Generating high-quality thumbnails from videos](https://developer.apple.com/documentation/vision/generating-thumbnails-from-videos.md) - Identify the most visually pleasing frames in a video by using the image-aesthetics scores request.
 - **CalculateImageAestheticsScoresRequest** - A request that analyzes an image for aesthetically pleasing attributes.
 
 ### Saliency analysis
@@ -49,7 +61,7 @@ To begin using the framework, you create a request for the type of analysis you 
 - **TrackRectangleRequest** - An image-analysis request that tracks movement of a previously identified rectangular object across multiple images or video frames.
 
 ### Face and body detection
-- [Analyzing a selfie and visualizing its content](https://developer.apple.com/documentation/vision/analyzing_a_selfie_and_visualizing_its_content) - Calculate face-capture quality and visualize facial features for a collection of images using the Vision framework.
+- [Analyzing a selfie and visualizing its content](https://developer.apple.com/documentation/vision/analyzing-a-selfie-and-visualizing-its-content.md) - Calculate face-capture quality and visualize facial features for a collection of images using the Vision framework.
 - **DetectFaceRectanglesRequest** - A request that finds faces within an image.
 - **DetectFaceLandmarksRequest** - An image-analysis request that finds facial features like eyes and mouth in an image.
 - **DetectFaceCaptureQualityRequest** - A request that produces a floating-point number that represents the capture quality of a face in a photo.
@@ -67,9 +79,11 @@ To begin using the framework, you create a request for the type of analysis you 
 - **Joint3D** - An object that represents a body pose joint in 3D space.
 
 ### Text detection
-- [Recognizing tables within a document](https://developer.apple.com/documentation/vision/recognizing_tables_within_a_document) - Scan a document containing a contact table and extract the content within the table in a formatted way.
-- [Locating and displaying recognized text](https://developer.apple.com/documentation/vision/locating_and_displaying_recognized_text) - Perform text recognition on a photo using the Vision framework's text-recognition request.
-- **RecognizeDocumentsRequest** - An image-analysis request to scan an image of a document and provide information about its structure.- **DocumentObservation** - Information about the sections of content that an image-analysis request detects in a document.- **DetectTextRectanglesRequest** - An image-analysis request that finds regions of visible text in an image.
+- [Recognizing tables within a document](https://developer.apple.com/documentation/vision/recognize-tables-within-a-document.md) - Scan a document containing a table and extract its content in a structured form.
+- [Locating and displaying recognized text](https://developer.apple.com/documentation/vision/locating-and-displaying-recognized-text.md) - Perform text recognition on a photo using the Vision framework's text-recognition request.
+- **RecognizeDocumentsRequest** - An image-analysis request to scan an image of a document and provide information about its structure.
+- **DocumentObservation** - Information about the sections of content that an image-analysis request detects in a document.
+- **DetectTextRectanglesRequest** - An image-analysis request that finds regions of visible text in an image.
 - **RecognizeTextRequest** - An image-analysis request that recognizes text in an image.
 
 ### Barcode detection
@@ -106,9 +120,11 @@ To begin using the framework, you create a request for the type of analysis you 
 ### Image locations and regions
 - **NormalizedPoint** - A point in a 2D coordinate system.
 - **NormalizedRect** - The location and dimensions of a rectangle.
-- **NormalizedRegion** - A polygon composed of normalized points.- **NormalizedCircle** - The center point and radius of a 2D circle.
+- **NormalizedRegion** - A polygon composed of normalized points.
+- **NormalizedCircle** - The center point and radius of a 2D circle.
 - **BoundingBoxProviding** - A protocol for objects that have a bounding box.
-- **BoundingRegionProviding** - A protocol for objects that have a defined boundary in an image.- **QuadrilateralProviding** - A protocol for objects that have a bounding quadrilateral.
+- **BoundingRegionProviding** - A protocol for objects that have a defined boundary in an image.
+- **QuadrilateralProviding** - A protocol for objects that have a bounding quadrilateral.
 - **CoordinateOrigin** - The origin of a coordinate system relative to an image.
 
 ### Request Handlers
@@ -123,10 +139,8 @@ To begin using the framework, you create a request for the type of analysis you 
 - **VisionError** - The errors that the framework produces.
 
 ### Legacy API
-- [Original Objective-C and Swift API](https://developer.apple.com/documentation/vision/original_objective-c_and_swift_api)
+- [Original Objective-C and Swift API](https://developer.apple.com/documentation/vision/original-objective-c-and-swift-api.md)
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/Vision)*

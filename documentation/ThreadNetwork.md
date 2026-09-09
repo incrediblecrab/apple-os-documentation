@@ -2,52 +2,62 @@
 
 Create robust, smart device networks using Thread Border Routers.
 
-**Platforms:** iOS 15.0+ | iPadOS 15.0+ | Mac Catalyst 16.1+ | macOS 14.0+ | visionOS 1.0+
+**Core API declarations:** iOS 15.0+ | iPadOS 15.0+ | Mac Catalyst 15.0+ | macOS 13.0+ | visionOS 1.0+
+
+The framework catalog lists later Catalyst 16.1 and macOS 14 baselines; `THClient` and `THCredentials` declare the versions above. Individual methods still need their own availability checks.
 
 ## Overview
 
-The Thread standard is a low-power, wireless mesh networking protocol that runs over standard Internet protocols that allows smart home devices — such as Apple Home—compatible devices — to communicate with each other. Mesh networks are peer-to-peer networks that don't have a single, centrally defined router, eliminating the risk of a single point of failure. They can dynamically reconfigure themselves and discover nearby peer devices with shared credentials. This allows them to maintain communication even when some devices go offline.
+Thread is an IP-based, low-power wireless mesh technology used by smart-home devices. Routing-capable members forward packets and can provide alternate paths when topology changes. End devices do not forward other devices' packets; simply adding more devices does not guarantee faster communication or eliminate every failure mode.
 
-The robustness of Thread relies on member devices forwarding packets to their neighbors; this creates a mesh that strengthens and increases its reliability as people add more devices. The mesh can also provide faster communication, especially over large networks, because there are more paths for messages to take across the network.
+A network can split into partitions when groups lose radio connectivity. Each partition has its own leader and network data while retaining the network's security credentials; partitions can merge again when connectivity returns.
 
-The **Thread Border Router** hardware device is a key element of Thread networks. It routes IP traffic between Thread and Wi-Fi or Ethernet networks, and enables iOS devices to communicate with Thread devices. HomePod and HomePod mini are examples of Border Routers.
+The **Thread Border Router** connects Thread to another IP network such as Wi-Fi or Ethernet. Examples include HomePod mini, HomePod (2nd generation), and Apple TV 4K (3rd generation) **Wi-Fi + Ethernet**. Do not assume every HomePod or Apple TV model includes Thread hardware.
 
-To create your own Thread Border Router, use the **ThreadNetwork** framework to configure and manage your router. The ThreadNetwork framework helps you choose the right Thread network for your certified Thread Border Router.
+Use **ThreadNetwork** to coordinate credentials and choose a network for your certified Border Router. The framework does not itself supply a hardware router or implement your device's Thread packet-forwarding stack.
+
+### Credential permission and lifecycle
+
+The Boolean `com.apple.developer.networking.manage-thread-network-credentials` entitlement supports development and testing; distribution access requires Apple's approval and the assigned distribution entitlement. Enabling the development capability alone is not distribution permission.
+
+Preferred-network credentials require the person's consent. Retrieving credentials owned by your developer team does not require that same prompt and does not expose every other team's stored credentials. Treat denial, missing credentials, and stale cached data as recoverable outcomes. These secrets allow devices to join the network; do not expose them in logs.
+
+Keep iCloud Keychain records synchronized when your Border Router's credentials change, and delete its stored record when it leaves the network. Before reusing cached preferred credentials, compare them with the current preferred network and request updated credentials when needed. The comparison method starts at iOS/iPadOS/Catalyst 15.5; preferred-network availability and active-credential queries start at 16.4. Their macOS and visionOS declarations are 13.0 and 1.0 respectively.
 
 ### Learn About Thread Network Device Roles
 
 A Thread network can contain several types of devices that someone can deploy in many combinations:
 
 **Thread Border Router**  
-A device that provides a connection between the Thread network and an existing WiFi or Ethernet network. These devices may be standalone, acting solely as routers, or they may support additional functionality. For example, HomePod (second Generation), HomePod Mini, and AppleTV 4K are all examples of Thread Border Routers.
+A device that connects Thread to an existing Wi-Fi or Ethernet network. It may be standalone or part of a multifunction product; multiple Border Routers can serve a network.
 
 **Thread Leader**  
-A device that manages routers on a Thread network. A Thread network can only have one Thread Leader at any time; member devices select a Thread Leader based on various routing characteristics of the network in order to optimize performance.
+A self-elected routing device that manages network-wide configuration within its partition. There is one leader **per partition**, not necessarily one across all disconnected partitions sharing the same Thread credentials.
 
 **End Device**  
-Thread devices located at the endpoints of a Thread network. They can communicate directly with other Thread devices, but don't operate as routers forwarding packets on their behalf.
+A device attached to a parent routing device. It exchanges its own messages but does not forward packets for other devices.
 
 **Sleepy End Device**  
-End devices that run in low-power mode and are often battery powered. To conserve power they generally only wake up occasionally (which is why they're referred to as "sleepy") to report whatever data the device collects. Examples of sleepy devices include battery-powered temperature sensors or air quality monitors.
+A low-power end device whose radio normally sleeps and wakes to poll its parent and exchange messages. Battery-powered temperature and air-quality sensors are examples.
 
-To learn more about Thread, visit the [OpenThread Guides](https://openthread.io/guides) and [What is Thread?](https://www.threadgroup.org/What-is-Thread).
+For routing roles and partitions, see [OpenThread's Node Roles and Types](https://openthread.io/guides/thread-primer/node-roles-and-types). For the protocol overview, see [What is Thread?](https://www.threadgroup.org/What-is-Thread/Overview).
 
 **Note:** Thread standard is developed by the Thread Group, and that use of "Thread" to describe Border Routers is subject to Thread Group's Trademark and Certification Policies.
 
 ## Topics
 
 ### Setting Up Thread Border Routers
-- [Getting started with ThreadNetwork](https://developer.apple.com/documentation/threadnetwork/getting_started_with_threadnetwork) - Create a plan to build, test, and deploy your Thread Border Router app.
-- [Configuring a Border Router](https://developer.apple.com/documentation/threadnetwork/configuring_a_border_router) - Set up or add a Border Router on a Thread network.
-- [Managing Thread network credentials](https://developer.apple.com/documentation/threadnetwork/managing_thread_network_credentials) - Store, retrieve, update, and delete Thread network credentials on your Apple device.
+- [Getting started with ThreadNetwork](https://developer.apple.com/documentation/threadnetwork/getting-started-with-threadnetwork) - Configure development access and follow the conformance and distribution-entitlement process.
+- [Configuring a Border Router](https://developer.apple.com/documentation/threadnetwork/configuring-a-border-router) - Set up or add a Border Router on a Thread network.
+- [Managing Thread network credentials](https://developer.apple.com/documentation/threadnetwork/managing-thread-network-credentials) - Store, retrieve, update, and delete Thread network credentials on your Apple device.
 
 ### Managing Clients and Sharing Credentials
-- **com.apple.developer.networking.manage-thread-network-credentials** - A Boolean value that indicates whether the app can use ThreadNetwork.
+- [com.apple.developer.networking.manage-thread-network-credentials](https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.networking.manage-thread-network-credentials) - The Boolean credential-management entitlement, with separate development and approved distribution access.
 - **THClient** - A class that supports safely sharing Thread credentials between multiple clients.
 - **THCredentials** - A class that contains credentials for a Thread network.
 
 ---
 
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
-
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/ThreadNetwork)*
+
+*Topology and model qualifications: [OpenThread](https://openthread.io/guides/thread-primer/node-roles-and-types) and [Apple's Thread-enabled home-hub guidance](https://support.apple.com/en-us/102557).*

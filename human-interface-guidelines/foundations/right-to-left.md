@@ -82,16 +82,14 @@ No additional considerations for iOS, iPadOS, macOS, tvOS, visionOS, or watchOS.
 
 ### Developer Documentation
 
-- [Localization](https://developer.apple.com/documentation/xcode/localization)
+- [Localization](https://developer.apple.com/localization/)
 - [Preparing views for localization](https://developer.apple.com/documentation/swiftui/preparing-views-for-localization) - SwiftUI
 
 ### Videos
 
-- [Enhance your app's multilingual experience](https://developer.apple.com/videos/play/wwdc2024/10185)
+- [Enhance your app's multilingual experience](https://developer.apple.com/videos/play/wwdc2025/222)
 - [Design for Arabic](https://developer.apple.com/videos/play/wwdc2022/10034)
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/right-to-left)*

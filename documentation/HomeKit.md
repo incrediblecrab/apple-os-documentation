@@ -14,27 +14,33 @@ Using HomeKit, your app can:
 - Display, edit, and act upon the data in the home configuration database.
 - Communicate with configured accessories and services in order to perform actions like turning on the lights in the living room.
 
-## What's New in the OS 27 SDK
+For access to home configuration data, enable the Boolean `com.apple.developer.homekit` entitlement and supply the `NSHomeKitUsageDescription` purpose string. The system normally presents the permission prompt when the app creates an `HMHomeManager`; there is no separate explicit authorization request to issue. Missing purpose text causes a crash when the app first uses HomeKit.
 
-In tvOS 27, HomeKit Secure Video adds 4K camera recording with on-device transcription and descriptions. The Home app also consolidates related camera alerts.
+Check the manager's authorization status where available and handle `HMError.Code.homeAccessNotAuthorized` in completion handlers. A person can deny initial access or revoke it later in Settings. Accessory setup is a distinct flow: `HMAccessorySetupManager` does not require the calling app to already have home-data authorization.
+
+## 27 beta: Home intelligence behavior
+
+**Reviewed September 8, 2026:** The iOS/iPadOS, macOS, and tvOS 27 beta 8 release notes say that, when Apple Intelligence in Home is enabled, HomeKit Secure Video recordings are processed on-device **and through Private Cloud Compute** for video descriptions and search. Apple Intelligence for Home requires an iCloud+ subscription starting at 2 TB.
+
+These are conditional Home-system features, not new permissions for third-party apps to read recordings or a promise that every accessory gains 4K recording. They do not replace the authorization requirements for the app's own home-data access.
 
 ## Topics
 
 ### Essentials
-- [Enabling HomeKit in your app](https://developer.apple.com/documentation/homekit/enabling_homekit_in_your_app) - Declare your app's intention to use HomeKit, and get permission from the user to access home automation accessories.
+- [Enabling HomeKit in your app](https://developer.apple.com/documentation/homekit/enabling-homekit-in-your-app) - Configure the capability, purpose string, and denial handling.
 - **HomeKit Entitlement** - A Boolean value that indicates whether users of the app may manage HomeKit-compatible accessories.
 - **NSHomeKitUsageDescription** - A message that tells people why the app is requesting access to their HomeKit configuration data.
 
 ### Home Manager
-- [Configuring a home automation device](https://developer.apple.com/documentation/homekit/configuring_a_home_automation_device) - Give users a familiar experience when they manage HomeKit accessories.
-- [Testing your app with the HomeKit Accessory Simulator](https://developer.apple.com/documentation/homekit/testing_your_app_with_the_homekit_accessory_simulator) - Install the HomeKit Accessory Simulator to help you debug your HomeKit-enabled app.
+- [Configuring a home automation device](https://developer.apple.com/documentation/homekit/configuring-a-home-automation-device) - Give users a familiar experience when they manage HomeKit accessories.
+- [Testing your app with the HomeKit Accessory Simulator](https://developer.apple.com/documentation/homekit/testing-your-app-with-the-homekit-accessory-simulator) - Use Mac-hosted simulated accessories while testing a HomeKit app.
 - **HMHomeManager** - The manager for a collection of one or more of a user's homes.
 
 ### Accessories
-- **HMAccessorySetupManager** - An object that setups up new accessories.
-- **HMAccessorySetupResult** - A result object describing information about a successful accessory setup request.
-- **HMAccessorySetupRequest** - An object that describes how to add and setup up new accessories.
-- [Interacting with a home automation network](https://developer.apple.com/documentation/homekit/interacting_with_a_home_automation_network) - Find all the automation accessories in the primary home and control their state.
+- **HMAccessorySetupManager** - Coordinates accessory setup; iOS/iPadOS 15 and Mac Catalyst 27.
+- **HMAccessorySetupResult** - Describes a successful setup request; iOS/iPadOS 15.4 and Mac Catalyst 27.
+- **HMAccessorySetupRequest** - Describes how to add and set up accessories; iOS/iPadOS 15.4 and Mac Catalyst 27.
+- [Interacting with a home automation network](https://developer.apple.com/documentation/homekit/interacting-with-a-home-automation-network) - Inspect accessories, services, and characteristics in the primary home.
 - **HMAccessory** - A home automation accessory, like a garage door opener or a thermostat.
 - **HMService** - A controllable feature of an accessory, like a light attached to a garage door opener.
 - **HMCharacteristic** - A specific characteristic of a service, like the brightness of a dimmable light or its color temperature.
@@ -48,7 +54,7 @@ In tvOS 27, HomeKit Secure Video adds 4K camera recording with on-device transcr
 ### Errors
 - **HMError** - An error HomeKit returns.
 - **HMErrorDomain** - A string that identifies the HomeKit error domain.
-- **Code** - Possible error values that can be returned from HomeKit APIs.
+- **HMError.Code** - Possible error values that can be returned from HomeKit APIs.
 - **HMErrorBlock** - A completion block that provides an error.
 
 ### Classes
@@ -56,6 +62,6 @@ In tvOS 27, HomeKit Secure Video adds 4K camera recording with on-device transcr
 
 ---
 
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
-
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/HomeKit)*
+
+*27-beta sources: [iOS/iPadOS release notes — HomeKit](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes.md) and [macOS release notes — HomeKit](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes.md).*

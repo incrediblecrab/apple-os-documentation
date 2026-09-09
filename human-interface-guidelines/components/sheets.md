@@ -8,18 +8,19 @@ A sheet helps people perform a scoped task that's closely related to their curre
 
 By default, a sheet is modal, presenting a targeted experience that prevents people from interacting with the parent view until they dismiss the sheet (for more on modal presentation, see Modality). A modal sheet is useful for requesting specific information from people or presenting a simple task that they can complete before returning to the parent view. For example, a sheet might let people supply information needed to complete an action, such as attaching a file, choosing the location for a move or save, or specifying the format for a selection.
 
-In macOS, visionOS, and watchOS, a sheet is always modal, but in iOS and iPadOS, a sheet can also be nonmodal. When a nonmodal sheet is onscreen, people use its functionality to directly affect the current task in the parent view without dismissing the sheet. For example, Notes on iPhone and iPad uses a nonmodal sheet to help people apply different formatting to various text selections as they edit a note.
+In macOS, tvOS, visionOS, and watchOS, a sheet is modal to its parent view. In iOS and iPadOS, a sheet can also be nonmodal. When a nonmodal sheet is onscreen, people can use it while continuing the task in the parent view; for example, Notes lets people change text selections while its formatting sheet remains open.
+
+Cancel or Close dismisses a sheet without saving changes; Done completes the task or explicitly saves changes before dismissing it. Back returns to an earlier step or parent view within the sheet, rather than dismissing the sheet.
 
 ## Topics
 
 ### Best Practices
 
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Liquid Glass now diffuses busy background content more aggressively, adds a subtle darkened edge ring, and renders brighter specular highlights, improving legibility without extra visual noise. People can tune overall translucency with the transparency slider in Settings > Appearance, and the material also responds to Reduce Transparency and Increase Contrast.
-
 - **Use a sheet to present simple content or tasks** - A sheet allows some of the parent view to remain visible, helping people retain their original context as they interact with the sheet.
-- **For complex or prolonged user flows, consider alternatives to sheets** - For example, iOS and iPadOS offer a full-screen style of modal view that can work well to display content like videos, photos, or camera views or to help people perform multistep tasks like document or photo editing. (For developer guidance, see UIModalPresentationStyle.fullScreen.) In a macOS experience, you might want to open a new window or let people enter full-screen mode instead of using a sheet. For example, a self-contained task like editing a document tends to work well in a separate window, whereas going full screen can help people view media. In visionOS, you can give people a way to transition your app to a Full Space where they can dive into content or a task; for guidance, see Immersive experiences.
+- **For complex or prolonged user flows, consider alternatives to sheets** - For example, iOS and iPadOS offer a full-screen style of modal view that can work well to display content like videos, photos, or camera views or to help people perform multistep tasks like document or photo editing. (See [UIModalPresentationStyle.fullScreen](https://developer.apple.com/documentation/uikit/uimodalpresentationstyle/fullscreen).) In a macOS experience, you might want to open a new window or let people enter full-screen mode instead of using a sheet. For example, a self-contained task like editing a document tends to work well in a separate window, whereas going full screen can help people view media. In visionOS, you can give people a way to transition your app to a Full Space where they can dive into content or a task; for guidance, see Immersive experiences.
 - **Display only one sheet at a time from the main interface** - When people close a sheet, they expect to return to the parent view or window. If closing a sheet takes people back to another sheet, they can lose track of where they are in your app. If something people do within a sheet results in another sheet appearing, close the first sheet before displaying the new one. If necessary, you can display the first sheet again after people dismiss the second one.
 - **Use a nonmodal view when you want to present supplementary items that affect the main task in the parent view** - To give people access to information and actions they need while continuing to interact with the main window, consider using a split view in visionOS or a panel in macOS; in iOS and iPadOS, you can use a nonmodal sheet for this workflow. For guidance, see iOS, iPadOS.
+- **Pair Done with a way to decline or go back** - Provide Cancel to leave without confirming changes, or Back to return to an earlier step. Avoid showing Cancel, Done, and Back together; a Done-only flow can imply that completion is the only way out.
 
 ### Platform Considerations
 
@@ -27,14 +28,14 @@ In macOS, visionOS, and watchOS, a sheet is always modal, but in iOS and iPadOS,
 No additional considerations for tvOS.
 
 **iOS, iPadOS**  
-A resizable sheet expands when people scroll its contents or drag the grabber, which is a small horizontal indicator that can appear at the top edge of a sheet. Sheets resize according to their detents, which are particular heights at which a sheet naturally rests. Designed for iPhone, detents specify particular heights at which a sheet naturally rests. The system defines two detents: large is the height of a fully expanded sheet and medium is about half of the fully expanded height.
+A resizable sheet can expand as people scroll or drag its grabber, the small indicator at the top. Detents define the heights at which it rests. The system provides large and medium detents; medium is approximately half-height. Custom detent heights are also possible.
 
-Sheets automatically support the large detent. Adding the medium detent allows the sheet to rest at both heights, whereas specifying only medium prevents the sheet from expanding to full height. For developer guidance, see detents.
+UIKit's default [detents](https://developer.apple.com/documentation/uikit/uisheetpresentationcontroller/detents) array contains large. You can add medium or use it alone where supported, but [medium()](https://developer.apple.com/documentation/uikit/uisheetpresentationcontroller/detent/medium()) is inactive in compact-height environments. Don't assume a half-height sheet there. Supply at least one detent and order the array from smallest to largest.
 
 - **In an iPhone app, consider supporting the medium detent to allow progressive disclosure of the sheet's content** - For example, a share sheet displays the most relevant items within the medium detent, where they're visible without resizing. To view more items, people can scroll or expand the sheet. In contrast, you might not want to support the medium detent if a sheet's content is more useful when it displays at full height. For example, the compose sheets in Messages and Mail display only at full height to give people enough room to create content.
-- **Include a grabber in a resizable sheet** - A grabber shows people that they can drag the sheet to resize it; they can also tap it to cycle through the detents. In addition to providing a visual indicator of resizability, a grabber also works with VoiceOver so people can resize the sheet without seeing the screen. For developer guidance, see prefersGrabberVisible.
+- **Include a grabber in a resizable sheet** - It supports dragging, tapping to cycle through detents, and VoiceOver resizing. Request it with [prefersGrabberVisible](https://developer.apple.com/documentation/uikit/uisheetpresentationcontroller/prefersgrabbervisible); UIKit's default is false, and the system can hide the grabber in contexts such as a full-screen compact-height presentation.
 - **Support swiping to dismiss a sheet** - People expect to swipe vertically to dismiss a sheet instead of tapping a dismiss button. If people have unsaved changes in the sheet when they begin swiping to dismiss it, use an action sheet to let them confirm their action.
-- **Position Done and Cancel buttons as people expect** - Typically, a Done or Dismiss button belongs in a sheet's top-right corner (in a left-to-right layout) or top-left corner (in a right-to-left layout). The Cancel button belongs in a sheet's top-left (in a left-to-right layout) or top-right (in a right-to-left layout) corner.
+- **Place actions according to the step** - In a single-view sheet, place Cancel at the top-leading edge and Done, when present, at the top-trailing edge; these positions mirror in right-to-left layouts. In a multistep flow, begin with Cancel and an inactive Done button, replace Cancel with Back on later steps, and enable Done at the final confirmation step.
 - **Prefer using the page or form sheet presentation styles in an iPadOS app** - Each style uses a default size for the sheet, centering its content on top of a dimmed background view and providing a consistent experience. For developer guidance, see UIModalPresentationStyle.
 
 **macOS**  
@@ -57,7 +58,7 @@ In watchOS, a sheet is a full-screen view that slides over your app's current co
 - **Use a sheet only when your modal task requires a custom title or custom content presentation** - If you need to give people important information or present a set of choices, consider using an alert or action sheet.
 - **Keep sheet interactions brief and occasional** - Use a sheet only as a temporary interruption to the current workflow, and only to facilitate an important task. Avoid using a sheet to help people navigate your app's content.
 - **Change the default label of the dismiss control only if it makes sense in your app** - By default, the sheet displays a round cancel button in the upper left corner. Use this button when the sheet lets people make changes to the app's behavior or to their data. If your sheet simply presents information without enabling a task, use Done or Dismiss instead. You can use a toolbar to display multiple buttons.
-- **If you change the default label, avoid confusing alternatives** - Avoid using a label that might mislead people into thinking that the sheet is part of a hierarchical navigation interface. Also, if the text in the top-leading corner looks like a page or app title — or if you don't provide a button label — people won't know how to dismiss the sheet.
+- **Keep the dismiss control recognizable** - If you customize it, prefer a familiar SF Symbol for the action. Don't make dismissal look like navigation to a parent page, or use text that looks like the page or app title. See [Standard icons](https://developer.apple.com/design/human-interface-guidelines/icons#Standard-icons).
 
 ### Related Components
 
@@ -70,9 +71,14 @@ In watchOS, a sheet is a full-screen view that slides over your app's current co
 
 - [sheet(item:onDismiss:content:)](https://developer.apple.com/documentation/swiftui/view/sheet(item:ondismiss:content:)) - SwiftUI
 - [UISheetPresentationController](https://developer.apple.com/documentation/uikit/uisheetpresentationcontroller) - UIKit
-- [presentAsSheet(_:)](https://developer.apple.com/documentation/appkit/nswindow/1419227-presentassheet) - AppKit
+- [presentAsSheet(_:)](https://developer.apple.com/documentation/appkit/nsviewcontroller/presentassheet(_:)) - AppKit
 
 ## Changelog
+
+These dates describe changes to Apple's HIG article, not edits to this repository.
+
+### March 24, 2026
+- Updated button placement for single-view and multistep sheets.
 
 ### March 29, 2024
 - Added guidance to use form or page sheet styles in iPadOS apps.
@@ -87,7 +93,5 @@ In watchOS, a sheet is a full-screen view that slides over your app's current co
 - Updated guidance for using sheets in watchOS.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/sheets)*

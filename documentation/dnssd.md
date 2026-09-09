@@ -2,7 +2,7 @@
 
 Discover, publish, and resolve network services on a local area or wide area network.
 
-**Platforms:** iOS 10.0+ | iPadOS 10.0+ | Mac Catalyst 13.0+ | macOS 10.12+ | tvOS 10.0+ | visionOS 1.0+ | watchOS 3.0+
+**Module catalog baselines:** iOS 10.0+ | iPadOS 10.0+ | Mac Catalyst 13.0+ | macOS 10.12+ | tvOS 10.0+ | visionOS 1.0+ | watchOS 3.0+
 
 ## Overview
 
@@ -10,27 +10,36 @@ The DNS Service Discovery API helps you to perform three main tasks:
 
 - Registering a service.
 - Browsing for services.
-- Resolving service names to host names.
+- Resolving a service instance to its target host, port, and TXT data.
 
 In support of these main tasks, this API can directly assist you in performing two subsidiary tasks:
 
 - Enumerating domains (finding recommended service domains).
 - Updating registrations (changing your DNS registration data dynamically).
 
-Most apps shouldn't use this API, and instead should use a higher-level service discovery API like NetService. Use dnssd if you're writing BSD-style applications or cross-platform programs that don't need to link to higher-level frameworks. You can also use dnssd if you need specific lower-level functionality exposed by this API.
+For new app discovery code, prefer [Network](Network.md) for Bonjour advertising, browsing, and connections. The **27 SDK deprecates Foundation's `NetService`** in favor of Network framework, so it is no longer the preferred migration target. Use DNS-SD's C API when cross-platform integration or specialized operations, such as resolving a service without connecting, require lower-level control. See [TN3151](https://developer.apple.com/documentation/technotes/tn3151-choosing-the-right-networking-api).
 
-**Important**: Apps that use the local network must provide a usage string in their Info.plist file with the key NSLocalNetworkUsageDescription. Apps that use Bonjour must also declare the services they browse, using the NSBonjourServices key.
+### Permissions, failures, and availability
+
+Local-network privacy applies on iOS/iPadOS 14+, macOS 15+, and visionOS 1+, not tvOS or watchOS. Add `NSLocalNetworkUsageDescription` for an app that needs local-network access, and list the specific Bonjour service types it registers or browses in `NSBonjourServices`. On iOS/iPadOS/visionOS, working with arbitrary service types or browsing all advertised types additionally requires `com.apple.developer.networking.multicast`; ordinary declared-service discovery does not require that additional entitlement.
+
+Permission may be denied before a pending prompt is answered. Handle `kDNSServiceErr_PolicyDenied`, cancellation, and retry without treating an empty result set as proof that no services exist. The person can later change access in Settings. [TN3179](https://developer.apple.com/documentation/technotes/tn3179-understanding-local-network-privacy) describes macOS exemptions, extension behavior, and physical-device testing.
+
+The module's catalog minimum is not a guarantee that every listed constant or operation is available there. For example, `DNSServiceAAAAPolicy` begins at iOS/iPadOS/tvOS 15, macOS 12, and watchOS 8. watchOS also restricts low-level Bonjour networking to the supported circumstances in [TN3135](https://developer.apple.com/documentation/technotes/tn3135-low-level-networking-on-watchos).
 
 ## Topics
 
 ### Reference
-- **DNS Service Discovery C** - See the Overview section above for header-level documentation.
-- **dnssd Enumerations**
-- **dnssd Functions**
-- **dnssd Data Types**
-- **dnssd Constants**
+- [DNS Service Discovery C](https://developer.apple.com/documentation/dnssd/dns-service-discovery-c) - Header-level C API documentation.
+- [dnssd Enumerations](https://developer.apple.com/documentation/dnssd/dnssd-enumerations)
+- [dnssd Functions](https://developer.apple.com/documentation/dnssd/dnssd-functions)
+- [dnssd Data Types](https://developer.apple.com/documentation/dnssd/dnssd-data-types)
+- [dnssd Constants](https://developer.apple.com/documentation/dnssd/dnssd-constants)
 
 ### Variables
+
+These are read-only imported SDK constants, not mutable configuration variables. Use each flag only in the operations documented for it. In particular, `kDNSServiceFlagsPrivateOne` through `kDNSServiceFlagsPrivateFive` are explicitly private and must not be used, despite appearing in the public header and generated catalog.
+
 - `var kDNSServiceAAAAPolicyFallback: DNSServiceAAAAPolicy`
 - `var kDNSServiceAAAAPolicyNone: DNSServiceAAAAPolicy`
 - `var kDNSServiceClass_IN: Int`
@@ -185,7 +194,5 @@ Most apps shouldn't use this API, and instead should use a higher-level service 
 - `var kDNSServiceType_X25: Int`
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/dnssd)*

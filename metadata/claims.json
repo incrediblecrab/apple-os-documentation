@@ -1,0 +1,575 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-09-08",
+  "claims": [
+    {
+      "id": "xcode27-host",
+      "status": "verified",
+      "claim": "Xcode 27 beta 6 requires an Apple silicon Mac running macOS Tahoe 26.4 or later. The hardware restriction is explicit in Intel Deprecation, not inferred from the host OS.",
+      "source": "https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md",
+      "locator": "Overview; Intel Deprecation / Deprecations in Xcode 27 Beta / 162138432",
+      "checked_on": "2026-09-08",
+      "source_published_on": null,
+      "affected_paths": [
+        "README.md",
+        "bot-instructions.md",
+        "documentation/Xcode.md",
+        "documentation/Xcode-Release-Notes.md",
+        "documentation/Swift.md",
+        "guides/os27-migration.md",
+        "os26-liquid-glass-example/README.md",
+        "os26-intro/Program.md",
+        "os27-intro/Program.md",
+        "os26-intro/iOS.md",
+        "os26-intro/iPadOS.md",
+        "os26-intro/macOS.md",
+        "os26-intro/tvOS.md",
+        "os26-intro/visionOS.md",
+        "os26-intro/watchOS.md",
+        "os27-intro/iOS.md",
+        "os27-intro/iPadOS.md",
+        "os27-intro/macOS.md",
+        "os27-intro/tvOS.md",
+        "os27-intro/visionOS.md",
+        "os27-intro/watchOS.md"
+      ],
+      "release_qualifier": "Xcode 27 beta 6",
+      "source_snapshot_url": "https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md"
+    },
+    {
+      "id": "sirikit-legacy",
+      "status": "verified",
+      "claim": "SiriKit, Intents and IntentsUI retain legacy support, including most existing Siri interactions. Use App Intents for modern integrations.",
+      "source": "https://developer.apple.com/documentation/sirikit.md",
+      "locator": "Discussion",
+      "checked_on": "2026-09-08",
+      "source_published_on": null,
+      "affected_paths": [
+        "README.md",
+        "bot-instructions.md",
+        "documentation/SiriKit.md",
+        "documentation/AppIntents.md",
+        "guides/app-intents-migration.md",
+        "human-interface-guidelines/technologies/siri.md"
+      ],
+      "release_qualifier": "Published source checked on September 8, 2026",
+      "source_snapshot_url": "https://developer.apple.com/documentation/sirikit.md"
+    },
+    {
+      "id": "weak-let-version",
+      "status": "verified",
+      "claim": "SE-0481 weak let is implemented in Swift 6.3.",
+      "source": "https://raw.githubusercontent.com/swiftlang/swift-evolution/main/proposals/0481-weak-let.md",
+      "locator": "Status",
+      "checked_on": "2026-09-08",
+      "source_published_on": null,
+      "affected_paths": [
+        "bot-instructions.md",
+        "documentation/Swift.md",
+        "guides/swift-concurrency-migration.md",
+        "os26-liquid-glass-example/README.md"
+      ],
+      "release_qualifier": "Swift 6.3 introduction"
+    },
+    {
+      "id": "diagnose-behavior",
+      "status": "verified",
+      "claim": "Swift 6.4 @diagnose controls compiler warning-group behavior.",
+      "source": "https://raw.githubusercontent.com/swiftlang/swift/release/6.4.x/CHANGELOG.md",
+      "locator": "Swift 6.4 / SE-0522",
+      "checked_on": "2026-09-08",
+      "source_published_on": null,
+      "affected_paths": [
+        "bot-instructions.md",
+        "documentation/Swift.md",
+        "guides/swift-concurrency-migration.md"
+      ],
+      "release_qualifier": "Swift 6.4 compiler",
+      "source_snapshot_url": "https://raw.githubusercontent.com/swiftlang/swift/release/6.4.x/CHANGELOG.md"
+    },
+    {
+      "id": "sdk-submission-minimum",
+      "status": "verified",
+      "claim": "Since April 28, 2026, uploads for iOS, iPadOS, tvOS, visionOS and watchOS require Xcode 26 or later with the listed OS 26 SDKs. This is not a deployment-target requirement.",
+      "source": "https://developer.apple.com/news/upcoming-requirements/",
+      "locator": "SDK minimum requirements",
+      "checked_on": "2026-09-08",
+      "source_published_on": null,
+      "affected_paths": [
+        "README.md",
+        "documentation/Xcode.md",
+        "guides/app-store-readiness.md",
+        "guides/os27-migration.md",
+        "os26-intro/Program.md",
+        "os27-intro/Program.md"
+      ],
+      "release_qualifier": "Published source checked on September 8, 2026",
+      "source_snapshot_url": "https://developer.apple.com/news/upcoming-requirements/"
+    },
+    {
+      "id": "regional-distribution",
+      "status": "verified",
+      "claim": "Brazil and Japan support iPhone marketplaces; the EU additionally supports iPad marketplaces and web distribution.",
+      "source": "https://support.apple.com/en-us/118110",
+      "locator": "Country eligibility",
+      "checked_on": "2026-09-08",
+      "source_published_on": null,
+      "affected_paths": [
+        "guides/regional-distribution.md",
+        "guides/app-store-readiness.md",
+        "os26-intro/Program.md",
+        "os27-intro/Program.md"
+      ],
+      "release_qualifier": "Published source checked on September 8, 2026"
+    },
+    {
+      "id": "glass-compatibility",
+      "status": "verified",
+      "claim": "Apple explicitly lists iOS, iPadOS, Mac Catalyst, macOS and tvOS 27-or-later builds as ignoring UIDesignRequiresCompatibility. The list does not establish the same rule for unlisted platforms.",
+      "source": "https://developer.apple.com/documentation/bundleresources/information-property-list/uidesignrequirescompatibility.md",
+      "locator": "Discussion",
+      "checked_on": "2026-09-08",
+      "source_published_on": null,
+      "affected_paths": [
+        "README.md",
+        "bot-instructions.md",
+        "documentation/UIKit.md",
+        "documentation/AppKit.md",
+        "liquid-glass/adopting-liquid-glass.md",
+        "guides/os27-migration.md"
+      ],
+      "release_qualifier": "Published source checked on September 8, 2026",
+      "source_snapshot_url": "https://developer.apple.com/documentation/bundleresources/information-property-list/uidesignrequirescompatibility.md"
+    },
+    {
+      "id": "transparency-slider",
+      "status": "unverified",
+      "claim": "The exact claimed OS 27 continuous transparency slider and replacement of Clear/Tinted were not established by the accessed primary sources.",
+      "source": "https://developer.apple.com/design/human-interface-guidelines/materials",
+      "locator": "Verification backlog",
+      "checked_on": "2026-09-08",
+      "source_published_on": null,
+      "affected_paths": [
+        "human-interface-guidelines/foundations/materials.md",
+        "liquid-glass/introduction.md",
+        "liquid-glass/adopting-liquid-glass.md"
+      ],
+      "release_qualifier": "Published source checked on September 8, 2026",
+      "unresolved_question": "The exact claimed OS 27 continuous transparency slider and replacement of Clear/Tinted were not established by the accessed primary sources.",
+      "action": "Keep out of affirmative adoption guidance until an exact primary source resolves the question."
+    },
+    {
+      "id": "os27-hardware",
+      "status": "unverified",
+      "claim": "Exact OS 27 device eligibility must be verified independently of OS 26 support and Rosetta application compatibility.",
+      "source": "https://developer.apple.com/news/releases/",
+      "locator": "Verification backlog",
+      "checked_on": "2026-09-08",
+      "source_published_on": null,
+      "affected_paths": [
+        "os27-intro/iOS.md",
+        "os27-intro/iPadOS.md",
+        "os27-intro/macOS.md",
+        "os27-intro/tvOS.md",
+        "os27-intro/visionOS.md",
+        "os27-intro/watchOS.md"
+      ],
+      "release_qualifier": "Published source checked on September 8, 2026",
+      "unresolved_question": "Exact OS 27 device eligibility must be verified independently of OS 26 support and Rosetta application compatibility.",
+      "action": "Keep out of affirmative adoption guidance until an exact primary source resolves the question."
+    },
+    {
+      "id": "unannounced-dates",
+      "status": "unverified",
+      "claim": "No OS 27 SDK deadline was found in the checked requirements index. This is not a permanent assertion that no deadline or release date can be announced.",
+      "source": "https://developer.apple.com/news/upcoming-requirements/",
+      "locator": "Verification backlog",
+      "checked_on": "2026-09-08",
+      "source_published_on": null,
+      "affected_paths": [
+        "README.md",
+        "bot-instructions.md",
+        "guides/app-store-readiness.md",
+        "guides/os27-migration.md",
+        "os26-intro/Program.md",
+        "os27-intro/Program.md"
+      ],
+      "release_qualifier": "Published source checked on September 8, 2026",
+      "unresolved_question": "No OS 27 SDK deadline was found in the checked requirements index. This is not a permanent assertion that no deadline or release date can be announced.",
+      "action": "Keep out of affirmative adoption guidance until an exact primary source resolves the question.",
+      "source_snapshot_url": "https://developer.apple.com/news/upcoming-requirements/"
+    },
+    {
+      "id": "uikit-scene-lifecycle",
+      "status": "verified",
+      "claim": "Beginning in iOS 27, iPadOS 27, Mac Catalyst 27, tvOS 27 and visionOS 27, UIKit apps built with the latest SDK must adopt the scene-based lifecycle or fail to launch. The published requirement does not add watchOS or native AppKit apps.",
+      "source": "https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes.md",
+      "locator": "UIKit / Deprecations / 141837548",
+      "release_qualifier": "Named OS 27 platforms plus the latest linked SDK, not a blanket deployment-target change",
+      "additional_sources": [
+        "https://developer.apple.com/documentation/uikit/transitioning-to-the-uikit-scene-based-life-cycle"
+      ],
+      "affected_paths": [
+        "README.md",
+        "documentation/UIKit.md",
+        "guides/os27-migration.md"
+      ],
+      "checked_on": "2026-09-08",
+      "source_published_on": null,
+      "source_snapshot_url": "https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes.md"
+    },
+    {
+      "id": "uikit-launch-screen",
+      "status": "verified",
+      "claim": "iOS/iPadOS apps built with SDK 27 or later need a declared launch screen; rejection begins when App Store accepts that SDK.",
+      "source": "https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes.md",
+      "locator": "UIKit / New Features / 168247372",
+      "release_qualifier": "iOS and iPadOS SDK 27+; conditional submission timing",
+      "affected_paths": [
+        "README.md",
+        "documentation/UIKit.md",
+        "guides/os27-migration.md",
+        "guides/app-store-readiness.md"
+      ],
+      "checked_on": "2026-09-08",
+      "source_published_on": null,
+      "source_snapshot_url": "https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes.md"
+    },
+    {
+      "id": "swiftui-state-macro",
+      "status": "verified",
+      "claim": "Xcode 27 uses a macro-based State implementation that avoids repeated initial-expression evaluation and back-deploys to iOS 17-aligned OSes; initializer source-compatibility exceptions remain.",
+      "source": "https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes.md",
+      "locator": "SwiftUI / New Features / @State implementation / 105893279",
+      "release_qualifier": "Xcode 27 beta; behavior versus individual declaration metadata",
+      "affected_paths": [
+        "documentation/SwiftUI.md",
+        "guides/os27-migration.md"
+      ],
+      "checked_on": "2026-09-08",
+      "source_published_on": null,
+      "additional_sources": [
+        "https://developer.apple.com/documentation/swiftui/state().md"
+      ],
+      "source_snapshot_url": "https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes.md"
+    },
+    {
+      "id": "on-demand-resources-migration",
+      "status": "verified",
+      "claim": "On Demand Resources and NSBundleResourceRequest are deprecated in favor of Background Assets.",
+      "source": "https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes.md",
+      "locator": "On Demand Resources / Deprecations / 170066290",
+      "release_qualifier": "OS 27 beta 8",
+      "affected_paths": [
+        "documentation/BackgroundAssets.md",
+        "documentation/Foundation.md",
+        "guides/background-assets-migration.md",
+        "guides/os27-migration.md"
+      ],
+      "checked_on": "2026-09-08",
+      "source_published_on": null,
+      "source_snapshot_url": "https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes.md"
+    },
+    {
+      "id": "managed-system-tls",
+      "status": "verified",
+      "claim": "The OS 27 notes require TLS 1.2+ and ATS-compatible ciphers/certificates for the specified management, enrollment, profile, app-installation and software-update system processes, not every app connection.",
+      "source": "https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes.md",
+      "locator": "Network Security / stricter system-process requirements / 176055825",
+      "release_qualifier": "OS 27 system processes; consult the linked deployment advisory",
+      "affected_paths": [
+        "documentation/DeviceManagement.md",
+        "documentation/AutomatedDeviceEnrollment.md",
+        "documentation/Network.md",
+        "documentation/Security.md",
+        "guides/os27-migration.md"
+      ],
+      "checked_on": "2026-09-08",
+      "source_published_on": null,
+      "additional_sources": [
+        "https://support.apple.com/en-us/126655"
+      ],
+      "source_snapshot_url": "https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes.md"
+    },
+    {
+      "id": "coreai-published-api",
+      "status": "verified",
+      "claim": "Core AI has published model, asset, inference, tensor, specialization and cache APIs; the repository's former announcement-only stub is obsolete.",
+      "source": "https://developer.apple.com/documentation/coreai.md",
+      "locator": "Framework overview and Topics",
+      "release_qualifier": "OS 27 beta framework",
+      "affected_paths": [
+        "documentation/CoreAI.md",
+        "documentation/CoreML.md",
+        "guides/intelligence-integration.md"
+      ],
+      "checked_on": "2026-09-08",
+      "source_published_on": null,
+      "source_snapshot_url": "https://developer.apple.com/documentation/coreai.md"
+    },
+    {
+      "id": "evaluations-platforms",
+      "status": "verified",
+      "claim": "Retrieved Evaluations framework metadata lists iOS, iPadOS, Mac Catalyst, macOS, visionOS and watchOS 27 plus Xcode 27; it does not list tvOS.",
+      "source": "https://developer.apple.com/documentation/evaluations.md",
+      "locator": "Availability metadata",
+      "release_qualifier": "OS 27 / Xcode 27 beta metadata",
+      "affected_paths": [
+        "documentation/Evaluations.md",
+        "guides/intelligence-integration.md"
+      ],
+      "checked_on": "2026-09-08",
+      "source_published_on": null,
+      "source_snapshot_url": "https://developer.apple.com/documentation/evaluations.md"
+    },
+    {
+      "id": "foundation-model-providers",
+      "status": "verified",
+      "claim": "Foundation Models publishes LanguageModel and custom-provider integration; a protocol does not mean Apple distributes every third-party provider package.",
+      "source": "https://developer.apple.com/documentation/foundationmodels/languagemodel.md",
+      "locator": "LanguageModel overview and conforming types",
+      "release_qualifier": "OS 27 beta API; model/provider availability remains separate",
+      "affected_paths": [
+        "documentation/FoundationModels.md",
+        "guides/intelligence-integration.md"
+      ],
+      "checked_on": "2026-09-08",
+      "source_published_on": null,
+      "source_snapshot_url": "https://developer.apple.com/documentation/foundationmodels/languagemodel.md"
+    },
+    {
+      "id": "anyappleos-minimum-spelling",
+      "status": "verified",
+      "claim": "Swift 6.4 supports anyAppleOS unified availability spelling for OS version numbers starting at 26.0.",
+      "source": "https://raw.githubusercontent.com/swiftlang/swift/release/6.4.x/CHANGELOG.md",
+      "locator": "Swift 6.4 / anyAppleOS",
+      "release_qualifier": "Compiler feature, not a new minimum deployment target",
+      "affected_paths": [
+        "documentation/Swift.md",
+        "guides/swift-concurrency-migration.md"
+      ],
+      "checked_on": "2026-09-08",
+      "source_published_on": null,
+      "source_snapshot_url": "https://raw.githubusercontent.com/swiftlang/swift/release/6.4.x/CHANGELOG.md"
+    },
+    {
+      "id": "background-neural-engine-entitlement",
+      "status": "verified",
+      "claim": "Background Neural Engine access requires the documented inference entitlement even outside a continued-processing task; the entitlement does not guarantee unlimited background execution.",
+      "source": "https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.background-tasks.continued-processing.inference.md",
+      "locator": "Discussion",
+      "release_qualifier": "OS 27 beta background-inference contract",
+      "affected_paths": [
+        "documentation/BackgroundTasks.md",
+        "documentation/CoreAI.md",
+        "guides/background-assets-migration.md"
+      ],
+      "checked_on": "2026-09-08",
+      "source_published_on": null,
+      "source_snapshot_url": "https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.background-tasks.continued-processing.inference.md"
+    },
+    {
+      "id": "age-rating-questionnaire",
+      "status": "verified",
+      "claim": "The updated App Store age-rating questionnaire was due January 31, 2026; runtime age-range APIs do not replace it.",
+      "source": "https://developer.apple.com/news/upcoming-requirements/",
+      "locator": "Age Rating Updates / Since January 31, 2026",
+      "release_qualifier": "Submission requirement already in force at the cutoff",
+      "affected_paths": [
+        "guides/app-store-readiness.md",
+        "os26-intro/Program.md",
+        "os27-intro/Program.md"
+      ],
+      "checked_on": "2026-09-08",
+      "source_published_on": null,
+      "source_snapshot_url": "https://developer.apple.com/news/upcoming-requirements/"
+    },
+    {
+      "id": "third-party-ai-consent",
+      "status": "verified",
+      "claim": "App Review requires clear disclosure and explicit permission before personal data is shared with third parties, including third-party AI.",
+      "source": "https://developer.apple.com/app-store/review/guidelines/",
+      "locator": "5.1.2(i)",
+      "release_qualifier": "App Review Guidelines checked September 8, 2026; not every local inference is a third-party transfer",
+      "affected_paths": [
+        "guides/app-store-readiness.md",
+        "guides/intelligence-integration.md",
+        "guides/private-cloud-compute.md",
+        "os26-intro/Program.md",
+        "os27-intro/Program.md"
+      ],
+      "checked_on": "2026-09-08",
+      "source_published_on": null,
+      "source_snapshot_url": "https://developer.apple.com/app-store/review/guidelines/",
+      "source_updated_on": "2026-06-08"
+    },
+    {
+      "id": "materials-variants",
+      "status": "verified",
+      "claim": "The HIG distinguishes standard materials from Liquid Glass and documents regular/clear variants, contextual contrast and accessibility preferences; it does not establish the removed slider claim.",
+      "source": "https://developer.apple.com/tutorials/data/design/human-interface-guidelines/materials.json",
+      "locator": "Liquid Glass / choosing a variant / accessibility and platform considerations",
+      "release_qualifier": "Current published design guidance; not a claim of specific new OS 27 rendering internals",
+      "affected_paths": [
+        "human-interface-guidelines/foundations/materials.md",
+        "liquid-glass/adopting-liquid-glass.md"
+      ],
+      "checked_on": "2026-09-08",
+      "source_published_on": null,
+      "source_snapshot_url": "https://developer.apple.com/tutorials/data/design/human-interface-guidelines/materials.json"
+    },
+    {
+      "id": "reality-composer-pro-host",
+      "status": "verified",
+      "claim": "Reality Composer Pro beta 5 is a standalone app requiring Apple silicon and macOS Tahoe 26.5+; its Asset Generation feature separately requires macOS 27.",
+      "source": "https://developer.apple.com/documentation/realitycomposerpro/reality-composer-pro-beta-5-release-notes.md",
+      "locator": "Overview; General / Known Issues / 178159978",
+      "release_qualifier": "Reality Composer Pro 3 beta 5",
+      "affected_paths": [
+        "documentation/RealityComposerPro.md"
+      ],
+      "checked_on": "2026-09-08",
+      "source_published_on": null,
+      "source_snapshot_url": "https://developer.apple.com/documentation/realitycomposerpro/reality-composer-pro-beta-5-release-notes.md"
+    },
+    {
+      "id": "gaussian-splat-platform-status",
+      "status": "unverified",
+      "claim": "The iOS/iPadOS and macOS 27 beta 8 notes each simultaneously describe the Gaussian Splat Component API as upcoming (178061856) and a splat-rendering defect as resolved (183538823). Those statements, differing platform notes and symbol annotations do not establish uniform runtime availability or unavailability.",
+      "source": "https://developer.apple.com/documentation/realitykit/gaussiansplatcomponent",
+      "locator": "Symbol availability; iOS/iPadOS and macOS RealityKit / New Features / 178061856 versus Gaussian Splats / Resolved Issues / 183538823; visionOS Gaussian Splats section",
+      "release_qualifier": "OS 27 beta 8",
+      "affected_paths": [
+        "documentation/RealityKit.md",
+        "documentation/CompositorServices.md",
+        "documentation/Metal.md"
+      ],
+      "checked_on": "2026-09-08",
+      "source_published_on": null,
+      "unresolved_question": "Which exact SDK/platform/build combinations support the planned splat workflow at runtime?",
+      "action": "Preserve the documented discrepancy or unknown; do not invent a uniform availability or removal rule.",
+      "additional_sources": [
+        "https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes.md",
+        "https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes.md",
+        "https://developer.apple.com/documentation/visionos-release-notes/visionos-27-release-notes"
+      ]
+    },
+    {
+      "id": "routing-catalyst-conflict",
+      "status": "unverified",
+      "claim": "The media-routing guide and framework/type Catalyst metadata disagree; the references preserve the conflict instead of promising Catalyst deployment.",
+      "source": "https://developer.apple.com/documentation/avsystemrouting/routing-and-streaming-media-to-remote-devices",
+      "locator": "Supported-platform prose versus framework/type availability",
+      "release_qualifier": "AVSystemRouting and MediaDevice OS 27 beta",
+      "affected_paths": [
+        "documentation/AVSystemRouting.md",
+        "documentation/MediaDevice.md",
+        "documentation/AVRouting.md"
+      ],
+      "checked_on": "2026-09-08",
+      "source_published_on": null,
+      "unresolved_question": "Does the shipping routing/provider workflow support Mac Catalyst despite the guide's exclusion?",
+      "action": "Preserve the documented discrepancy or unknown; do not invent a uniform availability or removal rule.",
+      "additional_sources": [
+        "https://developer.apple.com/tutorials/data/documentation/avsystemrouting/avsystemroutecontroller-18ns8.json",
+        "https://developer.apple.com/tutorials/data/documentation/mediadevice/mediadeviceextension.json"
+      ]
+    },
+    {
+      "id": "appmigration-minimum-discrepancy",
+      "status": "unverified",
+      "claim": "AppMigrationKit framework/entitlement and protocol introduction versions differ in the published sources; no uniform OS 27-only minimum is inferred.",
+      "source": "https://developer.apple.com/documentation/appmigrationkit",
+      "locator": "Framework versus individual protocol availability",
+      "release_qualifier": "Existing OS 26-generation framework, reviewed during OS 27 preparation",
+      "affected_paths": [
+        "documentation/AppMigrationKit.md"
+      ],
+      "checked_on": "2026-09-08",
+      "source_published_on": null,
+      "unresolved_question": "Confirm the exact selected protocol and entitlement minimum in the deployment SDK before shipping.",
+      "action": "Preserve the documented discrepancy or unknown; do not invent a uniform availability or removal rule."
+    },
+    {
+      "id": "unverified-design-tool-branding",
+      "status": "unverified",
+      "claim": "The accessed official product pages did not establish the formerly repeated Icon Composer 2 and SF Symbols 8 branding.",
+      "source": "https://developer.apple.com/icon-composer/",
+      "locator": "Published product name",
+      "release_qualifier": "September 8, 2026 source review",
+      "affected_paths": [
+        "human-interface-guidelines/foundations/app-icons.md",
+        "human-interface-guidelines/foundations/sf-symbols.md",
+        "figma/README.md"
+      ],
+      "checked_on": "2026-09-08",
+      "source_published_on": null,
+      "unresolved_question": "Is there a dated official release establishing those specific versioned tool names?",
+      "action": "Preserve the documented discrepancy or unknown; do not invent a uniform availability or removal rule.",
+      "additional_sources": [
+        "https://developer.apple.com/sf-symbols/"
+      ]
+    },
+    {
+      "id": "unverified-c-attribute",
+      "status": "unverified",
+      "claim": "The former Swift 6.4 @C attribute claim was not established by the reviewed release changelog and was removed from confirmed feature lists.",
+      "source": "https://raw.githubusercontent.com/swiftlang/swift/release/6.4.x/CHANGELOG.md",
+      "locator": "Swift 6.4 feature inventory",
+      "release_qualifier": "Exact attribute spelling and implementation status not established",
+      "affected_paths": [
+        "documentation/Swift.md"
+      ],
+      "checked_on": "2026-09-08",
+      "source_published_on": null,
+      "unresolved_question": "What exact published proposal, compiler version and spelling support the intended C-interoperability claim?",
+      "action": "Preserve the documented discrepancy or unknown; do not invent a uniform availability or removal rule.",
+      "source_snapshot_url": "https://raw.githubusercontent.com/swiftlang/swift/release/6.4.x/CHANGELOG.md"
+    },
+    {
+      "id": "xcode27-universal-builds",
+      "status": "verified",
+      "claim": "The macOS 27 SDK supports universal-app back-deployment to macOS 12+; ARCHS_STANDARD omits x86_64 by default for minimum targets of macOS 27 or DriverKit 27, with explicit ARCHS customization still possible.",
+      "source": "https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md",
+      "locator": "Intel Deprecation / 161837535 and 162138432",
+      "release_qualifier": "Xcode 27 beta; target architectures are separate from IDE host eligibility",
+      "affected_paths": [
+        "documentation/Xcode.md",
+        "documentation/apple-silicon.md",
+        "guides/os27-migration.md"
+      ],
+      "checked_on": "2026-09-08",
+      "source_published_on": null,
+      "source_snapshot_url": "https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md"
+    },
+    {
+      "id": "pcc-access-eligibility",
+      "status": "verified",
+      "claim": "Managed PCC access requires App Store Small Business Program enrollment, fewer than two million first-time App Store downloads for any individual app, and an assigned entitlement; this is not a combined portfolio-download threshold. Testing installs are excluded. If an app subsequently exceeds the threshold or enrollment ends, Apple notifies the developer and requires migration to an alternative within six months.",
+      "source": "https://developer.apple.com/private-cloud-compute/",
+      "locator": "Eligibility requirements and subsequent threshold/enrollment-loss paragraph",
+      "release_qualifier": "Conditional developer service access; neither SDK availability nor a no-cloud-API-cost offer establishes eligibility",
+      "affected_paths": [
+        "guides/private-cloud-compute.md",
+        "os27-intro/Program.md"
+      ],
+      "checked_on": "2026-09-08",
+      "source_published_on": null,
+      "source_snapshot_url": "https://developer.apple.com/private-cloud-compute/"
+    },
+    {
+      "id": "eu-web-unified-terms-transition",
+      "status": "verified",
+      "claim": "The checked EU Web Distribution page schedules the unified-terms transition for October 1, 2026. For the described agreement switch, unified terms apply on that date or the acceptance date, whichever is later; previously accrued obligations remain.",
+      "source": "https://developer.apple.com/support/web-distribution-eu/",
+      "locator": "Transition to the unified EU terms",
+      "release_qualifier": "Announced future transition at the September 8, 2026 cutoff; not already-effective universal terms",
+      "affected_paths": [
+        "guides/regional-distribution.md"
+      ],
+      "checked_on": "2026-09-08",
+      "source_published_on": null,
+      "source_snapshot_url": "https://developer.apple.com/support/web-distribution-eu/"
+    }
+  ]
+}

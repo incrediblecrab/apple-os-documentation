@@ -10,11 +10,17 @@ Core Haptics lets you add customized haptic and audio feedback to your app. Use 
 
 Your app can play custom haptic patterns crafted from basic building blocks called haptic events (CHHapticEvent). Events can be transient, like the feedback you get from toggling a switch, or continuous, like the vibration or sound from a ringtone. You can use transient and continuous patterns independently, or build your pattern from precise combinations of the two. Another type of haptic event allows you to play customized audio content as part of your pattern.
 
+## Hardware and recovery
+
+Check `CHHapticEngine.capabilitiesForHardware().supportsHaptics` before offering device haptics. Apple's [preparation guide](https://developer.apple.com/documentation/corehaptics/preparing-your-app-to-play-haptics) identifies iPad, iPod touch, and Apple Vision Pro as devices without this haptic support; framework availability does not imply a built-in actuator. Provide audio or visual alternatives, and evaluate a connected game controller's haptics separately.
+
+Engine stoppage is a normal lifecycle event. After a media-server reset, restart the engine when appropriate, reregister custom audio resources, and recreate pattern players. Restarting can still fail, so retain a nonhaptic path.
+
 ## Topics
 
 ### Essentials
-- [Preparing your app to play haptics](https://developer.apple.com/documentation/corehaptics/preparing_your_app_to_play_haptics) - Set up your app to play haptics.
-- [Playing a single-tap haptic pattern](https://developer.apple.com/documentation/corehaptics/playing_a_single-tap_haptic_pattern) - Create and play a transient haptic pattern from a dictionary literal inline.
+- [Preparing your app to play haptics](https://developer.apple.com/documentation/corehaptics/preparing-your-app-to-play-haptics) - Set up your app to play haptics.
+- [Playing a single-tap haptic pattern](https://developer.apple.com/documentation/corehaptics/playing-a-single-tap-haptic-pattern) - Create and play a transient haptic pattern from a dictionary literal inline.
 - **class CHHapticEngine** - An object that represents the connection to the haptic server.
 - **class CHHapticPattern** - An object representing a haptic waveform.
 - **protocol CHHapticPatternPlayer** - A protocol that defines a standard pattern player capable of playing haptic patterns with fixed parameters.
@@ -23,9 +29,9 @@ Your app can play custom haptic patterns crafted from basic building blocks call
 ### Programmatic haptics
 You can synthesize haptics by configuring parameters like haptic intensity and sharpness. Event parameters define the initial state, while dynamic parameters change the pattern during playback.
 
-- [Delivering Rich App Experiences with Haptics](https://developer.apple.com/documentation/corehaptics/delivering_rich_app_experiences_with_haptics) - Enhance your app's experience by incorporating haptic and sound feedback into key interactive moments.
-- [Playing Collision-Based Haptic Patterns](https://developer.apple.com/documentation/corehaptics/playing_collision-based_haptic_patterns) - Play a custom haptic pattern whose strength depends on an object's collision speed.
-- [Updating Continuous and Transient Haptic Parameters in Real Time](https://developer.apple.com/documentation/corehaptics/updating_continuous_and_transient_haptic_parameters_in_real_time) - Generate continuous and transient haptic patterns in response to user touch.
+- [Delivering Rich App Experiences with Haptics](https://developer.apple.com/documentation/corehaptics/delivering-rich-app-experiences-with-haptics) - Enhance your app's experience by incorporating haptic and sound feedback into key interactive moments.
+- [Playing Collision-Based Haptic Patterns](https://developer.apple.com/documentation/corehaptics/playing-collision-based-haptic-patterns) - Play a custom haptic pattern whose strength depends on an object's collision speed.
+- [Updating Continuous and Transient Haptic Parameters in Real Time](https://developer.apple.com/documentation/corehaptics/updating-continuous-and-transient-haptic-parameters-in-real-time) - Generate continuous and transient haptic patterns in response to user touch.
 - **class CHHapticEvent** - An object that describes a single haptic or audio event.
 - **class CHHapticEventParameter** - A static parameter value that represents a single property of the haptic pattern.
 - **class CHHapticDynamicParameter** - A value that you send to a haptic pattern player to alter a property value during playback.
@@ -34,11 +40,11 @@ You can synthesize haptics by configuring parameters like haptic intensity and s
 ### File-based haptics
 Apple Haptic and Audio Pattern (AHAP) files are a JSON-like representation of synced haptics and audio that you can load and play from disk.
 
-- [Playing a Custom Haptic Pattern from a File](https://developer.apple.com/documentation/corehaptics/playing_a_custom_haptic_pattern_from_a_file) - Sample predesigned Apple Haptic Audio Pattern files, and learn how to play your own.
-- [Representing haptic patterns in AHAP files](https://developer.apple.com/documentation/corehaptics/representing_haptic_patterns_in_ahap_files) - Understand the Apple Haptic and Audio Pattern (AHAP) file format.
+- [Playing a Custom Haptic Pattern from a File](https://developer.apple.com/documentation/corehaptics/playing-a-custom-haptic-pattern-from-a-file) - Sample predesigned Apple Haptic Audio Pattern files, and learn how to play your own.
+- [Representing haptic patterns in AHAP files](https://developer.apple.com/documentation/corehaptics/representing-haptic-patterns-in-ahap-files) - Understand the Apple Haptic and Audio Pattern (AHAP) file format.
 
 ### Game controller haptics
-- [Playing Haptics on Game Controllers](https://developer.apple.com/documentation/corehaptics/playing_haptics_on_game_controllers) - Add haptic feedback to supported game controllers by using Core Haptics.
+- [Playing Haptics on Game Controllers](https://developer.apple.com/documentation/corehaptics/playing-haptics-on-game-controllers) - Add haptic feedback to supported game controllers by using Core Haptics.
 
 ### Haptic errors
 - **let CoreHapticsErrorDomain: String** - A string representation of the haptic error domain.
@@ -53,7 +59,5 @@ Apple Haptic and Audio Pattern (AHAP) files are a JSON-like representation of sy
 - **typealias CHHapticAudioResourceKey** - A type alias for a key that identifies the playback behavior of an audio resource.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/CoreHaptics)*

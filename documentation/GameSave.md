@@ -10,6 +10,14 @@ GameSave uses iCloud Drive to synchronize your application's save data across de
 
 **Important:** For GameSave to store the game data in the player's iCloud account, you need to provide an identifier for the iCloud container that stores the data. Add the iCloud capability to your project and select the iCloud Documents checkbox. For more information, see Configuring iCloud services.
 
+## Save-data integration
+
+GameSave was introduced before OS 27 and is not listed for tvOS or watchOS. Use it for player-created save files, not for distributing game levels, textures, or other downloadable application assets.
+
+Follow the directory lifecycle in [GameSaveSyncedDirectory](https://developer.apple.com/documentation/gamesave/gamesavesynceddirectory), and configure the iCloud container as described in the [framework overview](https://developer.apple.com/documentation/gamesave). Game Center authentication is not evidence that iCloud Drive synchronization is available.
+
+Test offline play, local-only saving when signed out, conflicting saves from multiple devices, and recovery after synchronization resumes. Present a deliberate conflict-resolution experience rather than silently assuming that the newest local file is always the desired save.
+
 ## Topics
 
 ### Synced Directory (Objective-C)
@@ -22,7 +30,5 @@ GameSave uses iCloud Drive to synchronize your application's save data across de
 - **GameSaveErrorDomain** - The error domain for GameSave framework errors.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/GameSave)*

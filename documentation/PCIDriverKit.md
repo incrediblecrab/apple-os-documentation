@@ -18,10 +18,10 @@ On macOS, use the System Extensions framework to install and upgrade your driver
 - **com.apple.developer.driverkit.transport.pci** - An array of PCI device descriptors that your custom driver supports.
 
 ### Sample Code
-- [DriverKit sample code](https://developer.apple.com/documentation/driverkit/driverkit_sample_code) - Explore projects that demonstrate how to write macOS device drivers with the DriverKit family of frameworks.
+- [DriverKit sample code](https://developer.apple.com/documentation/driverkit/driverkit-sample-code) - Explore projects that demonstrate how to write macOS device drivers with the DriverKit family of frameworks.
 
 ### Device Interface
-- [Creating Custom PCIe Drivers for Thunderbolt Devices](https://developer.apple.com/documentation/pcidriverkit/creating_custom_pcie_drivers_for_thunderbolt_devices) - Create a DriverKit extension to support your Thunderbolt device's custom features.
+- [Creating Custom PCIe Drivers for Thunderbolt Devices](https://developer.apple.com/documentation/pcidriverkit/creating-custom-pcie-drivers-for-thunderbolt-devices) - Create a DriverKit extension to support your Thunderbolt device's custom features.
 - **IOPCIDevice** - A DriverKit provider object that manages access to your custom PCI hardware.
 
 ### Reference
@@ -94,7 +94,5 @@ On macOS, use the System Extensions framework to install and upgrade your driver
 - **kIOPCISlotStatusPresenceDetectState**
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/PCIDriverKit)*

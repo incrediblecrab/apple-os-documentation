@@ -56,24 +56,24 @@ Apple designs ad attribution APIs to help maintain user privacy. Apps don't need
 ## Topics
 
 ### Essentials
-- [Understanding AdAttributionKit and SKAdNetwork interoperability](https://developer.apple.com/documentation/adattributionkit/understanding_adattributionkit_and_skadnetwork_interoperability) - Learn how attribution APIs interact to deliver ad impressions.
-- [Presenting ads in your app](https://developer.apple.com/documentation/adattributionkit/presenting_ads_in_your_app) - Render different ad styles in your app.
-- [Receiving ad attributions and postbacks](https://developer.apple.com/documentation/adattributionkit/receiving_ad_attributions_and_postbacks) - Understand timeframes and priorities for ad impressions that result in ad attributions, and how impressions qualify for postbacks.
-- [Identifying conversion values with conversion tags](https://developer.apple.com/documentation/adattributionkit/identifying_conversion_values_with_conversion_tags) - Use conversion tags to identify and update specific postbacks when you have overlapping conversion windows.
+- [Understanding AdAttributionKit and SKAdNetwork interoperability](https://developer.apple.com/documentation/adattributionkit/adattributionkit-skadnetwork-interoperability) - Learn how attribution APIs interact to deliver ad impressions.
+- [Presenting ads in your app](https://developer.apple.com/documentation/adattributionkit/presenting-ads-in-your-app) - Render different ad styles in your app.
+- [Receiving ad attributions and postbacks](https://developer.apple.com/documentation/adattributionkit/receiving-ad-attributions-and-postbacks) - Understand timeframes and priorities for ad impressions that result in ad attributions, and how impressions qualify for postbacks.
+- [Identifying conversion values with conversion tags](https://developer.apple.com/documentation/adattributionkit/conversion-tags) - Use conversion tags to identify and update specific postbacks when you have overlapping conversion windows.
 
 ### Ad network registration and configuration
-- [Registering an ad network](https://developer.apple.com/documentation/adattributionkit/registering_an_ad_network) - Use the AdAttributionKit APIs for your ad campaigns after registering your ad network with Apple.
-- [Configuring a publisher app](https://developer.apple.com/documentation/adattributionkit/configuring_a_publisher_app) - Set up a publisher app to participate in ad campaigns.
-- [Configuring an advertised app](https://developer.apple.com/documentation/adattributionkit/configuring_an_advertised_app) - Prepare an advertised app to participate in ad campaigns.
-- [Configuring attribution rules for your app](https://developer.apple.com/documentation/adattributionkit/configuring_attribution_rules_for_your_app) - Tune aspects of attribution flow, including the time available to register impressions and the minimum time your app is willing to accept conversions.
+- [Registering an ad network](https://developer.apple.com/documentation/adattributionkit/registering-an-ad-network) - Use the AdAttributionKit APIs for your ad campaigns after registering your ad network with Apple.
+- [Configuring a publisher app](https://developer.apple.com/documentation/adattributionkit/configuring-a-publisher-app) - Set up a publisher app to participate in ad campaigns.
+- [Configuring an advertised app](https://developer.apple.com/documentation/adattributionkit/configuring-an-advertised-app) - Prepare an advertised app to participate in ad campaigns.
+- [Configuring attribution rules for your app](https://developer.apple.com/documentation/adattributionkit/configuring-attribution-rules-for-your-app) - Tune aspects of attribution flow, including the time available to register impressions and the minimum time your app is willing to accept conversions.
 
 ### Ad attribution testing
-- [Testing ad attributions with Developer Mode](https://developer.apple.com/documentation/adattributionkit/testing_ad_attributions_with_developer_mode) - Reduce the time-window for ad attributions and inspect postbacks using a proxy during testing.
-- [Creating postbacks in developer settings](https://developer.apple.com/documentation/adattributionkit/creating_postbacks_in_developer_settings) - Test development postbacks for your advertised app without interacting with ads from a publisher app.
-- [Testing ad attributions with a downloaded profile](https://developer.apple.com/documentation/adattributionkit/testing_ad_attributions_with_a_downloaded_profile) - Reduce the time-window for ad attributions and inspect postbacks using a proxy during testing.
+- [Testing ad attributions with Developer Mode](https://developer.apple.com/documentation/adattributionkit/testing-adattributionkit-with-developer-mode) - Reduce the time-window for ad attributions and inspect postbacks using a proxy during testing.
+- [Creating postbacks in developer settings](https://developer.apple.com/documentation/adattributionkit/creating-postbacks-in-developer-settings) - Test development postbacks for your advertised app without interacting with ads from a publisher app.
+- [Testing ad attributions with a downloaded profile](https://developer.apple.com/documentation/adattributionkit/testing-ad-attributions-with-a-downloaded-profile) - Reduce the time-window for ad attributions and inspect postbacks using a proxy during testing.
 
 ### Signatures
-- [Generating JWS impressions](https://developer.apple.com/documentation/adattributionkit/generating_jws_impressions) - Create a JSON Web Signature (JWS) for use with app impressions in AdAttributionKit.
+- [Generating JWS impressions](https://developer.apple.com/documentation/adattributionkit/generating-jws-impressions) - Create a JSON Web Signature (JWS) for use with app impressions in AdAttributionKit.
 
 ### App impressions
 - **AppImpression** - A structure that represents an attributable impression the developer generates in response to a person's interaction with an ad in an app.
@@ -84,17 +84,15 @@ Apple designs ad attribution APIs to help maintain user privacy. Apps don't need
 - **CoarseConversionValue** - Values that describe developer-defined, relative-attribution conversion values.
 
 ### Postback verification and parameter identification
-- [Verifying a postback](https://developer.apple.com/documentation/adattributionkit/verifying_a_postback) - Ensure the validity of a postback you receive after an ad conversion by verifying its cryptographic signature.
-- [Identifying the parameters in a postback](https://developer.apple.com/documentation/adattributionkit/identifying_the_parameters_in_a_postback) - Interpret postback properties to understand the attribution report.
+- [Verifying a postback](https://developer.apple.com/documentation/adattributionkit/verifying-a-postback) - Ensure the validity of a postback you receive after an ad conversion by verifying its cryptographic signature.
+- [Identifying the parameters in a postback](https://developer.apple.com/documentation/adattributionkit/identifying-the-parameters-in-a-postback) - Interpret postback properties to understand the attribution report.
 
 ### Errors
 - **AdAttributionKitError** - Values that describe ad attribution error conditions.
 
 ### Articles
-- [Receiving postbacks in multiple conversion windows](https://developer.apple.com/documentation/adattributionkit/receiving_postbacks_in_multiple_conversion_windows) - Learn about the data that postbacks can contain in each conversion window.
+- [Receiving postbacks in multiple conversion windows](https://developer.apple.com/documentation/adattributionkit/receiving-postbacks-in-multiple-conversion-windows) - Learn about the data that postbacks can contain in each conversion window.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/AdAttributionKit)*

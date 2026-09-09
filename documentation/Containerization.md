@@ -2,162 +2,84 @@
 
 Run Linux containers on macOS using lightweight virtual machines optimized for Apple silicon.
 
-**Platforms:** macOS 26.0+ (Apple Silicon only)
+**Platforms:** macOS 26.0+ for the documented Mac workflow; Apple silicon required
+
+**Status:** Open-source Swift package, not an OS 27 SDK framework. Reviewed at source revisions available September 8, 2026.
 
 ## Overview
 
-Containerization is an open-source Swift framework that enables native Linux container support on macOS. Unlike traditional containerization solutions that run multiple containers within a single large virtual machine, Apple's approach runs each Linux container inside its own lightweight virtual machine, providing hardware-level isolation with sub-second startup times.
+The `apple/containerization` Swift package supplies low-level Linux-container, image, filesystem, and process-management components. On Mac it uses Virtualization.framework and runs each container in its own lightweight Linux VM.
 
-The framework eliminates the need for third-party tools like Docker by providing a native, Swift-based solution optimized for Apple silicon and integrated with macOS 26's enhanced virtualization capabilities.
+The separate `apple/container` project builds a command-line application on that package. Library APIs, the `cctl` development executable, and commands provided by the `container` application are different interfaces. Do not assume Docker CLI or Docker Engine API compatibility merely because they can consume OCI images.
 
-## Key Features
+## Projects and responsibilities
 
-### Hardware-Level Isolation
-Each Linux container runs inside its own lightweight VM, providing stronger security guarantees than traditional namespace-based container runtimes. This hypervisor-isolated approach is a from-scratch implementation optimized for Apple Silicon.
+| Project | Use it for |
+| --- | --- |
+| [apple/containerization](https://github.com/apple/containerization) | Embedding the Swift libraries for OCI images, registries, ext4 filesystems, virtual machines, and containerized processes. |
+| [apple/container](https://github.com/apple/container) | Installing and using the `container` CLI, including its service, image, run, and build commands. |
 
-### Sub-Second Startup
-Despite running containers in individual VMs, the framework achieves sub-second startup times through:
-- **Optimized Linux Kernel** - Minimal, purpose-built kernel configuration
-- **EXT4 Block Devices** - Container filesystems exposed as formatted EXT4 block devices
-- **Apple Silicon Optimization** - Native ARM64 performance with hardware virtualization
+Containerization's Mac architecture includes an optimized Linux kernel, ext4-backed storage, and `vminitd`, a guest init process that manages processes and communicates with the host over vsock. The upstream README describes sub-second startup as a design characteristic, not a latency guarantee for every image, download, or workload.
 
-### OCI Compatibility
-The framework produces and consumes OCI-compatible container images, enabling:
-- Pull and run images from any standard container registry
-- Push locally-built images to registries
-- Run images in any OCI-compatible application
+OCI compatibility concerns image formats and registry interaction. It does not guarantee that an image's architecture, required kernel features, privileges, or host integrations are supported.
 
-> **macOS Golden Gate 27+:** Requires Apple silicon, which is now the only macOS 27 configuration. macOS 27 is the last release with full Rosetta 2 support, so any Intel-only image tooling in your container workflow needs a native replacement. See [Apple Silicon](apple-silicon.md).
+The checked upstream revision also documents a Linux backend using cloud-hypervisor and KVM. That is a separate host setup; this page's Mac requirements and example do not describe that backend.
 
 ## Topics
 
-### Essentials
+### Library integration
 
-- [Meet Containerization](https://developer.apple.com/videos/play/wwdc2025/346/) - WWDC 2025 introduction video
-- **Containerization** - Swift package for running Linux containers on macOS
-- **Container CLI** - Command-line tool for creating and managing containers
+- [Package API documentation](https://apple.github.io/containerization/documentation/) — Products and public types.
+- [OCI image operations in `cctl`](https://github.com/apple/containerization/blob/9eacc197d7c3663eb29cbab6d51244ede6d1cd7d/Sources/cctl/ImageCommand.swift) — A checked example of image-store and registry operations.
+- [Container lifecycle in `cctl`](https://github.com/apple/containerization/blob/9eacc197d7c3663eb29cbab6d51244ede6d1cd7d/Sources/cctl/RunCommand.swift) — A checked example that prepares the image and root filesystem, creates a container, and starts it.
+- [LinuxContainer](https://github.com/apple/containerization/blob/9eacc197d7c3663eb29cbab6d51244ede6d1cd7d/Sources/Containerization/LinuxContainer.swift) — Library implementation for a container's VM lifecycle.
+- [LinuxProcess](https://github.com/apple/containerization/blob/9eacc197d7c3663eb29cbab6d51244ede6d1cd7d/Sources/Containerization/LinuxProcess.swift) — Containerized process management.
 
-### Architecture Components
-
-**vminitd Init System**
-A Swift-built init system that runs as the first process in each virtual machine. Handles critical tasks including:
-- IP address assignment
-- Filesystem mounting
-- Process supervision
-
-vminitd runs in an extremely constrained environment with no core utilities, dynamic libraries, or libc implementation to minimize attack surface.
-
-**Virtualization.framework Integration**
-Containerization leverages macOS's Virtualization.framework to create and manage lightweight VMs with hardware acceleration on Apple silicon.
-
-**Static Linux SDK**
-Uses Swift's Static Linux SDK to cross-compile static Linux binaries directly from macOS, utilizing musl for excellent static linking support.
-
-### Container Operations
-
-- **Creating containers** - Build container images from Dockerfiles or scratch
-- **Running containers** - Execute containers with resource limits and networking
-- **Managing images** - Pull, push, and manage OCI-compatible images
-- **Networking** - Configure container networking and port forwarding
-- **Volume mounting** - Share files between host and container
-
-### Security Model
-
-The framework provides multiple layers of security:
-
-- **VM Isolation** - Each container runs in its own virtual machine
-- **Minimal Attack Surface** - vminitd contains no unnecessary components
-- **Hardware Security** - Leverages Apple silicon's hardware virtualization features
-- **Sandboxing** - Containers operate in isolated environments
+Select a real package release and consult the examples for that revision. The package is under active development and may change source interfaces between minor releases. Use the checked lifecycle examples rather than assuming a single-call pull-and-run Swift API.
 
 ## Requirements
 
 | Requirement | Details |
 |-------------|---------|
-| **Hardware** | Mac with Apple silicon (M1 or later) |
-| **Operating System** | macOS 26.0 or later |
-| **Xcode** | Xcode 26 or later (for development) |
+| **Mac hardware** | Apple silicon; an Intel Mac is not a supported Mac host for these projects. |
+| **Mac operating system** | Upstream documents macOS 26 support and does not support older macOS releases. Validate newer beta hosts with the selected release. |
+| **Library build tools** | The checked Containerization README specifies Xcode 26; its package manifest uses Swift tools version 6.2. Follow that revision's build instructions. |
+| **Using Xcode 27 beta 6** | Xcode requires macOS Tahoe 26.4 or later. It does not require a macOS 27 host. |
 
-> **Note:** Intel-based Macs are not supported. The framework requires Apple silicon's hardware virtualization capabilities.
+The pinned `Package.swift` declares a macOS 15 deployment floor for package products. That compilation setting is different from the README's supported macOS 26 Mac workflow; it does not establish support for running the complete container stack on macOS 15.
 
-## Getting Started
+Running `linux/amd64` applications in an ARM Linux VM is not equivalent to running an Intel host or guest kernel. On the supported macOS 26 workflow, handle Rosetta availability and installation separately from VM support. **macOS 27 includes Intel Linux translation directly:** Apple's Virtualization guide says the Rosetta-named availability API returns `.installed` and installation completes immediately. The directory-share and guest-runtime setup still apply.
 
-### Installation
+The macOS 27 release-note warning about Rosetta not being restored on upgrade concerns the separate macOS-app translation path; do not treat it as a requirement to install Rosetta for Linux containers on 27.
 
-The Containerization framework is available as a Swift package:
+## CLI example
 
-```swift
-// Package.swift
-dependencies: [
-    .package(url: "https://github.com/apple/containerization.git", from: "1.0.0")
-]
-```
-
-### Basic Usage
-
-```swift
-import Containerization
-
-// Pull and run a container image
-let container = try await Container.pull("alpine:latest")
-try await container.run(command: ["echo", "Hello from container"])
-```
-
-### Container CLI
-
-For command-line usage, the `container` CLI tool provides Docker-like commands:
+After installing the **separate `container` application** from its official releases, its checked README demonstrates:
 
 ```bash
-# Pull an image
-container pull alpine:latest
-
-# Run a container
-container run alpine:latest echo "Hello, World!"
-
-# Build an image
-container build -t myapp:latest .
-
-# Push to registry
-container push myapp:latest registry.example.com/myapp:latest
+container system start
+container run --rm alpine echo hello
 ```
 
-## Comparison with Docker
+The run command pulls the image if necessary, starts a Linux VM, executes the command, and removes the container after exit. It requires working image access and a usable local service; it is not Swift library code. For other operations, use the [checked CLI command reference](https://github.com/apple/container/blob/9a8917ca2da5cd6ba059b9ba5ca5a74892e9bb7d/docs/command-reference.md).
 
-| Feature | Containerization | Docker Desktop |
-|---------|------------------|----------------|
-| **Isolation** | VM per container | Shared VM |
-| **Startup Time** | Sub-second | Seconds |
-| **Native Integration** | macOS native | Third-party |
-| **Language** | Swift | Go |
-| **Open Source** | Yes | Partial |
-| **Apple Silicon** | Optimized | Supported |
+## Resource access and failures
 
-## Open Source
+VM isolation does not make images trustworthy or remove the impact of shared files and network access. Grant only the host mounts and connectivity the workload needs. Keep credentials out of images and diagnostic output.
 
-Containerization is fully open-source under the Apache 2.0 license:
+Handle registry authorization failures, missing images or kernels, unsupported image architectures, storage exhaustion, VM startup failures, and process exit status. Clean up only resources owned by the failed operation, preserving user data and unrelated containers.
 
-- **Framework**: [github.com/apple/containerization](https://github.com/apple/containerization)
-- **CLI Tool**: [github.com/apple/container](https://github.com/apple/container)
+An embedded Mac VM implementation still needs the appropriate [Virtualization entitlement](https://developer.apple.com/documentation/virtualization/adding-the-virtualization-entitlement-to-your-project); installing the CLI is not a substitute for configuring the embedding app.
 
 ## Related Frameworks
 
-- [Virtualization](https://developer.apple.com/documentation/virtualization) - Create virtual machines on Apple silicon
+- [Virtualization](Virtualization.md) - High-level VM configuration and lifecycle.
 - [Hypervisor](https://developer.apple.com/documentation/hypervisor) - Low-level virtualization APIs
-- [Foundation](https://developer.apple.com/documentation/foundation) - Core system framework
 
-## Developer Documentation
+## Sources
 
-- [Containerization Framework](https://developer.apple.com/documentation/containerization) - API reference
-- [Virtualization Framework](https://developer.apple.com/documentation/virtualization) - VM management
-- [Swift Package Manager](https://developer.apple.com/documentation/xcode/swift-packages) - Package integration
-
-## Videos
-
-- [Meet Containerization](https://developer.apple.com/videos/play/wwdc2025/346/) - WWDC 2025 introduction
-- [What's new in Virtualization](https://developer.apple.com/videos/play/wwdc2025/10132/) - macOS 26 virtualization updates
-
----
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
-
-*Source: [Apple Developer Documentation](https://developer.apple.com/documentation/containerization) | [GitHub](https://github.com/apple/containerization)*
+- [Containerization README at September 8 cutoff](https://github.com/apple/containerization/blob/9eacc197d7c3663eb29cbab6d51244ede6d1cd7d/README.md)
+- [container README at September 8 cutoff](https://github.com/apple/container/blob/9a8917ca2da5cd6ba059b9ba5ca5a74892e9bb7d/README.md)
+- [Xcode 27 beta 6 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md)
+- [Intel Linux translation, including the macOS 27 change](https://developer.apple.com/documentation/virtualization/running-intel-binaries-in-linux-vms)
+- [macOS 27 release notes — Rosetta](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes.md)

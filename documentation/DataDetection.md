@@ -17,31 +17,33 @@ Data detection methods in other frameworks detect common types of data represent
 - Postal addresses
 - Shipment tracking numbers
 
-Use functions, such as those in UIPasteboard, to detect the types of data that you specify in a particular context. For example, find email addresses in a pasteboard using detectValues(for:completionHandler:) as this example shows:
+Detection runs through APIs in other frameworks. This UIKit example counts email-address matches on iOS/iPadOS 15+; it is not a pasteboard API for every platform in the framework header. Invoke it in response to an appropriate user action:
 
 ```swift
-UIPasteboard.general.detectValues(for: [\.emailAddresses]) { [self] result in
-    switch result {
-    case .success(let detectedValues):
-        guard let firstEmailAddressMatch = detectedValues.emailAddresses.first else {
-            return
+import UIKit
+import DataDetection
+
+@MainActor
+func detectEmailAddressCount() {
+    UIPasteboard.general.detectValues(for: [\.emailAddresses]) { result in
+        switch result {
+        case .success(let values):
+            print("Email matches: \(values.emailAddresses.count)")
+        case .failure(let error):
+            print("Detection failed: \(error.localizedDescription)")
         }
-        let newEmailAddress = firstEmailAddressMatch.emailAddress
-        let newLabel = firstEmailAddressMatch.label
-        addNewEmail(for: contact, address: newEmailAddress, label: newLabel)
-    case .failure(let error):
-        print("Error detecting email addresses: \(error.localizedDescription)")
     }
 }
 ```
 
-Then, inspect and use the data from objects that the data detection system returns.
+[`detectValues(for:completionHandler:)`](https://developer.apple.com/documentation/uikit/uipasteboard/detectvalues(for:completionhandler:)-6adre) exposes detected content and can trigger a system pasteboard-read notification. Pattern-only APIs report whether a match exists without exposing the contents and do not trigger that read notification.
 
 ## Topics
 
 ### Matched Strings
 - **DDMatch** - A base class for common types of data that the data detection system matches.
-- **DataDetector** - An extension to the string protocol that scans strings for semantic entities, such as email addresses, phone numbers, URLs, and flight information.
+- [`DataDetector`](https://developer.apple.com/documentation/datadetection/datadetector) - A namespace enum for string-scanning match types and options, used by `StringProtocol.dataDetectorMatches(_:options:)`. Requires version 26 on supported platforms, unlike the original `DDMatch` APIs.
+
 ### Matched Data Types
 - **DDMatchCalendarEvent** - An object that represents a calendar date or date range that the data detection system matches.
 - **DDMatchEmailAddress** - An object that contains an email address that the data detection system matches.
@@ -60,10 +62,8 @@ Then, inspect and use the data from objects that the data detection system retur
 - **detectValues(for keyPaths: Set<PartialKeyPath<UIPasteboard.DetectedValues>>, completionHandler: @escaping (Result<UIPasteboard.DetectedValues, any Error>) -> ())** - Requests that the data detection system identify the types of data that you specify for the pasteboard, and provide the values that it matches to your closure.
 - **detectedValues(for keyPaths: Set<PartialKeyPath<UIPasteboard.DetectedValues>>) async throws -> UIPasteboard.DetectedValues** - Requests that the data detection system asynchronously identify the types of values that you specify for the pasteboard, and return the values that it matches.
 - **detectValues(for keyPaths: Set<PartialKeyPath<UIPasteboard.DetectedValues>>, inItemSet itemSet: IndexSet?, completionHandler: @escaping (Result<[UIPasteboard.DetectedValues], any Error>) -> ())** - Requests that the data detection system identify the types of data that you specify for the pasteboard items, and provide the values that it matches to your closure.
-- **detectedValues(for keyPaths: Set<PartialKeyPath<UIPasteboard.DetectedValues>>, inItemSet itemSet: IndexSet?) async throws -> [UIPasteboard.DetectedValues]** - Requests that the data detection system asynchronously identify the types of values that you specify for the pasteboard item, and return the values that it matches for each pasteboard.
+- **detectedValues(for keyPaths: Set<PartialKeyPath<UIPasteboard.DetectedValues>>, inItemSet itemSet: IndexSet?) async throws -> [UIPasteboard.DetectedValues]** - Returns matched values for the selected items within one pasteboard.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/DataDetection)*

@@ -2,11 +2,11 @@
 
 Test the identity of executable code on disk and in running processes.
 
-**Platforms:** iOS 17.4+ | iPadOS 17.4+ | Mac Catalyst 17.4+ | macOS 14.4+
+**Framework catalog:** iOS 17.4+ | iPadOS 17.4+ | Mac Catalyst 17.4+ | macOS 14.4+. The validation functions and `Process` launch workflow below are documented for Mac Catalyst and macOS, not every target that can construct a DSL constraint.
 
 ## Overview
 
-Code that is cryptographically signed carries tamper-proof statements about its identity in its code signature. Construct tests to distinguish different code files using the lightweight code requirement domain-specific language (DSL). Use the tests to distinguish code files on disk, running processes, and processes that the operating system launches. Code files on disk include:
+Code signatures carry cryptographically verifiable statements about code identity. Construct tests to distinguish different code files using the lightweight code requirement domain-specific language (DSL). Use the tests to distinguish code files on disk, running processes, and processes that the operating system launches. Code files on disk include:
 
 - Executable binaries
 - Dynamic or static libraries
@@ -37,8 +37,8 @@ For code signed by an organization or individual other than Apple, the code's id
 
 The lightweight code requirement DSL provides operators that you use to build up complex requirements from individual tests. For example, the operators to construct on-disk code requirements are:
 
-- **anyOf(requirement:)** - true if one or more of its arguments is true; false if all of its arguments are false.
-- **allOf(requirement:)** - true if each of its arguments is true; false if any of its arguments is false.
+- **OnDiskCodeRequirement.anyOf(requirement:)** - Creates a requirement satisfied when at least one supplied constraint matches.
+- **OnDiskCodeRequirement.allOf(requirement:)** - Creates a requirement satisfied when every supplied constraint matches.
 
 ProcessCodeRequirement and LaunchCodeRequirement provide similar operators for building process code requirements and launch requirements.
 
@@ -48,24 +48,29 @@ The anyOf(requirement:) and allOf(requirement:) operators simplify their inputs 
 - If any of the arguments to an anyOf(requirement:) operator are themselves anyOf(requirement:) operators, the arguments to both are merged into a single set of constraints evaluated by the top-level anyOf(requirement:) operator.
 - If any of the arguments to an allOf(requirement:) operator are themselves allOf(requirement:) operators, the arguments to both are merged into a single set of constraints evaluated by the top-level allOf(requirement:) operator.
 
-Both allOf(requirement:) and anyOf(requirement:) throw an error if the simplification results in the same constraint appearing twice in the arguments for one operator, for example, if an anyOf(requirement:) operator contains two tests of InfoPlistHash constraints. The exception to this simplification rule is that multiple EntitlementsQuery tests can appear in the arguments for one operator.
+The static requirement factories throw an error if simplification puts duplicate constraint types in one logical group, such as two InfoPlistHash constraints. Multiple EntitlementsQuery tests are the documented exception. Distinguish these throwing factories from the global `allOf`/`anyOf` helpers used to build nested constraint groups: those helpers themselves are nonthrowing.
 
 ### Test whether a running process satisfies a lightweight code requirement
 
-Create a ProcessCodeRequirement using the DSL and pass it to SecTaskValidateForRequirement(task:requirement:), along with a SecTask representing the running process. If the task's code satisfies the lightweight code requirement, then the function returns true; otherwise, it returns false.
+Create a ProcessCodeRequirement using the DSL and pass it to SecTaskValidateForRequirement(task:requirement:), along with a SecTask representing the running process. It returns true for a match and false for a mismatch, but also throws `ConstraintError` if evaluation cannot be performed. Do not treat that failure as a successful match. This function begins at Mac Catalyst 17.4 and macOS 14.4.
 
 ### Test whether code on disk satisfies a lightweight code requirement
 
 Create an OnDiskCodeRequirement using the DSL and pass it to SecStaticCodeCheckValidityWithOnDiskRequirement(code:flags:requirement:) or SecCodeCheckValidityWithOnDiskRequirement(code:flags:requirement:), depending on whether you construct a SecStaticCode or SecCode to represent the code. Both functions return a ValidationResult indicating whether the code has a valid signature, whether it satisfies the requirement, and any error that occurred.
 
+The `SecStaticCode` function begins at Catalyst 17.4/macOS 14.4; the `SecCode` on-disk function begins at Catalyst 18/macOS 15. Inspect both `signatureIsValid` and `requirementMatched`, with `failureReason` for failure details.
+
 ### Restrict the executables you launch as new processes
 
 Create a LaunchCodeRequirement using the DSL and set it as the launchRequirement on a Process instance, before you call run(). If the executable specified in the process's executableURL satisfies the launch requirement, the kernel launches the process; otherwise, run() throws an error. You can also encode your requirements as launch constraints in property list files that you embed in your executable's code signature to restrict which processes can launch your executable and which dynamic libraries your process can load. For more information, see Applying launch environment and library constraints.
+
+`Process.launchRequirement` begins at Catalyst 17.4 and macOS 14.4. This additional identity constraint is not permission to bypass the process's other launch or sandbox restrictions.
 
 ## Topics
 
 ### Checking code requirements for running processes
 - **SecTaskValidateForRequirement** - Tests whether a task's executable satisfies a lightweight code requirement.
+- **SecCodeCheckValidityWithProcessRequirement** - Checks a running process through `SecCode` and returns `ValidationResult`; Catalyst 18/macOS 15 or later.
 - **ProcessCodeRequirement** - A lightweight code requirement that you use to evaluate a running process.
 - **allOf(requirement:)** - Creates a constraint that requires a running process's executable to satisfy all of the provided constraints.
 - **anyOf(requirement:)** - Creates a constraint that requires a running process's executable to satisfy any of the provided constraints.
@@ -75,7 +80,6 @@ Create a LaunchCodeRequirement using the DSL and set it as the launchRequirement
 - **TeamIdentifierMatchesCurrentProcess** - A constraint that matches if a process has the same team identifier as the calling process.
 
 ### Checking code requirements for launching processes
-- **SecCodeCheckValidityWithProcessRequirement** - Checks whether the code associated with a running process satisfies a lightweight code requirement.
 - **launchRequirement** - A property to set launch requirements on a Process instance.
 - **LaunchCodeRequirement** - A lightweight code requirement that you use to evaluate the executable for a launching process.
 - **allOf(requirement:)** - Creates a constraint that requires a launching process's executable to satisfy all of the provided constraints.
@@ -110,7 +114,5 @@ Create a LaunchCodeRequirement using the DSL and set it as the launchRequirement
 - **ConstraintError** - Error types that can be thrown from lightweight code requirement routines.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/LightweightCodeRequirements)*

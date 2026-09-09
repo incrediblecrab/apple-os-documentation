@@ -12,8 +12,6 @@ In iOS, iPadOS, macOS, and tvOS, people often choose Dark Mode as their default 
 
 ### Best Practices
 
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Liquid Glass now diffuses busy background content more aggressively, adds a subtle darkened edge ring, and renders brighter specular highlights, improving legibility without extra visual noise. People can tune overall translucency with the transparency slider in Settings > Appearance, and the material also responds to Reduce Transparency and Increase Contrast.
-
 **Avoid offering an app-specific appearance setting.** An app-specific appearance mode option creates more work for people because they have to adjust more than one setting to get the appearance they want. Worse, they may think your app is broken because it doesn't respond to their systemwide appearance choice.
 
 **Ensure that your app looks good in both appearance modes.** In addition to using one mode or the other, people can choose the Auto appearance setting, which switches between the light and dark appearances as conditions change throughout the day, potentially while your app is running.
@@ -28,7 +26,7 @@ The color palette in Dark Mode includes dimmer background colors and brighter fo
 
 **Embrace colors that adapt to the current appearance.** Semantic colors (like labelColor and controlColor in macOS or separator in iOS and iPadOS) automatically adapt to the current appearance. When you need a custom color, add a Color Set asset to your app's asset catalog in Xcode, and specify the bright and dim variants of the color. Avoid using hard-coded color values or colors that don't adapt.
 
-**Aim for sufficient color contrast in all appearances.** Using system-defined colors can help you achieve a good contrast ratio between your foreground and background content. At a minimum, make sure the contrast ratio between colors is no lower than 4.5:1. For custom foreground and background colors, strive for a contrast ratio of 7:1, especially in small text. This ratio ensures that your foreground content stands out from the background, and helps your content meet recommended accessibility guidelines.
+**Aim for sufficient color contrast in all appearances.** Using system-defined colors can help you achieve a good contrast ratio between your foreground and background content. Apple's Dark Mode guidance recommends a target of at least 4.5:1, and encourages 7:1 for custom foreground and background colors, especially for small text. These are design targets for this guidance, not a statement that every accessibility criterion uses the same threshold; also check the requirements for the particular text or control.
 
 **Soften the color of white backgrounds.** If you display a content image that includes a white background, consider slightly darkening the image to prevent the background from glowing in the surrounding Dark Mode context.
 
@@ -60,7 +58,7 @@ In Dark Mode, the system uses two sets of background colors — called base and 
 
 **macOS**
 
-When people choose the graphite accent color in General settings, macOS causes window backgrounds to pick up color from the current desktop picture. The result — called desktop tinting — is a subtle effect that helps windows blend more harmoniously with their surrounding content.
+Wallpaper tinting lets colors from the desktop picture subtly tint window areas such as toolbars and status bars. In macOS Tahoe, people control this with **Tint window background with wallpaper style** in [Appearance settings](https://support.apple.com/guide/mac-help/change-appearance-settings-mchlp1225/mac); it isn't a behavior to infer from choosing the graphite accent color.
 
 **Include some transparency in custom component backgrounds when appropriate.** Transparency lets your components pick up color from the window background when desktop tinting is active, creating a visual harmony that can persist even when the desktop picture changes. To help achieve this harmony, add transparency only to a custom component that has a visible background or bezel, and only when the component is in a neutral state, such as state that doesn't use color. You don't want to add transparency when the component is in a state that uses color, because doing so can cause the component's color to fluctuate when the window background adjusts to a different location on the desktop or when the desktop picture changes.
 
@@ -80,7 +78,7 @@ Dark Mode isn't supported in visionOS or watchOS.
 - [Typography](https://developer.apple.com/design/human-interface-guidelines/typography)
 
 **Videos**
-- [Meet Liquid Glass](https://developer.apple.com/videos/play/wwdc2025/10210)
+- [Meet Liquid Glass](https://developer.apple.com/videos/play/wwdc2025/219)
 - [Implementing Dark Mode on iOS](https://developer.apple.com/videos/play/wwdc2019/214)
 
 ## Changelog
@@ -89,7 +87,5 @@ Dark Mode isn't supported in visionOS or watchOS.
 - Added art contrasting the light and dark appearances.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/dark-mode)*

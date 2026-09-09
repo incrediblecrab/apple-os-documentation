@@ -11,8 +11,8 @@ Using the XcodeKit framework, you can customize Xcode with source editor extensi
 ## Topics
 
 ### Essentials
-- [Creating a Source Editor Extension](https://developer.apple.com/documentation/xcodekit/creating_a_source_editor_extension) - Add and configure a source editor extension in your Xcode project.
-- [Testing Your Source Editor Extension](https://developer.apple.com/documentation/xcodekit/testing_your_source_editor_extension) - Launch a special instance of Xcode to test your source editor extension.
+- [Creating a Source Editor Extension](https://developer.apple.com/documentation/xcodekit/creating-a-source-editor-extension.md) - Add and configure a source editor extension in your Xcode project.
+- [Testing Your Source Editor Extension](https://developer.apple.com/documentation/xcodekit/testing-your-source-editor-extension.md) - Launch a special instance of Xcode to test your source editor extension.
 - **XCSourceEditorExtension** - The protocol you implement to create Xcode source editor extensions.
 
 ### Editor Commands
@@ -25,10 +25,8 @@ Using the XcodeKit framework, you can customize Xcode with source editor extensi
 - **XCSourceTextRange** - A half-open range of text in a buffer you use to select text or specify the insertion point for new text.
 
 ### XcodeKit Constants
-- [XcodeKit Version Constants](https://developer.apple.com/documentation/xcodekit/xcodekit_version_constants) - Determine the version of XcodeKit available in an instance of Xcode.
+- [XcodeKit Version Constants](https://developer.apple.com/documentation/xcodekit/xcodekit-version-constants.md) - Determine the version of XcodeKit available in an instance of Xcode.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/XcodeKit)*

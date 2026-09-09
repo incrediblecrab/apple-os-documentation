@@ -2,23 +2,33 @@
 
 Authenticate users biometrically or with a passphrase they already know.
 
-**Platforms:** iOS 8.0+ | iPadOS 8.0+ | Mac Catalyst 13.0+ | macOS 10.10+ | visionOS 1.0+ | watchOS 9.0+
+**Framework availability:** iOS 8.0+ | iPadOS 8.0+ | Mac Catalyst 13.1+ | macOS 10.10+ | visionOS 1.0+. The framework catalog lists watchOS 9, while individual `LAContext` declarations date to watchOS 3; check the policy and symbol rather than treating the catalog as a uniform minimum.
 
 ## Overview
 Many users rely on biometric authentication like Face ID, Touch ID, or Optic ID to enable secure, effortless access to their devices. As a fallback option, and for devices without biometry, a passcode or password serves a similar purpose. Use the LocalAuthentication framework to leverage these mechanisms in your app and extend authentication procedures your app already implements.
 
-Diagram showing the relationship between your app operating in user space, the LocalAuthentication framework in the operating system, and the Secure Enclave.
+Your app receives an authentication result and, when appropriate, error information—not fingerprint images or other biometric templates. Specify an authentication policy and a clear reason for the request; the framework manages the authentication interaction and verification.
 
-To maximize security, your app never gains access to any of the underlying authentication data. You can’t access any fingerprint images, for example. The Secure Enclave, a hardware-based security processor isolated from the rest of the system, manages this data out of reach even of the operating system. Instead, you specify a particular policy and provide messaging that tells the user why you want them to authenticate. The framework then coordinates with the Secure Enclave to carry out the operation. Afterward, you receive only a Boolean result indicating authentication success or failure.
+### Policy, failure, and context lifetime
+
+Include `NSFaceIDUsageDescription` when using Face ID and provide a meaningful localized reason for authentication. [`canEvaluatePolicy(_:error:)`](https://developer.apple.com/documentation/localauthentication/lacontext/canEvaluatePolicy(_:error:)) checks whether a policy can be evaluated; it does **not** authenticate the person.
+
+Do not cache that eligibility result or call `canEvaluatePolicy` from an `evaluatePolicy` reply block; the latter can deadlock.
+
+Only unlock the protected operation after the evaluation succeeds. Handle unavailable or unenrolled biometry, lockout, cancelled interaction, and evaluation errors. A passcode fallback depends on the chosen policy; a failed biometric-only policy does not silently authorize another method.
+
+Invalidate an [`LAContext`](https://developer.apple.com/documentation/localauthentication/lacontext) when its protected workflow ends or is cancelled. Invalidation cancels pending evaluation with `LAError.Code.appCancel`, and that context cannot evaluate again; create a new context for a later workflow. Do not treat one success as permanent authorization. For secrets, consider keychain access controls so protection applies to retrieval, not just a Boolean flag in the UI.
+
+The right-based APIs begin at iOS/iPadOS/Catalyst 16 and macOS 13, with visionOS 1 support. The SwiftUI `LocalAuthenticationView` below is specifically a macOS 13-or-later view, not a cross-platform replacement for `LAContext`.
 
 ## Topics
 
 ### Essentials
-- [Logging a User into Your App with Face ID or Touch ID](https://developer.apple.com/documentation/localauthentication/logging_a_user_into_your_app_with_face_id_or_touch_id) - Supplement your own authentication scheme with biometric authentication, making it easy for users to access sensitive parts of your app.
-- [Accessing Keychain Items with Face ID or Touch ID](https://developer.apple.com/documentation/localauthentication/accessing_keychain_items_with_face_id_or_touch_id) - Protect a keychain item with biometric authentication.
+- [Logging a User into Your App with Face ID or Touch ID](https://developer.apple.com/documentation/localauthentication/logging-a-user-into-your-app-with-face-id-or-touch-id) - Supplement your own authentication scheme with biometric authentication, making it easy for users to access sensitive parts of your app.
+- [Accessing Keychain Items with Face ID or Touch ID](https://developer.apple.com/documentation/localauthentication/accessing-keychain-items-with-face-id-or-touch-id) - Protect a keychain item with biometric authentication.
 ### Authentication and access
 - **LARight** - A grouped set of requirements that gate access to a resource or operation.
-- **State** - The possible states for a right during authorization.
+- **LARight.State** - The possible states for a right during authorization.
 - **LAContext** - A mechanism for evaluating authentication policies and access controls.
 ### Persistence
 - **LARightStore** - A container for data protected by a right.
@@ -31,15 +41,18 @@ To maximize security, your app never gains access to any of the underlying authe
 - **LAAuthenticationRequirement** - A set of requirements that protect a right.
 - **LABiometryFallbackRequirement** - A set of requirements to fall back on if biometrics aren't present.
 ### Authentication views
-- **LocalAuthenticationView** - A SwiftUI view that displays an authentication interface.
+- **LocalAuthenticationView** - A macOS 13-or-later SwiftUI view that displays an authentication interface.
 ### Errors
 - **LAError** - Errors issued by the LocalAuthentication framework.
-- **Code** - Errors issued by the LocalAuthentication framework.
+- **LAError.Code** - Errors issued by the LocalAuthentication framework.
 - **LAErrorDomain** - The error domain that the framework uses when issuing errors.
 ### Reference
 - **LocalAuthentication Constants**
 
 ### Classes
+
+The domain-state types begin at iOS/iPadOS/Catalyst 18 and macOS 15. `LAEnvironment` also has visionOS 2 and watchOS 11 declarations; these are not part of the original iOS 8 API surface.
+
 - **LADomainState**
 - **LADomainStateBiometry**
 - **LADomainStateCompanion**
@@ -58,6 +71,6 @@ To maximize security, your app never gains access to any of the underlying authe
 
 ---
 
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
-
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/LocalAuthentication)*
+
+*Changed-content source, reviewed September 8, 2026: [LAContext](https://developer.apple.com/documentation/localauthentication/lacontext.md).*

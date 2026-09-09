@@ -10,19 +10,21 @@ The CoreHID framework facilitates interaction with human interface devices (HID)
 
 To learn more about HID devices, see the USB standards website.
 
+Some interactions, including access to keyboards, require user approval. Discovering a device is not evidence that access was granted; handle connection and report-request failures. Element values are snapshots, not permanently valid views of changing input.
+
 ## Topics
 
 ### Discovery
-- [Discovering HID devices from Terminal](https://developer.apple.com/documentation/corehid/discovering_hid_devices_from_terminal) - Identify devices connected to your Mac from the command line.
+- [Discovering HID devices from Terminal](https://developer.apple.com/documentation/corehid/discoveringhiddevicesfromterminal) - Identify devices connected to your Mac from the command line.
 - **actor HIDDeviceManager** - A helper for discovering human interface devices (HID) connected to the system.
-- **struct DeviceMatchingCriteria** - Matching criteria used to filter HID devices.
+- **struct HIDDeviceManager.DeviceMatchingCriteria** - Matching criteria used to filter HID devices.
 
 ### Interaction
-- [Communicating with human interface devices](https://developer.apple.com/documentation/corehid/communicating_with_human_interface_devices) - Interact with and obtain data from devices such as keyboards and mice.
+- [Communicating with human interface devices](https://developer.apple.com/documentation/corehid/communicatingwithhiddevices) - Interact with and obtain data from devices such as keyboards and mice.
 - **actor HIDDeviceClient** - A client of a physical or virtual HID compatible peripheral.
 - **struct HIDElement** - A representation of an item from a report descriptor for a HID device.
 - **struct HIDElementCollection** - A collection of items from a report descriptor for a HID device.
-- **struct Value** - Data associated with a HID element.
+- **struct HIDElement.Value** - A snapshot of data associated with a HID element.
 - **protocol HIDElementUpdate** - A base protocol for element update types.
 - **enum HIDReportType** - Types for HID reports.
 - **struct HIDReportID** - A type to represent the report IDs of HID reports.
@@ -32,13 +34,11 @@ To learn more about HID devices, see the USB standards website.
 - **enum HIDDeviceLocalizationCode** - The localization codes that some HID devices declare to specify conformance to a certain format or language.
 
 ### Simulation
-- [Creating virtual devices](https://developer.apple.com/documentation/corehid/creating_virtual_devices) - Use and interact with a virtual human interface device for testing and development.
+- [Creating virtual devices](https://developer.apple.com/documentation/corehid/creatingvirtualdevices) - Use and interact with a virtual human interface device for testing and development.
 - **actor HIDVirtualDevice** - A virtual service to emulate a HID device connected to the system.
 - **protocol HIDVirtualDeviceDelegate** - The delegate to receive notifications for a virtual HID device.
-- **struct Properties** - The properties for a virtual HID device.
+- **struct HIDVirtualDevice.Properties** - The properties for a virtual HID device.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/CoreHID)*

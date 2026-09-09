@@ -8,8 +8,6 @@ A streamlined launch experience helps people start using your app or game immedi
 
 Launching begins when someone opens your app or game, includes an initial download, and ends when the first screen is ready. After launching completes, you might offer an onboarding experience, which can give people a high-level view of your app or game.
 
-> **iOS 27+:** Apple reports substantially faster app launches in iOS 27, attributed to a rebuilt CPU scheduler that also benefits older devices including iPhone 11. Treat the specific percentages as marketing claims rather than measured guarantees, and continue to measure your own launch path.
-
 ## Topics
 
 ### Best practices
@@ -36,7 +34,8 @@ Not applicable for macOS, visionOS, or watchOS.
 
 ### Platform considerations
 
-**iOS, iPadOS, macOS, watchOS**  
+**macOS, watchOS**
+
 No additional considerations.
 
 **iOS, iPadOS**  
@@ -58,12 +57,12 @@ Consider launching in the Shared Space even if your app is fully immersive. Open
 ### Developer documentation
 
 - [Specifying your app's launch screen — Xcode](https://developer.apple.com/documentation/xcode/specifying-your-apps-launch-screen)
-- [Responding to the launch of your app — UIKit](https://developer.apple.com/documentation/uikit/app_and_environment/responding_to_the_launch_of_your_app)
+- [Responding to the launch of your app — UIKit](https://developer.apple.com/documentation/uikit/responding-to-the-launch-of-your-app)
 
 ### Videos
 
 - [Optimizing App Launch](https://developer.apple.com/videos/play/wwdc2019/423)
-- [Love at First Launch](https://developer.apple.com/videos/play/insights/101)
+- [Love at First Launch](https://developer.apple.com/videos/play/wwdc2017/816)
 
 ## Changelog
 
@@ -74,7 +73,5 @@ Consider launching in the Shared Space even if your app is fully immersive. Open
 - Updated to include guidance for visionOS.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/launching)*

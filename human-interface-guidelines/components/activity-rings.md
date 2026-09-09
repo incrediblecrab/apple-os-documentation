@@ -54,7 +54,7 @@ Because iOS shows Activity rings whether or not an Apple Watch is paired, activi
 No additional considerations for iPadOS or watchOS.
 
 **Other Platforms**  
-Not supported in macOS, tvOS, or visionOS.
+Apple's HIG scopes this guidance to iOS, iPadOS, and watchOS and lists macOS, tvOS, and visionOS as unsupported. This isn't an API availability table: the [HKActivityRingView declaration](https://developer.apple.com/documentation/healthkitui/hkactivityringview) also lists visionOS 1.0 and later.
 
 ### Related
 
@@ -62,11 +62,11 @@ Not supported in macOS, tvOS, or visionOS.
 
 ### Developer documentation
 
-- [HKActivityRingView](https://developer.apple.com/documentation/healthkit/hkactivityringview) — HealthKit
+- [HKActivityRingView](https://developer.apple.com/documentation/healthkitui/hkactivityringview) — HealthKitUI
 
 ### Videos
 
-- [Track workouts with HealthKit on iOS and iPadOS](https://developer.apple.com/videos/play/wwdc2022/10045)
+- [Track workouts with HealthKit on iOS and iPadOS](https://developer.apple.com/videos/play/wwdc2025/322)
 - [Build a workout app for Apple Watch](https://developer.apple.com/videos/play/wwdc2021/10009)
 - [Build custom workouts with WorkoutKit](https://developer.apple.com/videos/play/wwdc2023/10016)
 
@@ -79,7 +79,5 @@ Not supported in macOS, tvOS, or visionOS.
 - Added artwork representing Activity rings in iOS.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/activity-rings)*

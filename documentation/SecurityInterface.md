@@ -10,6 +10,8 @@ Provide user interface elements for security features such as authorization, acc
 
 The Security Interface framework is a set of Objective-C classes that provide user interface elements for programs that implement security features such as authorization, access to digital certificates, and access to items in keychains.
 
+An authorization view is not the authorization boundary. Configure its rights and status updates, and recheck authorization before committing a protected change. The documented `SFAuthorizationView` behavior can unlock the icon even when preauthorization was not possible, leaving the actual authorization check to the operation that needs it. Handle refusal or changed rights rather than trusting an earlier unlocked appearance.
+
 ## Topics
 
 ### Classes
@@ -32,7 +34,5 @@ The Security Interface framework is a set of Objective-C classes that provide us
 - **SecurityInterface Enumerations**
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/SecurityInterface)*

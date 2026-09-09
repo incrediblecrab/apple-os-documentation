@@ -11,25 +11,23 @@ The following articles will help you build and refine your app playgrounds as yo
 ## Topics
 
 ### App Playgrounds
-- [Adding a Swift package to your app playground](https://developer.apple.com/documentation/swift-playgrounds/adding_a_swift_package_to_your_app_playground) - Extend the functionality of your app playground by finding and adding a publicly available Swift package
-- [Debugging an App Playground using the Console](https://developer.apple.com/documentation/swift-playgrounds/debugging_an_app_playground_using_the_console) - Learn different methods to debug your code using console output
-- [Previewing SwiftUI views in Swift Playgrounds](https://developer.apple.com/documentation/swift-playgrounds/previewing_swiftui_views_in_swift_playgrounds) - Use the canvas in Swift Playgrounds to see a live preview of the SwiftUI views in your app
-- [Requesting access to capabilities for your app playground](https://developer.apple.com/documentation/swift-playgrounds/requesting_access_to_capabilities_for_your_app_playground) - Request access for your app to protected resources, services, or device hardware such as sensors
-- [Importing sample content into user app playgrounds](https://developer.apple.com/documentation/swift-playgrounds/importing_sample_content_into_user_app_playgrounds) - Learn how to bring sample code into your app playground
+- [Adding a Swift package to your app playground](https://developer.apple.com/documentation/swift-playgrounds/add-a-swift-package.md) - Extend the functionality of your app playground by finding and adding a publicly available Swift package
+- [Debugging an App Playground using the Console](https://developer.apple.com/documentation/swift-playgrounds/console-print-debugging.md) - Learn different methods to debug your code using console output
+- [Previewing SwiftUI views in Swift Playgrounds](https://developer.apple.com/documentation/swift-playgrounds/live-preview.md) - Use the canvas in Swift Playgrounds to see a live preview of the SwiftUI views in your app
+- [Requesting access to capabilities for your app playground](https://developer.apple.com/documentation/swift-playgrounds/project-capabilities.md) - Request access for your app to protected resources, services, or device hardware such as sensors
+- [Importing sample content into user app playgrounds](https://developer.apple.com/documentation/swift-playgrounds/using-content-in-user-projects.md) - Learn how to bring sample code into your app playground
 
 ### Sample Apps
-- [Exploring SwiftUI Sample Apps](https://developer.apple.com/documentation/swift-playgrounds/exploring_swiftui_sample_apps) - Explore these SwiftUI samples using Swift Playgrounds on iPad or in Xcode to learn about defining user interfaces, responding to user interactions, and managing data flow
+- [Exploring SwiftUI Sample Apps](https://developer.apple.com/tutorials/sample-apps) - Legacy examples of interfaces, interactions, and data flow. Apple marks this tutorial as no longer demonstrating current SwiftUI or Xcode practices and directs readers to [Develop in Swift](https://developer.apple.com/tutorials/develop-in-swift/) for current tutorials.
 
 ### Playground Books
-- [Playground Books](https://developer.apple.com/documentation/swift-playgrounds/playground_books) - Create interactive Playground Book based learning experiences for the Swift Playgrounds app
+- [Playground Books](https://developer.apple.com/documentation/swift-playgrounds/playground-books.md) - Create interactive Playground Book based learning experiences for the Swift Playgrounds app
 
 ### Subscriptions
-- [Creating a subscription](https://developer.apple.com/documentation/swift-playgrounds/creating_a_subscription) - Create a machine-readable summary of a set of playground books to make them available for others to download
-- [Localizing a Subscription Feed](https://developer.apple.com/documentation/swift-playgrounds/localizing_a_subscription_feed) - Provide multiple localizations of a subscription's content in a single feed
-- [Publishing a Subscription](https://developer.apple.com/documentation/swift-playgrounds/publishing_a_subscription) - Make the playground books in a series available online for download and subscription
+- [Creating a subscription](https://developer.apple.com/documentation/swift-playgrounds/creating-a-subscription.md) - Create a machine-readable summary of a set of playground books to make them available for others to download
+- [Localizing a Subscription Feed](https://developer.apple.com/documentation/swift-playgrounds/localizing-a-subscription-feed.md) - Provide multiple localizations of a subscription's content in a single feed
+- [Publishing a Subscription](https://developer.apple.com/documentation/swift-playgrounds/publishing-a-subscription.md) - Make the playground books in a series available online for download and subscription
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/swift-playgrounds)*

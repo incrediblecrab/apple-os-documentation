@@ -13,18 +13,16 @@ As an Apple News publisher, you can use the in-depth design capabilities of Appl
 ## Topics
 
 ### Essentials
-- [Getting Started as an Apple News Publisher](https://developer.apple.com/documentation/AppleNews/getting_started_as_an_apple_news_publisher) - Provide information about your publication and choose how to publish content.
+- [Getting Started as an Apple News Publisher](https://developer.apple.com/documentation/applenews/getting-started-as-an-apple-news-publisher) - Provide information about your publication and choose how to publish content.
 
 ### Article Design and Creation
-- [Apple News Format Tutorials](https://developer.apple.com/documentation/AppleNews/apple_news_format_tutorials) - Create a basic article and then add advanced design features.
+- [Apple News Format Tutorials](https://developer.apple.com/documentation/applenews/apple-news-format-tutorials) - Create a basic article and then add advanced design features.
 - **Apple News Format** - Get Apple News Format reference information, and create signature content for Apple News.
 
 ### Article Publication and Management
-- [Apple News API Tutorial](https://developer.apple.com/documentation/AppleNews/apple_news_api_tutorial) - Request channel data and publish an article using the Apple News API.
+- [Apple News API Tutorial](https://developer.apple.com/documentation/applenews/apple-news-api-tutorial) - Request channel data and publish an article using the Apple News API.
 - **Apple News API** - Publish and manage Apple News Format articles.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/AppleNews)*

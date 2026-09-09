@@ -8,7 +8,7 @@ The Siri Remote is the primary input method for Apple TV, helping people feel co
 
 In addition to several specific buttons, the Siri Remote combines a clickpad and touch surface to support familiar gestures like swipe and press that people use to navigate tvOS apps, browse channels and content, play and pause media, and make selections.
 
-> **tvOS 27+:** Siri on Apple TV is rebuilt on Apple Foundation Models, improving conversational search and playback control. Verify that focus feedback driven by the remote stays unmistakable against refined glass over video artwork.
+Make focus feedback clear over video and artwork, including when visual effects are reduced. Test directional movement, selection, and returning to the previous screen with the remote; see [Focus and selection](focus-and-selection.md).
 
 ## Topics
 
@@ -43,7 +43,7 @@ Ensure that your app or game responds to specific presses in the following ways:
 - **Expected behavior in a game** - Performs primary button behavior.
 
 **Back**
-- **Expected behavior in an app** - Returns to previous screen. Exits to Apple TV Home Screen.
+- **Expected behavior in an app** - Returns to the parent screen; at the app's top level, exits to Apple TV Home Screen. Pressing and holding Back returns to the Home Screen from any location.
 - **Expected behavior in a game** - Pauses/resumes gameplay. Returns to previous screen, exits to main game menu, or exits to Apple TV Home Screen.
 
 **Play/Pause**
@@ -63,20 +63,18 @@ Not supported in iOS, iPadOS, macOS, visionOS, or watchOS.
 
 ### Related Components
 
-- [Gestures](https://developer.apple.com/design/human-interface-guidelines/gestures) - Gesture guidance
+- [Remote gestures](https://developer.apple.com/design/human-interface-guidelines/remotes#Gestures) - Gesture guidance
 - [Focus and selection](https://developer.apple.com/design/human-interface-guidelines/focus-and-selection) - Focus system
 
 ### Developer Documentation
 
-- [Providing Channel Navigation](https://developer.apple.com/documentation/avfoundation/media_playback_and_selection/providing_channel_navigation) - AVFoundation
+- [Providing Channel Navigation](https://developer.apple.com/documentation/tvservices/providing-channel-navigation) - TVServices
 
 ### Related Resources
 
-- [Use your Siri Remote or Apple TV Remote with Apple TV](https://support.apple.com/en-us/102313) - Apple Support
+- [Use your Siri Remote or Apple TV Remote with Apple TV](https://support.apple.com/en-us/HT205305) - Apple Support
 - [EPG experience](https://developer.apple.com/design/human-interface-guidelines/live-viewing-apps#EPG-experience) - Design guidance
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/remotes)*

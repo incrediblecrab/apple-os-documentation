@@ -6,7 +6,7 @@ Create previews of files to use inside your app, or perform simple edits on prev
 
 ## Overview
 
-When showing files in your app, including the ability to quickly preview a file and its content can be helpful to your users. For example, you may want to allow users to zoom into a photo, play back an audio file, and so on. Use the **Quick Look** framework to show a preview of common file types in your app that allows basic interactions. Quick Look can generate previews for common file types, including:
+Quick Look provides system-managed file previews with basic interaction. Supply items through a preview controller's data source and [check whether an item can be displayed](https://developer.apple.com/documentation/quicklook/qlpreviewcontroller/canpreview(_:)) before presenting it. Common supported formats include:
 
 - iWork and Microsoft Office documents
 - Images
@@ -14,9 +14,11 @@ When showing files in your app, including the ability to quickly preview a file 
 - Text files
 - PDFs
 - Audio and video files
-- Augmented reality objects that use the USDZ file format (iOS and iPadOS only)
+- USDZ 3D models, with AR or spatial presentation depending on the platform and API
 
-On iOS devices, the Quick Look framework provides functionality for performing simple edits on previews of common file types; for example, users can add markup to an image. To perform more advanced edits on files, provide advanced playback features, display a file's content next to text, or add views on top of the preview, use lower-level APIs. For example, use **AVPlayer** to provide advanced video playback features.
+Previews are read-only by default. On supported systems, the [editing delegate callback](https://developer.apple.com/documentation/quicklook/qlpreviewcontrollerdelegate/previewcontroller(_:editingmodefor:)) can enable supported edits and choose whether to update the original or create a copy. Implement the corresponding save callbacks. This API starts at iOS/iPadOS 13, Mac Catalyst 13.1, and visionOS 1; it doesn't turn Quick Look into a general-purpose editor.
+
+Use lower-level APIs for custom editing, playback, or compositing rather than changing the preview controller's private view hierarchy. In Mac Catalyst, presenting `QLPreviewController` opens a panel while the original window remains visible; embedding the controller produces a thumbnail rather than a live preview.
 
 You can provide previews for your own data types by either rendering a view with your own view controller or by returning a supported preview format, such as PDF or HTML.
 
@@ -26,42 +28,46 @@ You can provide previews for your own data types by either rendering a view with
 
 To provide Quick Look previews for your own file types, create a Quick Look preview extension with either a view controller or data-based preview. In either case, add your supported content types to the **QLSupportedContentTypes** array in the Info.plist file of the extension.
 
-To provide a view controller-based preview extension, set up a **UIViewController** that conforms to **QLPreviewingController**. Prepare and display the view within the **preparePreviewOfFile(at:completionHandler:)** method.
+For a view-based extension, use a `UIViewController` conforming to `QLPreviewingController` and implement `preparePreviewOfFile(at:completionHandler:)` for file URLs. The callback runs on the main thread; move expensive work off that thread and call its completion handler when the preview is ready. Avoid holding the file open for the preview's entire lifetime.
 
-To provide a data-based preview extension, implement a subclass of **QLPreviewProvider** to provide a **QLPreviewReply** based on the **QLFilePreviewRequest** that the system provides.
+For a data-based extension, subclass `QLPreviewProvider`, conform to `QLPreviewingController`, and return a `QLPreviewReply` from `providePreview(for:completionHandler:)` for the system's `QLFilePreviewRequest`. Set `QLIsDataBasedPreview` to true and configure the extension's supported content types and principal class.
+
+### Availability and hosting
+
+The data-based provider/request/reply types require iOS/iPadOS/Mac Catalyst 15 or visionOS 1. The framework's older minimum isn't the availability of every extension API. `QLPreviewController` itself lists Mac Catalyst 13.1, whereas the framework catalog lists 13.0.
+
+For native macOS UI, use [Quick Look UI](QuickLookUI.md). `PreviewApplication`, `PreviewItem`, `PreviewSession`, and the `EditingMode` alias belong to the visionOS 2+ preview-application workflow; they aren't general iOS 4 APIs. `QLPreviewSceneActivationConfiguration` is a different, iOS/iPadOS/Mac Catalyst 15+ scene configuration.
 
 ## Topics
 
 ### Previews
-- **QLPreviewController** - A specialized view controller for previewing an item.
-- **QLPreviewItem** - A protocol that defines a set of properties you implement to make a preview of your application's content.
-- **QLPreviewSceneActivationConfiguration** - A scene configuration to preview items at the specified URLs.
+- [`QLPreviewController`](https://developer.apple.com/documentation/quicklook/qlpreviewcontroller) - Presents preview items provided by its data source.
+- [`QLPreviewItem`](https://developer.apple.com/documentation/quicklook/qlpreviewitem) - Supplies item information to the preview controller.
+- [`QLPreviewSceneActivationConfiguration`](https://developer.apple.com/documentation/quicklook/qlpreviewsceneactivationconfiguration) - Configures a prominent, detachable preview scene for a gesture or menu action.
 
 ### Previews or thumbnail images for macOS 10.14 or earlier
-Create thumbnail images or previews of common files and custom file types in earlier versions of macOS.
+The [historical generator APIs](https://developer.apple.com/documentation/quicklook/previews-or-thumbnail-images-for-macos-10-14-or-earlier) target older macOS releases. For macOS 10.15+, use [QuickLookThumbnailing](QuickLookThumbnailing.md) for thumbnails and preview extensions for previews instead of adopting generators.
 
 ### Preview extensions
-- **QLPreviewingController** - A protocol for implementing a custom controller to create previews of files.
+- [`QLPreviewingController`](https://developer.apple.com/documentation/quicklook/qlpreviewingcontroller) - Implements view-based file/searchable-item preparation or data-based preview generation.
 
 ### Data-based preview extensions
-- **QLPreviewProvider** - A class that you subclass to provide a data-based Quick Look preview extension.
-- **QLFilePreviewRequest** - A Quick Look preview request that indicates the content to preview.
-- **QLPreviewReply** - The class you create when providing a data-based Quick Look preview extension.
-- **QLPreviewReplyAttachment** - An attachment for a Quick Look preview reply that provides additional content for the system to display a preview.
+- [`QLPreviewProvider`](https://developer.apple.com/documentation/quicklook/qlpreviewprovider) - The principal class to subclass for a data-based extension.
+- [`QLFilePreviewRequest`](https://developer.apple.com/documentation/quicklook/qlfilepreviewrequest) - Describes the content the system wants to preview.
+- [`QLPreviewReply`](https://developer.apple.com/documentation/quicklook/qlpreviewreply) - Supplies a supported preview representation.
+- [`QLPreviewReplyAttachment`](https://developer.apple.com/documentation/quicklook/qlpreviewreplyattachment) - Supplies linked content for an HTML preview.
 
 ### Classes
-- **ARQuickLookPreviewItem**
-- **PreviewApplication** - A class you use to configure and launch the platform Quick Look application.
+- [`ARQuickLookPreviewItem`](https://developer.apple.com/documentation/quicklook/arquicklookpreviewitem) - A preview item for AR Quick Look; iOS/iPadOS 13, Mac Catalyst 13.1, and visionOS 1.
+- [`PreviewApplication`](https://developer.apple.com/documentation/quicklook/previewapplication) - Opens the visionOS 2+ Quick Look application.
 
 ### Structures
-- **PreviewItem** - An item to preview in the preview application.
-- **PreviewSession** - A structure with which you can control an existing session and receive events for the current preview application.
+- [`PreviewItem`](https://developer.apple.com/documentation/quicklook/previewitem) - A value describing an item for the visionOS preview application.
+- [`PreviewSession`](https://developer.apple.com/documentation/quicklook/previewsession) - Provides session events and closing control on visionOS.
 
 ### Type Aliases
-- **EditingMode**
+- [`EditingMode`](https://developer.apple.com/documentation/quicklook/editingmode) - The visionOS 2+ alias for `QLPreviewItemEditingMode`.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/QuickLook)*

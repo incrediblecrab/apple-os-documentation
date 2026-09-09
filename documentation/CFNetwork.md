@@ -1,23 +1,33 @@
 # CFNetwork
 
-Access network services and handle changes in network configurations. Build on abstractions of network protocols to simplify tasks such as working with BSD sockets, administering HTTP and FTP servers, and managing Bonjour services.
+Use C-based interfaces for HTTP messages and authentication, proxy configuration, host and service queries, and legacy network streams.
 
-**Platforms:** iOS 2.0+ | iPadOS 2.0+ | Mac Catalyst 13.0+ | macOS 10.8+ | tvOS 9.0+ | visionOS 1.0+
+**Catalog baselines:** iOS 2.0+ | iPadOS 2.0+ | Mac Catalyst 13.0+ | macOS 10.8+ | tvOS 9.0+ | visionOS 1.0+
+
+## Overview
+
+This reference retains older CFNetwork APIs for maintaining existing code. The umbrella catalog is not a per-function availability table: for example, HTTP message functions date to macOS 10.1, while the concrete Catalyst functions generally declare 13.1. Newer constants also have later introductions.
+
+For new HTTP work, prefer `URLSession`; for custom transports and Bonjour, prefer [Network](Network.md). CFNetwork is not a turnkey HTTP or FTP server implementation. Apple's [networking API guidance](https://developer.apple.com/documentation/technotes/tn3151-choosing-the-right-networking-api) also explains that Apple no longer provides a supported FTP API for new development. Preserve legacy FTP code only with an explicit migration plan rather than treating it as a modern secure transport.
+
+**27 SDK deprecations:** The `CFHost` functions, remaining `CFNetService` service-management functions, and stream-pair creation using a host or network service are deprecated in 27 in favor of Network framework. Some older service calls were already deprecated. This does not deprecate every CFNetwork API or mean these symbols have been removed. It is separate from the much older HTTP/FTP stream deprecations in iOS 9/macOS 10.11 and network-diagnostic deprecations in iOS 11/macOS 10.13.
+
+Low-level CFNetwork streams do not acquire the URL Loading System's ATS policy automatically. Preserve certificate-chain and hostname validation. `CFSocketStream` does not support TLS 1.3; use a modern networking API rather than assuming its negotiated-security setting selects every protocol supported elsewhere by the OS. See [Security](Security.md).
 
 ## Topics
 
 ### Errors
 - **CFNetworkErrors** - This enumeration contains error codes returned under the error domain kCFErrorDomainCFNetwork.
-- [Error Dictionary Keys](https://developer.apple.com/documentation/cfnetwork/error_dictionary_keys) - Networking-related keys that may be available in a CFErrorRef object's userInfo dictionary.
-- [Error Domains](https://developer.apple.com/documentation/cfnetwork/error_domains) - High-level error domains.
+- [Error Dictionary Keys](https://developer.apple.com/documentation/cfnetwork/error-dictionary-keys) - Networking-related keys that may be available in a CFErrorRef object's userInfo dictionary.
+- [Error Domains](https://developer.apple.com/documentation/cfnetwork/error-domains) - High-level error domains.
 
 ### Hosts
-- **CFHost** - An opaque reference representing an CFHost object.
+- **CFHost** - An opaque reference representing a CFHost object.
 - **CFHostInfoType** - Values indicating the type of data that is to be resolved or the type of data that was resolved.
 - **CFHostClientContext** - A structure containing user-defined data and callbacks for CFHost objects.
-- **CFHostCancelInfoResolution** - Cancels the resolution of a host.
 
-#### Deprecated
+#### Functions deprecated in 27
+- **CFHostCancelInfoResolution** - Cancels the resolution of a host.
 - **CFHostCreateCopy** - Creates a new host object by copying.
 - **CFHostCreateWithAddress** - Uses an address to create an instance of a host object.
 - **CFHostCreateWithName** - Uses a name to create an instance of a host object.
@@ -33,17 +43,19 @@ Access network services and handle changes in network configurations. Build on a
 ### Global Proxy Configuration
 - **CFNetworkCopyProxiesForURL** - Returns the list of proxies that should be used to download a given URL.
 - **CFNetworkCopyProxiesForAutoConfigurationScript** - Executes a proxy autoconfiguration script to determine the best proxy to use to retrieve a specified URL.
-- **CFNetworkExecuteProxyAutoConfigurationScript** - Downloads a proxy autoconfiguration script and executes it.
-- **CFNetworkExecuteProxyAutoConfigurationURL** - Downloads a proxy autoconfiguration script and executes it.
+- **CFNetworkExecuteProxyAutoConfigurationScript** - Evaluates an already supplied PAC script asynchronously; it does not download that script.
+- **CFNetworkExecuteProxyAutoConfigurationURL** - Downloads a PAC script from its URL and evaluates it asynchronously.
 - **CFNetworkCopySystemProxySettings** - Returns a CFDictionary containing the current systemwide internet proxy settings.
 - **CFProxyAutoConfigurationResultCallback** - Callback function called when a proxy autoconfiguration computation has completed.
-- [Property Keys](https://developer.apple.com/documentation/cfnetwork/property_keys) - Keys for calls to property get/set functions such as CFReadStreamSetProperty(_:_:_:) and CFReadStreamCopyProperty(_:_:).
-- [Proxy Types](https://developer.apple.com/documentation/cfnetwork/proxy_types) - Constants that specify the type of proxy.
-- [Global Proxy Settings Constants](https://developer.apple.com/documentation/cfnetwork/global_proxy_settings_constants) - Constants for keys in the global proxy settings dictionary returned by CFNetworkCopySystemProxySettings().
+- [Property Keys](https://developer.apple.com/documentation/cfnetwork/property-keys) - Keys for calls to property get/set functions such as CFReadStreamSetProperty(_:_:_:) and CFReadStreamCopyProperty(_:_:).
+- [Proxy Types](https://developer.apple.com/documentation/cfnetwork/proxy-types) - Constants that specify the type of proxy.
+- [Global Proxy Settings Constants](https://developer.apple.com/documentation/cfnetwork/global-proxy-settings-constants) - Constants for keys in the global proxy settings dictionary returned by CFNetworkCopySystemProxySettings().
+
+The asynchronous PAC functions return a run-loop source that the caller must schedule. Their callback reports completion; invalidate the source to cancel a pending request.
 
 ### HTTP Authentication
 - **CFHTTPAuthentication** - An opaque reference representing HTTP authentication information.
-- **CFHTTPAuthenticationAppliesToRequest** - Returns a Boolean value that indicates whether a CFHTTPAuthentication object is associated with a CFHTTPMessage object.
+- **CFHTTPAuthenticationAppliesToRequest** - Checks whether an authentication object can be applied to a particular request.
 - **CFHTTPAuthenticationCopyDomains** - Returns an array of domain URLs to which a given CFHTTPAuthentication object can be applied.
 - **CFHTTPAuthenticationCopyMethod** - Gets the strongest authentication method that will be used when a CFHTTPAuthentication object is applied to a request.
 - **CFHTTPAuthenticationCopyRealm** - Gets an authentication information's namespace.
@@ -112,7 +124,10 @@ Access network services and handle changes in network configurations. Build on a
 - **CFNetDiagnosticDiagnoseProblemInteractively** - Opens a Network Diagnostics window.
 - **CFNetDiagnosticSetName** - Overrides the displayed application name.
 
-### Network Services (Deprecated)
+### Network Services (Legacy)
+
+The service-management functions, including [`CFNetServiceCreate`](https://developer.apple.com/documentation/cfnetwork/cfnetservicecreate(_:_:_:_:_:)) and [`CFNetServiceBrowserCreate`](https://developer.apple.com/documentation/cfnetwork/cfnetservicebrowsercreate(_:_:_:)), are deprecated in 27. The associated opaque types and flags remain listed here for interpreting legacy code; not every type has its own deprecation annotation.
+
 - **CFNetService** - An opaque reference representing a CFNetService.
 - **CFNetServiceBrowser** - An opaque reference representing a CFNetServiceBrowser.
 - **CFNetServiceBrowserFlags** - Flags that the system passes to net service browser callbacks.
@@ -123,6 +138,9 @@ Access network services and handle changes in network configurations. Build on a
 - **CFNetServicesError** - Error codes that may be returned by CFNetServices functions or passed to CFNetServices callback functions.
 
 ### Streams
+
+Service-type and extended-idle properties classify traffic or request system treatment; they do not grant unlimited background execution. The legacy peer-certificate and permissive certificate-chain flags listed below were deprecated in iOS 4/macOS 10.6. Their presence in a header is not a recommendation to bypass trust checks.
+
 - **CFReadStreamCreateForHTTPRequest** (Deprecated) - Creates a read stream for a CFHTTP request message.
 - **CFReadStreamCreateForStreamedHTTPRequest** (Deprecated) - Creates a read stream for a CFHTTP request message object whose body is too long to keep in memory.
 - **kCFStreamPropertyHTTPFinalRequest** (Deprecated) - HTTP Final Request property. A value of type CFHTTPMessage containing the final message transmitted by the stream after all modifications (including authentication, connection policy, redirects, and so on) have been made. This property cannot be set.
@@ -154,8 +172,8 @@ Access network services and handle changes in network configurations. Build on a
 - **kCFStreamErrorDomainNetServices** - The error code is a CFNetService error code. For details, see the CFNetServicesError enumeration.
 - **kCFStreamErrorDomainSOCKS** - The error code is a SOCKS proxy error.
 - **kCFStreamErrorDomainSSL** - The error code is an SSL error code as defined in `Security/SecureTransport.h`.
-- **kCFStreamErrorDomainSystemConfiguration** - The error code is a system configuration error code as defined in System/ConfigurationSystemConfiguration.h.
-- **kCFStreamErrorDomainWinSock** - When running CFNetwork code on Windows, this domain returns error codes associated with the underlying TCP/IP stack. You should also note that non-networking errors such as ENOMEM are delivered through the POSIX domain. See the header winsock2.h for relevant error codes.
+- **kCFStreamErrorDomainSystemConfiguration** - An error from SystemConfiguration, whose status constants are declared in `SystemConfiguration/SystemConfiguration.h`.
+- **kCFStreamErrorDomainWinSock** - A historical Windows CFNetwork error-domain constant for WinSock errors; non-network errors such as `ENOMEM` use the POSIX domain. This is not a Windows deployment claim for the Apple-platform APIs listed here.
 - **kCFStreamPropertyConnectionIsCellular** - A boolean value indicating whether the stream is connected over a cellular (WWAN) interface. This is a read-only property, and is false until the connection has been established.
 - **kCFStreamPropertyNoCellular** - A Boolean value indicating that the connection should not be established over a cellular (WWAN) connection. This value can only be set before you open the stream.
 - **kCFStreamPropertyProxyLocalBypass** - Proxy Local Bypass property key.
@@ -166,24 +184,24 @@ Access network services and handle changes in network configurations. Build on a
 - **kCFStreamPropertySOCKSUser** - Constant for the key required to set a user name.
 - **kCFStreamPropertySOCKSVersion** - Constant for the SOCKS version key.
 - **kCFStreamPropertySSLContext**
-- **kCFStreamPropertySSLPeerCertificates** - SSL Peer Certificates property key for copy operations, which return a CFArray object containing SecCertificateRef objects.
+- **kCFStreamPropertySSLPeerCertificates** (Deprecated) - Legacy key returning a CFArray of peer certificates; use the peer's `SecTrust` object for certificate information.
 - **kCFStreamPropertySSLPeerTrust** - SSL Peer Trust property key for copy operations, which return a SecTrustRef object containing the result of the SSL handshake.
 - **kCFStreamPropertySSLSettings** - SSL Settings property key for set operations.
 - **kCFStreamPropertyShouldCloseNativeSocket** - Should Close Native Socket property key.
-- **kCFStreamPropertySocketExtendedBackgroundIdleMode** - A Boolean value to request that the system keep a socket open and delays reclaiming it when the process moves to the background.
+- **kCFStreamPropertySocketExtendedBackgroundIdleMode** - A Boolean request to delay reclaiming an idle socket after backgrounding. Set it before opening the stream; it is not a runtime guarantee.
 - **kCFStreamPropertySocketRemoteHost** - The key's value is a CFHostRef for the remote host if it is known. If not, its value is NULL.
 - **kCFStreamPropertySocketRemoteNetService** - The key's value is a CFNetServiceRef for the remote network service if it is known. If not, its value is NULL.
 - **kCFStreamPropertySocketSecurityLevel** - Socket Security Level property key.
-- **kCFStreamSSLAllowsAnyRoot** - Security property key whose value indicates whether root certificates should be allowed.
-- **kCFStreamSSLAllowsExpiredCertificates** - Security property key whose value indicates whether expired certificates are allowed.
-- **kCFStreamSSLAllowsExpiredRoots** - Security property whose value indicates whether expired root certificates are allowed.
+- **kCFStreamSSLAllowsAnyRoot** (Deprecated) - Legacy flag relaxing trust-anchor checks, not a switch required to accept normally trusted root certificates.
+- **kCFStreamSSLAllowsExpiredCertificates** (Deprecated) - Legacy flag permitting expired certificates.
+- **kCFStreamSSLAllowsExpiredRoots** (Deprecated) - Legacy flag permitting expired root certificates.
 - **kCFStreamSSLCertificates** - Security property key whose value is a CFArray of SecCertificateRefs except for the first element in the array, which is a SecIdentityRef.
 - **kCFStreamSSLIsServer** - Security property key whose value indicates whether the connection is to act as a server in the SSL process.
 - **kCFStreamSSLLevel** - Security property key whose value specifies the stream's security level.
 - **kCFStreamSSLPeerName** - Security property key whose value overrides the name used for certificate verification.
 - **kCFStreamSSLValidatesCertificateChain** - Security property key whose value indicates whether the certificate chain should be validated.
-- **kCFStreamSocketSOCKSVersion4** - Constant used in the `kCFStreamSockerSOCKSVersion` key to specify SOCKS4 as the SOCKS version for the stream.
-- **kCFStreamSocketSOCKSVersion5** - Constant used in the `kCFStreamSOCKSVersion` key to specify SOCKS5 as the SOCKS version for the stream.
+- **kCFStreamSocketSOCKSVersion4** - Value for `kCFStreamPropertySOCKSVersion` selecting SOCKS4.
+- **kCFStreamSocketSOCKSVersion5** - Value for `kCFStreamPropertySOCKSVersion` selecting SOCKS5.
 - **kCFStreamSocketSecurityLevelNegotiatedSSL** - Specifies that the highest level security protocol that can be negotiated be set as the security protocol for a socket stream.
 - **kCFStreamSocketSecurityLevelNone** - Specifies that no security level be set.
 - **kCFStreamSocketSecurityLevelSSLv2** (Deprecated) - Specifies that SSL version 2 be set as the security protocol for a socket stream.
@@ -191,15 +209,13 @@ Access network services and handle changes in network configurations. Build on a
 - **kCFStreamSocketSecurityLevelTLSv1** - Specifies that TLS version 1 be set as the security protocol for a socket stream.
 - **CFStreamErrorHTTP** - Error codes that a read stream for an HTTP request may return.
 - **CFStreamErrorHTTPAuthentication** - Authentication error codes that may be returned when trying to apply authentication to a request.
-- [Secure Sockets (SOCKS) Errors](https://developer.apple.com/documentation/cfnetwork/secure_sockets_socks_errors) - Error codes returned by the kCFStreamErrorDomainSOCKS error domain.
+- [Secure Sockets (SOCKS) Errors](https://developer.apple.com/documentation/cfnetwork/1518266-secure-sockets-socks-errors) - Error codes returned by the kCFStreamErrorDomainSOCKS error domain.
 
 ### Reference
-- [CFNetwork Data Types](https://developer.apple.com/documentation/cfnetwork/cfnetwork_data_types) - Callback types for various network services.
-- [CFNetwork Enumerations](https://developer.apple.com/documentation/cfnetwork/cfnetwork_enumerations) - Enumerated values related to SOCKS.
-- [CFNetwork Constants](https://developer.apple.com/documentation/cfnetwork/cfnetwork_constants) - Constants for use with CFNetwork.
+- [CFNetwork Data Types](https://developer.apple.com/documentation/cfnetwork/cfnetwork-data-types) - Callback types for various network services.
+- [CFNetwork Enumerations](https://developer.apple.com/documentation/cfnetwork/cfnetwork-enumerations) - Enumerated values related to SOCKS.
+- [CFNetwork Constants](https://developer.apple.com/documentation/cfnetwork/cfnetwork-constants) - Constants for use with CFNetwork.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/CFNetwork)*

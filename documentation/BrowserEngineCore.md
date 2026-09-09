@@ -6,23 +6,29 @@ Integrate an alternative browser engine into your web browser app.
 
 ## Overview
 
-Use the BrowserEngineCore framework to support low-level functions for your alternative browser engine that renders its UI using BrowserEngineKit. For more information on developing web browser apps, see [Designing your browser architecture](https://developer.apple.com/documentation/browserenginekit/designing_your_browser_architecture).
+Use the BrowserEngineCore framework to support low-level functions for your alternative browser engine that renders its UI using BrowserEngineKit. For more information on developing web browser apps, see [Designing your browser architecture](https://developer.apple.com/documentation/browserenginekit/designing-your-browser-architecture).
+
+This framework is not a web-content rendering API or a way to opt arbitrary apps into Safari 27 features. Follow [BrowserEngineKit's regional and entitlement requirements](BrowserEngineKit.md#regional-and-embedding-requirements) and check [BrowserKit](BrowserKit.md) eligibility. Keep the multi-process engine architecture separate from ordinary [WKWebView embedding](WebKit.md#native-embedding-apis).
 
 ## Topics
 
 ### Kernel Events
-- **be_kevent** - Registers for kernel events on the specified queue, and returns events that are pending on the queue, using 32-bit data types.
-- **be_kevent64** - Registers for kernel events on the specified queue, and returns events that are pending on the queue, using 64-bit data types.
-- **BE_KEVENT_NO_FLAGS** - Indicates that no flags are set in a request to receive kernel events.
-- **BE_KEVENT_RETURN_IMMEDIATELY** - Indicates that a request to receive kernel events needs to return without waiting for events.
+
+The event functions require **iOS/iPadOS 18.4+**, later than the framework's introduction. Their names distinguish the event-record layouts, not support for running a 32-bit browser process.
+
+- [`be_kevent(_:_:_:_:_:_:)`](https://developer.apple.com/documentation/browserenginecore/be_kevent(_:_:_:_:_:_:)) - Registers and retrieves events using `kevent` records.
+- [`be_kevent64(_:_:_:_:_:_:)`](https://developer.apple.com/documentation/browserenginecore/be_kevent64(_:_:_:_:_:_:)) - Uses `kevent64_s` records instead. Both functions take six arguments, ending in flags, rather than a timeout argument.
+- [`BE_KEVENT_NO_FLAGS`](https://developer.apple.com/documentation/browserenginecore/be_kevent_no_flags) - Requests the default behavior.
+- [`BE_KEVENT_RETURN_IMMEDIATELY`](https://developer.apple.com/documentation/browserenginecore/be_kevent_return_immediately) - Polls without waiting for events.
+
+Check error records as well as the return value: an error can appear as an `EV_ERROR` event. The functions return `-1` with `errno` when they cannot record an error in the output array.
 
 ### JIT Compilation
-- **BE_JIT_WRITE_PROTECT_TAG** - A discriminator value the system uses to generate pointer authentication codes for just-in-time compilation.
+- [`BE_JIT_WRITE_PROTECT_TAG`](https://developer.apple.com/documentation/browserenginecore/be_jit_write_protect_tag) - A pointer-authentication discriminator for JIT write protection, not permission to execute arbitrary writable memory. Follow [Protecting code compiled just in time](https://developer.apple.com/documentation/browserenginekit/protecting-code-compiled-just-in-time).
 
 ### Classes
-- **BEAudioSession** - An object that represents an audio session.
----
+- [`BEAudioSession`](https://developer.apple.com/documentation/browserenginecore/beaudiosession-7bb2q) - An **iOS/iPadOS 26+** wrapper that gives a browser extension scoped access to audio output while the main browser retains control of the audio-session configuration.
 
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
+---
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/BrowserEngineCore)*

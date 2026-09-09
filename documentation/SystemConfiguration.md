@@ -1,12 +1,14 @@
 # System Configuration
 
-Allow applications to access a device's network configuration settings. Determine the reachability of the device, such as whether Wi-Fi or cell connectivity are active.
+Inspect network configuration settings and observe changes to system networking state.
 
 **Platforms:** iOS 2.0+ | iPadOS 2.0+ | Mac Catalyst 13.1+ | macOS 10.1+ | tvOS 9.0+ | visionOS 1.0+
 
 ## Overview
 
-This collection of documents describes the programming interfaces of the System Configuration framework. The System Configuration framework provides functions that determine the reachability of target hosts in both a synchronous and an asynchronous manner. It also provides error detection facilities.
+System Configuration provides network-configuration interfaces and legacy synchronous and asynchronous reachability APIs. Reachability means that a packet can leave the local device; it does not guarantee that the destination receives it or that a service request succeeds.
+
+Apple deprecates the [SCNetworkReachability functions](https://developer.apple.com/documentation/systemconfiguration/scnetworkreachability-g7d). Do not use them to preflight a connection. Attempt the connection and handle its state or errors; `URLSessionConfiguration.waitsForConnectivity` and Network framework connection-state handling support waiting for connectivity. This deprecation does not deprecate the entire System Configuration framework.
 
 ## Topics
 
@@ -37,10 +39,8 @@ This collection of documents describes the programming interfaces of the System 
 - **AuthorizationRef**
 
 ### See Also
-- [System Configuration Programming Guidelines](https://developer.apple.com/documentation/systemconfiguration/system_configuration_programming_guidelines)
+- [System Configuration Programming Guidelines](https://developer.apple.com/library/archive/documentation/Networking/Conceptual/SystemConfigFrameworks/SC_Intro/SC_Intro.html)
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/SystemConfiguration)*

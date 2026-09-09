@@ -8,20 +8,24 @@ Provide an interface that allows people to display information about their conta
 
 The Contacts UI framework contains user interface objects that provide access to a person's contacts in your app. Depending on your app's authorization level for using contacts (as indicated by authorizationStatus(for:)), your app may be able to display, edit, select, and create contacts. When the authorization level is CNAuthorizationStatus.limited, you can display a ContactAccessButton to request access to contacts beyond the limited set a person has currently granted your app access to.
 
+[`ContactAccessButton`](https://developer.apple.com/documentation/contactsui/contactaccessbutton) requires iOS/iPadOS/Mac Catalyst 18+, unlike the framework's older contact pickers. It expands limited access through an explicit user action; under denied authorization it offers an access prompt, and under full authorization it doesn't appear.
+
+On iOS/iPadOS 18+, [`contactAccessPicker(isPresented:completionHandler:)`](https://developer.apple.com/documentation/swiftui/view/contactaccesspicker(ispresented:completionhandler:)) presents access management without your own search field. Use it under **limited** authorization; otherwise its completion result is empty. The callback contains newly granted contact identifiers, not identifiers for contacts whose access was removed. The method doesn't list Mac Catalyst support.
+
+By contrast, `CNContactPickerViewController` can return the person's selected contacts or properties without requesting address-book authorization. This selection interface isn't interchangeable with the limited-access management controls.
+
 ## Topics
 
 ### Contact viewer
-- **CNContactViewController** - A view controller that displays a new, unknown, or existing contact.
+- [`CNContactViewController`](https://developer.apple.com/documentation/contactsui/cncontactviewcontroller) - Displays a new, unknown, or existing contact.
 
 ### Contact pickers
-- **CNContactPickerViewController** - A view controller that displays an interface for picking contacts.
-- **CNContactPicker** - A popover-based interface for selecting a contact.
+- [`CNContactPickerViewController`](https://developer.apple.com/documentation/contactsui/cncontactpickerviewcontroller) - A selection controller; iOS/iPadOS 9+, Mac Catalyst 13.1+, and visionOS 1+.
+- [`CNContactPicker`](https://developer.apple.com/documentation/contactsui/cncontactpicker) - The macOS 10.11+ popover-based contact picker.
 
 ### Contact access
-- **ContactAccessButton** - A SwiftUI button that you use to add to the set of contacts someone shares with your app.
+- [`ContactAccessButton`](https://developer.apple.com/documentation/contactsui/contactaccessbutton) - A SwiftUI button for requesting additional shared contacts.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/ContactsUI)*

@@ -2,7 +2,7 @@
 
 Replicate sequences of interactions and make sure that your app's user interface behaves as intended.
 
-**Platforms:** Xcode 16.3+
+**Tools:** Xcode 16.3+
 
 ## Overview
 
@@ -12,10 +12,18 @@ Note
 
 UI testing isn't available to apps you build using the visionOS SDK. You can still use it to test compatible iPad and iPhone apps that you build using the iOS SDK but run in visionOS.
 
+## Xcode 27 beta integration
+
+Continue to host UI automation in [XCTest](XCTest.md), not Swift Testing. The [Xcode 27 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md) add a test-plan setting for the severity of target-app crashes during UI testing: off, warning, failure (the default), or fatal failure. Choose it explicitly so a crash is not mistaken for a successful flow.
+
+[App Intents Testing](AppIntentsTesting.md) also uses a UI testing bundle and a live app, but invokes intent infrastructure rather than replaying taps. Pair its intent/query assertions with UI checks for visible results, denied access, and failed actions.
+
+The framework's [current overview](https://developer.apple.com/documentation/xcuiautomation.md) still states the native visionOS UI-testing limitation above. Framework availability for an OS 27 API does not guarantee that every UI-test destination or Device Hub interaction is supported.
+
 ## Topics
 
 ### Essentials
-- [Recording UI automation for testing](https://developer.apple.com/documentation/xcuiautomation/recording_ui_automation_for_testing) - Capture and replay interaction sequences to verify your app's behavior.
+- [Recording UI automation for testing](https://developer.apple.com/documentation/xcuiautomation/recording-ui-automation-for-testing.md) - Capture and replay interaction sequences to verify your app's behavior.
 
 ### UI element queries
 - **XCUIElementQuery** - An object that defines the search criteria a test uses to identify UI elements.
@@ -25,7 +33,7 @@ UI testing isn't available to apps you build using the visionOS SDK. You can sti
 - **XCUIElement** - A UI element in an application.
 - **XCUIElementAttributes** - Attributes exposed by UI elements.
 - **XCUIElementSnapshot** - A set of attributes to express a snapshot of an element's attributes and descendant user interface hierarchy.
-- **XCUIElementSnapshotProviding** - A method to capture a snapshot of an element's attributes and descendant user interface hierarchy.
+- **XCUIElementSnapshotProviding** - A protocol for capturing a snapshot of an element's attributes and descendant user interface hierarchy.
 - **XCUICoordinate** - A location on screen relative to a UI element.
 
 ### Application lifecycle
@@ -48,7 +56,5 @@ UI testing isn't available to apps you build using the visionOS SDK. You can sti
 - **XCUI_UI_TESTING_AVAILABLE** - Indicates whether the current environment supports UI testing.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/XCUIAutomation)*

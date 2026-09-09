@@ -14,8 +14,6 @@ Apple provides templates, guides, and other resources that can help you integrat
 
 ### Best practices
 
-> **iPadOS 27+, macOS Golden Gate 27+:** Sidebars now extend to the full window edge with refraction continuing beneath them, while scroll-under toolbars become uniform and less translucent as content passes below. Design layouts so content can extend beneath these system surfaces without compromising legibility.
-
 **Group related items to help people find the information they want.** For example, you might use negative space, background shapes, colors, materials, or separator lines to show when elements are related and to separate information into distinct areas. When you do so, ensure that content and controls remain clearly distinct.
 
 **Make essential information easy to find by giving it sufficient space.** People want to view the most important information right away, so don't obscure it by crowding it with nonessential details. You can make secondary information available in other parts of the window, or include it in an additional view.
@@ -28,8 +26,8 @@ When your content doesn't span the full window, use a background extension view 
 
 **Differentiate controls from content.** Take advantage of the Liquid Glass material to provide a distinct appearance for controls that's consistent across iOS, iPadOS, and macOS. Instead of a background, use a scroll edge effect to provide a transition between content and the control area.
 
-- Use a soft edge effect in most cases, especially in iOS and iPadOS, to provide a subtle transition that works well for toolbars and interactive elements like buttons.
-- Use a hard edge effect primarily in macOS for a stronger, more opaque boundary that's ideal for interactive text, backless controls, or pinned table headers that need extra clarity.
+- The [soft style](https://developer.apple.com/documentation/swiftui/scrolledgeeffectstyle/soft) creates a subtle, blurred boundary between pinned controls and scrolling content.
+- The [hard style](https://developer.apple.com/documentation/swiftui/scrolledgeeffectstyle/hard) creates a linear, nearly opaque boundary. Choose the effect for the content and controls involved rather than treating either style as exclusive to one platform.
 
 For guidance, see Materials. For developer guidance, see ScrollEdgeEffectStyle.
 
@@ -58,7 +56,7 @@ Here are some of the most common device and system variations you need to handle
 
 **Be prepared for text-size changes.** People appreciate apps and games that respond when they choose a different text size. When you support Dynamic Type — a feature that lets people choose the size of visible text in iOS, iPadOS, tvOS, visionOS, and watchOS — your app or game can respond appropriately when people adjust text size. To support Dynamic Type in your Unity-based game, use Apple's accessibility plug-in (for developer guidance, see Apple – Accessibility). For guidance on displaying text in your app, see Typography.
 
-**Preview your app on multiple devices, using different orientations, localizations, and text sizes.** You can streamline the testing process by first testing versions of your experience that use the largest and the smallest layouts. Although it's generally best to preview features like wide-gamut color on actual devices, you can use Xcode Simulator to check for clipping and other layout issues. For example, if your iOS app or game supports landscape mode, you can use Simulator to make sure your layouts look great whether the device rotates left or right.
+**Preview your app on multiple devices, using different orientations, localizations, and text sizes.** Begin with the smallest and largest layouts, then check intermediate sizes. Use physical devices for features such as wide-gamut color. Apple's current guidance refers to simulated devices in Device Hub for checking clipping and layout; earlier Xcode workflows use Simulator. Check both landscape rotations when your app supports them.
 
 **When necessary, scale artwork in response to display changes.** For example, viewing your app or game in a different context — such as on a screen with a different aspect ratio — might make your artwork appear cropped, letterboxed, or pillarboxed. If this happens, don't change the aspect ratio of the artwork; instead, scale it so that important visual content remains visible. In visionOS, the system automatically scales a window when it moves along the z-axis.
 
@@ -157,8 +155,10 @@ The guidance below can help you lay out content within the windows of your visio
 | Model | Dimensions (portrait) |
 |-------|----------------------|
 | iPad Pro 12.9-inch | 1024x1366 pt (2048x2732 px @2x) |
-| iPad Pro 11-inch | 834x1194 pt (1668x2388 px @2x) |
-| iPad Pro 10.5-inch | 834x1194 pt (1668x2388 px @2x) |
+| iPad Pro 13-inch | 1032x1376 pt (2064x2752 px @2x) |
+| iPad Pro 11-inch, 5th and 6th generations | 834x1210 pt (1668x2420 px @2x) |
+| iPad Pro 11-inch, 1st–4th generations | 834x1194 pt (1668x2388 px @2x) |
+| iPad Pro 10.5-inch | 834x1112 pt (1668x2224 px @2x) |
 | iPad Pro 9.7-inch | 768x1024 pt (1536x2048 px @2x) |
 | iPad Air 13-inch | 1024x1366 pt (2048x2732 px @2x) |
 | iPad Air 11-inch | 820x1180 pt (1640x2360 px @2x) |
@@ -210,7 +210,8 @@ Different size class combinations apply to the full-screen experience on differe
 |--------|------|----------------|-----------------|
 | 10 | 42mm | 374 | 446 |
 | 10 | 46mm | 416 | 496 |
-| Apple Watch Ultra (all generations) | 49mm | 410 | 502 |
+| Apple Watch Ultra (3rd generation) | 49mm | 422 | 514 |
+| Apple Watch Ultra (1st and 2nd generations) | 49mm | 410 | 502 |
 | 7, 8, and 9 | 41mm | 352 | 430 |
 | 7, 8, and 9 | 45mm | 396 | 484 |
 | 4, 5, 6, and SE | 40mm | 324 | 394 |
@@ -232,7 +233,7 @@ Different size class combinations apply to the full-screen experience on differe
 
 #### Videos
 
-- [Get to know the new design system](https://developer.apple.com/videos/play/wwdc2025/10002/)
+- [Get to know the new design system](https://developer.apple.com/videos/play/wwdc2025/356)
 - [Compose custom layouts with SwiftUI](https://developer.apple.com/videos/play/wwdc2022/10056/)
 - [Essential Design Principles](https://developer.apple.com/videos/play/wwdc2017/802/)
 
@@ -266,7 +267,5 @@ Different size class combinations apply to the full-screen experience on differe
 - Added specifications for iPhone 14 Pro Max, iPhone 14 Pro, iPhone 14 Plus, iPhone 14, and Apple Watch Ultra.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/layout)*

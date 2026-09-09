@@ -58,7 +58,7 @@ In addition to subtly communicating context, drawing attention to information, a
 **watchOS**  
 SwiftUI provides a powerful and streamlined way to add motion to your app. If you need to use WatchKit to animate layout and appearance changes — or create animated image sequences — see WKInterfaceImage.
 
-> **Note:** All layout- and appearance-based animations automatically include built-in easing that plays at the start and end of the animation. You can't turn off or customize easing.
+> **WatchKit note:** WatchKit's layout- and appearance-based animations include built-in easing at the start and end that you can't disable or customize. This isn't a restriction on SwiftUI animation curves.
 
 ### Related Components
 
@@ -69,12 +69,12 @@ SwiftUI provides a powerful and streamlined way to add motion to your app. If yo
 
 ### Developer Documentation
 
-- [Animating views and transitions](https://developer.apple.com/documentation/swiftui/animating-views-and-transitions) - SwiftUI
+- [Animating views and transitions](https://developer.apple.com/tutorials/swiftui/animating-views-and-transitions) - SwiftUI
 
 ### Videos
 
-- [Enhance your UI animations and transitions](https://developer.apple.com/videos/play/wwdc2023/10156)
-- [Create custom visual effects with SwiftUI](https://developer.apple.com/videos/play/wwdc2024/10404)
+- [Enhance your UI animations and transitions](https://developer.apple.com/videos/play/wwdc2024/10145)
+- [Create custom visual effects with SwiftUI](https://developer.apple.com/videos/play/wwdc2024/10151)
 - [Design considerations for vision and motion](https://developer.apple.com/videos/play/wwdc2023/10078)
 
 ## Changelog
@@ -89,7 +89,5 @@ SwiftUI provides a powerful and streamlined way to add motion to your app. If yo
 - Updated to include guidance for visionOS.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/motion)*

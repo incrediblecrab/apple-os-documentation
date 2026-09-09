@@ -4,9 +4,9 @@ Perform computations on small vectors and matrices.
 
 ## Overview
 
-simd provides types and functions for small vector and matrix computations. The types include integer and floating-point vectors and matrices, and the functions provide basic arithmetic operations, element-wise mathematical operations, and geometric and linear algebra operations.
+simd provides integer and floating-point vector types, floating-point matrix types, and functions for small vector and matrix computations. The functions provide basic arithmetic, element-wise mathematical operations, and geometric and linear algebra operations.
 
-simd supports vectors containing up to 16 elements (for single-precision values) or 8 elements (for double-precision values), and matrices up to 4 x 4 elements in size. Other frameworks, such as **vForce**, allow you to work with larger vectors.
+This SIMD-library reference describes single-precision vector types with up to 16 elements, double-precision vectors with up to 8, and matrix shapes up to 4 × 4. These are not universal limits on every Swift SIMD type or on other frameworks' vector operations. **vForce**, for example, operates on buffers of larger vectors.
 
 ## Topics
 
@@ -42,7 +42,7 @@ Perform operations on vectors that contain unsigned 32-bit integer elements.
 Perform operations on vectors that contain unsigned 64-bit integer elements.
 
 ### Floating-Point Vectors
-- [Working with Vectors](https://developer.apple.com/documentation/accelerate/working_with_vectors) - Use vectors to calculate geometric values, calculate dot products and cross products, and interpolate between values.
+- [Working with Vectors](https://developer.apple.com/documentation/accelerate/working-with-vectors) - Use vectors to calculate geometric values, calculate dot products and cross products, and interpolate between values.
 
 #### Half-precision floating-point vectors
 Perform operations on vectors that contain half-precision floating-point elements.
@@ -54,7 +54,7 @@ Perform operations on vectors that contain single-precision floating-point eleme
 Perform operations on vectors that contain double-precision floating-point elements.
 
 ### Matrices
-- [Working with Matrices](https://developer.apple.com/documentation/accelerate/working_with_matrices) - Solve simultaneous equations and transform points in space.
+- [Working with Matrices](https://developer.apple.com/documentation/accelerate/working-with-matrices) - Solve simultaneous equations and transform points in space.
 
 #### Half-precision floating-point matrices
 Perform operations on matrices that contain half-precision floating-point elements.
@@ -66,8 +66,8 @@ Perform operations on matrices that contain single-precision floating-point elem
 Perform operations on matrices that contain double-precision floating-point elements.
 
 ### Quaternions
-- [Working with Quaternions](https://developer.apple.com/documentation/accelerate/working_with_quaternions) - Rotate points around the surface of a sphere, and interpolate between them.
-- [Rotating a cube by transforming its vertices](https://developer.apple.com/documentation/accelerate/rotating_a_cube_by_transforming_its_vertices) - Rotate a cube through a series of keyframes using quaternion interpolation to transition between them.
+- [Working with Quaternions](https://developer.apple.com/documentation/accelerate/working-with-quaternions) - Rotate points around the surface of a sphere, and interpolate between them.
+- [Rotating a cube by transforming its vertices](https://developer.apple.com/documentation/accelerate/rotating-a-cube-by-transforming-its-vertices) - Rotate a cube through a series of keyframes using quaternion interpolation to transition between them.
 - **simd_quatf** - A single-precision quaternion.
 - **simd_quatd** - A double-precision quaternion.
 
@@ -80,14 +80,12 @@ Perform operations on matrices that contain double-precision floating-point elem
 
 ### See Also
 #### Vectors, Matrices, and Quaternions
-- [Working with Vectors](https://developer.apple.com/documentation/accelerate/working_with_vectors) - Use vectors to calculate geometric values, calculate dot products and cross products, and interpolate between values.
-- [Working with Matrices](https://developer.apple.com/documentation/accelerate/working_with_matrices) - Solve simultaneous equations and transform points in space.
-- [Working with Quaternions](https://developer.apple.com/documentation/accelerate/working_with_quaternions) - Rotate points around the surface of a sphere, and interpolate between them.
-- [Rotating a cube by transforming its vertices](https://developer.apple.com/documentation/accelerate/rotating_a_cube_by_transforming_its_vertices) - Rotate a cube through a series of keyframes using quaternion interpolation to transition between them.
+- [Working with Vectors](https://developer.apple.com/documentation/accelerate/working-with-vectors) - Use vectors to calculate geometric values, calculate dot products and cross products, and interpolate between values.
+- [Working with Matrices](https://developer.apple.com/documentation/accelerate/working-with-matrices) - Solve simultaneous equations and transform points in space.
+- [Working with Quaternions](https://developer.apple.com/documentation/accelerate/working-with-quaternions) - Rotate points around the surface of a sphere, and interpolate between them.
+- [Rotating a cube by transforming its vertices](https://developer.apple.com/documentation/accelerate/rotating-a-cube-by-transforming-its-vertices) - Rotate a cube through a series of keyframes using quaternion interpolation to transition between them.
 - **vForce** - Perform transcendental and trigonometric functions on vectors of any length.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/Accelerate/simd-library)*

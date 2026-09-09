@@ -1,6 +1,6 @@
 # LiveCommunicationKit
 
-Initiate and handle VoIP conversations, coordinate them with other communication apps and the system, and get ready to be a default calling or dialer app.
+Coordinate VoIP and cellular conversations with the system, and support eligible default-calling or default-dialer integrations.
 
 **Platforms:** iOS 17.4+ | iPadOS 17.4+ | Mac Catalyst 17.4+ | visionOS 1.1+ | watchOS 10.4+
 
@@ -11,7 +11,9 @@ LiveCommunicationKit allows you to offer VoIP conversation functionalities in yo
 - Initiate and receive VoIP conversations
 - Forward cellular network conversations to the system
 
-Using LiveCommunicationKit in your app allows people to configure their device to use your app as the default dialer or calling app.
+Default calling and default dialing are separate capabilities, not automatic consequences of importing the framework. A calling app supplies VoIP services; a dialer presents an interface for initiating cellular conversations. The [`TelephonyConversationManager`](https://developer.apple.com/documentation/livecommunicationkit/telephonyconversationmanager) API starts at iOS/iPadOS/Mac Catalyst 26.0 and requires the Default Dialer App entitlement. Follow the [dialer guide](https://developer.apple.com/documentation/livecommunicationkit/preparing-your-app-to-be-the-default-dialer-app) for eligibility and user-selection requirements, and the [regional distribution guide](../guides/regional-distribution.md) for distribution considerations.
+
+The [VoIP integration guide](https://developer.apple.com/documentation/livecommunicationkit/initiating-voip-conversations-with-livecommunicationkit) describes optional fallback to the system when your VoIP service cannot complete a conversation. Handle errors instead of assuming that a conversation action establishes a connection.
 
 ### Manage user privacy
 
@@ -22,9 +24,9 @@ With a person's permission, an installed health research app that uses SensorKit
 ## Topics
 
 ### Essentials
-- [Initiating VoIP conversations with LiveCommunicationKit](https://developer.apple.com/documentation/livecommunicationkit/initiating_voip_conversations_with_livecommunicationkit) - Let people initiate and receive VoIP conversations, and configure your app so it can be the default calling app on a person's device.
-- [Preparing your app to be the default dialer app](https://developer.apple.com/documentation/livecommunicationkit/preparing_your_app_to_be_the_default_dialer_app) - Let people configure their device to set your app as the default dialer app.
-- [LiveCommunicationKit updates](https://developer.apple.com/documentation/livecommunicationkit/livecommunicationkit_updates) - Learn about important changes to LiveCommunicationKit.
+- [Initiating VoIP conversations with LiveCommunicationKit](https://developer.apple.com/documentation/livecommunicationkit/initiating-voip-conversations-with-livecommunicationkit) - Let people initiate and receive VoIP conversations, and configure your app so it can be the default calling app on a person's device.
+- [Preparing your app to be the default dialer app](https://developer.apple.com/documentation/livecommunicationkit/preparing-your-app-to-be-the-default-dialer-app) - Let people configure their device to set your app as the default dialer app.
+- [LiveCommunicationKit updates](https://developer.apple.com/documentation/updates/livecommunicationkit) - Framework changes, including June 2025's cellular-conversation and translation additions; not an OS 27 introduction list.
 
 ### VoIP conversation management
 - **ConversationManager** - An interface for managing and observing VoIP conversations.
@@ -41,7 +43,7 @@ With a person's permission, an installed health research app that uses SensorKit
 - **PlayToneAction** - An action that plays sequence of tones to indicate that a participant of a conversation interacted with the keypad.
 - **SetTranslatingAction** - An action that starts or stops translation.
 - **StartConversationAction** - An action that starts an outgoing conversation and causes the devices of a remote participant to ring.
-- **UnmergeConversationAction** - An action that separates two previosuly merged conversations.
+- **UnmergeConversationAction** - An action that separates two previously merged conversations.
 
 ### Participant information
 - **Handle** - A way to reach a participant, such as a phone number or email address.
@@ -49,15 +51,13 @@ With a person's permission, an installed health research app that uses SensorKit
 ### Conversation history
 - **ConversationHistoryManager** - An interface for managing and providing conversation history.
 
-### Classes
-- **TelephonyConversationManager**
+Cellular history access requires both the Default Dialer App entitlement and the person's selection of your app as the default dialer. The documented history starts when the app became the default, not before.
 
-### Structures
-- **CellularService** - Struct representing an account which can be used to dial a call
-- **StartCellularConversationAction** - Struct representing a request to dial a conversation using the default calling application
+### Cellular network conversations
+- [`TelephonyConversationManager`](https://developer.apple.com/documentation/livecommunicationkit/telephonyconversationmanager) - Initiates cellular-network conversation requests and lets the system route them to the appropriate calling app.
+- [`CellularService`](https://developer.apple.com/documentation/livecommunicationkit/cellularservice) - A cellular service account used when starting or joining a conversation.
+- [`StartCellularConversationAction`](https://developer.apple.com/documentation/livecommunicationkit/startcellularconversationaction) - A request to start a cellular conversation using the default calling app.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/LiveCommunicationKit)*

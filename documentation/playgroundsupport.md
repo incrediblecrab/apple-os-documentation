@@ -29,7 +29,7 @@ Traditional live views are available in playgrounds in Xcode and in Swift Playgr
 - **PlaygroundLiveViewSafeAreaContainer** - A protocol that ensures that views fit without obstruction within the Swift Playgrounds user interface.
 
 ### Page-View Communication
-Messaging Between a Playground Page and the Always-On Live View - Display the results of running a playground page's code in a persistent live view.
+- [Messaging Between a Playground Page and the Always-On Live View](https://developer.apple.com/documentation/playgroundsupport/messaging_between_a_playground_page_and_the_always-on_live_view) - Display the results of running a playground page's code in a persistent live view.
 
 - **PlaygroundRemoteLiveViewProxy** - A proxy that facilitates message passing between the always-on live view and its corresponding playground page.
 - **PlaygroundRemoteLiveViewProxyDelegate** - A delegate you use to receive messages from the always-on live view.
@@ -42,7 +42,5 @@ Messaging Between a Playground Page and the Always-On Live View - Display the re
 - **playgroundSharedDataDirectory** - The path to the directory containing data shared between all playgrounds in Xcode.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/playgroundsupport)*

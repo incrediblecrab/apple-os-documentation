@@ -6,105 +6,111 @@ Learn about changes to the iOS & iPadOS SDK.
 
 ## Overview
 
-> **OS 27 is in beta as of August 2026.** Developer beta 1 arrived June 8, 2026 and public beta 1 on July 13, 2026. Beta numbering diverges across platforms, so check each platform's notes rather than assuming parity. Apple has not announced release dates. The current shipping line is OS 26.6.
+> **Checked September 8, 2026:** iOS/iPadOS **26.6.2** (`23G90`, September 8) is shipping; **27 beta 8** (`24A5430a`) was released August 31. [Release listings](https://developer.apple.com/news/releases/) do not establish a general-availability date or a complete OS27 device list.
 
 Release notes provide details on API changes, known issues, fixes, workarounds, and deprecations for recent software releases.
+
+### OS27 Migration Priorities
+
+- Adopt the [UIKit scene-based life cycle](https://developer.apple.com/documentation/uikit/transitioning-to-the-uikit-scene-based-life-cycle): apps built with the latest SDK fail to launch on iOS/iPadOS 27 without it. Multiple-window support is optional.
+- The 27 SDK requires a launch-screen declaration. Review new external-display scene registration, presentation trait propagation, and menu behavior.
+- Migrate ODR/`NSBundleResourceRequest` to Background Assets; test localized packs and unavailable/offline assets.
+- Audit [stricter TLS for selected system processes](https://support.apple.com/en-us/126655), including management, enrollment, installation, and updates. This is not a universal change to every app socket.
+- Re-test beta 8's resolved issues rather than documenting them as permanent restrictions. See the [iOS](../os27-intro/iOS.md) and [iPadOS](../os27-intro/iPadOS.md) introductions for selected API migrations and current known-issue scope.
+
+The [27 beta 8 notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes) are the feature source. [Xcode 27 beta 6](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) requires **Apple silicon and macOS Tahoe 26.4 or later**, not macOS 27. Keep host, linked SDK, deployment target, and [submission policy](../guides/app-store-readiness.md) separate.
 
 ### Bug Reporting
 
 For issues not mentioned in release notes, send feedback through Feedback Assistant.
 
-When writing your report, please include the full version number in the title and in the description. This looks like "13 (17A_xxxx_)." You can find the full version number in Settings > General > About > Version. For more information, visit Bug Reporting.
+Include the OS version and build, for example **iOS 27 beta 8 (`24A5430a`)**, as well as the Xcode/SDK build and reproduction steps. Find the device build under Settings > General > About and submit through [Feedback Assistant](https://feedbackassistant.apple.com/).
 
 ## Topics
 
 ### iOS & iPadOS 27
-- [iOS & iPadOS 27 Beta Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes) - Update your apps to use new features, and test your apps against API changes. Pre-release; content changes through the beta period.
+- [iOS & iPadOS 27 Beta 8 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes) - Pre-release API changes, resolved/known issues, and migrations; checked September 8, 2026.
 
 ### iOS & iPadOS 26
-- [iOS & iPadOS 26.6 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes) - Current shipping release. Update your apps to use new features, and test your apps against API changes.
-- [iOS & iPadOS 26.5 Beta 4 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-26-5-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS & iPadOS 26.4 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-26-4-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS & iPadOS 26.3 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-26-3-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS & iPadOS 26.2 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-26-2-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS & iPadOS 26.1 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-26-1-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 26.6.2 security/release listing](https://support.apple.com/en-us/100100) - Shipping maintenance release, September 8, 2026; not a separate SDK feature page.
+- [iOS & iPadOS 26.6 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-26_6-release-notes) - SDK notes for the 26.6 line.
+- [iOS & iPadOS 26.5 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-26_5-release-notes) - Earlier OS26 SDK changes and fixes.
+- [iOS & iPadOS 26.4 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-26_4-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 26.3 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-26_3-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 26.2 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-26_2-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 26.1 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-26_1-release-notes) - Update your apps to use new features, and test your apps against API changes.
 - [iOS & iPadOS 26 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-26-release-notes) - Update your apps to use new features, and test your apps against API changes.
 
 ### iOS & iPadOS 18
-- [iOS & iPadOS 18.6 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-18-6-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS & iPadOS 18.5 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-18-5-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS & iPadOS 18.4 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-18-4-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS & iPadOS 18.3 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-18-3-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS & iPadOS 18.2 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-18-2-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS & iPadOS 18.1 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-18-1-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 18.6 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-18_6-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 18.5 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-18_5-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 18.4 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-18_4-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 18.3 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-18_3-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 18.2 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-18_2-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 18.1 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-18_1-release-notes) - Update your apps to use new features, and test your apps against API changes.
 - [iOS & iPadOS 18 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-18-release-notes) - Update your apps to use new features, and test your apps against API changes.
 
 ### iOS & iPadOS 17
-- [iOS & iPadOS 17.6 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-17-6-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS & iPadOS 17.5 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-17-5-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS & iPadOS 17.4 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-17-4-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS & iPadOS 17.3 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-17-3-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS & iPadOS 17.2 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-17-2-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS & iPadOS 17.1 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-17-1-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 17.6 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-17_6-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 17.5 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-17_5-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 17.4 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-17_4-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 17.3 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-17_3-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 17.2 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-17_2-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 17.1 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-17_1-release-notes) - Update your apps to use new features, and test your apps against API changes.
 - [iOS & iPadOS 17 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-17-release-notes) - Update your apps to use new features, and test your apps against API changes.
 
 ### iOS & iPadOS 16
-- [iOS & iPadOS 16.6 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-16-6-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS & iPadOS 16.5 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-16-5-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS & iPadOS 16.4 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-16-4-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS & iPadOS 16.3 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-16-3-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS & iPadOS 16.2 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-16-2-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS 16.1 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-16-1-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 16.6 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-16_6-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 16.5 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-16_5-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 16.4 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-16_4-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 16.3 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-16_3-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 16.2 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-16_2-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS 16.1 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-16_1-release-notes) - Update your apps to use new features, and test your apps against API changes.
 - [iOS 16 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-16-release-notes) - Update your apps to use new features, and test your apps against API changes.
 - [iPadOS 16 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ipados-16-release-notes) - Update your apps to use new features, and test your apps against API changes.
 
 ### iOS & iPadOS 15
-- [iOS & iPadOS 15.6 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-15-6-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS & iPadOS 15.5 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-15-5-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS & iPadOS 15.4 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-15-4-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS & iPadOS 15.3 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-15-3-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS & iPadOS 15.2 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-15-2-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS & iPadOS 15.1 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-15-1-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 15.6 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-15_6-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 15.5 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-15_5-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 15.4 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-15_4-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 15.3 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-15_3-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 15.2 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-15_2-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 15.1 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-15_1-release-notes) - Update your apps to use new features, and test your apps against API changes.
 - [iOS & iPadOS 15 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-15-release-notes) - Update your apps to use new features, and test your apps against API changes.
 
 ### iOS & iPadOS 14
-- [iOS & iPadOS 14.7 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-14-7-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS & iPadOS 14.6 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-14-6-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS & iPadOS 14.5.1 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-14-5-1-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS & iPadOS 14.5 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-14-5-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS & iPadOS 14.4 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-14-4-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS & iPadOS 14.3 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-14-3-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS & iPadOS 14.2 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-14-2-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 14.7 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-14_7-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 14.6 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-14_6-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 14.5.1 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-14_5_1-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 14.5 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-14_5-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 14.4 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-14_4-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 14.3 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-14_3-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 14.2 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-14_2-release-notes) - Update your apps to use new features, and test your apps against API changes.
 - [iOS & iPadOS 14 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-14-release-notes) - Update your apps to use new features, and test your apps against API changes.
 
 ### iOS & iPadOS 13
-- [iOS & iPadOS 13.7 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-13-7-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS & iPadOS 13.6 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-13-6-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS & iPadOS 13.5 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-13-5-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS & iPadOS 13.4 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-13-4-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS & iPadOS 13.3.1 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-13-3-1-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS & iPadOS 13.3 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-13-3-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS & iPadOS 13.2 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-13-2-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS & iPadOS 13.1 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-13-1-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 13.7 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-13_7-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 13.6 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-13_6-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 13.5 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-13_5-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 13.4 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-13_4-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 13.3.1 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-13_3_1-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 13.3 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-13_3-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 13.2 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-13_2-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS & iPadOS 13.1 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-13_1-release-notes) - Update your apps to use new features, and test your apps against API changes.
 - [iOS 13 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-13-release-notes) - Update your apps to use new features, and test your apps against API changes.
 
 ### iOS 12
-- [iOS 12.4 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-12-4-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS 12.3 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-12-3-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS 12.2 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-12-2-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS 12.1.3 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-12-1-3-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS 12.1.1 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-12-1-1-release-notes) - Update your apps to use new features, and test your apps against API changes.
-- [iOS 12.1 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-12-1-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS 12.4 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-12_4-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS 12.3 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-12_3-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS 12.2 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-12_2-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS 12.1.3 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-12_1_3-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS 12.1.1 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-12_1_1-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [iOS 12.1 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-12_1-release-notes) - Update your apps to use new features, and test your apps against API changes.
 - [iOS 12 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-12-release-notes) - Update your apps to use new features, and test your apps against API changes.
 
 ### See Also
-- [iOS 11.3 SDK Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-11-3-sdk-release-notes)
-- [iOS 11.2 SDK Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-11-2-sdk-release-notes)
-- [iOS 11.1 SDK Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-11-1-sdk-release-notes)
-- [iOS 11 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-11-release-notes)
+- [Apple Documentation Archive](https://developer.apple.com/library/archive/navigation/) - Browse archived developer material for earlier SDKs; the verified release-note entries above cover iOS 12 and later.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/ios-ipados-release-notes)*

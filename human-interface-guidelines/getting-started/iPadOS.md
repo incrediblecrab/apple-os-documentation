@@ -22,7 +22,7 @@ As you begin designing your app or game for iPad, start by understanding the fol
 - Widgets
 - Drag and drop
 
-> **iPadOS 27+:** Windowing is refined with smoother resize, move, and close; a **persistent menu bar** option shows the active app name; and Split View and Slide Over now operate **inside** the windowing framework rather than as separate modes. External displays gain per-display app pinning and resizable iPhone apps. Re-test any layout logic that assumes a fixed set of multitasking states. iPadOS 27 drops all A12-class iPads.
+Start with [Design principles](design-principles.md). An iPad experience needs to work as a resizable workspace as well as a handheld, touch-first interface.
 
 ## Topics
 
@@ -38,22 +38,37 @@ Great iPad experiences integrate the platform and device capabilities that peopl
 
 - **Adapt to changes seamlessly** - Adapt seamlessly to appearance changes — like device orientation, multitasking modes, Dark Mode, and Dynamic Type — and transition effortlessly to running in macOS, letting people choose the configurations that work best for them.
 
+### Windowing and input
+
+- Adapt to the space the window actually has, not a hard-coded device model or a fixed catalog of multitasking sizes. Reflow [split views](../components/split-views.md) and sidebars without losing the current selection or edit.
+- Keep important content and controls clear of system window controls and safe areas. Test compact and expanded [windows](../components/windows.md), rotation, and supported external-display configurations.
+- Keep touch actions usable while adding [pointer](../inputs/pointing-devices.md) precision and hover feedback. Hover must not be the only way to discover a necessary action.
+- Provide discoverable [keyboard commands](../inputs/keyboards.md), meaningful focus order, and standard editing commands. Verify that commands act on the intended window.
+- Treat [Apple Pencil](../inputs/apple-pencil-and-scribble.md) as a precise input option, not a prerequisite. Preserve touch and accessible alternatives, and support [drag and drop](../patterns/drag-and-drop.md) where it helps move content between tasks.
+
+### Accessibility and validation
+
+- Resize while using [Dynamic Type](../foundations/typography.md), long localized labels, and the onscreen keyboard. Allow the layout to change rather than shrinking text to fit.
+- Check [right-to-left layouts](../foundations/right-to-left.md) and navigation order in both sidebar and compact presentations.
+- Complete a task with [VoiceOver](../technologies/voiceover.md) and with keyboard-only navigation, including changing panes and dismissing a modal.
+- Validate contrast and selection over [materials](../foundations/materials.md). Test Reduce Transparency and [Reduce Motion](../foundations/motion.md) without losing context during layout transitions.
+
 ### Resources
 
+- [Design principles](design-principles.md)
+- [Multitasking](../patterns/multitasking.md)
 - [Apple Design Resources](https://developer.apple.com/design/resources/)
 
 ### Developer Documentation
 
-- [iPadOS Pathway](https://developer.apple.com/pathways/ipados/)
+- [iPadOS Pathway](https://developer.apple.com/ipados/get-started/)
 
 ### Videos
 
-- [Elevate the design of your iPad app](https://developer.apple.com/videos/play/wwdc2025/10232/)
-- [Meet Liquid Glass](https://developer.apple.com/videos/play/wwdc2025/10001/)
-- [Get to know the new design system](https://developer.apple.com/videos/play/wwdc2025/10002/)
+- [Elevate the design of your iPad app](https://developer.apple.com/videos/play/wwdc2025/208)
+- [Meet Liquid Glass](https://developer.apple.com/videos/play/wwdc2025/219)
+- [Get to know the new design system](https://developer.apple.com/videos/play/wwdc2025/356)
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/designing-for-ipados)*

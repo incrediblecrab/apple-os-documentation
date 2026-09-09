@@ -14,8 +14,8 @@ Apple recommends replacing legacy Device Abstraction Layer (DAL) plug-ins with C
 ## Topics
 
 ### Providers
-- [Creating a camera extension with Core Media I/O](https://developer.apple.com/documentation/coremediaio/creating_a_camera_extension_with_core_media_i_o) - Build high-performance camera drivers that are secure and simple to deploy.
-- [Overriding the default USB video class extension](https://developer.apple.com/documentation/coremediaio/overriding_the_default_usb_video_class_extension) - Create a simple DriverKit extension to override the default driver-matching behavior for USB devices.
+- [Creating a camera extension with Core Media I/O](https://developer.apple.com/documentation/coremediaio/creating-a-camera-extension-with-core-media-i-o) - Build high-performance camera drivers that are secure and simple to deploy.
+- [Overriding the default USB video class extension](https://developer.apple.com/documentation/coremediaio/overriding-the-default-usb-video-class-extension) - Create a simple DriverKit extension to override the default driver-matching behavior for USB devices.
 - **CMIOExtensionProvider** - An object that manages device connections for a provider.
 - **CMIOExtensionProviderSource** - A protocol for objects that act as provider sources.
 - **CMIOExtensionProviderProperties** - An object that manages the properties of an extension provider.
@@ -39,10 +39,8 @@ Apple recommends replacing legacy Device Abstraction Layer (DAL) plug-ins with C
 - **CMIOExtensionMachServiceNameKey** - A key that specifies the mach service name.
 
 ### DAL Plug-Ins
-- [Device Abstraction Layer (DAL) Plug-Ins](https://developer.apple.com/documentation/coremediaio/device_abstraction_layer_dal_plug-ins) - API reference for legacy DAL plug-ins.
+- [Device Abstraction Layer (DAL) Plug-Ins](https://developer.apple.com/documentation/coremediaio/device-abstraction-layer-dal-plug-ins) - API reference for legacy DAL plug-ins.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/CoreMediaIO)*

@@ -17,6 +17,23 @@ With the NetworkExtension framework, you can customize and extend the system's c
 
 The NetworkExtension framework is available in macOS, iOS, tvOS, and visionOS, but not all features are available on all platforms and some features have specific restrictions (for example, some features only work on supervised iOS devices). The documentation for each feature describes these restrictions.
 
+The platform header is umbrella metadata, not a provider-deployment matrix. [TN3134](https://developer.apple.com/documentation/technotes/tn3134-network-extension-provider-deployment) distinguishes native apps, Catalyst, iOS apps on Mac, and app versus system extensions. On macOS, an app-extension provider terminates when its user logs out; a system-extension provider runs independently of the logged-in user.
+
+### Entitlements, consent, and deployment
+
+- [`com.apple.developer.networking.networkextension`](https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.networking.networkextension) is an **array of strings**, not a Boolean. Select the values for the provider and packaging you actually implement, such as `packet-tunnel-provider`, `dns-settings`, or the documented system-extension variant.
+- Personal VPN uses the separate string-array entitlement [`com.apple.developer.networking.vpn.api`](https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.networking.vpn.api), containing `allow-vpn`. The person must authorize the first saved Personal VPN configuration. Managed configurations can take precedence over a Personal VPN default route.
+- Hotspot integration requires Apple's special Boolean [`com.apple.developer.networking.HotspotHelper`](https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.networking.HotspotHelper) grant. It is not a general-purpose Wi-Fi scanning, accessory-setup, or location API.
+- Filter and DNS-proxy deployment has supervision, managed per-app, and platform-specific rules. The Screen Time content-filter exception requires **child** authorization on a child's family device; individual authorization is not that exception. DNS Settings configurations must be explicitly enabled by the person.
+
+Treat denied authorization, disabled or removed configurations, and provider startup or routing failures as normal outcomes. A saved configuration or an entitlement alone does not prove that traffic is flowing through the provider.
+
+### 27 beta networking notes
+
+**Reviewed September 8, 2026:** The iOS/iPadOS 27 beta 8 release notes mark the wired-CarPlay exclusion issue as resolved: a VPN using `includeAllNetworks = true` previously failed to honor `excludeLocalNetworks` for wired CarPlay. Test routing and reconnect behavior on the OS versions you support rather than assuming older betas had the fix.
+
+The separate 27 TLS hardening concerns selected management, enrollment, installation, and update **system processes**. It is not an instruction to apply one new policy indiscriminately to every VPN flow. See [Security](Security.md) for exact scope and server-side requirements.
+
 ### Options for implementing VPN
 
 The NetworkExtension framework has extensive support for virtual private networks (VPN). A VPN is a form of network tunnel, where a VPN client uses the public Internet to create a connection to a VPN server and then passes private network traffic over that connection.
@@ -31,7 +48,7 @@ The supported operating systems include a number of different VPN APIs, distingu
 
 ### About Always-on VPN
 
-iOS supports Always-on VPN to ensure all IP traffic is tunneled back to the organization. See the iOS Deployment Reference for information about how to configure Always-on VPN.
+An Always-on VPN is a managed device configuration, not merely a Personal VPN that reconnects on demand. On supervised iOS/iPadOS devices, the system normally drops traffic while the Always-on tunnel is unavailable, including before it starts during boot. Network-control traffic is excluded, and the profile can define captive-network, application, and service exceptions. Do not describe it as having no possible bypass traffic. See [VPN routing](https://developer.apple.com/documentation/networkextension/routing-your-vpn-network-traffic) and the [`VPN.AlwaysOn` payload](https://developer.apple.com/documentation/devicemanagement/vpn/alwayson-data.dictionary).
 
 ## Topics
 
@@ -39,57 +56,60 @@ iOS supports Always-on VPN to ensure all IP traffic is tunneled back to the orga
 
 #### Wi-Fi configuration
 - Add persistent Wi-Fi configurations, or temporarily move the device to a specific Wi-Fi network.
-- [Configuring a Wi-Fi accessory to join a network](https://developer.apple.com/documentation/networkextension/configuring_a_wi-fi_accessory_to_join_a_network) - Associate an iOS device with an accessory's network to deliver network configuration information.
+- [Configuring a Wi-Fi accessory to join a network](https://developer.apple.com/documentation/networkextension/configuring-a-wi-fi-accessory-to-join-a-network) - Associate an iOS device with an accessory's network to deliver network configuration information.
 
 #### Hotspot helper
-- Integrate your app with the iOS hotspot network subsystem.
+- [Hotspot helper](https://developer.apple.com/documentation/networkextension/hotspot-helper) - Integrate with hotspot authentication under the special entitlement; use the deployment matrix for newer hotspot-provider targets.
+- `NEHotspotHelper` is deprecated in **26.0**, not 27. Its replacement, [`NEHotspotManager`](https://developer.apple.com/documentation/networkextension/nehotspotmanager), manages separate hotspot-evaluation and authentication provider extensions.
 
 ### Virtual private networks
-- [Routing your VPN network traffic](https://developer.apple.com/documentation/networkextension/routing_your_vpn_network_traffic) - Configure your VPN to include and exclude some network traffic.
+- [Routing your VPN network traffic](https://developer.apple.com/documentation/networkextension/routing-your-vpn-network-traffic) - Configure inclusions, exclusions, per-app rules, and Always-on exceptions. Even `includeAllNetworks` has documented system-traffic exceptions.
 
 #### Personal VPN
-- Create and manage a VPN configuration that uses one of the built-in VPN protocols (IPsec or IKEv2).
+- [Personal VPN](https://developer.apple.com/documentation/networkextension/personal-vpn) - Configure the built-in IPsec or IKEv2 protocols, not arbitrary legacy protocols such as PPTP or L2TP.
 
 #### Packet tunnel provider
-- Implement a VPN client for a packet-oriented, custom VPN protocol.
+- [Packet tunnel provider](https://developer.apple.com/documentation/networkextension/packet-tunnel-provider) - Forward IP packets through a custom VPN protocol; per-app deployment has separate management requirements.
 
 #### App proxy provider
-- Implement a VPN client for a flow-oriented, custom VPN protocol.
+- [App proxy provider](https://developer.apple.com/documentation/networkextension/app-proxy-provider) - Forward TCP connections and UDP conversations through a flow-oriented custom VPN.
 
 ### Network relays
 
 #### Relays
-- Create and manage a system-wide network relay configuration that uses built-in proxying for TCP and UDP traffic over HTTP/3 and HTTP/2.
+- [Relays](https://developer.apple.com/documentation/networkextension/relays) - Configure built-in proxying for TCP and UDP traffic over HTTP/3 and HTTP/2.
 
 ### Content filters
 
 #### Content filter providers
 - Create an on-device network content filter.
-- [Filtering Network Traffic](https://developer.apple.com/documentation/networkextension/filtering_network_traffic) - Use the Network Extension framework to allow or deny network connections.
+- [Content filter providers](https://developer.apple.com/documentation/networkextension/content-filter-providers) - Keep inspected user content inside the restrictive data-provider sandbox; the control provider supplies rules without receiving that content.
+- [Filtering Network Traffic](https://developer.apple.com/documentation/networkextension/filtering-network-traffic) - Use the Network Extension framework to allow or deny network connections.
 
-#### URL filters
-- Create a filter that analyzes full URLs, while preserving privacy.
+### URL filters
+- [URL filters](https://developer.apple.com/documentation/networkextension/url-filters) - Available for iOS/macOS 26.0+ provider deployments. The system combines an on-device Bloom filter with private-information-retrieval lookups against the provider's server. Register the configuration in CloudKit Console's Identity & Trust area.
+- WebKit and `URLSession` requests participate automatically. A custom loading stack must call the `NEURLFilter` participation API and honor its verdict; do not assume every arbitrary socket request is URL-filtered.
 
 ### DNS configurations
 
 #### DNS settings
-- Create and manage a system-wide DNS configuration that uses built-in encrypted DNS protocols.
+- [DNS settings](https://developer.apple.com/documentation/networkextension/dns-settings) - Configure DNS-over-TLS or DNS-over-HTTPS; the person must enable the configuration.
 
 #### DNS proxy provider
-- Create an on-device DNS proxy using a custom protocol.
+- [DNS proxy provider](https://developer.apple.com/documentation/networkextension/dns-proxy-provider) - Handle DNS queries using an on-device provider, subject to the provider-deployment requirements.
 
 ### Local networking
 
 #### Local push connectivity
-- Provide functionality similar to Apple Push Notification Service when access to the wider internet is unavailable.
+- [Local push connectivity](https://developer.apple.com/documentation/networkextension/local-push-connectivity) - Deliver notifications and CallKit alerts on configured restricted networks, rather than granting arbitrary persistent background work. The approved `app-push-provider` entitlement value is required on both app and provider targets.
 
 ### App extensions
-- **NEAppExtensionConfiguration** - A class that defines configuration options for use in NetworkExtension app extensions.
+- **NEAppExtensionConfiguration** - Configuration for NetworkExtension app extensions, introduced in 26.0 on its declared iOS/iPadOS, Catalyst, macOS, and visionOS targets.
 ### Classes
-- **NEVPNIKEv2PPKConfiguration**
+- [NEVPNIKEv2PPKConfiguration](https://developer.apple.com/documentation/networkextension/nevpnikev2ppkconfiguration) - Post-quantum pre-shared-key configuration conforming to RFC 8784; iOS/iPadOS/Catalyst/tvOS 18, macOS 15, and visionOS 2 or later.
 
 ### Protocols
-- **NEAppProxyUDPFlowHandling**
+- **NEAppProxyUDPFlowHandling** - UDP-flow handling protocol introduced in iOS/iPadOS/Catalyst 18, macOS 15, and visionOS 2.
 
 ### Structures
 - **NETunnelProviderError** - An error that the tunnel provider encounters.
@@ -100,9 +120,9 @@ iOS supports Always-on VPN to ensure all IP traffic is tunneled back to the orga
 
 ### Enumerations
 - **NERelayManagerClientError**
-- **NEVPNIKEv2PostQuantumKeyExchangeMethod**
+- [NEVPNIKEv2PostQuantumKeyExchangeMethod](https://developer.apple.com/documentation/networkextension/nevpnikev2postquantumkeyexchangemethod) - IKEv2 quantum-secure key-exchange choices introduced in 26.0; separate from pre-shared-key configuration.
 ---
 
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
-
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/NetworkExtension)*
+
+*27-beta source: [iOS/iPadOS release notes — NetworkExtension and Network Security](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes.md).*

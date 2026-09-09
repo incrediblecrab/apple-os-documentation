@@ -2,7 +2,7 @@
 
 Send and receive standards-based messages over cellular networks.
 
-**Platforms:** iOS 26.0+ | iPadOS 26.0+
+**Platforms:** iOS 26.0+; messaging functionality is iPhone-only.
 
 ## Overview
 
@@ -14,7 +14,9 @@ Each service provides an asynchronous sequence for notifications of incoming mes
 
 ### Default Carrier Messaging Apps
 
-To have access to the TelephonyMessageKit API you must add the Default Carrier Messaging App entitlement to your app. This functionality will be enabled in your app only when the user selects your app to be the default carrier messaging app.
+To access TelephonyMessagingKit, add the Boolean [Default Carrier Messaging App entitlement](https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.carrier-messaging-app), `com.apple.developer.carrier-messaging-app`. Functionality is enabled only when the person selects your app as the default carrier messaging app. Provisioning the entitlement alone does not select that role.
+
+Use `TelephonyMessagingSession.shared` to inspect `cellularServices`, and observe `cellularServiceStateUpdates` for changes. Reevaluate service availability and handle session/service errors instead of assuming that a previously selected default role or cellular service remains available.
 
 **Important:** You may develop and test TelephonyMessagingKit apps on devices in all regions by using an Apple-provided provisioning profile. People using your app must have an account registered in the European Union (EU), and their device must be located within the EU.
 
@@ -29,7 +31,5 @@ To have access to the TelephonyMessageKit API you must add the Default Carrier M
 - **RCSGroupContext** - Structure containing information about a message's group.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/TelephonyMessagingKit)*

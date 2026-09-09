@@ -22,14 +22,12 @@ Develop your driver by subclassing IOUserSCSIPeripheralDeviceType00 or IOUserSCS
 - **SCSI commands** - Call the framework's free functions to populate Command Descriptor Blocks (CDBs) to send to your peripheral.
 
 ### Classes
-- **IOUserSCSIPeripheralDeviceType07** - Reference
+- [IOUserSCSIPeripheralDeviceType07](https://developer.apple.com/documentation/scsiperipheralsdriverkit/iouserscsiperipheraldevicetype07) - An additional DriverKit 22.0+ peripheral-device class.
 
 ### Reference
 - **SCSIPeripheralsDriverKit Enumerations**
 - **SCSIPeripheralsDriverKit Data Types**
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/SCSIPeripheralsDriverKit)*

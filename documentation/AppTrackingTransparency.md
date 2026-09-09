@@ -16,6 +16,14 @@ To use the AppTrackingTransparency framework:
 
 For more information about app tracking and privacy, see User Privacy and Data Use and App Privacy Details.
 
+### Authorization lifecycle
+
+`NSUserTrackingUsageDescription` is the Info.plist purpose string required for the request; it does not itself grant tracking permission. Check `ATTrackingManager.trackingAuthorizationStatus` and distinguish `.authorized` from `.denied`, `.restricted`, and `.notDetermined`.
+
+Request authorization while the app is active and no other permission prompt is awaiting a response. Requests from an app extension do not present the prompt, and concurrent prompt requests are not queued for later presentation.
+
+The system remembers the person's decision. Recheck status before enabling tracking-dependent behavior and respect later changes; do not repeatedly prompt after denial or treat a restricted/undetermined result as consent. Cancellation or failure to present a prompt must leave tracking disabled.
+
 ## Topics
 
 ### Essentials
@@ -26,6 +34,6 @@ For more information about app tracking and privacy, see User Privacy and Data U
 
 ---
 
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
-
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/AppTrackingTransparency)*
+
+*Authorization behavior reviewed September 8, 2026: [requestTrackingAuthorization(completionHandler:)](https://developer.apple.com/documentation/apptrackingtransparency/attrackingmanager/requestTrackingAuthorization(completionHandler:).md).*

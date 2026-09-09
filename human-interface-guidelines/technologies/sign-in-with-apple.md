@@ -12,8 +12,6 @@ You can offer Sign in with Apple in every version of your app or website across 
 
 Sign in with Apple makes it easy for people to authenticate with Face ID, Touch ID, or Optic ID and has two-factor authentication built in for an added layer of security. Apple doesn't use Sign in with Apple to profile people or their activity in apps.
 
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Apple Intelligence can navigate to eligible sites, sign in, and automatically rotate weak or compromised passwords. Use standard, well-labeled authentication forms so automated flows complete reliably. Passkeys remain the preferred unphishable alternative to passwords.
-
 ## Topics
 
 ### Best Practices
@@ -31,7 +29,7 @@ Sign in with Apple makes it easy for people to authenticate with Face ID, Touch 
 **Collecting Data**
 
 - **Clarify whether the additional data you request is required or just recommended** - If the data is legally or contractually required, make sure people understand that they must supply the additional information to complete the setup of their account.
-- **Don't ask people to supply a password** - A key benefit of Sign in with Apple is that people don't have to create and memorize additional passwords.
+- **Don't ask people to supply a password while they use Sign in with Apple** - A key benefit is that people don't have to create and memorize an additional password. Apple's guidance makes an exception when someone has stopped using Sign in with Apple with your app or website.
 - **Avoid asking for a personal email address when people supply a private relay address** - Using Sign in with Apple, people can choose to share a private relay address that automatically forwards messages to their verified personal email account.
 - **Give people a chance to engage with your app before asking for optional data** - As people use your app, you can help them discover places where they can benefit from sharing more information with you.
 - **Be transparent about the data you collect** - People value knowing how you use the data that they share with you.
@@ -50,12 +48,12 @@ No additional considerations for iOS, iPadOS, macOS, tvOS, visionOS, or watchOS.
 
 ### Related Components
 
-- [Sign in with Apple button](https://developer.apple.com/design/human-interface-guidelines/sign-in-with-apple-button) - Button design guidance
+- [Sign in with Apple button guidance](https://developer.apple.com/design/human-interface-guidelines/sign-in-with-apple#Displaying-buttons)
 
 ### Developer Documentation
 
 - [Authentication Services](https://developer.apple.com/documentation/authenticationservices) - Framework
-- [Displaying Sign in with Apple buttons on the web](https://developer.apple.com/documentation/sign_in_with_apple/displaying_sign_in_with_apple_buttons_on_the_web) - Web implementation
+- [Displaying Sign in with Apple buttons on the web](https://developer.apple.com/documentation/signinwithapple/displaying-sign-in-with-apple-buttons-on-the-web) - Web implementation
 
 ### Videos
 
@@ -70,7 +68,5 @@ No additional considerations for iOS, iPadOS, macOS, tvOS, visionOS, or watchOS.
 - Consolidated guidance into one page
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/sign-in-with-apple)*

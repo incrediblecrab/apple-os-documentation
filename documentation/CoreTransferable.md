@@ -13,43 +13,37 @@ Core Transferable defines a core protocol, Transferable, that you adopt in your 
 You can send or receive Transferable items within an app, among a collection of your own apps, or between your apps and other apps that share an understanding of how to import or export a known data format. The following shows an example model type, Note, that's extended to conform to Transferable:
 
 ```swift
+import CoreTransferable
+import UniformTypeIdentifiers
+
 struct Note: Codable {
     var text: String
-    var url: URL
-
-    init(url: URL) {
-        self.url = url
-        self.text = ""
-    }
 }
 
 extension Note: Transferable {
     static var transferRepresentation: some TransferRepresentation {
         CodableRepresentation(contentType: .note)
         ProxyRepresentation(exporting: \.text)
-        FileRepresentation(
-            contentType: .utf8PlainText,
-            exporting: { note in SentTransferredFile(note.url) },
-            importing: { received in
-                let destination = URL(fileURLWithPath: <# ... #>)
-                try FileManager.default.copyItem(at: received.file, to: destination)
-                return Self.init(url: destination) })
-        }
+    }
 }
 
 extension UTType {
-    static var note = UTType(exportedAs: "com.example.note")
+    static let note = UTType(exportedAs: "com.example.note")
 }
 ```
 
 Use Core Transferable along with the collection of common file and data transfer identifiers from the Uniform Type Identifiers framework to take advantage of system interactions that move and share data using standard file types or your own custom-defined file types.
+
+The example offers a custom Codable representation and a plain-text fallback; also declare the exported type in your app's bundle as described in [Uniform Type Identifiers](UniformTypeIdentifiers.md). For file transfers, inspect [`ReceivedTransferredFile`](https://developer.apple.com/documentation/coretransferable/receivedtransferredfile) and implement an explicit file-ownership/storage policy rather than retaining an incoming URL as if it were automatically permanent.
+
+On iOS and iPadOS 27, UIKit can ask drag delegates for content on Siri's behalf without a user-initiated drag. Keep data representation separate from drag-only UI effects; see [UIKit migration](UIKit.md#behavior-and-api-changes). Core Transferable is a sharing format layer, not a replacement for [AppMigrationKit](AppMigrationKit.md)'s system-managed device migration.
 
 ## Topics
 
 ### Essentials
 - **Transferable** - A protocol that describes how a type interacts with transport APIs such as drag and drop or copy and paste.
 - **TransferRepresentation** - A declarative description of the process of importing and exporting a transferable item.
-- [Choosing a transfer representation for a model type](https://developer.apple.com/documentation/coretransferable/choosing_a_transfer_representation_for_a_model_type) - Define a custom representation for your data using a combination of built-in types.
+- [Choosing a transfer representation for a model type](https://developer.apple.com/documentation/coretransferable/choosing-a-transfer-representation-for-a-model-type) - Define a custom representation for your data using a combination of built-in types.
 
 ### Data Transfer
 - **CodableRepresentation** - A transfer representation for types that participate in Swift's protocols for encoding and decoding.
@@ -69,7 +63,5 @@ Use Core Transferable along with the collection of common file and data transfer
 - **TupleTransferRepresentation** - A wrapper type for tuples that contain transfer representations.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/CoreTransferable)*

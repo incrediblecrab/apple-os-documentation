@@ -20,18 +20,13 @@ Each Home Screen quick action includes a title, an interface icon on the left or
 
 - **For each quick action, provide a succinct title that instantly communicates the results of the action** - For example, titles like "Directions Home," "Create New Contact," and "New Message" can help people understand what happens when they choose the action. If you need to give more context, provide a subtitle too. Mail uses subtitles to indicate whether there are unread messages in the Inbox and VIP folder. Don't include your app name or any extraneous information in the title or subtitle, keep the text short to avoid truncation, and take localization into account as you write the text.
 
-- **Provide a recognizable interface icon for each quick action** - Consider using SF Symbols to represent actions. If you design your own interface icon, use the Quick Action Icon Template that's included with Apple Design Resources for iOS and iPadOS and use the following sizes for guidance.
+- **Use a familiar icon for each quick action** - Prefer SF Symbols and familiar action icons. For a custom icon, use the Quick Action Icon Template linked from [Apple Design Resources for iOS and iPadOS](https://developer.apple.com/design/resources/#ios-apps).
 
 - **Don't use an emoji in place of a symbol or interface icon** - Emojis are full color, whereas quick action symbols are monochromatic and change appearance in Dark Mode to maintain contrast.
 
 ### Icon Size Guidelines
 
-| Measurement | 3x | 2x |
-|---|---|---|
-| Maximum width and height | 34.67x34.67 pt (104x104 px) | 35x35 pt (70x70 px) |
-| Target width and height | 26.67x26.67 pt (80x80 px) | 27x27 pt (54x54 px) |
-| Target width (wide glyphs) | 29.33pt (88px) | 30pt (60px) |
-| Target height (tall glyphs) | 29.33pt (88px) | 30pt (60px) |
+Use the current Quick Action Icon Template for custom artwork. Check the icon in its menu context, including its monochrome appearance and Dark Mode contrast. See also [Standard icons](https://developer.apple.com/design/human-interface-guidelines/icons#Standard-icons).
 
 ### Platform Considerations
 
@@ -44,10 +39,8 @@ No additional considerations for iOS or iPadOS. Not supported in macOS, tvOS, vi
 
 ### Developer Documentation
 
-- [Add Home Screen quick actions](https://developer.apple.com/documentation/uikit/menus_and_shortcuts/add_home_screen_quick_actions) - UIKit
+- [Add Home Screen quick actions](https://developer.apple.com/documentation/uikit/add-home-screen-quick-actions) - UIKit
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/home-screen-quick-actions)*

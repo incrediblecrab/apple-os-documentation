@@ -26,7 +26,7 @@ People rely on visual cues like distance, occlusion, and shadow to perceive dept
 
 Because people can view your content from any angle, incorporating small amounts of depth throughout your interface — even in standard windows — can help it look more natural. When you use SwiftUI, the system adds visual effects to views in a 2D window, making them appear to have depth. For developer guidance, see Adding 3D content to your app.
 
-If you need to present content with additional depth, you use RealityKit to create a 3D object (for developer guidance, see RealityKit). You can display the 3D object anywhere, or you can use a volume, which is a component that displays 3D content. A volume is similar to a window, but without a visible frame. For guidance, see visionOS volumes.
+For 3D content, choose an appropriate window, volume, or immersive-space presentation rather than assuming unrestricted placement anywhere in the Shared Space. A volume presents 3D content without an ordinary visible window frame; RealityKit supports richer spatial content. See [Adding 3D content to your app](https://developer.apple.com/documentation/visionos/adding-3d-content-to-your-app).
 
 **Provide visual cues that accurately communicate the depth of your content.** If visual cues are missing or they conflict with a person's real-world experience, people can experience visual discomfort.
 
@@ -50,13 +50,13 @@ To support dynamic scaling and the appearance of depth, visionOS defines a point
 
 ### Best practices
 
-> **visionOS 27+:** Curved wrap-around windows and eye-based notification expansion add new spatial presentation patterns. Preserve comfortable scale, depth, and clear hierarchy when adapting existing spatial layouts.
+Preserve comfortable scale, depth, and a clear hierarchy when arranging spatial content. Keep essential interactions within a comfortable field of view and avoid requiring repeated head turns or extended reaches; see [Designing for visionOS](../getting-started/visionOS.md).
 
 **Avoid displaying too many windows.** Too many windows can obscure people's surroundings, making them feel overwhelmed, constricted, and even uncomfortable. It can also make it cumbersome for people to relocate an app because it means moving a lot of windows.
 
 **Prioritize standard, indirect gestures.** People can make an indirect gesture without moving their hand into their field of view. In contrast, making a direct gesture requires people to touch the virtual object with their finger, which can be tiring, especially when the object is positioned at or above their line of sight. In visionOS, people use indirect gestures to perform the standard gestures they already know. When you prioritize indirect gestures, people can use them to interact with any object they look at, whatever its distance. If you support direct gestures, consider reserving them for nearby objects that invite close inspection or manipulation for short periods of time. For guidance, see Gestures > visionOS.
 
-**Rely on the Digital Crown to help people recenter windows in their field of view.** When people move or turn their head, content might no longer appear where they want it to. If this happens, people can press the Digital Crown when they want to recenter content in front of them. Your app doesn't need to do anything to support this action.
+**Use system recentering rather than inventing another control.** After changing position or direction, people can **press and hold** the Digital Crown to bring content back in front of them. Your app doesn't need a separate recenter implementation. This gesture is demonstrated in [Principles of spatial design](https://developer.apple.com/videos/play/wwdc2023/10072).
 
 **Include enough space around interactive components to make them easy for people to look at.** When people look at an interactive element, visionOS displays a visual hover effect that helps them confirm the element is the one they want. It's crucial to include enough space around an interactive component so that looking at it is easy and comfortable, while preventing the hover effect from crowding other content. For example, place multiple, regular-size buttons so their centers are at least 60 points apart, leaving 16 points or more of space between them. Also, don't let controls overlap other interactive elements or views, because doing so can make selecting a single element difficult.
 
@@ -84,11 +84,13 @@ Not supported in iOS, iPadOS, macOS, tvOS, or watchOS.
 
 ### Videos
 
-- [Meet SwiftUI spatial layout](https://developer.apple.com/videos/play/wwdc2023/10113)
+- [Meet SwiftUI spatial layout](https://developer.apple.com/videos/play/wwdc2025/273)
 - [Principles of spatial design](https://developer.apple.com/videos/play/wwdc2023/10072)
 - [Design for spatial user interfaces](https://developer.apple.com/videos/play/wwdc2023/10076)
 
 ## Changelog
+
+These dates describe changes to Apple's HIG article, not edits to this repository.
 
 ### March 29, 2024
 - Emphasized the importance of keeping interactive elements from overlapping each other.
@@ -97,7 +99,5 @@ Not supported in iOS, iPadOS, macOS, tvOS, or watchOS.
 - New page.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/spatial-layout)*

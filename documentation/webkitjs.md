@@ -2,21 +2,28 @@
 
 Access and modify DOM elements within a webpage, including touch events and visual effects.
 
-**Platforms:** Safari Desktop 9.0+ | Safari Mobile 9.0+
+**Historical catalog labels:** Safari Desktop 9.0 | Safari Mobile 9.0 — not per-interface introduction or current browser-support guarantees.
+
+> **Historical index:** Use [WebKit](WebKit.md), the [Safari 27 migration guide](../guides/safari27-migration.md), and the [Safari release notes](safari-release-notes.md) for current development. This legacy inventory is not a list of public Safari 27 APIs.
 
 ## Overview
 
 Note: This document was previously titled Safari DOM Extensions Reference.
 
-This covers miscellaneous DOM extensions used by Safari in macOS and iOS. These extensions include DOM touch events for processing gestures for devices that have a touch screen and visual effects that support 2D and 3D transforms, animation, and transitions. Most of the classes described in this reference are Apple extensions that may also be proposed W3C standards.
+The catalog mixes standard DOM, SVG, canvas, and media interfaces with vendor extensions, obsolete interfaces, and engine/test bindings. Names such as [`InternalSettings`](https://github.com/WebKit/WebKit/blob/main/Source/WebCore/testing/InternalSettings.idl) belong to WebKit testing infrastructure, not an ordinary website's supported API surface.
+
+The descriptions below distinguish legacy references from current standards. Some shared Apple references, including `Document`, `Storage`, and `XMLHttpRequest`, live under `tvmljs`; that catalog relationship does not make a TVML app equivalent to a browser.
 
 ## Topics
 
 ### Essentials
-- [Adding an AirPlay button to your Safari media controls](https://developer.apple.com/documentation/webkitjs/adding_an_airplay_button_to_your_safari_media_controls) - Create a custom control that adds AirPlay to your Safari media player.
-- [Adding Picture in Picture to your Safari media controls](https://developer.apple.com/documentation/webkitjs/adding_picture_in_picture_to_your_safari_media_controls) - Create a custom control that adds Picture in Picture to your Safari media player.
+- [Adding an AirPlay button to your Safari media controls](https://developer.apple.com/documentation/webkitjs/adding_an_airplay_button_to_your_safari_media_controls) - Safari-specific custom-control integration; expose the control when a playback target is available.
+- [Adding Picture in Picture to your Safari media controls](https://developer.apple.com/documentation/webkitjs/adding_picture_in_picture_to_your_safari_media_controls) - Safari media presentation integration. Check the actual video's presentation capabilities before enabling a custom action.
 
 ### Classes
+
+Names retain the historical catalog's class/interface labels. They are not necessarily constructible JavaScript globals; the list also contains mixins and internal/testing entries.
+
 - **ANGLEInstancedArrays**
 - **AbstractWorker**
 - **AnalyserNode**
@@ -52,9 +59,9 @@ This covers miscellaneous DOM extensions used by Safari in macOS and iOS. These 
 - **CSSStyleSheet**
 - **CSSSupportsRule**
 - **CSSUnknownRule**
-- **CanvasGradient** - CanvasGradient instances define visual gradients that can be displayed on the HTML canvas element. The CanvasRenderingContext2D properties fillStyle and strokeStyle can be set to a CanvasGradient object. You obtain a CanvasGradient instance by calling one of the gradient creation methods of the CanvasRenderingContext2D class—createLinearGradient() or createRadialGradient().
+- [`CanvasGradient`](https://developer.apple.com/documentation/webkitjs/canvasgradient) - A gradient used by `fillStyle` or `strokeStyle`, created by a canvas context's gradient factory methods.
 - **CanvasPattern**
-- **CanvasRenderingContext2D** - The CanvasRenderingContext2D class provides a 2D drawing context for a canvas element. Use the methods of this class to draw on the canvas. To obtain an instance of the CanvasRenderingContext2D, call the getContext('2d') method on a canvas object. See Safari HTML5 Canvas Guide for usage examples.
+- [`CanvasRenderingContext2D`](https://developer.apple.com/documentation/webkitjs/canvasrenderingcontext2d) - The 2D drawing interface. `canvas.getContext('2d')` can return `null`, including when a different context type is already selected; check the result. See the [current canvas contract](https://html.spec.whatwg.org/multipage/canvas.html).
 - **ChannelMergerNode**
 - **ChannelSplitterNode**
 - **CharacterData**
@@ -71,7 +78,7 @@ This covers miscellaneous DOM extensions used by Safari in macOS and iOS. These 
 - **Crypto**
 - **CryptoKey**
 - **CustomEvent**
-- **DOMApplicationCache** - A DOMApplicationCache object is used to store resources—such as, HTML, JavaScript, CSS, and images—locally. This allows your web application to continue running offline when there is no network connection. The cache persists after Safari exits, so it can be used by multiple browser sessions. There is one application cache per browsing context.
+- [`DOMApplicationCache`](https://developer.apple.com/documentation/webkitjs/domapplicationcache) - The obsolete AppCache interface. The [HTML standard directs new code to service workers](https://html.spec.whatwg.org/multipage/obsolete.html), not an HTML `manifest` application cache. Do not use this entry as a current offline-storage recommendation.
 - **DOMCSSNamespace**
 - **DOMError**
 - **DOMFormData**
@@ -94,9 +101,9 @@ This covers miscellaneous DOM extensions used by Safari in macOS and iOS. These 
 - **Database**
 - **DedicatedWorkerGlobalScope**
 - **DelayNode**
-- **DeviceMotionEvent** - An instance of DeviceMotionEvent is created when significant change in motion occurs. The event object encapsulates the measurements of the interval, rotation rate, and acceleration of a device.
-- **DeviceOrientationEvent** - Instances of the DeviceOrientationEvent class are fired only when the device has a gyroscope and while the user is changing the orientation. The DeviceOrientationEvent class encapsulates the angles of rotation in degrees and heading.
-- **Document** - These additions to the Document class are used to create touch event objects on iOS and control full-screen mode on the desktop.
+- [`DeviceMotionEvent`](https://developer.apple.com/documentation/webkitjs/devicemotionevent) - Reports motion information such as acceleration, rotation rate, and sample interval. Data availability and delivery depend on device capabilities, secure context, and permissions; do not assume every component is present.
+- [`DeviceOrientationEvent`](https://developer.apple.com/documentation/webkitjs/deviceorientationevent) - Reports orientation angles, with an `absolute` flag describing the reference frame. The [current sensor specification](https://www.w3.org/TR/orientation-event/) is sensor-agnostic, allows unavailable values to be `null`, and requires secure-context/permission checks. Where `requestPermission()` is available, invoke it from a user action rather than assuming a gyroscope-only, always-delivered stream.
+- [`Document`](https://developer.apple.com/documentation/tvmljs/document) - This legacy reference covers touch-creation and fullscreen additions, not the complete modern Document API or a current desktop-only fullscreen support rule. Consult the [DOM standard](https://dom.spec.whatwg.org/) for current DOM semantics.
 - **DocumentFragment**
 - **DocumentType**
 - **DynamicsCompressorNode**
@@ -122,19 +129,19 @@ This covers miscellaneous DOM extensions used by Safari in macOS and iOS. These 
 - **GainNode**
 - **Geolocation**
 - **Geoposition**
-- **GestureEvent** - The GestureEvent class encapsulates information about a multi-touch gesture.
+- [`GestureEvent`](https://developer.apple.com/documentation/webkitjs/gestureevent) - Safari's higher-level gesture-event family, including scaling and rotation information. Do not assume the same interface or event sequence in every browser.
 - **GlobalEventHandlers**
 - **HTMLAllCollection**
 - **HTMLAnchorElement**
 - **HTMLAppletElement**
 - **HTMLAreaElement**
 - **HTMLAttachmentElement**
-- **HTMLAudioElement** - A class representing the HTML audio element that plays a sound or audio stream in a webpage. All of the methods and properties in this class are inherited from HTMLMediaElement.
+- [`HTMLAudioElement`](https://developer.apple.com/documentation/webkitjs/htmlaudioelement) - The audio element interface, inheriting common playback operations from `HTMLMediaElement`; not a guarantee that autoplay is permitted.
 - **HTMLBRElement**
 - **HTMLBaseElement**
 - **HTMLBodyElement**
 - **HTMLButtonElement**
-- **HTMLCanvasElement** - A canvas is an HTML element that defines a runtime drawing region within your web content. You can access the canvas as a JavaScript object and obtain a drawing context from it, in the form of a CanvasRenderingContext2D object. You draw on the canvas by using the JavaScript methods of the CanvasRenderingContext2D class.
+- [`HTMLCanvasElement`](https://developer.apple.com/documentation/webkitjs/htmlcanvaselement) - A drawing surface with selectable context types. A 2D context is one option, not the only rendering mode.
 - **HTMLCollection**
 - **HTMLDListElement**
 - **HTMLDataElement**
@@ -165,7 +172,7 @@ This covers miscellaneous DOM extensions used by Safari in macOS and iOS. These 
 - **HTMLLinkElement**
 - **HTMLMapElement**
 - **HTMLMarqueeElement**
-- **HTMLMediaElement** - An abstract superclass for media classes that display audio or video in webpages. This class defines common properties and methods inherited by the HTMLAudioElement and HTMLVideoElement classes representing the HTML audio and video elements.
+- [`HTMLMediaElement`](https://developer.apple.com/documentation/webkitjs/htmlmediaelement) - The common audio/video interface for loading, playback, state, and media events. See the [current HTML media model](https://html.spec.whatwg.org/multipage/media.html).
 - **HTMLMenuElement**
 - **HTMLMetaElement**
 - **HTMLMeterElement**
@@ -201,7 +208,7 @@ This covers miscellaneous DOM extensions used by Safari in macOS and iOS. These 
 - **HTMLTrackElement**
 - **HTMLUListElement**
 - **HTMLUnknownElement**
-- **HTMLVideoElement** - A class representing the HTML video element that plays a video in a webpage. Use the HTMLAudioElement class for the HTML audio element.
+- [`HTMLVideoElement`](https://developer.apple.com/documentation/webkitjs/htmlvideoelement) - The video element interface, extending common media behavior with video-specific properties.
 - **HashChangeEvent**
 - **History**
 - **IDBCursor**
@@ -443,9 +450,9 @@ This covers miscellaneous DOM extensions used by Safari in macOS and iOS. These 
 - **SpeechSynthesisEvent**
 - **SpeechSynthesisUtterance**
 - **SpeechSynthesisVoice**
-- **Storage** - An object used to store key-value-pair information.
+- [`Storage`](https://developer.apple.com/documentation/tvmljs/storage) - String key/value storage. For browser code, use the [Web Storage contract](https://html.spec.whatwg.org/multipage/webstorage.html): access or writes can fail because of origin policy, user settings, or quota. Do not infer browser storage lifetime from TVML app-exit behavior.
 - **StorageEvent**
-- **StyleMedia** - The StyleMedia class provides a way to evaluate CSS media queries from JavaScript. You do not need to, nor should you, create instances of this class. You access the shared StyleMedia object using the window's styleMedia property.
+- [`StyleMedia`](https://developer.apple.com/documentation/webkitjs/stylemedia) - A legacy media-query helper at `window.styleMedia`, not a constructor to call. Prefer standard [`window.matchMedia(query)`](https://www.w3.org/TR/cssom-view/) for new browser code.
 - **StyleSheet**
 - **StyleSheetList**
 - **SubtleCrypto**
@@ -471,9 +478,9 @@ This covers miscellaneous DOM extensions used by Safari in macOS and iOS. These 
 - **TextTrackCueList**
 - **TextTrackList**
 - **TimeRanges**
-- **Touch** - A Touch object represents a single user touch on the screen of the device. A touch is the presence or movement of a finger and is part of a unique multi-touch sequence. Use the changedTouches method to get all the touch objects that changed in a TouchEvent object.
-- **TouchEvent** - The TouchEvent class encapsulates information about a touch event.
-- **TouchList** - The TouchList class is used to represent a collection of Touch objects. For example, the changedTouches method in TouchEvent returns a TouchList object.
+- [`Touch`](https://developer.apple.com/documentation/webkitjs/touch) - One contact point. A touch event's `changedTouches` **property** identifies the contacts relevant to that event; it is not a method on `Touch`.
+- [`TouchEvent`](https://developer.apple.com/documentation/webkitjs/touchevent) - A touch-event snapshot with `touches`, `targetTouches`, and `changedTouches` lists. See the [Touch Events interface definitions](https://www.w3.org/TR/touch-events/).
+- [`TouchList`](https://developer.apple.com/documentation/webkitjs/touchlist) - A collection of `Touch` objects, exposed by the touch-event list properties.
 - **TrackEvent**
 - **TransitionEvent**
 - **TreeWalker**
@@ -517,14 +524,14 @@ This covers miscellaneous DOM extensions used by Safari in macOS and iOS. These 
 - **WebGLUniformLocation**
 - **WebGLVertexArrayObject**
 - **WebGLVertexArrayObjectOES**
-- **WebKitAnimationEvent** - WebKitAnimationEvent objects encapsulate information about running animations.
-- **WebKitCSSMatrix** - WebKitCSSMatrix objects represent a 4x4 homogeneous matrix for 3D transforms or a vector for 2D transforms. You can use these objects to manipulate matrices in JavaScript. For example, you can multiply, translate, and scale matrices.
+- [`WebKitAnimationEvent`](https://developer.apple.com/documentation/webkitjs/webkitanimationevent) - Legacy animation-event data. The standard [`AnimationEvent`](https://www.w3.org/TR/css-animations-1/) identifies an animation and its elapsed time; events are not emitted separately for every animated CSS property.
+- [`WebKitCSSMatrix`](https://developer.apple.com/documentation/webkitjs/webkitcssmatrix) - A transform matrix: 4×4 for 3D, with six coefficients for a 2D affine transform, **not a 2D vector**. The [Geometry Interfaces specification](https://www.w3.org/TR/geometry-1/) defines `WebKitCSSMatrix` as a legacy window alias for `DOMMatrix`.
 - **WebKitCSSRegionRule**
 - **WebKitNamedFlow**
 - **WebKitNamespace**
 - **WebKitPlaybackTargetAvailabilityEvent**
-- **WebKitPoint** - WebKitPoint objects represent a point in two-dimensional space used by CSS transitions specified using the -webkit-transition property.
-- **WebKitTransitionEvent** - WebKitTransitionEvent objects provide information about CSS transitions specified using the transition property. An event is sent at the end of a transition for each CSS property in the transition. Each event contains the name of the CSS property and duration of the transition. You can use these events to perform some action that starts at the end of a transition.
+- [`WebKitPoint`](https://developer.apple.com/documentation/webkitjs/webkitpoint) - A legacy two-dimensional point used by prefixed page/node coordinate-conversion APIs.
+- [`WebKitTransitionEvent`](https://developer.apple.com/documentation/webkitjs/webkittransitionevent) - Legacy transition-event data. Standard [`TransitionEvent`](https://www.w3.org/TR/css-transitions-1/) exposes `propertyName` and `elapsedTime`; a transition removed before completion does not emit `transitionend`. Handle cancellation rather than waiting unconditionally for an end event.
 - **WebSocket**
 - **WheelEvent**
 - **WindowEventHandlers**
@@ -535,7 +542,7 @@ This covers miscellaneous DOM extensions used by Safari in macOS and iOS. These 
 - **WorkerNavigator**
 - **WritableStream**
 - **XMLDocument**
-- **XMLHttpRequest** - An object used to retrieve data from a URL.
+- [`XMLHttpRequest`](https://developer.apple.com/documentation/tvmljs/xmlhttprequest) - A network request/response interface, not a bypass for browser origin rules. See the [XHR standard](https://xhr.spec.whatwg.org/).
 - **XMLHttpRequestEventTarget**
 - **XMLHttpRequestProgressEvent**
 - **XMLHttpRequestUpload**
@@ -598,16 +605,14 @@ This covers miscellaneous DOM extensions used by Safari in macOS and iOS. These 
 - **WebKitSubtleCrypto**
 
 ### Reference
-- **CSSRule Additions Reference** - These extensions to the CSSRule class are used to access animation keyframe and keyframes rules.
-- **DOMWindow Additions** - DOMWindow additions allow conversion of points between page- and node-coordinate systems for transitions, support for CSS media queries, and device orientation and motion events.
-- **WebKitCSSKeyframeRule** - WebKitCSSKeyframeRule objects represent the style rule for a single keyframe in the @-webkit-keyframes CSS rule used in animations. The WebKitAnimationEvent class encapsulate information about running animations.
-- **WebKitCSSKeyframesRule** - WebKitCSSKeyframesRule objects represent the keyframes for a single animation, that is, the contents of an @-webkit-keyframes CSS rule used in animations. The WebKitAnimationEvent class encapsulate information about running animations.
-- **WebKit JS Enumerations**
-- **WebKit JS Functions**
-- **WebKit JS Data Types**
+- [CSSRule Additions Reference](https://developer.apple.com/documentation/webkitjs/cssrule_additions_reference) - Legacy keyframe/keyframes rule-type constants.
+- [DOMWindow Additions](https://developer.apple.com/documentation/webkitjs/domwindow_additions) - Historical coordinate conversion, media-query, offline-cache, and motion/orientation additions; these are not all current recommendations.
+- [WebKitCSSKeyframeRule](https://developer.apple.com/documentation/webkitjs/webkitcsskeyframerule) - One keyframe rule in the prefixed animation model.
+- [WebKitCSSKeyframesRule](https://developer.apple.com/documentation/webkitjs/webkitcsskeyframesrule) - The collection of keyframe rules for a prefixed animation.
+- [WebKit JS Enumerations](https://developer.apple.com/documentation/webkitjs/webkit_js_enumerations) - The legacy enumeration catalog.
+- [WebKit JS Functions](https://developer.apple.com/documentation/webkitjs/webkit_js_functions) - The legacy function-reference collection; check a specific API's current specification and availability before use.
+- [WebKit JS Data Types](https://developer.apple.com/documentation/webkitjs/webkit_js_data_types) - Historical binding/data-type names.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/webkitjs)*

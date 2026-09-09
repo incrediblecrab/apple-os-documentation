@@ -12,8 +12,6 @@ Keyboard users often appreciate using keyboard shortcuts to speed up their inter
 
 Apple defines standard keyboard shortcuts to work consistently across the system and most apps, helping people transfer their knowledge to new experiences. Some apps define custom keyboard shortcuts for the app-specific commands people use most; most games define custom key bindings that make it quick and efficient to use the keyboard to control the game.
 
-> **iOS 27+, iPadOS 27+:** A **Write with Siri** button appears above the keyboard in Messages, offering systemwide composition, proofreading, and style-matched feedback. Where your app accepts substantial text, expect assisted drafts and provide clear review affordances.
-
 ## Topics
 
 ### Best Practices
@@ -28,6 +26,8 @@ Important: Although iPadOS supports keyboard navigation in text fields, text vie
 In general, don't repurpose standard keyboard shortcuts for custom actions. People can get confused when the shortcuts they know work differently in your app or game. Only consider redefining a standard shortcut if its action doesn't make sense in your experience. For example, if your app doesn't support text editing, it doesn't need a text-styling command like Italic, so you might repurpose Command–I for an action that has more relevance, like Get Info.
 
 People expect each of the following standard keyboard shortcuts to perform the action listed:
+
+These shortcuts depend on platform and context. Mac-specific operations, such as minimizing a window to the Dock, aren't universal commands on every platform that accepts a keyboard.
 
 **Common Shortcuts**
 - **Command-Space** - Show or hide the Spotlight search field
@@ -73,14 +73,14 @@ Define custom keyboard shortcuts for only the most frequently used app-specific 
 
 ### Platform Considerations
 
-**iPadOS, visionOS**  
-In iPadOS and visionOS, an app's keyboard shortcuts appear in the shortcut interface that displays when people hold the Command key on a connected keyboard. Similar in organization to an app's menu bar menus on a Mac, the shortcut interface on iPad and Apple Vision Pro displays app commands in familiar system-defined menu categories such as File, Edit, and View.
+**visionOS**
+
+Holding Command on a connected keyboard reveals the app's shortcut interface. It groups available commands with shortcuts into categories such as File, Edit, and View, like the menu-bar organization on iPad and Mac.
 
 - **Write descriptive shortcut titles** - Because the shortcut interface displays a flat list of all items in each category, submenu titles aren't available to provide context for their child items. Make sure each shortcut title is descriptive enough to convey its action without the additional context a submenu title might provide.
-- **Consider customizing keyboard effects in your iPadOS app or game** - For example, you can customize visual effects that help people focus on individual items as they navigate your interface.
 - **Recognize that people see an overlay when they use a physical keyboard with your visionOS app or game** - When people connect a physical keyboard while using your visionOS app or game, the system displays a virtual keyboard overlay that provides typing completion and other controls.
 
-No additional considerations for iOS, macOS, or tvOS.
+No additional considerations for iOS, iPadOS, macOS, or tvOS.
 
 Not supported in watchOS.
 
@@ -90,18 +90,18 @@ Not supported in watchOS.
 - [Entering data](https://developer.apple.com/design/human-interface-guidelines/entering-data) - Data entry guidance
 - [Pointing devices](https://developer.apple.com/design/human-interface-guidelines/pointing-devices) - Mouse and trackpad input
 - [Game controls](https://developer.apple.com/design/human-interface-guidelines/game-controls) - Game-specific keyboard guidance
-- [Focus-based navigation](https://developer.apple.com/design/human-interface-guidelines/focus-and-selection) - Keyboard navigation
+- [Focus and selection](https://developer.apple.com/design/human-interface-guidelines/focus-and-selection) - Keyboard navigation
 - [Right to left](https://developer.apple.com/design/human-interface-guidelines/right-to-left) - Localization guidance
 
 ### Developer Documentation
 
 - [KeyboardShortcut](https://developer.apple.com/documentation/swiftui/keyboardshortcut) - SwiftUI
 - [Input events](https://developer.apple.com/documentation/swiftui/input-events) - SwiftUI
-- [Handling key presses made on a physical keyboard](https://developer.apple.com/documentation/uikit/keyboards_and_input/handling_key_presses_made_on_a_physical_keyboard) - UIKit
-- [Mouse, Keyboard, and Trackpad](https://developer.apple.com/documentation/appkit/mouse_keyboard_and_trackpad) - AppKit
-- [Support Full Keyboard Access in your iOS app](https://developer.apple.com/documentation/uikit/focus-based_navigation/supporting_full_keyboard_access_in_your_ios_app) - UIKit
-- [isFullKeyboardAccessEnabled](https://developer.apple.com/documentation/uikit/uiaccessibility/1615143-isfullkeyboardaccessenabled) - UIKit
-- [discoverabilityTitle](https://developer.apple.com/documentation/uikit/uikeycommand/1621097-discoverabilitytitle) - UIKit
+- [Handling key presses made on a physical keyboard](https://developer.apple.com/documentation/uikit/handling-key-presses-made-on-a-physical-keyboard) - UIKit
+- [Mouse, Keyboard, and Trackpad](https://developer.apple.com/documentation/appkit/mouse-keyboard-and-trackpad) - AppKit
+- [Support Full Keyboard Access in your iOS app](https://developer.apple.com/videos/play/wwdc2021/10120/) - UIKit
+- [isFullKeyboardAccessEnabled](https://developer.apple.com/documentation/appkit/nsapplication/isfullkeyboardaccessenabled) - AppKit
+- [discoverabilityTitle](https://developer.apple.com/documentation/uikit/uikeycommand/discoverabilitytitle) - UIKit
 
 ## Changelog
 
@@ -115,7 +115,5 @@ Not supported in watchOS.
 - Updated to include guidance for visionOS.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/keyboards)*

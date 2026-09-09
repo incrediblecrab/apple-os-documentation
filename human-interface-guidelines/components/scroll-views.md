@@ -12,7 +12,7 @@ The scroll view itself has no appearance, but it can display a translucent scrol
 
 ### Best Practices
 
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Scroll-under toolbars automatically become uniform and less translucent while content passes beneath them, improving control legibility over busy content. This behavior uses the existing Liquid Glass API surface and responds to the transparency slider and accessibility contrast settings.
+Check the legibility of controls where content scrolls beneath them. Use scroll edge effects only behind floating interface elements, not as decoration, and prefer the system's automatic style. Each split-view pane can have its own effect; keep their heights aligned. See [Adopting Liquid Glass](../../liquid-glass/adopting-liquid-glass.md).
 
 - **Support default scrolling gestures and keyboard shortcuts** - People are accustomed to the systemwide scrolling behavior and expect it to work everywhere. If you build custom scrolling for a view, make sure your scroll indicators use the elastic behavior that people expect.
 - **Make it apparent when content is scrollable** - Because scroll indicators aren't always visible, it can be helpful to make it obvious when content extends beyond the view. For example, displaying partial content at the edge of a view indicates that there's more content in that direction. Although most people immediately try scrolling a view to discover if additional content is available, it's considerate to draw their attention to it.
@@ -28,15 +28,12 @@ The scroll view itself has no appearance, but it can display a translucent scrol
 ### Platform Considerations
 
 **iOS, iPadOS**  
-- **In general, display one scroll view per screen** - People often make large swipe gestures when scrolling, and it can be hard to avoid interacting with a neighboring scroll view on the same screen. If you need to put two scroll views on one screen, consider allowing them to scroll in different directions so one gesture is less likely to affect both views.
 - **Consider showing a page control when a scroll view is in page-by-page mode** - Page controls show how many pages, screens, or other chunks of content are available and indicates which one is currently visible. If you show a page control with a scroll view, don't show the scrolling indicator on the same axis to avoid confusing people with redundant controls.
 
 **macOS**  
 In macOS, a scroll indicator is commonly called a scroll bar.
 
-- **Account for scroll bars in your layout** - By default, scroll bars appear only when people interact with views that contain them, but people can use a setting in General settings to make them appear all the time. Some input devices also cause scroll bars to display all the time. If necessary, adjust the layout of your window so important interface elements don't appear beneath scroll bars. The scroll bar track has a thickness of 15 points (regular size) or 11 points (small or mini size).
-- **Avoid moving window content when transient scroll bars appear** - Constantly shifting content every time scroll bars appear can be disorienting.
-- **Avoid placing controls inline with a scroll bar** - Doing this can cause the bar to appear even when people set it to be transient.
+- **Account for the actual scroll-bar style and size in your layout** - Use AppKit's [`scrollerWidth(for:scrollerStyle:)`](https://developer.apple.com/documentation/appkit/nsscroller/scrollerwidth(for:scrollerstyle:)) to obtain the width for a control size and style rather than assuming a fixed track thickness.
 - **If necessary, use small or mini scroll bars in a panel** - When space is tight, you can use smaller scroll bars in panels that need to coexist with other windows. Be sure to use the same size for all controls in such a panel.
 
 **tvOS**  
@@ -80,7 +77,5 @@ When people begin swiping content in the direction they want it to scroll, the s
 - Updated guidance for using scroll views in watchOS.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/scroll-views)*

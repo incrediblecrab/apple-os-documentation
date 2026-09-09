@@ -8,13 +8,13 @@ On devices that include the Always On display, the system can continue to displa
 
 In the Always On state, a device can continue to give people useful, glanceable information in a low-power, privacy-preserving way by dimming the display and minimizing onscreen motion. The system can display different items depending on the device.
 
-On iPhone 14 Pro and iPhone 14 Pro Max, the system displays Lock Screen items like Widgets and Live Activities when people set aside their device face up and stop interacting with it.
+On iPhone models with an Always On display, including iPhone 14 Pro and iPhone 14 Pro Max, the system can display Lock Screen items like widgets and Live Activities when people set aside their device face up and stop interacting with it.
 
 When people drop their wrist while wearing Apple Watch, the system dims the watch face, continuing to display the interface of the app as long as it's either frontmost or running a background session.
 
 On both devices, the system displays notifications while in Always On, and people can tap the display to exit Always On and resume interactions.
 
-> **watchOS 27+:** The refined Liquid Glass material changes how translucent surfaces composite in always-on states. Validate legibility at reduced brightness and under Reduce Transparency and Increase Contrast.
+Validate text and essential state at reduced luminance, with larger text and the display preferences supported on the device. Keep information understandable without relying only on translucency or color; see [Accessibility](../foundations/accessibility.md).
 
 ## Topics
 
@@ -33,7 +33,7 @@ On both devices, the system displays notifications while in Always On, and peopl
 ### Platform Considerations
 
 **iOS**  
-- Supported on iPhone 14 Pro and iPhone 14 Pro Max
+- Requires an iPhone with an Always On display; iPhone 14 Pro and iPhone 14 Pro Max are examples, not an exhaustive model list
 - Displays Lock Screen items like Widgets and Live Activities
 
 **watchOS**  
@@ -49,7 +49,7 @@ On both devices, the system displays notifications while in Always On, and peopl
 
 ### Developer Documentation
 
-- [Designing your app for the Always On state — watchOS apps](https://developer.apple.com/documentation/watchkit/designing-your-app-for-the-always-on-state)
+- [Designing your app for the Always On state — watchOS apps](https://developer.apple.com/documentation/watchos-apps/designing-your-app-for-the-always-on-state)
 
 ### Videos
 
@@ -66,7 +66,5 @@ On both devices, the system displays notifications while in Always On, and peopl
 - Expanded guidance to cover the Always On display on iPhone 14 Pro and iPhone 14 Pro Max
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/always-on)*

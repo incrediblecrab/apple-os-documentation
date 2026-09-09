@@ -25,10 +25,8 @@ This document describes the object model that the JavaScript code in a distribut
 - **Target** - An object that provides methods to obtain information about the installation volume.
 
 ### See Also
-- [Distribution Definition XML Schema Reference](https://developer.apple.com/documentation/installer_js/distribution_definition_xml_schema_reference)
+- [Distribution Definition XML Schema Reference](https://developer.apple.com/library/archive/documentation/DeveloperTools/Reference/DistributionDefinitionRef/Chapters/Introduction.html)
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/installer_js)*

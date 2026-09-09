@@ -10,20 +10,21 @@ The Compression framework enables your app to provide lossless compression when 
 
 The framework offers two methods of compression:
 
-- **Buffer compression** uses a single-step method for compressing files, making it perfect for use with uncompressed files under 8 MB, or compressed files under 1 MB.
+- **Buffer compression** processes the input in one call. Apple's overview recommends this approach for uncompressed files under 8 MB or compressed files under 1 MB; these are usage guidelines, not file-format size limits.
 
 - **Stream compression** uses multiple steps for compressing files, making it ideal for compressing larger files or streamed data, such as an incoming audio signal or downloading files.
 
 To use buffer compression, you compress or decompress the input data with one call to the corresponding function. To learn more about buffer compression, including a walk-through of the code used to encode and decode a string, see Compressing and decompressing data with buffer compression.
 
-To use stream compression, you call the compression or decompression function repeatedly to compress or decompress data from a source buffer to a destination buffer. Between calls, the compressor or decompressor moves processed data out of the source buffer and loads new data into the destination buffer. To learn more about stream compression, see the sample code project Compressing and decompressing files with stream compression.
+To use stream compression, call the processing function repeatedly. It advances the stream's input/output pointers and reduces their remaining sizes. Your code refills exhausted input and drains or replaces full output buffers; the framework does not load the next file chunk for you. See [`compression_stream_process(_:_:)`](https://developer.apple.com/documentation/compression/compression_stream_process(_:_:)) for finalization and status handling.
 
 ## Topics
 
 ### Objects that simplify multiple-step compression
-- [Simplify encoding and decoding streams of data using Compression classes for Swift](https://developer.apple.com/documentation/compression/simplify_encoding_and_decoding_streams_of_data_using_compression_classes_for_swift)
-- [Compressing and decompressing data with input and output filters](https://developer.apple.com/documentation/compression/compressing_and_decompressing_data_with_input_and_output_filters) - Compress and decompress streamed or from-memory data, using input and output filters.
-- [Compressing and decompressing files with stream compression](https://developer.apple.com/documentation/compression/compressing_and_decompressing_files_with_stream_compression) - Perform compression for all files and decompression for files with supported extension types.
+Simplify encoding and decoding streams with the Swift filter types.
+
+- [Compressing and decompressing data with input and output filters](https://developer.apple.com/documentation/accelerate/compressing-and-decompressing-data-with-input-and-output-filters) - Compress and decompress streamed or from-memory data, using input and output filters.
+- [Compressing and decompressing files with stream compression](https://developer.apple.com/documentation/accelerate/compressing-and-decompressing-files-with-stream-compression) - Sample app that compresses files and selects decompression for supported extensions.
 - **InputFilter** - An encoder-decoder that reads input data from a stream.
 - **OutputFilter** - An encoder-decoder that writes output data to a stream.
 - **Algorithm** - Algorithms used for compression or decompression.
@@ -31,7 +32,8 @@ To use stream compression, you call the compression or decompression function re
 - **FilterOperation** - Operations that define whether input and output filters compress or decompress data.
 
 ### Multiple-step compression
-- [Stream compression functions compress or decompress sequential blocks of data](https://developer.apple.com/documentation/compression/multiple-step_compression)
+Stream compression functions process sequential blocks of data.
+
 - **compression_stream** - A structure representing a compression stream.
 - **compression_stream_init** - Initializes a compression stream for either compression or decompression.
 - **compression_stream_process** - Performs compression or decompression using an initialized compression stream structure.
@@ -42,8 +44,9 @@ To use stream compression, you call the compression or decompression function re
 - **compression_algorithm** - A structure for values that represent compression algorithms.
 
 ### Single-step compression
-- [Buffer compression functions compress or decompress a block of data stored contiguously in memory](https://developer.apple.com/documentation/compression/single-step_compression)
-- [Compressing and decompressing data with buffer compression](https://developer.apple.com/documentation/compression/compressing_and_decompressing_data_with_buffer_compression) - Compress a string, write it to the file system, and decompress the same file using buffer compression.
+Buffer compression functions process a block of data stored contiguously in memory.
+
+- [Compressing and decompressing data with buffer compression](https://developer.apple.com/documentation/accelerate/compressing-and-decompressing-data-with-buffer-compression) - Compress a string, write it to the file system, and decompress the same file using buffer compression.
 - **compression_encode_scratch_buffer_size** - Returns the required compression scratch buffer size for the selected algorithm.
 - **compression_encode_buffer** - Compresses the contents of a source buffer into a destination buffer.
 - **compression_decode_scratch_buffer_size** - Returns the required decompression scratch buffer size for the selected algorithm.
@@ -51,7 +54,5 @@ To use stream compression, you call the compression or decompression function re
 - **compression_algorithm** - A structure for values that represent compression algorithms.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/Compression)*

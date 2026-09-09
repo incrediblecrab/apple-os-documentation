@@ -15,14 +15,12 @@ Package your driver in an app that uses the System Extensions framework to insta
 ## Topics
 
 ### Samples
-- [DriverKit sample code](https://developer.apple.com/documentation/driverkit/driverkit_sample_code) - Explore projects that demonstrate how to write macOS device drivers with the DriverKit family of frameworks.
+- [DriverKit sample code](https://developer.apple.com/documentation/driverkit/driverkit-sample-code) - Explore projects that demonstrate how to write macOS device drivers with the DriverKit family of frameworks.
 
 ### Serial USB Interface
-- [com.apple.developer.driverkit.family.serial](https://developer.apple.com/documentation/driverkit/com_apple_developer_driverkit_family_serial) - A Boolean value that indicates whether to match the driver against devices with serial communication interfaces.
+- [com.apple.developer.driverkit.family.serial](https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.driverkit.family.serial) - A Boolean value that indicates whether to match the driver against devices with serial communication interfaces.
 - **IOUserUSBSerial** - A service that manages a serial connection to a USB device.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/USBSerialDriverKit)*

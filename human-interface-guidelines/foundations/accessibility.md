@@ -14,17 +14,17 @@ When you design for accessibility, you reach a larger audience and create a more
 
 **Adaptable.** Your interface adapts to how people want to use their device, whether by supporting system accessibility features or letting people personalize settings.
 
-As you design your app, audit the accessibility of your interface. Use Accessibility Inspector to highlight accessibility issues with your interface and to understand how your app represents itself to people using system accessibility features. You can also communicate how accessible your app is on the App Store using Accessibility Nutrition Labels. To learn more about how to evaluate and indicate accessibility feature support, see [Accessibility Nutrition Labels](https://developer.apple.com/help/app-store-connect/reference/accessibility-nutrition-labels) in App Store Connect help.
+Audit representative tasks throughout design and development. Accessibility Inspector helps reveal issues and the information exposed to assistive technologies; verify the actual interactions as well. For describing supported features on the App Store, follow the evaluation criteria for [Accessibility Nutrition Labels](https://developer.apple.com/help/app-store-connect/manage-app-accessibility/overview-of-accessibility-nutrition-labels).
 
 ## Topics
 
 ### Vision
 
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** The transparency slider in Settings > Appearance sets the baseline for Liquid Glass translucency, and Reduce Transparency and Increase Contrast push glass farther toward opacity and separation for accessibility.
+Test custom text, controls, and [materials](materials.md) with the display and accessibility preferences available on the target platform, including Reduce Transparency, Increase Contrast, and Reduce Motion where offered. Preserve understandable state and grouping when effects change; system adaptation does not replace testing your own colors, layout, and accessibility information.
 
 The people who use your interface may be blind, color blind, or have low vision or light sensitivity. They may also be in situations where lighting conditions and screen brightness affect their ability to interact with your interface.
 
-**Support larger text sizes.** Make sure people can adjust the size of your text or icons to make them more legible, visible, and comfortable to read. Ideally, give people the option to enlarge text by at least 200 percent (or 140 percent in watchOS apps). Your interface can support font size enlargement either through custom UI, or by adopting Dynamic Type. Dynamic Type is a systemwide setting that lets people adjust the size of text for comfort and legibility. For more guidance, see [Supporting Dynamic Type](https://developer.apple.com/design/human-interface-guidelines/typography#Supporting-Dynamic-Type).
+**Support larger text sizes.** Let people enlarge text and meaningful icons without losing content or functionality. Aim for at least 200% of the default text size; watchOS uses its largest Dynamic Type size, which exceeds 140% of the default. These are final sizes, not increases of another 200% or 140%. Adopt Dynamic Type where the system offers it, or provide equivalent text-size controls. See [Supporting Dynamic Type](https://developer.apple.com/design/human-interface-guidelines/typography#Supporting-Dynamic-Type) and Apple's [Larger Text evaluation criteria](https://developer.apple.com/help/app-store-connect/manage-app-accessibility/larger-text-evaluation-criteria).
 
 **Use recommended defaults for custom type sizes.** Each platform has different default and minimum sizes for system-defined type styles to promote readability. If you're using custom type styles, follow the recommended defaults.
 
@@ -38,15 +38,16 @@ The people who use your interface may be blind, color blind, or have low vision 
 
 Bear in mind that font weight can also impact how easy text is to read. If you're using a custom font with a thin weight, aim for larger than the recommended sizes to increase legibility. For more guidance, see [Typography](https://developer.apple.com/design/human-interface-guidelines/typography).
 
-**Strive to meet color contrast minimum standards.** To ensure all information in your app is legible, it's important that there's enough contrast between foreground text and icons and background colors. Two popular standards of measure for color contrast are the Web Content Accessibility Guidelines (WCAG) and the Accessible Perceptual Contrast Algorithm (APCA). Use standard contrast calculators to ensure your UI meets acceptable levels. Accessibility Inspector uses the following values from WCAG Level AA as guidance in determining whether your app's colors have an acceptable contrast.
+**Evaluate contrast using the correct criteria.** Test foreground text against its actual background, including light, dark, and increased-contrast appearances. For WCAG 2.2 Level AA text-contrast claims, use [Success Criterion 1.4.3](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html):
 
-| Text size | Text weight | Minimum contrast ratio |
-|-----------|-------------|------------------------|
-| Up to 17 pts | All | 4.5:1 |
-| 18 pts | All | 3:1 |
-| All | Bold | 3:1 |
+| Text category | Minimum contrast ratio |
+|---------------|------------------------|
+| Normal text, including bold text below the large-text threshold | 4.5:1 |
+| Large-scale text: at least 18 CSS pt, or at least 14 CSS pt when bold | 3:1 |
 
-If your app doesn't provide this minimum contrast by default, ensure it at least provides a higher contrast color scheme when the system setting Increase Contrast is turned on. If your app supports Dark Mode, make sure to check the minimum contrast in both light and dark appearances.
+The HIG's simplified table lists 3:1 for all bold text, but that is not WCAG's large-text definition. WCAG's point thresholds use CSS `pt`; don't equate them automatically with native layout points or treat every bold label as large. The criterion defines exceptions for inactive, decorative or incidental text, and logotypes. Alternate perceptual metrics are not interchangeable with WCAG contrast ratios.
+
+Use Accessibility Inspector and Apple's [Sufficient Contrast evaluation criteria](https://developer.apple.com/help/app-store-connect/manage-app-accessibility/sufficient-contrast-evaluation-criteria) for native-app evaluation. Those criteria allow a verified Increase Contrast appearance or suitable custom color schemes when the default is insufficient. Test the actual result; merely supporting a setting or using a semantic color doesn't certify every composition.
 
 **Prefer system-defined colors.** These colors have their own accessible variants that automatically adapt when people adjust their color preferences, such as enabling Increase Contrast or toggling between the light and dark appearances. For guidance, see [Color](https://developer.apple.com/design/human-interface-guidelines/color).
 
@@ -58,7 +59,7 @@ If your app doesn't provide this minimum contrast by default, ensure it at least
 
 The people who use your interface may be deaf or hard of hearing. They may also be in noisy or public environments.
 
-**Support text-based ways to enjoy audio and video.** It's important that dialogue and crucial information about your app or game isn't communicated through audio alone. Depending on the context, give people different text-based ways to experience their media, and allow people to customize the visual presentation of that text:
+**Provide appropriate alternatives for audio and video.** Don't communicate dialogue or essential information through sound alone. Provide text alternatives for audio, and descriptions of important visual information where appropriate. Let people customize the presentation of captions and subtitles:
 
 - **Captions** give people the textual equivalent of audible information in video or audio-only content. Captions are great for scenarios like game cutscenes and video clips where text synchronizes live with the media.
 
@@ -68,9 +69,11 @@ The people who use your interface may be deaf or hard of hearing. They may also 
 
 - **Transcripts** provide a complete textual description of a video, covering both audible and visual information. Transcripts are great for longer-form media like podcasts and audiobooks where people may want to review content as a whole or highlight the transcript as media is playing.
 
-For developer guidance, see [Selecting Subtitles and Alternative Audio Tracks](https://developer.apple.com/documentation/avfoundation/media_playback/selecting_subtitles_and_alternative_audio_tracks).
+For developer guidance, see [Selecting Subtitles and Alternative Audio Tracks](https://developer.apple.com/documentation/avfoundation/selecting-subtitles-and-alternative-audio-tracks).
 
-**Use haptics in addition to audio cues.** If your interface conveys information through audio cues — such as a success chime, error sound, or game feedback — consider pairing that sound with matching haptics for people who can't perceive the audio or have their audio turned off. In iOS and iPadOS, you can also use Music Haptics and Audio graphs to let people experience music and infographics through vibration and texture. For guidance, see [Playing haptics](https://developer.apple.com/design/human-interface-guidelines/playing-haptics).
+**Pair audio cues with other feedback.** Where haptics are supported, they can complement a success sound, error, or game event. [Music Haptics](https://developer.apple.com/documentation/mediaaccessibility/music-haptics) supplies tactile feedback for known music tracks; check whether it is active and whether the track has haptic support. It isn't a promise of haptics for every recording or device. See also [Playing haptics](https://developer.apple.com/design/human-interface-guidelines/playing-haptics).
+
+[Audio graphs](https://developer.apple.com/documentation/accessibility/audio-graphs) serve a different purpose: VoiceOver turns chart data into an audible representation for people who are blind or have low vision. They aren't a haptic chart API and don't replace nonaudio alternatives for people who can't hear the output.
 
 **Augment audio cues with visual cues.** This is especially important for games and spatial apps where important content might be taking place off screen. When using audio to guide people towards a specific action, also add in visual indicators that point to where you want people to interact.
 
@@ -94,7 +97,7 @@ Ensure your interface offers a comfortable experience for people with limited de
 
 **Offer alternatives to gestures.** Make sure your UI's core functionality is accessible through more than one type of physical interaction. Gestures can be less comfortable for people who have limited dexterity, so offer onscreen ways to achieve the same outcome. For example, if you use a swipe gesture to dismiss a view, also make a button available so people can tap or use an assistive device.
 
-**Let people use Voice Control to give guidance and enter information verbally.** With Voice Control, people can interact with their devices entirely by speaking commands. They can perform gestures, interact with screen elements, dictate and edit text, and more. To ensure a smooth experience, label interface elements appropriately. For developer guidance, see [Voice Control](https://developer.apple.com/documentation/accessibility/voice_control).
+**Support spoken interaction.** Provide recognizable control labels so people can navigate, activate actions, and edit text using [Voice Control](https://developer.apple.com/documentation/accessibility/voice-control).
 
 **Integrate with Siri and Shortcuts to let people perform tasks using voice alone.** When your app supports Siri and Shortcuts, people can automate the important and repetitive tasks they perform regularly. They can initiate these tasks from Siri, the Action button on their iPhone or Apple Watch, and shortcuts on their Home Screen or in Control Center. For guidance, see [Siri](https://developer.apple.com/design/human-interface-guidelines/siri).
 
@@ -104,9 +107,9 @@ Ensure your interface offers a comfortable experience for people with limited de
 
 Apple's accessibility features help people with speech disabilities and people who prefer text-based interactions to communicate effectively using their devices.
 
-**Let people use the keyboard alone to navigate and interact with your app.** People can turn on Full Keyboard Access to navigate apps using their physical keyboard. The system also defines accessibility keyboard shortcuts and a wide range of other keyboard shortcuts that many people use all the time. Avoid overriding system-defined keyboard shortcuts and evaluate your app to ensure it works well with Full Keyboard Access. For additional guidance, see [Keyboards](https://developer.apple.com/design/human-interface-guidelines/keyboards). For developer guidance, see [Support Full Keyboard Access in your iOS app](https://developer.apple.com/documentation/accessibility/supporting-full-keyboard-access-in-your-ios-app).
+**Test keyboard-only navigation.** Preserve system shortcuts and verify that Full Keyboard Access can reach and operate the interface in a useful order. See [Keyboards](https://developer.apple.com/design/human-interface-guidelines/keyboards) and [Support Full Keyboard Access in your iOS app](https://developer.apple.com/videos/play/wwdc2021/10120).
 
-**Support Switch Control.** Switch Control is an assistive technology that lets people control their devices through separate hardware, game controllers, or sounds such as a click or a pop. People can perform actions like selecting, tapping, typing, and drawing when your app or game supports the ability to navigate using Switch Control. For developer guidance, see [Switch Control](https://developer.apple.com/documentation/accessibility/switch_control).
+**Support Switch Control.** Check that people can navigate and perform actions with their chosen switches or other supported inputs, rather than requiring precise touch gestures. See [Switch Control](https://developer.apple.com/documentation/accessibility/switch-control).
 
 ### Cognitive
 
@@ -118,9 +121,9 @@ When you minimize complexity in your app or game, all people benefit.
 
 **Consider offering difficulty accommodations in games.** Everyone has their own way of playing and enjoying games. To support a variety of cognitive abilities, consider adding the ability to customize the difficulty level of your game, such as offering options for people to reduce the criteria for successfully completing a level, adjust reaction time, or enable control assistance.
 
-**Let people control audio and video playback.** Avoid autoplaying audio and video content without also providing controls to start and stop it. Make sure these controls are discoverable and easy to act upon, and consider global settings that let people opt out of auto-playing all audio and video. For developer guidance, see [Animated images](https://developer.apple.com/documentation/uikit/uiimageview/animated_images) and [isVideoAutoplayEnabled](https://developer.apple.com/documentation/webkit/wkwebviewconfiguration/1851509-isvideoautoplayenabled).
+**Keep playback under the person's control.** Provide discoverable start and stop controls, and respect preferences that limit autoplay or animated content. See [Animated images](https://developer.apple.com/documentation/accessibility/animated-images) and [isVideoAutoplayEnabled](https://developer.apple.com/documentation/uikit/uiaccessibility/isvideoautoplayenabled).
 
-**Allow people to opt out of flashing lights in video playback.** People might want to avoid bright, frequent flashes of light in the media they consume. A Dim Flashing Lights setting allows the system to calculate, mitigate, and inform people about flashing lights in a piece of media. If your app supports video playback, ensure that it responds appropriately to the Dim Flashing Lights setting. For developer guidance, see [Flashing lights](https://developer.apple.com/documentation/avfoundation/media_playback/supporting_video_accessibility_preferences#3928688).
+**Honor flashing-light accommodations.** If your app plays video, support the system's Dim Flashing Lights behavior where available. Check the relevant APIs rather than assuming a custom player handles it automatically. See [Flashing lights](https://developer.apple.com/documentation/mediaaccessibility/flashing-lights).
 
 **Be cautious with fast-moving and blinking animations.** When you use these effects in excess, it can be distracting, cause dizziness, and in some cases even result in epileptic episodes. People who are prone to these effects can turn on the Reduce Motion accessibility setting. When this setting is active, ensure your app or game responds by reducing automatic and repetitive animations, including zooming, scaling, and peripheral motion. Other best practices for reducing motion include:
 
@@ -136,7 +139,7 @@ To optimize your app for this mode, use the following guidelines when Assistive 
 
 - Identify the core functionality of your app and consider removing noncritical workflows and UI elements.
 - Break up multistep workflows so people can focus on a single interaction per screen.
-- Always ask for confirmation twice whenever people perform an action that's difficult to recover from, such a deleting a file.
+- Always ask for confirmation twice whenever people perform an action that's difficult to recover from, such as deleting a file.
 
 For developer guidance, see [Assistive Access](https://developer.apple.com/documentation/accessibility/assistive-access).
 
@@ -154,7 +157,7 @@ visionOS offers a variety of accessibility features people can use to interact w
 - Avoid anchoring content to the wearer's head, which may make them feel stuck and confined, and also prevent them from using assistive technologies like Pointer Control.
 - Minimize the need for large and repetitive gestures, as these can become tiresome and may be difficult depending on a person's surroundings.
 
-For additional guidance, see [Create accessible spatial experiences](https://developer.apple.com/documentation/visionos/creating-accessible-spatial-experiences) and [Design considerations for vision and motion](https://developer.apple.com/design/human-interface-guidelines/designing-for-visionos#Design-considerations-for-vision-and-motion).
+For additional guidance, see [Create accessible spatial experiences](https://developer.apple.com/videos/play/wwdc2023/10034) and [Design considerations for vision and motion](https://developer.apple.com/videos/play/wwdc2023/10078).
 
 ### Resources
 
@@ -164,16 +167,18 @@ For additional guidance, see [Create accessible spatial experiences](https://dev
 - [VoiceOver](https://developer.apple.com/design/human-interface-guidelines/voiceover)
 
 **Developer documentation**
-- [Building accessible apps](https://developer.apple.com/documentation/accessibility/building_accessible_apps)
+- [Building accessible apps](https://developer.apple.com/accessibility/)
 - [Accessibility framework](https://developer.apple.com/documentation/accessibility)
-- [Overview of Accessibility Nutrition Labels](https://developer.apple.com/documentation/accessibility/overview-of-accessibility-nutrition-labels)
+- [Overview of Accessibility Nutrition Labels](https://developer.apple.com/help/app-store-connect/manage-app-accessibility/overview-of-accessibility-nutrition-labels)
 
 **Videos**
-- [Principles of inclusive app design](https://developer.apple.com/videos/play/wwdc2025/101117)
-- [Evaluate your app for Accessibility Nutrition Labels](https://developer.apple.com/videos/play/wwdc2025/101118)
-- [Catch up on accessibility in SwiftUI](https://developer.apple.com/videos/play/wwdc2025/10073)
+- [Principles of inclusive app design](https://developer.apple.com/videos/play/wwdc2025/316)
+- [Evaluate your app for Accessibility Nutrition Labels](https://developer.apple.com/videos/play/wwdc2025/224)
+- [Refine accessibility for custom controls](https://developer.apple.com/videos/play/wwdc2026/220)
 
 ## Changelog
+
+These dates describe changes to Apple's HIG article, not edits to this repository.
 
 ### June 9, 2025
 - Added guidance and links for Assistive Access, Switch Control, and Accessibility Nutrition Labels.
@@ -191,7 +196,5 @@ For additional guidance, see [Create accessible spatial experiences](https://dev
 - Updated to include guidance for visionOS.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/accessibility)*

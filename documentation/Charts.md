@@ -6,110 +6,117 @@ Construct and customize charts on every Apple platform.
 
 ## Overview
 
-Swift Charts is a powerful and concise SwiftUI framework you can use to transform your data into informative visualizations. With Swift Charts, you can build effective and customizable charts with minimal code. This framework provides marks, scales, axes, and legends as building blocks that you can combine to develop a broad range of data-driven charts.
+Swift Charts combines SwiftUI views with marks, scales, axes, and legends. Use these building blocks to represent data as bars, lines, points, and other visual encodings.
 
-There are many ways you can use Swift Charts to communicate patterns or trends in your data. You can create a variety of charts including line charts, bar charts, and scatter plots as shown above. When you create a chart using this framework, it automatically generates scales and axes that fit your data.
+Charts infer scales and axes from their data by default. Override those defaults when your visualization needs a specific domain, labeling scheme, or presentation.
 
 Swift Charts supports localization and accessibility features. You can also override default behavior to customize your charts by using chart modifiers. For example, you can create a dynamic experience by adding animations to your charts.
 
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+, watchOS 27+, visionOS 27+:** Charts drawn over or near glass surfaces should be validated across the range of the new transparency slider in Settings > Appearance, and under Reduce Transparency and Increase Contrast. Do not rely on translucency to distinguish series.
+Charts are content, not navigation chrome. Follow the [material HIG](https://developer.apple.com/design/human-interface-guidelines/materials) rather than adding Liquid Glass behind every plot. Distinguish series with labels, symbols, or line styles as well as color, and preserve legibility with accessibility settings. For custom visualizations, [audio graphs](https://developer.apple.com/documentation/accessibility/audio-graphs) describe the data to VoiceOver. These are design and accessibility responsibilities, not new OS 27 rendering guarantees.
+
+### API generations
+
+- Core 2D charts and the original marks use the framework minimum in the header.
+- `SectorMark`, `ChartAxisContent`, `AnnotationOverflowResolution`, and the scrolling types require iOS/iPadOS/Mac Catalyst/tvOS 17, macOS 14, watchOS 10, or visionOS 1.
+- The vectorized plots and `VectorizedChartContent` require iOS/iPadOS/Mac Catalyst/tvOS 18, macOS 15, watchOS 11, or visionOS 2.
+- `Chart3D`, its content protocol/builder, and `SurfacePlot` require iOS/iPadOS/Mac Catalyst/macOS/visionOS 26. They have no tvOS or watchOS declaration. A mark's older 2D availability doesn't make its 3D initializers available on those older systems.
+
+The updates page dates vectorized plots to June 2024 and 3D charts to June 2025; neither is an OS 27-only addition.
 
 ## Topics
 
 ### Essentials
-- [Swift Charts updates](https://developer.apple.com/documentation/charts/swift_charts_updates) - Learn about important changes to Swift Charts.
+- [Swift Charts updates](https://developer.apple.com/documentation/updates/swiftcharts) - Learn about important changes to Swift Charts.
 
 ### Charts
-- [Creating a chart using Swift Charts](https://developer.apple.com/documentation/charts/creating_a_chart_using_swift_charts) - Make a chart by combining chart building blocks in SwiftUI.
-- [Visualizing your app's data](https://developer.apple.com/documentation/charts/visualizing_your_apps_data) - Build complex and interactive charts using Swift Charts.
-- **Chart** - A SwiftUI view that displays a chart.
-- **ChartContent** - A type that represents the content that you draw on a chart.
-- **ChartContentBuilder** - A result builder that you use to compose the contents of a chart.
-- **Plot** - A mechanism for grouping chart contents into a single entity.
+- [Creating a chart using Swift Charts](https://developer.apple.com/documentation/charts/creating-a-chart-using-swift-charts) - Combine chart building blocks in SwiftUI.
+- [Visualizing your app's data](https://developer.apple.com/documentation/charts/visualizing-your-app-s-data) - Build interactive charts in Apple's sample.
+- [`Chart`](https://developer.apple.com/documentation/charts/chart) - The 2D chart view.
+- [`ChartContent`](https://developer.apple.com/documentation/charts/chartcontent) - The protocol for content inside a chart.
+- [`ChartContentBuilder`](https://developer.apple.com/documentation/charts/chartcontentbuilder) - Composes chart content.
+- [`Plot`](https://developer.apple.com/documentation/charts/plot) - Groups chart content into an entity.
 
 ### 3D charts
-- **Chart3D** - A SwiftUI view that displays a three-dimensional chart.
-- **Chart3DContent** - A type that represents the three-dimensional content that you draw on a chart.
-- **Chart3DContentBuilder** - A result builder that you use to compose the three-dimensional contents of a chart.
-- **SurfacePlot** - Chart content that represents a collection of data using three-dimensional data.
+- [`Chart3D`](https://developer.apple.com/documentation/charts/chart3d) - An interactive 3D chart using compatible marks.
+- [`Chart3DContent`](https://developer.apple.com/documentation/charts/chart3dcontent) - The protocol for 3D chart content.
+- [`Chart3DContentBuilder`](https://developer.apple.com/documentation/charts/chart3dcontentbuilder) - Composes 3D content.
+- [`SurfacePlot`](https://developer.apple.com/documentation/charts/surfaceplot) - Samples a function of two variables, `y = f(x, z)`, to produce a surface; it isn't an arbitrary 3D data-collection container.
 
 ### Marks
-- **AreaMark** - Chart content that represents data using the area of one or more regions.
-- **LineMark** - Chart content that represents data using a sequence of connected line segments.
-- **PointMark** - Chart content that represents data using points.
-- **RectangleMark** - Chart content that represents data using rectangles.
-- **RuleMark** - Chart content that represents data using a single horizontal or vertical rule.
-- **BarMark** - Chart content that represents data using bars.
-- **SectorMark** - A sector of a pie or donut chart, which shows how individual categories make up a meaningful total.
+- [`AreaMark`](https://developer.apple.com/documentation/charts/areamark) - Encodes values as regions.
+- [`LineMark`](https://developer.apple.com/documentation/charts/linemark) - Connects values with line segments.
+- [`PointMark`](https://developer.apple.com/documentation/charts/pointmark) - Encodes values as points.
+- [`RectangleMark`](https://developer.apple.com/documentation/charts/rectanglemark) - Encodes ranges as rectangles.
+- [`RuleMark`](https://developer.apple.com/documentation/charts/rulemark) - Draws a reference rule.
+- [`BarMark`](https://developer.apple.com/documentation/charts/barmark) - Encodes values as bars.
+- [`SectorMark`](https://developer.apple.com/documentation/charts/sectormark) - Represents a category's contribution to a total in a pie or donut chart.
 
 ### Vectorized plots
-- [Creating a data visualization dashboard with Swift Charts](https://developer.apple.com/documentation/charts/creating_a_data_visualization_dashboard_with_swift_charts) - Visualize an entire data collection efficiently by instantiating a single vectorized plot in Swift Charts.
-- **AreaPlot** - Chart content that represents a function or a collection of data using the area of one or more regions.
-- **LinePlot** - Chart content that represents a function or a collection of data using a sequence of connected line segments.
-- **PointPlot** - Chart content that represents a collection of data using points.
-- **RectanglePlot** - Chart content that represents a collection of data using rectangles.
-- **RulePlot** - Chart content that represents a collection of data using a single horizontal or vertical rule.
-- **BarPlot** - Chart content that represents a collection of data using bars.
-- **SectorPlot** - Chart content that represents a collection of data using a sector of a pie or donut chart, which shows how individual categories make up a meaningful total.
-- **VectorizedChartContent** - A generic type that represents content conveyed via a chart.
+- [Creating a data visualization dashboard with Swift Charts](https://developer.apple.com/documentation/charts/creating-a-data-visualization-dashboard-with-swift-charts) - Supply a collection to a vectorized plot instead of constructing each mark separately.
+- [`AreaPlot`](https://developer.apple.com/documentation/charts/areaplot) - Plots a collection or function as filled regions.
+- [`LinePlot`](https://developer.apple.com/documentation/charts/lineplot) - Plots a collection or function as connected segments.
+- [`PointPlot`](https://developer.apple.com/documentation/charts/pointplot) - Vectorized points.
+- [`RectanglePlot`](https://developer.apple.com/documentation/charts/rectangleplot) - Vectorized rectangles.
+- [`RulePlot`](https://developer.apple.com/documentation/charts/ruleplot) - Vectorized reference rules.
+- [`BarPlot`](https://developer.apple.com/documentation/charts/barplot) - Vectorized bars.
+- [`SectorPlot`](https://developer.apple.com/documentation/charts/sectorplot) - Vectorized pie or donut sectors.
+- [`VectorizedChartContent`](https://developer.apple.com/documentation/charts/vectorizedchartcontent) - A protocol whose primary associated type describes a data element.
 
 ### Mark configuration
-- **MarkStackingMethod** - The ways in which you can stack marks in a chart.
-- **MarkDimension** - An individual dimension representing a mark's width or height.
-- **InterpolationMethod** - The ways in which line or area marks interpolate their data.
-- **BasicChartSymbolShape** - A basic chart symbol shape.
-- **ChartSymbolShape** - A type that can act as a shape for the marks that you add to a chart.
-- **AnyChartSymbolShape** - A type-erased plotting shape.
+- [`MarkStackingMethod`](https://developer.apple.com/documentation/charts/markstackingmethod) - Selects how marks stack.
+- [`MarkDimension`](https://developer.apple.com/documentation/charts/markdimension) - Describes a mark's width or height.
+- [`InterpolationMethod`](https://developer.apple.com/documentation/charts/interpolationmethod) - Selects line or area interpolation.
+- [`BasicChartSymbolShape`](https://developer.apple.com/documentation/charts/basicchartsymbolshape) - A built-in plotting shape.
+- [`ChartSymbolShape`](https://developer.apple.com/documentation/charts/chartsymbolshape) - The plotting-symbol shape protocol.
+- [`AnyChartSymbolShape`](https://developer.apple.com/documentation/charts/anychartsymbolshape) - Type-erases a plotting shape.
 
 ### Labeled data
-- **PlottableValue** - Labeled data that you plot in a chart using marks.
-- **Plottable** - A type that can serve as data to plot in a chart.
+- [`PlottableValue`](https://developer.apple.com/documentation/charts/plottablevalue) - Associates a label with plottable data.
+- [`Plottable`](https://developer.apple.com/documentation/charts/plottable) - The protocol for values used by chart encodings.
 
 ### Scales
-- **ScaleRange** - A type that you can use to configure the range of a chart.
-- **PositionScaleRange** - A type that configures the x-axis and y-axis values.
-- **PlotDimensionScaleRange** - A range that represents the plot area's width or height.
-- **ScaleDomain** - A type that you can use to configure the domain of a chart.
-- **AutomaticScaleDomain** - A domain that the chart infers from its data.
-- **ScaleType** - The ways you can scale the domain or range of a plot.
+- [`ScaleRange`](https://developer.apple.com/documentation/charts/scalerange) - Configures a scale's output range.
+- [`PositionScaleRange`](https://developer.apple.com/documentation/charts/positionscalerange) - Configures a positional range.
+- [`PlotDimensionScaleRange`](https://developer.apple.com/documentation/charts/plotdimensionscalerange) - Represents the plot area's width or height.
+- [`ScaleDomain`](https://developer.apple.com/documentation/charts/scaledomain) - Configures the input domain.
+- [`AutomaticScaleDomain`](https://developer.apple.com/documentation/charts/automaticscaledomain) - Infers a domain from the data.
+- [`ScaleType`](https://developer.apple.com/documentation/charts/scaletype) - Selects the scale transformation.
 
 ### Axes
-- [Customizing axes in Swift Charts](https://developer.apple.com/documentation/charts/customizing_axes_in_swift_charts) - Improve the clarity of your chart by configuring the appearance of its axes.
-- **ChartAxisContent** - A view that represents a chart's axis.
-- **AxisContent** - A type that represents the elements you use to build a chart's axes.
-- **AxisMarks** - A group of visual marks that a chart draws to indicate the composition of a chart's axes.
-- **AnyAxisContent** - A type-erased element of a chart's axis.
-- **AxisContentBuilder** - A result builder that constructs axis content.
+- [Customizing axes in Swift Charts](https://developer.apple.com/documentation/charts/customizing-axes-in-swift-charts) - Configure axis appearance and labeling.
+- [`ChartAxisContent`](https://developer.apple.com/documentation/charts/chartaxiscontent) - An axis represented as view content.
+- [`AxisContent`](https://developer.apple.com/documentation/charts/axiscontent) - The axis-content protocol.
+- [`AxisMarks`](https://developer.apple.com/documentation/charts/axismarks) - Groups the visual marks of an axis.
+- [`AnyAxisContent`](https://developer.apple.com/documentation/charts/anyaxiscontent) - Type-erases axis content.
+- [`AxisContentBuilder`](https://developer.apple.com/documentation/charts/axiscontentbuilder) - Composes axis content.
 
 ### Axis marks
-- **AxisMark** - A type that serves as the basic building block for the elements of an axis.
-- **AxisTick** - A mark that a chart draws on an axis to indicate a reference point along that axis.
-- **AxisGridLine** - A line that a chart draws across its plot area to indicate a reference point along a particular axis.
-- **AxisValueLabel** - A label that describes the value for an axis mark.
-- **AxisValue** - A value for an axis mark.
-- **AnyAxisMark** - A type-erased axis mark.
-- **AxisMarkBuilder** - A result builder that constructs axis marks and overrides default marks.
+- [`AxisMark`](https://developer.apple.com/documentation/charts/axismark) - The axis-mark protocol.
+- [`AxisTick`](https://developer.apple.com/documentation/charts/axistick) - Marks a reference value along an axis.
+- [`AxisGridLine`](https://developer.apple.com/documentation/charts/axisgridline) - Extends an axis reference through the plot area.
+- [`AxisValueLabel`](https://developer.apple.com/documentation/charts/axisvaluelabel) - Labels an axis value.
+- [`AxisValue`](https://developer.apple.com/documentation/charts/axisvalue) - Describes the value associated with an axis mark.
+- [`AnyAxisMark`](https://developer.apple.com/documentation/charts/anyaxismark) - Type-erases an axis mark.
+- [`AxisMarkBuilder`](https://developer.apple.com/documentation/charts/axismarkbuilder) - Composes axis marks.
 
 ### Annotations
-- **AnnotationContext** - Information about an item that you add an annotation to.
-- **AnnotationPosition** - The position of an annotation.
-- **AnnotationOverflowResolution**
+- [`AnnotationContext`](https://developer.apple.com/documentation/charts/annotationcontext) - Supplies information about the annotated item.
+- [`AnnotationPosition`](https://developer.apple.com/documentation/charts/annotationposition) - Selects an annotation's position.
+- [`AnnotationOverflowResolution`](https://developer.apple.com/documentation/charts/annotationoverflowresolution)
 
 ### Data bins
-- **NumberBins** - A collection of bins for a chart that plots data against numbers.
-- **DateBins** - A collection of bins for a chart that plots data against dates.
-- **ChartBinRange** - The range of data that a single bin of a chart represents.
+- [`NumberBins`](https://developer.apple.com/documentation/charts/numberbins) - Groups numeric data into bins.
+- [`DateBins`](https://developer.apple.com/documentation/charts/datebins) - Groups dates into bins.
+- [`ChartBinRange`](https://developer.apple.com/documentation/charts/chartbinrange) - Represents one bin's range.
 
 ### Chart management
-- **ChartPlotContent** - A view that represents a chart's plot area.
-- **ChartProxy** - A proxy that you use to access the scales and plot area of a chart.
+- [`ChartPlotContent`](https://developer.apple.com/documentation/charts/chartplotcontent) - Represents the plot area as view content.
+- [`ChartProxy`](https://developer.apple.com/documentation/charts/chartproxy) - Accesses scales and plot geometry, including data/coordinate conversion.
 
 ### Scrolling
-- **ChartScrollTargetBehavior** - A type that configures the scroll behavior of charts.
-- **ChartScrollTargetBehaviorContext** - Contextual information that you can use to determine how to best adjust how charts scroll.
+- [`ChartScrollTargetBehavior`](https://developer.apple.com/documentation/charts/chartscrolltargetbehavior) - Customizes chart scroll targets.
+- [`ChartScrollTargetBehaviorContext`](https://developer.apple.com/documentation/charts/chartscrolltargetbehaviorcontext) - Supplies context for adjusting a scroll target.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/Charts)*

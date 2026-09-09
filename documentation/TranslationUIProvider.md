@@ -2,19 +2,20 @@
 
 Provide UI for translations of text people select.
 
-**Platforms:** iOS 18.4+ | iPadOS 18.4+
+**Platforms:** iOS 18.4+ | iPadOS 18.4+ | Mac Catalyst 18.4+
 
 ## Overview
 
 The **TranslationUIProvider** framework enables your app to provide custom translation UI for text that users select across the system. Use this framework to create app extensions that integrate with system translation workflows.
 
+On iOS and iPadOS 18.4 and later, people can choose a default translation app. This integration requires the `com.apple.developer.translation-app` entitlement and a translation UI extension. If the extension needs networking, set `com.apple.developer.translation-ui-provider.network-access` to `true` in the app's `Info.plist`; framework availability alone does not configure these requirements.
+
 ## Topics
 
 ### Essentials
-- [Preparing your app to be the default translation app](https://developer.apple.com/documentation/translationuiprovider/preparing_your_app_to_be_the_default_translation_app) - Configure your app so people can set it as the default translation app on their device.
-- [Creating translation app extensions](https://developer.apple.com/documentation/translationuiprovider/creating_translation_app_extensions) - Build app extensions that provide translation services.
+- [Preparing your app to be the default translation app](https://developer.apple.com/documentation/translationuiprovider/preparing-your-app-to-be-the-default-translation-app.md) - Configure your app so people can set it as the default translation app on their device.
 
-### Core Protocols
+### Extension context and protocols
 - **TranslationUIProviderContext** - An object that encapsulates the XPC communication between the host process and the third-party extension implementation.
 - **TranslationUIProviderExtension** - A protocol that translation apps implement to provide a text-selection view.
 - **TranslationUIProviderExtensionScene** - The protocol this extension's scene need to implement.
@@ -24,7 +25,5 @@ The **TranslationUIProvider** framework enables your app to provide custom trans
 - **TranslationUIProviderSelectedTextScene** - The specific app extension scene that this extension provides.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/TranslationUIProvider)*

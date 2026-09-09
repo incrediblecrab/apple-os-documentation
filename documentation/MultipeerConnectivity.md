@@ -2,13 +2,17 @@
 
 Support peer-to-peer connectivity and the discovery of nearby devices.
 
-**Platforms:** iOS 7.0+ | iPadOS 7.0+ | Mac Catalyst 13.0+ | macOS 10.10+ | tvOS 10.0+ | visionOS 1.0+
+**Original availability:** iOS 7.0+ | iPadOS 7.0+ | Mac Catalyst 13.1+ | macOS 10.10+ | tvOS 10.0+ | visionOS 1.0+
+
+**Status at the September 8, 2026 cutoff:** Xcode 27 deprecates the framework, with `MCSession` carrying 27.0 deprecation annotations on the listed platforms. Deprecation is not immediate removal. Plan migration using [TN3213: Moving from Multipeer Connectivity to Network framework](https://developer.apple.com/documentation/technotes/tn3213-moving-from-multipeer-connectivity-to-network-framework); the legacy reference below remains useful for existing applications.
 
 ## Overview
 
-The Multipeer Connectivity framework supports the discovery of services provided by nearby devices and supports communicating with those services through message-based data, streaming data, and resources (such as files). In iOS, the framework uses infrastructure Wi-Fi networks, peer-to-peer Wi-Fi, and Bluetooth personal area networks for the underlying transport. In macOS and tvOS, it uses infrastructure Wi-Fi, peer-to-peer Wi-Fi, and Ethernet.
+The Multipeer Connectivity framework discovers nearby services and exchanges messages, streams, and resources such as files. The framework selects the underlying local transport, including infrastructure and peer-to-peer Wi-Fi; macOS and tvOS also support Ethernet. Do not design application behavior around a guaranteed particular radio or link.
 
 **Important:** Apps that use the local network must provide a usage string in their Info.plist with the key `NSLocalNetworkUsageDescription`. Apps that use Bonjour must also declare the services they browse, using the `NSBonjourServices` key.
+
+These declarations describe local-network use; they do not constitute user consent. Handle denied access and peer discovery failures.
 
 ### Architecture
 
@@ -29,13 +33,15 @@ In the discovery phase, your app uses an **MCNearbyServiceBrowser** object to br
 
 After the user chooses which peers to add to a session, the app invites those peers to join the session. If the peer accepts the invitation, the browser establishes a connection with the advertiser and the session phase begins. In this phase, your app can perform direct communication to one or more peers within the session.
 
+On iOS, entering the background stops advertising and browsing and disconnects open sessions. Advertising and browsing resume on return to the foreground, but the app must reestablish its sessions; discovery does not guarantee persistent background communication.
+
 ## Topics
 
 ### Classes
 - **MCAdvertiserAssistant** - A convenience class that handles advertising, presents incoming invitations to the user, and handles users' responses
 - **MCBrowserViewController** - Presents nearby devices to the user and enables the user to invite nearby devices to a session
 - **MCNearbyServiceAdvertiser** - Publishes an advertisement for a specific service that your app provides through the Multipeer Connectivity framework
-- **MCNearbyServiceBrowser** - Searches for services offered by nearby devices using infrastructure Wi-Fi, peer-to-peer Wi-Fi, and Bluetooth
+- **MCNearbyServiceBrowser** - Searches for services offered by nearby devices using the framework's supported local transports.
 - **MCPeerID** - Represents a peer in a multipeer session
 - **MCSession** - Enables and manages communication among all peers in a Multipeer Connectivity session
 
@@ -54,7 +60,5 @@ After the user chooses which peers to add to a session, the app invites those pe
 - MultipeerConnectivity Constants
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/MultipeerConnectivity)*

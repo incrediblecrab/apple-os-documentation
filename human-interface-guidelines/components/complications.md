@@ -41,6 +41,8 @@ Prefer using WidgetKit to develop complications for watchOS 9 and later. For gui
 
 ### Circular
 
+The size tables below retain the case-size groups in Apple's HIG article, whose change log records its latest revision as October 24, 2023. Use them for the listed layouts and size groups; they don't establish dimensions for unlisted combinations.
+
 Circular layouts can include text, gauges, and full-color images in circular areas on the Infograph and Infograph Modular watch faces. The circular family also defines extra-large layouts for displaying content on the X-Large watch face.
 
 You can also add text to accompany a regular-size circular image, using a design that curves the text along the bezel of some watch faces, like Infograph. The text can fill nearly 180 degrees of the bezel before truncating.
@@ -122,9 +124,11 @@ As you design images for a utilitarian small layout, use the following values fo
 
 | Content | 38mm | 40mm/42mm | 41mm | 44mm | 45mm/49mm |
 |---|---|---|---|---|---|
-| Flat | 9-21x9 pt (18-42x18 px @2x) | 10-22x10 pt (20-44x20 px @2x) | 10.5-23.5x21 pt (21-47x21 @2x) | N/A | 12-26x12 pt (24-52x24 px @2x) |
+| Flat | 9-21x9 pt (18-42x18 px @2x) | 10-22x10 pt (20-44x20 px @2x) | 10.5-23.5x10.5 pt (21-47x21 px @2x) | N/A | 12-26x12 pt (24-52x24 px @2x) |
 | Ring | 14x14 pt (28x28 px @2x) | 14x14 pt (28x28 px @2x) | 15x15 pt (30x30 px @2x) | 16x16 pt (32x32 px @2x) | 16.5x16.5 pt (33x33 px @2x) |
 | Square | 20x20 pt (40x40 px @2x) | 22x22 pt (44x44 px @2x) | 23.5x23.5 pt (47x47 px @2x) | 25x25 pt (50x50 px @2x) | 26x26 pt (52x52 px @2x) |
+
+The 41mm flat-image row uses a 10.5-point height, calculated from Apple's listed 21-pixel height at @2x. The source table prints 21 points, which is inconsistent with that pixel value and with its utilitarian-large row.
 
 The utilitarian large layout is primarily text-based, but also supports an interface icon placed on the leading side of the text. This layout spans the bottom of a watch face, like the Utility or Motion watch faces.
 
@@ -177,7 +181,7 @@ As you design images for a circular small complication, use the following values
 | Ring | 20x20 pt (40x40 px @2x) | 22x22 pt (44x44 px @2x) | 23.5x23.5 pt (47x47 px @2x) | 24x24 pt (48x48 px @2x) | 26x26 pt (52x52 px @2x) |
 | Simple | 16x16 pt (32x32 px @2x) | 18x18 pt (36x36 px @2x) | 19x19 pt (38x38 px @2x) | 20x20 pt (40x40 px @2x) | 21.5x21.5 pt (43x43 px @2x) |
 | Stack | 16x7 pt (32x14 px @2x) | 17x8 pt (34x16 px @2x) | 18x8.5 pt (36x17 px @2x) | 19x9 pt (38x18 px @2x) | 19x9.5 pt (38x19 px @2x) |
-| Placeholder | 16x16 pt (32x32 px @2x) | 18x18x pt (36x36 px @2x) | 19x19 pt (38x38 px @2x) | 20x20 pt (40x40 px @2x) | 21.5x21.5 pt (43x43 px @2x) |
+| Placeholder | 16x16 pt (32x32 px @2x) | 18x18 pt (36x36 px @2x) | 19x19 pt (38x38 px @2x) | 20x20 pt (40x40 px @2x) | 21.5x21.5 pt (43x43 px @2x) |
 
 Note: In each stack measurement, the width value represents the maximum size.
 
@@ -227,7 +231,7 @@ Note: In each stack measurement, the width value represents the maximum size.
 
 ### Related Components
 
-- [Watch faces](https://developer.apple.com/design/human-interface-guidelines/watch-faces) - For guidance on creating custom watch faces
+- [Watch faces](https://developer.apple.com/design/human-interface-guidelines/watch-faces) - For guidance on configuring and sharing watch faces
 
 ### Developer Documentation
 
@@ -236,8 +240,8 @@ Note: In each stack measurement, the width value represents the maximum size.
 ### Videos
 
 - [Design widgets for the Smart Stack on Apple Watch](https://developer.apple.com/videos/play/wwdc2023/10309)
-- [Go further with Complications in WidgetKit](https://developer.apple.com/videos/play/wwdc2023/10029)
-- [Complications and widgets: Reloaded](https://developer.apple.com/videos/play/wwdc2021/10052)
+- [Go further with Complications in WidgetKit](https://developer.apple.com/videos/play/wwdc2022/10051)
+- [Complications and widgets: Reloaded](https://developer.apple.com/videos/play/wwdc2022/10050)
 
 ## Changelog
 
@@ -251,7 +255,5 @@ Note: In each stack measurement, the width value represents the maximum size.
 - Added specifications for Apple Watch Ultra.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/complications)*

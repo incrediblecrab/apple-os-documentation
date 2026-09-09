@@ -8,10 +8,18 @@ Read and write essential Apple Immersive Video metadata.
 
 Immersive Media Support enables you to create custom workflows for processing Apple Immersive Video (AIV). Use it to read and write AIV-specific metadata and enable previewing content in editorial workflows.
 
+## Authoring and delivery boundaries
+
+The framework's macOS and visionOS minimum remains **26.0**, not 27. It concerns Apple Immersive Video metadata, calibration, packaging, and editorial preview, rather than every kind of spatial image or remote 3D stream.
+
+Use the authoring guide and `AIVUValidator` below to check generated packages, then validate playback through [AVKit](AVKit.md) on the intended device. Keep camera calibration, presentation timing, and media frames consistent when editing.
+
+[Foveated Streaming](FoveatedStreaming.md) instead connects visionOS to a remote renderer, and [Spatial Preview](SpatialPreview.md) serves Mac document/USD review. Neither framework makes an arbitrary video file an Apple Immersive Video asset.
+
 ## Topics
 
 ### Essentials
-- [Authoring Apple Immersive Video](https://developer.apple.com/documentation/immersivemediasupport/authoring_apple_immersive_video) - Prepare and package immersive video content for delivery.
+- [Authoring Apple Immersive Video](https://developer.apple.com/documentation/immersivemediasupport/authoring-apple-immersive-video) - Prepare and package immersive video content for delivery.
 
 ### Camera metadata
 - **VenueDescriptor** - The Apple Immersive Media Venue Descriptor is a collection of static metadata necessary for every Apple Immersive Video.
@@ -50,10 +58,8 @@ Immersive Media Support enables you to create custom workflows for processing Ap
 
 ### Structures
 - **ImmersiveCameraLensDefinition** - This type holds the ILPD lens configuration parameters to generate camera calibration type instance.
-- **ImmersiveVideoFrame** - A type that represents an immersive video frame. An immersive video frame contains: layout (SideBySide, OverUnder, Separate, Mono), presentationTime: frame presentation time, pixelBuffers: an array with one or more images representing the frame.
+- **ImmersiveVideoFrame** - An immersive frame's layout, presentation timestamp, and pixel buffers. Its initializers accept either left/right-eye buffers or one buffer with a specified layout.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/ImmersiveMediaSupport)*

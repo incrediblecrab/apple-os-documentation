@@ -8,7 +8,9 @@ Access users' contacts and display them in a graphical interface.
 
 The AddressBookUI framework provides controllers that facilitate displaying, editing, selecting, and creating records in the Address Book database.
 
-**Important:** Do not use the AddressBookUI framework in iOS 9 and later. Use the APIs defined in the Contacts UI framework instead.
+**Important:** Apple directs iOS 9-and-later apps to [Contacts UI](https://developer.apple.com/documentation/contactsui) instead. This is supported by actual symbol deprecations: [`ABPeoplePickerNavigationController`](https://developer.apple.com/documentation/addressbookui/abpeoplepickernavigationcontroller) is deprecated at iOS/iPadOS 9.0 and at Mac Catalyst 13.1, with `CNContactPickerViewController` as its replacement.
+
+These deprecations predate OS 27 and do not establish a new removal date. When migrating, use [Contacts](Contacts.md) for authorized data access and Contacts UI for selection/editing. Handle cancellation and restricted or limited access rather than assuming that presenting a legacy picker grants access to the entire contact store.
 
 ## Topics
 
@@ -22,7 +24,5 @@ The AddressBookUI framework provides controllers that facilitate displaying, edi
 - **ABCreateStringWithAddressDictionary([AnyHashable : Any], Bool) -> String** - Returns a formatted address from an address property. *(Deprecated)*
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/AddressBookUI)*

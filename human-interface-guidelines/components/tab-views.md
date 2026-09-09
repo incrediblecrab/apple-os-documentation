@@ -8,6 +8,8 @@ A tab view presents multiple mutually exclusive panes of content in the same are
 
 Tab views provide a strong visual indication of enclosure, helping organize related content into separate panes. Each pane is mutually exclusive, displaying content that is similar or related to the content in other tabs. The tabbed control enables efficient navigation with a single click or tap to switch between panes.
 
+This page follows the HIG's tabbed-pane component and watchOS paging guidance. Its platform list is not the availability of SwiftUI's `TabView`, which also provides tab navigation on iOS, iPadOS, tvOS, and visionOS; see [Tab bars](https://developer.apple.com/design/human-interface-guidelines/tab-bars).
+
 ## Topics
 
 ### Best Practices
@@ -24,32 +26,28 @@ Tab views provide a strong visual indication of enclosure, helping organize rela
 
 ### Anatomy
 
-You can position the tabbed control on any side of the content area: top, bottom, left, or right. You can also hide the controls, which is appropriate when you switch the panes programmatically.
-
-- **Top tabs** - Three-tab tabbed control centered on the top edge of the content view
-- **Bottom tabs** - Three-tab tabbed control centered on the bottom edge of the content view
+The current HIG describes a tabbed control along the top edge of the content area. You can hide the control when the app switches panes programmatically.
 
 When you hide the tabbed control, the content area can be borderless, bezeled, or bordered with a line. A borderless view can be solid or transparent.
 
-In general, inset a tab view by leaving a margin of window-body area on all sides of a tab view. This layout looks clean and leaves room for additional controls that aren't directly related to the contents of the tab view. For example, the lock button in Date & Time settings is outside of the tab view because it applies to all tabs. You can extend a tab view to meet the window edges, but this layout is unusual.
+In general, inset a tab view by leaving a margin of window-body area on all sides of a tab view. This layout looks clean and leaves room for additional controls that aren't directly related to the contents of the tab view. You can extend a tab view to meet the window edges, but this layout is unusual.
 
 ### Platform Considerations
 
 **macOS**  
-- Full support for tab views with tabbed controls on any side
+- Use native tabbed panes with the top-edge presentation described above
 - See [NSTabView](https://developer.apple.com/documentation/appkit/nstabview) for developer guidance
 
 **iOS, iPadOS**  
-- Not supported. For similar functionality, consider using a [segmented control](https://developer.apple.com/design/human-interface-guidelines/segmented-controls) instead.
+- The HIG doesn't apply this tabbed-pane component to these platforms. For closely related subviews, consider a [segmented control](https://developer.apple.com/design/human-interface-guidelines/segmented-controls); use tab navigation for top-level app sections.
 
 **tvOS, visionOS**  
-- Not supported
+- Outside this HIG component's scope; this doesn't exclude SwiftUI `TabView` or platform tab navigation
 
 **watchOS**  
 - watchOS displays tab views using page controls
-- The page control appears next to the Digital Crown
-- The current dot is enlarged, indicating that people can scroll through the current content, as well as scroll between pages
-- For developer guidance, see [TabView](https://developer.apple.com/documentation/swiftui/tabview) and [verticalPage](https://developer.apple.com/documentation/swiftui/tabviewstyle/verticalpage)
+- For vertical paging, the HIG illustrates the page control next to the Digital Crown, with an enlarged current dot indicating scrolling within the content as well as between pages
+- For developer guidance, see [TabView](https://developer.apple.com/documentation/swiftui/tabview) and [verticalPage](https://developer.apple.com/documentation/swiftui/tabviewstyle/verticalpage), which is available in watchOS 10 or later
 
 ### Related Components
 
@@ -63,11 +61,11 @@ In general, inset a tab view by leaving a margin of window-body area on all side
 
 ## Changelog
 
+These dates describe changes to Apple's HIG article, not edits to this repository.
+
 ### June 5, 2023
 - Added guidance for using tab views in watchOS
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/tab-views)*

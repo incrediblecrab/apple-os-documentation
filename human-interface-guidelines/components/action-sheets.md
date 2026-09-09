@@ -2,7 +2,7 @@
 
 An action sheet is a modal view that presents choices related to an action people initiate.
 
-**Platforms:** iOS | iPadOS | tvOS | watchOS
+**Platforms:** iOS | iPadOS | macOS | tvOS | watchOS
 
 ## Overview
 
@@ -29,7 +29,7 @@ When you use SwiftUI, you can offer action sheet functionality in all platforms 
 **watchOS**  
 - System style includes title, optional message, Cancel button, and additional buttons
 - Three button styles available: Default, Destructive, and Cancel
-- Limit to four buttons maximum (including Cancel)
+- Aim for no more than four buttons, including Cancel; this is a design recommendation, not an API limit
 - Cancel button is required
 
 **macOS, tvOS**  
@@ -46,11 +46,9 @@ Not supported.
 
 ### Developer Documentation
 
-- [confirmationDialog(_:isPresented:titleVisibility:actions:)](https://developer.apple.com/documentation/swiftui/view/confirmationdialog(_:ispresented:titlevisibility:actions:)) - SwiftUI
+- [confirmationDialog(_:isPresented:titleVisibility:actions:)](https://developer.apple.com/documentation/swiftui/view/confirmationdialog(_:ispresented:titlevisibility:actions:)-46zbb) - SwiftUI
 - [UIAlertController.Style.actionSheet](https://developer.apple.com/documentation/uikit/uialertcontroller/style/actionsheet) - UIKit
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/action-sheets)*

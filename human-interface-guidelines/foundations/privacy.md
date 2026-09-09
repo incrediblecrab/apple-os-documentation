@@ -18,7 +18,7 @@ When you submit a new or updated app, you must provide details about your privac
 
 **Be transparent about how your app collects and uses people's data.** People are less likely to be comfortable sharing data with your app if they don't understand exactly how you plan to use it. Always respect people's choices to use system features like Hide My Email and Mail Privacy Protection, and be sure you understand your obligations with regard to app tracking. To learn more about Apple privacy features, see Privacy; for developer guidance, see User privacy and data use.
 
-**Process data on the device where possible.** In iOS, for example, you can take advantage of the Apple Neural Engine and custom CreateML models to process the data right on the device, helping you avoid lengthy and potentially risky round trips to a remote server.
+**Process data on the device where possible.** In iOS, for example, you can take advantage of the Apple Neural Engine and custom Create ML models to process the data right on the device, helping you avoid lengthy and potentially risky round trips to a remote server.
 
 **Adopt system-defined privacy protections and follow security best practices.** For example, in iOS 15 and later, you can rely on CloudKit to provide encryption and key management for additional data types, like strings, numbers, and dates.
 
@@ -33,7 +33,7 @@ Here are several examples of the things you must request permission to access:
 - In a visionOS app running in a Full Space, ARKit data, such as hand tracking, plane estimation, image anchoring, and world tracking
 - The device's advertising identifier, which supports app tracking
 
-The system provides a standard alert that lets people view each request you make. You supply copy that describes why your app needs access, and the system displays your description in the alert. People can also view the description — and update their choice — in Settings > Privacy.
+The system provides a standard alert that lets people view each request you make. You supply copy that describes why your app needs access, and the system displays your description in the alert. People can also review and update permissions in the device's privacy settings.
 
 **Request permission only when your app clearly needs access to the data or resource.** It's natural for people to be suspicious of a request for personal information or access to a device capability, especially if there's no obvious need for it. Ideally, wait to request permission until people actually use an app feature that requires access. For example, you can use the location button to give people a way to share their location after they indicate interest in a feature that needs that information.
 
@@ -107,7 +107,7 @@ Here are some high-level guidelines.
 No additional considerations for iOS, iPadOS, tvOS, or watchOS.
 
 **macOS**  
-**Sign your app with a valid Developer ID.** If you choose to distribute your app outside the store, signing your app with Developer ID identifies you as an Apple developer and confirms that your app is safe to use. For developer guidance, see Xcode Help.
+**Sign your app with a valid Developer ID.** For distribution outside the Mac App Store, Developer ID identifies the developer; a signature alone doesn't certify that an app is safe. Apple's notarization service separately checks software for malicious content and signing issues. See [Notarizing macOS software before distribution](https://developer.apple.com/documentation/security/notarizing-macos-software-before-distribution).
 
 **Protect people's data with app sandboxing.** Sandboxing provides your app with access to system resources and user data while protecting it from malware. All apps submitted to the Mac App Store require sandboxing. For developer guidance, see Configuring the macOS App Sandbox.
 
@@ -120,7 +120,7 @@ ARKit doesn't send data to apps in the Shared Space; to access ARKit APIs, your 
 
 In visionOS, user input is private by design. The system automatically displays hover effects when people look at interactive components you create using SwiftUI or RealityKit, giving people the visual feedback they need without exposing where they're looking before they tap. For guidance, see Eyes and Gestures > visionOS.
 
-Developer access to device cameras works differently in visionOS than it does in other platforms. Specifically, the back camera provides blank input and is only available as a compatibility convenience; the front camera provides input for spatial Personas, but only after people grant their permission. If the iOS or iPadOS app you're bringing to visionOS includes a feature that needs camera access, remove it or replace it with an option for people to import content instead. For developer guidance, see Making your existing app compatible with visionOS.
+For an iOS or iPadOS app running in compatibility mode on visionOS, camera behavior differs from iPhone and iPad: the back camera provides blank input, and the front camera can provide Persona input with permission. Adapt unsupported capture features, for example by letting people import content. This compatibility guidance isn't a universal ban on camera access: enterprise visionOS apps can request main-camera access through an approved entitlement and license, with the required usage descriptions and authorization. See [Accessing the main camera](https://developer.apple.com/documentation/visionos/accessing-the-main-camera).
 
 ### Related Components
 
@@ -129,16 +129,16 @@ Developer access to device cameras works differently in visionOS than it does in
 
 ### Developer Documentation
 
-- [Requesting access to protected resources](https://developer.apple.com/documentation/uikit/protecting_the_user_s_privacy/requesting_access_to_protected_resources) - UIKit
+- [Requesting access to protected resources](https://developer.apple.com/documentation/uikit/requesting-access-to-protected-resources) - UIKit
 - [Security](https://developer.apple.com/documentation/security)
-- [Requesting authorization to use location services](https://developer.apple.com/documentation/corelocation/requesting_authorization_to_use_location_services) - CoreLocation
+- [Requesting authorization to use location services](https://developer.apple.com/documentation/corelocation/requesting-authorization-to-use-location-services) - CoreLocation
 - [App Tracking Transparency](https://developer.apple.com/documentation/apptrackingtransparency)
 
 ### Videos
 
-- [Integrate privacy into your development process](https://developer.apple.com/videos/play/wwdc2024/10123)
-- [What's new in passkeys](https://developer.apple.com/videos/play/wwdc2024/10125)
-- [What's new in privacy](https://developer.apple.com/videos/play/wwdc2024/10121)
+- [Integrate privacy into your development process](https://developer.apple.com/videos/play/wwdc2025/246)
+- [What's new in passkeys](https://developer.apple.com/videos/play/wwdc2025/279)
+- [Meet the Contact Access Button](https://developer.apple.com/videos/play/wwdc2024/10121)
 
 ## Changelog
 
@@ -146,7 +146,5 @@ Developer access to device cameras works differently in visionOS than it does in
 - Consolidated guidance into new page and updated for visionOS.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/privacy)*

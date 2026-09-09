@@ -2,17 +2,31 @@
 
 Create tvOS client-server apps using web technologies to stream media and respond to events.
 
-**Platforms:** tvOS 10.0+
+**Platforms:** tvOS 9.0+ for the core runtime APIs; later API generations are listed below.
 
-**Deprecated:** TVMLKit JS is deprecated in tvOS 18 and later. Instead, develop apps for tvOS with SwiftUI or UIKit. For more information, see Creating a tvOS media catalog app in SwiftUI.
+**Deprecated:** TVMLKit JS is deprecated in tvOS 18 and later, not declared removed. Use SwiftUI or UIKit for new apps. See [Creating a tvOS media catalog app in SwiftUI](https://developer.apple.com/documentation/swiftui/creating-a-tvos-media-catalog-app-in-swiftui).
 
 ## Overview
 
-The TVMLKit JS framework provides you with the means to display client-server apps created with the Apple TV Markup Language (TVML) on tvOS. You use other classes in the framework to stream media and respond to events.
+TVMLKit JS supplies lifecycle, navigation, playback, input, and data APIs to [TVML](TVML.md) apps hosted by [TVMLKit](TVMLKit.md). It is not a Safari browser environment; shared JavaScript interface names do not imply support for modern browser DOM/CSS or Safari 27 features.
 
-The TVMLKit JS framework incorporates the following standard Document Object Module classes, which are not documented here. For information on these classes, see World Wide Web Consortium.
+The legacy catalog includes the following **Document Object Model**-related names. This mixes DOM interfaces, historical DOM Load/Save and XPath interfaces, and helper labels; it is not a list of current standard JavaScript constructors. Compare the [current DOM standard](https://dom.spec.whatwg.org/) and the historical [DOM Level 3 Load and Save specification](https://www.w3.org/TR/DOM-Level-3-LS/) when maintaining such code.
 
 **CharacterData**, **Comment**, **CustomEvent**, **Document**, **DocumentFragment**, **DOMException**, **DOMImplementation**, **DOMImplementationLS**, **DOMImplementationRegistry**, **DOMParser**, **Element**, **Event**, **EventException**, **HTMLCollection**, **LSException**, **LSInput**, **LSParser**, **LSSerializer**, **NamedNodeMap**, **Node**, **NodeList**, **ParentNode**, **ParsingElement**, **Text**, **XMLSerializer**, **XPathEvaluator**, **XPathException**, **XPathExpression**, **XPathResult**
+
+## API generations
+
+The framework catalog's tvOS 10 label does not date every API:
+
+| tvOS introduction | APIs |
+| --- | --- |
+| 9 | `App`, `NavigationDocument`, event/device/settings/restrictions APIs, `Player`, `Playlist`, `MediaItem`, `Keyboard`, `MenuBarDocument`, `Storage`, `XMLHttpRequest`, `TVError` |
+| 10 | `UserDefaults`, `Slideshow` |
+| 11 | `DataItem`, the JavaScript `NSError` interface |
+| 13 | `Browser`, `DataSource`, `LoadIndexesRequest`, `ViewModelLink` |
+| 14 | The additional DOM/Load-Save/exception references in the Classes section, except `ViewModelLink` |
+
+These are the published reference labels for this runtime, not introduction dates for the corresponding web standards in other browsers.
 
 ## Topics
 
@@ -20,61 +34,61 @@ The TVMLKit JS framework incorporates the following standard Document Object Mod
 - [Creating a Client-Server TVML App](https://developer.apple.com/documentation/tvmljs/creating_a_client-server_tvml_app) - Display and navigate between TVML documents on Apple TV by retrieving and parsing information from a remote server.
 
 ### App Initialization
-- **App** - An object that provides access to—and a means to respond to—app life-cycle events.
-- **UserDefaults** - An object that contains the app's default preferences.
-- **NavigationDocument** - A document stack that holds the individual TVML documents for a client-server app.
+- [`App`](https://developer.apple.com/documentation/tvmljs/app) - The system-provided global lifecycle object; do not construct one.
+- [`UserDefaults`](https://developer.apple.com/documentation/tvmljs/userdefaults) - Preferences exposed as the global `userDefaults`.
+- [`NavigationDocument`](https://developer.apple.com/documentation/tvmljs/navigationdocument) - The system-provided document stack at `navigationDocument`; do not construct one.
 
 ### Responding to User Interaction
-- [Update onscreen information by adding event listeners to your Apple TV app](https://developer.apple.com/documentation/tvmljs/responding_to_user_interaction) - Update onscreen information by adding event listeners to your Apple TV app.
-- **EventListenerObject** - An object that communicates events and allows other objects to add themselves as listeners.
+- [Responding to User Interaction](https://developer.apple.com/documentation/tvmljs/responding_to_user_interaction) - Update content in response to focus/navigation events, not only selection.
+- [`EventListenerObject`](https://developer.apple.com/documentation/tvmljs/eventlistenerobject) - Event dispatch and listener registration.
 
 ### Device Settings
-- **Device** - An object that provides information about an Apple TV and the host app installed on the device.
-- **Settings** - An object that provides access to setting information for a device.
-- **Restrictions** - An object used to retrieve rating restriction information.
+- [`Device`](https://developer.apple.com/documentation/tvmljs/device) - The global device/host-app information object.
+- [`Settings`](https://developer.apple.com/documentation/tvmljs/settings) - The global settings-information object.
+- [`Restrictions`](https://developer.apple.com/documentation/tvmljs/restrictions) - Rating restriction information obtained from `Settings`. These are supplied objects, not constructors for changing system parental controls.
 
 ### Media Playback
 - [Playing Media in a Client-Server App](https://developer.apple.com/documentation/tvmljs/playing_media_in_a_client-server_app) - Play media items in a client-server app using the built-in media player for TVMLKit JS.
-- **Player** - A media player that displays the UI for playing video and audio in an Apple TV client-server app.
-- **Playlist** - An array of media items to be played in an Apple TV client-server app.
-- **MediaItem** - A single audio or video item.
-- **Slideshow** - An object used to display images on Apple TV in a slideshow format.
-- **Browser** - An object used to configure and present a browsable full screen view.
+- [`Player`](https://developer.apple.com/documentation/tvmljs/player) - Playback UI and control; assign a `Playlist` containing at least one `MediaItem` to play media.
+- [`Playlist`](https://developer.apple.com/documentation/tvmljs/playlist) - The playback sequence.
+- [`MediaItem`](https://developer.apple.com/documentation/tvmljs/mediaitem) - An audio or video item.
+- [`Slideshow`](https://developer.apple.com/documentation/tvmljs/slideshow) - Start an image slideshow through its `start` method; there is no constructor.
+- [`Browser`](https://developer.apple.com/documentation/tvmljs/browser) - Configure and present a full-screen content browser using `present`; there is no constructor, and this is not a web browser.
 
 ### Element Access
-- **Keyboard** - An object used to retrieve user input from search fields and text fields.
-- **MenuBarDocument** - An object used for setting and retrieving documents associated with a menu item.
+- [`Keyboard`](https://developer.apple.com/documentation/tvmljs/keyboard) - Obtain the keyboard feature from a `searchField` or `textField` element with `getFeature('Keyboard')`.
+- [`MenuBarDocument`](https://developer.apple.com/documentation/tvmljs/menubardocument) - Obtain a menu bar's document-management feature with `getFeature('MenuBarDocument')`.
 
 ### Data Storage and Retrieval
 - [Binding JSON data to TVML documents](https://developer.apple.com/documentation/tvmljs/binding_json_data_to_tvml_documents) - Create full-fledged TVML documents by using data binding and queries on simplified TVML files.
-- **XMLHttpRequest** - An object used to retrieve data from a URL.
-- **DataItem** - An object used to create observable objects from JSON objects for data binding.
-- **Storage** - An object used to store key-value-pair information.
-- **DataSource** - An interface that allows the system to detect and respond to changes in your data.
-- **LoadIndexesRequest** - A request created when the loadindexes event is triggered.
+- [`XMLHttpRequest`](https://developer.apple.com/documentation/tvmljs/xmlhttprequest) - Retrieves URL resources.
+- [`DataItem`](https://developer.apple.com/documentation/tvmljs/dataitem) - Observable data for TVML bindings.
+- [`Storage`](https://developer.apple.com/documentation/tvmljs/storage) - The supplied `localStorage` and `sessionStorage` objects, not a constructor. Session data is in memory and is purged when the app exits; local storage writes to disk.
+- [`DataSource`](https://developer.apple.com/documentation/tvmljs/datasource) - Tracks changes to array-backed data and supports lazy loading without repopulating the entire interface.
+- [`LoadIndexesRequest`](https://developer.apple.com/documentation/tvmljs/loadindexesrequest) - A request associated with a `loadindexes` event.
 
 ### Errors
-- **TVError** - Error codes for the TVError domain.
-- **NSError** - Information about an error condition, including a domain, a domain-specific error code, and application-specific information.
+- [`TVError`](https://developer.apple.com/documentation/tvmljs/tverror) - An error object with a domain, code, and user information, not merely an enum of codes.
+- [`NSError`](https://developer.apple.com/documentation/tvmljs/nserror) - The tvOS 11+ JavaScript error-information interface; distinguish it from Foundation's native API history.
 
 ### Reference
-- **TVMLKit JS Functions** - The functions contained in this reference can be used globally in your app. They are not associated with a particular class.
+- [TVMLKit JS Functions](https://developer.apple.com/documentation/tvmljs/tvmlkit_js_functions) - Global functions supplied by this app environment.
 
 ### Classes
-- **DOMException**
-- **DOMImplementationLS**
-- **DOMImplementationRegistry**
-- **EventException**
-- **LSException**
-- **LSInput**
-- **LSParser**
-- **LSSerializer**
-- **ParsingElement**
-- **ViewModelLink**
-- **XPathException**
+These links retain the legacy catalog's interface labels and per-entry declarations, not a promise that each name is a constructible global in every DOM implementation.
+
+- [`DOMException`](https://developer.apple.com/documentation/tvmljs/domexception)
+- [`DOMImplementationLS`](https://developer.apple.com/documentation/tvmljs/domimplementationls)
+- [`DOMImplementationRegistry`](https://developer.apple.com/documentation/tvmljs/domimplementationregistry)
+- [`EventException`](https://developer.apple.com/documentation/tvmljs/eventexception)
+- [`LSException`](https://developer.apple.com/documentation/tvmljs/lsexception)
+- [`LSInput`](https://developer.apple.com/documentation/tvmljs/lsinput)
+- [`LSParser`](https://developer.apple.com/documentation/tvmljs/lsparser)
+- [`LSSerializer`](https://developer.apple.com/documentation/tvmljs/lsserializer)
+- [`ParsingElement`](https://developer.apple.com/documentation/tvmljs/parsingelement)
+- [`ViewModelLink`](https://developer.apple.com/documentation/tvmljs/viewmodellink)
+- [`XPathException`](https://developer.apple.com/documentation/tvmljs/xpathexception)
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/tvmljs)*

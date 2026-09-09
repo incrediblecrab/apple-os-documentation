@@ -8,7 +8,7 @@ When people play your game on an Apple device, they dive into the world you desi
 
 As you create or adapt a game for Apple platforms, learn how to integrate the fundamental platform characteristics and patterns that help your game feel at home on all Apple devices. To learn what makes each platform unique, see Designing for iOS, Designing for iPadOS, Designing for macOS, Designing for tvOS, Designing for visionOS, and Designing for watchOS. For developer guidance, see Games Pathway.
 
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+, tvOS 27+:** System chrome layered over game content uses the refined Liquid Glass material. On macOS, note that **macOS 27 is Apple-silicon-only and the last release with full Rosetta 2** — ship native Apple silicon builds. Verify HUD and overlay legibility across the range of the transparency slider.
+Keep HUDs and controls legible over moving game content. Test supported input methods, [accessibility preferences](../foundations/accessibility.md), and reduced visual effects without relying on color, motion, or translucency alone to communicate state.
 
 ## Topics
 
@@ -31,7 +31,7 @@ As you create or adapt a game for Apple platforms, learn how to integrate the fu
 | visionOS | 17 pt | 12 pt |
 | watchOS | 16 pt | 12 pt |
 
-- **Make sure buttons are always easy to use** - Buttons that are too small or too close together can frustrate players and make gameplay less fun. Each platform defines a recommended minimum button size based on its default interaction method. For example, buttons in iOS must be at least 44x44 pt to accommodate touch interaction. For guidance, see Buttons.
+- **Make sure buttons are always easy to use** - Buttons that are too small or too close together can frustrate players and make gameplay less fun. Use the platform's recommended default size where possible. The HIG table below distinguishes the 44x44 pt iOS default from its smaller minimum; don't describe 44x44 pt as both the default and the table's absolute minimum. Leave enough separation and test touch accuracy. For guidance, see Buttons.
 
 | Platform | Default button size | Minimum button size |
 |---|---|---|
@@ -77,7 +77,7 @@ As you create or adapt a game for Apple platforms, learn how to integrate the fu
 ### Adopt Apple Technologies
 
 - **Integrate Game Center to help players discover your game across their devices and connect with their friends** - Game Center is Apple's social gaming network, available on all platforms. Game Center lets players keep track of their progress and achievements and allows you to set up leaderboards, challenges, and multiplayer activities in your game. For design guidance, see Game Center; for developer guidance, see GameKit.
-- **Let players pick up their game on any of their devices** - People often have a single iCloud account that they use across multiple Apple devices. When you support GameSave, you can help people save their game state and start back up exactly where they left off on a different device.
+- **Let players resume on their other supported devices** - GameSave synchronizes save files through iCloud Drive. Its current framework availability is iOS, iPadOS, Mac Catalyst, macOS, and visionOS 26 and later; don't infer support for every Apple platform from the cross-device use case. See [GameSave](https://developer.apple.com/documentation/gamesave).
 - **Support haptics to help players feel the action** - When you adopt Core Haptics, you can compose and play custom haptic patterns, optionally combined with custom audio content. Core Haptics is available in iOS, iPadOS, tvOS, and visionOS, and supported on many game controllers. For guidance, see Playing haptics; for developer guidance, see Core Haptics and Playing Haptics on Game Controllers.
 - **Use Spatial Audio to immerse players in your game's soundscape** - Providing multichannel audio can help your game's audio adapt automatically to the current device, enabling an immersive Spatial Audio experience where supported. For guidance, see Playing audio > visionOS; for developer guidance, see Explore Spatial Audio.
 - **Take advantage of Apple technologies to enable unique gameplay mechanics** - For example, you can integrate technologies like augmented reality, machine learning, and HealthKit, and request access to location data and functionality like camera and microphone. For a full list of Apple technologies, features, and services, see Technologies.
@@ -90,12 +90,12 @@ As you create or adapt a game for Apple platforms, learn how to integrate the fu
 ### Developer Documentation
 
 - [Games Pathway](https://developer.apple.com/games/)
-- [Create games for Apple platforms](https://developer.apple.com/documentation/gameplaykit/create_games_for_apple_platforms)
+- [Create games for Apple platforms](https://developer.apple.com/games/)
 
 ### Videos
 
-- [Level up your games](https://developer.apple.com/videos/play/wwdc2024/10157)
-- [Design advanced games for Apple platforms](https://developer.apple.com/videos/play/wwdc2024/10159)
+- [Level up your games](https://developer.apple.com/videos/play/wwdc2025/209)
+- [Design no-code games with Reality Composer Pro 3](https://developer.apple.com/videos/play/wwdc2026/252)
 
 ## Changelog
 
@@ -106,7 +106,5 @@ As you create or adapt a game for Apple platforms, learn how to integrate the fu
 - New page.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/designing-for-games)*

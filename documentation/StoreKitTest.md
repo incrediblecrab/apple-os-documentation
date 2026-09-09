@@ -12,16 +12,16 @@ For testing in-app purchase transactions, use SKTestSession. Each instance of SK
 
 For testing ad impressions and postbacks, use SKAdTestSession. Each instance of SKAdTestSession holds a set of test postbacks that you create and can use in multiple unit tests. Ad networks that use SKAdNetwork APIs can use this class to validate the ad impressions that they sign, and test receiving postbacks on their server. Advertised apps can test their conversion value updates.
 
-Testing StoreKit in iOS, watchOS, or tvOS apps requires Xcode 12 or later running on macOS 10.15 or later. Testing StoreKit in a macOS app requires Xcode 12 or later running on macOS 11 or later.
+Apple's original StoreKit-testing baseline is Xcode 12 with macOS 10.15 or later for iOS, watchOS, and tvOS tests, and macOS 11 or later for macOS app tests. These historical minimums do not override the host requirements of a newer Xcode; see [Xcode](Xcode.md) for the Xcode 27 requirements.
 
 **Related session from WWDC20**
 
-Session 10659: Introducing StoreKit testing in Xcode
+[Session 10659: Introducing StoreKit testing in Xcode](https://developer.apple.com/videos/play/wwdc2020/10659/)
 
 ## Topics
 
 ### StoreKit transaction testing
-- [Setting up StoreKit Testing in Xcode](https://developer.apple.com/documentation/storekittest/setting_up_storekit_testing_in_xcode) - Prepare your test environment to test in-app purchases with data you configure locally.
+- [Setting up StoreKit Testing in Xcode](https://developer.apple.com/documentation/xcode/setting-up-storekit-testing-in-xcode.md) - Prepare your test environment to test in-app purchases with data you configure locally.
 - **SKTestSession** - The controls and environment configuration you use to test StoreKit transactions in Xcode.
 - **SKTestTransaction** - A transaction that occurs in the testing environment.
 
@@ -30,7 +30,7 @@ Session 10659: Introducing StoreKit testing in Xcode
 - **SKTestError** - Information about an error that the testing environment returns.
 
 ### Ad impression and postback testing
-- [Testing and validating ad impression signatures and postbacks for SKAdNetwork](https://developer.apple.com/documentation/storekittest/testing_and_validating_ad_impression_signatures_and_postbacks_for_skadnetwork) - Validate your ad impressions and test your postbacks by creating unit tests using the StoreKit Test framework.
+- [Testing and validating ad impression signatures and postbacks for SKAdNetwork](https://developer.apple.com/documentation/storekittest/testing-and-validating-ad-impression-signatures-and-postbacks-for-skadnetwork.md) - Validate your ad impressions and test your postbacks by creating unit tests using the StoreKit Test framework.
 - **SKAdTestSession** - The class you use to test ad impressions and postbacks in Xcode.
 - **SKAdTestPostback** - A test postback that contains ad conversion information in the testing environment.
 - **SKAdTestPostbackResponse** - The status and error information for a postback that the system sends in the testing environment.
@@ -59,7 +59,5 @@ Session 10659: Introducing StoreKit testing in Xcode
 - **SKTestFailure**
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/StoreKitTest)*

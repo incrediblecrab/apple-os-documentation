@@ -12,17 +12,17 @@ Your app icon is a crucial aspect of your app's or game's branding and user expe
 
 ### Layer design
 
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** App icons gain sharper layer separation, and Icon Composer 2 lets you author per-layer refraction effects for Liquid Glass while previewing across OS versions.
+Use [Icon Composer](https://developer.apple.com/icon-composer/) to assemble and preview layered icons for iPhone, iPad, Mac, and Apple Watch. Test recognizable silhouettes and supported appearances at small sizes; follow the separate image-stack requirements for tvOS and visionOS.
 
 Although you can provide a flattened image for your icon, layers give you the most control over how your icon design is represented. A layered app icon comes together to produce a sense of depth and vitality. On each platform, the system applies visual effects that respond to the environment and people's interactions.
 
-iOS, iPadOS, macOS, and watchOS app icons include a background layer and one or more foreground layers that coalesce to create dimensionality. These icons take on Liquid Glass attributes like specular highlights, frostiness, and translucency, which respond to changes in lighting and, in iOS and iPadOS, device movement.
+iOS, iPadOS, macOS, and watchOS app icons include a background layer and one or more foreground layers that coalesce to create dimensionality. Liquid Glass effects adapt to the icon's size and can render differently across system versions. In the current Icon Composer, refraction controls affect rendering on OS 27, but have no visible effect on earlier system versions.
 
 tvOS app icons use between two and five layers to create a sense of dynamism as people bring them into focus. When focused, the app icon elevates to the foreground in response to someone's finger movement on their remote, and gently sways while the surface illuminates. The separation between layers and the use of transparency produce a feeling of depth during the parallax effect.
 
 A visionOS app icon includes a background layer and one or two layers on top, producing a three-dimensional object that subtly expands when people view it. The system enhances the icon's visual dimensionality by adding shadows that convey a sense of depth between layers and by using the alpha channel of the upper layers to create an embossed appearance.
 
-You use your favorite design tool to craft the individual foreground layers of your app icon. For iOS, iPadOS, macOS, and watchOS icons, you then import your icon layers into Icon Composer, a design tool included with Xcode and available from the Apple Developer website. In Icon Composer, you define the background layer for your icon, adjust your foreground layer placement, apply visual effects like transparency, define default, dark, clear, and tinted appearance variants, and export your icon for use in Xcode. For additional guidance, see [Creating your app icon using Icon Composer](https://developer.apple.com/documentation/xcode/creating-your-app-icon-using-icon-composer).
+You use your favorite design tool to craft the individual foreground layers of your app icon. For iOS, iPadOS, macOS, and watchOS icons, you then import your icon layers into Icon Composer, a design tool included with Xcode and available from the Apple Developer website. In Icon Composer, you define the background layer, position foreground layers, and adjust material effects. Its current rendering modes are Default, Dark, and Mono; Mono provides previews for clear and tinted variants. watchOS doesn't offer separate appearance variants. Save the icon file for use in Xcode, and compare rendering across system versions. For additional guidance, see [Creating your app icon using Icon Composer](https://developer.apple.com/documentation/xcode/creating-your-app-icon-using-icon-composer).
 
 For tvOS and visionOS app icons, you add your icon layers directly to an image stack in Xcode to form your complete icon. For developer guidance, see [Configuring your app icon](https://developer.apple.com/documentation/xcode/configuring-your-app-icon).
 
@@ -30,7 +30,7 @@ For tvOS and visionOS app icons, you add your icon layers directly to an image s
 
 **Vary opacity in foreground layers to increase the sense of depth and liveliness.** For example, the Photos icon separates its centerpiece into multiple layers that contain translucent pieces, bringing greater dynamism to the design. Importing fully opaque layers and adjusting transparency in Icon Composer lets you preview and make adjustments to your design based on how transparency and system effects impact one another.
 
-**Design a background that both stands out and emphasizes foreground content.** Subtle top-to-bottom, light-to-dark gradients tend to respond well to system lighting effects. Icon Composer supports solid colors and gradients for background layers, making it unnecessary to import custom background images in most cases. If you do import a background layer, make sure it's full-bleed and opaque.
+**Design a background that both stands out and emphasizes foreground content.** If you choose a gradient, check that it responds well to system lighting effects. Icon Composer supports solid colors and gradients for background layers, making it unnecessary to import custom background images in most cases. If you do import a background layer, make sure it's full-bleed and opaque.
 
 **Prefer vector graphics when bringing layers into Icon Composer.** Unlike raster images, vector graphics (such as SVG or PDF) scale gracefully and appear crisp at any size. Outline artwork and convert text to outline in your design. For mesh gradients and raster artwork, prefer PNG format because it's a lossless image format.
 
@@ -64,7 +64,7 @@ An app icon's shape varies based on a platform's visual language. In iOS, iPadOS
 
 ### Visual effects
 
-**Let the system handle blurring and other visual effects.** The system dynamically applies visual effects to your app icon layers, so there's no need to include specular highlights, drop shadows between layers, beveled edges, blurs, glows, and other effects. In addition to interfering with system-provided effects, custom effects are static, whereas the system supplies dynamic ones. If you do include custom visual effects on your icon layers, use them intentionally and test carefully with Icon Composer, in Simulator, or on device to make sure they appear as expected and don't conflict with system effects.
+**Let the system handle blurring and other visual effects.** The system dynamically applies visual effects to your app icon layers, so there's no need to include specular highlights, drop shadows between layers, beveled edges, blurs, glows, and other effects. In addition to interfering with system-provided effects, custom effects are static, whereas the system supplies dynamic ones. If you do include custom visual effects on your icon layers, use them intentionally and test carefully in Icon Composer and on simulated or physical devices using Device Hub to make sure they appear as expected and don't conflict with system effects.
 
 **Create layer groupings to apply effects to multiple layers at once.** System effects typically occur on individual layers. If it makes sense for your design, however, you can group several layers together in Icon Composer or your design tool so effects occur at the group level.
 
@@ -118,7 +118,7 @@ App icons support the following color spaces:
 
 **Related**
 - [Apple Design Resources](https://developer.apple.com/design/resources/)
-- [Icon Composer](https://developer.apple.com/download/more/)
+- [Icon Composer](https://developer.apple.com/icon-composer/)
 - [Icons](https://developer.apple.com/design/human-interface-guidelines/icons)
 - [Images](https://developer.apple.com/design/human-interface-guidelines/images)
 - [Dark Mode](https://developer.apple.com/design/human-interface-guidelines/dark-mode)
@@ -128,8 +128,8 @@ App icons support the following color spaces:
 - [Configuring your app icon using an asset catalog](https://developer.apple.com/documentation/xcode/configuring-your-app-icon)
 
 **Videos**
-- [Say hello to the new look of app icons](https://developer.apple.com/videos/play/wwdc2025/10026)
-- [Create icons with Icon Composer](https://developer.apple.com/videos/play/wwdc2025/10027)
+- [Say hello to the new look of app icons](https://developer.apple.com/videos/play/wwdc2025/220)
+- [Create icons with Icon Composer](https://developer.apple.com/videos/play/wwdc2025/361)
 
 ## Changelog
 
@@ -149,7 +149,5 @@ App icons support the following color spaces:
 - Added specifications for Apple Watch Ultra.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/app-icons)*

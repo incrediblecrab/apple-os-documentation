@@ -1,8 +1,8 @@
 # Apple Pay
 
-Apple Pay is a secure, easy way to make payments for physical goods and services — as well as donations and subscriptions — in apps running on iPhone, iPad, Mac, and Apple Watch, and on websites.
+Apple Pay is a secure, easy way to make payments for physical goods and services — as well as donations and subscriptions — in apps on supported Apple devices, including Apple Vision Pro, and on websites.
 
-**Platforms:** iOS | iPadOS | macOS | watchOS
+**Platforms:** iOS | iPadOS | macOS | visionOS | watchOS
 
 ## Overview
 
@@ -12,11 +12,9 @@ People authorize payments and provide shipping and contact information, using cr
 
 Apps that accept Apple Pay display an Apple Pay mark wherever available payment options are shown and an Apple Pay button that people tap to bring up a payment sheet. During checkout, the payment sheet can show the credit or debit card linked to Apple Pay, purchase amount (including tax and fees), shipping options, and contact information. People make any necessary adjustments and then authorize payment and complete the purchase.
 
-Websites that accept Apple Pay incorporate it into the purchasing flow. An Apple Pay mark needs to be shown wherever available payment options are shown and an Apple Pay button lets people view a payment sheet. During checkout, the payment sheet can show the credit or debit card linked to Apple Pay, purchase amount (including tax and fees), shipping options, and contact information. People make any necessary adjustments, authorize payment, and complete the purchase using securely stored credentials on iPhone, iPad, and Macs that include Touch ID or a Magic Keyboard with Touch ID. On other Macs, people confirm the purchase with their nearby iPhone or Apple Watch on which Apple Pay is set up.
+Websites that accept Apple Pay incorporate it into the purchasing flow. The Apple Pay mark identifies acceptance, while the payment button opens a sheet showing the purchase amount, payment method, shipping choices, and requested contact details. Authorization depends on the device and browser: people can use supported biometric authentication, Apple Watch, a nearby device, or a code scanned with iPhone or iPad. Check Apple Pay availability rather than assuming every Mac or browser uses the same handoff flow.
 
 All websites that offer Apple Pay must include a privacy statement and adhere to the [Acceptable use guidelines for Apple Pay on the web](https://developer.apple.com/apple-pay/acceptable-use-guidelines-for-websites/). For a hands-on demo of Apple Pay on the web, see [Apple Pay on the web interactive demo](https://applepaydemo.apple.com/).
-
-> **iOS 27+, iPadOS 27+:** Visual Intelligence can identify and split line items from a receipt photo; in the US, Apple Cash requests can be sent directly from the result. **Wallet Insights** surfaces spending patterns, recurring transactions, and balances from connected accounts.
 
 ## Topics
 
@@ -80,7 +78,7 @@ All websites that offer Apple Pay must include a privacy statement and adhere to
 
 - **Clarify intermediary relationships** - If you're not the end merchant, specify both your business name and the end merchant's name in the payment sheet. Clearly describe the relationship, such as "Pay [End_Merchant_Business_Name (via Your_Business_Name)]".
 
-- **Disclose variable costs** - Clearly disclose when additional costs may be incurred after payment authorization. When the total cost may be unknown at checkout time, provide a clear explanation and a subtotal marked as "Amount Pending".
+- **Disclose variable costs** - Clearly disclose when additional costs may be incurred after payment authorization. Where local regulations allow and the total cost is unknown at checkout time, provide a clear explanation and a subtotal marked as "Amount Pending".
 
 - **Handle errors gracefully** - If an error occurs during checkout, help people resolve it quickly so they can complete their transaction.
 
@@ -185,11 +183,11 @@ You can use the automatic style to let the current system appearance determine t
 - **Match corner radius** - Adjust the corner radius to match the appearance of other buttons. By default, an Apple Pay button has rounded corners, but you can change this to produce square corners or capsule-shaped buttons.
 - **Maintain minimum sizing** - Be mindful that the button title may vary in length depending on the locale.
 
-**Note:** If the size you specify doesn't accommodate the translated title for the type of payment button you're using, the system automatically replaces it with the plain Apple Pay button.
+**Note:** If the size you specify doesn't accommodate the translated title for the type of payment button you're using, the system automatically replaces it with the plain Apple Pay button. The Set Up Apple Pay button has no automatic replacement, so ensure its localized title fits.
 
 **Minimum Button Specifications:**
 - **Apple Pay button:** 100pt minimum width, 30pt minimum height, 1/10 button height margins
-- **All other Apple Pay buttons:** 140pt minimum width, 30pt minimum height, 1/10 button height margins
+- **Text-labeled buttons in Apple's sizing table** (Book, Buy, Check Out, Donate, Set Up, and Subscribe): 140pt minimum width, 30pt minimum height, 1/10 button height margins
 
 ### Apple Pay Mark
 
@@ -219,8 +217,8 @@ No additional considerations for iOS, iPadOS, macOS, visionOS, or watchOS. Not s
 
 ### Developer Documentation
 
-- [Apple Pay — PassKit](https://developer.apple.com/documentation/passkit/apple_pay) - PassKit
-- [Apple Pay on the Web](https://developer.apple.com/documentation/apple_pay_on_the_web) - Web
+- [Apple Pay — PassKit](https://developer.apple.com/documentation/passkit/apple-pay) - PassKit
+- [Apple Pay on the Web](https://developer.apple.com/documentation/applepayontheweb) - Web
 - [WKInterfacePaymentButton — WatchKit](https://developer.apple.com/documentation/watchkit/wkinterfacepaymentbutton) - WatchKit
 
 ## Changelog
@@ -235,7 +233,5 @@ No additional considerations for iOS, iPadOS, macOS, visionOS, or watchOS. Not s
 - Consolidated guidance into one page.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/apple-pay)*

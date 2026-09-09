@@ -33,15 +33,13 @@ In addition, the macOS menu bar includes the Apple menu on the leading side and 
 
 ### Best Practices
 
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Liquid Glass now diffuses busy background content more aggressively, adds a subtle darkened edge ring, and renders brighter specular highlights, improving legibility without extra visual noise. People can tune overall translucency with the transparency slider in Settings > Appearance, and the material also responds to Reduce Transparency and Increase Contrast.
-
 - **Support the default system-defined menus and their ordering** - People expect to find menus and menu items in an order they're familiar with. In many cases, the system implements the functionality of standard menu items so you don't have to. For example, when people select text in a standard text field, the system makes the Edit > Copy menu item available.
 
 - **Always show the same set of menu items** - Keeping menu items visible helps people learn what actions your app supports, even if they're unavailable in the current context. If a menu bar item isn't actionable, disable the action instead of hiding it from the menu.
 
 - **Represent menu item actions with familiar icons** - Icons help people recognize common actions throughout your app. Use the same system icons to represent actions such as Copy, Share, and Delete, wherever they appear. For a list of icons that represent common actions, see Standard icons.
 
-- **Use a single icon to introduce a group of similar items** - Instead of adding individual icons for each action, or reusing the same icon for all of them, establish a common theme with the symbol for the first item and rely on the menu item text to keep the remaining items distinct.
+- **Use icons consistently within a menu group** - Choose icons only when they clearly represent the actions, and provide icons for every item in a group or for none of them. This follows the current [menu icon guidance](https://developer.apple.com/design/human-interface-guidelines/menus#Icons).
 
 - **Support the keyboard shortcuts defined for the standard menu items you include** - People expect to use the keyboard shortcuts they already know for standard menu items, like Copy, Cut, Paste, Save, and Print. Define custom keyboard shortcuts only when necessary. For guidance, see Standard keyboard shortcuts.
 
@@ -90,7 +88,7 @@ Move To… | Prompts people to choose a new location for the document. |
 Export As… | Prompts people for a name, output location, and export file format. After exporting the file, the current document remains open; the exported file doesn't open. | Reserve the Export As item for when you need to let people export content in a format your app doesn't typically handle.
 Revert To | When people turn on autosaving, displays a submenu that lists recent document versions and an option to display the version browser. After people choose a version to restore, it replaces the current document. | 
 Page Setup… | Opens a panel for specifying printing parameters like paper size and printing orientation. A document can save the printing parameters that people specify. | Include the Page Setup item if you need to support printing parameters that apply to a specific document. Parameters that are global in nature, like a printer's name, or that people change frequently, like the number of copies to print, belong in the Print panel.
-Print… | Opens the standard Print panel, which lets people print to a printer, send a fax, or save as a PDF. | 
+Print… | Opens the standard Print panel, which lets people print to a printer or save as a PDF. |
 
 #### Edit menu
 
@@ -158,7 +156,7 @@ Provide app-specific menus for custom commands. People look in the menu bar when
 
 As much as possible, reflect your app's hierarchy in app-specific menus. For example, Mail lists the Mailbox, Message, and Format menus in an order that mirrors the relationships of these items: mailboxes contain messages, and messages contain formatting.
 
-Aim to list app-specific menus in order from most to least general or commonly used. People tend to expect menus in the leading end of a list to be more specialized than menus in the trailing end.
+Aim to list app-specific menus in order from most to least general or commonly used.
 
 #### Window menu
 
@@ -247,7 +245,7 @@ A menu bar extra exposes app-specific functionality using an icon that appears i
 
 When necessary, the system hides menu bar extras to make room for app menus. Similarly, if there are too many menu bar extras, the system may hide some to avoid crowding app menus.
 
-Consider using a symbol to represent your menu bar extra. You can create an icon or you can choose one of the SF Symbols, using it as-is or customizing it to suit your needs. Both interface icons and symbols use black and clear colors to define their shapes; the system can apply other colors to the black areas in each image so it looks good on both dark and light menu bars, and when your menu bar extra is selected. The menu bar's height is 24 pt.
+Consider using a symbol to represent your menu bar extra. You can create an icon or you can choose one of the SF Symbols, using it as-is or customizing it to suit your needs. Both interface icons and symbols use black and clear colors to define their shapes; the system can apply other colors to the black areas in each image so it looks good on both dark and light menu bars, and when your menu bar extra is selected. For layout, query the status bar's [`thickness`](https://developer.apple.com/documentation/appkit/nsstatusbar/thickness) rather than assuming one fixed height.
 
 Display a menu — not a popover — when people click your menu bar extra. Unless the app functionality you want to expose is too complex for a menu, avoid presenting it in a popover.
 
@@ -255,23 +253,23 @@ Let people — not your app — decide whether to put your menu bar extra in the
 
 Avoid relying on the presence of menu bar extras. The system hides and shows menu bar extras regularly, and you can't be sure which other menu bar extras people have chosen to display or predict the location of your menu bar extra.
 
-Consider exposing app-specific functionality in other ways, too. For example, you can provide a Dock menu that appears when people Control-click your app's Dock icon. People can hide or choose not to use your menu bar extra, but a Dock menu is aways available when your app is running.
+Consider exposing app-specific functionality in other ways, too. If your app has a Dock icon, you can provide a Dock menu that appears when people Control-click it, offering another route to functionality when the menu bar extra isn't visible.
 
 ### Related Components
 
 - [Menus](https://developer.apple.com/design/human-interface-guidelines/menus) - General guidance for all menu types
 - [Dock menus](https://developer.apple.com/design/human-interface-guidelines/dock-menus) - Alternative ways to expose app functionality
-- [Standard keyboard shortcuts](https://developer.apple.com/design/human-interface-guidelines/standard-keyboard-shortcuts) - Expected keyboard shortcuts
+- [Standard keyboard shortcuts](https://developer.apple.com/design/human-interface-guidelines/keyboards#Standard-keyboard-shortcuts) - Expected keyboard shortcuts
 
 ### Developer Documentation
 
 - [CommandMenu](https://developer.apple.com/documentation/swiftui/commandmenu) - SwiftUI
-- [Adding menus and shortcuts to the menu bar and user interface](https://developer.apple.com/documentation/uikit/uikeycommand/adding_menus_and_shortcuts_to_the_menu_bar_and_user_interface) - UIKit
+- [Adding menus and shortcuts to the menu bar and user interface](https://developer.apple.com/documentation/uikit/adding-menus-and-shortcuts-to-the-menu-bar-and-user-interface) - UIKit
 - [NSStatusBar](https://developer.apple.com/documentation/appkit/nsstatusbar) - AppKit
 
 ### Videos
 
-- [Elevate the design of your iPad app](https://developer.apple.com/videos/play/wwdc2023/10103/)
+- [Elevate the design of your iPad app](https://developer.apple.com/videos/play/wwdc2025/208)
 
 ## Changelog
 
@@ -279,7 +277,5 @@ Consider exposing app-specific functionality in other ways, too. For example, yo
 - Added guidance for the menu bar in iPadOS.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/the-menu-bar)*

@@ -18,7 +18,7 @@ Note: When you use App Intents to make your app's actions available to the syste
 
 ### Best Practices
 
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+, watchOS 27+, visionOS 27+:** App Intents can use entity schemas to contribute app content to Spotlight's semantic index and intent schemas to support natural-language actions without fixed phrases, improving Siri, Shortcuts, and Spotlight entry points.
+Use [App Intents](https://developer.apple.com/documentation/appintents) to describe your app's actions and relevant data. When an action needs a compact confirmation or visual result, follow the [Snippets](snippets.md) guidance, including its platform and accessibility considerations.
 
 - **Offer App Shortcuts for your app's most common and important tasks** - Straightforward tasks that people can complete without leaving their current context work best, but you can also open your app if it helps people complete multistep tasks more easily.
 - **Add flexibility by letting people choose from a set of options** - An App Shortcut can include a single optional value, or parameter, if it makes sense. For example, a meditation app could offer an App Shortcut that lets someone begin a specific type of meditation: "Start [morning, daily, sleep] meditation." Include predictable and familiar values as options, because people won't have the list in front of them for reference. For developer guidance, see Adding parameters to an app intent.
@@ -30,7 +30,7 @@ Note: When you use App Intents to make your app's actions available to the syste
 
 As a person engages with an App Shortcut, your app can respond in a variety of ways, including with dialogue that Siri speaks aloud and custom visuals like snippets and Live Activities.
 
-Snippets are great for custom views that display static information or dialog options, like showing the weather at a person's location or confirming an order. For developer guidance, see ShowsSnippetView.
+Snippets can display information or let people interact with an action's result, such as reviewing the weather or confirming an order. For developer guidance, see [Displaying static and interactive snippets](https://developer.apple.com/documentation/appintents/displaying-static-and-interactive-snippets).
 
 Live Activities offer continuous access to information that's likely to remain relevant and change over a period of time, and are great for timers and countdowns that appear until an event is complete. For developer guidance, see LiveActivityIntent.
 
@@ -49,7 +49,7 @@ Live Activities offer continuous access to information that's likely to remain r
 - Order shortcuts based on importance. The order you choose determines how App Shortcuts initially appear in both Spotlight and the Shortcuts app, so it's helpful to include the most generally useful ones first. Once people start using your App Shortcuts, the system updates to prioritize the ones they use most frequently.
 
 **macOS**  
-- App Shortcuts aren't supported in macOS. However, actions you create for your app using App Intents are supported, and people can build custom shortcuts using them with the Shortcuts app on Mac.
+- The HIG's platform section says App Shortcuts aren't supported in macOS, while the [AppShortcutsProvider declaration](https://developer.apple.com/documentation/appintents/appshortcutsprovider) lists macOS availability. These sources don't provide a consistent platform summary, so don't use the HIG sentence as an API availability table. App Intents actions can participate in custom shortcuts on Mac; check the documentation for the particular system experience you support.
 
 **visionOS, watchOS**  
 - No additional considerations.
@@ -60,21 +60,21 @@ Live Activities offer continuous access to information that's likely to remain r
 ### Related
 
 - [Siri](https://developer.apple.com/design/human-interface-guidelines/siri)
-- [Siri Style Guide](https://developer.apple.com/design/human-interface-guidelines/siri#Siri-style-guide)
+- [Siri Style Guide](https://developer.apple.com/siri/style-guide/)
 - [Shortcuts User Guide](https://support.apple.com/guide/shortcuts/welcome/ios)
 
 ### Developer Documentation
 
 - [App Intents](https://developer.apple.com/documentation/AppIntents) - AppIntents
 - [SiriKit](https://developer.apple.com/documentation/SiriKit) - SiriKit
-- [Making actions and content discoverable and widely available](https://developer.apple.com/documentation/AppIntents/making-actions-and-content-discoverable-and-widely-available) - App Intents
-- [Integrating custom data types into your intents](https://developer.apple.com/documentation/AppIntents/integrating-custom-data-types-into-your-intents) - App Intents
+- [Getting started with the App Intents framework](https://developer.apple.com/documentation/appintents/getting-started-with-the-app-intents-framework) - App Intents
+- [App entities](https://developer.apple.com/documentation/appintents/app-entities) - App Intents
 
 ### Videos
 
-- [Design interactive snippets](https://developer.apple.com/videos/play/wwdc2023/10194/)
-- [Get to know App Intents](https://developer.apple.com/videos/play/wwdc2022/10032/)
-- [Bring your app's core features to users with App Intents](https://developer.apple.com/videos/play/wwdc2023/10102/)
+- [Design interactive snippets](https://developer.apple.com/videos/play/wwdc2025/281)
+- [Get to know App Intents](https://developer.apple.com/videos/play/wwdc2025/244)
+- [Spotlight your app with App Shortcuts](https://developer.apple.com/videos/play/wwdc2023/10102/)
 
 ## Changelog
 
@@ -85,7 +85,5 @@ Live Activities offer continuous access to information that's likely to remain r
 - New page.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/app-shortcuts)*

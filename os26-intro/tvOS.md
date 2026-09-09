@@ -1,21 +1,21 @@
 # tvOS 26.0 Developer Introduction
 
-Elevate the living room experience with great features that entertain, engage, and connect people. Sidebar support lets you easily customize your navigation experience to your brand and catalog, and Continuity Camera connections can be made persistent, so your app will be ready for a work meeting or dance party.
+Maintain Apple TV apps with predictable focus navigation, readable media catalogs, and resilient playback. SwiftUI, UIKit, AVKit, and established Continuity features remain useful across the OS26 generation; check hardware support rather than assuming every television device exposes the same capabilities.
 
 **Platform:** tvOS 26.0+
 
-> **Generation status:** tvOS 26 is the current shipping line — **tvOS 26.6**, released July 27, 2026. tvOS 27 is in beta; see [os27-intro/tvOS.md](../os27-intro/tvOS.md).
+> **Status checked September 8, 2026:** the shipping release is **tvOS 26.6** (`23L773`), released July 27. tvOS 27 beta 8 was released August 31; see the [tvOS 27 introduction](../os27-intro/tvOS.md). A beta listing does not establish a general-availability date.
 
 ## Overview
 
-tvOS 26.0 transforms the living room experience with enhanced entertainment, productivity, and connectivity features. This release focuses on immersive content delivery, seamless device integration, and intuitive navigation designed for the big screen.
+Design for viewing at a distance and interaction through a remote, controller, or accessibility feature. Keep focus visible over moving artwork and ensure network or account failures do not strand the user in a player or loading screen.
 
 ## Key Features
 
 ### User Interface and Navigation
 
 **SwiftUI for tvOS**  
-Build great-looking apps across Apple platforms with SwiftUI. Create beautiful, responsive interfaces that adapt perfectly to the television viewing experience with minimal code.
+Use SwiftUI's supported tvOS controls and layouts, then test focus, viewing distance, and accessibility. Sharing UI code does not guarantee an appropriate television interface.
 
 **Enhanced Sidebar Support**  
 Customize your navigation experience to match your brand and catalog. Create immersive content browsing with dynamic sidebars that provide quick access to categories, recommendations, and user preferences.
@@ -26,24 +26,24 @@ Leverage tvOS's unique focus engine to create intuitive navigation experiences. 
 ### Media and Entertainment
 
 **Video Player Enhancements**  
-Deliver the ultimate playback experience with enhanced video player capabilities. Support for advanced video formats, HDR content, and seamless streaming with minimal buffering.
+Use AVKit and AVFoundation for playback, and check supported media formats and output capabilities. Handle buffering, interruptions, subtitles, and playback errors explicitly.
 
 **Spatial Audio Support**  
-Create immersive audio experiences that take advantage of Apple TV's spatial audio capabilities and AirPods integration.
+Offer supported Spatial Audio experiences on compatible Apple TV and audio-output configurations. Check the route and capabilities rather than assuming every headset or television supports them.
 
 **Content Discovery**  
-Integrate with the TV app and Siri to help users discover your content across the Apple ecosystem.
+Evaluate the approved TV app integration route and supported Siri media capabilities for your service; ordinary App Store membership does not automatically grant every content-discovery integration.
 
 ### Connectivity and Integration
 
 **Enhanced iPhone Integration**  
-Do more with iPhone through improved device discovery and continuity features. Enable seamless handoff, shared experiences, and multi-device workflows.
+Use supported Continuity features to connect an iPhone or iPad for camera and microphone input. Handle connection loss and consent instead of assuming a second device is always available.
 
 **Persistent Continuity Camera**  
-Make Continuity Camera connections persistent, so your app is ready for video calls, fitness sessions, or interactive experiences without repeated setup.
+Where supported, use persistent Continuity Camera connections to reduce repeated setup for calls or interactive experiences. Persistence does not eliminate availability and reconnection handling.
 
 **Game Controller Support**  
-Support for MFi game controllers, PlayStation and Xbox controllers, and the Siri Remote for diverse gaming experiences.
+Discover supported game controllers and test their input profiles. Handle the Siri Remote's navigation separately rather than assuming all remotes and controllers provide identical buttons or motion input.
 
 ### Performance and Capabilities
 
@@ -53,27 +53,34 @@ Take full advantage of Apple TV 4K hardware with optimized graphics performance,
 **Metal for tvOS**  
 Create stunning visual experiences and games with Metal, optimized for television displays and living room viewing distances.
 
-## What's New in tvOS 26
+## OS26 Adoption and Maintenance
 
-Dive into the latest key technologies and capabilities:
+The following are adoption checks, not claims that every capability debuted in tvOS 26:
 
-- **Enhanced Sidebar Navigation**: More customizable and brand-friendly navigation options
-- **Persistent Device Connections**: Improved continuity with iPhone and other Apple devices  
-- **Advanced Video Player**: Enhanced streaming capabilities and format support
-- **Spatial Audio Integration**: Immersive audio experiences for entertainment content
-- **Improved Accessibility**: Better support for voice control and assistive technologies
-- **Gaming Enhancements**: Extended controller support and performance improvements
-- **Content Discovery**: Better integration with Apple's content ecosystem
+- Review system controls and custom navigation with the OS26 appearance.
+- Test returning focus after player dismissal, profile changes, and failed authentication.
+- Check audio, video, and game-controller capabilities before offering dependent features.
+- Preserve accessible playback controls and meaningful loading/error states.
+- The [tvOS 26.0 notes](https://developer.apple.com/documentation/tvos-release-notes/tvos-26-release-notes) describe design updates for Apple TV 4K second- and third-generation models, not first-generation and older devices. Do not equate OS installation support with support for every appearance feature.
+- Use [26.6 notes](https://developer.apple.com/documentation/tvos-release-notes/tvos-26_6-release-notes) and [security updates](https://support.apple.com/en-us/100100) for the shipping baseline.
+
+### Preparing an OS26 App for OS27
+
+- UIKit apps built with the latest SDK must adopt [scenes](https://developer.apple.com/documentation/uikit/transitioning-to-the-uikit-scene-based-life-cycle) or fail to launch on tvOS 27. Multiwindow UI is not required.
+- Migrate ODR/`NSBundleResourceRequest` usage to Background Assets and test missing or evicted resources.
+- Finish appearance work: [`UIDesignRequiresCompatibility`](https://developer.apple.com/documentation/bundleresources/information-property-list/uidesignrequirescompatibility) is ignored by tvOS 27 builds.
+- Use the [tvOS 27 checklist](../os27-intro/tvOS.md) for scoped video and managed-network changes. Its exact supported-device list is not verified here.
+- Xcode 27 beta 6 requires **Apple silicon and macOS Tahoe 26.4 or later**, not macOS 27. Preserve OS26 tests and apply the [submission checklist](../guides/app-store-readiness.md) separately.
 
 ## Getting Started
 
 **New to tvOS development?**  
-Check out the [tvOS Pathway](https://developer.apple.com/tvos/), an easy-to-navigate collection of resources to get started with Apple TV app development.
+Check out the [tvOS Pathway](https://developer.apple.com/tvos/get-started/), a collection of resources to get started with Apple TV app development.
 
 ### Development Considerations
 
 **Living Room Experience**  
-Design for the 10-foot experience where users are typically seated several feet away from the screen. Use larger text, bold colors, and simplified navigation.
+Design for viewing from across a room. Apple's HIG describes distances often around 8 feet or more; use readable text, clear focus, and simplified navigation rather than a fixed physical layout.
 
 **Focus and Selection**  
 Understand tvOS's focus-based navigation system. Users navigate using directional buttons and select items with the touch surface or button press.
@@ -89,10 +96,10 @@ Prioritize content discovery and consumption. Users come to Apple TV primarily f
 - [App Store Connect](https://developer.apple.com/app-store-connect/) - App management and analytics
 
 ### Documentation
-- [tvOS Developer Documentation](https://developer.apple.com/documentation/tvos/)
+- [tvOS Release Notes](https://developer.apple.com/documentation/tvos-release-notes)
 - [TVUIKit Documentation](https://developer.apple.com/documentation/tvuikit/)
-- [Focus Engine Programming Guide](https://developer.apple.com/documentation/uikit/focus-based_navigation/)
-- [Video Player Framework](https://developer.apple.com/documentation/videoplayer/)
+- [Focus-based navigation](https://developer.apple.com/documentation/uikit/focus-based-navigation)
+- [AVKit](https://developer.apple.com/documentation/avkit/)
 
 ### Related Platforms
 Build apps that integrate seamlessly across all Apple platforms:
@@ -108,7 +115,7 @@ Build apps that integrate seamlessly across all Apple platforms:
 Sharpen your skills through in-person and online activities around the world. Connect with Apple engineers and designers to create compelling living room experiences.
 
 ### Apple Developer Program
-Join the [Apple Developer Program](Program.md) to access beta software, advanced app capabilities, and distribution through the App Store for Apple TV.
+Join the [Apple Developer Program](Program.md) for TestFlight, App Store distribution for Apple TV, and capabilities that require membership. Developer beta access is separate.
 
 ### Design Guidelines
 - **Human Interface Guidelines**: Design principles specific to tvOS and living room experiences
@@ -119,4 +126,6 @@ Join the [Apple Developer Program](Program.md) to access beta software, advanced
 
 *Platform requirements and feature availability may vary. Some capabilities and services may not be available in all regions or all languages.*
 
-*Reviewed 2026-08-09 against the OS 27 generation. See [os27-intro](../os27-intro/) for the current beta line.*
+## Sources
+
+[Apple's tvOS overview](https://developer.apple.com/tvos/), [Designing for tvOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-tvos), and [Liquid Glass adoption](https://developer.apple.com/documentation/technologyoverviews/adopting-liquid-glass) support the platform guidance. [Apple Developer releases](https://developer.apple.com/news/releases/), [tvOS 27 notes](https://developer.apple.com/documentation/tvos-release-notes/tvos-27-release-notes), and [Xcode 27 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) support the status and migration guidance checked September 8, 2026. Earlier platform capabilities remain context, not universal hardware guarantees.

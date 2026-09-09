@@ -10,7 +10,7 @@ Use the PhotoKit and iTunes Library frameworks instead.
 
 The Media Library framework provides a read-only Objective-C data model representing a user's collections of images, audio, and video. The initial access point of the Media Library framework is MLMediaLibrary, which loads the user's media into a hierarchical structure consisting of media sources, groups, and objects.
 
-At the highest level, all content within a media library instance is categorized by media source. Conceptually, a media source respresents a single app, such as iTunes or Aperture. Each source contains a hierarchy of media groups that originates from a root group. These groups consist of media objects—individual files containing a piece of media such as a photo, song, or movie. Only one copy of each object exists within a media library instance, but an object can be referenced by multiple groups from a single source. The structure of the group hierarchy is specific to each media source.
+At the highest level, all content within a media library instance is categorized by media source. Conceptually, a media source represents a single app; Apple's reference uses iTunes and Aperture as legacy examples, not a guarantee that those apps are available on a current system. Each source contains a hierarchy of media groups that originates from a root group. These groups consist of media objects—individual files containing a piece of media such as a photo, song, or movie. Only one copy of each object exists within a media library instance, but an object can be referenced by multiple groups from a single source. The structure of the group hierarchy is specific to each media source.
 
 ## Topics
 
@@ -21,10 +21,8 @@ At the highest level, all content within a media library instance is categorized
 - **MLMediaSource** - The MLMediaSource class identifies a specific provider of media. Conceptually, a media source respresents a single app, such as iTunes or Aperture. Each media source contains multiple groups of media objects—individual files containing a piece of media such as a photo, song, or movie.
 
 ### Reference
-- [MediaLibrary Constants](https://developer.apple.com/documentation/medialibrary/medialibrary_constants)
+- [MediaLibrary Constants](https://developer.apple.com/documentation/medialibrary/medialibrary-constants)
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/MediaLibrary)*

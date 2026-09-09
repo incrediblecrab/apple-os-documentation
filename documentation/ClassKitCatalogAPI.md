@@ -2,7 +2,7 @@
 
 Declare the activities supported by your educational app through a web interface.
 
-**Platforms:** ClassKit 1.0+
+**Availability:** An authorized web service for apps adopting ClassKit; not an OS 27-only framework.
 
 ## Overview
 
@@ -12,34 +12,38 @@ Access the ClassKit Catalog API from your computer or server to declare an app's
 - You can include keywords describing your activities that help teachers find your content.
 - Your app can support a large number of assignable activities without the app having to declare all the content to the ClassKit framework at run time.
 
-Content that you upload to the ClassKit Catalog API becomes publicly available to all teachers using the Schoolwork app. If you have dynamically-generated or user-specific content, continue to publish that only through the ClassKit framework.
+Production catalog content becomes available to teachers using Schoolwork. The development environment is separate from production, but its content may be visible to other developers using Schoolwork's development environment; it is not a private student-data store. Publish dynamically generated or user-specific content only through the ClassKit framework.
+
+## Authorization and operation completion
+
+Authenticate each call with the cryptographically signed token described in [Authenticating Calls](https://developer.apple.com/documentation/classkitcatalogapi/authenticating-calls-to-the-classkit-catalog-api), and keep signing assets server-side. Test against the development environment before publishing production content.
+
+A request can be accepted before its work is complete. On HTTP `202`, follow the returned `Location` to [Get Status](https://developer.apple.com/documentation/classkitcatalogapi/get-status). Inspect the operation's `state` and error details, not merely the status request's HTTP `200`, before reporting publication success. Handle validation and authorization failures without uploading private student data as a fallback. Keep context identities consistent with the corresponding [ClassKit](ClassKit.md) hierarchy.
 
 ## Topics
 
 ### Essentials
-- [Authenticating Calls to the ClassKit Catalog API](https://developer.apple.com/documentation/ClassKitCatalogAPI/authenticating_calls_to_the_classkit_catalog_api) - Establish your identity to the ClassKit Catalog server by providing a cryptographically signed token for each call.
-- [Testing Your ClassKit Catalog Implementation](https://developer.apple.com/documentation/ClassKitCatalogAPI/testing_your_classkit_catalog_implementation) - Verify your server interaction before deployment by operating in a development environment.
+- [Authenticating Calls to the ClassKit Catalog API](https://developer.apple.com/documentation/ClassKitCatalogAPI/authenticating-calls-to-the-classkit-catalog-api) - Sign a token for each call.
+- [Testing Your ClassKit Catalog Implementation](https://developer.apple.com/documentation/ClassKitCatalogAPI/testing-your-classkit-catalog-implementation) - Verify interactions in the development environment.
 
 ### Declaring Contexts
-- [Preparing Context Data](https://developer.apple.com/documentation/ClassKitCatalogAPI/preparing_context_data) - Adjust how you manage context data when working with the web API.
-- [Create or Replace Contexts](https://developer.apple.com/documentation/ClassKitCatalogAPI/create_or_replace_contexts) - Store information about the assignable content that your educational app provides.
-- [Get a Context](https://developer.apple.com/documentation/ClassKitCatalogAPI/get_a_context) - Fetch information that you previously stored about your app's assignable activities.
-- [Delete a Context](https://developer.apple.com/documentation/ClassKitCatalogAPI/delete_a_context) - Remove information that you previously stored about your app's assignable activities.
+- [Preparing Context Data](https://developer.apple.com/documentation/ClassKitCatalogAPI/preparing-context-data) - Adjust context data for the web API.
+- [Create or Replace Contexts](https://developer.apple.com/documentation/ClassKitCatalogAPI/create-or-replace-contexts) - Store assignable-content information.
+- [Get a Context](https://developer.apple.com/documentation/ClassKitCatalogAPI/get-a-context) - Retrieve published context information.
+- [Delete a Context](https://developer.apple.com/documentation/ClassKitCatalogAPI/delete-a-context) - Remove context information.
 - **Context** - An area of your app that represents an assignable task, like a quiz or a chapter.
 - **ContextsRequest** - A request that you make when modifying context information.
 - **ContextsResponse** - The response you receive after modifying context information.
 
 ### Uploading Thumbnails
-- [Create or Replace a Thumbnail](https://developer.apple.com/documentation/ClassKitCatalogAPI/create_or_replace_a_thumbnail) - Store an image that represents one of your app's assignable activities.
-- [Get a Thumbnail](https://developer.apple.com/documentation/ClassKitCatalogAPI/get_a_thumbnail) - Fetch the image for one of your app's assignable activities.
-- [Delete a Thumbnail](https://developer.apple.com/documentation/ClassKitCatalogAPI/delete_a_thumbnail) - Remove one of the images for your app's assignable activities.
+- [Create or Replace a Thumbnail](https://developer.apple.com/documentation/ClassKitCatalogAPI/create-or-replace-a-thumbnail) - Store an activity image.
+- [Get a Thumbnail](https://developer.apple.com/documentation/ClassKitCatalogAPI/get-a-thumbnail) - Retrieve an activity image.
+- [Delete a Thumbnail](https://developer.apple.com/documentation/ClassKitCatalogAPI/delete-a-thumbnail) - Remove an activity image.
 
 ### Retrieving Status
-- [Get Status](https://developer.apple.com/documentation/ClassKitCatalogAPI/get_status) - Fetch the status of an operation that you initiated earlier.
+- [Get Status](https://developer.apple.com/documentation/ClassKitCatalogAPI/get-status) - Fetch the status of an earlier operation.
 - **Status** - The state of a request that the API previously accepted, but didn't complete right away.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/ClassKitCatalogAPI)*

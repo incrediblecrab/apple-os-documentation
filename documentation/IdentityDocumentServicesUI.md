@@ -6,27 +6,29 @@ Provide an interface so people can present mobile documents.
 
 ## Overview
 
-The IdentityDocumentServicesUI framework contains user-interface objects that support the features in IdentityDocumentServices. This includes types for implementing authorization UI for an IdentityDocumentProvider app. It also includes a controller to enable browsers to implement the Digital Credentials API.
+IdentityDocumentServicesUI has two roles: a document-provider extension presents authorization UI, and a browser uses a web-presentment controller for Digital Credentials API requests. [IdentityDocumentServices](IdentityDocumentServices.md) manages document registration and request/response data.
+
+Provider and request-scene declarations list iOS/iPadOS 26. The browser controller additionally lists macOS 26. Their Catalyst metadata entries supply no introduction version, so don't derive a Catalyst deployment minimum from them.
+
+A provider must declare its mobile document types in the [Mobile Document Provider entitlement](https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.identity-document-services.document-provider.mobile-document-types), register eligible documents, and obtain the person's authorization. Only send a document after explicit approval in the authorization UI. The provider guide also requires comparing the parsed and raw requests, validating signatures and trust, and constructing an encrypted response; presenting system UI doesn't replace those checks.
 
 ## Topics
 
 ### Building identity document provider authorization UI
-- **IdentityDocumentProvider** - An app extension that provides an identity document.
-- **IdentityDocumentRequestScene** - A scene that indicates support for a specific document request type.
-- **ISO18013MobileDocumentRequestScene**
-- **ISO18013MobileDocumentRequestContext** - An object that contains details about the ISO 18013 mobile document request.
-- **IdentityDocumentRequestSceneBuilder** - A result builder that combines one or more IdentityDocumentRequestScenes into a single scene.
+- [Implementing as an identity document provider](https://developer.apple.com/documentation/identitydocumentservices/implenting-as-an-identity-document-provider) - Configure registration, authorization UI, and response validation.
+- [`IdentityDocumentProvider`](https://developer.apple.com/documentation/identitydocumentservicesui/identitydocumentprovider) - An `AppExtension` protocol for the provider's authorization interface.
+- [`IdentityDocumentRequestScene`](https://developer.apple.com/documentation/identitydocumentservicesui/identitydocumentrequestscene) - An `AppExtensionScene` protocol with framework-provided request-specific implementations.
+- [`ISO18013MobileDocumentRequestScene`](https://developer.apple.com/documentation/identitydocumentservicesui/iso18013mobiledocumentrequestscene) - A concrete scene whose SwiftUI content conforms to `View` and `Sendable`.
+- [`ISO18013MobileDocumentRequestContext`](https://developer.apple.com/documentation/identitydocumentservicesui/iso18013mobiledocumentrequestcontext) - Supplies the parsed request, requesting website origin, response operation, and cancellation.
+- [`IdentityDocumentRequestSceneBuilder`](https://developer.apple.com/documentation/identitydocumentservicesui/identitydocumentrequestscenebuilder) - Combines request scenes.
 
 ### Implementing the web presentment flow into your browser
-- [Implementing as an identity document provider](https://developer.apple.com/documentation/identitydocumentservicesui/implementing_as_an_identity_document_provider) - Add your app as an option for mobile document web presentment.
-- **IdentityDocumentWebPresentmentController** - A controller that performs identity document requests originating from the web.
-- **IdentityDocumentWebPresentmentControllerDelegate** - Defines a delegate that the system uses in conjunction with a web presentment controller.
-- **IdentityDocumentPresentmentControllerPresentationContextProviding** - An interface the controller uses to receive a presentation context.
-- **IdentityDocumentPresentationAnchor** - The presentation anchor the system uses to present your app UI.
-- **IdentityDocumentPresentmentControlling** - A closed protocol that indicates this object is a controller that the system uses for identity document presentment.
+- [`IdentityDocumentWebPresentmentController`](https://developer.apple.com/documentation/identitydocumentservicesui/identitydocumentwebpresentmentcontroller) - A main-actor controller for identity document requests originating from the web.
+- [`IdentityDocumentWebPresentmentControllerDelegate`](https://developer.apple.com/documentation/identitydocumentservicesui/identitydocumentwebpresentmentcontrollerdelegate) - Its class-bound delegate protocol.
+- [`IdentityDocumentPresentmentControllerPresentationContextProviding`](https://developer.apple.com/documentation/identitydocumentservicesui/identitydocumentpresentmentcontrollerpresentationcontextproviding) - Provides the presentation context.
+- [`IdentityDocumentPresentationAnchor`](https://developer.apple.com/documentation/identitydocumentservicesui/identitydocumentpresentationanchor) - The presentation anchor type used by the controller.
+- [`IdentityDocumentPresentmentControlling`](https://developer.apple.com/documentation/identitydocumentservicesui/identitydocumentpresentmentcontrolling) - A closed protocol adopted by the framework's presentment controller.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/IdentityDocumentServicesUI)*

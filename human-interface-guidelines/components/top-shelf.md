@@ -65,7 +65,9 @@ You can use the following image sizes in a sectioned content row:
 | --- | --- |
 | Actual size | 404x608 pt (404x608 px @1x, 808x1216 px @2x) |
 | Focused/Safe zone size | 380x570 pt (380x570 px @1x, 760x1140 px @2x) |
-| Unfocused size | 333x570 pt (333x570 px @1x, 666x1140 px @2x) |
+| Unfocused size | Preserve the 2:3 poster shape; use the current design template for dimensions. |
+
+Apple's HIG lists an unfocused poster size of 333x570 pt, which doesn't preserve the 2:3 aspect ratio specified by [`TVTopShelfSectionedItem.ImageShape.poster`](https://developer.apple.com/documentation/tvservices/tvtopshelfsectioneditem/imageshape-swift.enum/poster). Don't use that inconsistent pair to resize poster artwork.
 
 **Square (1:1)**
 
@@ -115,10 +117,8 @@ Not supported.
 
 ### Videos
 
-- [Mastering the Living Room With tvOS](https://developer.apple.com/videos/play/wwdc2023/10103/)
+- [Mastering the Living Room With tvOS](https://developer.apple.com/videos/play/wwdc2019/211)
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/top-shelf)*

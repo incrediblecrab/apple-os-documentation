@@ -17,15 +17,17 @@ You may want to create a miniature representation, or thumbnail, of a file and i
 
 Many apps use custom file types to persist their data. Finder and Spotlight on macOS, other features of the operating system, as well as other apps, often display a generic file icon instead of a thumbnail for these files. However, if an installed app implements a Thumbnail Extension that supports the custom file types, the operating system and other apps can leverage the extension to display rich thumbnails of the custom file types through the **QLThumbnailGenerator** object. Add a Thumbnail Extension to your app to provide rich thumbnails of your custom file types to your users throughout the operating system and third party apps.
 
+The format list above follows the thumbnail-generator reference's documented scope. Do not infer additional `QLThumbnailGenerator` guarantees from the separate macOS 27 Preview or Quick Look USD-renderer changes. Handle generation errors and validate the actual file type on each target.
+
 ## Topics
 
 ### Thumbnail Generation
-- [Creating Quick Look Thumbnails to Preview Files in Your App](https://developer.apple.com/documentation/quicklookthumbnailing/creating_quick_look_thumbnails_to_preview_files_in_your_app) - Generate thumbnails of images, text files, PDFs, audio files, videos, and more.
+- [Creating Quick Look Thumbnails to Preview Files in Your App](https://developer.apple.com/documentation/quicklookthumbnailing/creating-quick-look-thumbnails-to-preview-files-in-your-app) - Generate thumbnails of images, text files, PDFs, audio files, videos, and more.
 - **QLThumbnailGenerator** - An object that generates thumbnail images based on provided requirements.
 - **QLThumbnailRepresentation** - Information about the thumbnail that the thumbnail generator returns.
 
 ### Thumbnails for Custom File Types
-- [Providing Thumbnails of Your Custom File Types](https://developer.apple.com/documentation/quicklookthumbnailing/providing_thumbnails_of_your_custom_file_types) - Implement a Thumbnail Extension to allow the operating system and other apps to display thumbnails of your custom files.
+- [Providing Thumbnails of Your Custom File Types](https://developer.apple.com/documentation/quicklookthumbnailing/providing-thumbnails-of-your-custom-file-types) - Implement a Thumbnail Extension to allow the operating system and other apps to display thumbnails of your custom files.
 - **QLThumbnailProvider** - An abstract base class for creating thumbnails of custom file types.
 - **QLFileThumbnailRequest** - A request to generate a thumbnail for a custom file type.
 - **QLThumbnailReply** - The object that provides a thumbnail for a custom file type.
@@ -36,7 +38,5 @@ Many apps use custom file types to persist their data. Finder and Spotlight on m
 - **Code** - Error codes that may be returned when generating a thumbnail.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/QuickLookThumbnailing)*

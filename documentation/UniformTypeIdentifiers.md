@@ -20,11 +20,11 @@ Explicitly specify relationships between types by marking them as subtypes of ot
 ## Topics
 
 ### Essentials
-- [Defining file and data types for your app](https://developer.apple.com/documentation/uniformtypeidentifiers/defining_file_and_data_types_for_your_app) - Declare uniform type identifiers to support your app's proprietary data formats.
-- [System-declared uniform type identifiers](https://developer.apple.com/documentation/uniformtypeidentifiers/system-declared_uniform_type_identifiers) - Common types that the system declares.
+- [Defining file and data types for your app](https://developer.apple.com/documentation/uniformtypeidentifiers/defining-file-and-data-types-for-your-app) - Declare uniform type identifiers to support your app's proprietary data formats.
+- [System-declared uniform type identifiers](https://developer.apple.com/documentation/uniformtypeidentifiers/system-declared-uniform-type-identifiers) - Common types that the system declares.
 
 ### Uniform Type Identifiers
-- **UTType** - A structure that represents a type of data to load, send, or receive.
+- [`UTType`](https://developer.apple.com/documentation/uniformtypeidentifiers/uttype-swift.struct) - A structure that represents a type of data to load, send, or receive.
 - **UTTagClass** - A type that represents tag classes.
 - **UTTypeReference** - An object that represents a type of data to load, send, or receive.
 
@@ -32,7 +32,5 @@ Explicitly specify relationships between types by marking them as subtypes of ot
 - **UniformTypeIdentifiers Constants**
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/UniformTypeIdentifiers)*

@@ -18,7 +18,7 @@ Ornaments can appear on any edge of a window and can contain UI components like 
 - **In general, keep an ornament visible** - It can make sense to hide an ornament when people dive into a window's content — for example, when they watch a video or view a photo — but in most cases, people appreciate having consistent access to an ornament's controls.
 - **If you need to display multiple ornaments, prioritize the overall visual balance of the window** - Ornaments help elevate important actions, but they can sometimes distract from your content. When necessary, consider constraining the total number of ornaments to avoid increasing a window's visual weight and making your app feel more complicated. If you decide to remove an ornament, you can relocate its elements into the main window.
 - **Aim to keep an ornament's width the same or narrower than the width of the associated window** - If an ornament is wider than its window, it can interfere with a tab bar or other vertical content on the window's side.
-- **Consider using borderless buttons in an ornament** - By default, an ornament's background is glass, so if you place a button directly on the background, it may not need a visible border. When people look at a borderless button in an ornament, the system automatically applies the hover affect to it (for guidance, see Eyes).
+- **Consider using borderless buttons in an ornament** - By default, an ornament's background is glass, so if you place a button directly on the background, it may not need a visible border. When people look at a borderless button in an ornament, the system automatically applies the hover effect to it (for guidance, see Eyes).
 - **Use system-provided toolbars and tab bars unless you need to create custom components** - In visionOS, toolbars and tab bars automatically appear as ornaments, so you don't need to use an ornament to create these components. For developer guidance, see Toolbars and TabView.
 
 ### Platform Considerations
@@ -50,7 +50,5 @@ Not supported in iOS, iPadOS, macOS, tvOS, or watchOS.
 - New page.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/ornaments)*

@@ -2,7 +2,9 @@
 
 Reduce fraudulent use of your services by managing device state and asserting app integrity.
 
-**Platforms:** iOS 11.0+ | iPadOS 11.0+ | Mac Catalyst 11.0+ | macOS 10.15+ | tvOS 11.0+ | visionOS 1.0+ | watchOS 9.0+
+**Platforms:** iOS 11.0+ | iPadOS 11.0+ | Mac Catalyst 13.1+ | macOS 10.15+ | tvOS 11.0+ | visionOS 1.0+ | watchOS 9.0+
+
+These minima follow `DCDevice`; App Attest has newer, separate availability.
 
 ## Overview
 
@@ -17,14 +19,17 @@ No single policy can eliminate all fraud. For example, App Attest can't definiti
 ## Topics
 
 ### Device Identification
-- [Accessing and modifying per-device data](https://developer.apple.com/documentation/devicecheck/accessing_and_modifying_per-device_data) - Use a token from your app to query and modify two per-device binary digits stored on an Apple server.
+- [Accessing and modifying per-device data](https://developer.apple.com/documentation/devicecheck/accessing-and-modifying-per-device-data) - Use a token from your app to query and modify two per-device binary digits stored on an Apple server.
 - **DCDevice** - A representation of a device that provides a unique, authenticated token.
 
 ### App Attest
-- [Establishing your app's integrity](https://developer.apple.com/documentation/devicecheck/establishing_your_app_s_integrity) - Ensure that requests your server receives come from legitimate instances of your app.
-- [Validating apps that connect to your server](https://developer.apple.com/documentation/devicecheck/validating_apps_that_connect_to_your_server) - Verify that connections to your server come from legitimate instances of your app.
-- [Assessing fraud risk](https://developer.apple.com/documentation/devicecheck/assessing_fraud_risk) - Request and analyze risk data using server-to-server calls.
-- [Preparing to use the app attest service](https://developer.apple.com/documentation/devicecheck/preparing_to_use_the_app_attest_service) - Test your implementation in a development environment and onboard users gradually.
+
+`DCAppAttestService` declarations require iOS/iPadOS/Mac Catalyst 14, macOS 11, tvOS 15, visionOS 1, or watchOS 9. Check `isSupported` and handle errors rather than treating the presence of the framework as a guarantee that attestation succeeds.
+
+- [Establishing your app's integrity](https://developer.apple.com/documentation/devicecheck/establishing-your-app-s-integrity) - Use attestation to assess whether requests come from legitimate instances of your app.
+- [Validating apps that connect to your server](https://developer.apple.com/documentation/devicecheck/validating-apps-that-connect-to-your-server) - Verify attestation and assertion data on your server.
+- [Assessing fraud risk](https://developer.apple.com/documentation/devicecheck/assessing-fraud-risk) - Request and analyze risk data using server-to-server calls.
+- [Preparing to use the app attest service](https://developer.apple.com/documentation/devicecheck/preparing-to-use-the-app-attest-service) - Test your implementation in a development environment and onboard users gradually.
 - **DCAppAttestService** - A service that you use to validate the instance of your app running on a device.
 - **App Attest Environment** - The environment for an app that uses the App Attest service to validate itself.
 
@@ -34,10 +39,8 @@ No single policy can eliminate all fraud. For example, App Attest can't definiti
 - **DCErrorDomain** - The error domain for errors associated with DeviceCheck APIs.
 
 ### Articles
-- [Attestation Object Validation Guide](https://developer.apple.com/documentation/devicecheck/attestation_object_validation_guide) - Use this guide to validate your implementation of verifying the attestation object verification process.
+- [Attestation Object Validation Guide](https://developer.apple.com/documentation/devicecheck/attestation-object-validation-guide) - Check an implementation that validates App Attest attestation objects.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/DeviceCheck)*

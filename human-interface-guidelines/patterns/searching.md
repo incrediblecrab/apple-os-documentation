@@ -12,17 +12,17 @@ In some cases, people appreciate the ability to scope a search or filter the res
 
 In iOS, iPadOS, and macOS, Spotlight helps people find content across all apps in the system and on the web. When you index and provide information about your app's content, people can use Spotlight to find content your app contains without opening it first. For guidance, see Systemwide search.
 
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** App Intents **entity schemas** contribute your app's content to Spotlight's **semantic index**, so the system can reason about what your app contains. **Intent schemas** let people act on that content through natural language without fixed phrases. Modeling your content as entities is now the primary way to be findable.
+For discovery outside your app, [App Intents](https://developer.apple.com/documentation/appintents) can describe relevant actions and entities for system experiences such as Spotlight, Siri, and Shortcuts. Choose the documented integration for each entrypoint rather than assuming an entity is automatically indexed everywhere.
 
 ## Topics
 
 ### Best Practices
 
-- **Make search a primary action when important** - For example, in the Apple TV, Photos, and Phone apps in iOS, search occupies a distinct tab in the tab bar. In the Notes app, a search field is in the toolbar, making search clearly visible and easily accessible.
+- **Make search prominent when it is important** - Apple's examples include dedicated search tabs in Photos and Apple TV, and a bottom-toolbar search field in Notes.
 
-- **Provide single location for searching** - People appreciate having one clearly identified location they can use to find anything in your app that they are looking for. For apps with clearly distinct sections, it may still be useful to offer a local search. For example, search acts as a filter on the current view when searching your Recents and Contacts in the iOS Phone app.
+- **Provide a clear primary search location** - Aim to let people find the app's content from one place. A local search can still help in distinct sections, such as filtering songs and albums in Music.
 
-- **Use descriptive placeholder text** - Indicate what content is searchable. For example, the Apple TV app includes the placeholder text Shows, Movies, and More.
+- **Use descriptive placeholder text** - Clarify the searchable content when its scope might otherwise be unclear.
 
 - **Display current search scope clearly** - Use a descriptive placeholder text, a scope control, or a title to help reinforce what someone is currently searching. For example, in the Mail app there is always a clear reference to the mailbox someone is searching.
 
@@ -34,7 +34,7 @@ In iOS, iPadOS, and macOS, Spotlight helps people find content across all apps i
 
 - **Make content searchable in Spotlight** - You can share content with Spotlight by making it indexable and specifying descriptive attributes known as metadata. Spotlight extracts, stores, and organizes this information to allow for fast, comprehensive searches.
 
-- **Define metadata for custom file types** - Supply a Spotlight File Importer plug-in that describes the types of metadata your file format contains. For developer guidance, see [CSImportExtension](https://developer.apple.com/documentation/corespotlight/csimportextension).
+- **Define metadata for custom file types** - A [CSImportExtension](https://developer.apple.com/documentation/corespotlight/csimportextension) supplies searchable attributes through a Spotlight File Import extension. Its developer documentation explicitly says these extensions provide no functionality on macOS: use a Spotlight importer plug-in there instead.
 
 - **Offer advanced file-search capabilities** - For example, you might include a button that instantly initiates a Spotlight search based on the current selection. You might then display a custom view that presents the search results or a filtered subset of them.
 
@@ -52,13 +52,11 @@ No additional considerations for iOS, iPadOS, macOS, tvOS, visionOS, or watchOS.
 
 ### Developer Documentation
 
-- [Adding your app's content to Spotlight indexes](https://developer.apple.com/documentation/corespotlight) - Core Spotlight
+- [Adding your app's content to Spotlight indexes](https://developer.apple.com/documentation/corespotlight/adding-your-app-s-content-to-spotlight-indexes) - Core Spotlight
 
 ### Videos
 
-- [Support semantic search with Core Spotlight](https://developer.apple.com/videos/play/wwdc2023/10152)
-- [What's new in iPad app design](https://developer.apple.com/videos/play/wwdc2023/10249)
-- [Craft search experiences in SwiftUI](https://developer.apple.com/videos/play/wwdc2023/10149)
+- [Design intuitive search experiences](https://developer.apple.com/videos/play/wwdc2026/292)
 
 ## Changelog
 
@@ -66,7 +64,5 @@ No additional considerations for iOS, iPadOS, macOS, tvOS, visionOS, or watchOS.
 - Updated best practices with general guidance from Search fields, and reorganized guidance for systemwide search.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/searching)*

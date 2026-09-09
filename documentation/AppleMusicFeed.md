@@ -8,11 +8,17 @@ Access the content of the Apple Music Catalog in bulk.
 
 Apple Music Feed contains the catalog content of Apple Music products in bulk for consumption as feed exports. These bulk exports are appropriate for offline use cases, complementing Apple Music API, which is best for online use. Apple Music Feed includes content metadata for albums, songs, artists, and popularity charts, and fully refreshes every 24 hours. You access the Apple Music Feed using Apple Media Feed API to request an export of a data set.
 
+**Use restriction:** Apple's reference limits feed use to publicly promoting Apple Music content within your app. It explicitly excludes internal-tool use, third-party sharing, and analytics unrelated to that promotion. Check that your ingestion workflow complies; bulk access is not a general-purpose data license.
+
 With access to the raw data and the information in this documentation, you can use Apple Music Feed in many ways. For example, if you want to build a discovery engine for Apple Music, your team can examine the data and determine endpoint requests to serve such an engine.
 
 Apple Music Feed uses the Parquet format, which is an open-source columnar storage file format that optimizes the storage and processing of large datasets. The Parquet format improves query performance and reduces storage costs in scenarios where you need to read or process data selectively. It achieves this by using columns and storing the values of each column together, which allows efficient compression and encoding techniques that you can apply specifically to each column. Many large-scale data-processing frameworks, like Hadoop and Spark, use this format.
 
 Note: Although the feed is in Parquet format, this documentation provides data examples in JSON format for illustrative purposes.
+
+### Related bulk catalog
+
+[Apple TV Feed](AppleTVFeed.md) provides separate movie, television, and sporting-event datasets through its own service endpoint. It follows a similar export/parts/download pattern, but Music and TV dataset identifiers and schemas are not interchangeable. Both are web-service workflows, not features that require installing OS 27 on a client.
 
 ### Use sample scripts
 
@@ -27,9 +33,9 @@ You can find sample Java and Python scripts in the music-feed-examples public Gi
 ## Topics
 
 ### Essentials
-- [Generating developer tokens](https://developer.apple.com/documentation/AppleMusicFeed/generating_developer_tokens) - Create a JSON Web Token to authorize your requests to Apple Media Feed API.
-- [Requesting a feed export](https://developer.apple.com/documentation/AppleMusicFeed/requesting_a_feed_export) - Create requests for Apple Music Catalog metadata.
-- [Interpreting responses](https://developer.apple.com/documentation/AppleMusicFeed/interpreting_responses) - Learn about responses from Apple Media Feed API to your Apple Music Feed requests.
+- [Generating developer tokens](https://developer.apple.com/documentation/applemusicfeed/generating-developer-tokens) - Create a JSON Web Token to authorize your requests to Apple Media Feed API.
+- [Requesting a feed export](https://developer.apple.com/documentation/applemusicfeed/requesting-a-feed-export) - Create requests for Apple Music Catalog metadata.
+- [Interpreting responses](https://developer.apple.com/documentation/applemusicfeed/interpreting-responses) - Learn about responses from Apple Media Feed API to your Apple Music Feed requests.
 
 ### Objects
 - **Album** - The data structure that represents an Album resource.
@@ -39,7 +45,5 @@ You can find sample Java and Python scripts in the music-feed-examples public Gi
 - **PopularityTopChartSongs** - The data structure that represents a song popularity chart resource.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/AppleMusicFeed)*

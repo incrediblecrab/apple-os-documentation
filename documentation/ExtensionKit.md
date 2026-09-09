@@ -1,41 +1,35 @@
 # ExtensionKit
 
-Create executable bundles to extend the functionality of other apps by presenting a user interface.
+Present remote app-extension UI and manage enabled extensions.
 
 **Platforms:** iOS 16.1+ | iPadOS 16.1+ | Mac Catalyst 16.0+ | macOS 13.0+ | tvOS 16.0+ | visionOS 1.0+ | watchOS 10.0+
 
 ## Overview
 
-Extensions are executable code bundles, in one app that perform functions in a second, host app. Host apps declare extension points that control the kinds of functionality its extensions can implement. Extensions allow iOS and Mac apps to include code that runs inside system apps. For example, Messages provides extension points so apps can create Messages. Messages automatically finds extension bundles that target its extension points and makes them available in its app drawer. A Mac app can also declare its own extension points so that other apps can extend the Mac app's functionality.
+ExtensionKit works with [ExtensionFoundation](ExtensionFoundation.md) to present UI supplied by an extension running in a separate process. The extension defines its scenes; the host presents opaque remote content rather than executing the extension's code in its own address space. System features such as widgets retain their feature-specific extension workflows.
 
-Prior to macOS 13, apps use NSExtension property lists to declare and configure extensions. ExtensionKit supports this approach, but also adds the ability to configure extensions and extension points entirely in Swift code.
+For a custom host, follow [Including extension-based UI in your interface](https://developer.apple.com/documentation/extensionkit/including-extension-based-ui-in-your-interface): the extension supplies an `AppExtensionScene`, and the host presents its remote UI through `EXHostViewController`. The [extension browser](https://developer.apple.com/documentation/extensionkit/displaying-the-app-extensions-available-to-your-app) lets people enable and disable matching extensions. Keep this distinct from [UIKit app scenes](UIKit.md#required-scene-life-cycle-and-launch-screen) and from system-specific widget or migration extensions.
 
-Extensions come in two basic forms: UI and non-UI.
+The host's extension point must permit UI. Configure the host controller with an extension identity and scene identifier; each controller displays one extension scene at a time. Host-bundled extensions are enabled by default, while extensions shipped in separate apps are disabled until the person enables them.
 
-**UI extensions**  
-Vend remote views and view controllers that the host app adds to its own view hierarchy.
+### Hosting and scene availability
 
-**Non-UI extensions**  
-Present no user interface, but perform some work on behalf of the host app.
+`EXHostViewController` requires iOS/iPadOS/Mac Catalyst 26 or macOS 13. The extension browser requires iOS/iPadOS/Mac Catalyst 18 or macOS 13. Neither controller declares support for tvOS, watchOS, or visionOS, even though the framework contains types for those platforms.
 
-An iMessage app, which can include sophisticated user interfaces — even entire games — is an example of a UI extension. SiriKit app intents, which gives people the ability to interact with your app using Siri, is an example of a non-UI extension.
-
-Use ExtensionKit, in combination with ExtensionFoundation, to create extensions and extension points for UI extensions. To create extensions with no user interface, use ExtensionFoundation.
+The scene protocol, primitive scene, result builder, and scene configuration declare iOS/iPadOS/Mac Catalyst/tvOS 16, macOS 13, visionOS 1, and watchOS 9. Those iOS/watchOS values differ from the aggregate framework header. Do not assign the header's minimum to every scene or host-controller API.
 
 ## Topics
 
 ### UI App Extensions
-- **AppExtensionScene** - A protocol that defines the user interface for an application extension.
-- **AppExtensionSceneConfiguration** - An object that holds configuration options for an extension scene.
-- **AppExtensionSceneBuilder** - A custom parameter attribute that constructs extension scenes from closures.
-- **PrimitiveAppExtensionScene** - A primitive you use to compose specialized app extension points.
+- [`AppExtensionScene`](https://developer.apple.com/documentation/extensionkit/appextensionscene) - A main-actor protocol providing a named extension scene.
+- [`AppExtensionSceneConfiguration`](https://developer.apple.com/documentation/extensionkit/appextensionsceneconfiguration) - A structure conforming to `AppExtensionConfiguration` for extensions with UI.
+- [`AppExtensionSceneBuilder`](https://developer.apple.com/documentation/extensionkit/appextensionscenebuilder) - A result-builder structure that combines extension scenes.
+- [`PrimitiveAppExtensionScene`](https://developer.apple.com/documentation/extensionkit/primitiveappextensionscene) - Supplies a scene identifier, content, and optional scene-specific connection handling.
 
 ### Host Apps
-- **EXHostViewController** - A view controller that hosts remote views provided by an extension.
-- **EXAppExtensionBrowserViewController** - A view controller that allows users to enable and disable extensions.
+- [`EXHostViewController`](https://developer.apple.com/documentation/extensionkit/exhostviewcontroller) - Hosts remote content for the configured identity and scene.
+- [`EXAppExtensionBrowserViewController`](https://developer.apple.com/documentation/extensionkit/exappextensionbrowserviewcontroller) - Presents system-managed extension approval and enable/disable controls.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/ExtensionKit)*

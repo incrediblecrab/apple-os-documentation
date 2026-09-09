@@ -14,10 +14,10 @@ The Collaboration framework works closely with the Core Services Identity APIs t
 
 ### Classes
 - **CBGroupIdentity** - An object of the CBGroupIdentity class represents a group identity and is used for viewing the attributes of group identities from an identity authority. The principal attributes of a CBGroupIdentity object are a POSIX group identifier (GID) and a list of members.
-- **CBIdentity** - A CBIdentity object is used for accessing the attributes of an identity stored in an identity authority. You can use an identity object for finding identities, and storing them in an access control list (ACL). If you need to edit these attributes, take advantage of the CSIdentity class in Core Services.
+- **CBIdentity** - Access an identity's attributes and represent the identity in an access control list (ACL). Use the Core Services Identity APIs when you need to edit attributes.
 - **CBIdentityAuthority** - An identity authority is a database that stores information about identities. The CBIdentityAuthority class defines one or more identity authorities. You can search this database for identities in conjunction with the CBIdentity class factory methods.
-- **CBIdentityPicker** - A CBIdentityPicker object allows a user to select identities—for example, user or group objects—that it wants one or more services or shared resources to have access to. An identity picker can be displayed either as an application-modal dialog or as a sheet attached to a document window. An identity picker returns the selected records to be added to access control lists using Collaboration. If a selected record is not a user or group identity, then an identity picker prompts the user for additional information—such as a password—to promote that record to a sharing account.
-- **CBUserIdentity** - An object of the CBUserIdentity class represents a user identity and is used for accessing the attributes of a user identity from an identity authority. The principal attributes of CBUserIdentity are a POSIX user identifier (UID), password, and certificate.
+- **CBIdentityPicker** - Present an application-modal picker or document sheet and return selected user/group identities for use in ACLs. A record that is not yet a user or group identity can require additional information to become a sharing account.
+- **CBUserIdentity** - Represent a user identity, inspect its POSIX UID and certificate, or authenticate a supplied password with `authenticate(withPassword:)`. The authentication method is not a stored-password getter.
 
 ## See Also
 
@@ -26,7 +26,5 @@ The Collaboration framework works closely with the Core Services Identity APIs t
 - **Identity Services Programming Guide**
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/Collaboration)*

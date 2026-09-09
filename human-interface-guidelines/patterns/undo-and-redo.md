@@ -25,7 +25,7 @@ People expect undo and redo to let them reverse their recent actions, so they're
 ### Platform Considerations
 
 **General**  
-No additional considerations for visionOS. Not supported in tvOS or watchOS.
+No additional considerations for visionOS. The system interactions described here target iOS, iPadOS, macOS, and visionOS; this isn't a restriction on Foundation's `UndoManager`, which is also available on tvOS and watchOS.
 
 **iOS, iPadOS**  
 - Avoid redefining standard gestures for undo and redo. For example, people can use a three-finger swipe to initiate an undo or redo, or shake their iPhone. As with all standard gestures, redefining them in your interface runs the risk of confusing people and making your experience unpredictable.
@@ -49,15 +49,6 @@ No additional considerations for visionOS. Not supported in tvOS or watchOS.
 
 - [Essential Design Principles](https://developer.apple.com/videos/play/wwdc2017/802/) - WWDC 2017
 
-## Changelog
-
-### Version 1.0
-- Initial documentation for undo and redo patterns
-- Platform-specific guidelines for iOS, iPadOS, macOS, and visionOS
-- Best practices for implementing undo and redo functionality
-
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/undo-and-redo)*

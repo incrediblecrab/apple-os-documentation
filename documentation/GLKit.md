@@ -4,6 +4,8 @@ Speed up OpenGL ES or OpenGL app development. Use math libraries, background tex
 
 **Platforms:** iOS 5.0+ | iPadOS 5.0+ | macOS 10.8+ | tvOS 9.0+
 
+**Legacy status:** GLKit's rendering APIs are deprecated in iOS/iPadOS/tvOS 12 and macOS 10.14. These dates do not mean the framework was removed. Maintain existing integrations as needed and prefer [Metal](Metal.md) and [MetalKit](MetalKit.md) for new renderers.
+
 ## Overview
 
 The GLKit framework provides functions and classes that reduce the effort required to create new shader-based apps or to port existing apps that rely on fixed-function vertex or fragment processing provided by earlier versions of OpenGL ES or OpenGL.
@@ -74,11 +76,9 @@ On iOS, GLKit requires an OpenGL ES 2.0 context. In macOS, GLKit requires an Ope
 
 ### See Also
 - **Related Documentation**
-- [OpenGL Programming Guide for Mac](https://developer.apple.com/documentation/opengl_programming_guide_for_mac)
-- [OpenGL ES Programming Guide](https://developer.apple.com/documentation/opengles_programming_guide)
+- [OpenGL Programming Guide for Mac](https://developer.apple.com/library/archive/documentation/GraphicsImaging/Conceptual/OpenGL-MacProgGuide/opengl_intro/opengl_intro.html)
+- [OpenGL ES Programming Guide](https://developer.apple.com/library/archive/documentation/3DDrawing/Conceptual/OpenGLES_ProgrammingGuide/Introduction/Introduction.html)
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/GLKit)*

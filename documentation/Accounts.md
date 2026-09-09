@@ -8,7 +8,7 @@ Help users access and manage their external accounts from within your app, witho
 
 ## Overview
 
-The Accounts framework provides access to user accounts stored in the Accounts database, which is managed by the system. An account stores the login credentials of a particular service, such as LinkedIn, and you use those credentials to authenticate with the service. When you integrate the Accounts framework into your app, you don't need to store account logins yourself. Instead, the user grants your app access to use their account login credentials, bypassing the need to type their username and password. If no account for a particular service exists in the user's Accounts database, you can let them create and save an account from within your app.
+The legacy Accounts model provides access to user accounts in a system-managed database. A stored account contains credentials for a service, and the person can authorize an app to use those credentials rather than reenter them. The historical APIs also support creating and saving accounts. This describes the deprecated framework's model, not a promise that a particular third-party service still integrates with it; use the service provider's current authentication guidance for new work.
 
 ## Topics
 
@@ -28,7 +28,5 @@ The Accounts framework provides access to user accounts stored in the Accounts d
 - **Deprecated Symbols** - Avoid using deprecated symbols in your apps.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/Accounts)*

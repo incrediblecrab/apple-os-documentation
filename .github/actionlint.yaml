@@ -1,0 +1,5 @@
+# Official preview label: actions/runner-images lists xcode-27.
+# actionlint 1.7.12 uses this configuration key to extend its built-in label list.
+self-hosted-runner:
+  labels:
+    - xcode-27

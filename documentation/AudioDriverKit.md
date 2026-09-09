@@ -10,15 +10,17 @@ The AudioDriverKit framework supports the development of DriverKit-based audio e
 
 Develop your driver by subclassing IOUserAudioDriver. On macOS, use the System Extensions framework to install and upgrade your driver. On iPadOS, the system automatically discovers and upgrades drivers along with their host apps.
 
-> **Note:** AudioDriverKit is available on macOS for Intel and Apple Silicon devices, and on iPadOS for devices with an M-series processor.
+> **Note:** AudioDriverKit is available on supported macOS releases for Intel and Apple silicon devices, and on iPadOS 16+ for devices with an M-series processor. The iPad driver must be enabled in Settings; automatic discovery does not replace that step.
+
+The linked sample is a virtual sine-tone device, not a driver for particular physical hardware. Companion-app controls can still use a custom user client even though AudioDriverKit handles the Core Audio HAL connection.
 
 ## Topics
 
 ### Essentials
 - **IOUserAudioObject** - The base class for most classes in the framework.
 - **IOUserAudioDriver** - A DriverKit provider object that manages communications with an audio device.
-- **DriverKit Audio Family** - A Boolean value that indicates whether the device supports audio functionality.
-- [Creating an audio device driver](https://developer.apple.com/documentation/audiodriverkit/creating_an_audio_device_driver) - Implement a configurable audio input source as a driver extension that runs in user space in macOS and iPadOS.
+- **DriverKit Audio Family** - The Boolean audio-family entitlement for a DriverKit extension, not a hardware-capability query.
+- [Creating an audio device driver](https://developer.apple.com/documentation/audiodriverkit/creating-an-audio-device-driver) - Implement a configurable audio input source as a driver extension that runs in user space in macOS and iPadOS.
 
 ### Working with Audio Devices
 - **IOUserAudioClockDevice** - An audio clock device object, used to synchronize and perform I/O.
@@ -52,7 +54,5 @@ Develop your driver by subclassing IOUserAudioDriver. On macOS, use the System E
 - **kIOUserAudioDriverUserClientType**
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/AudioDriverKit)*

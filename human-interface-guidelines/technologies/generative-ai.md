@@ -8,9 +8,7 @@ Generative AI empowers you to enhance your app or game with dynamic content and 
 
 Generative artificial intelligence uses machine learning models to create and transform text, images, and other content. Use it to offer novel, delightful features that help people express themselves creatively, communicate effectively, and complete tasks more easily. For instance, generative AI can enable people to edit text, create imaginative stories and images, or interact with a character in a game that uses AI-generated dialog.
 
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** The Foundation Models framework exposes a generalized **`LanguageModel` protocol**, so apps can target Apple's on-device model or any conformant provider, including cloud models. Validate model-backed features with the new **Evaluations** framework rather than exact-match unit tests.
->
-> **Disclose third-party AI.** App Store Review Guideline **5.1.2(i)** requires clearly disclosing where personal data is shared with third parties — **including third-party AI** — and obtaining explicit permission first. AI-edited photos carry a **SynthID watermark**.
+Explain when AI is involved, what information it processes, and whether a third party receives personal data. Obtain permission before using that information, minimize collection, and let people review consequential actions. Do not imply that generated or edited content is automatically marked by a particular watermarking system.
 
 ## Topics
 
@@ -29,7 +27,7 @@ Generative artificial intelligence uses machine learning models to create and tr
 
 ### Privacy
 
-- **Prefer on-device processing** - Depending on your needs, you may be able to get great responses using on-device models, which prevent people's information from leaving the device. For example, you may choose to use the on-device models available through the Apple Foundation Models framework. On-device models may also respond quicker than server-based models, and are available even when the device is offline.
+- **Choose a model that fits the feature and protects privacy** - On-device inference can avoid sending model input to a server and can work offline when the model is available. For features that need more capability or a larger context, weigh server processing against privacy, latency, and connectivity costs, minimize shared data, and explain what leaves the device. If you use Foundation Models' on-device system model, check its availability: the device must be eligible, Apple Intelligence must be enabled, and the model must be ready.
 - **Ask permission before using personal information and usage data** - Some interactions with an AI model may involve sensitive information, like personal details, messages, photos, and feature usage information. After obtaining permission, use the minimum data you need and always offer a clear way to opt out of its use. If you need sensitive data for model improvement or storage, get explicit permission and handle it with care.
 - **Clearly disclose how your app and its model use and store personal information** - People are more likely to be comfortable sharing data when they understand how it's used. Empower people to make an informed decision about what data they share with your AI model. When asking for permission to use someone's information, explain the benefits in a way that's concise, specific, and easy to understand.
 
@@ -72,9 +70,9 @@ No additional considerations for iOS, iPadOS, macOS, tvOS, visionOS, or watchOS.
 
 ### Developer Documentation
 
-- [Apple Intelligence and machine learning](https://developer.apple.com/documentation/apple-intelligence-and-machine-learning) - Apple Intelligence
-- [Foundation Models](https://developer.apple.com/documentation/foundation-models) - Foundation Models
-- [Acceptable Use Requirements for the Foundation Models Framework](https://developer.apple.com/ml-research/foundation-models)
+- [Apple Intelligence and machine learning](https://developer.apple.com/documentation/technologyoverviews/ai-machine-learning) - Apple Intelligence
+- [Foundation Models](https://developer.apple.com/documentation/foundationmodels) - Foundation Models
+- [Acceptable Use Requirements for the Foundation Models Framework](https://developer.apple.com/apple-intelligence/acceptable-use-requirements-for-the-foundation-models-framework)
 
 ## Changelog
 
@@ -82,7 +80,5 @@ No additional considerations for iOS, iPadOS, macOS, tvOS, visionOS, or watchOS.
 - New page.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/generative-ai)*

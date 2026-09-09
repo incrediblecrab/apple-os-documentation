@@ -6,9 +6,21 @@ Build watchOS apps that combine complications, notifications, and Siri to create
 
 Apple Watch provides easy access to vital information on someone's wrist. The watchOS experience focuses on quick actions that achieve useful tasks through brief, punctuated interactions.
 
-On Apple Watch, keep interactions as short as possible. Provide vital information at a glance, encouraging the wearer to respond with just a few taps, and then drop their wrist and move on. They don't need to wait to see if the action succeeds; instead, the watchOS app automatically notifies them of any important updates.
+On Apple Watch, keep interactions as short as possible. Provide vital information at a glance, letting the wearer respond with a few taps and move on. Design appropriate status updates and notifications rather than making people wait; notification delivery still depends on authorization and system behavior.
 
 For watchOS, expect to spend more time planning, designing, and refining your app's experience than writing the actual code. For design guidance, see Designing for watchOS.
+
+### OS26 and OS27 planning
+
+**Checked September 8, 2026:** watchOS **26.6** (`23U67`, July 27) is shipping; watchOS 27 **beta 8** (`24R5360a`) was released August 31. [Release listings](https://developer.apple.com/news/releases/) do not establish a general-availability date or complete Watch/iPhone pairing requirements.
+
+- Preserve the older-platform guidance below and the [OS26 introduction](../os26-intro/watchOS.md) when maintaining older deployment targets.
+- The [watchOS 27 notes](https://developer.apple.com/documentation/watchos-release-notes/watchos-27-release-notes) add HealthKit heart-rate/cycling-power zones and deprecate `WKExtension`/`WKExtensionDelegate` for apps whose **minimum deployment target is watchOS 9.2 or later**. This is not the UIKit scene migration required on other platforms.
+- Re-test SwiftUI `@State` initializers and `AsyncImage` caching with Xcode 27. Keep complications and workouts useful when the phone or network is unavailable.
+- Treat beta 8's fixed complication, connectivity, and workout issues as regression tests—not permanent restrictions. Check authorization and unavailable health samples separately.
+- **Xcode 27 beta 6** requires **Apple silicon and macOS Tahoe 26.4 or later**, not macOS 27. Rosetta support for Intel apps does not allow Intel Macs to host Xcode 27. See the [Xcode notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes).
+
+The exact watchOS 27 model and companion-device list is not verified here. See the [OS27 introduction](../os27-intro/watchOS.md) for migration checks and [App Store readiness](../guides/app-store-readiness.md) for submission policy.
 
 When designing a watchOS app, mix a combination of the following technologies to create a richer experience.
 
@@ -26,24 +38,24 @@ Use notifications to alert people of significant events. You can also provide ac
 
 ### Siri
 
-Use SiriKit and App intents to expand the ways people can interact with your app. If your app uses domains like messaging or media, use SiriKit to add Siri support to your app. For other features, use App Intents to expose your app's functionality to system services like Siri and the Shortcuts app.
+Use App Intents for modern Siri, Shortcuts, and Apple Intelligence integration. [Apple's SiriKit documentation](https://developer.apple.com/documentation/sirikit) says SiriKit, Intents, and IntentsUI retain legacy support for Shortcuts actions, widget configuration, and most existing Siri interactions. Preserve working legacy paths while migrating; do not treat this as a blanket deprecation or shutdown.
 
 ## Topics
 
 ### Essentials
 - [Creating an intuitive and effective UI in watchOS 10](https://developer.apple.com/documentation/watchos-apps/creating-an-intuitive-and-effective-ui-in-watchos-10) - Provide an even more streamlined, consistent, and glanceable user experience with new design features.
 - [Updating your app and widgets for watchOS 10](https://developer.apple.com/documentation/watchos-apps/updating-your-app-and-widgets-for-watchos-10) - Integrate SwiftUI elements and watch-specific features, and build widgets for the Smart Stack.
-- [Building a watchOS app](https://developer.apple.com/documentation/watchos-apps/building-a-watchos-app) - Set up your app's life cycle and create its user interface with SwiftUI.
-- [watchOS updates](https://developer.apple.com/documentation/watchos-apps/watchos-updates) - Learn about important changes to watchOS.
+- [Building a watchOS app](https://developer.apple.com/documentation/watchOS-Apps/building_a_watchos_app) - Set up your app's life cycle and create its user interface with SwiftUI.
+- [watchOS updates](https://developer.apple.com/documentation/updates/watchos) - Learn about important changes to watchOS.
 
 ### App experience
 - [Setting up a watchOS project](https://developer.apple.com/documentation/watchos-apps/setting-up-a-watchos-project) - Create a new watchOS project or add a watch target to an existing iOS project.
 - [Creating independent watchOS apps](https://developer.apple.com/documentation/watchos-apps/creating-independent-watchos-apps) - Set up a watchOS app that installs and runs without a companion iOS app.
-- [Keeping your watchOS content up to date](https://developer.apple.com/documentation/watchos-apps/keeping-your-watchos-content-up-to-date) - Ensure that your app's content is relevant and up to date.
+- [Keeping your watchOS content up to date](https://developer.apple.com/documentation/watchOS-Apps/keeping-your-watchos-app-s-content-up-to-date) - Ensure that your app's content is relevant and up to date.
 - [Updating watchOS apps with timelines](https://developer.apple.com/documentation/watchos-apps/updating-watchos-apps-with-timelines) - Seamlessly schedule updates to your user interface, even while it's inactive.
 - [Authenticating users on Apple Watch](https://developer.apple.com/documentation/watchos-apps/authenticating-users-on-apple-watch) - Create an account sign-up and sign-in strategy for your app.
-- [Responding to the Action button on Apple Watch Ultra](https://developer.apple.com/documentation/watchos-apps/responding-to-the-action-button-on-apple-watch-ultra) - Use App Intents to register actions for your app.
-- [Enabling the double-tap gesture on Apple Watch](https://developer.apple.com/documentation/watchos-apps/enabling-the-double-tap-gesture-on-apple-watch) - Customize your app's response to the double-tap gesture on Apple Watch.
+- [Responding to the Action button on Apple Watch Ultra](https://developer.apple.com/documentation/appintents/actionbuttonarticle) - Use App Intents to register actions for your app.
+- [Enabling the double-tap gesture on Apple Watch](https://developer.apple.com/documentation/watchOS-Apps/enabling-double-tap) - Customize your app's response to the double-tap gesture on Apple Watch.
 
 ### Accessibility
 - [Create accessible experiences for watchOS](https://developer.apple.com/documentation/watchos-apps/create-accessible-experiences-for-watchos) - Learn how to make your watchOS app more accessible.
@@ -55,17 +67,17 @@ Use SiriKit and App intents to expand the ways people can interact with your app
 - [Setting the app's accent color](https://developer.apple.com/documentation/watchos-apps/setting-the-app-s-accent-color) - Set your app's accent color.
 
 ### Complications
-- [Creating accessory widgets and watch complications](https://developer.apple.com/documentation/watchos-apps/creating-accessory-widgets-and-watch-complications) - Support accessory widgets that appear on the Lock Screen and as complications on Apple Watch.
-- [Migrating ClockKit complications to WidgetKit](https://developer.apple.com/documentation/watchos-apps/migrating-clockkit-complications-to-widgetkit) - Leverage WidgetKit's API to create watchOS complications using SwiftUI.
-- [Creating a widget extension](https://developer.apple.com/documentation/watchos-apps/creating-a-widget-extension) - Display your app's content in a convenient, informative widget on various devices.
-- [Keeping a widget up to date](https://developer.apple.com/documentation/watchos-apps/keeping-a-widget-up-to-date) - Plan your widget's timeline to show timely, relevant information using dynamic views, and update the timeline when things change.
-- [Increasing the visibility of widgets in Smart Stacks](https://developer.apple.com/documentation/watchos-apps/increasing-the-visibility-of-widgets-in-smart-stacks) - Provide contextual information and donate intents to the system to make sure your widget appears prominently in Smart Stacks.
+- [Creating accessory widgets and watch complications](https://developer.apple.com/documentation/widgetkit/creating-accessory-widgets-and-watch-complications) - Support accessory widgets that appear on the Lock Screen and as complications on Apple Watch.
+- [Migrating ClockKit complications to WidgetKit](https://developer.apple.com/documentation/widgetkit/converting-a-clockkit-app) - Leverage WidgetKit's API to create watchOS complications using SwiftUI.
+- [Creating a widget extension](https://developer.apple.com/documentation/widgetkit/creating-a-widget-extension) - Display your app's content in a convenient, informative widget on various devices.
+- [Keeping a widget up to date](https://developer.apple.com/documentation/widgetkit/keeping-a-widget-up-to-date) - Plan your widget's timeline to show timely, relevant information using dynamic views, and update the timeline when things change.
+- [Increasing the visibility of widgets in Smart Stacks](https://developer.apple.com/documentation/widgetkit/widget-suggestions-in-smart-stacks) - Provide contextual information and donate intents to the system to make sure your widget appears prominently in Smart Stacks.
 
 ### Notifications
-- [Notifications](https://developer.apple.com/documentation/usernotifications) - Communicate with users even when your app isn't running.
+- [Notifications](https://developer.apple.com/documentation/watchOS-Apps/notifications) - Communicate with users even when your app isn't running.
 
 ### Siri
-- [Making actions and content discoverable and widely available](https://developer.apple.com/documentation/appintents/making-actions-and-content-discoverable-and-widely-available) - Adopt App Intents to make your app discoverable with Spotlight, controls, widgets, and the Action button.
+- [App Intents](https://developer.apple.com/documentation/appintents) - Expose app actions and entities to supported Siri, Shortcuts, Spotlight, widget, and control experiences.
 - [Creating an Intents App Extension](https://developer.apple.com/documentation/sirikit/creating-an-intents-app-extension) - Add and configure an Intents app extension in your Xcode project.
 
 ### Health and fitness
@@ -82,14 +94,12 @@ Use SiriKit and App intents to expand the ways people can interact with your app
 - [Interacting with Bluetooth peripherals during background app refresh](https://developer.apple.com/documentation/watchkit/interacting-with-bluetooth-peripherals-during-background-app-refresh) - Keep your complications up-to-date by reading values from a Bluetooth peripheral while your app is running in the background.
 
 ### Network requests
-- [Making default and ephemeral requests](https://developer.apple.com/documentation/foundation/urlsession/making-default-and-ephemeral-requests) - Send requests from your app when it's running in the foreground.
-- [Making background requests](https://developer.apple.com/documentation/foundation/urlsession/making-background-requests) - Send requests from your app when it's running in the background.
+- [Making default and ephemeral requests](https://developer.apple.com/documentation/watchOS-Apps/making-default-and-ephemeral-requests) - Send requests from your app when it's running in the foreground.
+- [Making background requests](https://developer.apple.com/documentation/watchOS-Apps/making-background-requests) - Send requests from your app when it's running in the background.
 
 ### Unit tests
-- [Setting up tests for your watchOS app](https://developer.apple.com/documentation/xctest/setting-up-tests-for-your-watchos-app) - Configure your watch-only project with unit tests and user interface tests.
+- [Setting up tests for your watchOS app](https://developer.apple.com/documentation/watchOS-Apps/setting-up-tests-for-your-watchos-app) - Configure your watch-only project with unit tests and user interface tests.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/watchOS-Apps)*

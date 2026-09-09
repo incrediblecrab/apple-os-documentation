@@ -2,19 +2,23 @@
 
 A framework that contains wrappers for a PDF to allow creation of an assessment and student work on that assessment.
 
-**Platforms:** iOS 15.4+ | iPadOS 15.4+ | Mac Catalyst 15.4+
+**Public document/view APIs:** iOS 17.4+ | iPadOS 17.4+ | Mac Catalyst 17.4+
+
+These minima follow the individual `AssignableDocument`, `AssignedWorkDocument`, and `AssignableDocumentView` declarations. The framework landing page's 15.4 labels do not establish availability of those public APIs.
 
 ## Overview
 
 An AssignableDocument is a document that contains a base PDF and stores added markup, annotations, questions, and scoring options for that PDF.
 
-This framework focuses on the student and teacher experience. Teachers can assign the document to a student by creating an AssignedWorkDocument from the AssignableDocument. In addition to those data types, Assignables also provides SwiftUI view classes to enable editing of those documents in your own views.
+This framework focuses on the student and teacher experience. Derive an [`AssignedWorkDocument`](https://developer.apple.com/documentation/assignables/assignedworkdocument) from an [`AssignableDocument`](https://developer.apple.com/documentation/assignables/assignabledocument); the work-document type cannot be instantiated directly. The framework also provides SwiftUI view structures, including [`AssignableDocumentView`](https://developer.apple.com/documentation/assignables/assignabledocumentview), for presenting and editing documents.
 
 Once a student completes their work, they can return it to the teacher to be scored and to receive comments on their work.
 
 Authorship is important at each of these steps, so Assignables supports attribution of changes to any document using types that conform to UserIdentity.
 
 Since teachers may collaborate on making an assignable or scoring student works, or students might collaborate on a document, both document types support merging copies of the document with any other copy of the same document.
+
+Both document types assume single-threaded access. Support for merging independently edited copies is not permission to mutate one instance concurrently.
 
 ## Topics
 
@@ -54,7 +58,5 @@ Since teachers may collaborate on making an assignable or scoring student works,
 - **UserIdentityFactory** - A type that contains helpers for creating user identity objects.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/Assignables)*

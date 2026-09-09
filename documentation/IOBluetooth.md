@@ -6,7 +6,11 @@ Gain user-space access to Bluetooth devices.
 
 ## Overview
 
-The Bluetooth framework supports user-space access to Bluetooth devices, including both C and Objective-C APIs.
+IOBluetooth provides C and Objective-C interfaces for user-space access to Bluetooth devices and classic Bluetooth profiles. Its macOS 10.2 framework minimum does not apply to every class: the hands-free classes below require macOS 10.7+.
+
+For sandboxed apps, enable the Boolean [`com.apple.security.device.bluetooth`](https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.security.device.bluetooth) entitlement through App Sandbox's Bluetooth hardware option (macOS 10.7+). Current Bluetooth privacy configuration also requires the string [`NSBluetoothAlwaysUsageDescription`](https://developer.apple.com/documentation/bundleresources/information-property-list/nsbluetoothalwaysusagedescription) to explain access to the Bluetooth interface. A paired device and a sandbox entitlement do not replace a person's privacy decision; handle unavailable hardware, denied access, disconnection, and pairing errors.
+
+Prefer IOBluetoothUI's device-selection interface when it meets the app's needs. Direct `IOBluetoothDeviceInquiry` requests are throttled. Wait until inquiry has stopped before requesting remote device names; doing so from an active inquiry or its callbacks can deadlock the process.
 
 ## Topics
 
@@ -15,16 +19,16 @@ The Bluetooth framework supports user-space access to Bluetooth devices, includi
 - **IOBluetoothDeviceInquiry** - Object representing a device inquiry that finds Bluetooth devices in-range of the computer, and (optionally) retrieves name information for them.
 - **IOBluetoothDevicePair** - An instance of IOBluetoothDevicePair represents a pairing attempt to a remote Bluetooth device.
 - **IOBluetoothDeviceRef** - An object that represents a Bluetooth I/O device.
-- **IOBluetoothHandsFree** - Hands free profile class.
-- **IOBluetoothHandsFreeAudioGateway** - An object that sends data to a connected Bluetooth hands-free phone or headset and processes commands from it.
-- **IOBluetoothHandsFreeDevice** - An object you use to manage phone calls on a connected Bluetooth hands-free phone or headset.
+- **IOBluetoothHandsFree** - Base class for hands-free-profile support; macOS 10.7+.
+- **IOBluetoothHandsFreeAudioGateway** - Implements the audio-gateway portion of the Bluetooth audio profile; macOS 10.7+.
+- **IOBluetoothHandsFreeDevice** - Provides call-control, call-status, and audio-transfer operations; macOS 10.7+.
 - **IOBluetoothHostController** - This class is a representation of a Bluetooth Host Controller Interface that is present on the local computer (either plugged in externally or available internally).
 - **IOBluetoothL2CAPChannel** - An instance of IOBluetoothL2CAPChannel represents a single open L2CAP channel.
 - **IOBluetoothL2CAPChannelRef**
 - **IOBluetoothOBEXSession** - An OBEX Session with a Bluetooth RFCOMM channel as the transport.
 - **IOBluetoothObject**
 - **IOBluetoothObjectRef**
-- **IOBluetoothRFCOMMChannel** - An instance of this class represents an RFCOMM channel as defined by the Bluetooth SDP spec.
+- **IOBluetoothRFCOMMChannel** - Represents an RFCOMM channel for serial-port-style communication over L2CAP. RFCOMM transport and SDP service discovery are distinct protocols.
 - **IOBluetoothRFCOMMChannelRef**
 - **IOBluetoothSDPDataElement** - An instance of this class represents a single SDP data element as defined by the Bluetooth SDP spec.
 - **IOBluetoothSDPDataElementRef**
@@ -49,27 +53,24 @@ The Bluetooth framework supports user-space access to Bluetooth devices, includi
 - **IOBluetoothRFCOMMChannelDelegate**
 
 ### Reference
-- [Bluetooth.h User-Space](https://developer.apple.com/documentation/iobluetooth/bluetooth_h_user-space)
-- [Bluetooth wireless technology](https://developer.apple.com/documentation/iobluetooth/bluetooth_wireless_technology)
-- [IOBluetoothUserLib.h](https://developer.apple.com/documentation/iobluetooth/iobluetoothuserlib_h) - Public Interfaces for Apple's implementation of Bluetooth technology.
-- [IOBluetoothUtilities.h](https://developer.apple.com/documentation/iobluetooth/iobluetoothutilities_h)
-- [OBEX.h](https://developer.apple.com/documentation/iobluetooth/obex_h) - Public OBEX technology interfaces.
-- [OBEXBluetooth.h](https://developer.apple.com/documentation/iobluetooth/obexbluetooth_h) - Object Exchange over Bluetooth.
-- [OBEXFileTransferServices.h](https://developer.apple.com/documentation/iobluetooth/obexfiletransferservices_h)
-- [IOBluetooth Structures](https://developer.apple.com/documentation/iobluetooth/iobluetooth_structures)
-- [IOBluetooth Enumerations](https://developer.apple.com/documentation/iobluetooth/iobluetooth_enumerations)
-- [IOBluetooth Constants](https://developer.apple.com/documentation/iobluetooth/iobluetooth_constants)
-- [IOBluetooth Functions](https://developer.apple.com/documentation/iobluetooth/iobluetooth_functions)
-- [IOBluetooth Data Types](https://developer.apple.com/documentation/iobluetooth/iobluetooth_data_types)
+- [Bluetooth.h User-Space](https://developer.apple.com/documentation/iobluetooth/bluetooth-h-user-space) - Bluetooth wireless-technology declarations.
+- [IOBluetoothUserLib.h](https://developer.apple.com/documentation/iobluetooth/iobluetoothuserlib-h) - Public interfaces for Apple's implementation of Bluetooth technology.
+- [IOBluetoothUtilities.h](https://developer.apple.com/documentation/iobluetooth/iobluetoothutilities-h)
+- [OBEX.h](https://developer.apple.com/documentation/iobluetooth/obex-h) - Public OBEX technology interfaces.
+- [OBEXBluetooth.h](https://developer.apple.com/documentation/iobluetooth/obexbluetooth-h) - Object Exchange over Bluetooth.
+- [OBEXFileTransferServices.h](https://developer.apple.com/documentation/iobluetooth/obexfiletransferservices-h)
+- [IOBluetooth Structures](https://developer.apple.com/documentation/iobluetooth/iobluetooth-structures)
+- [IOBluetooth Enumerations](https://developer.apple.com/documentation/iobluetooth/iobluetooth-enumerations)
+- [IOBluetooth Constants](https://developer.apple.com/documentation/iobluetooth/iobluetooth-constants)
+- [IOBluetooth Functions](https://developer.apple.com/documentation/iobluetooth/iobluetooth-functions)
+- [IOBluetooth Data Types](https://developer.apple.com/documentation/iobluetooth/iobluetooth-data-types)
 
 ### Variables
 - **kBluetoothConnectionHandleSerialDeviceReserved**
 
 ### See Also
-- [Bluetooth Device Access Guide](https://developer.apple.com/documentation/iobluetooth/bluetooth_device_access_guide)
+- [Bluetooth Device Access Guide](https://developer.apple.com/library/archive/documentation/DeviceDrivers/Conceptual/Bluetooth/BT_Intro/BT_Intro.html) - Archived architecture and application-development background, not current deployment or privacy requirements.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/IOBluetooth)*

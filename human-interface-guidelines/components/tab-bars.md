@@ -26,30 +26,27 @@ For guidance using a similar component in macOS, see [tab views](https://develop
 
 - **Use a succinct term for each tab title** - A useful tab title aids navigation by clearly describing the type of content or functionality the tab contains. Use single words whenever possible.
 
-- **Use a badge to unobtrusively communicate that information is available** - You can display a badge — a red oval containing white text and either a number or an exclamation point — on a tab to indicate that there's new or updated information in the section that may warrant a person's attention. For guidance, see [Notifications](https://developer.apple.com/design/human-interface-guidelines/notifications).
+- **Reserve badges for critical information** - A badge can draw attention to an important update in a tab. Using badges for routine information weakens their meaning. For guidance, see [Notifications](https://developer.apple.com/design/human-interface-guidelines/notifications).
 
 ### Platform Considerations
-
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Liquid Glass now diffuses busy background content more aggressively, adds a subtle darkened edge ring, and renders brighter specular highlights, improving legibility without extra visual noise. People can tune overall translucency with the transparency slider in Settings > Appearance, and the material also responds to Reduce Transparency and Increase Contrast.
 
 **General**  
 No additional considerations for macOS. Not supported in watchOS.
 
 **iOS**  
-- By default, a tab bar is translucent: It uses a background material only when content appears behind it, removing the material when the view scrolls to the bottom. A keyboard covers the tab bar when it's onscreen.
+- In the Liquid Glass design, the tab bar floats over content at the bottom of the screen. Its material lets underlying content remain visible.
+
+- A tab bar with an accessory, such as a media player, can minimize while people scroll down and move the accessory inline. People can expand it by tapping a tab or scrolling to the top. Use the documented minimization behavior rather than hiding navigation yourself.
+
+- A dedicated search tab can appear at the trailing end; see [Search fields](search-fields.md).
 
 - Consider using SF Symbols to provide scalable, visually consistent tab bar icons. When you use SF Symbols, tab bar icons automatically adapt to different contexts. For example, the tab bar can be regular or compact, depending on the current device and orientation. Also, tab bar icons can appear above tab titles in portrait orientation, whereas in landscape, the icons and titles can appear side by side. Prefer filled symbols or icons for consistency with the platform.
 
-- If you need to create custom tab bar icons using bitmaps, create each icon in two sizes so that the tab bar looks good in both regular and compact environments. Use the following metrics when creating tab bar icons in different shapes. For guidance, see [Icons](https://developer.apple.com/design/human-interface-guidelines/icons).
+- For custom tab bar icons, use the current templates in [Apple Design Resources](https://developer.apple.com/design/resources/), and check regular and compact presentations.
 
 #### Target Dimensions
 
-| Icon Shape | Regular tab bars | Compact tab bars |
-|------------|------------------|------------------|
-| **Circle** | 25x25 pt<br>50x50 px @2x<br>75x75 px @3x | 18x18 pt<br>36x36 px @2x<br>54x54 px @3x |
-| **Square** | 23x23 pt<br>46x46 px @2x<br>69x69 px @3x | 17x17 pt<br>34x34 px @2x<br>51x51 px @3x |
-| **Wide** | 31 pt<br>62 px @2x<br>93 px @3x | 23 pt<br>46 px @2x<br>69 px @3x |
-| **Tall** | 28 pt<br>56 px @2x<br>84 px @3x | 20 pt<br>40 px @2x<br>60 px @3x |
+Apple now directs designers to its design-resource templates for tab bar icon dimensions rather than publishing a fixed shape-by-shape table in this HIG article. Use the template for the platform and appearance you are targeting; prefer SF Symbols when an appropriate symbol exists.
 
 **iPadOS**  
 - Starting with iPadOS 18, the system displays a tab bar near the top of the screen. You can choose to have the tab bar appear as a fixed element, or include a button that converts it to a sidebar. For developer guidance, see tabBarOnly and sidebarAdaptable.
@@ -59,6 +56,8 @@ No additional considerations for macOS. Not supported in watchOS.
 - Prefer a tab bar for navigation. A tab bar provides access to the sections of your app that people use most. If your app is more complex, you can provide the option to convert the tab bar to a sidebar so people can access a wider set of navigation options.
 
 - Let people customize the tab bar. In apps with a lot of sections that people might want to access, it can be useful to let people select items that they use frequently and add them to the tab bar, or remove items that they use less frequently. For example, in the Music app, a person can choose a favorite playlist to display in the tab bar. For developer guidance, see TabViewCustomization and UITab.Placement.
+
+- When offering tab customization, start with five or fewer default tabs to help preserve continuity between compact and regular sizes.
 
 **tvOS**  
 - A tab bar is highly customizable. For example, you can:
@@ -82,9 +81,7 @@ No additional considerations for macOS. Not supported in watchOS.
 
 - For additional guidance, see [Live-viewing apps](https://developer.apple.com/design/human-interface-guidelines/live-viewing-apps).
 
-- Create a branded logo image to display next to the leading or trailing end of the tab bar, if it makes sense in your app. To ensure enough room between the branded logo image and the edge of the tab bar, place the image within the safe margin. Use the following image size values for guidance:
-  - Maximum width: 200 pt
-  - Maximum height: 68 pt
+- If you add branding near navigation, keep it within the screen's safe area and avoid crowding the tabs. See [Layout](../foundations/layout.md) for tvOS safe-area guidance.
 
 **visionOS**  
 - In visionOS, a tab bar is always vertical, floating in a position that's fixed relative to the window's leading side. When people look at a tab bar, it automatically expands; to open a specific tab, people look at the tab and tap. While a tab bar is expanded, it can temporarily obscure the content behind it.
@@ -104,16 +101,25 @@ No additional considerations for macOS. Not supported in watchOS.
 ### Developer Documentation
 
 - [TabView](https://developer.apple.com/documentation/swiftui/tabview) - SwiftUI
-- [Enhancing your app's content with tab navigation](https://developer.apple.com/documentation/swiftui/enhancing-your-app-s-content-with-tab-navigation) - SwiftUI
+- [Enhancing your app's content with tab navigation](https://developer.apple.com/documentation/swiftui/enhancing-your-app-content-with-tab-navigation) - SwiftUI
 - [UITabBar](https://developer.apple.com/documentation/uikit/uitabbar) - UIKit
 - [Elevating your iPad app with a tab bar and sidebar](https://developer.apple.com/documentation/uikit/elevating-your-ipad-app-with-a-tab-bar-and-sidebar) - UIKit
 
 ### Videos
 
-- [Get to know the new design system](https://developer.apple.com/videos/play/wwdc2025/10002/)
-- [Elevate the design of your iPad app](https://developer.apple.com/videos/play/wwdc2025/10232/)
+- [Get to know the new design system](https://developer.apple.com/videos/play/wwdc2025/356)
+- [Elevate the design of your iPad app](https://developer.apple.com/videos/play/wwdc2025/208)
 
 ## Changelog
+
+### June 8, 2026
+- Apple updated terminology and artwork.
+
+### December 16, 2025
+- Apple updated Liquid Glass guidance.
+
+### July 28, 2025
+- Apple added Liquid Glass guidance.
 
 ### September 9, 2024
 - Added art representing the tab bar in iPadOS 18
@@ -125,7 +131,5 @@ No additional considerations for macOS. Not supported in watchOS.
 - Updated to include guidance for visionOS
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/tab-bars)*

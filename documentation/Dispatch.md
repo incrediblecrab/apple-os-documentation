@@ -2,7 +2,9 @@
 
 Execute code concurrently on multicore hardware by submitting work to dispatch queues managed by the system.
 
-**Platforms:** iOS 8.0+ | iPadOS 8.0+ | Mac Catalyst 13.0+ | macOS 10.10+ | tvOS 9.0+ | visionOS 1.0+ | watchOS 2.0+
+**Platforms (current Swift API catalog):** iOS 8.0+ | iPadOS 8.0+ | Mac Catalyst 13.0+ | macOS 10.10+ | tvOS 9.0+ | visionOS 1.0+ | watchOS 2.0+
+
+These catalog minima are not GCD's introduction dates. For example, the C [`dispatch_retain`](https://developer.apple.com/documentation/dispatch/dispatch_retain) API dates to iOS 4 and macOS 10.6; individual Swift interfaces can require later versions.
 
 ## Overview
 
@@ -12,9 +14,9 @@ The BSD subsystem, Core Foundation, and Cocoa APIs have all been extended to use
 
 ### Dispatch Objects and ARC
 
-When you build your app using the Objective-C compiler, all dispatch objects are Objective-C objects. As such, when automatic reference counting (ARC) is enabled, dispatch objects are retained and released automatically, just like any other Objective-C object. When ARC is not enabled, use the dispatch_retain and dispatch_release functions (or Objective-C semantics) to retain and release your dispatch objects. You cannot use the Core Foundation retain and release functions.
+With Objective-C dispatch-object support enabled, ARC retains and releases dispatch objects automatically. The C reference describes this as the usual behavior for deployment targets of iOS 6/macOS 10.8 and later. In manually managed Objective-C/C code, balance `dispatch_retain` and `dispatch_release`; do not substitute Core Foundation retain/release functions. Global main and concurrent dispatch queues do not require manual retention.
 
-If you need to use retain and release semantics in an ARC-enabled app with a later deployment target (for maintaining compatibility with existing code), you can disable Objective-C-based dispatch objects by adding -DOS_OBJECT_USE_OBJC=0 to your compiler flags.
+For compatibility with manually managed C/Objective-C code, `-DOS_OBJECT_USE_OBJC=0` disables Objective-C dispatch-object support. This is not a Swift compiler option or a requirement for ordinary Swift `DispatchQueue` use.
 
 ## Topics
 
@@ -48,10 +50,10 @@ If you need to use retain and release semantics in an ARC-enabled app with a lat
 ### Time Constructs
 - **DispatchTime** - A point in time relative to the default clock, with nanosecond precision.
 - **DispatchWallTime** - An absolute point in time according to the wall clock, with microsecond precision.
-- **DispatchTimeInterval** - A number of seconds, millisconds, microseconds, or nanoseconds.
+- **DispatchTimeInterval** - A number of seconds, milliseconds, microseconds, or nanoseconds.
 - **DispatchTimeoutResult** - A result value indicating whether a dispatch operation finished before a specified time.
-- `typealias dispatch_time_t` - An abstract representation of time.
-- `var DISPATCH_WALLTIME_NOW: UInt` - The current time.
+- `typealias dispatch_time_t = UInt64` - An abstract representation of time.
+- `var DISPATCH_WALLTIME_NOW: UInt { get }` - The current time; iOS/iPadOS/tvOS 12+, Mac Catalyst 13.1+, macOS 10.14+, visionOS 1+, watchOS 5+.
 - **Wall Time Constants** - Constants for wall time values.
 
 ### Dispatch Objects
@@ -72,7 +74,5 @@ If you need to use retain and release semantics in an ARC-enabled app with a lat
 - **Dispatch Functions**
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/Dispatch)*

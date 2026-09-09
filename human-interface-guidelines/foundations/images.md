@@ -25,7 +25,7 @@ When creating bitmap images, you specify a scale factor which determines the res
 | visionOS | @2x or higher (see visionOS) |
 | macOS, tvOS | @1x and @2x |
 
-In general, design images at the lowest resolution and scale them up to create high-resolution assets. When you use resizable vectorized shapes, you might want to position control points at whole values so that they're cleanly aligned at 1x. This positioning allows the points to remain cleanly aligned to the raster grid at higher resolutions, because 2x and 3x are multiples of 1x.
+Design around the lowest-resolution layout, then generate higher-resolution assets from vector artwork or a sufficiently detailed original rather than enlarging a low-resolution bitmap. When you use resizable vectorized shapes, you might want to position control points at whole values so that they're cleanly aligned at 1x. This positioning allows the points to remain cleanly aligned to the raster grid at higher resolutions, because 2x and 3x are multiples of 1x.
 
 ### Formats
 
@@ -39,8 +39,6 @@ As you create different types of images, consider the following recommendations.
 | Flat icons, interface icons, and other flat artwork that requires high-resolution scaling | PDF or SVG files |
 
 ### Best practices
-
-> **iOS 27+, visionOS 27+:** iOS 27 adds Spatial Reframing and an Extend tool for photos, while visionOS 27 can convert panoramic photos into immersive environments. Account for AI-edited and spatial imagery when designing image workflows.
 
 **Include a color profile with each image.** Color profiles help ensure that your app's colors appear as intended on different displays. For guidance, see Color management.
 
@@ -86,11 +84,11 @@ You can embed layered images in your app or retrieve them from a content server 
 
 **visionOS**
 
-In visionOS, the area an image occupies typically varies when the system dynamically scales it according to the distance and angle at which people view it. This means that an image doesn't line up 1:1 with screen pixels as it can in other platforms.
+In visionOS, people can view images over a wide range of sizes, and the system adapts image resolution to the displayed size. An image's placement and angle mean its pixels may not align 1:1 with screen pixels as they can on other platforms.
 
 **Create a layered app icon.** App icons in visionOS are composed of two to three layers that provide the appearance of depth by moving at subtly different rates when the icon is in focus. For guidance, see visionOS app icons.
 
-**Prefer vector-based art.** Avoid bitmap content because it might not look good when the system scales it up. If you use Core Animation layers, see Drawing sharp layer-based content in visionOS for developer guidance.
+**Prefer vector-based art for 2D interface images.** Vector artwork remains sharp when scaled; this recommendation doesn't exclude photographs or other inherently raster content. If you use Core Animation layers, see Drawing sharp layer-based content in visionOS for developer guidance.
 
 **If you need to use rasterized images, balance quality with performance as you choose a resolution.** Although a @2x image looks fine at common viewing distances, its fixed resolution means that the system doesn't dynamically scale it and it might not look sharp from close up. To help a rasterized image look sharp when people view it from a wide range of distances, you can use a higher resolution, but each increase in resolution results in a larger file size and may impact your app's runtime performance, especially for resolutions over @6x. If you use images that have resolutions higher than @2x, be sure to also apply high-quality image filtering to help balance quality and performance (for developer guidance, see filters).
 
@@ -98,7 +96,7 @@ In visionOS, the area an image occupies typically varies when the system dynamic
 
 In general, avoid transparency to keep image files small. If you always composite an image on the same solid background color, it's more efficient to include the background in the image. However, transparency is necessary in complication images, menu icons, and other interface icons that serve as template images, because the system uses it to determine where to apply color.
 
-**Use autoscaling PDFs to let you provide a single asset for all screen sizes.** Design your image for the 40mm and 42mm screens at 2x. When you load the PDF, WatchKit automatically scales the image based on the device's screen size, using the values shown below:
+**Use autoscaling PDFs for WatchKit assets.** Apple's legacy WatchKit table uses the 40mm and original 42mm size group as its 2x design baseline. The listed automatic scaling factors are reproduced below; this table doesn't specify every newer case-size and display combination.
 
 | Screen size | Image scale |
 |-------------|-------------|
@@ -125,8 +123,8 @@ In general, avoid transparency to keep image files small. If you always composit
 
 #### Videos
 
-- [Support HDR images in your app](https://developer.apple.com/videos/play/wwdc2024/10159/)
-- [Get Started with Display P3](https://developer.apple.com/videos/play/wwdc2016/712/)
+- [Use HDR for dynamic image experiences in your app](https://developer.apple.com/videos/play/wwdc2024/10177/)
+- [Get Started with Display P3](https://developer.apple.com/videos/play/wwdc2017/821/)
 
 ## Changelog
 
@@ -140,7 +138,5 @@ In general, avoid transparency to keep image files small. If you always composit
 - Added specifications for Apple Watch Ultra.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/images)*

@@ -1,12 +1,12 @@
 # hvf
 
-Render Hierarchical Variation Font (HVF) glyph outlines, and support font editors and related tools.
+Render Hierarchical Variable Font (HVF) glyph outlines, and support font editors and related tools.
 
-**Platforms:** iOS 18.4+ | iPadOS 18.4+ | macOS 15.4+ | tvOS 18.4+ | visionOS 2.4+ | watchOS 11.4+
+**Platforms:** iOS 18.4+ | iPadOS 18.4+ | Mac Catalyst 18.4+ | macOS 15.4+ | tvOS 18.4+ | visionOS 2.4+ | watchOS 11.4+
 
 ## Overview
 
-The hvf library provides C and Swift interfaces. The C interface supports rendering hvgl and hvpm tables in existing fonts.
+The hvf library provides C and Swift interfaces for font data. It is distinct from the [Hypervisor](Hypervisor.md) framework. The C interface supports rendering `hvgl` and `hvpm` tables in existing fonts.
 
 The Swift interface adds support for the following:
 
@@ -17,8 +17,8 @@ The Swift interface adds support for the following:
 ## Topics
 
 ### Classes
-- **HVGLPartLoader** - Special loader object for an HVGL table in memory, which must be Double-aligned Typically this is from a memory-mapped font
-- **PartRenderer** - An object that can be used to set parameters for rendering a part, to render the part, and to diagnose the results of rendering
+- [HVGLPartLoader](https://developer.apple.com/documentation/hvf/hvglpartloader) - Loads an in-memory HVGL table, typically from a mapped font. The table must be aligned for `Double`.
+- [PartRenderer](https://developer.apple.com/documentation/hvf/partrenderer) - Configures and renders a part and provides rendering diagnostics.
 
 ### Protocols
 - **CompositeWriter** - Protocol for creating a Composite part for rendering or to build an HVGL table
@@ -31,10 +31,10 @@ The Swift interface adds support for the following:
 - **CompositeSubpartTranslation** - A subpart translation in a Composite part
 
 ### Variables
-- **hvfLibraryVersion** - Return the version of the HVF library
+- [hvfLibraryVersion](https://developer.apple.com/documentation/hvf/hvflibraryversion-swift.var) - A read-only `(major: Int, minor: Int, patch: Int)` version tuple, not a Swift function call.
 
 ### Type Aliases
-- **CustomPartLoader** - Closure which loads parts from an arbitrary source The first parameter is the part index which uniquely identifiers a part; these are assigned by the loader The second parameter is a PartGenerator the loader uses to get a ShapeWriter or CompositeWriter to create the requested part The result is the generated part, passed back in a PartResult
+- [CustomPartLoader](https://developer.apple.com/documentation/hvf/custompartloader) - A closure of type `(Int, any PartGenerator) -> PartResult`. It receives a loader-assigned part index and a generator that supplies a shape or composite writer, then returns the generated part's result.
 
 ### Enumerations
 - **AxisExtremum** - Which extremum within an axis
@@ -44,7 +44,5 @@ The Swift interface adds support for the following:
 - **SegmentPoint** - Which point within a segment
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/hvf)*

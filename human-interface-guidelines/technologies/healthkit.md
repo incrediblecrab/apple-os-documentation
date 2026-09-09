@@ -14,16 +14,14 @@ For example, a nutrition app might ask for permission to retrieve people's weigh
 
 For developer guidance, see HealthKit.
 
-> **iOS 27+, watchOS 27+:** Cycle Tracking notifies people when logged patterns suggest **perimenopause**, with support for logging associated symptoms, and Fitness+ adds perimenopause and menopause workout categories. The Health app's Browse tab is redesigned around colorful cards. **GymKit now pairs with gym equipment directly from iPhone**, without requiring an Apple Watch.
-
 ## Topics
 
 ### Privacy Protection
 
 - **Provide a coherent privacy policy** - During the app submission process, you must provide a URL to a clearly stated privacy policy, so that people can view the policy when they click the link in the App Store page for your app.
-- **Request access to health data only when you need it** - It makes sense to request access to weight information when people log their weight, for example, but not immediately after your app launches. When your request is clearly related to the current context, you help people understand your app's intentions. Also, people can change the permissions they grant, so your app needs to make a request every time it needs access.
+- **Request access in context, for the types you need** - For example, explain a request for weight data when someone uses a weight-related feature. People can change permissions later, so handle unavailable data and authorization failures. The developer guide requires per-type read and write authorization; do not interpret missing read results as proof that access was denied or that no data exists. See [Authorizing access to health data](https://developer.apple.com/documentation/healthkit/authorizing-access-to-health-data).
 - **Clarify your app's intent by adding descriptive messages to the standard permission screen** - People expect to see the system-provided permission screen when asked to approve access to health data. Write a few succinct sentences that explain why you need the information and how people can benefit from sharing it with your app. Avoid adding custom screens that replicate the standard permission screen's behavior or content.
-- **Manage health data sharing solely through the system's privacy settings** - People expect to globally manage access to their health information in Settings > Privacy. Don't confuse people by building additional screens in your app that affect the flow of health data.
+- **Use system interfaces for HealthKit permissions** - People can manage authorizations in Settings or the Health app. Do not build a competing permission screen or imply that an in-app switch overrides the system's authorization.
 
 ### Activity Rings
 
@@ -60,21 +58,19 @@ The Apple Health icon shows that an app works with HealthKit and the Health app.
 
 ### Platform Considerations
 
-No additional considerations for iOS, iPadOS, or watchOS. Not supported in macOS, tvOS, or visionOS.
+The HealthKit HIG focuses on iOS, iPadOS, and watchOS. This scope is narrower than the framework's API availability: the HealthKit reference also lists Mac Catalyst, macOS, and visionOS, and the authorization guide describes Vision Pro Guest User behavior. Check individual APIs and call `HKHealthStore.isHealthDataAvailable()` before using the store rather than assuming the framework's presence guarantees health-data access.
 
 ### Related Components
 
-- [Works with Apple Health](https://developer.apple.com/design/human-interface-guidelines/works-with-apple-health)
+- [Works with Apple Health](https://developer.apple.com/health-fitness/works-with-apple-health/)
 - [Activity rings](https://developer.apple.com/design/human-interface-guidelines/activity-rings)
 
 ### Developer Documentation
 
 - [HealthKit](https://developer.apple.com/documentation/healthkit) - HealthKit
-- [Protecting user privacy — HealthKit](https://developer.apple.com/documentation/healthkit/protecting_user_privacy) - HealthKit
+- [Protecting user privacy — HealthKit](https://developer.apple.com/documentation/healthkit/protecting-user-privacy) - HealthKit
 - [HKActivityRingView](https://developer.apple.com/documentation/healthkitui/hkactivityringview) - HealthKitUI
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/healthkit)*

@@ -8,13 +8,11 @@ A menu reveals its options when people interact with it, making it a space-effic
 
 Menus are ubiquitous in apps and games, so most people already know how to use them. Whether you use system-provided components or custom ones, people expect menus to behave in familiar ways. For example, people understand that opening a menu reveals one or more menu items, each of which represents a command, option, or state that affects the current selection or context. The guidance for labeling and organizing menu items applies to all types of menus in all experiences.
 
-**Note:** Several system-provided components also include menus that support specific use cases. For example, a pop-up button or pull-down button can reveal a menu of options directly relating to its action; a context menu lets people access a small number of frequently used actions relevant to their current view or task; and in macOS, menu bar menus contain all the commands people can perform in the app or game.
+**Note:** Several system-provided components include menus for specific purposes. Pop-up and pull-down buttons reveal related options or actions, while context menus offer frequently used commands for the current task. In macOS and iPadOS, menu-bar menus provide access to the app's or game's commands.
 
 ## Topics
 
 ### Labels
-
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Liquid Glass now diffuses busy background content more aggressively, adds a subtle darkened edge ring, and renders brighter specular highlights, improving legibility without extra visual noise. People can tune overall translucency with the transparency slider in Settings > Appearance, and the material also responds to Reduce Transparency and Increase Contrast.
 
 A menu item's label describes what it does and may include a symbol if it helps to clarify meaning. In an app, a menu item can also display the associated keyboard command, if there is one; in a game, a menu item rarely displays a keyboard command because a game typically needs to handle input from a wider range of devices and may offer game-specific mappings for various keys.
 
@@ -25,6 +23,12 @@ A menu item's label describes what it does and may include a symbol if it helps 
 - **Remove articles like a, an, and the from menu-item labels to save space** - In English, articles always lengthen labels, but rarely enhance understanding. For example, changing a menu-item label from View Settings to View the Settings doesn't provide additional clarification.
 - **Show people when a menu item is unavailable** - An unavailable menu item often appears dimmed and doesn't respond to interactions. If all of a menu's items are unavailable, the menu itself needs to remain available so people can open it and learn about the commands it contains.
 - **Append an ellipsis to a menu item's label when the action requires more information before it can complete** - The ellipsis character (…) signals that people need to input information or make additional choices, typically within another view.
+
+### Icons
+
+- **Use familiar action symbols** - Prefer [standard icons](https://developer.apple.com/design/human-interface-guidelines/icons#Standard-icons) for common commands such as Share, Print, and Search.
+- **Give each icon a purpose** - Use icons to clarify meaningful actions, locations, devices, or content. Omit an icon when no clear representation exists; arbitrary symbols make scanning harder.
+- **Keep each group visually consistent** - Within a group, give every item an icon or give none of them icons.
 
 ### Organization
 
@@ -48,7 +52,7 @@ Sometimes, a menu item can reveal a set of closely related items in a subordinat
 
 Menu items often represent attributes or objects that people can turn on or off. If you want to avoid listing a separate menu item for each state, it can be efficient to create a single, toggled menu item that communicates the current state and lets people change it.
 
-- **Consider using a changeable label that describes an item's current state** - For example, instead of listing two menu items like Show Map and Hide Map, you could include one menu item whose label changes from Show Map to Hide Map, depending on whether the map is visible.
+- **Describe the available action in a changing label** - For example, offer Show Map when the map is hidden and Hide Map when it is visible. This avoids listing both actions while making the next action clear; a checkmark can instead communicate a selected attribute.
 - **Include a verb if a changeable label isn't clear enough** - For example, people might not know whether the changeable labels HDR On and HDR Off describe actions or states. If you needed to clarify that these items represent actions, you could add verbs to the labels, like Turn HDR On and Turn HDR Off.
 - **If necessary, display both menu items instead of one toggled item** - Sometimes, it helps people to view both actions or states at the same time. For example, a game could list both Take Account Online and Take Account Offline items, so when someone's account is online, only the Take Account Offline menu item appears available.
 - **Consider using a checkmark to show that an attribute is currently in effect** - It's easy for people to scan for checkmarks in a list of attributes to find the ones that are selected. For example, in the standard Format > Font menu, checkmarks can make it easy for people notice the styles that apply to selected text.
@@ -70,12 +74,14 @@ In iOS and iPadOS, a menu can display items in one of the following three layout
 - **Medium** - A row of three items appears at the top of the menu, above a list that contains the remaining items. For each item in the top row, the menu displays a symbol or icon above a short label.
 - **Large** (the default) - The menu displays all items in a list.
 
-For developer guidance, see preferredElementSize.
+For developer guidance, see [preferredElementSize](https://developer.apple.com/documentation/uikit/uimenu/preferredelementsize). This property has no effect in Mac Catalyst.
 
 Choose a small or medium menu layout when it can help streamline people's choices. Consider using the medium layout if your app has three important actions that people often want to perform. For example, Notes uses the medium layout to give people a quick way to perform the Scan, Lock, and Pin actions. Use the small layout only for closely related actions that typically appear as a group, such as Bold, Italic, Underline, and Strikethrough. For each action, use a recognizable symbol that helps people identify the action without a label.
 
 **visionOS**  
 In visionOS, a menu can display items using the small or large layout styles that iOS and iPadOS define (for guidance, see iOS, iPadOS). As in macOS, an open menu in a visionOS window can appear outside of the window's boundaries.
+
+For a menu presented from 3D content, a breakthrough effect can keep it visible when other content would occlude it. Prefer the subtle effect, which is the HIG's default for an automatic menu presentation overlapping 3D content. Reserve prominent effects for situations that justify disrupting the scene's depth and context. See [presentationBreakthroughEffect(_:)](https://developer.apple.com/documentation/swiftui/view/presentationbreakthrougheffect(_:)), available in visionOS 26 or later; don't assume all presentation types allow breakthrough to be disabled.
 
 When possible, prefer displaying a menu near the content it controls. Because people need to look at a menu item before tapping it, they might miss the item's effect if the content it controls is too far away.
 
@@ -91,10 +97,21 @@ No additional considerations for macOS, tvOS, or watchOS.
 ### Developer Documentation
 
 - [Menu](https://developer.apple.com/documentation/swiftui/menu) - SwiftUI
-- [Menus and shortcuts](https://developer.apple.com/documentation/uikit/menus_and_shortcuts) - UIKit
+- [Menus and shortcuts](https://developer.apple.com/documentation/uikit/menus-and-shortcuts) - UIKit
 - [Menus](https://developer.apple.com/documentation/appkit/menus) - AppKit
 
 ## Changelog
+
+These dates describe changes to Apple's HIG article, not edits to this repository.
+
+### June 8, 2026
+- Updated guidance for menu-item icons.
+
+### December 16, 2025
+- Added visionOS menu breakthrough-effect guidance.
+
+### July 28, 2025
+- Added guidance for representing menu items with icons.
 
 ### June 10, 2024
 - Added guidance for in-game menus and included game-specific examples.
@@ -106,7 +123,5 @@ No additional considerations for macOS, tvOS, or watchOS.
 - Added guidelines for using the small, medium, and large menu layouts in iPadOS.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/menus)*

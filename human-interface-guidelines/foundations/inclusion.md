@@ -47,7 +47,7 @@ Using plain, inclusive language welcomes everyone and helps them understand your
 
 **Replace colloquial expressions with plain language.** Colloquial expressions are often culture-specific and can be difficult to translate. Worse, some colloquial phrases have exclusionary meanings you might not know. For example, the phrases peanut gallery and grandfathered in both arose from oppressive contexts and continue to exclude people. Even when a colloquial phrase doesn't have an exclusionary meaning, it can still exclude everyone who doesn't understand it.
 
-**Consider carefully before including humor.** Humor is highly subjective and — similar to colloquial expressions — difficult to translate from one culture to another. Including humor in your experience risks confusing people who donʼt understand it, irritating people who tire of repeatedly encountering it, and insulting people who interpret it differently. For additional writing guidance, see Writing inclusively.
+**Consider carefully before including humor.** Humor is highly subjective and — similar to colloquial expressions — difficult to translate from one culture to another. Including humor in your experience risks confusing people who donʼt understand it, irritating people who tire of repeatedly encountering it, and insulting people who interpret it differently. For additional guidance, see [Writing](writing.md).
 
 ### Being approachable
 
@@ -139,7 +139,7 @@ No additional considerations for iOS, iPadOS, macOS, tvOS, visionOS, or watchOS.
 
 #### Related
 
-- [Writing inclusively](https://developer.apple.com/design/human-interface-guidelines/writing-inclusively)
+- [Writing](https://developer.apple.com/design/human-interface-guidelines/writing)
 - [Accessibility](https://developer.apple.com/design/human-interface-guidelines/accessibility)
 
 #### Developer documentation
@@ -148,12 +148,10 @@ No additional considerations for iOS, iPadOS, macOS, tvOS, visionOS, or watchOS.
 
 #### Videos
 
-- [Principles of inclusive app design](https://developer.apple.com/videos/play/wwdc2021/10275/)
-- [The practice of inclusive design](https://developer.apple.com/videos/play/wwdc2021/10304/)
-- [The process of inclusive design](https://developer.apple.com/videos/play/wwdc2016/801/)
+- [Principles of inclusive app design](https://developer.apple.com/videos/play/wwdc2025/316)
+- [The practice of inclusive design](https://developer.apple.com/videos/play/wwdc2021/10275)
+- [The process of inclusive design](https://developer.apple.com/videos/play/wwdc2021/10304)
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/inclusion)*

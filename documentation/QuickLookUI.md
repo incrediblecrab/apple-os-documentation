@@ -2,11 +2,11 @@
 
 Create previews of files to use inside your macOS app.
 
-**Platforms:** macOS 12.0+
+**Platforms:** macOS (core preview views 10.6+; current framework catalog and data-based extensions 12.0+)
 
 ## Overview
 
-When showing files in your app, including the ability to quickly preview a file and its content can be helpful to your users. For example, you may want to allow users to zoom into a photo, play back an audio file, and so on. Use the **Quick Look** framework to show a preview of common file types in your macOS app that allow basic interactions. Quick Look can generate previews for common file types, including:
+Use `QLPreviewPanel` for the app's shared preview panel or `QLPreviewView` for an embedded preview. The panel follows the responder chain to find a controller that supplies its data. You can't subclass the panel; customize it through its delegate. Supported formats can vary by OS release, and commonly include:
 
 - iWork and Microsoft Office documents
 - Images
@@ -21,34 +21,35 @@ You can provide previews for your own data types by either rendering a view with
 
 To provide Quick Look previews for your own file types, create a Quick Look Preview Extension with either a view controller or data based preview. In either case, add your supported content types to the **QLSupportedContentTypes** array in the Info.plist file of the extension.
 
-To provide a view controller based preview extension, set up an **NSViewController** that conforms to **QLPreviewingController**. Prepare and display the view within the method **preparePreviewOfFile(at:completionHandler:)**.
+For a view-based extension, use an `NSViewController` conforming to `QLPreviewingController` and implement `preparePreviewOfFile(at:completionHandler:)` for file URLs. The system invokes it once on the main thread before presentation. Avoid blocking that thread, call the completion handler when ready, and don't keep a file descriptor open for the entire preview.
 
-To provide a data-based preview extension, implement a subclass of **QLPreviewProvider** to provide a **QLPreviewReply** based on the **QLFilePreviewRequest** that the system provides.
+For a data-based extension, subclass `QLPreviewProvider`, conform to `QLPreviewingController`, and implement `providePreview(for:completionHandler:)`. Return a `QLPreviewReply` for the system's `QLFilePreviewRequest`. Configure `QLIsDataBasedPreview`, `QLSupportedContentTypes`, and `NSExtensionPrincipalClass` in the extension's property list.
+
+### Availability distinctions
+
+`QLPreviewPanel`, `QLPreviewView`, and the macOS `QLPreviewItem` protocol declare macOS 10.6, earlier than the framework catalog's 12.0 label. The data-based provider/request/reply types require macOS 12. The current `QLPreviewingController` protocol reference lists 12.0 while its file-preparation method lists 10.10; don't treat the aggregate label as the historical introduction of every preview API.
+
+The similarly named iOS-family types are documented under [Quick Look](QuickLook.md). A native AppKit preview view isn't a drop-in UIKit view.
 
 ## Topics
 
 ### Previews
-- **QLPreviewPanel** - A class that implements the Quick Look preview panel to display a preview of a list of items.
-- **QLPreviewView** - A Quick Look preview of an item that you can embed into your view hierarchy.
-- **QLPreviewItem** - A protocol that defines a set of properties you implement to make a preview of your application's content.
-- **QLPreviewPanelDataSource** - A protocol that the Quick Look preview panel uses to access the contents of its data source object.
-- **QLPreviewPanelDelegate** - A protocol for the delegate of the Quick Look preview panel.
-- **QLPreviewItemLoadingBlock** - A type that defines a block used to load a Quick Look preview item.
-
-### Deprecated
-Preview Extensions
+- [`QLPreviewPanel`](https://developer.apple.com/documentation/quicklookui/qlpreviewpanel) - The app's shared preview panel.
+- [`QLPreviewView`](https://developer.apple.com/documentation/quicklookui/qlpreviewview) - An embeddable preview view.
+- [`QLPreviewItem`](https://developer.apple.com/documentation/quicklookui/qlpreviewitem) - Supplies the preview URL and optional title; `NSURL` can serve directly as an item.
+- [`QLPreviewPanelDataSource`](https://developer.apple.com/documentation/quicklookui/qlpreviewpaneldatasource) - Supplies the panel's items; its current reference lists macOS 12.
+- [`QLPreviewPanelDelegate`](https://developer.apple.com/documentation/quicklookui/qlpreviewpaneldelegate) - Customizes panel behavior; its current reference lists macOS 12.
+- [`QLPreviewItemLoadingBlock`](https://developer.apple.com/documentation/quicklookui/qlpreviewitemloadingblock) - An error-completion block alias introduced in macOS 10.13 and deprecated in 10.14. Deprecation isn't a claim that the type was removed.
 
 ### Preview Extensions
-- **QLPreviewingController** - A protocol for implementing a custom controller to create previews of files.
+- [`QLPreviewingController`](https://developer.apple.com/documentation/quicklookui/qlpreviewingcontroller) - Provides file/searchable-item preparation or a data-based reply.
 
 ### Data-based Preview Extensions
-- **QLPreviewProvider** - A class that you subclass to provide a data-based Quick Look preview extension.
-- **QLFilePreviewRequest** - A Quick Look preview request that indicates the content to preview.
-- **QLPreviewReply** - The class you create when providing a data-based Quick Look preview extension.
-- **QLPreviewReplyAttachment** - An attachment for a Quick Look preview reply that provides additional content for the system to display a preview.
+- [`QLPreviewProvider`](https://developer.apple.com/documentation/quicklookui/qlpreviewprovider) - The principal class to subclass for a data-based extension.
+- [`QLFilePreviewRequest`](https://developer.apple.com/documentation/quicklookui/qlfilepreviewrequest) - Describes the content to preview.
+- [`QLPreviewReply`](https://developer.apple.com/documentation/quicklookui/qlpreviewreply) - Supplies preview data, such as an image, PDF, or HTML.
+- [`QLPreviewReplyAttachment`](https://developer.apple.com/documentation/quicklookui/qlpreviewreplyattachment) - Supplies HTML resources referenced through `cid:` identifiers.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/QuickLookUI)*

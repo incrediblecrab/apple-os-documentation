@@ -6,9 +6,13 @@ Streamline access to users' location data through a standard, secure UI.
 
 ## Overview
 
-The CoreLocationUI framework contains a standardized UI that interacts securely with Core Location to request authorization to access location data.
+CoreLocationUI supplies system location buttons for requesting temporary authorization. It doesn't replace [CoreLocation](CoreLocation.md), which your app uses to obtain the location after authorization.
 
-CoreLocationUI provides LocationButton for SwiftUI apps and CLLocationButton for UIKit apps. Add these buttons to your UI when you want someone to grant one-time authorization for your app to fetch their location. The button's style is consistent with the standard Core Location design language, giving users a sense of familiarity and trust when they interact with it.
+Use `LocationButton` in SwiftUI or `CLLocationButton` in UIKit. The first interaction asks the person to approve this authorization mechanism. If approved, it grants temporary `authorizedWhenInUse` access, like Allow Once, which expires when the app is no longer in use. Subsequent taps can obtain another temporary grant without repeating that confirmation.
+
+The button doesn't return coordinates. Its action runs on every tap, including when authorization already exists; handle location requests and their results separately.
+
+The framework catalog lists watchOS 10, while the SwiftUI `LocationButton` declaration lists watchOS 8. The UIKit button has no watchOS declaration. Preserve that per-symbol distinction rather than treating the framework header as a uniform button minimum.
 
 **Note**  
 The location button ignores user input on Mac apps built with Mac Catalyst, and on compatible iPad and iPhone apps running in visionOS.
@@ -16,16 +20,14 @@ The location button ignores user input on Mac apps built with Mac Catalyst, and 
 ## Topics
 
 ### Location authorization
-- [Sharing Your Location to Find a Park](https://developer.apple.com/documentation/corelocationui/sharing_your_location_to_find_a_park) - Ask for location access using a customizable location button.
-- **LocationButton** - A SwiftUI button that grants one-time location authorization.
-- **CLLocationButton** - A button that grants one-time location authorization.
+- [Sharing Your Location to Find a Park](https://developer.apple.com/documentation/corelocationui/sharing-your-location-to-find-a-park) - Ask for location access using a customizable location button.
+- [`LocationButton`](https://developer.apple.com/documentation/corelocationui/locationbutton) - The SwiftUI temporary-authorization button.
+- [`CLLocationButton`](https://developer.apple.com/documentation/corelocationui/cllocationbutton) - The UIKit temporary-authorization button.
 
 ### Button customization
-- **CLLocationButtonIcon** - Constants that specify styles for the location arrow icon on the button.
-- **CLLocationButtonLabel** - Constants that specify the text of the button label.
+- [`CLLocationButtonIcon`](https://developer.apple.com/documentation/corelocationui/cllocationbuttonicon) - UIKit location-arrow icon styles.
+- [`CLLocationButtonLabel`](https://developer.apple.com/documentation/corelocationui/cllocationbuttonlabel) - UIKit button label choices.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/CoreLocationUI)*

@@ -2,7 +2,9 @@
 
 Access the remote keyless features of configured vehicles in the Wallet app.
 
-**Platforms:** iOS 16.0+ | iPadOS 16.0+ | Mac Catalyst 16.0+
+**Session API availability:** iOS 16.0+ | iPadOS 16.0+ | Mac Catalyst 16.0+ | macOS 13.3+ | watchOS 9.0+
+
+The framework catalog lists the first three platforms; the [`CarKeyRemoteControl`](https://developer.apple.com/documentation/carkey/carkeyremotecontrol) and [`CarKeyRemoteControlSession`](https://developer.apple.com/documentation/carkey/carkeyremotecontrolsession) declarations also list macOS and watchOS. These annotations do not provision a vehicle key or grant the automaker entitlement.
 
 ## Overview
 
@@ -30,19 +32,18 @@ The Wallet app maintains a list of vehicles that match your company's make, and 
 - **RemoteKeylessEntryAction** - An automatically ending action that you want to perform on a vehicle.
 - **RemoteKeylessEntryEnduringAction** - An action with an optional stopping point that you want to perform on a vehicle.
 
-### Deprecated
-- **FunctionIdentifier** - A type that stores the designation code for one of your vehicle's features.
-- **ActionIdentifier** - A type that stores the designation code for one of the actions that a vehicle feature supports.
+- [`FunctionIdentifier`](https://developer.apple.com/documentation/carkey/functionidentifier) - A vehicle-specific feature code.
+- [`ActionIdentifier`](https://developer.apple.com/documentation/carkey/actionidentifier) - A code for an action supported by that feature.
+
+These identifier types are not marked deprecated in their current declarations.
 
 ### Error Codes
 - **CarKeyErrorCode** - The errors that can occur when you perform remote-keyless entry operations on a vehicle.
 
 ### Structures
-- **ExecutionStatus** - A type that contains the status code a vehicle returns after executing an action.
-- **RemoteKeylessEntryConfigurableEnduringAction** - An action with an optional stopping point that you want to perform on a vehicle.
+- [`ExecutionStatus`](https://developer.apple.com/documentation/carkey/executionstatus) - A status code returned by the vehicle, including supported custom codes.
+- [`RemoteKeylessEntryConfigurableEnduringAction`](https://developer.apple.com/documentation/carkey/remotekeylessentryconfigurableenduringaction) - An action that can be stopped or run to completion; its iOS/iPadOS/Mac Catalyst availability starts at 18.0, not the framework's 16.0 baseline.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/CarKey)*

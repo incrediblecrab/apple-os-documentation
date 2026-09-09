@@ -33,10 +33,8 @@ To add items to the library, create a structure that conforms to the LibraryCont
 ### Structures
 - **PreviewBodyBuilder** - Builder for preview body content within a #Preview macro.
 - **PreviewMacroBodyBuilder** - Builder for preview body content within a #Preview macro.
-- **PreviewUnavailable** - An error that the system throws when a preview is unavailable at runtime.
+- [PreviewUnavailable](https://developer.apple.com/documentation/developertoolssupport/previewunavailable.md) - A runtime preview-unavailable error used by preview macro expansion, not directly by app code.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/DeveloperToolsSupport)*

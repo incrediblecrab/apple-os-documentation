@@ -10,6 +10,10 @@ DockKit interfaces with DockKit-compatible motorized stands known as dock access
 
 You can disable system tracking and implement your own tracking behavior by using DockAccessoryManager and DockAccessory. Implement your own tracking behavior to follow a location of a custom object such as a pet, or a pair of hands performing a task. DockKit accessories integrate with AVCaptureSession so apps with camera permissions work seamlessly together.
 
+The documented camera-tracking workflow requires a compatible physical iPhone and motorized stand; SDK platform listings do not establish that an iPad or Mac can replace that hardware. Camera access still requires the person's permission. Obtain accessories and docking/undocking events from `DockAccessoryManager.shared.accessoryStateChanges`, and handle disconnection and `DockKitError` failures.
+
+Apple's camera-app sample specifically requires an iPhone running iOS 18 or later and Xcode 16.1; those sample requirements do not change DockKit's original iOS 17 minimum. The Simulator does not substitute for the camera and dock hardware.
+
 ## Topics
 
 ### Controlling the dock accessory
@@ -19,11 +23,9 @@ You can disable system tracking and implement your own tracking behavior by usin
 - **DockKitError** - A list of errors that DockKit sends.
 
 ### Customizing tracking behavior
-- [Modify rotation and positioning programmatically](https://developer.apple.com/documentation/dockkit/modify-rotation-and-positioning-programmatically) - Perform custom control of the dock accessory.
+- [Modify rotation and positioning programmatically](https://developer.apple.com/documentation/dockkit/modify-rotation-and-positioning-behavior-programmatically) - Perform custom control of the dock accessory.
 - [Track custom objects in a frame](https://developer.apple.com/documentation/dockkit/track-custom-objects-in-a-frame) - Use your machine learning model to focus on a specific subject.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/DockKit)*

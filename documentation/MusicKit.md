@@ -12,15 +12,15 @@ The framework provides a model layer for accessing music items in Swift, as well
 
 **Important:** Users must grant permission for your app to access their music data. Add the `NSAppleMusicUsageDescription` key to your app's Info.plist file, and include a description of how you intend to use the user's media. If this key isn't present, the system terminates your app when it tries to access the user's music.
 
-Request permission for your app to use MusicKit with **MusicAuthorization**. Check specific capabilities for the current **MusicSubscription** to ensure your music-related functionality is available to the user. Find music items using a search term with **MusicCatalogSearchRequest**, or find music items using a filter with **MusicCatalogResourceRequest**. Play music in your app with one of the two music players that MusicKit offers. Allow the user to begin a free trial for Apple Music from within your app by presenting a music subscription offer.
+Request permission for your app to use MusicKit with **MusicAuthorization**. Check specific capabilities for the current **MusicSubscription** to ensure your music-related functionality is available to the user. Find music items using a search term with **MusicCatalogSearchRequest**, or find music items using a filter with **MusicCatalogResourceRequest**. Play music in your app with one of the two music players that MusicKit offers. Present a music subscription offer when appropriate for the person's subscription capabilities; do not promise that every person is eligible for a free trial.
 
 You can load content from an arbitrary Apple Music API endpoint with **MusicDataRequest** to take further advantage of additional functionality available in Apple Music API.
 
 ## Topics
 
 ### Essentials
-- [Using Automatic Developer Token Generation for Apple Music API](https://developer.apple.com/documentation/musickit/using_automatic_developer_token_generation_for_apple_music_api) - Enable your app's integration with the MusicKit App Service in the developer portal
-- [Using MusicKit to Integrate with Apple Music](https://developer.apple.com/documentation/musickit/using_musickit_to_integrate_with_apple_music) - Find an album in Apple Music that corresponds to a CD in a user's collection, and present the information for the album
+- [Using Automatic Developer Token Generation for Apple Music API](https://developer.apple.com/documentation/musickit/using-automatic-token-generation-for-apple-music-api) - Enable your app's integration with the MusicKit App Service in the developer portal
+- [Using MusicKit to Integrate with Apple Music](https://developer.apple.com/documentation/musickit/using-musickit-to-integrate-with-apple-music) - Find an album in Apple Music that corresponds to a CD in a user's collection, and present the information for the album
 - **NSAppleMusicUsageDescription** - A message that tells people why the app is requesting access to their media library
 
 ### Music Items
@@ -94,7 +94,7 @@ Before you can use any of the functionality of the framework, you need to reques
 - **MusicSubscriptionOffer** - A type for grouping other types for showing subscription offers for Apple Music
 
 ### Token Management
-The framework manages tokens for accessing Apple Music API automatically by default, but you can generate your own developer token by creating a class that inherits from the token provider type alias.
+The framework manages Apple Music API tokens automatically by default. A custom [MusicTokenProvider](https://developer.apple.com/documentation/musickit/musictokenprovider) must subclass `MusicUserTokenProvider` and conform to `MusicDeveloperTokenProvider`; the type alias combines that class and protocol requirement.
 
 - **MusicTokenProvider** - An object that music requests use to access Apple Music API
 - **MusicDeveloperTokenProvider** - A set of methods that music requests use to access Apple Music API
@@ -114,7 +114,5 @@ The framework manages tokens for accessing Apple Music API automatically by defa
 - **MusicLibrary** - An object your app uses to access the user's music library
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/MusicKit)*

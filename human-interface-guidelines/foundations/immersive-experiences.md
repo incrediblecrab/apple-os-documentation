@@ -108,7 +108,7 @@ Not supported in iOS, iPadOS, macOS, tvOS, or watchOS.
 #### Developer documentation
 
 - [Creating fully immersive experiences in your app](https://developer.apple.com/documentation/visionos/creating-fully-immersive-experiences) — visionOS
-- [Incorporating real-world surroundings in an immersive experience](https://developer.apple.com/documentation/visionos/incorporating-real-world-surroundings) — visionOS
+- [Incorporating real-world surroundings in an immersive experience](https://developer.apple.com/documentation/visionos/incorporating-real-world-surroundings-in-an-immersive-experience) — visionOS
 - [ImmersionStyle](https://developer.apple.com/documentation/swiftui/immersionstyle) — visionOS
 - [Immersive spaces](https://developer.apple.com/documentation/swiftui/immersive-spaces) — SwiftUI
 
@@ -116,7 +116,7 @@ Not supported in iOS, iPadOS, macOS, tvOS, or watchOS.
 
 - [Principles of spatial design](https://developer.apple.com/videos/play/wwdc2023/10072/)
 - [Design spatial SharePlay experiences](https://developer.apple.com/videos/play/wwdc2023/10075/)
-- [Create custom environments for your immersive apps in visionOS](https://developer.apple.com/videos/play/wwdc2023/10082/)
+- [Design immersive environments for visionOS apps and the spatial web](https://developer.apple.com/videos/play/wwdc2026/234/)
 
 ## Changelog
 
@@ -142,7 +142,5 @@ Not supported in iOS, iPadOS, macOS, tvOS, or watchOS.
 - New page.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/immersive-experiences)*

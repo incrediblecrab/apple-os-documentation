@@ -26,9 +26,9 @@ Text fields allow users to input small amounts of text for various purposes like
 
 - **Validate fields when it makes sense** - For example, if the only legitimate value for a field is a string of digits, your app needs to alert people if they've entered characters other than digits. The appropriate time to check the data depends on the context: when entering an email address, it's best to validate when people switch to another field; when creating a user name or password, validation needs to happen before people switch to another field.
 
-- **Use a number formatter to help with numeric data** - A number formatter automatically configures the text field to accept only numeric values. It can also display the value in a specific way, such as with a certain number of decimal places, as a percentage, or as currency. Don't assume the actual presentation of data, however, as formatting can vary significantly based on people's locale.
+- **Use a number formatter to help with numeric data** - Configure the field's numeric parsing and display with an appropriate formatter, and validate the input. A formatter can display a value with a certain number of decimal places, as a percentage, or as currency. Don't assume the actual presentation of data, however, as formatting can vary significantly based on people's locale.
 
-- **Adjust line breaks according to the needs of the field** - By default, the system clips any text extending beyond the bounds of a text field. Alternatively, you can set up a text field to wrap text to a new line at the character or word level, or to truncate (indicated by an ellipsis) at the beginning, middle, or end.
+- **Adjust line breaks according to the needs and capabilities of the field** - Where the text-field implementation supports it, choose wrapping or truncation that preserves the most useful content. Don't assume that every text-field control supports multiline entry; use a text view when the task calls for longer editable text.
 
 - **Consider using an expansion tooltip to show the full version of clipped or truncated text** - An expansion tooltip behaves like a regular tooltip and appears when someone places the pointer over the field.
 
@@ -73,7 +73,5 @@ Text fields allow users to input small amounts of text for various purposes like
 - Updated guidance to reflect changes in watchOS 10.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/text-fields)*

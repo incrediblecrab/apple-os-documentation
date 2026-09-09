@@ -8,19 +8,31 @@ Monitor device activity with your app extension while maintaining user privacy.
 
 Device Activity provides a privacy-preserving way for an application to monitor a user's application and website activity. For instance, you can set up a bedtime schedule that monitors device activity while the user is supposed to be asleep. Your app extension can receive warnings before an activity's schedule starts or ends, or when an activity is about to reach a predefined threshold. You can monitor the time spent on websites and apps to warn the user once they have reached their threshold.
 
+### Authorization and scheduling limits
+
+Coordinate monitoring with [FamilyControls](FamilyControls.md) authorization and respond when approval is denied or revoked. Selected activity tokens preserve privacy; they are not an unrestricted inventory of another person's app or web usage.
+
+[`DeviceActivityCenter`](https://developer.apple.com/documentation/deviceactivity/deviceactivitycenter) starts and stops named monitoring activities. Handle failures from `startMonitoring(_:during:events:)` and stop obsolete schedules explicitly.
+
+Schedule boundaries are not exact background timers. The system invokes interval-start and interval-end callbacks when the device is in use within or outside the interval, respectively. Do not use them as a promise of continuous runtime or immediate execution at a wall-clock deadline.
+
+The report view and report-extension APIs start at 16.0, later than monitoring's 15.0 minimum. A report extension uses the extension point `com.apple.deviceactivityui.report-extension` and runs in a privacy sandbox that prevents network requests and moving sensitive content outside the extension's address space. The system supplies report data only for appropriately authorized devices.
+
+The separately listed authorization class/protocol have iOS/iPadOS/Catalyst 17 and macOS 14 declaration metadata; that does not establish native macOS support for every monitoring or reporting API.
+
 ## Topics
 
 ### Manage Activities
 - **DeviceActivityEvent** - An event that represents an application, category, or website activity.
 - **DeviceActivityName** - The unique name of an activity.
 - **DeviceActivitySchedule** - A calendar-based schedule for when to monitor a device's activity.
-- **DeviceActivityCenter** - A class that enables an application's extension to start monitoring scheduled device activity.
+- **DeviceActivityCenter** - A structure that manages scheduled activity monitoring.
 
 ### Monitor Activity
 - **DeviceActivityMonitor** - The object that monitors scheduled device activity.
 
 ### Errors
-- **MonitoringError** - Errors that may occur when starting to monitor an activity.
+- **DeviceActivityCenter.MonitoringError** - Errors that may occur when starting to monitor an activity.
 
 ### Classes
 - **DeviceActivityAuthorization**
@@ -39,6 +51,6 @@ Device Activity provides a privacy-preserving way for an application to monitor 
 
 ---
 
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
-
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/DeviceActivity)*
+
+*Changed-content source, reviewed September 8, 2026: [DeviceActivityCenter](https://developer.apple.com/documentation/deviceactivity/deviceactivitycenter.md).*

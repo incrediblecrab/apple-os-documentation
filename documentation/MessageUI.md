@@ -8,23 +8,23 @@ Create a user interface for composing email and text messages, so users can edit
 
 The Message UI framework provides specialized view controllers for presenting standard composition interfaces for email and SMS (Short Messaging Service) text messages. Use these interfaces to add message delivery capabilities, without requiring the user to leave your app.
 
-To display a composition interface, present the corresponding view controller modally from your app. Once presented, the user has the option to customize the contents before sending or canceling the message. Your custom delegate object then handles the dismissal of the view controller based on the user's action. For information on how to present and dismiss view controllers, see View Controller Programming Guide for iOS.
+Configure recipients, subject where supported, body, and attachments before presenting the composer modally. The person can then edit, send, or cancel. Assign a delegate and explicitly dismiss the controller when it reports completion; don't modify the controller's private view hierarchy.
 
-**Important:** The view controllers in this framework provide methods for determining if you can send a given message type on the current iOS device. If you can't send a message, don't display the corresponding view controller.
+**Important:** Check [`canSendMail()`](https://developer.apple.com/documentation/messageui/mfmailcomposeviewcontroller/cansendmail()) or [`canSendText()`](https://developer.apple.com/documentation/messageui/mfmessagecomposeviewcontroller/cansendtext()) before presenting the corresponding interface. Check attachment and subject capabilities separately for messages. Framework availability doesn't mean the device or account can send that message type.
+
+Composition completion isn't proof of delivery. Mail queues an approved message in its outbox, and the Mail or Messages app handles actual sending. MessageUI doesn't provide silent, app-controlled delivery.
 
 ## Topics
 
 ### Email composition interface
-- **MFMailComposeViewController** - A standard view controller, whose interface lets the user manage, edit, and send email messages.
+- [`MFMailComposeViewController`](https://developer.apple.com/documentation/messageui/mfmailcomposeviewcontroller) - A user-approved email composer; iOS/iPadOS 3+, Mac Catalyst 13.1+, and visionOS 1+.
 
 ### Message composition interface
-- **MFMessageComposeViewController** - A standard view controller whose interface lets the user compose and send SMS or MMS messages.
+- [`MFMessageComposeViewController`](https://developer.apple.com/documentation/messageui/mfmessagecomposeviewcontroller) - An SMS/MMS composer; iOS/iPadOS 4+, Mac Catalyst 13.1+, and visionOS 1+, subject to capability checks.
 
 ### Enumerations
-- **MFMailComposeControllerDeferredAction**
+- [`MFMailComposeControllerDeferredAction`](https://developer.apple.com/documentation/messageui/mfmailcomposecontrollerdeferredaction) - An enumeration declaration in the reference. The page doesn't document cases or a composition workflow for it; use the documented composer interfaces above.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/MessageUI)*

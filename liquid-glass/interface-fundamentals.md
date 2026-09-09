@@ -2,18 +2,16 @@
 
 Explore the components that go into building your app's interface, and discover platform-specific features that improve the experience you offer to people.
 
-**Platforms:** iOS 14.0+ | iPadOS 14.0+ | macOS 11.0+ | tvOS 14.0+ | visionOS 26.0+ | watchOS 7.0+
+**Platforms:** iOS | iPadOS | macOS | tvOS | visionOS | watchOS
 
-> **Note:** This document covers interface fundamentals across all supported versions. For Liquid Glass design system features, see the dedicated [Liquid Glass documentation](introduction.md) which requires iOS 26.0+, iPadOS 26.0+, macOS Tahoe 26.0+, tvOS 26.0+, visionOS 26.0+, and watchOS 26.0+.
-
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** The fundamentals below are unchanged, but two things affect every interface. Liquid Glass rendering is refined (stronger content diffusion, a darkened edge ring, brighter specular highlights), and a continuous transparency slider in Settings > Appearance lets people tune translucency across a spectrum rather than choosing Clear or Tinted. Validate your layouts across that full range, and under Reduce Transparency and Increase Contrast. On iPadOS 27, Split View and Slide Over now operate inside the windowing framework, so re-test any layout logic that assumes a fixed set of multitasking states.
+These are architectural and design concepts, not a shared minimum-OS requirement. Check individual APIs for availability. See [Liquid Glass](introduction.md) for the material's adoption guidance and [Materials](../human-interface-guidelines/foundations/materials.md) for the distinct visionOS window treatment.
 
 ## Overview
 
 To build your app's interface, you can use standard system views, draw content yourself, or mix custom drawing with the standard views. Regardless of how you create your content, all interfaces rely on some standard components to present that content:
 
 - **Windows** are the primary containers for your app's content, and they also facilitate system-related interactions
-- **Scenes** manage instances of your app's interface in iOS, iPadOS, tvOS, visionOS, and watchOS
+- **Scenes** organize interface instances in SwiftUI, including on macOS, and in UIKit's scene-based lifecycle
 - **Views and controls** display specific types of content in your interface
 - **Volumes** are a specific type of window that you use to showcase 2D and 3D content in visionOS
 
@@ -24,10 +22,10 @@ The app-builder technologies you use to create your app maintain a separation be
 ### Core Architecture Components
 
 **Windows**  
-Windows are the primary containers for your app's content, and they also facilitate system-related interactions. Every SwiftUI, UIKit, and AppKit app has at least one window, and some platforms let your app display multiple windows simultaneously. Windows in macOS, iPadOS, and visionOS can have a visible border and controls to change the size of the window. Windows in iOS, tvOS, and watchOS have no visible appearance of their own.
+Windows are the primary containers for window-based app content, and they also facilitate system-related interactions. Some platforms let your app display multiple windows simultaneously. Not every app needs a conventional content window: SwiftUI supports macOS utilities composed only of a [`MenuBarExtra`](https://developer.apple.com/documentation/swiftui/menubarextra). Windows in macOS, iPadOS, and visionOS can have a visible border and resizing controls; in iOS, tvOS, and watchOS, the window container has no visible appearance of its own.
 
 **Scenes**  
-Scenes manage instances of your app's interface in iOS, iPadOS, tvOS, visionOS, and watchOS. Every SwiftUI and UIKit app has at least one scene, and you can create additional scenes to manage distinct experiences. Each scene manages the data for one instance of your interface and any relevant system behaviors. AppKit apps don't use scenes.
+In the SwiftUI app lifecycle, an app's body combines one or more [`Scene`](https://developer.apple.com/documentation/swiftui/scene) values, including on macOS. UIKit's scene-based lifecycle uses `UIWindowScene` and scene delegates to manage interface instances. Don't conflate these with AppKit's own window/controller lifecycle, or assume that older UIKit lifecycle implementations use scenes.
 
 **Views and Controls**  
 Views and controls display specific types of content in your interface. SwiftUI, UIKit, and AppKit provide views for displaying standard types of content like images, text, collections, pickers, buttons, toggles, and much more. They also define the architecture that you use to create custom views and display any content you want.
@@ -62,7 +60,7 @@ Key considerations:
 - Implement straightforward navigation patterns
 - Minimize text input and complex interactions
 - Use lockups to group related views into single, selectable elements
-- Design for the 10-foot experience
+- Design for comfortable viewing and interaction from across the room
 
 **visionOS**  
 Design your visionOS interface around an initial window to provide a familiar starting point for interactions. Add depth-based offsets to specific views to emphasize parts of your window, or to indicate a change in modality.
@@ -74,7 +72,7 @@ Key considerations:
 - Build 3D content as USD assets using RealityKit
 
 **watchOS**  
-Design your watchOS app to deliver only the most relevant content in a timely manner. Be prepared to support different sizes of Apple Watch, ranging from 38mm to 45mm.
+Design your watchOS app to deliver only the most relevant content in a timely manner. Adapt to all supported watch display sizes and larger text instead of assuming a fixed range of hardware dimensions.
 
 Key considerations:
 - Support Always-On display updates
@@ -104,28 +102,24 @@ To load resource files present in your app bundle:
 - **Undo Support** - Identify actions and build reversible tasks
 - **Pasteboard** - Support Cut, Copy, and Paste operations
 
-### Platform Feature Matrix
+### Platform review map
 
-| Feature | iOS | iPadOS | macOS | tvOS | visionOS | watchOS |
-|---------|-----|--------|-------|------|----------|---------|
-| **Supported Technologies** | SwiftUI, UIKit | SwiftUI, UIKit | SwiftUI, AppKit | SwiftUI, UIKit, TVUIKit | SwiftUI, UIKit | SwiftUI |
-| **Full-screen Mode** | Yes | Yes | Available | Yes | Available | Yes |
-| **Dark Mode** | Yes | Yes | Yes | Yes | No | No |
-| **Dynamic Type** | Yes | Yes | No | No | Yes | Yes |
-| **Multiple Windows** | Yes* | Yes | Yes | No | Yes | No |
-| **Menu Types** | Context | Main, context | Main, context, Dock | None | Main, context | None |
-| **Primary Interaction** | Touch | Touch, Apple Pencil, Magic Keyboard | Mouse, keyboard | Siri Remote | Eyes, hands | Touch, Digital Crown |
-| **Bluetooth Keyboard** | Yes | Yes | Yes | No | Yes | No |
-| **Background Tasks** | Limited | Limited | Yes | No | Limited | No |
-| **CarPlay Support** | Yes | No | No | No | No | No |
+| Entrypoint | Review a representative task |
+|------------|------------------------------|
+| [iOS](../human-interface-guidelines/getting-started/iOS.md) | Navigate and edit with reachable controls, the keyboard visible, and larger text. |
+| [iPadOS](../human-interface-guidelines/getting-started/iPadOS.md) | Resize a window and switch between touch, Pencil, pointer, and keyboard without losing work. |
+| [macOS](../human-interface-guidelines/getting-started/macOS.md) | Work across document windows, menus, toolbars, and keyboard commands. |
+| [tvOS](../human-interface-guidelines/getting-started/tvOS.md) | Move focus, select content, and dismiss playback controls using a remote from across the room. |
+| [visionOS](../human-interface-guidelines/getting-started/visionOS.md) | Read and interact comfortably while preserving awareness of the surroundings. |
+| [watchOS](../human-interface-guidelines/getting-started/watchOS.md) | Understand a glanceable value and complete a brief action, including with the Digital Crown. |
 
-*iOS supports multiple windows when an external display is connected.*
+Across these tasks, test VoiceOver, appropriate larger-text support, right-to-left layouts, contrast, and reduced visual effects. API availability and particular input devices vary by platform; they cannot be reduced to a universal yes/no feature table.
 
 ### Related Components
 
-- [SwiftUI](https://developer.apple.com/design/human-interface-guidelines/swiftui) - Declarative UI framework
-- [UIKit](https://developer.apple.com/design/human-interface-guidelines/uikit) - iOS and iPadOS UI framework
-- [AppKit](https://developer.apple.com/design/human-interface-guidelines/appkit) - macOS UI framework
+- [Design principles](../human-interface-guidelines/getting-started/design-principles.md)
+- [Accessibility](../human-interface-guidelines/foundations/accessibility.md)
+- [Materials](../human-interface-guidelines/foundations/materials.md)
 
 ### Developer Documentation
 
@@ -134,8 +128,7 @@ To load resource files present in your app bundle:
 - [AppKit](https://developer.apple.com/documentation/appkit) - Framework
 - [WindowGroup](https://developer.apple.com/documentation/swiftui/windowgroup) - SwiftUI
 - [Scene](https://developer.apple.com/documentation/swiftui/scene) - SwiftUI
-- [Auto Layout](https://developer.apple.com/documentation/uikit/auto_layout) - UIKit
-- [Background Assets](https://developer.apple.com/documentation/backgroundassets) - Framework
+- [View layout](https://developer.apple.com/documentation/uikit/view-layout) - UIKit
 
 ---
 

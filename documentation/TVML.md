@@ -4,151 +4,151 @@ Use Apple TV Markup Language to create individual pages inside of a client-serve
 
 **Deprecated:** TVML is deprecated in tvOS 18 and later. Instead, develop apps for tvOS with SwiftUI or UIKit.
 
+This is a legacy content reference, not a statement that TVML was removed in tvOS 18. See [TVMLKit](TVMLKit.md) for the native host and its individual API minima, and [the SwiftUI media-catalog sample](https://developer.apple.com/documentation/swiftui/creating-a-tvos-media-catalog-app-in-swiftui) for migration.
+
 ## Overview
 
-Every page in a client-server app is built on an Apple TV Markup Language (TVML) template. TVML templates define what elements can be used and in what order. Each template is designed to display information in a specific way. For example, **loadingTemplate** shows a spinner and a quick description of what is happening, while **ratingTemplate** shows the rating for a product. You create a new TVML file that contains a single template for each page in a client-server app. Each template page occupies the entire TV screen.
+In a traditional TVML client-server app, a document uses a template to define a page's allowed elements and layout. For example, `loadingTemplate` supplies a spinner and optional explanatory text, while `ratingTemplate` displays a rating. The full-page templates below provide predefined layouts; native hybrid apps can coordinate TVML documents through `TVDocumentViewController` rather than placing all navigation logic in JavaScript.
 
-Each template page uses compound and simple elements. Compound elements contain other elements, while simple elements are single lines of TVML. Elements contain the information and images that are displayed on the screen.
+Compound elements group other elements; simple elements generally supply individual visual, textual, or media content. This distinction concerns the element's content model, not whether its XML occupies one line or several. Check each element's supported children.
 
-Every template has a default presentation theme associated with it. You can set a specific theme for your app setting **UIUserInterfaceStyle** in the info.plist file. Themes provide a consistent look inside of a template.
+Each template documents its default theme; some follow the system preference and others default to dark. The [`UIUserInterfaceStyle` property-list key](https://developer.apple.com/documentation/bundleresources/information-property-list/uiuserinterfacestyle), available on **tvOS 10+**, controls the app's appearance preference.
 
-You control the flow of a client-server app through a JavaScript file that is called by your binary app. Your JavaScript file needs to be able to load TVML pages and respond to user input. For more information on available JavaScript APIs, see **TVMLKit JS**.
+The native app launches the TVMLKit JavaScript environment. In the traditional model, that JavaScript loads documents and responds to user input; [TVMLKit JS](tvmljs.md) describes the APIs. TVML is not a general HTML/CSS browser renderer, so new Safari web-platform features do not automatically become TVML features.
 
 ## Topics
 
 ### Full-Page Templates
-- **alertTemplate** - Displays important information to the user.
-- **catalogTemplate** - Displays groups of items along one side of a page and images of a group's contents on the other side.
-- **compilationTemplate** - Displays information about a single media item and its components.
-- **descriptiveAlertTemplate** - Displays large amounts of important information to the user.
-- **divTemplate** - Provides the ability to create pages that don't conform to a layout defined by another template.
-- **formTemplate** - Provides the ability to gather information from the user.
-- **listTemplate** - Displays a list of items along one side of a page and the corresponding image on the other side.
-- **loadingTemplate** - Displays a spinner and description on the screen.
-- **mainTemplate** - Displays user options for a media item.
-- **menuBarTemplate** - Creates a page with items along the top and related information below.
-- **oneupTemplate** - Creates a page that allows users to navigate between full-screen images.
-- **paradeTemplate** - Displays a groups of items along one side of a page and scrolling images on the other side.
-- **productBundleTemplate** - Displays information for a group of related media items.
-- **productTemplate** - Displays detailed information about a single product.
-- **ratingTemplate** - Displays a rating for an item.
-- **searchTemplate** - Searches for a media item based on user input.
-- **showcaseTemplate** - Displays images the user can navigate between.
-- **stackTemplate** - Displays groups of products.
-- [Displaying a Product or Bundle in a Full-Page Template](https://developer.apple.com/documentation/tvml/displaying_a_product_or_bundle_in_a_full-page_template) - Specify scrollable and fixed regions in a product page.
+- [`alertTemplate`](https://developer.apple.com/documentation/tvml/alerttemplate) - Important information with actions.
+- [`catalogTemplate`](https://developer.apple.com/documentation/tvml/catalogtemplate) - Categories beside images of the selected category's contents.
+- [`compilationTemplate`](https://developer.apple.com/documentation/tvml/compilationtemplate) - A media item made up of components, such as an album and its tracks.
+- [`descriptiveAlertTemplate`](https://developer.apple.com/documentation/tvml/descriptivealerttemplate) - Longer information, such as terms of service, with actions.
+- [`divTemplate`](https://developer.apple.com/documentation/tvml/divtemplate) - A layout composed with TVML positioning styles when a predefined template does not fit.
+- [`formTemplate`](https://developer.apple.com/documentation/tvml/formtemplate) - Text entry with a keyboard and action buttons.
+- [`listTemplate`](https://developer.apple.com/documentation/tvml/listtemplate) - Items from a category beside related item information.
+- [`loadingTemplate`](https://developer.apple.com/documentation/tvml/loadingtemplate) - A spinner with optional explanatory text.
+- [`mainTemplate`](https://developer.apple.com/documentation/tvml/maintemplate) - Media actions over a background image.
+- [`menuBarTemplate`](https://developer.apple.com/documentation/tvml/menubartemplate) - A top menu with related content below.
+- [`oneupTemplate`](https://developer.apple.com/documentation/tvml/oneuptemplate) - Full-screen images with navigation between them.
+- [`paradeTemplate`](https://developer.apple.com/documentation/tvml/paradetemplate) - Automatically scrolling images associated with the selected category.
+- [`productBundleTemplate`](https://developer.apple.com/documentation/tvml/productbundletemplate) - Details and related items for a media bundle.
+- [`productTemplate`](https://developer.apple.com/documentation/tvml/producttemplate) - Product details and related content.
+- [`ratingTemplate`](https://developer.apple.com/documentation/tvml/ratingtemplate) - A title and rating display.
+- [`searchTemplate`](https://developer.apple.com/documentation/tvml/searchtemplate) - Search input and a results area; application code handles the input and supplies results.
+- [`showcaseTemplate`](https://developer.apple.com/documentation/tvml/showcasetemplate) - A browsable row of images with descriptions and focus emphasis.
+- [`stackTemplate`](https://developer.apple.com/documentation/tvml/stacktemplate) - Vertically arranged groups of products.
+- [Displaying a Product or Bundle in a Full-Page Template](https://developer.apple.com/documentation/tvml/displaying-a-product-or-bundle-in-a-full-page-template) - A tvOS 13+ sample for scrollable and fixed product-page regions.
 
 ### Compound Elements
-Compound elements are multiple-line TVML elements that encapsulate other compound or simple TVML elements.
+Compound elements group supported child elements; XML line wrapping does not determine their type.
 
 #### Background Elements
-Control background images and media items that play in the background.
+[Background Elements](https://developer.apple.com/documentation/tvml/background-elements) control background images and media.
 
 #### Banner and Header Elements
-Provide initial descriptive information for other elements.
+[Banner and Header Elements](https://developer.apple.com/documentation/tvml/banner-and-header-elements) introduce content.
 
 #### Information Elements
-Group and display content in the form best suited for the information.
+[Information Elements](https://developer.apple.com/documentation/tvml/information-elements) group descriptive content.
 
 #### Layout Elements
-Organize and display multiple elements in a structured layout.
+[Layout Elements](https://developer.apple.com/documentation/tvml/layout-elements) arrange child elements.
 
 #### Lockup Elements
-Combine several elements so that they can be treated as a single element.
+[Lockup Elements](https://developer.apple.com/documentation/tvml/lockup-elements) combine content into a single item.
 
 ### Simple Elements
-Simple elements often don't contain other elements and typically fit on one line.
+Simple elements provide individual pieces of content. Their permitted contents are defined by each element, not by a one-line syntax requirement.
 
 #### Display Elements
-Display a visual element, such as an image, badge, or progress overlay.
+[Display Elements](https://developer.apple.com/documentation/tvml/display-elements) include images, badges, and progress visuals.
 
 #### Multimedia Elements
-Provide the user the ability to stream audio and search for information stored on a server.
+[Multimedia Elements](https://developer.apple.com/documentation/tvml/multimedia-elements) include audio and search-input elements; application code handles input-driven retrieval.
 
 #### Text Elements
-Display text onscreen.
+[Text Elements](https://developer.apple.com/documentation/tvml/text-elements) display text.
 
 ### Styles
-Customize TVML elements using the TVML styles provided by Apple. Usage of these styles is optional, and you can create great client-server apps without ever changing the default look of an element.
+Use the supported TVML style properties when an element's default presentation needs customization. Do not assume arbitrary browser CSS is supported.
 
 #### Color Styles
-Provide the ability to customize an element's color.
+[Color Styles](https://developer.apple.com/documentation/tvml/color-styles) customize colors.
 
 #### Text Styles
-Change the text characteristics for an element.
+[Text Styles](https://developer.apple.com/documentation/tvml/text-styles) control text presentation.
 
 #### Element Shaping
-Modify the size and shape of an element.
+[Element Shaping](https://developer.apple.com/documentation/tvml/element-shaping) controls size and shape.
 
 #### Element Alignment and Spacing
-Modify the alignment and spacing between elements.
+[Element Alignment and Spacing](https://developer.apple.com/documentation/tvml/element-alignment-and-spacing) controls layout.
 
 #### Style Properties
-- **tv-placeholder** - Sets a default image for an img or monogram element.
-- **tv-rating-style** - Sets the displayed image for rating a product.
-- **tv-transition** - Specifies how an element transitions on and off the screen.
-- **tv-text-highlight-style** - Specifies how an element looks when it comes into focus.
-- **tv-scrollable-bounds-inset** - Creates an unscrollable region of a specified size at the top and bottom of the stack template.
+- [`tv-placeholder`](https://developer.apple.com/documentation/tvml/tv-placeholder) - A placeholder image for an `img` or `monogram`.
+- [`tv-rating-style`](https://developer.apple.com/documentation/tvml/tv-rating-style) - The image used for a product rating.
+- [`tv-transition`](https://developer.apple.com/documentation/tvml/tv-transition) - An element's transition effect.
+- [`tv-text-highlight-style`](https://developer.apple.com/documentation/tvml/tv-text-highlight-style) - Label visibility and scrolling when focused.
+- [`tv-scrollable-bounds-inset`](https://developer.apple.com/documentation/tvml/tv-scrollable-bounds-inset) - Unscrollable regions at a stack template's top and bottom; using them also changes the automatic content-offset adjustment for peeking.
 
 ### Attributes
 Customize how TVML elements look and respond to user inputs by using attributes. Except where noted, attributes override the styles set for an element.
 
 #### Image Attributes
-Retrieve images from a server and specify how they fit into an element.
+[Image Attributes](https://developer.apple.com/documentation/tvml/image-attributes) specify image sources and fitting.
 
 #### Text Attributes
-Modify how text is displayed, entered, and laid out.
+[Text Attributes](https://developer.apple.com/documentation/tvml/text-attributes) control display, entry, and layout.
 
 #### Focus Attributes
-Define how an element acts when it comes into focus.
+[Focus Attributes](https://developer.apple.com/documentation/tvml/focus-attributes) control focus-related behavior.
 
 #### Binding and DOM Manipulation
-Implement binding and impove DOM manipulation options.
+[Binding and DOM Manipulation](https://developer.apple.com/documentation/tvml/binding-and-dom-manipulation) covers data bindings and document updates.
 
 #### Inline Playback
-Set when and how inline playback is initiated.
+[Inline Playback](https://developer.apple.com/documentation/tvml/inline-playback) attributes control when and how playback starts.
 
 #### Alignment, Scrolling, and Coloring
-Align elements within a shelf, set how your app reacts to scrolling, and set the overall color scheme for your app.
+[Alignment, Scrolling, and Coloring](https://developer.apple.com/documentation/tvml/alignment-scrolling-and-coloring) covers shelf alignment, scrolling behavior, and color themes.
 
 ### Queries
 Use queries inside of a style element to define different values for the same style in a single class.
 
 #### Media Queries
-Change the look and layout of a page based on the user's preferences.
+[Media Queries](https://developer.apple.com/documentation/tvml/media-queries) adapt layout and presentation to supported preferences.
 
 #### Data Binding Queries
-Compare a value from a JSON file to another value.
+[Data Binding Queries](https://developer.apple.com/documentation/tvml/data-binding-queries) compare values used by data bindings.
 
 ### Resource Icons
-Access Apple-provided icons for buttons, media item ratings, and general usage.
-- [Adding Resource Icons](https://developer.apple.com/documentation/tvml/adding_resource_icons) - Add Apple-provided icons to buttons and as independent images.
+These are the legacy TVML resource catalogs, not an up-to-date table of regional rating regulations.
+- [Adding Resource Icons](https://developer.apple.com/documentation/tvml/adding-resource-icons) - Use built-in icons on buttons or as images.
 
 #### Button Icons
-Icons that indicate the function of a button.
+[Button Icons](https://developer.apple.com/documentation/tvml/button-icons) indicate button actions.
 
 #### Movie Rating Icons (United States)
-Icons that pertain to United States movie ratings.
+[Movie Rating Icons (United States)](https://developer.apple.com/documentation/tvml/movie-rating-icons-united-states).
 
 #### Television Rating Icons (United States)
-Icons that pertain to United States television ratings.
+[Television Rating Icons (United States)](https://developer.apple.com/documentation/tvml/television-rating-icons-united-states).
 
 #### Rating Icons (New Zealand)
-Icons that pertain to New Zealand movie ratings.
+[Rating Icons (New Zealand)](https://developer.apple.com/documentation/tvml/rating-icons-new-zealand).
 
 #### Rating Icons (United Kingdom)
-Icons that pertain to United Kingdom movie ratings.
+[Rating Icons (United Kingdom)](https://developer.apple.com/documentation/tvml/rating-icons-united-kingdom).
 
 #### Rating Icons (Brazil)
-Icons that pertain to Brazil movie ratings.
+[Rating Icons (Brazil)](https://developer.apple.com/documentation/tvml/rating-icons-brazil).
 
 #### Rotten Tomatoes Rating Icons
-Icons pertaining to the Rotten Tomatoes rating system.
+[Rotten Tomatoes Rating Icons](https://developer.apple.com/documentation/tvml/rotten-tomatoes-rating-icons).
 
 #### Miscellaneous Icons
-Miscellaneous icons that don't fall into a specific category.
+[Miscellaneous Icons](https://developer.apple.com/documentation/tvml/miscellaneous-icons).
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/TVML)*

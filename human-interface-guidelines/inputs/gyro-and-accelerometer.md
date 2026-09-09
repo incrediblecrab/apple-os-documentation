@@ -2,13 +2,13 @@
 
 On-device gyroscopes and accelerometers can supply data about a device's movement in the physical world.
 
-**Platforms:** iOS | iPadOS | tvOS | watchOS
+**Platforms:** iOS | iPadOS | macOS | tvOS | visionOS | watchOS
 
 ## Overview
 
-You can use accelerometer and gyroscope data to provide experiences based on real-time, motion-based information in apps and games that run in iOS, iPadOS, and watchOS. tvOS apps can use gyroscope data from the Siri Remote.
+You can use available accelerometer and gyroscope data to provide real-time, motion-based experiences. Check the chosen API and device's capabilities rather than assuming every platform has the same sensors. For example, Core Motion exposes availability properties for device sensors, while a game controller's [`motion`](https://developer.apple.com/documentation/gamecontroller/gccontroller/motion) profile is `nil` when the controller doesn't support motion input. Don't assume every Siri Remote provides it.
 
-> **iOS 27+, iPadOS 27+:** Liquid Glass specular highlights respond to device motion and are brighter and more defined in OS 27. If your app also drives motion-based visual effects, verify the combination does not become distracting, and honor Reduce Motion.
+If your app adds motion-driven visual effects, check that they do not distract from a task or impair comfort. Respect [Reduce Motion](../foundations/motion.md), and provide alternatives when a physical motion gesture would make an essential action difficult.
 
 ## Topics
 
@@ -17,7 +17,7 @@ You can use accelerometer and gyroscope data to provide experiences based on rea
 - **Use motion data only to offer a tangible benefit to people** - For example, a fitness app might use the data to provide feedback about people's activity and general health, and a game might use the data to enhance gameplay. Avoid gathering data simply to have the data.
 - **Outside of active gameplay, avoid using accelerometers or gyroscopes for the direct manipulation of your interface** - Some motion-based gestures may be difficult to replicate precisely, may be physically challenging for some people to perform, and may affect battery usage.
 
-Important: If your experience needs to access motion data from a device, you must provide copy that explains why. The first time your app or game tries to access this type of data, the system includes your copy in a permission request, where people can grant or deny access.
+Important: Explain why your app needs motion data and handle unavailable or denied access. Include [`NSMotionUsageDescription`](https://developer.apple.com/documentation/bundleresources/information-property-list/nsmotionusagedescription) when required by the motion APIs you use. Don't assume that every live sensor or controller API has the same authorization flow.
 
 ### Platform Considerations
 
@@ -29,14 +29,12 @@ No additional considerations for iOS, iPadOS, macOS, tvOS, visionOS, or watchOS.
 
 ### Developer Documentation
 
-- [Getting processed device-motion data](https://developer.apple.com/documentation/coremotion/getting_processed_device-motion_data) - Core Motion
+- [Getting processed device-motion data](https://developer.apple.com/documentation/coremotion/getting-processed-device-motion-data) - Core Motion
 
 ### Videos
 
-- [Measure health with motion](https://developer.apple.com/videos/play/wwdc2024/10116/)
+- [Measure health with motion](https://developer.apple.com/videos/play/wwdc2021/10287)
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/gyro-and-accelerometer)*

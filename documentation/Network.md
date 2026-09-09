@@ -6,9 +6,23 @@ Create network connections to send and receive data using transport and security
 
 ## Overview
 
-Use this framework when you need direct access to protocols like TLS, TCP, and UDP for your custom application protocols. Continue to use URLSession, which is built upon this framework, for loading HTTP- and URL-based resources. For in-depth advice on where to start with networking, see TN3151: Choosing the right networking API.
+Use this framework when you need direct access to protocols like TLS, TCP, and UDP for your custom application protocols. Continue to use URLSession, which is built upon this framework, for loading HTTP- and URL-based resources. For in-depth advice on where to start with networking, see [TN3151: Choosing the right networking API](https://developer.apple.com/documentation/technotes/tn3151-choosing-the-right-networking-api).
 
-> **Note:** watchOS supports Network framework for specific use cases. For more details, see TN3135: Low-level networking on watchOS.
+The reference spans multiple API generations. `NetworkConnection`, `NetworkListener`, `NetworkBrowser`, `ProtocolStackBuilder`, and `NetworkEncoder`/`NetworkDecoder` require **26.0** on their declared platforms; they are not aliases available at the older `NWConnection` minimum. Other milestones include `NWBrowser` and WebSocket/framing support in iOS 13/macOS 10.15, connection groups in iOS 14/macOS 11, QUIC in iOS 15/macOS 12, `ProxyConfiguration` in iOS 17/macOS 14, and `TXTRecordDecoder` in iOS 18/macOS 15. Wi-Fi Aware error constants and the ultra-constrained/link-quality query functions listed below are also 26.0 additions.
+
+> **watchOS:** Low-level networking is limited to active audio streaming (watchOS 6+), CallKit VoIP calls (9+), and the supported watchOS 9/tvOS 16 DeviceDiscoveryUI connection workflow. An ordinary unsupported connection can remain waiting with `ENETDOWN`; Simulator behavior is not proof of device support. See [TN3135](https://developer.apple.com/documentation/technotes/tn3135-low-level-networking-on-watchos).
+
+### Local-network permission and connection failures
+
+Local-network privacy applies on iOS/iPadOS 14+, macOS 15+, and visionOS 1+, not tvOS or watchOS. Add `NSLocalNetworkUsageDescription` when required, and declare Bonjour service types used for registration or browsing in `NSBonjourServices`. Raw multicast/broadcast and some unrestricted Bonjour operations additionally require `com.apple.developer.networking.multicast` on iOS/iPadOS/visionOS, but not macOS.
+
+An operation can initially fail while the permission alert is still pending. Handle waiting and failure states instead of treating a discovered endpoint as an authorized, usable connection. Bonjour can report `kDNSServiceErr_PolicyDenied`; an `NWConnection` path can report `.localNetworkDenied`. If permission is revoked, an established local TCP connection closes. See [TN3179](https://developer.apple.com/documentation/technotes/tn3179-understanding-local-network-privacy) for platform and provider exceptions.
+
+### Security scope in the 27 generation
+
+**Reviewed September 8, 2026:** The new TLS 1.2 minimum and stricter ATS cipher/certificate requirements in the 27 release notes concern selected **system processes** for MDM, DDM, Automated Device Enrollment, configuration-profile installation, app installation, and software updates. They are not a universal behavioral change to every `NWConnection` or other app network call.
+
+Use TLS appropriately for your own protocols and preserve server trust validation. Apple's [ATS documentation](https://developer.apple.com/documentation/security/preventing-insecure-network-connections) distinguishes the URL Loading System, where ATS applies, from lower-level Network and CFNetwork calls, where the app controls connection security. See [Security](Security.md) and [Device Management](DeviceManagement.md) for the targeted system-process changes and audit guidance.
 
 ## Topics
 
@@ -21,11 +35,11 @@ Use this framework when you need direct access to protocols like TLS, TCP, and U
 - **NWListener** - An object you use to listen for incoming network connections.
 - **NWBrowser** - An object you use to browse for available network services.
 - **NWConnectionGroup** - An object you use to communicate with a group of endpoints, such as an IP multicast group on a local network.
-- **NWEthernetChannel** - An object you use to send and receive custom Ethernet frames.
+- **NWEthernetChannel** - Native macOS 10.15+ custom Ethernet-frame access, requiring `com.apple.developer.networking.custom-protocol`; not a cross-platform connection class.
 
 ### Network Protocols
 - Configure protocol options to use with connections and listeners, and inspect the results of protocol handshakes.
-- [Building a custom peer-to-peer protocol](https://developer.apple.com/documentation/network/building_a_custom_peer-to-peer_protocol) - Use networking frameworks to create a custom protocol for playing a game across iOS, iPadOS, watchOS, and tvOS devices.
+- [Building a custom peer-to-peer protocol](https://developer.apple.com/documentation/network/building-a-custom-peer-to-peer-protocol) - The TicTacToe sample uses Bonjour/TLS between iOS/iPadOS peers and DeviceDiscoveryUI for Apple TV companions, including watchOS. Its deployment metadata starts at iOS/iPadOS/tvOS 16 and watchOS 9.
 - **NWProtocolTCP** - A network protocol for connections that use the Transmission Control Protocol.
 - **NWProtocolTLS** - A network protocol for connections that use Transport Layer Security.
 - **NWProtocolQUIC** - A network protocol for connections that use the QUIC transport protocol.
@@ -37,11 +51,11 @@ Use this framework when you need direct access to protocols like TLS, TCP, and U
 ### Network Security and Privacy
 
 #### Security Options
-- Configure security options for TLS handshakes.
+- [Security options](https://developer.apple.com/documentation/network/security-options) - Configure security options for TLS handshakes.
 
 #### Privacy Management
-- Configure parameters related to user privacy.
-- [Creating an Identity for Local Network TLS](https://developer.apple.com/documentation/network/creating_an_identity_for_local_network_tls) - Learn how to create and use a digital identity in your application for local network TLS.
+- [Privacy management](https://developer.apple.com/documentation/network/privacy-management) - Configure parameters related to user privacy.
+- [Creating an Identity for Local Network TLS](https://developer.apple.com/documentation/network/creating-an-identity-for-local-network-tls) - Distribute a server identity and client trust anchor. Prefer correct DNS/IP subject alternative names and normal trust evaluation over a custom verification fallback.
 
 ### Paths and Interfaces
 - **NWPath** - An object that contains information about the properties of the network that a connection uses, or that are available to your app.
@@ -52,48 +66,95 @@ Use this framework when you need direct access to protocols like TLS, TCP, and U
 - **NWError** - The errors returned by objects in the Network framework.
 
 ### Network Debugging
-- [Choosing a Network Debugging Tool](https://developer.apple.com/documentation/network/choosing_a_network_debugging_tool) - Decide which tool works best for your network debugging problem.
-- [Debugging HTTP Server-Side Errors](https://developer.apple.com/documentation/network/debugging_http_server-side_errors) - Understand HTTP server-side errors and how to debug them.
-- [Debugging HTTPS Problems with CFNetwork Diagnostic Logging](https://developer.apple.com/documentation/network/debugging_https_problems_with_cfnetwork_diagnostic_logging) - Use CFNetwork diagnostic logging to investigate HTTP and HTTPS problems.
-- [Recording a Packet Trace](https://developer.apple.com/documentation/network/recording_a_packet_trace) - Learn how to record a low-level trace of network traffic.
-- [Taking Advantage of Third-Party Network Debugging Tools](https://developer.apple.com/documentation/network/taking_advantage_of_third-party_network_debugging_tools) - Learn about the available third-party network debugging tools.
-- [Testing and Debugging L4S in Your App](https://developer.apple.com/documentation/network/testing_and_debugging_l4s_in_your_app) - Learn how to verify your app on an L4S-capable host and network to improve your app's responsiveness.
+- [Choosing a Network Debugging Tool](https://developer.apple.com/documentation/network/choosing-a-network-debugging-tool) - Decide which tool works best for your network debugging problem.
+- [Debugging HTTP Server-Side Errors](https://developer.apple.com/documentation/network/debugging-http-server-side-errors) - Understand HTTP server-side errors and how to debug them.
+- [Debugging HTTPS Problems with CFNetwork Diagnostic Logging](https://developer.apple.com/documentation/network/debugging-https-problems-with-cfnetwork-diagnostic-logging) - Use CFNetwork diagnostic logging to investigate HTTP and HTTPS problems.
+- [Recording a Packet Trace](https://developer.apple.com/documentation/network/recording-a-packet-trace) - Learn how to record a low-level trace of network traffic.
+- [Taking Advantage of Third-Party Network Debugging Tools](https://developer.apple.com/documentation/network/taking-advantage-of-third-party-network-debugging-tools) - Learn about the available third-party network debugging tools.
+- [Testing and Debugging L4S in Your App](https://developer.apple.com/documentation/network/testing-and-debugging-l4s-in-your-app) - Verify client, server, and bottleneck-network support; L4S does not provide a universal latency guarantee.
 
 ### C-Language Symbols
-- Access Network framework symbols used in C.
+- [C-language symbols](https://developer.apple.com/documentation/network/c-language-symbols) - Access Network framework symbols used in C.
 
 ### Structures
 - **nw_interface_radio_type_t**
 - **nw_multipath_version_t**
 - **nw_path_unsatisfied_reason_t**
 - **nw_quic_stream_type_t**
-- **Bonjour** - A browser that discovers Bonjour services.- **BonjourListenerProvider** - Advertise a Bonjour service.- **Coder** - A protocol that frames and encodes/decodes Codable types.- **DefaultProtocolStorage**- **Framer** - An instance of a Framer protocol to load into a protocol stack.- **IP** - The system definition of the Internet Protocol (IP).- **NWParametersBuilder** - An opaque class that is responsible for creating and configuring NWParameters based on the parameterized protocol stack.- **NWTXTRecord** - A dictionary representing a TXT record in a DNS packet.
-- **NetworkJSONCoder**- **NetworkPropertyListCoder**- **ProtocolMetadataBuilder** - A resultBuilder for configuring metadata in send methods in a declarative way.- **ProtocolStackBuilder** - A resultBuilder for specifying and configuring protocol stacks in a declarative way- **ProxyConfiguration** - A proxy configuration for Relays, Oblivious HTTP, HTTP CONNECT, or SOCKSv5.
-- **QUIC** - The system definition of the QUIC protocol.- **QUICDatagram** - Send and receive unreliable datagrams over QUIC via RFC 9221- **QUICStream** - A QUIC stream that runs over a QUIC connection.- **TCP** - The system definition of the Transmission Control Protocol (TCP).- **TLS** - The system definition of the Transport Layer Security (TLS) protocol.- **TLV** - A Type-Length-Value (TLV) framing protocol.- **TXTRecordDecoder**
-- **UDP** - The system definition of the User Datagram Protocol (UDP).- **UnexpectedEndpointType** - An error generated when an unexpected endpoint type is supplied.- **WebSocket** - The system definition of the WebSocket protocol.- **nw_link_quality_t**
+- **Bonjour** - A browser that discovers Bonjour services.
+- **BonjourListenerProvider** - Advertise a Bonjour service.
+- **Coder** - Frames and encodes or decodes Codable messages.
+- [DTLS](https://developer.apple.com/documentation/network/dtls) - A **27 beta** protocol-stack type for encrypted byte datagrams using Datagram Transport Layer Security.
+- **DefaultProtocolStorage**
+- **Framer** - An instance of a Framer protocol to load into a protocol stack.
+- **IP** - The system definition of the Internet Protocol (IP).
+- **NWParametersBuilder** - A generic structure that creates and configures NWParameters from a typed protocol stack.
+- **NWTXTRecord** - A dictionary representing a TXT record in a DNS packet.
+- **NetworkJSONCoder**
+- **NetworkPropertyListCoder**
+- **ProtocolMetadataBuilder** - A result builder for configuring metadata in send methods.
+- **ProtocolStackBuilder** - A result builder for specifying and configuring protocol stacks.
+- **ProxyConfiguration** - A proxy configuration for Relays, Oblivious HTTP, HTTP CONNECT, or SOCKSv5.
+- **QUIC** - The system definition of the QUIC protocol.
+- **QUICDatagram** - Sends and receives unreliable datagrams over QUIC via RFC 9221.
+- **QUICStream** - A QUIC stream that runs over a QUIC connection.
+- **TCP** - The system definition of the Transmission Control Protocol (TCP).
+- **TLS** - The system definition of the Transport Layer Security (TLS) protocol.
+- **TLV** - A Type-Length-Value (TLV) framing protocol.
+- **TXTRecordDecoder**
+- **UDP** - The system definition of the User Datagram Protocol (UDP).
+- **UnexpectedEndpointType** - An error generated when an unexpected endpoint type is supplied.
+- **WebSocket** - The system definition of the WebSocket protocol.
+- **nw_link_quality_t**
 
 ### Classes
 - **NWMultiplexGroup**
-- **NetworkBrowser** - Discover advertised services and devices on the network.- **NetworkConnection** - Connect to an endpoint on the network to send and receive data.- **NetworkListener** - Listen for incoming network connections.
+- **NetworkBrowser** - Discovers advertised services and devices on the network.
+- [NetworkChannel](https://developer.apple.com/documentation/network/networkchannel) - The 26.0+ generic base class whose send/receive interface depends on its application protocol.
+- **NetworkConnection** - Connects to an endpoint on the network to send and receive data.
+- **NetworkListener** - Listens for incoming network connections.
+
 ### Reference
 - **Network Constants** - Access Network framework constants used in C.
 - **Network Functions** - Access Network framework functions used in C.
 - **Network Data Types**
 
 ### Protocols
-- **BrowserProvider** - BrowserProviders can be used when creating NetworkBrowsers.- **Connectable** - Describes types that can be used to make NetworkConnections.- **ConnectionProtocol**- **ConnectionStorage** - Types that conform to ConnectionStorage can be used as additional storage within a connection.- **DatagramProtocol** - Types that conform to DatagramProtocol send and receive messages with minimal or no metadata, usually constrained to a fixed maximum size.- **FramerProtocol** - Framer protocols allow custom framing and serialization of messages on a connection.- **ListenerProvider** - Extensible support for configuring advertise descriptors to define the service a listener should advertise.- **MessageProtocol** - Types that conform to MessageProtocol send and receive messages. The conforming type is responsible for specifying its message-specific metadata.- **MultiplexProtocol** - Types that conform to MultiplexProtocol are allowed to be the top protocol in a network protocol stack for multiplexing network connection objects.- **NWParametersProvider** - Types that conform to the NWParametersProvider protocol can be used to generate an NWParameters.- **NetworkCoder**- **NetworkDecoder** - A type that conforms to the NetworkEncoder protocol can decode data to an Encodable object- **NetworkEncoder** - A type that conforms to the NetworkEncoder protocol can encode a Encodable object to Data- **NetworkFixedWidthInteger**- **NetworkMetadataProtocol** - Types that conform to NetworkProtocolOptions can be used when configuring protocol stacks.- **NetworkProtocolOptions**- **OneToOneProtocol** - Types that conform to OneToOneProtocol are allowed to be the top protocol in a network protocol stack for non-multiplexed connections.- **StreamProtocol** - Types that conform to the StreamProtocol protocol expose methods for sending and receiving byte streams.- **SubConnectionProtocol**
+- **BrowserProvider** - Provides browsing behavior when creating NetworkBrowser instances.
+- **Connectable** - Describes endpoints usable by NetworkConnection.
+- **ConnectionStorage** - Additional storage within a connection.
+- **DatagramProtocol** - Sends and receives datagrams, typically subject to a maximum size.
+- **FramerProtocol** - Provides custom framing and serialization of messages.
+- **ListenerProvider** - Configures the service a listener advertises.
+- **MessageProtocol** - Sends and receives messages with protocol-specific metadata.
+- **MultiplexProtocol** - A top-level protocol for multiplexed connections.
+- **NWParametersProvider** - Generates NWParameters.
+- **NetworkCoder**
+- [NetworkDecoder](https://developer.apple.com/documentation/network/networkdecoder) - Decodes Data into a `Decodable` value using a throwing method; distinct from NetworkEncoder.
+- [NetworkEncoder](https://developer.apple.com/documentation/network/networkencoder) - Encodes Encodable values into Data.
+- **NetworkFixedWidthInteger**
+- **NetworkMetadataProtocol** - A marker protocol for the metadata type associated with `NetworkProtocolOptions`.
+- **NetworkProtocolOptions**
+- **OneToOneProtocol** - A top-level protocol for nonmultiplexed connections.
+- **StreamProtocol** - Sends and receives byte streams.
+
 ### Variables
-- **kNWErrorDomainWiFiAware**- **nw_error_domain_wifi_aware**- **nw_link_quality_good**
+- **kNWErrorDomainWiFiAware**
+- **nw_error_domain_wifi_aware**
+- **nw_link_quality_good**
 - **nw_link_quality_minimal**
 - **nw_link_quality_moderate**
 - **nw_link_quality_unknown**
 
 ### Functions
-- **nw_parameters_get_allow_ultra_constrained**- **nw_parameters_set_allow_ultra_constrained**- **nw_path_get_link_quality**- **nw_path_is_ultra_constrained**- **withNetworkConnection**
-### Enumerations
-- **AdvertisedRoute**
+- **nw_parameters_get_allow_ultra_constrained**
+- **nw_parameters_set_allow_ultra_constrained**
+- **nw_path_get_link_quality**
+- **nw_path_is_ultra_constrained**
+- **withNetworkConnection**
+
 ---
 
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
-
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/Network)*
+
+*Security-scope sources: [ATS documentation](https://developer.apple.com/documentation/security/preventing-insecure-network-connections.md) and [iOS/iPadOS 27 release notes — Network Security](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes.md).*

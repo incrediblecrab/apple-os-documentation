@@ -20,7 +20,7 @@ In contrast to a toolbar, a tab bar is specifically for navigating between areas
 
 ### Best Practices
 
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Scroll-under toolbars automatically become uniform and less translucent while content passes beneath them, improving control legibility over busy content. This behavior uses the existing Liquid Glass API surface and responds to the transparency slider and accessibility contrast settings.
+Let standard toolbars manage their background and scroll edge treatment. Test custom toolbar controls over the actual scrolling content, including increased contrast and reduced transparency; see [Materials](../foundations/materials.md).
 
 - **Choose items deliberately to avoid overcrowding** - People need to be able to distinguish and activate each item, so you don't want to put too many items in the toolbar. To accommodate variable view widths, define which items move to the overflow menu as the toolbar becomes narrower.
 
@@ -34,7 +34,7 @@ Note: The system automatically adds an overflow menu in macOS or iPadOS when ite
 
 - **Prefer using standard components in a toolbar** - By default, standard buttons, text fields, headers, and footers have corner radii that are concentric with bar corners. If you need to create a custom component, ensure that its corner radius is also concentric with the bar's corners.
 
-- **Avoid using a segmented control in a toolbar** - Segmented controls let people switch contexts, whereas a toolbar's actions are specific to the current view. For guidance, see Segmented controls.
+- **Keep navigation and actions clearly grouped** - Separate controls that change context from actions on the current content, so each group's purpose is clear.
 
 - **Consider temporarily hiding toolbars for a distraction-free experience** - Sometimes people appreciate a minimal interface to reduce distractions or reveal more content. If you support this, do so contextually when it makes the most sense, and offer ways to reliably restore hidden interface elements. For guidance, see Going full screen. For guidance specific to visionOS, see Immersive experiences.
 
@@ -156,7 +156,7 @@ Use a scrolling toolbar button for an important action that isn't a primary app 
 
 ### Videos
 
-- [Get to know the new design system](https://developer.apple.com/videos/play/wwdc2025/10052/)
+- [Get to know the new design system](https://developer.apple.com/videos/play/wwdc2025/356)
 
 ## Changelog
 
@@ -170,7 +170,5 @@ Use a scrolling toolbar button for an important action that isn't a primary app 
 - Updated guidance for using toolbars in watchOS.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/toolbars)*

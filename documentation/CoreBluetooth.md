@@ -2,7 +2,7 @@
 
 Communicate with Bluetooth low energy and BR/EDR ("Classic") Devices.
 
-**Platforms:** iOS 5.0+ | iPadOS 5.0+ | Mac Catalyst 13.0+ | macOS 10.10+ | tvOS 9.0+ | visionOS 1.0+ | watchOS 4.0+
+**Framework catalog:** iOS 5.0+ | iPadOS 5.0+ | macOS 10.10+ | tvOS 9.0+ | visionOS 1.0+ | watchOS 4.0+. For Mac Catalyst, core classes such as `CBCentralManager` require 13.1, not the catalog's 13.0 label. Individual declarations can also predate the catalog minimum, such as `CBCentralManager` on macOS 10.7.
 
 ## Overview
 
@@ -13,6 +13,10 @@ Don't subclass any of the classes of the Core Bluetooth framework. Overriding th
 Core Bluetooth background execution modes aren't supported in iPad apps running on macOS.
 
 > **Important:** Your app will crash if its Info.plist doesn't include usage description keys for the types of data it needs to access. To access Core Bluetooth APIs on apps linked on or after iOS 13, include the NSBluetoothAlwaysUsageDescription key. In iOS 12 and earlier, include NSBluetoothPeripheralUsageDescription to access Bluetooth peripheral data.
+
+Purpose strings are not permission grants. Check `CBManager.authorization` where available and handle refusal or later changes. Wait for the manager's state-update callback and a `.poweredOn` state before scanning or connecting; `state` is read-only, not a switch an app can set to turn on Bluetooth.
+
+In iOS 26 and later, an app with an instantiated `CBManager` can retain foreground-like Bluetooth privileges while a Live Activity started before backgrounding is active, including the documented less-restricted scanning behavior. This is a conditional background path, not a guarantee of unlimited runtime or support for every iOS-compatible Mac app.
 
 ## Topics
 
@@ -30,7 +34,11 @@ Core Bluetooth background execution modes aren't supported in iPad apps running 
 - **CBAttributePermissions** - Values that represent the read, write, and encryption permissions for a characteristic's value.
 
 ### Data Transfer
-- [Transferring Data Between Bluetooth Low Energy Devices](https://developer.apple.com/documentation/corebluetooth/transferring_data_between_bluetooth_low_energy_devices) - Create a Bluetooth low energy central and peripheral device, and allow them to discover each other and exchange data.
+- [Transferring Data Between Bluetooth Low Energy Devices](https://developer.apple.com/documentation/corebluetooth/transferring-data-between-bluetooth-low-energy-devices) - Create a Bluetooth low energy central and peripheral device, and allow them to discover each other and exchange data.
+
+### Channel Sounding in 27
+- [Measuring distance between devices using Channel Sounding](https://developer.apple.com/documentation/corebluetooth/measuring-distance-between-devices-using-channel-sounding) - Apple's sample requires an iOS 27 Channel Sounding-capable iPhone, described as iPhone 17 or later, and a Bluetooth 6.3 Channel Sounding responder. It cannot run this ranging workflow in Simulator.
+- The sample pairs through AccessorySetupKit before creating its Bluetooth manager to avoid a competing permission prompt. Channel Sounding sessions require an AccessorySetupKit-paired accessory. Check hardware support after the manager reaches `.poweredOn`, and handle failed or unavailable measurements rather than displaying an invalid distance.
 
 ### Services
 - **CBService** - A collection of data and associated behaviors that accomplish a function or feature of a device.
@@ -47,30 +55,27 @@ Core Bluetooth background execution modes aren't supported in iPad apps running 
 - **CBUUID** - A universally unique identifier, as defined by Bluetooth standards.
 
 ### Bluetooth Classic Support
-- [Using Core Bluetooth Classic](https://developer.apple.com/documentation/corebluetooth/using_core_bluetooth_classic) - Discover and communicate with a Bluetooth Classic device by using the Core Bluetooth APIs.
+- [Using Core Bluetooth Classic](https://developer.apple.com/documentation/corebluetooth/using-core-bluetooth-classic) - Discover and communicate with a Bluetooth Classic device using the sample's iOS 13-generation Core Bluetooth APIs.
 
 ### Errors
 - **CBError** - An error that Core Bluetooth returns during Bluetooth transactions.
 - **CBErrorDomain** - The domain for Core Bluetooth errors.
-- **Code** - The codes for errors that Core Bluetooth returns during Bluetooth transactions.
+- **CBError.Code** - The codes for errors that Core Bluetooth returns during Bluetooth transactions.
 - **CBATTError** - An error that Core Bluetooth returns while using Attribute Protocol (ATT).
 - **CBATTErrorDomain** - The domain for Core Bluetooth ATT errors.
-- **Code** - The possible errors returned by a GATT server (a remote peripheral) during Bluetooth low energy ATT transactions.
-- **CBATTError** - An error that Core Bluetooth returns while using Attribute Protocol (ATT).
+- **CBATTError.Code** - The possible errors returned by a GATT server (a remote peripheral) during Bluetooth low energy ATT transactions.
 
 ### Deprecated
 - **CBCentralManagerState** - Values that represent the current state of a central manager object. *Deprecated*
 - **CBPeripheralManagerState** - Values that represent the current state of the peripheral manager. *Deprecated*
-- [Deprecated Constants](https://developer.apple.com/documentation/corebluetooth/deprecated_constants) - This document describes the constants found in the Core Bluetooth framework.
+- [Deprecated Constants](https://developer.apple.com/documentation/corebluetooth/deprecated-constants) - The framework's deprecated constants reference.
 
 ### Variables
 - **CBUUIDCharacteristicObservationScheduleString**
 
 ### See Also
-- [Core Bluetooth Programming Guide](https://developer.apple.com/library/archive/documentation/NetworkingInternetWeb/Conceptual/CoreBluetooth_concepts/AboutCoreBluetooth/Introduction.html) - Related Documentation
+- [Core Bluetooth Programming Guide](https://developer.apple.com/library/archive/documentation/NetworkingInternetWeb/Conceptual/CoreBluetooth_concepts/AboutCoreBluetooth/Introduction.html) - Archived concepts and background-processing guidance; consult current references for newer behavior.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/CoreBluetooth)*

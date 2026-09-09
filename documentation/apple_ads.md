@@ -2,55 +2,65 @@
 
 Drive app discovery by creating and managing campaigns with the Apple Ads Campaign Management API.
 
-**Platforms:** Apple Ads 2.0+
+**Availability:** Server-side Apple Ads Campaign Management API. This reference covers the older API, including version 5; it is not an OS 27 framework.
 
 ## Overview
 
-Apple Ads is an efficient and easy way to help people discover your app when they search in the App Store. With Apple Ads Campaign Management API 5, you can build Campaigns with budgets, and create ad groups that include keywords, audience refinement criteria, and scheduling.
+**Migration status, September 8, 2026:** Apple explicitly states that the [Apple Ads Platform API](AppleAdsPlatformAPI.md) supersedes the Campaign Management API, with sunset scheduled for **January 26, 2027**. This is a future retirement, not a claim that version 5 has already been removed. The new service adds Apple Maps advertising and has its own resources, account scoping, and version 1.0 contract; do not treat the names as interchangeable.
 
-You can implement your own keyword-bidding strategy in ad groups or Build a Campaign Keywords Strategy with the search match feature to automatically match your ad to relevant user searches in the App Store. Promote your campaigns to multiple countries or regions by creating ad variations in your App Store Custom Product Pages. Measure the effectiveness of your campaigns by generating campaign Reports and Impression Share Reports with meaningful metrics.
+Campaign Management API 5 manages App Store campaigns, budgets, ad groups, keyword bidding, audience criteria, and scheduling. Search Match can match ads to relevant searches without individually specifying every keyword.
+
+Check app eligibility for each intended market. Custom product pages supply ad variations and localized assets; creating a variation does not itself establish eligibility in additional countries. Use campaign and impression-share reports to evaluate performance.
+
+**Version 5 contract:** The [5.6 changelog](https://developer.apple.com/documentation/apple_ads/apple-search-ads-campaign-management-api-5) records the June 2026 removal of `budgetAmount`; use `dailyBudgetAmount`. Older versioned examples that contain lifetime budgets are not the current v5 request contract.
 
 ## Topics
 
 ### Essentials
-- [Implementing OAuth for the Apple Ads API](https://developer.apple.com/documentation/apple_ads/implementing_oauth_for_the_apple_ads_api) - Manage secure access to Ads accounts.
-- [Calling the Apple Ads API](https://developer.apple.com/documentation/apple_ads/calling_the_apple_ads_api) - Pass your access token in the authorization header of HTTP requests.
-- [Using Apple Ads API Functionality](https://developer.apple.com/documentation/apple_ads/using_apple_ads_api_functionality) - Call endpoints using CRUD methods.
+- [Implementing OAuth for the Apple Ads API](https://developer.apple.com/documentation/apple_ads/implementing-oauth-for-the-apple-search-ads-api) - Manage secure access to Ads accounts.
+- [Calling the Apple Ads API](https://developer.apple.com/documentation/apple_ads/calling-the-apple-search-ads-api) - Pass your access token in the authorization header of HTTP requests.
+- [Using Apple Ads API Functionality](https://developer.apple.com/documentation/apple_ads/using-apple-search-ads-api-functionality) - Call endpoints using CRUD methods.
 
 ### Apps
-- [Search Apps](https://developer.apple.com/documentation/apple_ads/search_apps) - Search for iOS apps to promote in a campaign.
-- [App Eligibility](https://developer.apple.com/documentation/apple_ads/app_eligibility) - Check whether your app is eligible to promote in a campaign.
-- [App Details](https://developer.apple.com/documentation/apple_ads/app_details) - Fetch app metadata.
+- [Search Apps](https://developer.apple.com/documentation/apple_ads/search-apps) - Search for iOS apps to promote in a campaign.
+- [App Eligibility](https://developer.apple.com/documentation/apple_ads/app-eligibility) - Check whether your app is eligible to promote in a campaign.
+- [App Details](https://developer.apple.com/documentation/apple_ads/app-details) - Fetch app metadata.
 
 ### Campaigns
 - [Campaigns](https://developer.apple.com/documentation/apple_ads/campaigns) - Create and manage Apple Ads campaigns.
-- [Budget Orders](https://developer.apple.com/documentation/apple_ads/budget_orders) - Manage your payment model.
-- [Ad Groups](https://developer.apple.com/documentation/apple_ads/ad_groups) - Create and manage ad groups.
-- [Targeting Keywords and Negative Keywords](https://developer.apple.com/documentation/apple_ads/targeting_keywords_and_negative_keywords) - Apply relevant words or phrases that make your campaigns findable.
-- [Search Geolocations](https://developer.apple.com/documentation/apple_ads/search_geolocations) - Search for apps and geocriteria for your campaigns.
+- [Budget Orders](https://developer.apple.com/documentation/apple_ads/budget-orders) - Cap spending across campaigns for eligible monthly-invoiced accounts; budget orders are unavailable with Pay as You Go billing.
+- [Ad Groups](https://developer.apple.com/documentation/apple_ads/ad-groups) - Create and manage ad groups.
+- [Targeting Keywords and Negative Keywords](https://developer.apple.com/documentation/apple_ads/targeting-keywords-and-negative-keywords) - Configure search targeting and keyword exclusions.
+- [Search Geolocations](https://developer.apple.com/documentation/apple_ads/search-geolocations) - Find geographic criteria and location identifiers for ad targeting.
 
 ### Custom Product Page Ads
 - [Ads](https://developer.apple.com/documentation/apple_ads/ads) - Assign an ad creative to an ad group.
-- [Ad Rejection Reasons](https://developer.apple.com/documentation/apple_ads/ad_rejection_reasons) - Review reasons for an ad rejection.
+- [Ad Rejection Reasons](https://developer.apple.com/documentation/apple_ads/ad-rejection-reasons) - Review reasons for an ad rejection.
 - [Creatives](https://developer.apple.com/documentation/apple_ads/creatives) - Create and manage ad creatives within your organization.
-- [Custom Product Pages](https://developer.apple.com/documentation/apple_ads/custom_product_pages) - View Custom Product Page details.
+- [Custom Product Pages](https://developer.apple.com/documentation/apple_ads/custom-product-pages) - View Custom Product Page details.
 
 ### Reports
 - [Reports](https://developer.apple.com/documentation/apple_ads/reports) - Generate performance metrics for your campaigns.
-- [Impression Share Reports](https://developer.apple.com/documentation/apple_ads/impression_share_reports) - Obtain metrics with impression share insights.
+- [Impression Share Reports](https://developer.apple.com/documentation/apple_ads/impression-share-reports) - Obtain metrics with impression share insights.
 
 ### Changelog
-- [Apple Ads Campaign Management API 5](https://developer.apple.com/documentation/apple_ads/apple_ads_campaign_management_api_5) - Learn about changes to Apple Ads Campaign Management API 5.
-- [Apple Ads Campaign Management API 4](https://developer.apple.com/documentation/apple_ads/apple_ads_campaign_management_api_4) - Learn about changes to Apple Ads Campaign Management API 4.
-- [Apple Ads Campaign Management API 3](https://developer.apple.com/documentation/apple_ads/apple_ads_campaign_management_api_3) - Apple no longer supports this API.
-- [Apple Ads Campaign Management API 2](https://developer.apple.com/documentation/apple_ads/apple_ads_campaign_management_api_2) - Apple no longer supports this API.
-- [Apple Ads Campaign Management API 1](https://developer.apple.com/documentation/apple_ads/apple_ads_campaign_management_api_1) - Apple no longer supports this API.
+- [Apple Ads Campaign Management API 5](https://developer.apple.com/documentation/apple_ads/apple-search-ads-campaign-management-api-5) - Review version 5 and its announced sunset.
+- [Apple Ads Campaign Management API 4](https://developer.apple.com/documentation/apple_ads/apple-search-ads-campaign-management-api-4) - Learn about changes to Apple Ads Campaign Management API 4.
+- [Apple Ads Campaign Management API 3](https://developer.apple.com/documentation/apple_ads/apple-search-ads-campaign-management-api-3) - Apple no longer supports this API.
+- [Apple Ads Campaign Management API 2](https://developer.apple.com/documentation/apple_ads/apple-search-ads-campaign-management-api-2) - Apple no longer supports this API.
+- [Apple Ads Campaign Management API 1](https://developer.apple.com/documentation/apple_ads/apple-search-ads-campaign-management-api-1) - Apple no longer supports this API.
 
-### Deprecated Endpoints and Objects
-- [Creative Sets](https://developer.apple.com/documentation/apple_ads/creative_sets) - Creative Sets is deprecated.
+### Retired functionality
+- [Creative Sets](https://developer.apple.com/documentation/apple_ads/creative-sets) - No longer supported and unavailable in API 5; use custom product page ads. Historical routes may return HTTP 200 with an invalid state, which does not indicate usable functionality.
+
+## Migration and failure handling
+
+Maintain the existing API's authorization and error handling until migration is complete. Validate account access, app eligibility, pagination, reporting differences, and write results against the new API contract before moving a production workflow. Start with read-only comparisons and avoid duplicating active campaigns or budgets during cutover.
+
+The [legacy calling guide](https://developer.apple.com/documentation/apple_ads/calling-the-apple-search-ads-api) uses `https://api.searchads.apple.com/api/v5/` and `X-AP-Context: orgId={orgId}` for scoped requests. Those are not the Platform API's base URL or `adAccountId` context. Correct an invalid token (`401`) or insufficient privileges (`403`) before retrying; use bounded backoff for transient failures.
+
+The [Platform API changelog](https://developer.apple.com/documentation/apple-ads-platform-api/changelog-apple-ads-platform-api) is the source for the August 2026 replacement and January 2027 sunset, not a platform release note.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/apple_ads)*

@@ -2,7 +2,9 @@
 
 Use built-in or custom filters to process still and video images.
 
-**Platforms:** iOS 5.0+ | iPadOS 5.0+ | Mac Catalyst 13.1+ | macOS 10.11+ | tvOS 9.0+ | visionOS 1.0+
+**Platforms:** iOS 5.0+ | iPadOS 5.0+ | Mac Catalyst 13.1+ | macOS 10.4+ | tvOS 9.0+ | visionOS 1.0+
+
+The framework landing page currently annotates macOS 10.11, but [`CIImage`](https://developer.apple.com/documentation/coreimage/ciimage) is explicitly available from macOS 10.4 in both its concrete reference and the installed SDK's `CIImage.h`. The header preserves that older image-processing baseline; it does not assign the same availability to every filter, processor, or Metal integration.
 
 ## Overview
 
@@ -12,8 +14,12 @@ You can also create new effects with custom filters and image processors; see Cu
 
 ## Topics
 
+### Kernel compatibility
+
+For new custom kernels, follow the Metal path in [Writing Custom Kernels](https://developer.apple.com/documentation/coreimage/writing-custom-kernels). The legacy [`CIKernel.init(source:)`](https://developer.apple.com/documentation/coreimage/cikernel/init(source:)) initializer accepts Core Image Kernel Language source and was already deprecated in iOS 12 and macOS 10.14. That is a legacy API distinction, not an OS 27 removal of custom filtering.
+
 ### Essentials
-- [Processing an Image Using Built-in Filters](https://developer.apple.com/documentation/coreimage/processing_an_image_using_built-in_filters) - Apply effects such as sepia tint, highlight strengthening, and scaling to images.
+- [Processing an Image Using Built-in Filters](https://developer.apple.com/documentation/coreimage/processing-an-image-using-built-in-filters) - Apply effects such as sepia tint, highlight strengthening, and scaling to images.
 - **class CIContext** - An evaluation context for rendering image processing results and performing image analysis.
 - **class CIImage** - A representation of an image to be processed or produced by Core Image filters.
 
@@ -24,30 +30,30 @@ You can also create new effects with custom filters and image processors; see Cu
 - **class CIVector** - A container for coordinate values, direction vectors, matrices, and other non-scalar values, typically used in Core Image for filter parameters.
 
 ### Filter Catalog
-- [Blur Filters](https://developer.apple.com/documentation/coreimage/blur_filters) - Apply blurs, simulate motion and zoom effects, reduce noise, and erode and dilate image regions.
-- [Color Adjustment Filters](https://developer.apple.com/documentation/coreimage/color_adjustment_filters) - Apply color transformations, including exposure, hue, and tint adjustments.
-- [Color Effect Filters](https://developer.apple.com/documentation/coreimage/color_effect_filters) - Apply color effects, including photo effects, dithering, and color maps.
-- [Composite Operations](https://developer.apple.com/documentation/coreimage/composite_operations) - Composite images by using a range of blend modes and compositing operators.
-- [Convolution Filters](https://developer.apple.com/documentation/coreimage/convolution_filters) - Produce effects such as blurring, sharpening, edge detection, translation, and embossing.
-- [Distortion Filters](https://developer.apple.com/documentation/coreimage/distortion_filters) - Apply distortion to images.
-- [Generator Filters](https://developer.apple.com/documentation/coreimage/generator_filters) - Generate barcode, geometric, and special-effect images.
-- [Geometry Adjustment Filters](https://developer.apple.com/documentation/coreimage/geometry_adjustment_filters) - Translate, scale, and rotate images in 2D and 3D.
-- [Gradient Filters](https://developer.apple.com/documentation/coreimage/gradient_filters) - Generate linear and radial gradients.
-- [Halftone Effect Filters](https://developer.apple.com/documentation/coreimage/halftone_effect_filters) - Simulate monochrome and CMYK halftone screens.
-- [Reduction Filters](https://developer.apple.com/documentation/coreimage/reduction_filters) - Create statistical information about an image.
-- [Sharpening Filters](https://developer.apple.com/documentation/coreimage/sharpening_filters) - Apply sharpening to images.
-- [Stylizing Filters](https://developer.apple.com/documentation/coreimage/stylizing_filters) - Create stylized versions of images by applying effects including pixelation and line overlays.
-- [Tile Effect Filters](https://developer.apple.com/documentation/coreimage/tile_effect_filters) - Produce tiled images from source images.
-- [Transition Filters](https://developer.apple.com/documentation/coreimage/transition_filters) - Transition between two images by using effects including page curl and swipe.
+- [Blur Filters](https://developer.apple.com/documentation/coreimage/blur-filters) - Apply blurs, simulate motion and zoom effects, reduce noise, and erode and dilate image regions.
+- [Color Adjustment Filters](https://developer.apple.com/documentation/coreimage/color-adjustment-filters) - Apply color transformations, including exposure, hue, and tint adjustments.
+- [Color Effect Filters](https://developer.apple.com/documentation/coreimage/color-effect-filters) - Apply color effects, including photo effects, dithering, and color maps.
+- [Composite Operations](https://developer.apple.com/documentation/coreimage/composite-operations) - Composite images by using a range of blend modes and compositing operators.
+- [Convolution Filters](https://developer.apple.com/documentation/coreimage/convolution-filters) - Produce effects such as blurring, sharpening, edge detection, translation, and embossing.
+- [Distortion Filters](https://developer.apple.com/documentation/coreimage/distortion-filters) - Apply distortion to images.
+- [Generator Filters](https://developer.apple.com/documentation/coreimage/generator-filters) - Generate barcode, geometric, and special-effect images.
+- [Geometry Adjustment Filters](https://developer.apple.com/documentation/coreimage/geometry-adjustment-filters) - Translate, scale, and rotate images in 2D and 3D.
+- [Gradient Filters](https://developer.apple.com/documentation/coreimage/gradient-filters) - Generate linear and radial gradients.
+- [Halftone Effect Filters](https://developer.apple.com/documentation/coreimage/halftone-effect-filters) - Simulate monochrome and CMYK halftone screens.
+- [Reduction Filters](https://developer.apple.com/documentation/coreimage/reduction-filters) - Create statistical information about an image.
+- [Sharpening Filters](https://developer.apple.com/documentation/coreimage/sharpening-filters) - Apply sharpening to images.
+- [Stylizing Filters](https://developer.apple.com/documentation/coreimage/stylizing-filters) - Create stylized versions of images by applying effects including pixelation and line overlays.
+- [Tile Effect Filters](https://developer.apple.com/documentation/coreimage/tile-effect-filters) - Produce tiled images from source images.
+- [Transition Filters](https://developer.apple.com/documentation/coreimage/transition-filters) - Transition between two images by using effects including page curl and swipe.
 
 ### Filter Recipes
-- [Applying a Chroma Key Effect](https://developer.apple.com/documentation/coreimage/applying_a_chroma_key_effect) - Replace a color in one image with the background from another.
-- [Selectively Focusing on an Image](https://developer.apple.com/documentation/coreimage/selectively_focusing_on_an_image) - Focus on a part of an image by applying Gaussian blur and gradient masks.
-- [Customizing Image Transitions](https://developer.apple.com/documentation/coreimage/customizing_image_transitions) - Transition between images in creative ways using Core Image filters.
-- [Simulating Scratchy Analog Film](https://developer.apple.com/documentation/coreimage/simulating_scratchy_analog_film) - Degrade the quality of an image to make it look like dated, analog film.
+- [Applying a Chroma Key Effect](https://developer.apple.com/documentation/coreimage/applying-a-chroma-key-effect) - Replace a color in one image with the background from another.
+- [Selectively Focusing on an Image](https://developer.apple.com/documentation/coreimage/selectively-focusing-on-an-image) - Focus on a part of an image by applying Gaussian blur and gradient masks.
+- [Customizing Image Transitions](https://developer.apple.com/documentation/coreimage/customizing-image-transitions) - Transition between images in creative ways using Core Image filters.
+- [Simulating Scratchy Analog Film](https://developer.apple.com/documentation/coreimage/simulating-scratchy-analog-film) - Degrade the quality of an image to make it look like dated, analog film.
 
 ### Custom Filters
-- [Writing Custom Kernels](https://developer.apple.com/documentation/coreimage/writing_custom_kernels) - Write your own custom kernels in either the Core Image Kernel Language or the Metal Shading Language.
+- [Writing Custom Kernels](https://developer.apple.com/documentation/coreimage/writing-custom-kernels) - Write your own custom kernels in either the Core Image Kernel Language or the Metal Shading Language.
 - **class CIKernel** - A GPU-based image-processing routine used to create custom Core Image filters.
 - **class CIColorKernel** - A GPU-based image-processing routine that processes only the color information in images, used to create custom Core Image filters.
 - **class CIWarpKernel** - A GPU-based image-processing routine that processes only the geometry information in an image, used to create custom Core Image filters.
@@ -62,7 +68,7 @@ You can also create new effects with custom filters and image processors; see Cu
 - **protocol CIImageProcessorOutput** - A container for writing image data and information produced by a custom image processor.
 
 ### Custom Render Destination
-- [Generating an animation with a Core Image Render Destination](https://developer.apple.com/documentation/coreimage/generating_an_animation_with_a_core_image_render_destination) - Animate a filtered image to a Metal view in a SwiftUI app using a Core Image Render Destination.
+- [Generating an animation with a Core Image Render Destination](https://developer.apple.com/documentation/coreimage/generating-an-animation-with-a-core-image-render-destination) - Animate a filtered image to a Metal view in a SwiftUI app using a Core Image Render Destination.
 - **class CIRenderDestination** - A specification for configuring all attributes of a render task's destination and issuing asynchronous render tasks.
 - **class CIRenderInfo** - An encapsulation of a render task's timing, passes, and pixels processed.
 - **class CIRenderTask** - A single render task.
@@ -117,7 +123,5 @@ You can also create new effects with custom filters and image processors; see Cu
   - [Core Image Programming Guide](https://developer.apple.com/library/archive/documentation/GraphicsImaging/Conceptual/CoreImaging/ci_intro/ci_intro.html)
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/CoreImage)*

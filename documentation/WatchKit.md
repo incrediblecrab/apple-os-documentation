@@ -6,46 +6,50 @@ Build watchOS apps that use features the app delegate monitors or controls, such
 
 ## Overview
 
-The WatchKit framework provides infrastructure for creating watchOS apps, including an extension delegate that manages background tasks, extended runtime sessions, and Siri intents. The framework also performs other support tasks, such as accessing information about the user's Apple Watch.
+WatchKit supplies watch-specific application callbacks, background-task handling, extended-runtime sessions, and device information. New single-target apps use `WKApplication` and `WKApplicationDelegate`; older app-plus-extension projects use the legacy extension objects.
 
 You can also use WatchKit to design your app's user interface in a storyboard, connecting UI elements to an interface controller.
 
-**Note:** Building your app with SwiftUI gives you more control over the user interface than designing it in a storyboard. When creating a new watchOS app, strongly consider using SwiftUI. For more information, see Building a watchOS app.
+Prefer SwiftUI for new interfaces. Storyboard-based WatchKit interfaces remain a distinct legacy workflow, not a requirement for using the framework's lifecycle or device APIs.
 
-For more information on building watchOS apps, see watchOS apps.
+For platform guidance, see [watchOS apps](https://developer.apple.com/documentation/watchos-apps).
 
-## What's New in the OS 27 SDK
+## Framework boundaries
 
-watchOS 27 adds a dynamic app grid that highlights Siri-suggested and recently used apps, plus an updated Smart Stack with a single-tap widget gesture and visible wallet and transit balances.
+Use [SwiftUI](SwiftUI.md) for new watch interfaces, [WidgetKit](WidgetKit.md) for complications and Smart Stack widgets, and [RelevanceKit](RelevanceKit.md) for relevance clues. WatchKit still manages watch-specific application callbacks and runtime sessions; changes to the system's app grid are not new WatchKit APIs. Consult [`WKExtendedRuntimeSession`](https://developer.apple.com/documentation/watchkit/wkextendedruntimesession) for supported extended-runtime use cases rather than assuming a widget grants unrestricted background execution.
+
+### Lifecycle and runtime availability
+
+`WKApplication`, its delegate, and `WKApplicationMain` begin at watchOS 7. Xcode 14 introduced the single-target project structure, which can deploy to watchOS 7; its introduction isn't an OS 27 requirement. `WKExtension` and `WKExtensionDelegate` begin at watchOS 2 and are deprecated from 9.2, not described as removed.
+
+Extended-runtime sessions require watchOS 6. An app selects one supported session type — self care, mindfulness, physical therapy, or smart alarm — through Background Modes. Some sessions remain frontmost rather than running in the background. Start or schedule a session while the app is active, respect its time limit, and handle invalidation; excessive CPU use can cause cancellation.
 
 ## Topics
 
 ### App structure
-- [Setting up a watchOS project](https://developer.apple.com/documentation/watchkit/setting-up-a-watchos-project) - Create a new watchOS project or add a watch target to an existing iOS project.
-- **WKApplication** - The centralized point of control and coordination for apps with a single watchOS app target.
-- **WKApplicationDelegate** - A collection of methods that manages the app-level behavior for a single-target watchOS app.
-- **WKExtension** - The centralized point of control and coordination for extension-based apps running in watchOS.
-- **WKExtensionDelegate** - A collection of methods that manages the app-level behavior of a WatchKit extension.
-- **WKApplicationMain** - Creates the application object and the application delegate, and sets up the app's event cycle.
-- **WKInterfaceDevice** - An object that provides information about the user's Apple Watch.
-- **WKPrefersNetworkUponForeground** - A Boolean value that indicates whether an app requires network access on launch.
+- [Setting up a watchOS project](https://developer.apple.com/documentation/watchos-apps/setting-up-a-watchos-project) - Create a watch app or add a watch target to an iOS project.
+- [`WKApplication`](https://developer.apple.com/documentation/watchkit/wkapplication) - Coordinates a single-target watchOS app.
+- [`WKApplicationDelegate`](https://developer.apple.com/documentation/watchkit/wkapplicationdelegate) - Handles its application-level events; SwiftUI apps can connect it through `WKApplicationDelegateAdaptor`.
+- [`WKExtension`](https://developer.apple.com/documentation/watchkit/wkextension) - The legacy extension-based application object.
+- [`WKExtensionDelegate`](https://developer.apple.com/documentation/watchkit/wkextensiondelegate) - Handles legacy extension-level events.
+- [`WKApplicationMain(_:_:_:)`](https://developer.apple.com/documentation/watchkit/wkapplicationmain(_:_:_:)) - Creates the application/delegate and enters the event loop.
+- [`WKInterfaceDevice`](https://developer.apple.com/documentation/watchkit/wkinterfacedevice) - Provides device information and haptics; obtain the shared instance with `current()` rather than constructing or subclassing it.
+- [`WKPrefersNetworkUponForeground`](https://developer.apple.com/documentation/bundleresources/information-property-list/wkprefersnetworkuponforeground) - A watchOS 9+ property-list preference for enabling cellular networking promptly on launch in Low Power Mode. It defaults to `NO`, and doesn't guarantee connectivity.
 
 ### Runtime management
 - [Background execution](https://developer.apple.com/documentation/watchkit/background-execution) - Manage background sessions and tasks.
 - [Life cycles](https://developer.apple.com/documentation/watchkit/life-cycles) - Receive and respond to life-cycle notifications.
 - [Using extended runtime sessions](https://developer.apple.com/documentation/watchkit/using-extended-runtime-sessions) - Create an extended runtime session that continues running your app after the user stops interacting with it.
-- **WKExtendedRuntimeSession** - A session that continues to run your app after the user has stopped interacting.
+- [`WKExtendedRuntimeSession`](https://developer.apple.com/documentation/watchkit/wkextendedruntimesession) - Provides bounded runtime for a supported use case after interaction stops.
 - [Interacting with Bluetooth peripherals during background app refresh](https://developer.apple.com/documentation/watchkit/interacting-with-bluetooth-peripherals-during-background-app-refresh) - Keep your complications up-to-date by reading values from a Bluetooth peripheral while your app is running in the background.
 
 ### User interface
 - [Storyboard support](https://developer.apple.com/documentation/watchkit/storyboard-support) - Connect your code to storyboard elements using interface controllers, interface objects, and event handlers.
-- **NowPlayingView** - A view that displays the system's Now Playing interface so that the user can control audio.
+- [`NowPlayingView`](https://developer.apple.com/documentation/watchkit/nowplayingview) - A watchOS 7+ SwiftUI audio-control view. The system chooses the current or most recently used source; present it full-screen in a nonscrolling container without additional elements.
 
 ### Errors
-- **WatchKitError** - An error reported by WatchKit.
+- [`WatchKitError`](https://developer.apple.com/documentation/watchkit/watchkiterror) - A structure representing a WatchKit error; its current reference doesn't specify an introduction version.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/WatchKit)*

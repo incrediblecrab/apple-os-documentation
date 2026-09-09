@@ -12,8 +12,6 @@ As a slider's value changes, the portion of track between the minimum value and 
 
 ### Best Practices
 
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Liquid Glass now diffuses busy background content more aggressively, adds a subtle darkened edge ring, and renders brighter specular highlights, improving legibility without extra visual noise. People can tune overall translucency with the transparency slider in Settings > Appearance, and the material also responds to Reduce Transparency and Increase Contrast.
-
 - **Customize a slider's appearance if it adds value** - You can adjust a slider's appearance — including track color, thumb image and tint color, and left and right icons — to blend with your app's design and communicate intent. A slider that adjusts image size, for example, could show a small image icon on the left and a large image icon on the right.
 
 - **Use familiar slider directions** - People expect the minimum and maximum sides of sliders to be consistent in all apps, with minimum values on the leading side and maximum values on the trailing side (for horizontal sliders) and minimum values at the bottom and maximum values at the top (for vertical sliders). For example, people expect to be able to move a horizontal slider that represents a percentage from 0 percent on the leading side to 100 percent on the trailing side.
@@ -27,7 +25,7 @@ As a slider's value changes, the portion of track between the minimum value and 
 
 **macOS**  
 - Sliders in macOS can also include tick marks, making it easier for people to pinpoint a specific value within the range.
-- In a linear slider without tick marks, the thumb is round, and the portion of track between the minimum value and the thumb is filled with color. In a linear slider with tick marks, the thumb is directional — pointing toward the tick marks — and the track isn't tinted. A linear slider often includes supplementary icons that illustrate the meaning of the minimum and maximum values.
+- In the current macOS design, a linear slider has a narrow, lozenge-shaped thumb whether or not it includes tick marks. The track from the minimum value to the thumb is filled with color. Supplementary icons can clarify the minimum and maximum values.
 - In a circular slider, the thumb appears as a small circle. Tick marks, when present, appear as evenly spaced dots around the circumference of the slider.
 - Consider giving live feedback as the value of a slider changes. Live feedback shows people results in real time. For example, your Dock icons are dynamically scaled when adjusting the Size slider in Dock settings.
 - Choose a slider style that matches peoples' expectations. A horizontal slider is ideal when moving between a fixed starting and ending point. For example, a graphics app might offer a horizontal slider for setting the opacity level of an object between 0 and 100 percent. Use circular sliders when values repeat or continue indefinitely. For example, a graphics app might use a circular slider to adjust the rotation of an object between 0 and 360 degrees. An animation app might use a circular slider to adjust how many times an object spins when animated — four complete rotations equals four spins, or 1440 degrees of rotation.
@@ -62,7 +60,5 @@ As a slider's value changes, the portion of track between the minimum value and 
 - Updated to include guidance for visionOS.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/sliders)*

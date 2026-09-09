@@ -21,21 +21,21 @@ You can also use this framework with Create ML to train and deploy custom natura
 ## Topics
 
 ### Tokenization
-- [Tokenizing natural language text](https://developer.apple.com/documentation/naturallanguage/tokenizing_natural_language_text) - Enumerate the words in a string
+- [Tokenizing natural language text](https://developer.apple.com/documentation/naturallanguage/tokenizing-natural-language-text.md) - Enumerate the words in a string
 - **NLTokenizer** - A tokenizer that segments natural language text into semantic units
 
 ### Language Identification
-- [Identifying the language in text](https://developer.apple.com/documentation/naturallanguage/identifying_the_language_in_text) - Detect the language in a piece of text by using a language recognizer
+- [Identifying the language in text](https://developer.apple.com/documentation/naturallanguage/identifying-the-language-in-text.md) - Detect the language in a piece of text by using a language recognizer
 - **NLLanguageRecognizer** - The language of a body of text
 - **NLLanguage** - The languages that the Natural Language framework supports
 
 ### Linguistic Tags
-- [Identifying parts of speech](https://developer.apple.com/documentation/naturallanguage/identifying_parts_of_speech) - Classify nouns, verbs, adjectives, and other parts of speech in a string
-- [Identifying people, places, and organizations](https://developer.apple.com/documentation/naturallanguage/identifying_people_places_and_organizations) - Use a linguistic tagger to perform named entity recognition on a string
+- [Identifying parts of speech](https://developer.apple.com/documentation/naturallanguage/identifying-parts-of-speech.md) - Classify nouns, verbs, adjectives, and other parts of speech in a string
+- [Identifying people, places, and organizations](https://developer.apple.com/documentation/naturallanguage/identifying-people-places-and-organizations.md) - Use a linguistic tagger to perform named entity recognition on a string
 - **NLTagger** - A tagger that analyzes natural language text
 
 ### Text Embedding
-- [Finding similarities between pieces of text](https://developer.apple.com/documentation/naturallanguage/finding_similarities_between_pieces_of_text) - Calculate the semantic distance between words or sentences
+- [Finding similarities between pieces of text](https://developer.apple.com/documentation/naturallanguage/finding-similarities-between-pieces-of-text.md) - Calculate the semantic distance between words or sentences
 - **NLEmbedding** - A map of strings to vectors, which locates neighboring, similar strings
 
 ### Contextual Embedding
@@ -44,12 +44,10 @@ You can also use this framework with Create ML to train and deploy custom natura
 - **NLScript** - The writing scripts that the Natural Language framework supports
 
 ### Natural Language Models
-- [Creating a text classifier model](https://developer.apple.com/documentation/naturallanguage/creating_a_text_classifier_model) - Train a machine learning model to classify natural language text
-- [Creating a word tagger model](https://developer.apple.com/documentation/naturallanguage/creating_a_word_tagger_model) - Train a machine learning model to tag individual words in natural language text
+- [Creating a text classifier model](https://developer.apple.com/documentation/createml/creating-a-text-classifier-model.md) - Train a machine learning model to classify natural language text
+- [Creating a word tagger model](https://developer.apple.com/documentation/createml/creating-a-word-tagger-model.md) - Train a machine learning model to tag individual words in natural language text
 - **NLModel** - A custom model trained to classify or tag natural language text
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/NaturalLanguage)*

@@ -2,25 +2,50 @@
 
 Create age-appropriate experiences in your app by asking people to share their age range.
 
-**Platforms:** iOS 26.0+ | iPadOS 26.0+ | Mac Catalyst 26.0+ | macOS 26.0+ | visionOS 26.0+ | watchOS 26.0+
+**Platforms:** iOS 26.0+ | iPadOS 26.0+ | Mac Catalyst 26.0+ | macOS 26.0+
 
 ## Overview
 
-Use the Declared Age Range framework to request people to share their age range with your app. For children in a Family Sharing group, a Family Organizer can decide whether to always share a child's age information with your app, ask the child every time, or never share their age information. Along with an age range, the system returns an AgeRangeService.AgeRangeDeclaration for the age range a person provides.
+Declared Age Range supplies an age range without disclosing an exact birthday. A request defines age gates relevant to the app; a successful response includes range bounds and declaration information. Parents or guardians can control sharing for children in Family Sharing. Account and regional conditions can affect both the sharing flow and the returned ranges.
 
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** The 2026 App Store Review Guidelines tighten age handling. **1.2.1(a)** requires apps with user-generated content to provide a way to flag content exceeding the app's age rating plus an age restriction mechanism based on verified or declared age, and **4.7.5** extends the same requirement to HTML5/JavaScript mini apps and mini games. DeclaredAgeRange returns age **ranges** only and is parent-controlled for children in Family Sharing.
+### Entitlement and response handling
+
+Enable `com.apple.developer.declared-age-range`, a **Boolean** entitlement, through the target's Declared Age Range capability. Request an age range using `AgeRangeService` or the SwiftUI `DeclaredAgeRangeAction`.
+
+Handle `.sharing` and `.declinedSharing` distinctly. A `nil` lower bound means the person is below the lowest age gate; a `nil` upper bound means they meet or exceed the highest gate. Interpret these bounds using the applicable gates rather than treating either missing value as an error or an unconditional adult signal. Declined sharing and service errors do not establish adulthood. In some regulated regions, the system supplies the range automatically and may use different gates from those requested by the app.
+
+The system can cache range information and may not immediately move a person into a new range on their birthday. Do not calculate an exact birthdate from a range or assume a saved response remains current after account or sharing-setting changes. Reevaluate the relevant flow when needed, while respecting the system's caching behavior.
+
+### Feature-specific availability
+
+**Reviewed September 8, 2026:** These are separate additions to the 26-generation API, not blanket new OS 27 requirements:
+
+- [`isEligibleForAgeFeatures`](https://developer.apple.com/documentation/declaredagerange/agerangeservice/iseligibleforagefeatures) starts at 26.2. It describes the current person's eligibility for the age-related system flow; it is not an age value. Apple's guide says it returns `false` on macOS, where apps can still request a declared range.
+- [`requiredRegulatoryFeatures`](https://developer.apple.com/documentation/declaredagerange/agerangeservice/requiredregulatoryfeatures) starts at 26.4. Inspect its returned feature set instead of hard-coding one region's behavior for everyone.
+- [`AgeRangeDeclaration.confirmed`](https://developer.apple.com/documentation/declaredagerange/agerangeservice/agerangedeclaration/confirmed) starts at 26.5. It indicates a scrutinized declaration method; it does not disclose which identity document or payment credential was used.
+- [`SignificantUpdateAction`](https://developer.apple.com/documentation/declaredagerange/significantupdateaction) starts at 26.4 on iOS, iPadOS, and Mac Catalyst. Its declaration does not list native macOS, despite the framework's broader platform list.
+- [PermissionKit](PermissionKit.md) supplies permission questions and responses for significant app updates. Asking a parent is not the same as receiving approval.
+
+Guard each newer symbol on supported targets. Keep denial, unavailable-service, and parental-response paths explicit; this framework reference does not define App Review or legal requirements.
+
+For parental app-use consent, Apple's request guide also describes App Store Server Notifications V2 `RESCIND_CONSENT` notifications. Handle withdrawal by updating the app's state and restricting consent-dependent access. This consent channel is distinct from a cached age-range response or its sharing settings.
 
 ## Topics
 
 ### Essentials
-- **com.apple.developer.declared-age-range** - A Boolean value indicating whether your app may request a person's age range.
+- [com.apple.developer.declared-age-range](https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.declared-age-range) - The age-range request entitlement.
+- [Requesting people's age range information](https://developer.apple.com/documentation/declaredagerange/requesting-people-share-their-age-range-with-your-app) - Request, interpret, and handle failures without acquiring an exact birthday.
 
 ### Age Range Requests
-- **AgeRangeService** - A request for the age range of a person logged onto iCloud on the device.
-- **DeclaredAgeRangeAction** - Provides an action to request a person's declared age range.
+- [AgeRangeService](https://developer.apple.com/documentation/declaredagerange/agerangeservice) - Requests and feature queries for the person using the device.
+- [DeclaredAgeRangeAction](https://developer.apple.com/documentation/declaredagerange/declaredagerangeaction) - SwiftUI request action.
+- [Implementing age assurance and permissions](https://developer.apple.com/documentation/declaredagerange/implementing-age-assurance-and-permissions) - A sample integrating age ranges and update permissions; check the individual APIs' availability.
+
+### Significant change acknowledgment
+- [SignificantUpdateAction](https://developer.apple.com/documentation/declaredagerange/significantupdateaction) - System presentation for significant-update acknowledgment.
 
 ---
 
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
-
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/DeclaredAgeRange)*
+
+*Changed-content sources: [request and response guidance](https://developer.apple.com/documentation/declaredagerange/requesting-people-share-their-age-range-with-your-app.md) and [AgeRangeService platform metadata](https://developer.apple.com/tutorials/data/documentation/declaredagerange/agerangeservice.json).*

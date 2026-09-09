@@ -12,37 +12,37 @@ You use three main parts when writing code with distributed actors:
 
 - Swift language support for actors and distributed actors. For more information, see [Concurrency in The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/concurrency).
 
-- The Distributed module, which includes the types and protocols you need to declare and use distribute actors. For example, it has protocols to which distributed actors and distributed actor systems conform, and structures that encapsulate information about calls to a distributed actor.
+- The Distributed module, which includes the types and protocols you need to declare and use distributed actors. For example, it has protocols to which distributed actors and distributed actor systems conform, and structures that encapsulate information about calls to a distributed actor.
 
 - A distributed actor system, also called a cluster runtime, provides an implementation of the DistributedActorSystem protocol and coordinates between the cluster's nodes. A distributed actor is always part of some distributed actor system; that distributed actor system handles the serialization and networking necessary to perform remote method calls. For local testing, you can use LocalTestingDistributedActorSystem. For production, you can use the distributed actor system from the Swift Distributed Actors library, use another library, or write your own distributed actor system.
 
 ## Topics
 
 ### Essentials
-- [TicTacFish: Implementing a game using distributed actors](https://developer.apple.com/documentation/distributed/tictacfish_implementing_a_game_using_distributed_actors) - Use distributed actors to take your Swift concurrency and actor-based apps beyond a single process.
+- [DistributedActorSystem](https://developer.apple.com/documentation/distributed/distributedactorsystem.md) - Review the protocol implemented by a distributed actor runtime.
 
 ### Distributed Actors
 - **DistributedActor** - Common protocol to which all distributed actors conform implicitly.
 - **DistributedActorSystem** - A distributed actor system underpins and implements all functionality of distributed actors.
-- **Resolvable()** - Enables the attached to protocol to be resolved as remote distributed actor reference.
-- `func buildDefaultDistributedRemoteActorExecutor<Act>(Act) -> UnownedSerialExecutor` - Obtain the unowned SerialExecutor that is used by by remote distributed actor references. The executor is shared between all remote default executor remote distributed actors, and it will crash if any job is enqueued on it.
+- **Resolvable()** - Enables the attached protocol to be resolved as a remote distributed actor reference.
+- [buildDefaultDistributedRemoteActorExecutor(_:)](https://developer.apple.com/documentation/distributed/builddefaultdistributedremoteactorexecutor(_:).md) - Returns the unowned serial executor used by remote distributed actor references. This shared executor traps if a job is enqueued on it; ensure an actor is local before scheduling work on its executor.
 
 ### Remote Calls
 - **RemoteCallTarget** - Represents a 'target' of a distributed call, such as a distributed func or distributed computed property. Identification schemes may vary between systems, and are subject to evolution.
 - **RemoteCallArgument** - Represents an argument passed to a distributed call target.
 - **DistributedTargetInvocationEncoder** - Used to encode an invocation of a distributed target (method or computed property).
 - **DistributedTargetInvocationDecoder** - Decoder that must be provided to executeDistributedTarget and is used by the Swift runtime to decode arguments of the invocation.
-- **DistributedTargetInvocationResultHandler** - Protocol a distributed invocation execution's result handler.
+- **DistributedTargetInvocationResultHandler** - The protocol for a distributed invocation's result handler.
 
 ### Local Testing
 - **LocalTestingDistributedActorSystem** - A DistributedActorSystem designed for local only testing.
 - **LocalTestingActorID**
-- `typealias LocalTestingActorAddress`
-
-### Deprecated
 - **LocalTestingInvocationEncoder**
 - **LocalTestingInvocationDecoder**
 - **LocalTestingInvocationResultHandler**
+
+### Deprecated
+- **LocalTestingActorAddress** - Deprecated alias for `LocalTestingActorID`.
 
 ### Errors
 - **DistributedActorCodingError** - Error thrown by distributed actor systems while encountering encoding/decoding issues.
@@ -51,7 +51,5 @@ You use three main parts when writing code with distributed actors:
 - **LocalTestingDistributedActorSystemError**
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/Distributed)*

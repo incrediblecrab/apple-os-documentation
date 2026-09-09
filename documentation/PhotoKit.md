@@ -8,7 +8,14 @@ Work with image and video assets that the Photos app manages, including those fr
 
 PhotoKit is the combination of the Photos and PhotosUI frameworks, which together enable you to access image and video assets that the Photos app manages. You might use PhotoKit to edit or display a person's photos, or to manage collections of assets such as albums, Moments, and Shared Albums. The framework provides access to photos on the person's device and in iCloud.
 
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Photos gains AI editing — **Spatial Reframing** changes a photo's apparent camera angle after capture using Portrait mode depth data, and the **Extend** tool expands an image beyond its original borders (capped at 25% per side, once per image). Clean Up background reconstruction is substantially improved. All AI-edited photos carry a **SynthID watermark**, which matters if your app inspects or re-encodes edited assets. Photos also adds keywords and star ratings, and Shared Albums now work with Android and Windows users.
+## OS 27 asset metadata
+
+The September 8, 2026 review of the [iOS and iPadOS](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes#PhotoKit), [macOS](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes#PhotoKit), and [visionOS](https://developer.apple.com/documentation/visionos-release-notes/visionos-27-release-notes#PhotoKit) Beta 8 notes identifies two developer-facing changes:
+
+- Use the new optional [PHAssetResource.filename](https://developer.apple.com/documentation/photos/phassetresource/filename) on its supported OS 27 platforms. It replaces the misleadingly non-null `originalFilename` contract (175412725). A missing filename is valid; do not force-unwrap it or require every resource to supply a display name.
+- The `PHAsset.addedDate` issue that could return `nil` despite a non-null declaration is listed as **resolved** (175050631), not a current blanket limitation.
+
+These API changes do not imply unrestricted library access. Retain the Photos picker and authorization guidance below, and request only the access the feature needs. Consumer Photos editing features are not a specification for PhotoKit transformations, export limits, or watermark metadata.
 
 ## Topics
 
@@ -21,23 +28,21 @@ Reference the API that compose PhotoKit.
 ### Sample code
 Browse sample code that walk through specific Photos and PhotosUI workflows.
 
-- [Browsing and Modifying Photo Albums](https://developer.apple.com/documentation/photokit/browsing_and_modifying_photo_albums) - Help users organize their photos into albums and browse photo collections in a grid-based layout using PhotoKit.
-- [Selecting Photos and Videos in iOS](https://developer.apple.com/documentation/photokit/selecting_photos_and_videos_in_ios) - Improve the user experience of finding and selecting assets by using the Photos picker.
-- [Bringing Photos picker to your SwiftUI app](https://developer.apple.com/documentation/photokit/bringing_photos_picker_to_your_swiftui_app) - Select media assets by using a Photos picker view that SwiftUI provides.
-- [Implementing an inline Photos picker](https://developer.apple.com/documentation/photokit/implementing_an_inline_photos_picker) - Embed a system-provided, half-height Photos picker into your app's view.
-- [Creating a Slideshow Project Extension for Photos](https://developer.apple.com/documentation/photokit/creating_a_slideshow_project_extension_for_photos) - Augment the macOS Photos app with extensions that support project creation.
+- [Browsing and Modifying Photo Albums](https://developer.apple.com/documentation/photokit/browsing-and-modifying-photo-albums) - Help users organize their photos into albums and browse photo collections in a grid-based layout using PhotoKit.
+- [Selecting Photos and Videos in iOS](https://developer.apple.com/documentation/photokit/selecting-photos-and-videos-in-ios) - Improve the user experience of finding and selecting assets by using the Photos picker.
+- [Bringing Photos picker to your SwiftUI app](https://developer.apple.com/documentation/photokit/bringing-photos-picker-to-your-swiftui-app) - Select media assets by using a Photos picker view that SwiftUI provides.
+- [Implementing an inline Photos picker](https://developer.apple.com/documentation/photokit/implementing-an-inline-photos-picker) - Embed a system-provided, half-height Photos picker into your app's view.
+- [Creating a Slideshow Project Extension for Photos](https://developer.apple.com/documentation/photokit/creating-a-slideshow-project-extension-for-photos) - Augment the macOS Photos app with extensions that support project creation.
 
 ### Articles
 Browse articles that cover high-level Photos and PhotosUI tasks.
 
-- [Delivering an Enhanced Privacy Experience in Your Photos App](https://developer.apple.com/documentation/photokit/delivering_an_enhanced_privacy_experience_in_your_photos_app) - Adopt the latest privacy enhancements to deliver advanced user-privacy controls.
-- [Fetching Objects and Requesting Changes](https://developer.apple.com/documentation/photokit/fetching_objects_and_requesting_changes) - Get assets, asset collections, and collection lists matching a specified query.
-- [Loading and Caching Assets and Thumbnails](https://developer.apple.com/documentation/photokit/loading_and_caching_assets_and_thumbnails) - Request image, video, or Live Photos content, and cache for quick reuse.
-- [Displaying Live Photos](https://developer.apple.com/documentation/photokit/displaying_live_photos) - Provide the same interactive playback of Live Photos as in the iOS Photos app.
-- [Creating Photo Editing Extensions](https://developer.apple.com/documentation/photokit/creating_photo_editing_extensions) - Provide custom functionality in the Photos app by bundling an app extension.
+- [Delivering an Enhanced Privacy Experience in Your Photos App](https://developer.apple.com/documentation/photokit/delivering-an-enhanced-privacy-experience-in-your-photos-app) - Adopt the latest privacy enhancements to deliver advanced user-privacy controls.
+- [Fetching Objects and Requesting Changes](https://developer.apple.com/documentation/photokit/fetching-objects-and-requesting-changes) - Get assets, asset collections, and collection lists matching a specified query.
+- [Loading and Caching Assets and Thumbnails](https://developer.apple.com/documentation/photokit/loading-and-caching-assets-and-thumbnails) - Request image, video, or Live Photos content, and cache for quick reuse.
+- [Displaying Live Photos](https://developer.apple.com/documentation/photokit/displaying-live-photos) - Provide the same interactive playback of Live Photos as in the iOS Photos app.
+- [Creating Photo Editing Extensions](https://developer.apple.com/documentation/photokit/creating-photo-editing-extensions) - Provide custom functionality in the Photos app by bundling an app extension.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/PhotoKit)*

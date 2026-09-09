@@ -10,15 +10,16 @@ People use their cards and passes in Wallet to make Apple Pay purchases, track t
 
 When you integrate Apple Wallet into your app, you can create custom passes and present them the moment people need them, securely verify an individual's identity so they can access personal content, and offer detailed receipts and tracking information where it's most convenient. For developer guidance, see Wallet.
 
-> **iOS 27+, iPadOS 27+, watchOS 27+:** Wallet adds **Create a Pass**, letting people digitize tickets, memberships, gift cards, and loyalty cards using the camera or manual entry. Templates include Standard, Membership, and Event, with 12 background colors plus 7 themed backgrounds, up to **two action buttons per pass**, and a bold "Poster Generic" card style. **Wallet Insights** surfaces spending patterns, recurring transactions, and balances from connected accounts.
+Use Pass Designer to author and preview passes, and consider the poster generic style when a full-background-image layout suits a pass that does not fit another category. Check the tools and APIs for their individual system requirements.
 
 ## Topics
 
 ### Best Practices
 
-**Passes**
+#### Passes
 
 - **Offer to add new passes to Wallet** - When people do something that results in a new pass — like checking into a flight, purchasing an event ticket, or registering for a store reward program — you can present system-provided UI that helps them add the pass to Wallet with one tap.
+- **Check authorization for background additions** - For frequent, predictable additions, the HIG describes background pass delivery after one-time authorization. Check the [background-add capability](https://developer.apple.com/documentation/passkit/pkpasslibrary/capability/backgroundaddpasses) and API availability; provide a review-and-add interface when someone needs to inspect the pass first.
 - **Help people add a pass that they created outside of your app** - If people create a pass using your website or another device, suggest adding it to Wallet the next time they open your app.
 - **Add related passes as a group** - If your app generates multiple passes, like boarding passes for a multi-connection flight, add all passes at the same time so people don't have to add each one individually.
 - **Display an Add to Apple Wallet button to let people add an existing pass that isn't already in Wallet** - You can display this button wherever the corresponding pass information appears in your app.
@@ -29,34 +30,33 @@ When you integrate Apple Wallet into your app, you can create custom passes and 
 - **Update passes as needed** - Physical passes don't typically change, but a digital pass can reflect updates to events.
 - **Use change messages only for updates to time-critical information** - A change message interrupts people's current workflow, so it's essential to send one only when you make an update they need to know about.
 
-**Designing Passes**
+#### Designing passes
+
+- **Preview with Pass Designer** - Use templates or a blank design to build and inspect the pass layout. The authoring app requires macOS 27 or later; that host requirement is separate from a pass feature's availability on the recipient's device. See [Creating a pass with Pass Designer](https://developer.apple.com/documentation/walletpasses/creating-a-pass-with-pass-designer).
+- **Keep essential information as text** - Use pass fields and semantic tags rather than embedding labels or other important text in images. Add barcodes through Pass Designer or the corresponding APIs, not as part of a background image.
 
 - **Design a pass that looks great and works well on all devices** - Passes can look different on different devices. Don't put essential information in elements that might be unavailable on certain devices.
 - **Avoid using device-specific language** - You can't predict the device people will use to view your pass, so don't write text that might not make sense on a particular device.
 - **Make your pass instantly identifiable** - Using color — especially a color that's linked to your brand — can help people recognize your pass as soon as they see it.
-- **Keep the front of a pass uncluttered** - Show essential information in the top-right area of the pass so people can still see it when the pass is collapsed in Wallet.
-- **Prefer an NFC-compatible pass** - People appreciate having a contactless pass, because it means that they can just hold their device near a reader.
+- **Keep the front of a pass uncluttered** - Put essential information in the header so it remains visible when the pass is collapsed. Do not assume every pass style or layout direction places that information at the top right.
+- **Consider contactless use when supported** - An NFC-enabled pass lets people hold their device near a compatible reader. Adding NFC to a pass requires a special entitlement from Apple; see [Pass.NFC](https://developer.apple.com/documentation/walletpasses/pass/nfc-data.dictionary). Do not assume every pass or reader supports NFC.
 - **Reduce image sizes for optimal performance** - To make downloads as fast as possible, use the smallest image files that still look great.
 - **Provide an icon that represents your company or brand** - The system includes your icon when displaying information about a relevant pass on the Lock Screen.
 
 ### Pass Styles
 
-The system defines several pass styles for categories like boarding pass, coupon, store card, and event ticket. Pass styles specify the appearance and layout of content in your pass, and the information that the system needs to suggest your pass when it's relevant.
+Choose the style that matches the pass's purpose, then consult its schema for supported fields and images.
 
-**Boarding Passes**  
-Use the boarding pass style for train tickets, airline boarding passes, and other types of transit passes. A boarding pass can display logo and footer images, and it can have up to two primary fields and up to five auxiliary fields.
+| Style | Appropriate use |
+|-------|-----------------|
+| Boarding pass | Travel credentials such as airline or train tickets. |
+| Coupon | Discounts and special offers. |
+| Store card | Loyalty, points, and gift-card experiences. |
+| Event ticket | Admission to an event, including the poster event presentation where supported. |
+| Poster generic | A flexible, full-background-image presentation when another category does not fit. |
+| Generic | Other credentials, such as a membership or claim ticket. |
 
-**Coupons**  
-Use the coupon style for coupons, special offers, and other discounts. A coupon can display logo and strip images, and it can have up to four secondary and auxiliary fields, all displayed on one row.
-
-**Store Cards**  
-Use the store card style for store loyalty cards, discount cards, points cards, and gift cards. A store card can display logo and strip images, and it can have up to four secondary and auxiliary fields, all displayed on one row.
-
-**Event Tickets**  
-Use the event ticket pass style to give people entry into events like concerts, movies, plays, and sporting events. An event ticket can display logo, strip, background, or thumbnail images. In iOS 18 and later, the system defines an additional style for contactless event tickets called poster event ticket.
-
-**Generic Passes**  
-Use the generic style for a type of pass that doesn't fit into the other categories, such as a gym membership card or coat-check claim ticket. A generic pass can display logo and thumbnail images, and it can have up to four secondary and auxiliary fields.
+For poster backgrounds, keep important artwork within the safe area and account for the material strip and any barcode near the bottom. Preview the finished pass instead of assuming that artwork remains unobscured.
 
 ### Order Tracking
 
@@ -80,16 +80,9 @@ On iPhone running iOS 16 and later, people can store an ID card in Wallet, and l
 
 ### Platform Considerations
 
-**iOS**  
-Full support for all Wallet features including passes, order tracking, and identity verification.
+The HIG gives no additional platform considerations for iOS, iPadOS, macOS, or visionOS. This does not mean every Wallet feature is available on every device: check the relevant PassKit, Wallet, and identity-verification capability before offering it. The HIG does not support Wallet in tvOS.
 
-**iPadOS, macOS, visionOS**  
-Basic Wallet support available. Some features may have limitations compared to iOS.
-
-**watchOS**  
-Wallet displays passes in a scrolling carousel of cards. People can add your pass to their Apple Watch even if you don't create a watch-specific app.
-
-Not supported in tvOS.
+On watchOS, a pass can show fewer fields and images than on iPhone. Keep essential information in elements the watch can present, use device-neutral language, and do not rely on image padding or embedded text for layout and accessibility.
 
 ### Related Components
 
@@ -106,11 +99,13 @@ Not supported in tvOS.
 
 ### Videos
 
-- [What's new in Wallet and Apple Pay](https://developer.apple.com/videos/play/wwdc2024/10081/)
-- [What's new in Wallet and Apple Pay](https://developer.apple.com/videos/play/wwdc2023/10056/)
+- [What's new in Wallet](https://developer.apple.com/videos/play/wwdc2026/209)
 - [What's new in Wallet and Apple Pay](https://developer.apple.com/videos/play/wwdc2022/10041/)
 
 ## Changelog
+
+### June 8, 2026
+- Apple updated the HIG for iOS 27 and Pass Designer.
 
 ### January 17, 2025
 - Added specifications for pass image dimensions
@@ -131,7 +126,5 @@ Not supported in tvOS.
 - Added guidelines for using Verify with Wallet, updated guidance on providing shipping status values and descriptions, and consolidated guidance into one page
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/wallet)*

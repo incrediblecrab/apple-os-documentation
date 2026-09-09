@@ -9,25 +9,21 @@ The WirelessInsights framework notifies your app about network conditions that m
 
 When your app receives a notification about a potential degradation of cellular service, you can adapt to the problem in a number of ways:
 
-Prefetch and buffer data prior to the event.
+- Prefetch and buffer data prior to the event.
+- Reduce your bit rate.
+- Defer activity to a time when cellular conditions are better.
+- Build in additional retries.
 
-Reduce your bit rate.
-
-Defer activity to a time when cellular conditions are better.
-
-Build in additional retries.
-
-The app receives an asynchronous sequence of ServicePrediction instances, which describe anticipated events in terms of their impact and expected timing. The prediction includes metrics indicating the level of confidence in each factor of the prediction.
+The app receives an asynchronous sequence of ServicePrediction instances, which describe anticipated events in terms of their impact and expected timing. The prediction includes metrics indicating the level of confidence in each factor of the prediction. These are predictions, not promises of connectivity or exact event timing.
 
 Your app can take action appropriate to its use of cellular data; for example:
 
-A streaming media app might react to a prediction of a lengthy, high-impact event by buffering media in advance of the event. Or, the app might proactively reduce its bit rate.
+- A streaming media app might react to a prediction of a lengthy, high-impact event by buffering media in advance of the event. Or, the app might proactively reduce its bit rate.
+- An app that performs one-time downloads of large files might defer a download until after an event passes.
 
-An app that performs one-time downloads of large files might defer a download until after an event passes.
+Use the Boolean [Wireless Insights Service Predictions entitlement](https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.wireless-insights.service-predictions), `com.apple.developer.wireless-insights.service-predictions`, for access to these predictions. An entitlement does not make unsupported hardware capable of providing predictions.
 
-Important
-
-While the WirelessInsights framework exists in apps built with Mac Catalyst, it doesn’t have any functionality. Instead, iterating over the servicePredictions sequence throws a ServicePredictionError.unsupportedDevice error. This behavior also occurs in iOS apps running in visionOS or in macOS on Apple silicon. On iPad, the framework may provide predictions on a cellular iPad device, but not on Wi-Fi-only devices. Anticipate this error in your app and handle it gracefully on unsupported devices.
+**Important:** While the WirelessInsights framework exists in apps built with Mac Catalyst, it doesn’t have any functionality. Instead, iterating over the servicePredictions sequence throws a ServicePredictionError.unsupportedDevice error. This behavior also occurs in iOS apps running in visionOS or in macOS on Apple silicon. On iPad, the framework may provide predictions on a cellular iPad device, but not on Wi-Fi-only devices. Anticipate this error in your app and handle it gracefully on unsupported devices.
 
 ## Topics
 
@@ -36,7 +32,5 @@ While the WirelessInsights framework exists in apps built with Mac Catalyst, it 
 - **Wireless Insights Service Predictions** - A Boolean value that indicates whether the app can use the WirelessInsights framework to obtain wireless service predictions.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/WirelessInsights)*

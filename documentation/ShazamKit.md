@@ -1,6 +1,6 @@
 # ShazamKit
 
-Find information about a specific audio recording when a segment of it's part of captured sound in the Shazam catalog or your custom catalog.
+Identify a recording by matching a captured audio segment against the Shazam catalog or a custom reference catalog.
 
 **Platforms:** iOS 15.0+ | iPadOS 15.0+ | Mac Catalyst 15.0+ | macOS 12.0+ | tvOS 15.0+ | visionOS 1.0+ | watchOS 8.0+
 
@@ -12,9 +12,7 @@ ShazamKit generates a reference signature for each searchable full audio recordi
 
 Searching for a match compares a query signature, which ShazamKit generates for captured audio, with the reference signatures in the catalog. Matches occur when the query signature sufficiently matches a part of a reference signature. Matches can occur even when the captured audio is noisy, such as with a partial recording of background music playing in a restaurant.
 
-The figure below illustrates matching a query signature with the reference signature in the catalog. The information for a match includes the timecode in the reference recording that matches the start of the query.
-
-A spectrogram that shows the signature match for a query signature at a specific point in time in a reference signature.
+Match information includes the timecode in the reference recording that corresponds to the start of the query.
 
 For example, the Shazam app converts the sound stream from a device's microphone into a query signature and searches for a match in the Shazam music catalog. The match includes the metadata for the reference signature, such as the song title, artist name, and other details.
 
@@ -35,8 +33,8 @@ You can create a custom catalog with your own reference signatures and their ass
 - **SHSignatureGenerator** - An object for converting audio data into a signature.
 
 ### Create a custom audio catalog
-- [Building a Custom Catalog and Matching Audio](https://developer.apple.com/documentation/shazamkit/building_a_custom_catalog_and_matching_audio) - Display lesson content that's synchronized to a learning video by matching the audio to a custom reference signature and associated metadata.
-- [ShazamKit Dance Finder with Managed Session](https://developer.apple.com/documentation/shazamkit/shazamkit_dance_finder_with_managed_session) - Find a video of dance moves for a specific song by matching the audio to a custom catalog, and show a history of recognized songs.
+- [Building a Custom Catalog and Matching Audio](https://developer.apple.com/documentation/shazamkit/building-a-custom-catalog-and-matching-audio) - Display lesson content that's synchronized to a learning video by matching the audio to a custom reference signature and associated metadata.
+- [ShazamKit Dance Finder with Managed Session](https://developer.apple.com/documentation/shazamkit/shazamkit-dance-finder-with-managed-session) - Find a video of dance moves for a specific song by matching the audio to a custom catalog, and show a history of recognized songs.
 - **SHCustomCatalog** - An object for storing the reference signatures for custom audio recordings and their associated metadata.
 - **SHCatalog** - An abstract base class for storing reference signatures and their associated metadata.
 
@@ -52,7 +50,5 @@ You can create a custom catalog with your own reference signatures and their ass
 - **ShazamKit Constants**
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/ShazamKit)*

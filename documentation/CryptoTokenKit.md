@@ -2,7 +2,7 @@
 
 Access security tokens and the cryptographic assets they store.
 
-**Platforms:** iOS 13.0+ | iPadOS 13.0+ | Mac Catalyst 13.0+ | macOS 10.10+ | tvOS 13.0+ | visionOS 1.0+ | watchOS 8.0+
+**Framework catalog:** iOS 13.0+ | iPadOS 13.0+ | macOS 10.10+ | tvOS 13.0+ | visionOS 1.0+ | watchOS 8.0+. Smart-card classes use Mac Catalyst 13.1, not the catalog's 13.0 label; some individual slot APIs also have earlier iOS/tvOS/watchOS annotations.
 
 ## Overview
 
@@ -14,17 +14,23 @@ Starting in macOS 10.15.4, the CryptoTokenKit framework includes support for alw
 
 **Note:** When you want to manage the associations between users and tokens on a given computer, use the sc_auth command line utility. See the sc_auth(8) man page for details.
 
+### Access and token lifetime
+
+`TKSmartCardSlotManager` requires the Boolean [`com.apple.security.smartcard`](https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.security.smartcard) entitlement with value `true`; without it, the default slot manager is `nil`. This privilege is not successful PIN authentication or a guarantee that a slot or token is present.
+
+Observe token insertion and removal with `TKTokenWatcher`. A persistent keychain reference is not permanent access: after removal, token-item operations can return `errSecItemNotFound`. Handle cancellation, authentication failure, missing objects, and missing tokens. NFC session operations also fail after their slot disappears through cancellation, timeout, or session termination.
+
 ## Topics
 
 ### Smart Cards
-- [Using Cryptographic Assets Stored on a Smart Card](https://developer.apple.com/documentation/cryptotokenkit/using_cryptographic_assets_stored_on_a_smart_card) - Access certificates, keys, and identities stored on a smart card as if they were part of the keychain.
+- [Using Cryptographic Assets Stored on a Smart Card](https://developer.apple.com/documentation/cryptotokenkit/using-cryptographic-assets-stored-on-a-smart-card) - Access certificates, keys, and identities stored on a smart card as if they were part of the keychain.
 - **TKSmartCardSlotManager** - An interface to all available smart card reader slots.
 - **TKSmartCardSlot** - A single smart card reader slot in the system.
 - **TKSmartCard** - A representation of a smart card.
 
 ### Smart Card App Extensions
-- [Authenticating Users with a Cryptographic Token](https://developer.apple.com/documentation/cryptotokenkit/authenticating_users_with_a_cryptographic_token) - Grant access to user accounts and the keychain by creating a smart card app extension.
-- [Configuring Smart Card Authentication](https://developer.apple.com/documentation/cryptotokenkit/configuring_smart_card_authentication) - Set preferences for smart card authentication operations, including those on managed devices.
+- [Authenticating Users with a Cryptographic Token](https://developer.apple.com/documentation/cryptotokenkit/authenticating-users-with-a-cryptographic-token) - Implement a macOS token extension for supported authentication operations.
+- [Configuring Smart Card Authentication](https://developer.apple.com/documentation/cryptotokenkit/configuring-smart-card-authentication) - Configure the macOS authentication preferences and their managed/system/default precedence.
 - **TKSmartCardTokenDriver** - The driver that acts as an entry point for smart card app extensions.
 - **TKSmartCardToken** - A representation of a smart card based cryptographic token.
 - **TKSmartCardTokenSession** - A token session that is based on a smart card token.
@@ -38,15 +44,15 @@ Starting in macOS 10.15.4, the CryptoTokenKit framework includes support for alw
 ### Errors
 - **TKError** - An error specific to the CryptoTokenKit framework.
 - **TKErrorDomain** - The domain for all CryptoTokenKit framework errors.
-- **Code** - Error codes from CryptoTokenKit.
+- **TKError.Code** - Error codes from CryptoTokenKit.
 
 ### Classes
-- **TKSmartCardSlotNFCSession** - NFC session that's related to NFC smart card slot which was created.- **TKSmartCardTokenRegistrationManager** - Provides a centralized management system for registering and unregistering smartcards using their token IDs.
+- **TKSmartCardSlotNFCSession** - An NFC session tied to a smart-card slot; its SDK declarations begin at iOS/iPadOS/Catalyst/visionOS 26.
+- **TKSmartCardTokenRegistrationManager** - Registers and unregisters smart cards using token IDs; its SDK declarations begin at iOS/iPadOS/Catalyst/visionOS 26.
+
 ### Type Aliases
-- **TKTokenObjectID** - (Deprecated)
+- [TKTokenObjectID](https://developer.apple.com/documentation/cryptotokenkit/tktokenobjectid-8mo7f) - The legacy `AnyObject` alias, introduced in macOS 10.12 and deprecated in 10.15.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/CryptoTokenKit)*

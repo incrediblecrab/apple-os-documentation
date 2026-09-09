@@ -2,7 +2,7 @@
 
 Some apps can support documents and files that people expect to manage throughout the system.
 
-**Platforms:** iOS | iPadOS | macOS | visionOS
+**Platforms:** iOS | iPadOS | macOS | tvOS | visionOS | watchOS
 
 ## Overview
 
@@ -10,15 +10,13 @@ Document-based apps — such as Pages, Keynote, Photos, and Preview — help peo
 
 People also expect to browse documents without first opening a document-based app. On a Mac, for example, people use the Finder to access the macOS file system; on iPhone, iPad, and Apple Vision Pro, people use the Files app to manage the documents and files on their device. In watchOS and tvOS, people don't typically create, edit, or manage documents, so these systems don't provide a document-browsing interface.
 
-> **iOS 27+, iPadOS 27+:** File uploads to iCloud or third-party services and long photo or video exports **continue in the background** when someone leaves your app or locks the device. Design long-running transfer and export flows to survive backgrounding rather than pausing or failing. Files also gains more robust in-place document viewing and smarter quick actions.
-
 ## Topics
 
 ### Creating and opening files
 
 - **Use app menus and keyboard shortcuts** - Give people convenient ways to create and open documents. In iPadOS and macOS, people expect to create new documents or open existing ones using familiar menu commands. When you provide commands like New or Open, iPadOS presents them in the shortcuts interface that displays when people hold the Command key on a connected hardware keyboard, and macOS presents them in the menu bar File menu. Regardless of the availability of keyboard shortcuts, include an Add (+) button to help people create a new document. In a macOS app, you put the add action in the File menu (for guidance, see File menu).
 
-- **Support platform file system understanding** - If your app requires a custom file browser, support people's understanding of the platform's file system. People who are familiar with the Finder and Files apps already understand the basic layout of their device's file system. Although you might want to show the most relevant part of the file system when your custom file browser opens — for example, a Documents or iCloud folder or the most recently selected location — let people use your browser to view the rest of the file system if they want.
+- **Support platform file system understanding** - Prefer familiar Finder or Files browsing conventions. A custom browser can start in a relevant folder or the last selected location, but should let people navigate other accessible locations. Respect sandbox and permission boundaries; this isn't a promise of unrestricted access to the device's entire file system.
 
 ### Saving work
 
@@ -30,29 +28,29 @@ People also expect to browse documents without first opening a document-based ap
 
 Quick Look helps you create previews of the files your app handles so that people can view them within your app and in some cases interact with them. For example, you can use Quick Look to let people listen to a preview of an audio file, add markup to a photo's preview, or rotate and scale a 3D file preview to examine it in different ways.
 
-- **Use Quick Look for unsupported files** - Use a Quick Look viewer to let people preview a file even when your app can't open it. If your app lets people attach or otherwise interact with files that it doesn't support, implementing a Quick Look viewer lets people preview those files without leaving your app.
+- **Use Quick Look for formats it can preview even when your app can't edit them** - For example, people can inspect a supported attachment without leaving your app. Handle unavailable previews gracefully; supported file types and interactions can differ by platform and OS release.
 
-- **Consider implementing a Quick Look generator** - If your app produces custom file types, a Quick Look generator lets other apps — including the Finder, Files, and Spotlight — display previews of your documents, making it easier for people to find them.
+- **Provide previews or thumbnails for custom file types** - A [Quick Look preview extension](https://developer.apple.com/documentation/quicklook) can render your format for previewing, while a [Thumbnail Extension](https://developer.apple.com/documentation/quicklookthumbnailing) supplies miniature representations. These help system surfaces and other apps present your documents; use the extension mechanism appropriate to the target platform rather than assuming legacy Mac generators are universal.
 
 ### Platform considerations
 
-Not supported in tvOS or watchOS.
+tvOS and watchOS don't ordinarily offer a general-purpose document browser. This is a difference in user-facing experience, not a statement that apps on those platforms can't manage files.
 
-**iOS, iPadOS**
+#### iOS, iPadOS
 
-**Document launcher**
+##### Document launcher
 
-Starting in iOS 18 and iPadOS 18, document-based apps can use the system's document launcher to give people a consistent, highly graphical way to browse, open, and create files. The document launcher presents a full-screen experience that highlights key elements of your app's theme, while making it easy for people to create new documents. For developer guidance, see DocumentGroupLaunchScene.
+Starting in iOS 18 and iPadOS 18, document-based apps can use the system's document launcher to give people a consistent, highly graphical way to browse, open, and create files. In this mobile presentation, the launcher highlights your app's theme while keeping document creation accessible. [DocumentGroupLaunchScene](https://developer.apple.com/documentation/swiftui/documentgrouplaunchscene) also lists Mac Catalyst 18 and visionOS 2 availability; this HIG section describes the iOS and iPadOS design.
 
-The document launcher consists of three main parts:
+The HIG describes three main regions:
 
-- A title card that displays the app title and two app-specific buttons
+- A title card that displays the app title and prominent app-specific actions
 - A background image that appears behind the title card and additional images — called accessories — that can appear around it
 - A sheet that contains a file browser and optional app-specific controls
 
-You can customize all three parts of the document launcher. Although the system automatically displays your app name in the title card, you specify the text and functions of the card's primary and secondary buttons. You can also create a custom background image, one or more accessory images to surround the title card, and provide some custom controls that can appear in the file browser's toolbar.
+You can customize the title, actions, background, accessories, and supported browser controls. Without a custom title or actions builder, `DocumentGroupLaunchScene` uses the app name and a default Create Document action. The HIG's primary-and-secondary-button composition is guidance, not a requirement to supply exactly two buttons.
 
-- **Assign the title card's buttons to your app's most important functions** - The primary button typically creates a new document, and the secondary button can provide additional options. For example, the primary button in Numbers is Start Writing and the secondary button is Choose a Template.
+- **Assign the title card's buttons to your app's most important functions** - A primary action can create a document, with a secondary action offering options such as choosing a template. Use labels that accurately describe your own app's behavior.
 
 - **Provide a distinct background** - Create a background that's clearly distinct from the accessories and title card. You can use a solid color, a gradient, or a pattern. Avoid including complex images or patterns that might distract from foreground elements.
 
@@ -60,21 +58,21 @@ You can customize all three parts of the document launcher. Although the system 
 
 - **Use animation sparingly** - Too much motion on the display can confuse or disorient people. If you want to animate your accessories, consider creating gentle, repeating animations that subtly highlight and enhance your app's content. For example, you might create an animation that makes an accessory appear to breathe or sway softly. For guidance, see Motion.
 
-**File provider app extension**
+##### File provider app extension
 
-If your app can share its files with other apps, you can create a file provider app extension that displays a custom interface for importing, exporting, opening, and moving your app's documents. For developer guidance, see File Provider. An app extension is code you provide that people can install and use to extend the functionality of a specific area of the system; to learn more, see App extensions.
+Use a [File Provider extension](https://developer.apple.com/documentation/fileprovider) when your app supplies and synchronizes documents from remote storage. The extension integrates those documents with system browsing; it isn't synonymous with a custom document-picker screen. Sharing only local documents doesn't require a File Provider extension. The framework documents the appropriate document-browser or file-sharing configuration for that case.
 
-- **Display only appropriate documents** - When someone uses your file provider extension to open or import documents, display only documents that are appropriate in the current context. For example, if a PDF-editing app loads your extension, only list PDF files for opening or import. You might also want to display additional information, such as modification dates, sizes, and whether documents are local or remote.
+- **Make document eligibility clear** - Configure the browser or picker for the content types your app can accept, and expose useful file metadata such as modification dates, sizes, and local or remote status. A PDF editor should let people select supported PDFs rather than implying it can open every supplied format.
 
 - **Let people select a destination** - Unless your app stores documents in a single directory, let people navigate to a specific destination in your directory hierarchy when exporting and moving documents. You could also provide a way to add new subdirectories.
 
-- **Avoid including a custom top toolbar** - Your extension loads within a modal view that already includes a toolbar. Providing a second toolbar is confusing and takes space away from your content.
+- **Avoid duplicating system browsing controls** - When adding custom UI to a system-hosted document workflow, don't add a competing top toolbar. This doesn't mean every modern File Provider extension supplies its own modal browsing interface.
 
-Your app can also let people browse and open files from other apps. For developer guidance, see Adding a document browser to your app.
+Your app can also let people browse and open files from other apps. See [Adding a document browser to your app](https://developer.apple.com/documentation/uikit/adding-a-document-browser-to-your-app). A `UIDocumentBrowserViewController` belongs at the root of the app's view hierarchy; use a document picker when presenting document selection from elsewhere.
 
-**macOS**
+#### macOS
 
-**Custom file management**
+##### Custom file management
 
 People have strong associations with the familiar file browsing experience of the Finder and most document-based apps. Use the default file browser unless you have an important reason to create a custom one.
 
@@ -84,9 +82,9 @@ People have strong associations with the familiar file browsing experience of th
 
 - **Consider extending the Save dialog functionality** - If it makes sense in your app, you can add a custom accessory view containing useful settings or options to the Save dialog. For example, the dialog for saving Mail messages as files contains an option to include attachments.
 
-**Finder Sync extensions**
+##### Finder Sync extensions
 
-If your app syncs local and remote files, you can create a Finder Sync app extension to express file synchronization status and control within the Finder. For developer guidance, see Finder Sync.
+If your app syncs local and remote files, you can create a [Finder Sync](https://developer.apple.com/documentation/findersync) app extension to express synchronization status and controls within the Finder. Finder Sync customizes that interface; your app or file-provider implementation remains responsible for synchronization itself.
 
 For example, you can use a Finder Sync extension to:
 
@@ -94,13 +92,14 @@ For example, you can use a Finder Sync extension to:
 - Provide custom contextual menu items that perform file and folder management tasks, like favoriting and adding password-protection
 - Provide custom toolbar buttons that perform global actions, like initiating a sync operation
 
-**Autosaving considerations**
+##### Autosaving considerations
 
-- **Help people avoid losing work** - If they turn off autosaving, help people avoid losing work. People can turn off autosaving by selecting the "Ask to keep changes when closing documents" toggle in Desktop & Dock settings. In this scenario, show that a document has unsaved changes and present a save dialog when people choose to close the document, quit your app, log out, or restart.
+- **Respect save-confirmation preferences without losing work** - In [Desktop & Dock settings](https://support.apple.com/guide/mac-help/change-desktop-dock-settings-mchlp1119/26/mac/26), "Ask to keep changes when closing documents" controls whether people are asked about unsaved changes at close. Don't describe it as a universal switch that disables every form of autosaving. Use the document framework's save and close lifecycle to preserve work and request confirmation when needed.
 
-- **Show unsaved changes when autosaving is off** - Make sure people know when a document has unsaved changes. To show that there are unsaved changes, display a dot on the document window's close button and next to the document's name in your app's Window menu. When autosaving is on, showing a dot in these locations is confusing, because it implies that people need to take action to avoid losing their work. Regardless of autosave status, you can append "Edited" to the document's title in the title bar, but be sure to remove this suffix as soon as autosave occurs or when people explicitly save their work.
+- **Represent unsaved work accurately** - In workflows that require saving, the HIG recommends a dot on the close button and beside the document in the Window menu. Avoid stale indicators that imply already-preserved work still needs a save. Keep the document framework's edited state, title treatment, and save behavior consistent rather than manually leaving an "Edited" suffix after saving.
 
-**visionOS**  
+#### visionOS
+
 No additional considerations.
 
 ### Related
@@ -115,9 +114,11 @@ No additional considerations.
 
 ### Videos
 
-- [Build document-based apps in SwiftUI](https://developer.apple.com/videos/play/wwdc2021/10029)
+- [Build document-based apps in SwiftUI](https://developer.apple.com/videos/play/wwdc2020/10039)
 
 ## Changelog
+
+These dates describe Apple's HIG article history.
 
 ### June 10, 2024
 - Added guidelines for using the document launcher in iOS and iPadOS.
@@ -126,7 +127,5 @@ No additional considerations.
 - Updated to include guidance for visionOS.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/file-management)*

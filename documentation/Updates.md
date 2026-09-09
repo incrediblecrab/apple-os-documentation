@@ -2,119 +2,118 @@
 
 View major documentation updates and highlights from WWDC, browse ongoing updates from a set of framework releases over time, and jump to the latest release notes.
 
-## WWDC 2026 and the OS 27 Generation
+## OS27 Migration Snapshot — September 8, 2026
 
-Announced June 8, 2026; currently in beta, with public releases expected fall 2026 (**not dated by Apple**).
+All six OS27 platforms are at **beta 8 (August 31)**; **Xcode 27 beta 6** is dated **August 24**. Shipping baselines differ: iOS/iPadOS **26.6.2** (September 8), macOS **26.6.2** and visionOS **26.6.1** (August 17), and tvOS/watchOS **26.6** (July 27). [Apple's release list](https://developer.apple.com/news/releases/) does not establish general-availability dates from these betas.
 
-- **Siri rebuilt on Apple Foundation Models** — conversational, cross-app context, multi-step in-app actions, standalone Siri app syncing across devices
-- **[Foundation Models](FoundationModels.md)** — generalized `LanguageModel` protocol supporting Apple's on-device model and third-party providers
-- **[App Intents](AppIntents.md)** — entity and intent schemas, View Annotations API, App Intents Testing
-- **[Evaluations](Evaluations.md)** — validate AI feature behavior beyond unit tests
-- **[Core AI](CoreAI.md)** — intelligence infrastructure (details still limited)
-- **[Swift 6.4](Swift.md)** — `anyAppleOS`, `@diagnose`, `weak let`, `~Sendable`, `@C`, Task Cancellation Shield
-- **[Xcode 27](Xcode.md)** — **requires macOS 27 Golden Gate on Apple silicon**
-- **Liquid Glass refinements** — stronger content diffusion, darkened edge ring, brighter specular highlights, continuous transparency slider replacing Clear/Tinted
-- **[SiriKit deprecated](SiriKit.md)** — migrate to App Intents
-- **`UIDesignRequiresCompatibility` ignored** by the OS 27 SDK — no opt-out from Liquid Glass once you rebuild
-- **macOS Golden Gate 27** — first Apple-silicon-only macOS; last release with full Rosetta 2
-- **iPadOS 27** drops all A12-class iPads; **iOS 27 drops no iPhones**
+### Prioritize Verified Migration Work
+
+- **Build hosts:** [Xcode 27 beta 6](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) includes Swift 6.4 and requires **an Apple silicon Mac on macOS Tahoe 26.4 or later**, not macOS 27. Intel apps running through Rosetta are not Intel-host support.
+- **UIKit scenes:** apps built with the latest SDK must adopt the scene life cycle on iOS, iPadOS, Mac Catalyst, tvOS, and visionOS 27 or fail to launch. Multiple-window support is optional. See [scene migration](https://developer.apple.com/documentation/uikit/transitioning-to-the-uikit-scene-based-life-cycle).
+- **Launch screens and assets:** the [iOS/iPadOS 27 notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes) require launch screens for 27-SDK apps. ODR/`NSBundleResourceRequest` deprecation in the iOS/iPadOS, tvOS, and visionOS notes points to Background Assets; localized packs add language-aware delivery.
+- **Design compatibility:** [`UIDesignRequiresCompatibility`](https://developer.apple.com/documentation/bundleresources/information-property-list/uidesignrequirescompatibility) is ignored when building for iOS, iPadOS, Mac Catalyst, macOS, or tvOS 27 or later. Do not extend that key's documented scope to watchOS or visionOS.
+- **Mac behavior:** [macOS 27 notes](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes) cover menu-image visibility, Mac Catalyst activation without windows, native installer defaults, and Rosetta migration.
+- **Watch life cycle:** [watchOS 27 notes](https://developer.apple.com/documentation/watchos-release-notes/watchos-27-release-notes) deprecate `WKExtension` and `WKExtensionDelegate` for apps with a minimum deployment target of watchOS 9.2 or later; this is not a UIKit scene requirement.
+- **Managed networking:** [stricter TLS](https://support.apple.com/en-us/126655) affects selected system processes for management, enrollment, profiles, app installation, and updates. Audit ATS-compatible TLS 1.2-or-later servers and the documented exceptions, not every app socket indiscriminately.
+- **Intelligence:** [SiriKit](https://developer.apple.com/documentation/sirikit) retains legacy Shortcuts, widget-configuration, and most existing Siri support. Use [App Intents](AppIntents.md) for modern integration. [PCC](../guides/private-cloud-compute.md) has separate entitlement, eligibility, privacy, and runtime-failure requirements.
+- **Submission policy:** the SDK26 upload requirement and updated age-rating questionnaire are already in force. See [App Store readiness](../guides/app-store-readiness.md); the checked notice does not announce an OS27 SDK deadline.
+
+Beta 8 **Resolved Issues** are regression-test cases, not permanent API limitations. Validate SDK-linked behavior separately from running an older binary on the new OS. Exact OS27 device lists are not established by these summaries; do not extrapolate from OS26 lists.
 
 ## Topics
 
 ### WWDC
-- [WWDC25](https://developer.apple.com/documentation/updates/wwdc25) - Highlights of new technologies introduced at WWDC25.
-- [WWDC24](https://developer.apple.com/documentation/updates/wwdc24) - Highlights of new technologies introduced at WWDC24.
-- [WWDC23](https://developer.apple.com/documentation/updates/wwdc23) - Highlights of new technologies introduced at WWDC23.
-- [WWDC22](https://developer.apple.com/documentation/updates/wwdc22) - Highlights of new technologies introduced at WWDC22.
-- [WWDC21](https://developer.apple.com/documentation/updates/wwdc21) - Highlights of new technologies introduced at WWDC21.
+- [WWDC25](https://developer.apple.com/documentation/Updates/wwdc2025) - Highlights of new technologies introduced at WWDC25.
+- [WWDC24](https://developer.apple.com/documentation/Updates/wwdc2024) - Highlights of new technologies introduced at WWDC24.
+- [WWDC23](https://developer.apple.com/documentation/Updates/wwdc2023) - Highlights of new technologies introduced at WWDC23.
+- [WWDC22](https://developer.apple.com/documentation/Updates/wwdc2022) - Highlights of new technologies introduced at WWDC22.
+- [WWDC21](https://developer.apple.com/documentation/Updates/wwdc2021) - Highlights of new technologies introduced at WWDC21.
 
 ### Technology Updates
-- [Accelerate updates](https://developer.apple.com/documentation/updates/accelerate_updates) - Learn about important changes to Accelerate.
-- [Accessibility updates](https://developer.apple.com/documentation/updates/accessibility_updates) - Learn about important changes to Accessibility.
-- [ActivityKit updates](https://developer.apple.com/documentation/updates/activitykit_updates) - Learn about important changes in ActivityKit.
-- [AdAttributionKit Updates](https://developer.apple.com/documentation/updates/adattributionkit_updates) - Learn about important changes to AdAttributionKit.
-- [App Clips updates](https://developer.apple.com/documentation/updates/app_clips_updates) - Learn about important changes in App Clips.
-- [App Intents updates](https://developer.apple.com/documentation/updates/app_intents_updates) - Learn about important changes in App Intents.
-- [AppKit updates](https://developer.apple.com/documentation/updates/appkit_updates) - Learn about important changes to AppKit.
-- [Apple Intelligence updates](https://developer.apple.com/documentation/updates/apple_intelligence_updates) - Learn about important changes to Apple Intelligence.
-- [AppleMapsServerAPI Updates](https://developer.apple.com/documentation/updates/applemapsserverapi_updates) - Learn about important changes to AppleMapsServerAPI.
-- [Apple Pencil updates](https://developer.apple.com/documentation/updates/apple_pencil_updates) - Learn about important changes to Apple Pencil.
-- [ARKit updates](https://developer.apple.com/documentation/updates/arkit_updates) - Learn about important changes to ARKit.
-- [Audio Toolbox updates](https://developer.apple.com/documentation/updates/audio_toolbox_updates) - Learn about important changes to Audio Toolbox.
-- [AuthenticationServices updates](https://developer.apple.com/documentation/updates/authenticationservices_updates) - Learn about important changes to AuthenticationServices.
-- [AVFAudio updates](https://developer.apple.com/documentation/updates/avfaudio_updates) - Learn about important changes to AVFAudio.
-- [AVFoundation updates](https://developer.apple.com/documentation/updates/avfoundation_updates) - Learn about important changes to AVFoundation.
-- [Background Tasks updates](https://developer.apple.com/documentation/updates/background_tasks_updates) - Learn about important changes in Background Tasks.
-- [Bundle Resources updates](https://developer.apple.com/documentation/updates/bundle_resources_updates) - Learn about important changes to Bundle Resources.
-- [BrowserEngineKit updates](https://developer.apple.com/documentation/updates/browserenginekit_updates) - Learn about important changes in BrowserEngineKit.
-- [CallKit updates](https://developer.apple.com/documentation/updates/callkit_updates) - Learn about important changes to CallKit.
-- [ContactsUI updates](https://developer.apple.com/documentation/updates/contactsui_updates) - Learn about important changes to ContactsUI.
-- [Core Location updates](https://developer.apple.com/documentation/updates/core_location_updates) - Learn about important changes to Core Location.
-- [Core MIDI updates](https://developer.apple.com/documentation/updates/core_midi_updates) - Learn about important changes to Core MIDI.
-- [Core ML updates](https://developer.apple.com/documentation/updates/core_ml_updates) - Learn about important changes to Core ML.
-- [Core Motion updates](https://developer.apple.com/documentation/updates/core_motion_updates) - Learn about important changes to Core Motion.
-- [Core Spotlight updates](https://developer.apple.com/documentation/updates/core_spotlight_updates) - Learn about important changes to Core Spotlight.
-- [DataDetection updates](https://developer.apple.com/documentation/updates/datadetection_updates) - Learn about important changes in DataDetection.
-- [Default apps updates](https://developer.apple.com/documentation/updates/default_apps_updates) - Learn about the latest changes to enabling your app to be the system default.
-- [DockKit updates](https://developer.apple.com/documentation/updates/dockkit_updates) - Learn about important changes to DockKit.
-- [File Provider updates](https://developer.apple.com/documentation/updates/file_provider_updates) - Learn about important changes to File Provider.
-- [FinanceKit updates](https://developer.apple.com/documentation/updates/financekit_updates) - Learn more about changes to FinanceKit.
-- [Foundation updates](https://developer.apple.com/documentation/updates/foundation_updates) - Learn about important changes to Foundation.
-- [Game Controller updates](https://developer.apple.com/documentation/updates/game_controller_updates) - Learn about important changes to Game Controller.
-- [GameKit updates](https://developer.apple.com/documentation/updates/gamekit_updates) - Learn about important changes to GameKit.
-- [Group Activities updates](https://developer.apple.com/documentation/updates/group_activities_updates) - Learn about important changes to Group Activities.
-- [HealthKit updates](https://developer.apple.com/documentation/updates/healthkit_updates) - Learn about important changes to HealthKit.
-- [Hypervisor updates](https://developer.apple.com/documentation/updates/hypervisor_updates) - Learn about important changes to Hypervisor.
-- [Journaling Suggestions updates](https://developer.apple.com/documentation/updates/journaling_suggestions_updates) - Learn about important changes in Journaling Suggestions.
-- [LightweightCodeRequirements updates](https://developer.apple.com/documentation/updates/lightweightcoderequirements_updates) - Learn about important changes to LightweightCodeRequirements.
-- [LiveCommunicationKit updates](https://developer.apple.com/documentation/updates/livecommunicationkit_updates) - Learn about important changes to LiveCommunicationKit.
-- [MapKit updates](https://developer.apple.com/documentation/updates/mapkit_updates) - Learn about important changes to MapKit.
-- [MapKitJS updates](https://developer.apple.com/documentation/updates/mapkitjs_updates) - Learn about important changes to MapKitJS.
-- [Matter updates](https://developer.apple.com/documentation/updates/matter_updates) - Learn about important changes to Matter.
-- [Network updates](https://developer.apple.com/documentation/updates/network_updates) - Learn about important changes to Network.
-- [PassKit updates](https://developer.apple.com/documentation/updates/passkit_updates) - Learn more about changes to PassKit.
-- [PHASE updates](https://developer.apple.com/documentation/updates/phase_updates) - Learn about important changes to PHASE.
-- [PhotoKit updates](https://developer.apple.com/documentation/updates/photokit_updates) - Learn about important changes to PhotoKit and PhotosUI.
-- [ProximityReader updates](https://developer.apple.com/documentation/updates/proximityreader_updates) - Learn about important changes to ProximityReader.
-- [RealityKit updates](https://developer.apple.com/documentation/updates/realitykit_updates) - Learn about important changes in RealityKit.
-- [SafariServices updates](https://developer.apple.com/documentation/updates/safariservices_updates) - Learn about important changes in SafariServices.
-- [ScreenCaptureKit updates](https://developer.apple.com/documentation/updates/screencapturekit_updates) - Learn about important changes to ScreenCaptureKit.
-- [Security updates](https://developer.apple.com/documentation/updates/security_updates) - Learn about important changes to Security.
-- [SensorKit updates](https://developer.apple.com/documentation/updates/sensorkit_updates) - Learn about important changes to SensorKit.
-- [ShazamKit updates](https://developer.apple.com/documentation/updates/shazamkit_updates) - Learn about important changes in ShazamKit.
-- [SiriKit updates](https://developer.apple.com/documentation/updates/sirikit_updates) - Learn about important changes in SiriKit.
-- [StoreKit updates](https://developer.apple.com/documentation/updates/storekit_updates) - Learn about important changes in StoreKit.
-- [Swift updates](https://developer.apple.com/documentation/updates/swift_updates) - Learn about important changes to Swift.
-- [Swift Charts updates](https://developer.apple.com/documentation/updates/swift_charts_updates) - Learn about important changes to Swift Charts.
-- [SwiftData updates](https://developer.apple.com/documentation/updates/swiftdata_updates) - Learn about important changes to SwiftData.
-- [SwiftUI updates](https://developer.apple.com/documentation/updates/swiftui_updates) - Learn about important changes to SwiftUI.
-- [Symbols updates](https://developer.apple.com/documentation/updates/symbols_updates) - Learn about important changes to Symbols.
-- [TipKit updates](https://developer.apple.com/documentation/updates/tipkit_updates) - Learn about important changes in TipKit.
-- [ThreadNetwork updates](https://developer.apple.com/documentation/updates/threadnetwork_updates) - Learn about important changes in ThreadNetwork.
-- [UIKit updates](https://developer.apple.com/documentation/updates/uikit_updates) - Learn about important changes to UIKit.
-- [User Notifications updates](https://developer.apple.com/documentation/updates/user_notifications_updates) - Learn about important changes in User Notifications.
-- [Video Subscriber Account updates](https://developer.apple.com/documentation/updates/video_subscriber_account_updates) - Learn about important changes in Video Subscriber Account.
-- [Virtualization updates](https://developer.apple.com/documentation/updates/virtualization_updates) - Learn about important changes to Virtualization.
-- [Vision updates](https://developer.apple.com/documentation/updates/vision_updates) - Learn about important changes in Vision.
-- [watchOS updates](https://developer.apple.com/documentation/updates/watchos_updates) - Learn about important changes to watchOS.
-- [WeatherKit updates](https://developer.apple.com/documentation/updates/weatherkit_updates) - Learn about important changes to WeatherKit.
-- [WidgetKit updates](https://developer.apple.com/documentation/updates/widgetkit_updates) - Learn about important changes in WidgetKit.
-- [WorkoutKit updates](https://developer.apple.com/documentation/updates/workoutkit_updates) - Learn about important changes to WorkoutKit.
-- [Xcode updates](https://developer.apple.com/documentation/updates/xcode_updates) - Learn about important changes to Xcode.
-- [XCUIAutomation updates](https://developer.apple.com/documentation/updates/xcuiautomation_updates) - Learn about important changes to XCUIAutomation.
-- [XPC updates](https://developer.apple.com/documentation/updates/xpc_updates) - Learn about important changes to XPC.
+- [Accelerate updates](https://developer.apple.com/documentation/Updates/Accelerate) - Learn about important changes to Accelerate.
+- [Accessibility updates](https://developer.apple.com/documentation/Updates/Accessibility) - Learn about important changes to Accessibility.
+- [ActivityKit updates](https://developer.apple.com/documentation/Updates/ActivityKit) - Learn about important changes in ActivityKit.
+- [AdAttributionKit Updates](https://developer.apple.com/documentation/Updates/AdAttributionKit) - Learn about important changes to AdAttributionKit.
+- [App Clips updates](https://developer.apple.com/documentation/Updates/AppClips) - Learn about important changes in App Clips.
+- [App Intents updates](https://developer.apple.com/documentation/Updates/AppIntents) - Learn about important changes in App Intents.
+- [AppKit updates](https://developer.apple.com/documentation/Updates/AppKit) - Learn about important changes to AppKit.
+- [Apple Intelligence updates](https://developer.apple.com/documentation/Updates/Apple-Intelligence) - Learn about important changes to Apple Intelligence.
+- [AppleMapsServerAPI Updates](https://developer.apple.com/documentation/Updates/AppleMapsServerAPI) - Learn about important changes to AppleMapsServerAPI.
+- [Apple Pencil updates](https://developer.apple.com/documentation/Updates/ApplePencil) - Learn about important changes to Apple Pencil.
+- [ARKit updates](https://developer.apple.com/documentation/Updates/ARKit) - Learn about important changes to ARKit.
+- [Audio Toolbox updates](https://developer.apple.com/documentation/Updates/AudioToolbox) - Learn about important changes to Audio Toolbox.
+- [AuthenticationServices updates](https://developer.apple.com/documentation/Updates/AuthenticationServices) - Learn about important changes to AuthenticationServices.
+- [AVFAudio updates](https://developer.apple.com/documentation/Updates/AVFAudio) - Learn about important changes to AVFAudio.
+- [AVFoundation updates](https://developer.apple.com/documentation/Updates/AVFoundation) - Learn about important changes to AVFoundation.
+- [Background Tasks updates](https://developer.apple.com/documentation/Updates/BackgroundTasks) - Learn about important changes in Background Tasks.
+- [Bundle Resources updates](https://developer.apple.com/documentation/Updates/BundleResources) - Learn about important changes to Bundle Resources.
+- [BrowserEngineKit reference](https://developer.apple.com/documentation/browserenginekit) - Consult the framework's browser-engine integration APIs and their individual requirements.
+- [CallKit updates](https://developer.apple.com/documentation/Updates/CallKit) - Learn about important changes to CallKit.
+- [ContactsUI updates](https://developer.apple.com/documentation/Updates/ContactsUI) - Learn about important changes to ContactsUI.
+- [Core Location updates](https://developer.apple.com/documentation/Updates/CoreLocation) - Learn about important changes to Core Location.
+- [Core MIDI updates](https://developer.apple.com/documentation/Updates/CoreMIDI) - Learn about important changes to Core MIDI.
+- [Core ML updates](https://developer.apple.com/documentation/Updates/CoreML) - Learn about important changes to Core ML.
+- [Core Motion updates](https://developer.apple.com/documentation/Updates/CoreMotion) - Learn about important changes to Core Motion.
+- [Core Spotlight updates](https://developer.apple.com/documentation/Updates/CoreSpotlight) - Learn about important changes to Core Spotlight.
+- [DataDetection updates](https://developer.apple.com/documentation/Updates/DataDetection) - Learn about important changes in DataDetection.
+- [Default apps updates](https://developer.apple.com/documentation/Updates/DefaultApps) - Learn about the latest changes to enabling your app to be the system default.
+- [DockKit updates](https://developer.apple.com/documentation/Updates/DockKit) - Learn about important changes to DockKit.
+- [File Provider updates](https://developer.apple.com/documentation/Updates/FileProvider) - Learn about important changes to File Provider.
+- [FinanceKit updates](https://developer.apple.com/documentation/Updates/FinanceKit) - Learn more about changes to FinanceKit.
+- [Foundation updates](https://developer.apple.com/documentation/Updates/Foundation) - Learn about important changes to Foundation.
+- [Game Controller updates](https://developer.apple.com/documentation/Updates/GameController) - Learn about important changes to Game Controller.
+- [GameKit updates](https://developer.apple.com/documentation/Updates/GameKit) - Learn about important changes to GameKit.
+- [Group Activities updates](https://developer.apple.com/documentation/Updates/GroupActivities) - Learn about important changes to Group Activities.
+- [HealthKit updates](https://developer.apple.com/documentation/Updates/HealthKit) - Learn about important changes to HealthKit.
+- [Hypervisor updates](https://developer.apple.com/documentation/Updates/Hypervisor) - Learn about important changes to Hypervisor.
+- [Journaling Suggestions updates](https://developer.apple.com/documentation/Updates/JournalingSuggestions) - Learn about important changes in Journaling Suggestions.
+- [LightweightCodeRequirements updates](https://developer.apple.com/documentation/Updates/LightweightCodeRequirements) - Learn about important changes to LightweightCodeRequirements.
+- [LiveCommunicationKit updates](https://developer.apple.com/documentation/Updates/LiveCommunicationKit) - Learn about important changes to LiveCommunicationKit.
+- [MapKit updates](https://developer.apple.com/documentation/Updates/MapKit) - Learn about important changes to MapKit.
+- [MapKitJS updates](https://developer.apple.com/documentation/Updates/MapKitJS) - Learn about important changes to MapKitJS.
+- [Matter updates](https://developer.apple.com/documentation/Updates/Matter) - Learn about important changes to Matter.
+- [Network updates](https://developer.apple.com/documentation/Updates/Network) - Learn about important changes to Network.
+- [PassKit updates](https://developer.apple.com/documentation/Updates/PassKit) - Learn more about changes to PassKit.
+- [PHASE updates](https://developer.apple.com/documentation/Updates/PHASE) - Learn about important changes to PHASE.
+- [PhotoKit updates](https://developer.apple.com/documentation/Updates/PhotoKit) - Learn about important changes to PhotoKit and PhotosUI.
+- [ProximityReader updates](https://developer.apple.com/documentation/Updates/ProximityReader) - Learn about important changes to ProximityReader.
+- [RealityKit updates](https://developer.apple.com/documentation/Updates/RealityKit) - Learn about important changes in RealityKit.
+- [SafariServices updates](https://developer.apple.com/documentation/Updates/SafariServices) - Learn about important changes in SafariServices.
+- [ScreenCaptureKit updates](https://developer.apple.com/documentation/Updates/ScreenCaptureKit) - Learn about important changes to ScreenCaptureKit.
+- [Security updates](https://developer.apple.com/documentation/Updates/Security) - Learn about important changes to Security.
+- [SensorKit updates](https://developer.apple.com/documentation/Updates/SensorKit) - Learn about important changes to SensorKit.
+- [ShazamKit updates](https://developer.apple.com/documentation/Updates/ShazamKit) - Learn about important changes in ShazamKit.
+- [SiriKit updates](https://developer.apple.com/documentation/Updates/SiriKit) - Learn about important changes in SiriKit.
+- [StoreKit updates](https://developer.apple.com/documentation/Updates/StoreKit) - Learn about important changes in StoreKit.
+- [Swift updates](https://developer.apple.com/documentation/Updates/Swift) - Learn about important changes to Swift.
+- [Swift Charts updates](https://developer.apple.com/documentation/Updates/SwiftCharts) - Learn about important changes to Swift Charts.
+- [SwiftData updates](https://developer.apple.com/documentation/Updates/SwiftData) - Learn about important changes to SwiftData.
+- [SwiftUI updates](https://developer.apple.com/documentation/Updates/SwiftUI) - Learn about important changes to SwiftUI.
+- [Symbols updates](https://developer.apple.com/documentation/Updates/Symbols) - Learn about important changes to Symbols.
+- [TipKit updates](https://developer.apple.com/documentation/Updates/TipKit) - Learn about important changes in TipKit.
+- [ThreadNetwork updates](https://developer.apple.com/documentation/Updates/ThreadNetwork) - Learn about important changes in ThreadNetwork.
+- [UIKit updates](https://developer.apple.com/documentation/Updates/UIKit) - Learn about important changes to UIKit.
+- [User Notifications updates](https://developer.apple.com/documentation/Updates/UserNotifications) - Learn about important changes in User Notifications.
+- [Video Subscriber Account updates](https://developer.apple.com/documentation/Updates/VideoSubscriberAccount) - Learn about important changes in Video Subscriber Account.
+- [Virtualization updates](https://developer.apple.com/documentation/Updates/Virtualization) - Learn about important changes to Virtualization.
+- [Vision updates](https://developer.apple.com/documentation/Updates/Vision) - Learn about important changes in Vision.
+- [watchOS updates](https://developer.apple.com/documentation/Updates/watchos) - Learn about important changes to watchOS.
+- [WeatherKit updates](https://developer.apple.com/documentation/Updates/WeatherKit) - Learn about important changes to WeatherKit.
+- [WidgetKit updates](https://developer.apple.com/documentation/Updates/WidgetKit) - Learn about important changes in WidgetKit.
+- [WorkoutKit updates](https://developer.apple.com/documentation/Updates/WorkoutKit) - Learn about important changes to WorkoutKit.
+- [Xcode updates](https://developer.apple.com/documentation/Updates/Xcode) - Learn about important changes to Xcode.
+- [XCUIAutomation updates](https://developer.apple.com/documentation/Updates/XCUIAutomation) - Learn about important changes to XCUIAutomation.
+- [XPC updates](https://developer.apple.com/documentation/Updates/XPC) - Learn about important changes to XPC.
 
 ### Release Notes for SDKs, Xcode, and Safari
-- [iOS & iPadOS Release Notes](https://developer.apple.com/documentation/updates/ios_ipados_release_notes) - Learn about changes to the iOS & iPadOS SDK.
-- [macOS Release Notes](https://developer.apple.com/documentation/updates/macos_release_notes) - Learn about changes to the macOS SDK.
-- [tvOS Release Notes](https://developer.apple.com/documentation/updates/tvos_release_notes) - Learn about changes to the tvOS SDK.
-- [watchOS Release Notes](https://developer.apple.com/documentation/updates/watchos_release_notes) - Learn about changes to the watchOS SDK.
-- [visionOS Release Notes](https://developer.apple.com/documentation/updates/visionos_release_notes) - Learn about changes to the visionOS SDK.
-- [Xcode Release Notes](https://developer.apple.com/documentation/updates/xcode_release_notes) - Learn about changes to Xcode.
-- [Safari Release Notes](https://developer.apple.com/documentation/updates/safari_release_notes) - Learn about changes for Safari and Safari View Controller for iOS, iPadOS, macOS, and in visionOS; WKWebView for iOS, iPadOS, macOS, watchOS, and in visionOS; and Web Inspector on macOS.
+- [iOS & iPadOS Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes) - Learn about changes to the iOS & iPadOS SDK.
+- [macOS Release Notes](https://developer.apple.com/documentation/macos-release-notes) - Learn about changes to the macOS SDK.
+- [tvOS Release Notes](https://developer.apple.com/documentation/tvos-release-notes) - Learn about changes to the tvOS SDK.
+- [watchOS Release Notes](https://developer.apple.com/documentation/watchos-release-notes) - Learn about changes to the watchOS SDK.
+- [visionOS Release Notes](https://developer.apple.com/documentation/visionos-release-notes) - Learn about changes to the visionOS SDK.
+- [Xcode Release Notes](https://developer.apple.com/documentation/xcode-release-notes) - Learn about changes to Xcode.
+- [Safari Release Notes](https://developer.apple.com/documentation/safari-release-notes) - Review browser, embedded web-content, and Web Inspector changes; individual APIs have their own platform availability.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/Updates)*

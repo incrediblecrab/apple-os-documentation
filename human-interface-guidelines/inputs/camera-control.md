@@ -10,8 +10,6 @@ On iPhone 16 and iPhone 16 Pro models, the Camera Control quickly opens your app
 
 The overlay allows people to quickly adjust controls. A person can view the available controls by lightly double-pressing the Camera Control. After selecting a control, they can slide their finger on the Camera Control to adjust a value to capture their content as they want.
 
-> **iOS 27+:** Visual Intelligence expands — nutritional breakdown from a meal photo, and receipt understanding that identifies and splits line items per person. Wallet's **Create a Pass** uses the camera to digitize tickets, memberships, and loyalty cards.
-
 ## Topics
 
 ### Anatomy
@@ -33,19 +31,19 @@ In addition to custom controls that you create, the system provides a set of sta
 
 - **Keep names short** - Keep names of controls short. Control labels adhere to Dynamic Type sizes, and longer names may obfuscate the camera's viewfinder.
 
-- **Include units or symbols** - Include units or symbols with slider control values to provide context. Providing descriptive information in the overlay, such as EV, %, or a custom string, helps people understand what the slider controls. For developer guidance, see [localizedValueFormat](https://developer.apple.com/documentation/avfoundation/avcaptureslidercontrol/localizedvalueformat).
+- **Give values context** - Include appropriate units, symbols, or a localized description so people understand the parameter being adjusted. See [localizedValueFormat](https://developer.apple.com/documentation/avfoundation/avcaptureslider/localizedvalueformat).
 
-- **Define prominent values** - Define prominent values for a slider control. Prominent values are ones people choose most frequently, or values that are evenly spaced, like the major increments of zoom factor. When a person slides on the Camera Control to adjust a slider control, the system more easily lands on prominent values you define. For developer guidance, see [prominentValues](https://developer.apple.com/documentation/avfoundation/avcaptureslidercontrol/prominentvalues).
+- **Make useful increments easy to reach** - Choose prominent values that correspond to common settings or meaningful steps, rather than arbitrary stops. See [prominentValues](https://developer.apple.com/documentation/avfoundation/avcaptureslider/prominentvalues-199dz).
 
 - **Make space for overlay** - Make space for the overlay in the viewfinder. The overlay and control labels occupy the screen area adjacent to the Camera Control in both portrait and landscape orientations. To avoid overlapping the interface elements of your camera capture experience, place your UI outside of the overlay areas. Maximize the height and width of the viewfinder and allow the overlay to appear and disappear over it.
 
 - **Minimize viewfinder distractions** - Minimize distractions in the viewfinder. When capturing a photo or video, people appreciate a large preview image with as few visual distractions as possible. Avoid duplicating controls, like sliders and toggles, in your UI and the overlay when the system displays the overlay.
 
-- **Enable controls based on mode** - Enable or disable controls depending on the camera mode. For example, disable video controls when taking photos. The overlay supports multiple controls, but you can't remove or add controls at runtime.
+- **Enable controls based on mode** - Disable controls that don't apply to the current camera mode. Apple's HIG says controls can't be added or removed at runtime, but the [addControl(_:) reference](https://developer.apple.com/documentation/avfoundation/avcapturesession/addcontrol(_:)) explicitly permits adding controls while the session is running. Follow the capture-session API requirements, including checking `canAddControl(_:)`, rather than treating the HIG statement as an API restriction.
 
 - **Consider control arrangement** - Consider how to arrange your controls. Order commonly used controls toward the middle to allow quick access, and include lesser used controls on either side. When a person lightly presses the Camera Control to open the overlay again, the system remembers the last control they used in your app.
 
-- **Support system-wide launching** - Allow people to use the Camera Control to launch your experience from anywhere. Create a locked camera capture extension that lets people configure the Camera Control to launch your app's camera experience from their locked device, the Home Screen, or from within other apps. For guidance, see [Camera experiences on a locked device](https://developer.apple.com/design/human-interface-guidelines/camera-experiences-on-a-locked-device).
+- **Support the system's camera entrypoints** - Where appropriate, provide a locked camera capture extension so people can choose your capture experience for Camera Control. See [Camera experiences on a locked device](https://developer.apple.com/design/human-interface-guidelines/controls#Camera-experiences-on-a-locked-device).
 
 ### Platform Considerations
 
@@ -58,7 +56,7 @@ Not supported in iPadOS, macOS, watchOS, tvOS, or visionOS.
 
 ### Developer Documentation
 
-- [Enhancing your app experience with the Camera Control — AVFoundation](https://developer.apple.com/documentation/avfoundation/media_assets_playback_and_editing/enhancing_your_app_experience_with_the_camera_control)
+- [Enhancing your app experience with the Camera Control — AVFoundation](https://developer.apple.com/documentation/avfoundation/enhancing-your-app-experience-with-the-camera-control)
 - [AVCaptureControl — AVFoundation](https://developer.apple.com/documentation/avfoundation/avcapturecontrol)
 - [LockedCameraCapture](https://developer.apple.com/documentation/lockedcameracapture)
 
@@ -68,7 +66,5 @@ Not supported in iPadOS, macOS, watchOS, tvOS, or visionOS.
 - New page.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/camera-control)*

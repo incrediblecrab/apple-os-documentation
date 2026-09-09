@@ -1,8 +1,8 @@
 # Notary API
 
-Submit your macOS software for notarization through a web interface.
+Submit your macOS software for notarization through a REST API.
 
-**Platforms:** Notary API 2.0.0+
+**Service API version:** Notary API 2.0.0. This is not an Apple OS deployment version.
 
 ## Overview
 
@@ -18,28 +18,26 @@ To learn how notarization works, see Notarizing macOS software before distributi
 ## Topics
 
 ### Essentials
-- [Submitting software for notarization over the web](https://developer.apple.com/documentation/notaryapi/submitting_software_for_notarization_over_the_web) - Eliminate a dependency on macOS in your notarization workflow by interfacing directly with the notary service.
+- [Submitting software for notarization over the web](https://developer.apple.com/documentation/notaryapi/submitting-software-for-notarization-over-the-web) - Replace the upload/status portions of a `notarytool` workflow with REST calls; building, signing and other workflow requirements are separate.
 
 ### Software submission
-- [Submit Software](https://developer.apple.com/documentation/notaryapi/submit_software) - Start the process of uploading a new version of your software to the notary service.
+- [Submit Software](https://developer.apple.com/documentation/notaryapi/submit-software) - Prepare a submission and obtain upload information; this request does not itself upload the software.
 - **NewSubmissionRequest** - Data that you provide when starting a submission to the notary service.
 - **NewSubmissionResponse** - The notary service's response to a software submission.
 
 ### Notarization results
-- [Get Submission Status](https://developer.apple.com/documentation/notaryapi/get_submission_status) - Fetch the status of a software notarization submission.
+- [Get Submission Status](https://developer.apple.com/documentation/notaryapi/get-submission-status) - Fetch the status of a software notarization submission.
 - **SubmissionResponse** - The notary service's response to a request for the status of a submission.
-- [Get Submission Log](https://developer.apple.com/documentation/notaryapi/get_submission_log) - Fetch details about a single completed notarization.
+- [Get Submission Log](https://developer.apple.com/documentation/notaryapi/get-submission-log) - Fetch details about a single completed notarization.
 - **SubmissionLogURLResponse** - The notary service's response to a request for the log information about a completed submission.
 
 ### History
-- [Get Previous Submissions](https://developer.apple.com/documentation/notaryapi/get_previous_submissions) - Fetch a list of your team's previous notarization submissions.
+- [Get Previous Submissions](https://developer.apple.com/documentation/notaryapi/get-previous-submissions) - Fetch a list of your team's previous notarization submissions.
 - **SubmissionListResponse** - The notary service's response to a request for information about your team's previous submissions.
 
 ### Errors
 - **ErrorResponse** - The notary service's response when an error occurs.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/NotaryAPI)*

@@ -6,9 +6,9 @@ Optimize graphics and compute performance with kernels that are fine-tuned for t
 
 ## Overview
 
-The Metal Performance Shaders framework contains a collection of highly optimized compute and graphics shaders that are designed to integrate easily and efficiently into your Metal app. These data-parallel primitives are specially tuned to take advantage of the unique hardware characteristics of each GPU family to ensure optimal performance.
+The Metal Performance Shaders framework contains compute and graphics shaders designed to integrate with Metal apps. These data-parallel primitives are tuned for the hardware characteristics of different GPU families; performance still depends on the device, data, and workload.
 
-Apps adopting the Metal Performance Shaders framework achieve great performance without needing to create and maintain hand-written shaders for each GPU family. Metal Performance Shaders can be used along with your app's existing Metal resources (such as the **MTLCommandBuffer**, **MTLTexture**, and **MTLBuffer** objects) and shaders.
+Using Metal Performance Shaders can reduce the need to maintain separate hand-written kernels for each GPU family. The framework works with existing Metal resources (such as **MTLCommandBuffer**, **MTLTexture**, and **MTLBuffer**) and shaders; profile the complete workload rather than assuming a universal speedup.
 
 The Metal Performance Shaders framework supports the following functionality:
 
@@ -23,22 +23,22 @@ The Metal Performance Shaders framework supports the following functionality:
 - **The MPSKernel Class**
 - **Tuning Hints**
 - **Device Support**
-- **MPSSupportsMTLDevice()** - Determines whether the Metal Performance Shaders framework supports a Metal device.
+- [`MPSSupportsMTLDevice(_:)`](https://developer.apple.com/documentation/metalperformanceshaders/mpssupportsmtldevice(_:)) - Determines whether the Metal Performance Shaders framework supports a Metal device.
 
 ### Image Filters
-- [Image Filters](https://developer.apple.com/documentation/metalperformanceshaders/image_filters) - Apply high-performance filters to, and extract statistical and histogram data from images.
+- [Image Filters](https://developer.apple.com/documentation/metalperformanceshaders/image-filters) - Apply high-performance filters to, and extract statistical and histogram data from images.
 
 ### Neural Networks
 Implement and run deep learning using previously obtained training data.
-- [Training a Neural Network with Metal Performance Shaders](https://developer.apple.com/documentation/metalperformanceshaders/training_a_neural_network_with_metal_performance_shaders) - Use an MPS neural network graph to train a simple neural network digit classifier.
+- [Training a Neural Network with Metal Performance Shaders](https://developer.apple.com/documentation/metalperformanceshaders/training-a-neural-network-with-metal-performance-shaders) - Use an MPS neural network graph to train a simple neural network digit classifier.
 - **MPSImage** - A texture that may have more than four channels for use in convolutional neural networks.
 - **MPSTemporaryImage** - A texture for use in convolutional neural networks that stores transient data to be used and discarded promptly.
-- [Objects that Simplify the Creation of Neural Networks](https://developer.apple.com/documentation/metalperformanceshaders/objects_that_simplify_the_creation_of_neural_networks) - Simplify the creation of neural networks using networks of filter, image, and state nodes.
-- [Convolutional Neural Network Kernels](https://developer.apple.com/documentation/metalperformanceshaders/convolutional_neural_network_kernels) - Build neural networks with layers.
-- [Recurrent Neural Networks](https://developer.apple.com/documentation/metalperformanceshaders/recurrent_neural_networks) - Create recurrent neural networks.
+- [Objects that Simplify the Creation of Neural Networks](https://developer.apple.com/documentation/metalperformanceshaders/objects-that-simplify-the-creation-of-neural-networks) - Simplify the creation of neural networks using networks of filter, image, and state nodes.
+- [Convolutional Neural Network Kernels](https://developer.apple.com/documentation/metalperformanceshaders/convolutional-neural-network-kernels) - Build neural networks with layers.
+- [Recurrent Neural Networks](https://developer.apple.com/documentation/metalperformanceshaders/recurrent-neural-networks) - Create recurrent neural networks.
 
 ### Matrices and Vectors
-- [Matrices and Vectors](https://developer.apple.com/documentation/metalperformanceshaders/matrices_and_vectors) - Solve systems of equations, factorize matrices and multiply matrices and vectors.
+- [Matrices and Vectors](https://developer.apple.com/documentation/metalperformanceshaders/matrices-and-vectors) - Solve systems of equations, factorize matrices and multiply matrices and vectors.
 
 ### Kernel Base Classes
 - **MPSKernel** - A standard interface for Metal Performance Shaders kernels.
@@ -49,7 +49,7 @@ Implement and run deep learning using previously obtained training data.
 - **MPSDeviceProvider** - An interface that enables the setting of a Metal device for unarchived objects.
 
 ### Ray Tracing
-- [Accelerating ray tracing and motion blur using Metal](https://developer.apple.com/documentation/metalperformanceshaders/accelerating_ray_tracing_and_motion_blur_using_metal) - Generate ray-traced images with motion blur using GPU-based parallel processing.
+- [Accelerating ray tracing and motion blur using Metal](https://developer.apple.com/documentation/metal/accelerating-ray-tracing-and-motion-blur-using-metal) - Generate ray-traced images with motion blur using GPU-based parallel processing.
 - **MPSRayIntersector** - A kernel that performs intersection tests between rays and geometry.
 
 ### Deprecated
@@ -70,7 +70,5 @@ Implement and run deep learning using previously obtained training data.
 - **Metal Programming Guide**
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/MetalPerformanceShaders)*

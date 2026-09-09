@@ -6,11 +6,11 @@ Animate screen savers, and interact with the screen saver infrastructure.
 
 ## Overview
 
-The Screen Saver framework defines the interface for custom modules to interact with the Screen Effects user interface feature. Write screen savers in Objective-C, and implement your module's user interface using Cocoa. Use the available functions to produce random values and centering rectangles.
+The Screen Saver framework defines the Cocoa interface for custom screen-saver modules. Implement a `ScreenSaverView` subclass for the module's user interface. The framework also provides functions for random values and rectangle positioning.
 
 To create a screen saver, create a bundle directory with the .saver suffix and install it in one of the Library/Screen Savers directories on the system. In your bundle's executable, include a ScreenSaverView subclass. That view defines the interface you use to generate your screen saver content. If your screen saver stores any preference information, use the ScreenSaverDefaults class instead of the standard UserDefaults class.
 
-Because screen savers are plug-ins for the screen saver engine, the screen saver binary must support the same hardware architecture of the running engine. As with any application, the screen saver engine uses the native architecture of the host computer. For full compatibility, make sure your screen saver supports both the x86_64 and arm64 architectures.
+Because screen savers are plug-ins for the screen saver engine, the binary must include the architecture used by that engine. If your supported deployment range includes both Intel and Apple silicon Macs, include both `x86_64` and `arm64`. A universal binary does not make an otherwise unsupported macOS version or hardware configuration supported.
 
 ### How the system runs your screen saver
 
@@ -42,7 +42,5 @@ When the user takes some action, the system calls your view's stopAnimation() me
 - **SSCenteredRectInRect(NSRect, NSRect) -> NSRect** - Returns a rectangle.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/ScreenSaver)*

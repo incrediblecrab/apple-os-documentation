@@ -1,13 +1,18 @@
 # Playing haptics
+
 Playing haptics can engage people's sense of touch and bring their familiarity with the physical world into your app or game.
 
-Depending on the platform and the device people are using, the system can play haptics in addition to visual and auditory feedback. For example, components like switches, sliders, and pickers automatically play haptic feedback on supported iPhone models; on Apple Watch, the Taptic Engine generates haptics for a number of built-in feedback patterns, which watchOS combines with an audible tone. On a Mac that’s equipped with a Force Touch trackpad, an app can play haptics while people drag content or when they force click to change the speed of media controls.
+**Platforms:** iOS | iPadOS | macOS | tvOS | visionOS | watchOS
+
+Depending on the platform and the device people are using, the system can play haptics in addition to visual and auditory feedback. For example, components like switches, sliders, and pickers provide feedback on supported iPhone models. Apple Watch offers predefined haptics that can be accompanied by sound. On a Mac with a Force Touch trackpad, an app can provide feedback for actions such as aligning dragged content or changing a pressure-sensitive control.
 
 In addition to built-in haptic capabilities, some external input devices can also play haptics. For example:
 
-In an iPadOS, macOS, tvOS, or visionOS app or game, game controllers can provide haptic feedback (for developer guidance, see Playing Haptics on Game Controllers).
+- In an iPadOS, macOS, tvOS, or visionOS app or game, supported game controllers can provide haptic feedback. See [Playing Haptics on Game Controllers](https://developer.apple.com/documentation/corehaptics/playing-haptics-on-game-controllers).
 
-Apple Pencil Pro and some trackpads can provide haptic feedback when connected to certain iPad models. (For details on Apple Pencil features and compatibility, see Apple Pencil.)
+- Apple Pencil Pro and compatible haptic trackpads can provide feedback with supported iPad models. Check [Apple Pencil compatibility](https://www.apple.com/apple-pencil/) and the actual accessory's capabilities.
+
+SDK availability doesn't establish that the device or connected accessory has a haptic actuator. Check the intended output device's capabilities, respect feedback preferences, and keep the experience usable without tactile output.
 
 ## Best practices
 Use system-provided haptic patterns according to their documented meanings. People recognize standard haptics because the system plays them consistently on interactions with standard controls. If the documented use case for a pattern doesn’t make sense in your app or game, avoid using the pattern to mean something else. Instead, use a generic pattern or create your own, where supported. For guidance, see Custom haptics.
@@ -25,22 +30,25 @@ Make haptics optional. Let people turn off or mute haptics, and make sure people
 Be aware that playing haptics might impact other user experiences. By design, haptics produce enough physical force for people to feel the vibration. Ensure that haptic vibrations don't disrupt experiences involving device features like the camera, gyroscope, or microphone.
 
 ## Custom haptics
+
 Games often use custom haptics to enhance gameplay. Although it’s less common, nongame apps might also use custom haptics to provide a richer, more delightful experience.
 
 You can design custom haptic patterns that vary dynamically, based on user input or context. For example, the impact players feel when a game character jumps from a tree can be stronger than when the character jumps in place, and substantial experiences — like a collision or a hit — can feel very different from subtle experiences like the approach of footsteps or a looming danger.
 
 There are two basic building blocks you can use to generate custom haptic patterns.
 
-Transient events are brief and compact, often feeling like taps or impulses. The experience of tapping the Flashlight button on the Home Screen is an example of a transient event.
+Transient events are brief and compact, often feeling like taps or impulses; a short pulse confirming a button action is a typical design example.
 
 Continuous events feel like sustained vibrations, such as the experience of the lasers effect in a message.
 
-Regardless of the type of haptic event you use to generate a custom haptic, you can also control its sharpness and intensity. You can think of sharpness as a way to abstract a haptic experience into the waveform that produces the corresponding physical sensations. Specifying sharpness lets you relay to the system your intent for the experience. For example, you might use sharpness values to convey an experience that’s soft, rounded, or organic, or one that’s crisp, precise, or mechanical. As the term implies, intensity means the strength of the haptic.
+For supported custom haptics, intensity controls perceived strength and sharpness communicates a softer, rounder or crisper, more mechanical character. These are design parameters, not a promise of identical physical sensations on every output device.
 
 By combining transient and continuous events, varying sharpness and intensity, and including optional audio content, you can create a wide range of different haptic experiences. For developer guidance, see Core Haptics.
 
 ## Platform considerations
+
 ### iOS
+
 On supported iPhone models, you can add haptics to your experience in the following ways:
 
 Use standard UI components — like toggles, sliders, and pickers — that play Apple-designed system haptics by default.
@@ -48,12 +56,15 @@ Use standard UI components — like toggles, sliders, and pickers — that play 
 When it makes sense, use a feedback generator to play one of several predefined haptic patterns in the categories of notification, impact, and selection (for developer guidance, see UIFeedbackGenerator).
 
 #### Notification
+
 Notification haptics provide feedback about the outcome of a task or action, such as depositing a check or unlocking a vehicle.
 
 - **Success**: Indicates that a task or action has completed.
 - **Warning**: Indicates that a task or action has produced a warning of some kind.
 - **Error**: Indicates that an error has occurred.
+
 #### Impact
+
 Impact haptics provide a physical metaphor you can use to complement a visual experience. For example, people might feel a tap when a view snaps into place or a thud when two heavy objects collide.
 
 - **Light**: Indicates a collision between small or lightweight UI objects.
@@ -61,13 +72,16 @@ Impact haptics provide a physical metaphor you can use to complement a visual ex
 - **Heavy**: Indicates a collision between large or heavyweight UI objects.
 - **Rigid**: Indicates a collision between hard or inflexible UI objects.
 - **Soft**: Indicates a collision between soft or flexible UI objects.
+
 #### Selection
+
 Selection haptics provide feedback while the values of a UI element are changing.
 
 - **Selection**: Indicates that a UI element's values are changing.
 
 ### macOS
-When a Magic Trackpad is available, your app can provide one of the three following haptic patterns in response to a drag operation or force click.
+
+With a supported Force Touch trackpad, including a compatible built-in trackpad, your app can provide the following patterns in response to the person's actions. Don't assume every product named Magic Trackpad has this capability.
 
 | Haptic feedback pattern | Description |
 |--------------------------|-------------|
@@ -75,22 +89,22 @@ When a Magic Trackpad is available, your app can provide one of the three follow
 | **Level change** | Indicates movement between discrete levels of pressure. For example, as people press a fast-forward button on a video player, playback could increase or decrease and haptic feedback could be provided as different levels of pressure are reached. |
 | **Generic** | Intended for providing general feedback when the other patterns don't apply. |
 
-For developer guidance, see NSHapticFeedbackPerformer.
+Use [NSHapticFeedbackPerformer](https://developer.apple.com/documentation/appkit/nshapticfeedbackperformer) for user-initiated feedback. Its default performer accounts for the current input device, accessibility settings, and preferences; don't use these patterns for unrelated background events.
 
 ### watchOS
-Apple Watch Series 4 and later provides haptic feedback for the Digital Crown, which gives people a more tactile experience as they scroll through content. By default, the system provides linear haptic detents that people can feel as they rotate the Digital Crown. Some system controls, like table views, provide detents as new items scroll onto the screen. For developer guidance, see WKHapticType.
+Apple Watch Series 4 and later supports Digital Crown haptics. The crown sequencer enables linear feedback by default, but apps and user preferences can affect whether it plays. Table scrolling can coordinate feedback with new rows. See [isHapticFeedbackEnabled](https://developer.apple.com/documentation/watchkit/wkcrownsequencer/ishapticfeedbackenabled).
 
-watchOS defines the following set of haptics, each of which conveys a specific meaning to people:
+The HIG describes these standard patterns. This isn't an exhaustive list of every [WKHapticType](https://developer.apple.com/documentation/watchkit/wkhaptictype), which also includes navigation-specific patterns:
 
-- **Notification**: Tells the person that something significant or out of the ordinary has happened and requires their attention. The system plays this same haptic when a local or remote notification arrives.
-- **Up**
-- **Down**
-- **Success**
-- **Failure**
-- **Retry**
-- **Start**
-- **Stop**
-- **Click**
+- **Notification**: Signals an event needing attention. This is the system notification pattern, not a guarantee that every delivered notification produces tactile feedback.
+- **Up**: An important value increased or crossed an upper threshold.
+- **Down**: An important value decreased or crossed a lower threshold.
+- **Success**: An action completed successfully.
+- **Failure**: An action failed.
+- **Retry**: A failed action can be attempted again.
+- **Start**: An explicitly started activity began.
+- **Stop**: A previously started activity ended.
+- **Click**: Marks discrete progress or intervals; avoid rapid, overlapping clicks that lose their meaning.
 
 ## Resources
 
@@ -102,13 +116,18 @@ watchOS defines the following set of haptics, each of which conveys a specific m
 ### Developer documentation
 
 - [Core Haptics](https://developer.apple.com/documentation/corehaptics)
+- [UIFeedbackGenerator](https://developer.apple.com/documentation/uikit/uifeedbackgenerator) - Choose an appropriate concrete generator subclass
+- [Playing haptic feedback in your app](https://developer.apple.com/documentation/applepencil/playing-haptic-feedback-in-your-app) - SwiftUI, UIKit, and Apple Pencil feedback
+- [CHHapticEngine.capabilitiesForHardware()](https://developer.apple.com/documentation/corehaptics/chhapticengine/capabilitiesforhardware()) - Device-engine capability checks
 
 ### Videos
 
-- [Practice audio haptic design](https://developer.apple.com/videos/play/wwdc2019/520/)
-- [Introducing Core Haptics](https://developer.apple.com/videos/play/wwdc2019/223/)
+- [Practice audio haptic design](https://developer.apple.com/videos/play/wwdc2021/10278)
+- [Introducing Core Haptics](https://developer.apple.com/videos/play/wwdc2019/520)
 
 ## Changelog
+
+These dates describe Apple's HIG article history.
 
 ### May 7, 2024
 - Added guidance for playing haptics on Apple Pencil Pro.
@@ -118,8 +137,4 @@ watchOS defines the following set of haptics, each of which conveys a specific m
 
 ---
 
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
-
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/playing-haptics)*
-
-

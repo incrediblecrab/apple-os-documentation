@@ -14,15 +14,15 @@ When the user taps the view, the system presents a popover that lists the availa
 
 To indicate your app's intent to search for a nearby third-party media receiver, set a custom routing controller (AVCustomRoutingController) on the view.
 
+The following UIKit configuration is an excerpt, not a complete `UIViewRepresentable`. Its `context.coordinator` and app-defined `RouteManager` come from the [complete discovery sample](https://developer.apple.com/documentation/devicediscoveryextension/discovering-a-third-party-media-streaming-device).
+
 ```swift
-struct DevicePickerView: UIViewRepresentable {
-    func makeUIView(context: Context) -> UIView {
-        let routePickerView = AVRoutePickerView()
-        routePickerView.delegate = context.coordinator
-        routePickerView.customRoutingController = RouteManager.shared.customRoutingController
+let routePickerView = AVRoutePickerView()
+routePickerView.delegate = context.coordinator
+routePickerView.customRoutingController = RouteManager.shared.customRoutingController
 ```
 
-Next, let the view know which particular device your app intends to add. Each device requires a unique device discovery extension, which distinguishes itself through a uniform type identifier in its Info.plist file. Add a custom routing action (AVCustomRoutingActionItem) with type set to the identifier and pass the item to the controller's customActionItems.
+Next, identify the discovery extension through its uniform type identifier in `Info.plist`. Add a custom routing action (`AVCustomRoutingActionItem`) with `type` set to that identifier and pass the item to the controller's `customActionItems`. This delegate-method excerpt uses the same sample's routing manager; the example identifier must match the extension's actual configuration.
 
 ```swift
 func routePickerViewWillBeginPresentingRoutes(_ routePickerView: AVRoutePickerView) {
@@ -34,20 +34,27 @@ func routePickerViewWillBeginPresentingRoutes(_ routePickerView: AVRoutePickerVi
 }
 ```
 
-If the extension finds the device at runtime, it passes the device to the system for display in the picker. See [Discovering a third-party media-streaming device](https://developer.apple.com/documentation/avrouting/discovering_a_third-party_media-streaming_device) for a complete sample code project that routes media through a custom protocol.
+If the extension finds the device at runtime, it passes the device to the system for display in the picker. See [Discovering a third-party media-streaming device](https://developer.apple.com/documentation/devicediscoveryextension/discovering-a-third-party-media-streaming-device) for a complete sample code project that routes media through a custom protocol.
+
+### Relationship to OS 27 system routing
+
+The custom-route APIs above retain their earlier deployment requirements. For the OS 27 provider-extension architecture, use [AVSystemRouting](AVSystemRouting.md) in the media app and [Media Device](MediaDevice.md) in the protocol provider. Do not interchange the older discovery-extension setup with the new media-device-extension entitlement.
+
+The new workflow targets iOS and iPadOS 27. Its framework references annotate Mac Catalyst 27, but Apple's routing guide explicitly excludes Catalyst; see the discrepancy documented on the new reference pages before relying on that annotation. A remote speaker or TV is a receiver, not evidence of another SDK platform. Handle selection, activation, playback startup, and disconnection separately.
 
 ## Topics
 
 ### Media Routing
+
 - **AVCustomRoutingController** - An object that manages the connection from a device to a destination.
 - **AVCustomRoutingControllerDelegate** - A protocol for delegates of a custom routing controller.
 - **AVCustomRoutingEvent** - An object that represents an event that occurs on a route.
 - **AVCustomRoutingActionItem** - An object that represents a custom action item to display in a device route picker.
 
 ### Playback Arbitration
-- **AVRoutingPlaybackArbiter** - An object that manages playback routing preferences.- **AVRoutingPlaybackParticipant** - A protocol for objects that participate in playback routing arbitration.
----
 
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
+- **AVRoutingPlaybackArbiter** - An object that manages playback routing preferences.
+- **AVRoutingPlaybackParticipant** - A protocol for objects that participate in playback routing arbitration.
+---
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/AVRouting)*

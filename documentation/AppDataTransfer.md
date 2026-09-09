@@ -6,100 +6,60 @@ Download App Store information and app-install activity about your app.
 
 ## Overview
 
-Use the App Data Transfer web API to request and download App Store information and app-install activity data about your app. The data available relates to a user's use of Apple's App Store and includes information such as previous transactions and downloads. If you have multiple apps, integrate each app with the API separately to enable users to transfer their data to you.
+Use this web API to export authorized App Store and app-install information specific to your app for users in the **EU and UK**. Integrate each app separately. This service is not [AppMigrationKit](AppMigrationKit.md), which transfers local app resources between device platforms, or [Account Data Transfer](AccountDataTransfer.md), which covers broader account information.
 
-To access the data, you need to acquire an access token with the appstore-user-profile read-only scope, and at least one of these scopes:
-- appstore-info-readonly
-- app-install-activity-readonly
+## Authorization and scope compatibility
 
-For more information, see Request an authorization.
+The [current reference](https://developer.apple.com/documentation/appdatatransfer) requires `data-transfer-user-profile` and at least one of:
 
-To get permission for your App ID or Services ID to request these scopes, follow the instructions at Account & Organizational Data Sharing.
+- `appstore-info-readonly`
+- `app-install-activity-readonly`
 
-**Note:** This API returns app-related data about users in the EU and UK. If you are a third party authorized by a user, you may request access to the Account Data Transfer API to enable the portability of relevant user data from Apple on behalf of your users.
+It retains compatibility for previously approved `appstore-user-profile` and older scope names in the **EU/UK**, without requiring a new token request for that transition. Do not infer Japan coverage here from the separate Account Data Transfer API.
 
-If you have any questions about the data made available in this API, including about how Apple applies privacy measures to protect user privacy and complies with legal obligations, contact Apple through Feedback Assistant by selecting the following option:
+Obtain the required permission through [Account & Organizational Data Sharing](https://developer.apple.com/help/account/share-account-data/share-account-and-organizational-data/) and use the [authorization endpoint](https://developer.apple.com/documentation/accountorganizationaldatasharing/request-an-authorization).
 
-Developer Tools & Resources > App Data Transfer API > Data Request
+### HTTP headers
 
-Learn more about how to use Feedback Assistant.
+- `Authorization`: Supply authorization for the approved scopes using the [Submit request contract](https://developer.apple.com/documentation/appdatatransfer/submit-request). Apple's redacted example is not a usable token; never commit credentials.
+- `X-Apple-Transaction-Id`: Assign a request UUID and retain it for troubleshooting.
 
-### Set required HTTP headers
+## Request lifecycle
 
-When you make requests for your app's App Store information or app-install activity, using any of the endpoints listed below, set the following HTTP headers:
+1. **Submit:** Send a `POST` request for `app-store` data. Use `ONE_TIME` for a single export, or `DAILY_30`/`WEEKLY_180` for the documented recurring modes.
+2. **Retain identifiers:** Store `requestId`, `parentRequestId` for a recurring series, and `statusCheckDelay` in seconds. A second pending recurring request returns an error identifying the existing series.
+3. **Check status:** Wait for the server's delay before using the matching one-time or recurring status endpoint, and honor updated delays. Inspect `jobStatus`, not merely the operation's `status`. `completed_with_error` requires checking error details, not assuming every requested file is present.
+4. **Download:** Ask for URLs after completion. The download window lasts three days; each returned URL lasts 15 minutes. Handle expiration by following the download-URL flow, not by caching links indefinitely. See the [data-file guide](https://privacy.apple.com/file-guides/transfer/appdata).
+5. **Resubmit or cancel:** Enqueue a recurring instance with `parentRequestId` and the latest instance's `requestId`, or cancel an active request. Cancellation succeeds only while the request is in progress, including during the initial delay.
 
-**Authorization**  
-Set the value to Bearer <ACCESS_TOKEN> to assert that your app is authorized to fetch data with the appstore-info-readonly or app-install-activity-readonly scope.
+Recurrence requires explicit resubmission. The current reference gives expiry after 40 days for an unresubmitted `DAILY_30` series and 190 days for an unresubmitted `WEEKLY_180` series. These are service rules, not OS 27 deployment requirements.
 
-**X-Apple-Transaction-Id**  
-Set the value to a UUID that uniquely identifies the request. If you need to contact Apple to get support, quote the UUID of the request for which you need help.
+### Recurring cancellation qualification
 
-### Submit a request
-
-Make an HTTP POST request to the Submit request endpoint, requesting the app-store data type. To make a one-time request, set the mode key to ONE_TIME. To make recurring requests, use one of the following values:
-
-**DAILY_30**  
-One recurring request every day for 30 days
-
-**WEEKLY_180**  
-One recurring request every week for 180 days
-
-The Apple server returns a request ID, which you use when you get the request status, request download URLs, or cancel the request. For recurring requests, the Apple server returns a request ID, along with the parent ID that identifies the series of recurring requests.
-
-The response from the server also contains a statusCheckDelay, which is the number of seconds you need to wait before checking the status of the request. You can cancel a request before this time by making a POST request to the Cancel request endpoint.
-
-If you submit a recurring request and don't resubmit the recurring instances, for example, you request a DAILY_30 recurrence and don't resubmit the request each subsequent day, the recurring request expires and you need to submit another request.
-
-### Find the request status
-
-The data corresponding to the request you submitted isn't available immediately. After the status-check delay expires, make a GET request to Get one-time request status or Get recurring request status, including the request identifier in the path.
-
-If the job status is completed or completed_with_error, the data associated with the request is ready to download.
-
-### Transfer data
-
-Get the download URLs for a completed request by making a GET request to Get one-time request download URLs or Get recurring request download URLs, including the request identifier in the path.
-
-The response contains a list of URLs to which you make GET requests, to retrieve the person's data specific to your app.
-
-Download URLs are available for 3 days after the download request completes. The URLs you receive are valid for 15 minutes after you request them.
-
-For information on the content and terms used in the files you download, see Data and Privacy.
-
-### Resubmit recurring requests
-
-Enqueue the next instance of a recurring request by making a POST request to the Resubmit request endpoint, passing the parent request identifier and the request identifier of the most recent instance.
-
-The server's response contains the request identifier of the new request, and a delay to wait before you can check the new request's status.
+The [`CancellationRequest`](https://developer.apple.com/documentation/appdatatransfer/cancellationrequest) property description says to place the recurring **parent** UUID in `requestId`, while the [cancellation example](https://developer.apple.com/documentation/appdatatransfer/cancel-request) supplies an **instance** UUID. Confirm the required identifier before automating recurring cancellation; the sources do not establish that these are interchangeable.
 
 ## Topics
 
 ### Request creation
-- [Submit request](https://developer.apple.com/documentation/appdatatransfer/submit_request) - Starts preparing someone's data for download.
-- **JobSubmission** - An object that describes a submission that requests someone's data.
-- **CreatedJob** - An object that represents a newly created download request.
-- [Resubmit request](https://developer.apple.com/documentation/appdatatransfer/resubmit_request) - Enqueue the next instance of a recurring request.
-- **ResubmissionRequest** - An object that describes a request to resubmit a recurring download request.
-- **ResubmissionResponse** - An object that represents a resubmitted recurring download request.
+- [Submit request](https://developer.apple.com/documentation/appdatatransfer/submit-request)
+- **JobSubmission**, **CreatedJob** - Submission and created-job data.
+- [Resubmit request](https://developer.apple.com/documentation/appdatatransfer/resubmit-request)
+- **ResubmissionRequest**, **ResubmissionResponse** - Recurrence request and response data.
 
 ### Status
-- [Get one-time request status](https://developer.apple.com/documentation/appdatatransfer/get_one-time_request_status) - Find the status of a one-time download request.
-- [Get recurring request status](https://developer.apple.com/documentation/appdatatransfer/get_recurring_request_status) - Get the status of an instance of a recurring download request.
-- **RequestStatus** - An object that represents the status of a download request.
+- [Get one-time request status](https://developer.apple.com/documentation/appdatatransfer/get-one-time-request-status)
+- [Get recurring request status](https://developer.apple.com/documentation/appdatatransfer/get-recurring-request-status)
+- **RequestStatus** - Job status.
 
 ### Downloads
-- [Get one-time request download URLs](https://developer.apple.com/documentation/appdatatransfer/get_one-time_request_download_urls) - Get URLs to retrieve someone's data.
-- [Get recurring request download URLs](https://developer.apple.com/documentation/appdatatransfer/get_recurring_request_download_urls) - Get URLs to download a snapshot of someone's data specific to your app from a recurring series.
-- **DownloadLinks** - An object that contains URLs to download someone's data specific to your app.
-- **DownloadError** - An object that describes an error the server encounters while preparing download URLs for a request.
+- [Get one-time request download URLs](https://developer.apple.com/documentation/appdatatransfer/get-one-time-request-download-urls)
+- [Get recurring request download URLs](https://developer.apple.com/documentation/appdatatransfer/get-recurring-request-download-urls)
+- **DownloadLinks**, **DownloadError** - Download locations and preparation errors.
 
 ### Cancellation
-- [Cancel request](https://developer.apple.com/documentation/appdatatransfer/cancel_request) - Tells the server to stop processing an active request.
-- **CancellationRequest** - An object that identifies a one-time request, or an individual instance of a recurring request, to cancel.
-- **CancellationResponse** - An object that describes the outcome of canceling a download request.
+- [Cancel request](https://developer.apple.com/documentation/appdatatransfer/cancel-request)
+- **CancellationRequest**, **CancellationResponse** - Cancellation input and result.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/AppDataTransfer)*

@@ -4,7 +4,7 @@ A universal design across platforms brings more focus to content and a new level
 
 **Date:** June 9, 2025
 
-> **Historical record.** This page archives Apple's original June 2025 announcement of Liquid Glass for the OS 26 generation. It is preserved as published and is not updated with later changes. For how the material has evolved since, see [Liquid Glass](introduction.md) and [Adopting Liquid Glass](adopting-liquid-glass.md); for the OS 27 generation specifically, see [os27-intro](../os27-intro/iOS.md).
+> **Historical record.** This page summarizes and excerpts Apple's June 9, 2025 announcement of Liquid Glass for the OS 26 generation; it is not a verbatim archive. Statements about products, employees, and executive roles describe that announcement, not their current status. For later design changes, see [Liquid Glass](introduction.md) and [Adopting Liquid Glass](adopting-liquid-glass.md); for the OS 27 generation, see [os27-intro](../os27-intro/iOS.md).
 
 ## Overview
 
@@ -45,11 +45,11 @@ Icon Composer lets developers create Liquid Glass icons across platforms that re
 ### Platform Support
 
 The new design extends across the following platforms:
-- **iOS 26** - Complete Liquid Glass integration with dynamic tab bars and enhanced controls
+- **iOS 26** - Liquid Glass controls and dynamic tab bars
 - **iPadOS 26** - Immersive sidebars and window management with Liquid Glass
 - **macOS Tahoe 26** - Transparent menu bar and customizable desktop experiences
-- **watchOS 26** - Refined controls and materials optimized for Apple Watch
-- **tvOS 26** - Enhanced focus-based navigation with Liquid Glass elements
+- **watchOS 26** - Included in the cross-platform design announcement
+- **tvOS 26** - Liquid Glass is available on Apple TV 4K (2nd generation and later), as specified in the announcement's footnote
 
 ### About Apple
 

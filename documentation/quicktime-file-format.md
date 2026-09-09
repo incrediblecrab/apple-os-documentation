@@ -4,13 +4,13 @@ An object-oriented file format for the storage and exchange of digital media bet
 
 ## Overview
 
-The **QuickTime File Format (QTFF)** accommodates storing and accessing many kinds of digital multimedia data. The QTFF is an ideal format for the exchange of digital media between devices, applications, and operating systems, because you can use it to describe almost any media structure.
+The **QuickTime File Format (QTFF)** stores different kinds of digital multimedia data and the metadata needed to interpret them. Its extensible structure supports media interchange between applications and systems, subject to each consumer's supported tracks, codecs, and atoms.
 
-The file format is object-oriented, consisting of a flexible collection of objects that you can easily parse. The format's design allows for easy extension, as parsers can skip or ignore unknown objects, allowing considerable forward compatibility for new object types.
+The format uses a hierarchy of typed, sized objects called atoms. A parser can skip unrecognized atoms using their declared sizes, allowing extensions without requiring every reader to understand every atom. Validate sizes and container boundaries; extensibility does not mean an arbitrary file is safe or trivial to parse.
 
-QuickTime provides a number of high-level functions that you can use to create and manipulate QuickTime files, without requiring you to understand the actual file format. These functions serve to insulate developers from the low-level details of operation. Use this documentation to create QuickTime files beyond the basic types.
+This is a file-format reference, not a recommendation to adopt the legacy QuickTime application APIs discussed in older material. For current application-level media reading and writing, start with [AVFoundation](AVFoundation.md) and [Core Media](CoreMedia.md); use the atom reference when implementing or inspecting a format-level workflow.
 
-**Important:** The QuickTime File Format is the basis of the MPEG-4 standard and the JPEG-2000 standard, developed by the International Organization for Standardization (ISO). Although these file types have similar structures and contain many functionally identical elements, they are distinct file types.
+**Important:** Related ISO-standardized media container formats, including those used for MPEG-4 and JPEG-2000 media, share structural heritage with QTFF but remain distinct file formats. Similar atoms do not make a QuickTime file interchangeable with another container, or establish support for its codecs.
 
 QuickTime files are used to store QuickTime movies, as well as other data. If you are writing an application that parses QuickTime files, you should recognize that there may be non-movie data in the files.
 
@@ -33,16 +33,14 @@ QuickTime files are used to store QuickTime movies, as well as other data. If yo
 - [Media data atom types](https://developer.apple.com/documentation/quicktime-file-format/media_data_atom_types) - Store different types of media data, including video, sound, subtitles, and more.
 
 ### Data types
-- [Basic QuickTime data types](https://developer.apple.com/documentation/quicktime-file-format/basic_quicktime_data_types) - Express values in QuickTime files with common data types.
+- [Basic QuickTime data types](https://developer.apple.com/documentation/quicktime-file-format/basic_data_types) - Express values in QuickTime files with common data types.
 
 ### Change log
-- [QuickTime File Format change log](https://developer.apple.com/documentation/quicktime-file-format/quicktime_file_format_change_log) - Changes to the QuickTime File Format.
+- [QuickTime File Format change log](https://developer.apple.com/documentation/quicktime-file-format/revision_history) - Changes to the QuickTime File Format.
 
 ### Deprecated
 - [Deprecated atoms](https://developer.apple.com/documentation/quicktime-file-format/deprecated_atoms) - Review unsupported atoms.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/quicktime-file-format)*

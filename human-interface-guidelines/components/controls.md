@@ -1,12 +1,14 @@
 # Controls
 
-In iOS and iPadOS, a control provides quick access to a feature of your app from Control Center, the Lock Screen, or the Action button.
+Controls provide quick access to app features in system locations such as Control Center, the Lock Screen, or the Action button, depending on the device.
 
-**Platforms:** iOS | iPadOS
+**Platforms:** iOS | iPadOS | macOS
 
 ## Overview
 
 Starting in iOS 18 and iPadOS 18, a control is a button or toggle that provides quick access to your app's features from other areas of the system.
+
+The `ControlWidget` API also supports macOS 26 and later. Its availability metadata includes watchOS 26, although the current Controls HIG excludes watchOS from this presentation guidance. Treat the HIG's platform list and individual API availability as distinct, and check which system location a device actually offers.
 
 Control buttons perform an action, link to a specific area of your app, or launch a camera experience on a locked device. Control toggles switch between two states, such as on and off.
 
@@ -26,7 +28,7 @@ Controls display their information differently depending on where they appear:
 
 ### Best Practices
 
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Standard controls built with Xcode 27 continue to use the OS 26 Liquid Glass API surface; no new named Liquid Glass API types are required. Rebuilding with the iOS 27 SDK opts iPhone and iPad apps into the refined appearance because UIDesignRequiresCompatibility is ignored by the iOS 27 SDK.
+For system-control appearance, custom glass effects, and SDK compatibility considerations, see [Adopting Liquid Glass](../../liquid-glass/adopting-liquid-glass.md). A material treatment does not replace the need for meaningful labels, clear state, and accessible interaction.
 
 - **Offer controls for actions that provide the most benefit without having to launch your app** - For example, launching a Live Activity from a control creates an easy and seamless experience that informs someone about progress without having to navigate to your app to stay up to date.
 
@@ -58,7 +60,7 @@ If your app supports camera capture, starting with iOS 18 you can create a contr
 
 ### Platform Considerations
 
-No additional considerations for iOS or iPadOS. Not supported in macOS, watchOS, tvOS, or visionOS.
+The HIG lists no additional considerations for iOS, iPadOS, or macOS and excludes watchOS, tvOS, and visionOS. See the API distinction above for watchOS; do not assume that every control location exists on every supported platform.
 
 ### Related Components
 
@@ -70,8 +72,9 @@ No additional considerations for iOS or iPadOS. Not supported in macOS, watchOS,
 
 - [LockedCameraCapture](https://developer.apple.com/documentation/lockedcameracapture) - Framework for camera experiences on locked devices
 - [WidgetKit](https://developer.apple.com/documentation/widgetkit) - Framework for creating widgets and controls
-- [promptsForUserConfiguration()](https://developer.apple.com/documentation/widgetkit/promptsforuserconfiguration) - Method for control configuration
-- [controlWidgetActionHint(_:)](https://developer.apple.com/documentation/widgetkit/controlwidgetactionhint) - Method for Action button hint text
+- [ControlWidget](https://developer.apple.com/documentation/swiftui/controlwidget) - Per-platform API availability
+- [promptsForUserConfiguration()](https://developer.apple.com/documentation/swiftui/controlwidgetconfiguration/promptsforuserconfiguration()) - Method for control configuration
+- [controlWidgetActionHint(_:)](https://developer.apple.com/documentation/swiftui/view/controlwidgetactionhint(_:)-5yoyh) - Method for Action button hint text
 - [IntentAuthenticationPolicy](https://developer.apple.com/documentation/appintents/intentauthenticationpolicy) - Authentication requirements for controls
 - [Symbols](https://developer.apple.com/documentation/symbols) - SF Symbols framework
 - [SymbolEffect](https://developer.apple.com/documentation/symbols/symboleffect) - Symbol animations
@@ -82,7 +85,5 @@ No additional considerations for iOS or iPadOS. Not supported in macOS, watchOS,
 - New page
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/controls)*

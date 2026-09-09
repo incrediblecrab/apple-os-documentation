@@ -8,7 +8,7 @@ On devices without physical keyboards, the system offers various types of virtua
 
 A virtual keyboard can provide a specific set of keys that are optimized for the current task; for example, a keyboard that supports entering email addresses can include the "@" character and a period or even ".com". A virtual keyboard doesn't support keyboard shortcuts.
 
-When it makes sense in your app, you can replace the system-provided keyboard with a custom view that supports app-specific data entry. In iOS, iPadOS, and tvOS, you can also create an app extension that offers a custom keyboard people can install and use in place of the standard keyboard.
+When it makes sense in your app, you can replace the system-provided keyboard with a custom view that supports app-specific data entry. A custom keyboard extension is a separate, systemwide integration; see the platform qualification under Custom Keyboards.
 
 ## Topics
 
@@ -43,9 +43,9 @@ In some cases, you can create an input view if you want to provide custom functi
 
 ### Custom Keyboards
 
-In iOS, iPadOS, and tvOS, you can provide a custom keyboard that replaces the system keyboard by creating an app extension. An app extension is code you provide that people can install and use to extend the functionality of a specific area of the system; to learn more, see App extensions.
+In iOS and iPadOS, you can provide a custom keyboard extension for text entry in apps that allow third-party keyboards. Apple's HIG also names tvOS here, but its [custom-keyboard programming guide](https://developer.apple.com/library/archive/documentation/General/Conceptual/ExtensibilityPG/CustomKeyboard.html) describes the iOS extension workflow. Don't infer that every platform with a virtual keyboard supports installing the same keyboard extension.
 
-After people choose your custom keyboard in Settings, they can use it for text entry within any app, except when editing secure text fields and phone number fields. People can choose multiple custom keyboards and switch between them at any time. For developer guidance, see Creating a custom keyboard.
+After people choose your custom keyboard in Settings, they can use it where third-party keyboards are allowed. Secure text fields and phone-number fields use the system keyboard, and an app can reject keyboard extensions altogether using [application(_:shouldAllowExtensionPointIdentifier:)](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/application(_:shouldallowextensionpointidentifier:)). People can choose multiple custom keyboards and switch between them. For developer guidance, see [Creating a custom keyboard](https://developer.apple.com/documentation/uikit/creating-a-custom-keyboard).
 
 Custom keyboards make sense when you want to expose unique keyboard functionality systemwide, such as a novel way of inputting text or the ability to type in a language the system doesn't support. If you want to provide a custom keyboard for people to use only while they're in your app, consider creating a custom input view instead.
 
@@ -112,7 +112,5 @@ People can also use a nearby paired iPhone to enter text on Apple Watch.
 - Changed page title from Onscreen keyboards and updated to include guidance for visionOS.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/virtual-keyboards)*

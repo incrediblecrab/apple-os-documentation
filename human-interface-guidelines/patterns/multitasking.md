@@ -10,7 +10,7 @@ People expect to use multitasking on their devices, and they may think something
 
 In addition to app switching, multitasking can present different experiences on different devices; see Platform considerations.
 
-> **iPadOS 27+:** Split View and Slide Over now operate **inside** the windowing framework rather than as separate classic modes; people invoke them through windowing controls. Windows resize, move, and close more smoothly, and a **persistent menu bar** option shows the active app name. External displays support per-display app pinning and resizable iPhone apps. Re-test any layout that hard-codes size-class transitions or assumes a fixed set of multitasking states.
+Adapt to the current window's available space rather than hard-coding a short list of layouts. Preserve the selected content and unfinished work during resizing and task switching; see [Designing for iPadOS](../getting-started/iPadOS.md) and [Windows](../components/windows.md).
 
 ## Topics
 
@@ -30,12 +30,12 @@ For guidance, see Playing audio.
 
 ### Platform Considerations
 
-Not supported in watchOS.
+For watch-specific interaction patterns, see [Designing for watchOS](../getting-started/watchOS.md). The multiwindow layouts described below shouldn't be confused with switching between watch apps.
 
 **iOS**  
 On iPhone, multitasking lets people use FaceTime or watch a video in Picture in Picture while they also use a different app.
 
-The app switcher displays all currently open apps.
+The app switcher lets people return to recently used apps; its cards don't imply that every app is actively running.
 
 A current FaceTime call can continue while people use another app.
 
@@ -77,13 +77,13 @@ Only one window is active at a time in the Shared Space. When people look from o
 
 ### Developer Documentation
 
-- [Responding to the launch of your app](https://developer.apple.com/documentation/uikit/app_and_environment/responding_to_the_launch_of_your_app) - UIKit
-- [Multitasking on iPad](https://developer.apple.com/documentation/uikit/multitasking_on_ipad) - UIKit
+- [Responding to the launch of your app](https://developer.apple.com/documentation/uikit/responding-to-the-launch-of-your-app) - UIKit
+- [Multitasking on iPad, Mac, and Apple Vision Pro](https://developer.apple.com/documentation/uikit/multitasking-on-ipad-mac-and-apple-vision-pro) - UIKit
 
 ### Videos
 
-- [Elevate the design of your iPad app](https://developer.apple.com/videos/play/wwdc2024/10134/)
-- [Make your UIKit app more flexible](https://developer.apple.com/videos/play/wwdc2022/10100/)
+- [Elevate the design of your iPad app](https://developer.apple.com/videos/play/wwdc2025/208)
+- [Make your UIKit app more flexible](https://developer.apple.com/videos/play/wwdc2025/282)
 
 ## Changelog
 
@@ -97,7 +97,5 @@ Only one window is active at a time in the Shared Space. When people look from o
 - Updated to include guidance for visionOS.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/multitasking)*

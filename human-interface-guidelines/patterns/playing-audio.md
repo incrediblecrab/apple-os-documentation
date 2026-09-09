@@ -4,7 +4,7 @@ People expect rich audio experiences that automatically adjust when the context 
 
 Devices can play audio in a variety of ways, such as through internal or external speakers, headphones, and wirelessly through devices that use Bluetooth or AirPlay. To manipulate sound on their devices people use several types of controls, including volume buttons, the Ring/Silent switch on iPhone, headphone controls, the Control Center volume slider, and sound controls in third-party accessories. Whether sound is a primary part of your experience or an embellishment, you need to make sure it behaves as people expect as they make changes to volume and output.
 
-**Silence.** People switch a device to silent when they want to avoid being interrupted by unexpected sounds like ringtones and incoming message tones. In this scenario, they also want to silence nonessential sounds, such as keyboard clicks, sound effects, game soundtracks, and other audible feedback. When a device is in silent mode, it plays only the audio that people explicitly initiate, like media playback, alarms, and audio/video messaging.
+**Silence.** People switch a device to silent when they want to avoid unexpected sounds like ringtones and incoming message tones. They also expect nonessential app sounds, such as keyboard clicks, sound effects, and game soundtracks, to be silenced. Choose your audio-session category accordingly: essential media playback can continue in silent mode, so silent mode isn't a guarantee that every sound stops.
 
 **Volume.** People expect their volume settings to affect all sound in the system — including music and in-app sound effects — regardless of the method they use to adjust the volume. An exception is the ringer volume on iPhone, which people can adjust separately in Settings.
 
@@ -16,7 +16,7 @@ Devices can play audio in a variety of ways, such as through internal or externa
 
 **Permit rerouting of audio when possible.** People often want to select a different audio output device. For example, they may want to listen to music through their living room stereo, car radio, or Apple TV. Support this capability unless there's a compelling reason not to.
 
-**Use the system-provided volume view to let people make audio adjustments.** The volume view includes a volume-level slider and a control for rerouting audio output. You can customize the appearance of the slider. For developer guidance, see MPVolumeView.
+**Use system-provided controls for audio adjustments.** Where available, [`MPVolumeView`](https://developer.apple.com/documentation/mediaplayer/mpvolumeview) provides system-volume control. Its route button is conditional and isn't displayed in visionOS; its route-button APIs are deprecated. Use the appropriate platform route picker for output selection rather than assuming the volume view always offers it.
 
 **Choose an audio category that fits the way your app or game uses sound.** Depending on the audio category you choose, your app's sounds can mix with other audio, play while your app is in the background, or stop when people set the Ring/Silent switch to silent. As much as possible, pick a category that helps your app meet people's expectations. For example, don't make people stop listening to music from another app if you don't need to. For developer guidance, see AVAudioSession.Category.
 
@@ -27,6 +27,8 @@ Devices can play audio in a variety of ways, such as through internal or externa
 | Playback | Sound is essential and might mix with other audio. For example, an audiobook or educational app that teaches a foreign language, which people might want to listen to after leaving the app. | Doesn't respond to the silence switch. May or may not mix with other sounds. Can play in the background. |
 | Record | Sound is recorded. For example, a note-taking app that offers an audio recording mode. An app of this nature might switch its category to playback if it lets people play the recorded notes. | Doesn't respond to the silence switch. Doesn't mix with other sounds. Can record in the background. |
 | Play and record | Sound is recorded and played, potentially simultaneously. For example, an audio messaging or video calling app. | Doesn't respond to the silence switch. May or may not mix with other sounds. Can record and play in the background. |
+
+The table summarizes category behavior, not complete configuration. Background playback also requires the appropriate Background Modes capability; see [Configuring your app for media playback](https://developer.apple.com/documentation/avfoundation/configuring-your-app-for-media-playback).
 
 **Respond to audio controls only when it makes sense.** People can control audio playback from outside your app's interface — such as in Control Center or with controls on their headphones — regardless of whether your app is in the foreground or background. If your app is actively playing audio, in a clear audio-related context, or connected to a device that uses Bluetooth or AirPlay, it's fine to respond to audio controls. Otherwise, when people activate a control, avoid halting audio currently playing from another app.
 
@@ -95,7 +97,7 @@ In watchOS, the system manages audio playback. An app can play short audio clips
 
 ## Developer documentation
 
-- [Configuring your app for media playback — AVFoundation](https://developer.apple.com/documentation/avfoundation/configuring_your_app_for_media_playback)
+- [Configuring your app for media playback — AVFoundation](https://developer.apple.com/documentation/avfoundation/configuring-your-app-for-media-playback)
 - [AVAudioSession — AVFAudio](https://developer.apple.com/documentation/avfaudio/avaudiosession)
 
 ## Videos
@@ -110,4 +112,4 @@ In watchOS, the system manages audio playback. An app can play short audio clips
 |------|---------|
 | June 21, 2023 | Updated to include guidance for visionOS. |
 
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
+*Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/playing-audio)*

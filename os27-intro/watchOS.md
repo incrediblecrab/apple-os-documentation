@@ -1,77 +1,65 @@
 # watchOS 27.0 Developer Introduction
 
-watchOS 27 focuses on health intelligence and low-friction interaction. A rebuilt Siri arrives on the wrist, Workout Buddy expands, and the Liquid Glass refinements from the rest of the generation carry through to the smallest Apple display.
+Prepare Apple Watch apps for watchOS 27 by reviewing HealthKit zones, SwiftUI state and image loading, and older WatchKit life-cycle APIs. Preserve quick interactions and useful offline behavior rather than making the watch app depend on an always-available phone or cloud service.
 
 **Platform:** watchOS 27.0+
 
-> **Status:** watchOS 27 is in developer and public beta as of August 2026 (developer beta 1 on June 8, 2026; public beta 1 on July 13, 2026). A public release is expected in fall 2026. Apple has not announced a release date. The current shipping line is watchOS 26.6, released July 27, 2026.
+> **Status checked September 8, 2026:** watchOS 27 **beta 8** (`24R5360a`) was released August 31. The shipping release is **watchOS 26.6** (`23U67`), released July 27. The [release listings](https://developer.apple.com/news/releases/) do not establish a watchOS 27 general-availability date.
 
 ## Overview
 
-watchOS 27 continues the generation's intelligence theme, adapted to a device where interactions must be measured in seconds. Siri is rebuilt on Apple Foundation Models and syncs conversation context with the standalone Siri app on iPhone, iPad, Mac, and Apple Vision Pro, so a question started on one device can be continued on the wrist.
+The [watchOS 27 beta 8 notes](https://developer.apple.com/documentation/watchos-release-notes/watchos-27-release-notes) distinguish new API behavior from fixes to complications, connectivity, and workouts. Keep your watchOS 26 deployment and device testing decisions separate from rebuilding with the new SDK.
 
-## Key Features
+## Developer-Facing Changes
 
-### Siri AI
+### Health and workouts
 
-Siri on Apple Watch is rebuilt on Apple Foundation Models with improved conversational understanding and cross-device continuity through the standalone Siri app.
+HealthKit adds support for **heart-rate and cycling-power zones**. Request authorization only for the data your feature needs, handle unavailable readings, and test workout transitions on a device. A new health data type is not a guarantee that every Watch model, region, or user has data for it.
 
-### Health and Fitness
+The beta notes also contain resolved workout and Workout Buddy issues. Those fixes do not establish a public third-party “Workout Buddy API” or a new hardware eligibility list.
 
-**Workout Buddy**
-The personalized, motivational workout companion introduced in watchOS 26 expands its coverage and guidance.
+### SwiftUI and WatchKit
 
-**Cycle Tracking**
-Perimenopause notifications alert people when logged patterns suggest perimenopause, with support for logging associated symptoms. Corresponding workout categories arrive in Fitness+.
+- **Life cycle:** `WKExtension` and `WKExtensionDelegate` are deprecated for apps with a **minimum deployment target of watchOS 9.2 or later**. Review the SwiftUI app life cycle and preserve an older-target path where needed. This is not the UIKit scene requirement used on iPhone, iPad, Apple TV, Catalyst, and visionOS.
+- **State:** Xcode 27's macro-based `@State` avoids repeatedly evaluating initial-value expressions. Check initializer patterns and side effects; the change back-deploys to iOS 17-aligned OS releases.
+- **Images:** `AsyncImage` follows HTTP caching and adds request/session customization. Handle slow or missing connectivity and avoid tying essential workout information to a fresh image download.
+- **Controls:** new text-input border configuration and concentric corner geometry APIs support more deliberate control styling. Test text sizes, VoiceOver, Digital Crown interaction, and the dimmed/Always-On state where supported.
 
-**GymKit**
-Gym equipment can now pair directly from iPhone, removing the requirement for an Apple Watch to be present to establish the connection.
+### Commerce, intents, and networking
 
-### Design
+- StoreKit represents managed-account transaction assignments and subscription Bundles/Suites. Handle verification, ownership, and revocation rather than unlocking content solely because a product is listed.
+- [SiriKit](https://developer.apple.com/documentation/sirikit) retains legacy support for Shortcuts, widget configuration, and most existing Siri interactions. Use App Intents for modern integrations; do not remove working legacy paths based on a blanket deprecation claim.
+- New TLS enforcement applies to selected system-managed enrollment, management, profile/app installation, and update connections. Apple's [network guidance](https://support.apple.com/en-us/126655) notes that much watchOS networking runs out of process; use its watch-specific testing advice rather than assuming the Mac log command works on the Watch.
 
-Liquid Glass refinements carry to watchOS: better diffusion of busy content, a subtle darkened edge ring for separation, and brighter specular highlights. On a small, frequently glanced display, prioritize legibility — validate your complications and workout views under Reduce Transparency and Increase Contrast.
+## Migration and Testing
 
-### App Intents
+1. Rebuild and inspect deprecations with the actual deployment target; do not raise it merely to silence a warning.
+2. Exercise app launch, background refresh, complications, notifications, and workouts with the companion phone disconnected.
+3. Treat beta 8's resolved issues as regression cases, not permanent restrictions. Keep workarounds tied to an affected build.
+4. If using Foundation Models/PCC, check the specific API's availability and runtime eligibility, not the OS version alone. See [PCC eligibility and failure handling](../guides/private-cloud-compute.md).
 
-Entity and intent schemas make your app's content available to the system's semantic index and actionable through natural language, which is particularly valuable on a device where typing is impractical.
+## Devices and Toolchain
 
-## What's New in watchOS 27
+**Exact watchOS 27 Watch model and companion-iPhone requirements: not verified by the reviewed sources.** Do not infer them from the watchOS 26 list or assume that each health or intelligence feature works on every eligible device.
 
-- **Siri AI**: rebuilt assistant with cross-device conversation sync
-- **Workout Buddy**: expanded coverage
-- **Cycle Tracking**: perimenopause notifications and symptom logging
-- **GymKit**: direct iPhone pairing with equipment
-- **Liquid Glass refinements** consistent with the rest of the generation
-- **App Intents** entity and intent schemas
+**Xcode 27 beta 6**, released August 24, requires **an Apple silicon Mac running macOS Tahoe 26.4 or later**. macOS 27 is not required, and Rosetta does not make Intel Macs eligible hosts. See the [Xcode notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes).
 
-> **Note:** Apple's watchOS 27 announcements at WWDC 2026 emphasized health and intelligence over developer-facing API surface. Verify feature-level detail against the [watchOS release notes](https://developer.apple.com/documentation/watchos-release-notes) before relying on it.
-
-## Device Support
-
-watchOS 27 requires an Apple Watch Series 6 or later, Apple Watch SE (2nd generation) or later, or any Apple Watch Ultra, paired with an iPhone running iOS 27. Confirm the exact supported model list against Apple's official watchOS page, which is updated through the beta period.
-
-## Migrating to watchOS 27
-
-**Rebuild consciously.** As on other platforms, the current design appearance is gated on the linked SDK. Recompiling with Xcode 27 adopts the refined Liquid Glass appearance.
-
-**SiriKit is deprecated.** Migrate watch-facing voice interactions to App Intents.
-
-**Re-test complications.** Refined material rendering changes how translucent surfaces composite over watch faces; check every complication family you support.
+Since April 28, 2026, watchOS uploads require Xcode 26 or later and the watchOS 26 SDK or later. The checked [requirements page](https://developer.apple.com/news/upcoming-requirements/) gives no OS 27 SDK deadline. See [App Store readiness](../guides/app-store-readiness.md).
 
 ## Getting Started
 
 **New to watchOS development?**
-Check out the [watchOS Pathway](https://developer.apple.com/watchos/) for resources on building Apple Watch apps.
+Check out the [watchOS Pathway](https://developer.apple.com/watchos/get-started/) for resources on building Apple Watch apps.
 
 ## Resources
 
 ### Development Tools
-- [Xcode](https://developer.apple.com/xcode/) - Xcode 27 requires macOS 27 Golden Gate on Apple silicon
+- [Xcode](https://developer.apple.com/xcode/) - See the version-specific host requirements above
 - [TestFlight](https://developer.apple.com/testflight/) - Beta testing platform
 - [App Store Connect](https://developer.apple.com/app-store-connect/) - App management and analytics
 
 ### Documentation
-- [watchOS Developer Documentation](https://developer.apple.com/documentation/watchos/)
+- [Developing watchOS Apps](https://developer.apple.com/documentation/watchos-apps)
 - [WatchKit Documentation](https://developer.apple.com/documentation/watchkit/)
 - [HealthKit](../documentation/HealthKit.md)
 - [Designing for watchOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-watchos)
@@ -89,4 +77,6 @@ Check out the [watchOS Pathway](https://developer.apple.com/watchos/) for resour
 
 ---
 
-*Reviewed 2026-08-09. watchOS 27 is pre-release software; features and availability may change before general release. Platform requirements and feature availability may vary, and some capabilities may not be available in all regions or languages.*
+## Sources
+
+[Apple Developer releases](https://developer.apple.com/news/releases/), [watchOS 27 beta 8 notes](https://developer.apple.com/documentation/watchos-release-notes/watchos-27-release-notes), and [Xcode 27 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes), with additional scoped citations above. Reviewed September 8, 2026; health permissions, hardware eligibility, and beta behavior require separate validation.

@@ -16,11 +16,22 @@
 !os27-intro/**
 !os26-liquid-glass-example/
 !os26-liquid-glass-example/**
+!guides/
+!guides/**
+!metadata/
+!metadata/**
+!scripts/
+!scripts/**
+!.github/
+!.github/**
 
 
 # Include specific files
 !README.md
 !bot-instructions.md
+!CONTRIBUTING.md
+!requirements-dev.txt
+!.gitattributes
 
 # Exclude system files
 # --- OS / editor junk & local env (added 2026-08-04) ---
@@ -98,4 +109,6 @@ DerivedData/
 xcuserdata/
 *.xcuserstate
 .swiftpm/
+__pycache__/
+.venv/
 # ===== END standardized =====

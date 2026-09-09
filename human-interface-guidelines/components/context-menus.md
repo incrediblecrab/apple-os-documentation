@@ -2,7 +2,7 @@
 
 A context menu provides access to functionality that's directly related to an item, without cluttering the interface.
 
-**Platforms:** iOS | iPadOS | macOS | visionOS
+**Platforms:** iOS | iPadOS | macOS | tvOS | visionOS
 
 ## Overview
 
@@ -15,8 +15,6 @@ Although a context menu provides convenient access to frequently used items, it'
 ## Topics
 
 ### Best Practices
-
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Liquid Glass now diffuses busy background content more aggressively, adds a subtle darkened edge ring, and renders brighter specular highlights, improving legibility without extra visual noise. People can tune overall translucency with the transparency slider in Settings > Appearance, and the material also responds to Reduce Transparency and Increase Contrast.
 
 - **Prioritize relevancy when choosing items to include in a context menu** - A context menu isn't for providing advanced or rarely used items; instead, it helps people quickly access the commands they're most likely to need in their current context. For example, the context menu for a Mail message in the Inbox includes commands for replying and moving the message, but not commands for editing message content, managing mailboxes, or filtering messages.
 - **Aim for a small number of menu items** - A context menu that's too long can be difficult to scan and scroll.
@@ -33,7 +31,7 @@ Although a context menu provides convenient access to frequently used items, it'
 
 A context menu seldom displays a title. In contrast, each item in a context menu needs to display a short label that clearly describes what it does. For guidance, see Menus > Labels.
 
-- **In iOS, iPadOS, and visionOS, include a symbol or interface icon with each command in a context menu** - A symbol or icon reinforces the meaning of a command, helping people instantly understand its function. In cases where there are multiple commands that need to use the same symbol, consider omitting all symbols for these commands to avoid repeating the symbol too often. A macOS context menu generally doesn't include symbols.
+- **Use familiar icons to identify common actions** - Use consistent system imagery for actions such as Copy, Share, and Delete so people can recognize them throughout your app. Follow the current [Menus](https://developer.apple.com/design/human-interface-guidelines/menus) guidance rather than assuming macOS context menus exclude icons.
 - **Include a title in a context menu only if doing so clarifies the menu's effect** - For example, when people select multiple Mail messages and tap the Mark toolbar button in iOS and iPadOS, the resulting context menu displays a title that states the number of selected messages, reminding people that the command they choose affects all the messages they selected.
 
 ### Platform Considerations
@@ -69,7 +67,7 @@ A context menu seldom displays a title. In contrast, each item in a context menu
 
 - [contextMenu(menuItems:)](https://developer.apple.com/documentation/swiftui/view/contextmenu(menuitems:)) - SwiftUI
 - [UIContextMenuInteraction](https://developer.apple.com/documentation/uikit/uicontextmenuinteraction) - UIKit
-- [popUpContextMenu(_:with:for:)](https://developer.apple.com/documentation/appkit/nsmenu/1518170-popupcontextmenu) - AppKit
+- [popUpContextMenu(_:with:for:)](https://developer.apple.com/documentation/appkit/nsmenu/popupcontextmenu(_:with:for:)) - AppKit
 
 ## Changelog
 
@@ -83,7 +81,5 @@ A context menu seldom displays a title. In contrast, each item in a context menu
 - Refined guidance on including a submenu and added a guideline on using a context menu to support object creation in an iPadOS app.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/context-menus)*

@@ -11,6 +11,7 @@ Each Swift package requires a Package.swift file in the main directory of the pa
 For example, the package manifest from the SlothCreator: Building DocC Documentation in Xcode sample project below defines the SlothCreator package, with the SlothCreator library in it. It specifies the deployment targets, and that its resources are in the Resources folder.
 
 ```swift
+// swift-tools-version:5.3
 import PackageDescription
 
 let package = Package(
@@ -40,9 +41,13 @@ let package = Package(
 
 The package manifest also allows you to define executable products, as well as plugins that Swift Package Manager can use to build other products in the manifest.
 
-For more information about adding a package dependency to your app project and creating Swift packages with Xcode, see [Adding Package Dependencies to Your App](https://developer.apple.com/documentation/xcode/adding-package-dependencies-to-your-app), [Creating a Standalone Swift Package with Xcode](https://developer.apple.com/documentation/xcode/creating_a_standalone_swift_package_with_xcode), and [Swift Packages](https://developer.apple.com/documentation/swift-packages).
+For more information about adding a package dependency to your app project and creating Swift packages with Xcode, see [Adding Package Dependencies to Your App](https://developer.apple.com/documentation/xcode/adding-package-dependencies-to-your-app), [Creating a Standalone Swift Package with Xcode](https://developer.apple.com/documentation/xcode/creating-a-standalone-swift-package-with-xcode), and [Swift packages](swift-packages.md).
 
-Support for Swift packages in Xcode builds on the open-source Swift Package Manager project. To learn more about the Swift Package Manager, visit [Swift.org](https://swift.org/) and the [Swift Package Manager repository on GitHub](https://github.com/apple/swift-package-manager).
+Support for Swift packages in Xcode builds on the open-source Swift Package Manager project. To learn more about the Swift Package Manager, visit [Swift.org](https://www.swift.org/package-manager/) and the [Swift Package Manager repository on GitHub](https://github.com/swiftlang/swift-package-manager).
+
+### Migrating a manifest
+
+The `// swift-tools-version:` declaration selects the required tools and manifest API version; `platforms` declares deployment minimums. Neither is the installed compiler's version number. Choose language mode intentionally when adopting Swift 6 concurrency checking rather than changing every setting to “6.4.” Preserve older deployment minimums when guarded APIs permit them. See the [concurrency migration recipe](../guides/swift-concurrency-migration.md) and [SwiftPM's manifest reference](https://docs.swift.org/package-manager/PackageDescription/PackageDescription.html).
 
 ## Topics
 
@@ -58,7 +63,5 @@ Support for Swift packages in Xcode builds on the open-source Swift Package Mana
 - **WarningLevel** - The level at which a compiler warning should be treated.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/PackageDescription)*

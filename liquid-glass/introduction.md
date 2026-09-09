@@ -2,7 +2,9 @@
 
 Learn how to design and develop beautiful interfaces that leverage Liquid Glass.
 
-**Platforms:** iOS 26.0+ | iPadOS 26.0+ | macOS Tahoe 26.0+ | tvOS 26.0+ | visionOS 26.0+ | watchOS 26.0+
+**Platforms:** iOS 26.0+ | iPadOS 26.0+ | macOS 26.0+ | tvOS 26.0+ | watchOS 26.0+
+
+For native visionOS window glass, follow the separate [Materials guidance](../human-interface-guidelines/foundations/materials.md#visionos). Do not infer visionOS API availability from the shared visual vocabulary.
 
 ## Overview
 
@@ -14,27 +16,27 @@ Standard components from SwiftUI, UIKit, and AppKit like controls and navigation
 
 ### Introduction to Liquid Glass
 
-Liquid Glass is a revolutionary material that transforms how interfaces look, feel, and respond across Apple platforms. This translucent material reflects and refracts its surroundings while dynamically transforming to help bring greater focus to content, delivering a new level of vitality across controls, navigation, app icons, widgets, and more.
+Liquid Glass separates controls and navigation from the content they act on. Its appearance responds to the surrounding content and to interaction, so prefer system components over reproducing a fixed blur or highlight in artwork.
 
 **Key Characteristics:**
-- **Translucent and Glass-like** - Behaves like real glass with optical properties
-- **Dynamic and Fluid** - Transforms based on content and context
-- **Platform Universal** - Consistent experience across iOS, iPadOS, macOS, tvOS, visionOS, and watchOS
-- **Content-Focused** - Designed to highlight and emphasize underlying content
+- **Functional hierarchy** - Reserve glass for important interactive and navigation elements, not every content surface.
+- **Context-sensitive appearance** - Test over actual content instead of assuming a fixed color or opacity.
+- **Platform-specific behavior** - Touch, pointer, remote focus, and watch interactions need different treatment.
+- **Accessible adaptation** - Respect the appearances and accessibility preferences the device provides.
 
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Liquid Glass is refined in the OS 27 generation, not replaced. Busy background content is diffused more aggressively, a subtle darkened edge ring improves separation, and specular highlights are brighter and better defined. A continuous transparency slider in Settings > Appearance replaces the Clear/Tinted toggle, so your interface must stay legible across the full range people can choose. **No new named Liquid Glass API types were introduced in OS 27** — existing code continues to work.
+For the `regular` and `clear` variants, dimming, and standard content-layer materials, see [Materials](../human-interface-guidelines/foundations/materials.md). For the documented OS 27 compatibility-key change, see [Adopting Liquid Glass](adopting-liquid-glass.md#sdk-runtime-and-deployment-targets).
 
 ### The Real API Surface
 
 Use these verified API names when working with Liquid Glass. Do not invent framework or modifier names.
 
-**SwiftUI**
+**SwiftUI** — use `import SwiftUI`
 - `glassEffect(_:in:)` — apply the material to a custom view
 - `GlassEffectContainer` — group multiple glass effects so they blend and morph together, and to reduce rendering cost
 - `glassEffectID(_:in:)` — identify a glass element across state transitions for smooth morphing
-- `glassEffectUnion(id:namespace:)` — merge adjacent glass shapes into one continuous surface
+- `glassEffectUnion(id:namespace:)` — combine effects with a shared union identifier, shape, and glass variant into a single shape
 - `buttonStyle(.glass)` and `buttonStyle(.glassProminent)` — standard glass button styles
-- `backgroundExtensionEffect()` — extend content beneath sidebars and inspectors
+- `backgroundExtensionEffect()` — extend a background using mirrored, blurred copies of adjacent content beneath sidebars and inspectors
 
 **UIKit**
 - `UIGlassEffect` — the material as a visual effect
@@ -46,6 +48,8 @@ Use these verified API names when working with Liquid Glass. Do not invent frame
 - `NSBackgroundExtensionView`
 
 There is no `LiquidGlass` module to import, and no `.liquidGlassStyle`-style modifiers. The material is delivered through the frameworks you already use.
+
+Check each symbol's availability. In particular, the references for [`glassEffect(_:in:)`](https://developer.apple.com/documentation/swiftui/view/glasseffect(_:in:)) and [`GlassEffectContainer`](https://developer.apple.com/documentation/swiftui/glasseffectcontainer) list the 26-generation iOS, iPadOS, Mac Catalyst, macOS, tvOS, and watchOS platforms, not visionOS. A newer build SDK does not make a new API available on an older runtime.
 
 ### Adopting Liquid Glass
 
@@ -60,7 +64,7 @@ If you have an existing app, adopting Liquid Glass doesn't mean reinventing your
 
 ### Design Principles
 
-The Human Interface Guidelines contains guidance and best practices that can help you design a great experience for any Apple platform. Browse the HIG to discover more about adapting your interface for Liquid Glass.
+Use the HIG's [Design principles](../human-interface-guidelines/getting-started/design-principles.md) to evaluate hierarchy, agency, accessibility, and platform fit before applying a visual treatment.
 
 **Design Guidelines:**
 - **Define a layout and choose a navigation structure** that puts the most important content in focus
@@ -83,41 +87,18 @@ The Landmarks app showcases how to create a beautiful and engaging user experien
 
 ### Platform Integration
 
-Liquid Glass extends across all Apple platforms with platform-specific optimizations:
-
-**iOS 26**  
-- Dynamic tab bars that adapt during scrolling
-- Enhanced control interactions with fluid morphing
-- Lock Screen time integration with photo wallpapers
-
-**iPadOS 26**  
-- Immersive sidebars with content refraction
-- Enhanced window management with Liquid Glass
-- Magic Keyboard and Apple Pencil integration
-
-**macOS Tahoe 26**  
-- Completely transparent menu bar
-- Customizable desktop with multiple appearance options
-- Window controls integrated with Liquid Glass
-
-**tvOS 26**  
-- Enhanced focus-based navigation
-- Siri Remote integration with Liquid Glass materials
-- 10-foot experience optimization
-
-**visionOS 26.0+**
-- 3D content integration with 2D interfaces
-- Depth-based visual effects
-- Spatial computing enhancements
-
-**watchOS 26**  
-- Refined controls optimized for Apple Watch
-- Smart Stack widget integration
-- Always-On display compatibility
+| Platform | Design emphasis |
+|----------|-----------------|
+| [iOS](../human-interface-guidelines/getting-started/iOS.md) | Reachable controls, clear navigation, and text that reflows with accessibility sizes. |
+| [iPadOS](../human-interface-guidelines/getting-started/iPadOS.md) | Resizable windows, legible sidebars, and seamless changes between touch, Pencil, pointer, and keyboard. |
+| [macOS](../human-interface-guidelines/getting-started/macOS.md) | Document work, menus, keyboard commands, and separation between tools and content. |
+| [tvOS](../human-interface-guidelines/getting-started/tvOS.md) | System focus behavior and readable controls over media. Apple's adoption guide limits Liquid Glass effects to Apple TV 4K (2nd generation) and newer. |
+| [watchOS](../human-interface-guidelines/getting-started/watchOS.md) | Brief interactions, glanceable information, and standard button and toolbar APIs. |
+| [visionOS](../human-interface-guidelines/getting-started/visionOS.md) | Platform-specific window glass, comfortable spatial placement, and awareness of the surroundings; do not copy the other platforms' material APIs indiscriminately. |
 
 ### Related Components
 
-- [Adopting Liquid Glass](https://developer.apple.com/documentation/xcode/adopting-liquid-glass) - Implementation guidance
+- [Adopting Liquid Glass](https://developer.apple.com/documentation/technologyoverviews/adopting-liquid-glass) - Implementation guidance
 - [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines) - Design principles
 - [Landmarks: Building an app with Liquid Glass](https://developer.apple.com/documentation/swiftui/landmarks-building-an-app-with-liquid-glass) - Sample code
 
@@ -127,15 +108,15 @@ Liquid Glass extends across all Apple platforms with platform-specific optimizat
 - [UIKit](https://developer.apple.com/documentation/uikit) - Framework
 - [AppKit](https://developer.apple.com/documentation/appkit) - Framework
 - [RealityKit](https://developer.apple.com/documentation/realitykit) - 3D content framework
-- [Icon Composer](https://developer.apple.com/documentation/xcode/icon-composer) - Icon design tool
+- [Icon Composer](https://developer.apple.com/icon-composer/) - Icon design tool
 
 ### Videos
 
-- [Meet Liquid Glass](https://developer.apple.com/videos/play/wwdc2025/10001/) - Introduction to the new design system
-- [Get to know the new design system](https://developer.apple.com/videos/play/wwdc2025/10002/) - Design principles and guidelines
-- [Build a SwiftUI app with the new design](https://developer.apple.com/videos/play/wwdc2025/10003/) - SwiftUI implementation
-- [Build a UIKit app with the new design](https://developer.apple.com/videos/play/wwdc2025/10004/) - UIKit implementation
-- [Build an AppKit app with the new design](https://developer.apple.com/videos/play/wwdc2025/10005/) - AppKit implementation
+- [Meet Liquid Glass](https://developer.apple.com/videos/play/wwdc2025/219/) - Introduction to the design system
+- [Get to know the new design system](https://developer.apple.com/videos/play/wwdc2025/356/) - Design principles and guidelines
+- [Build a SwiftUI app with the new design](https://developer.apple.com/videos/play/wwdc2025/323/) - SwiftUI implementation
+- [Build a UIKit app with the new design](https://developer.apple.com/videos/play/wwdc2025/284/) - UIKit implementation
+- [Build an AppKit app with the new design](https://developer.apple.com/videos/play/wwdc2025/310/) - AppKit implementation
 
 ---
 

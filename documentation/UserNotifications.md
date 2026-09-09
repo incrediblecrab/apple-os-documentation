@@ -18,43 +18,52 @@ Use this framework to do the following:
 - Process already delivered notifications.
 - Respond to user-selected actions.
 
-The system makes every attempt to deliver local and remote notifications in a timely manner, but delivery isn't guaranteed. The PushKit framework offers a more timely delivery mechanism for specific types of notifications, such as those VoIP and watchOS complications use. For more information, see PushKit.
+Delivery isn't guaranteed. [PushKit](PushKit.md) has separate, specialized workflows, such as VoIP and supported complication updates; it isn't a general way to bypass notification authorization, delivery limits, or scheduling budgets.
 
-For webpages in Safari version 16.0 and higher, generate remote notifications from a server that you manage using Push API code that works in Safari and other browsers.
+Web push is a separate standards-based path using the Push, Notifications, and Service Worker APIs. Safari 16.1 added it on macOS Ventura; iOS/iPadOS 16.4 added support for Home Screen web apps. Browser version alone doesn't establish host or ordinary-tab support. See [Sending web push notifications](https://developer.apple.com/documentation/usernotifications/sending-web-push-notifications-in-web-apps-and-browsers).
 
-**Note:** Siri can provide suggestions to users in search, News, Safari, and other apps using on-device information that your app contributes through the Notifications API. Users can change this functionality to allow at any time through Siri and Search settings for your app.
+**Note:** The system may use on-device notification information for Siri-related suggestions, subject to the person's settings. This isn't an app-controlled suggestion or delivery guarantee; settings labels vary by OS.
 
-For design guidance, see Human Interface Guidelines > Notifications.
+For design guidance, see the [Notifications HIG](https://developer.apple.com/design/human-interface-guidelines/notifications).
+
+## Update channels and OS 27 testing
+
+Keep ordinary notifications, [ActivityKit](ActivityKit.md) Live Activities, and [WidgetKit push updates](WidgetKit.md#api-and-os-27-migration-checks) distinct. They use different registration/update contracts; widget pushes remain budgeted requests for timeline reloads. A system notification-grouping change does not grant additional app authorization or delivery guarantees.
+
+The [iOS & iPadOS 27 beta notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes) mark critical alerts being automatically enabled for any app requesting notification permission as **resolved** (179179362). Do not rely on that earlier-beta behavior: check current notification settings and test authorization on clean and upgraded installations. See [UserNotificationsUI](UserNotificationsUI.md) for content extensions and [SafariServices](SafariServices.md) for the separate browser/extension context.
 
 ## Topics
 
 ### Essentials
-- [User Notifications updates](https://developer.apple.com/documentation/usernotifications/user_notifications_updates) - Learn about important changes in User Notifications.
-- [Asking permission to use notifications](https://developer.apple.com/documentation/usernotifications/asking_permission_to_use_notifications) - Request permission to display alerts, play sounds, or badge the app's icon in response to a notification.
+- [User Notifications updates](https://developer.apple.com/documentation/updates/usernotifications) - Learn about important changes in User Notifications.
+- [Asking permission to use notifications](https://developer.apple.com/documentation/usernotifications/asking-permission-to-use-notifications) - Request permission to display alerts, play sounds, or badge the app's icon in response to a notification.
 
 ### Notification management
 - **UNUserNotificationCenter** - The central object for managing notification-related activities for your app or app extension.
 - **UNUserNotificationCenterDelegate** - An interface for processing incoming notifications and responding to notification actions.
-- **UNNotificationSettings** - The object for managing notification-related settings and the authorization status of your app.
+- [`UNNotificationSettings`](https://developer.apple.com/documentation/usernotifications/unnotificationsettings) - The current settings and authorization status you read to adapt app behavior, not an object for changing the person's settings.
 
 ### Remote notifications
-- [Generate notifications from your company's servers, and deliver those notifications using APNs](https://developer.apple.com/documentation/usernotifications/remote_notifications)
-- [Setting up a remote notification server](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server) - Generate notifications and push them to user devices.
-- [Sending push notifications using command-line tools](https://developer.apple.com/documentation/usernotifications/sending_push_notifications_using_command-line_tools) - Use basic macOS command-line tools to send push notifications to Apple Push Notification service (APNs).
-- [Testing notifications using the Push Notification Console](https://developer.apple.com/documentation/usernotifications/testing_notifications_using_the_push_notification_console) - Send test notifications and access delivery logs to test your app's integration with Apple Push Notification service (APNs).
+Generate server notifications and deliver them using APNs.
+
+- [Setting up a remote notification server](https://developer.apple.com/documentation/usernotifications/setting-up-a-remote-notification-server) - Generate notifications and push them to user devices.
+- [Sending push notifications using command-line tools](https://developer.apple.com/documentation/usernotifications/sending-push-notifications-using-command-line-tools) - Use basic macOS command-line tools to send push notifications to Apple Push Notification service (APNs).
+- [Testing notifications using the Push Notification Console](https://developer.apple.com/documentation/usernotifications/testing-notifications-using-the-push-notification-console) - Send test notifications and access delivery logs to test your app's integration with Apple Push Notification service (APNs).
 
 ### Notification requests
-- [Create delivery requests for local notifications, and access the content of delivered local and remote notifications](https://developer.apple.com/documentation/usernotifications/notification_requests)
-- [Scheduling a notification locally from your app](https://developer.apple.com/documentation/usernotifications/scheduling_a_notification_locally_from_your_app) - Create and schedule notifications from your app when you want to get the user's attention.
+Create local delivery requests and inspect delivered notifications.
+
+- [Scheduling a notification locally from your app](https://developer.apple.com/documentation/usernotifications/scheduling-a-notification-locally-from-your-app) - Create and schedule notifications from your app when you want to get the user's attention.
 - **UNNotificationRequest** - A request to schedule a local notification, which includes the content of the notification and the trigger conditions for delivery.
 - **UNNotification** - The data for a local or remote notification the system delivers to your app.
 
 ### Push notifications in safari
-- [Sending web push notifications in web apps and browsers](https://developer.apple.com/documentation/usernotifications/push_notifications_in_safari/sending_web_push_notifications_in_web_apps_and_browsers) - Update your web server and website to send push notifications that work in Safari, other browsers, and web apps, following cross-browser standards.
+- [Sending web push notifications in web apps and browsers](https://developer.apple.com/documentation/usernotifications/sending-web-push-notifications-in-web-apps-and-browsers) - Update your web server and website to send push notifications that work in Safari, other browsers, and web apps, following cross-browser standards.
 
 ### Notification content
-- [Modify and examine the payload of a notification](https://developer.apple.com/documentation/usernotifications/notification_content)
-- [Implementing communication notifications](https://developer.apple.com/documentation/usernotifications/implementing_communication_notifications) - Configure and display your app's communication notifications by using intents.
+Modify and examine notification payloads.
+
+- [Implementing communication notifications](https://developer.apple.com/documentation/usernotifications/implementing-communication-notifications) - Configure and display your app's communication notifications by using intents.
 - **UNNotificationContentProviding** - A protocol the system uses to provide context relevant to user notifications.
 - **UNNotificationActionIcon** - An icon associated with an action.
 - **UNMutableNotificationContent** - The editable content for a notification.
@@ -64,7 +73,8 @@ For design guidance, see Human Interface Guidelines > Notifications.
 - **UNNotificationSoundName** - A string providing the name of a sound file.
 
 ### Triggers
-- [Define the trigger conditions for delivering notifications. Detect when a remote notification was delivered from APNs](https://developer.apple.com/documentation/usernotifications/triggers)
+Define local trigger conditions or identify APNs-delivered notifications.
+
 - **UNCalendarNotificationTrigger** - A trigger condition that causes a notification the system delivers at a specific date and time.
 - **UNTimeIntervalNotificationTrigger** - A trigger condition that causes the system to deliver a notification after the amount of time you specify elapses.
 - **UNLocationNotificationTrigger** - A trigger condition that causes the system to deliver a notification when the user's device enters or exits a geographic region you specify.
@@ -72,37 +82,37 @@ For design guidance, see Human Interface Guidelines > Notifications.
 - **UNNotificationTrigger** - The common behavior for subclasses that trigger the delivery of a local or remote notification.
 
 ### Notification categories and user actions
-- [Define the types of notifications that your app supports, and define how users can respond](https://developer.apple.com/documentation/usernotifications/notification_categories_and_user_actions)
-- [Declaring your actionable notification types](https://developer.apple.com/documentation/usernotifications/declaring_your_actionable_notification_types) - Differentiate your notifications and add action buttons to the notification interface.
+Define notification types and the actions people can perform.
+
+- [Declaring your actionable notification types](https://developer.apple.com/documentation/usernotifications/declaring-your-actionable-notification-types) - Differentiate your notifications and add action buttons to the notification interface.
 - **UNNotificationCategory** - A type of notification your app supports and the custom actions that the system displays.
 - **UNNotificationAction** - A task your app performs in response to a notification that the system delivers.
 - **UNTextInputNotificationAction** - An action that accepts user-typed text.
 
 ### Notification responses
-- [Handling notifications and notification-related actions](https://developer.apple.com/documentation/usernotifications/handling_notifications_and_notification-related_actions) - Respond to user interactions with the system's notification interfaces, including handling your app's custom actions.
+- [Handling notifications and notification-related actions](https://developer.apple.com/documentation/usernotifications/handling-notifications-and-notification-related-actions) - Respond to user interactions with the system's notification interfaces, including handling your app's custom actions.
 - **UNNotificationResponse** - The user's response to an actionable notification.
 - **UNTextInputNotificationResponse** - The user's response to an actionable notification, including any custom text that the user typed or dictated.
 
 ### Notification service app extension
-- [Use a notification service app extension to modify the content of a notification before it's delivered to your app](https://developer.apple.com/documentation/usernotifications/notification_service_app_extension)
-- [Modifying content in newly delivered notifications](https://developer.apple.com/documentation/usernotifications/modifying_content_in_newly_delivered_notifications) - Modify the payload of a remote notification before it's displayed on the user's iOS device.
+Modify supported remote notification content before presentation.
+
+- [Modifying content in newly delivered notifications](https://developer.apple.com/documentation/usernotifications/modifying-content-in-newly-delivered-notifications) - Modify the payload of a remote notification before it's displayed on the user's iOS device.
 - **UNNotificationServiceExtension** - An object that modifies the content of a remote notification before it's delivered to the user.
 
 ### Entitlements
-- [APS Environment Entitlement](https://developer.apple.com/documentation/usernotifications/aps_environment_entitlement) - The environment for push notifications.
-- [APS Environment (macOS) Entitlement](https://developer.apple.com/documentation/usernotifications/aps_environment_macos_entitlement) - The environment for push notifications in macOS apps.
+- [APS Environment Entitlement](https://developer.apple.com/documentation/bundleresources/entitlements/aps-environment) - The environment for push notifications.
+- [APS Environment (macOS) Entitlement](https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.aps-environment) - The environment for push notifications in macOS apps.
 
 ### Sample code
-- [Handling Communication Notifications and Focus Status Updates](https://developer.apple.com/documentation/usernotifications/handling_communication_notifications_and_focus_status_updates) - Create a richer calling and messaging experience in your app by implementing communication notifications and Focus status updates.
-- [Implementing Alert Push Notifications](https://developer.apple.com/documentation/usernotifications/implementing_alert_push_notifications) - Add visible alert notifications to your app by using the UserNotifications framework.
-- [Implementing Background Push Notifications](https://developer.apple.com/documentation/usernotifications/implementing_background_push_notifications) - Add background notifications to your app by using the UserNotifications framework.
+- [Handling Communication Notifications and Focus Status Updates](https://developer.apple.com/documentation/usernotifications/handling-communication-notifications-and-focus-status-updates) - Create a richer calling and messaging experience in your app by implementing communication notifications and Focus status updates.
+- [Implementing Alert Push Notifications](https://developer.apple.com/documentation/usernotifications/implementing-alert-push-notifications) - Add visible alert notifications to your app by using the UserNotifications framework.
+- [Implementing Background Push Notifications](https://developer.apple.com/documentation/usernotifications/implementing-background-push-notifications) - Add background notifications to your app by using the UserNotifications framework.
 
 ### Reference
-- [UserNotifications Constants](https://developer.apple.com/documentation/usernotifications/usernotifications_constants)
-- **UNNotificationAttributedMessageContext**
+- [`UNNotificationDefaultActionIdentifier`](https://developer.apple.com/documentation/usernotifications/unnotificationdefaultactionidentifier) and [`UNNotificationDismissActionIdentifier`](https://developer.apple.com/documentation/usernotifications/unnotificationdismissactionidentifier) identify the default and dismissal responses.
+- [`UNNotificationAttributedMessageContext`](https://developer.apple.com/documentation/usernotifications/unnotificationattributedmessagecontext) - A class conforming to `UNNotificationContentProviding`; iOS/iPadOS/Mac Catalyst 18+, macOS 15+, visionOS 2+, and watchOS 11+.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/UserNotifications)*

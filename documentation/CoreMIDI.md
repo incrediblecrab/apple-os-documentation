@@ -11,33 +11,32 @@ The Core MIDI framework provides APIs to communicate with MIDI (Musical Instrume
 ## Topics
 
 ### Services
-- [MIDI Services](https://developer.apple.com/documentation/coremidi/midi_services) - Communicate with hardware using Universal MIDI Packets.
-- [MIDI System Setup](https://developer.apple.com/documentation/coremidi/midi_system_setup) - Configure the global MIDI system.
-- [MIDI Bluetooth](https://developer.apple.com/documentation/coremidi/midi_bluetooth) - Connect to Bluetooth Low Energy MIDI peripherals.
-- [MIDI Messages](https://developer.apple.com/documentation/coremidi/midi_messages) - Create and configure messages.
-- [MIDI Thru Connection](https://developer.apple.com/documentation/coremidi/midi_thru_connection) - Create play-through connections between sources and destinations.
-- [MIDI Networking](https://developer.apple.com/documentation/coremidi/midi_networking) - Create and manage devices connected over a local network.
-- [MIDI Drivers](https://developer.apple.com/documentation/coremidi/midi_drivers) - Create driver plug-ins.
-- [MIDI Capability Inquiry](https://developer.apple.com/documentation/coremidi/midi_capability_inquiry) - Provide support for bidirectional discovery and configuration of devices.
+- [MIDI Services](https://developer.apple.com/documentation/coremidi/midi-services) - Communicate with hardware using Universal MIDI Packets.
+- [MIDI System Setup](https://developer.apple.com/documentation/coremidi/midi-system-setup) - Configure the global MIDI system.
+- [MIDI Bluetooth](https://developer.apple.com/documentation/coremidi/midi-bluetooth) - Connect to Bluetooth Low Energy MIDI peripherals.
+- [MIDI Messages](https://developer.apple.com/documentation/coremidi/midi-messages) - Create and configure messages.
+- [MIDI Thru Connection](https://developer.apple.com/documentation/coremidi/midi-thru-connection) - Create play-through connections between sources and destinations.
+- [MIDI Networking](https://developer.apple.com/documentation/coremidi/midi-networking) - Create and manage devices connected over a local network.
+- [MIDI Drivers](https://developer.apple.com/documentation/coremidi/midi-drivers) - Create driver plug-ins.
+- [MIDI Capability Inquiry](https://developer.apple.com/documentation/coremidi/midi-capability-inquiry) - Provide support for bidirectional discovery and configuration of devices.
 
 ### Reference
-- [Core MIDI Structures](https://developer.apple.com/documentation/coremidi/core_midi_structures)
-- [Core MIDI Enumerations](https://developer.apple.com/documentation/coremidi/core_midi_enumerations)
-- [Core MIDI Constants](https://developer.apple.com/documentation/coremidi/core_midi_constants)
-- [Core MIDI Functions](https://developer.apple.com/documentation/coremidi/core_midi_functions)
-- [Core MIDI Data Types](https://developer.apple.com/documentation/coremidi/core_midi_data_types)
-- [Core MIDI Macros](https://developer.apple.com/documentation/coremidi/core_midi_macros)
+- [Core MIDI Structures](https://developer.apple.com/documentation/coremidi/core-midi-structures)
+- [Core MIDI Enumerations](https://developer.apple.com/documentation/coremidi/core-midi-enumerations)
+- [Core MIDI Constants](https://developer.apple.com/documentation/coremidi/core-midi-constants)
+- [Core MIDI Functions](https://developer.apple.com/documentation/coremidi/core-midi-functions)
+- [Core MIDI Data Types](https://developer.apple.com/documentation/coremidi/core-midi-data-types)
+- [Core MIDI Macros](https://developer.apple.com/documentation/coremidi/coremidi-macros)
 
 ### Articles
-- [Deprecated Symbols](https://developer.apple.com/documentation/coremidi/deprecated_symbols) - Review unsupported symbols and their replacements.
+- [Deprecated Symbols](https://developer.apple.com/documentation/coremidi/midi_system_setup-deprecated-symbols) - Review unsupported symbols and their replacements.
 
 ### Classes
-- **kMIDIObjectType_ExternalMask** - A bit mask indicating that a device is external.
 - **MIDI2DeviceInfo**
 - **MIDICIDevice**
 - **MIDICIDeviceManager**
 - **MIDICIDiscoveredNode** - A discovered MIDI-CI node that represents a MIDI source and destination that respond to capability inquiries.
-- **MIDIUMPCIProfile** (Deprecated)
+- **MIDIUMPCIProfile**
 - **MIDIUMPEndpoint**
 - **MIDIUMPEndpointManager**
 - **MIDIUMPFunctionBlock**
@@ -45,13 +44,12 @@ The Core MIDI framework provides APIs to communicate with MIDI (Musical Instrume
 - **MIDIUMPMutableFunctionBlock**
 
 ### Variables
+- **kMIDIObjectType_ExternalMask** - A bit mask indicating that a device is external.
 - **kMIDINoteAttributeManufacturerSpecific** (Deprecated)
 - **kMIDINoteAttributeNone** (Deprecated)
 - **kMIDINoteAttributePitch** (Deprecated)
 - **kMIDINoteAttributeProfileSpecific** (Deprecated)
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/CoreMIDI)*

@@ -12,7 +12,7 @@ Edit menus can look and behave slightly differently in different platforms:
 
 - In visionOS, people use the standard pinch and hold gesture to open the edit menu as a horizontal bar, or they can open it in a context menu.
 - In iOS, the edit menu displays commands in a compact, horizontal list that appears when people touch and hold or double-tap to select content in a view.
-- In iPadOS, the edit menu looks different depending on how people reveal it. When people use touch interactions to reveal the menu, it uses the compact, horizontal appearance. In contrast, when people use a keyboard or pointing device to reveal it, the edit menu uses a vertical layout in which three or four important commands can display in a row at the top.
+- In iPadOS, the edit menu looks different depending on how people reveal it. Touch interactions reveal the compact horizontal appearance; a keyboard or pointing device opens editing commands directly in a context menu.
 - In macOS, people can access editing commands in a context menu they can reveal while in an editing task, as well as through the app's Edit menu in the menu bar.
 
 Editing content is rare in tvOS and watchOS experiences, so the system doesn't provide an edit menu in these platforms.
@@ -77,7 +77,5 @@ Not supported in tvOS or watchOS.
 - Added guidance on supporting both edit-menu styles in iPadOS
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/edit-menus)*

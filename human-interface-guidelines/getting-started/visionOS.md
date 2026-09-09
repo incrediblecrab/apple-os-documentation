@@ -24,7 +24,7 @@ As you begin designing your app or game for visionOS, start by understanding the
 
 > **Important:** When building your app for Apple Vision Pro, be sure to consider the unique characteristics of the device and its spatial computing environment, and pay special attention to your user's safety; for more details about these characteristics, see [Apple Vision Pro User Guide](https://support.apple.com/guide/apple-vision-pro/welcome/visionos). For example, Apple Vision Pro should not be used while operating a vehicle or heavy machinery. The device is also not designed to be used while moving around unsafe environments such as near balconies, streets, stairs, or other potential hazards. Note that Apple Vision Pro is designed to be fit and used only by individuals 13 years of age or older.
 
-> **visionOS 27+:** Windows and ornaments use the refined Liquid Glass material. In passthrough the background is the uncontrolled real world, so validate legibility in bright, dark, and high-motion environments rather than a fixed test scene. Reduce Transparency, Increase Contrast, and Reduce Motion carry outsized importance in an immersive context.
+Start with [Design principles](design-principles.md). Spatial presentation should improve a task while preserving comfort, control, and awareness of the surroundings.
 
 ## Topics
 
@@ -47,19 +47,36 @@ Great visionOS apps and games are approachable and familiar, while offering extr
 
 - **Support shared activities** - Help people share activities with others. When you use SharePlay to support shared activities, people can view the spatial Personas of other participants, making it feel like everyone is together in the same space.
 
+### Spatial comfort in practice
+
+- Begin with a familiar window when depth is unnecessary. Use [spatial layout](../foundations/spatial-layout.md) to place related content and controls together without requiring repeated head turns or extended reaches.
+- Use the least [immersion](../foundations/immersive-experiences.md) that serves the task. Make entering and leaving an immersive experience deliberate, and preserve context on return.
+- Keep [ornaments](../components/ornaments.md) close to the work they affect. Do not scatter essential actions around the person merely because more space is available.
+- Use generous, separated [eye-targeted controls](../inputs/eyes.md) and meaningful hover feedback. Support indirect gestures and accessible alternatives so repeated tasks do not require sustained arm extension.
+- Keep a stable visual frame of reference. Avoid unexpected camera-like motion or moving the person's surroundings to simulate travel.
+
+### Accessibility and validation
+
+- Test [Dynamic Type](../foundations/typography.md), comfortable reading distance, and [right-to-left layouts](../foundations/right-to-left.md), not only a default-size window.
+- Test [VoiceOver](../technologies/voiceover.md), alternative pointer or switch input as applicable, and [keyboard navigation](../inputs/keyboards.md) for keyboard-driven tasks. Do not make eye targeting or a particular hand gesture the only route.
+- Check contrast and hover feedback against varied real-world passthrough backgrounds. visionOS [window glass](../foundations/materials.md) adapts to the surroundings and is not a desktop light/dark appearance toggle.
+- Respect [Reduce Motion](../foundations/motion.md) and available transparency/contrast accommodations. Keep status, focus, and selection understandable when effects are reduced.
+- Validate while seated and standing in safe environments, with comfortable interaction distances and no requirement to move around to reach essential UI.
+
 ### Resources
 
+- [Design principles](design-principles.md)
 - [Apple Design Resources](https://developer.apple.com/design/resources/)
 
 ### Developer Documentation
 
-- [visionOS Pathway](https://developer.apple.com/pathways/visionos/)
+- [visionOS Pathway](https://developer.apple.com/visionos/get-started/)
 - [Creating your first visionOS app](https://developer.apple.com/documentation/visionos/creating-your-first-visionos-app)
 
 ### Videos
 
-- [Design interactive experiences for visionOS](https://developer.apple.com/videos/play/wwdc2023/10073/)
-- [Design great visionOS apps](https://developer.apple.com/videos/play/wwdc2023/10277/)
+- [Design interactive experiences for visionOS](https://developer.apple.com/videos/play/wwdc2024/10096)
+- [Design great visionOS apps](https://developer.apple.com/videos/play/wwdc2024/10086)
 - [Principles of spatial design](https://developer.apple.com/videos/play/wwdc2023/10072/)
 
 ## Changelog
@@ -74,7 +91,5 @@ Great visionOS apps and games are approachable and familiar, while offering extr
 - New page.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/designing-for-visionos)*

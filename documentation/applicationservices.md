@@ -2,22 +2,24 @@
 
 Perform common application tasks.
 
-**Platforms:** Mac Catalyst 13.0+ | macOS 10.0+
+**Catalog platform annotations:** Mac Catalyst 13.0+ | macOS 10.0+. These are not uniform minimums or current-platform support guarantees for every legacy header and symbol below.
 
 ## Overview
 
-This collection of documents provides the API reference for the Application Services framework, which includes several services that are essential to Carbon applications. The Application Services framework also includes support for a number of legacy technologies—such as QuickDraw and the Font Manager—that have been superseded with newer technologies like Quartz 2D and ATSUI.
+Application Services is a reference catalog for low-level application services, including accessibility, color management, printing, and older Carbon interfaces. Check the individual API's availability and deprecation annotations rather than assuming every historical manager is appropriate for new applications.
+
+For current 2D drawing and text-layout work, consult [Core Graphics](https://developer.apple.com/documentation/coregraphics) and [Core Text](https://developer.apple.com/documentation/coretext). The older catalog's discussion of QuickDraw, Font Manager, and ATSUI is historical context, not a recommendation to adopt those interfaces or evidence of a particular removal date.
 
 ## Topics
 
 ### Managers
-- **Apple Event Manager**
-- **ColorSync Manager**
-- **Speech Synthesis Manager**
+- [Apple Event Manager](https://developer.apple.com/documentation/applicationservices/apple_event_manager)
+- [ColorSync Manager](https://developer.apple.com/documentation/applicationservices/colorsync_manager)
+- [Speech Synthesis Manager](https://developer.apple.com/documentation/applicationservices/speech_synthesis_manager)
 
 ### Reference
-- **Carbon Accessibility**
-- **Core Printing**
+- [Carbon Accessibility](https://developer.apple.com/documentation/applicationservices/carbon_accessibility)
+- [Core Printing](https://developer.apple.com/documentation/applicationservices/core_printing)
 
 ### Headers
 - **AXActionConstants.h** - Many UIElements have a set of actions that they can perform. Actions are designed to be simple. Actions roughly correspond to things you could do with a single click of the mouse on the UIElement. Buttons and menu items, for example, have a single action: push or pick, respectively. A scroll bar has several actions: page up, page down, up one line, down one line.
@@ -25,9 +27,9 @@ This collection of documents provides the API reference for the Application Serv
 - **AXError.h** - These error codes can be returned from the accessibility functions defined in AXUIElement.h.
 - **AXNotificationConstants.h**
 - **AXRoleConstants.h**
-- **AXTextAttributedString.h** - This header file contains definitions of constants used with accessibility objects that represent attributed strings. An attributed string is an association of a range of characters and their attributes, such as color and font. If an accessibility object represents an attributed string, the value of its kAXParameterizedAttributeStringAttribute attribute is an attributed string object (a CFAttributedStringRef or an NSAttributedString) that uses the constants defined in this header file to define its attributes.
+- [**AXTextAttributedString.h**](https://developer.apple.com/documentation/applicationservices/axtextattributedstring_h) - Constants used by accessibility attributed strings, associating character ranges with attributes such as color, font, and underlining.
 - **AXUIElement.h**
-- **AXValue.h** - This header contains functions and data types for working with AXValueType wrappers.
+- [**AXValue.h**](https://developer.apple.com/documentation/applicationservices/axvalue_h) - The `AXValue`/`AXValueType` types and functions that create, identify, and extract wrapped values.
 - **AXValueConstants.h**
 - **UniversalAccess.h** - This header file contains functions that give applications the ability to control the zoom focus. Using these functions, an application can tell the macOS Universal Access zoom feature what part of its user interface needs focus.
 
@@ -56,7 +58,5 @@ This collection of documents provides the API reference for the Application Serv
 - **PDEPlugInCallbackProtocol**
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/applicationservices)*

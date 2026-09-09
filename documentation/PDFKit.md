@@ -2,37 +2,41 @@
 
 Display and manipulate PDF documents in your apps.
 
-**Platforms:** iOS 11.0+ | iPadOS 11.0+ | Mac Catalyst 11.0+ | macOS 10.4+ | visionOS 1.0+
+**Platforms:** iOS 11.0+ | iPadOS 11.0+ | Mac Catalyst 13.1+ | macOS 10.4+ | visionOS 1.0+
+
+## Overview
+
+Use `PDFDocument` as the document model and `PDFView` for embedded display, navigation, selection, and zooming. Annotations represent PDF content such as links, form fields, and notes; page overlay views are a separate UI customization mechanism.
+
+The framework catalog labels Mac Catalyst as 11.0, but the concrete `PDFView`, `PDFDocument`, and annotation declarations specify 13.1. The header follows those usable declarations. `PDFThumbnailView` starts at macOS 10.5, and page overlays require newer systems as noted below.
 
 ## Topics
 
 ### Views
-- **PDFView** - An object that encapsulates the functionality of PDF Kit into a single widget that you can add to your application using Interface Builder.
-- **PDFThumbnailView** - An object that contains a set of thumbnails, each of which represents a page in a PDF document.
+- [`PDFView`](https://developer.apple.com/documentation/pdfkit/pdfview) - An embeddable PDF viewer with navigation, selection, zoom, and page-history support.
+- [`PDFThumbnailView`](https://developer.apple.com/documentation/pdfkit/pdfthumbnailview) - Displays thumbnails representing document pages.
 
 ### Content Model
-- **PDFDocument** - An object that represents PDF data or a PDF file and defines methods for writing, searching, and selecting PDF data.
-- **PDFPage** - PDFPage, a subclass of NSObject, defines methods used to render PDF pages and work with annotations, text, and selections.
-- **PDFOutline** - A PDFOutline object is an element in a tree-structured hierarchy that can represent the structure of a PDF document.
-- **PDFSelection** - A PDFSelection object identifies a contiguous or noncontiguous selection of text in a PDF document.
+- [`PDFDocument`](https://developer.apple.com/documentation/pdfkit/pdfdocument) - Loads PDF data or a file URL and manages pages, searches, and document output.
+- [`PDFPage`](https://developer.apple.com/documentation/pdfkit/pdfpage) - Renders an individual page and provides access to its annotations, text, and selections.
+- [`PDFOutline`](https://developer.apple.com/documentation/pdfkit/pdfoutline) - Represents an optional navigation hierarchy; its root is a container rather than a visible outline item.
+- [`PDFSelection`](https://developer.apple.com/documentation/pdfkit/pdfselection) - Identifies contiguous or noncontiguous document text.
 
 ### Annotations
-- [Adding Widgets to a PDF Document](https://developer.apple.com/documentation/pdfkit/adding_widgets_to_a_pdf_document) - Add text, button, and choice widgets to a PDF document.
-- [Adding Custom Graphics to a PDF](https://developer.apple.com/documentation/pdfkit/adding_custom_graphics_to_a_pdf) - Create and add custom annotation and page graphics to your PDF document.
-- [Custom Graphics](https://developer.apple.com/documentation/pdfkit/custom_graphics) - Demonstrates adding a watermark to a PDF page.
-- [PDF Widgets](https://developer.apple.com/documentation/pdfkit/pdf_widgets) - Demonstrates adding widgets—interactive form elements—to a PDF document.
-- **PDFAnnotation** - An annotation in a PDF document.
+- [Adding Widgets to a PDF Document](https://developer.apple.com/documentation/pdfkit/adding-widgets-to-a-pdf-document) - Add text, button, and choice form fields, not WidgetKit widgets.
+- [Adding Custom Graphics to a PDF](https://developer.apple.com/documentation/pdfkit/adding-custom-graphics-to-a-pdf) - Create custom annotation and page graphics.
+- [Custom Graphics](https://developer.apple.com/documentation/pdfkit/custom-graphics) - Demonstrates adding a watermark to a PDF page.
+- [PDF Widgets](https://developer.apple.com/documentation/pdfkit/pdf-widgets) - Demonstrates interactive PDF form elements.
+- [`PDFAnnotation`](https://developer.apple.com/documentation/pdfkit/pdfannotation) - A page-positioned annotation that may support interaction.
 
 ### Protocols
-- **PDFPageOverlayViewProvider**
+- [`PDFPageOverlayViewProvider`](https://developer.apple.com/documentation/pdfkit/pdfpageoverlayviewprovider) - Supplies page overlay views and receives their display-lifecycle callbacks; iOS/iPadOS/Mac Catalyst 16+, macOS 13+, and visionOS 1+.
 
 ### Reference
-- **PDFKit Enumerations**
-- **PDFKit Constants**
-- **PDFKit Data Types**
+- [PDFKit Enumerations](https://developer.apple.com/documentation/pdfkit/enumerations)
+- [PDFKit Constants](https://developer.apple.com/documentation/pdfkit/constants)
+- [PDFKit Data Types](https://developer.apple.com/documentation/pdfkit/data-types)
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/PDFKit)*

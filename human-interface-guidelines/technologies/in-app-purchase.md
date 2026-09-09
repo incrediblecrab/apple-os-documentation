@@ -8,20 +8,20 @@ People can use in-app purchase to pay for virtual goods — like premium content
 
 You can also promote and offer in-app purchases directly through the App Store. For developer guidance, see In-App Purchase.
 
-**Tip:** In-app purchase and Apple Pay are different technologies that support different use cases. Use in-app purchase to sell virtual goods in your app, such as premium content for your app and subscriptions for digital content. Use Apple Pay in your app to sell physical goods like groceries, clothing, and appliances; for services such as club memberships, hotel reservations, and event tickets; and for donations.
+**Tip:** In-app purchase and Apple Pay serve different use cases. In-app purchase supports digital content and app functionality. For physical goods and services consumed outside the app, use another payment method such as Apple Pay. Donations have additional conditions: App Review Guideline 3.2.1(vi) covers approved nonprofits, requires Apple Pay support, and sets disclosure and legal-compliance requirements.
 
 Using in-app purchase, there are four types of content you can offer:
 
 - Consumable content like lives or gems in a game. After purchase, consumable content depletes as people use it, and people can purchase it again.
 - Non-consumable content like premium features in an app. Purchased non-consumable content doesn't expire.
-- Auto-renewable subscriptions to virtual content, services, and premium features in your app on an ongoing basis. An auto-renewable subscription continues to automatically renew at the end of each subscription period until people choose to cancel it.
+- Auto-renewable subscriptions to virtual content, services, and premium features in your app on an ongoing basis. These normally renew at the end of each subscription period unless canceled; use subscription status rather than assuming renewal always succeeds.
 - Non-renewing subscriptions to a service or content that lasts for a limited time, like access to an in-game battle pass. People purchase a non-renewing subscription each time they want to extend their access to the service or content.
 
 For marketing and business guidance, see In-app purchase and Auto-renewable subscriptions. For information about what you can and can't sell in your app, including in-app purchase usage requirements and restrictions, see App Review Guidelines.
 
 **Note:** For apps with exceptionally large, frequently updated catalogs of one-time purchases or subscription content from multiple creators, or apps that provide subscriptions with optional add-on content as a single purchase within the app, the Advanced Commerce API allows you to manage your In-App Purchase catalog directly. See the Advanced Commerce API App Store support page for an overview, and see Advanced Commerce API for developer guidance.
 
-> **2026 App Store Review Guidelines:** **3.2.2(ix)** caps loan apps at **36% APR** with a minimum repayment term over 60 days, and **5.1.1(ix)** adds crypto exchanges to highly-regulated fields. In the US storefront, external purchase links and buttons are permitted without an entitlement under **3.1.1**; the Supreme Court granted certiorari in *Apple v. Epic Games* in June 2026 and the outcome is pending. Alternative distribution is available in the **EU, Brazil, and Japan**. See [os27-intro/Program.md](../../os27-intro/Program.md).
+> **Storefront-specific payment rules:** App Review Guideline [3.1.1(a)](https://developer.apple.com/app-store/review/guidelines/#in-app-purchase) states that entitlements for external purchase links and buttons aren't required in United States storefront apps. This isn't a global exemption from in-app purchase rules; check the requirements for the storefront and service you support.
 
 ## Topics
 
@@ -76,7 +76,7 @@ In iOS and iPadOS, subscription offer codes let you use both online and offline 
 
 - **Clearly explain offer details** - To help people make an informed decision, provide a straightforward and succinct description of your offer in your marketing materials.
 - **Follow guidelines for creating a custom code** - A custom code can contain only alphanumeric ASCII characters. Don't use special characters, including Chinese and Arabic characters.
-- **Tell people how to redeem a custom code** - Because people can't redeem a custom code by entering it in their App Store account settings, it's important to let them know that they can redeem it on your website or within your app.
+- **Tell people how to redeem a custom code** - Because people can't redeem a custom code by entering it in their App Store account settings, explain how to use its redemption URL or your app's supported redemption flow.
 - **Consider supporting offer redemption within your app** - The system automatically provides screens that present the offer-redemption flow, whether people redeem the offer in your app or in the App Store.
 - **Supply an engaging and informative promotional image** - Creating this optional image can help people understand the value of your content. If you don't supply a promotional image, the code redemption screens use your app icon by default.
 - **Help people benefit from unlocked content as soon as they complete the redemption flow** - Think about ways to align the post-redemption experience in your app with the subscriber's new status.
@@ -87,7 +87,7 @@ Supporting subscription management means people can upgrade, downgrade, or cance
 
 - **Provide summaries of the customer's subscriptions** - In particular, people appreciate viewing the upcoming renewal date without having to search for it. Consider displaying this information in a settings or account screen, near the subscription-management option.
 - **Consider using the system-provided subscription-management UI** - Using StoreKit APIs lets you present a consistent experience that helps people manage or cancel their subscriptions without leaving your app.
-- **Consider ways to encourage a subscriber to keep their subscription or resubscribe later** - When you use StoreKit APIs, your app is notified when someone chooses to cancel their subscription. In this scenario, you might want to extend a personalized offer as an alternative to cancellation or invite people to describe their reasons for canceling in an exit survey.
+- **Consider ways to encourage a subscriber to keep their subscription or resubscribe later** - Use current subscription information, such as [`willAutoRenew`](https://developer.apple.com/documentation/storekit/product/subscriptioninfo/renewalinfo/willautorenew), to understand renewal status rather than assuming every cancellation interaction immediately notifies your UI. You might offer a relevant alternative plan or invite voluntary feedback, without obstructing cancellation.
 - **Always make it easy for customers to cancel an auto-renewable subscription** - If the manage subscription action is deep within an app — or hard to recognize — subscribers can feel they're being discouraged or prevented from canceling.
 - **Consider creating a branded, contextual experience to complement the system-provided management UI** - Within your custom UI, you might offer a popular premium tier or provide personalized suggestions for alternative plans based on what you know about the customer's preferences or how they use your app.
 
@@ -102,18 +102,18 @@ The sign-up screen in your watchOS app needs to display the same set of informat
 
 ### Related Components
 
-- [In-App Purchase](https://developer.apple.com/design/human-interface-guidelines/in-app-purchase)
-- [Offering Subscriptions](https://developer.apple.com/design/human-interface-guidelines/offering-subscriptions)
+- [In-App Purchase](https://developer.apple.com/in-app-purchase/)
+- [Auto-renewable subscriptions](https://developer.apple.com/app-store/subscriptions/)
 - [App Review Guidelines](https://developer.apple.com/app-store/review/guidelines/)
 
 ### Developer Documentation
 
 - [In-App Purchase — StoreKit](https://developer.apple.com/documentation/storekit/in-app-purchase) - StoreKit
-- [canMakePayments](https://developer.apple.com/documentation/storekit/skpaymentqueue/canmakepayments()) - StoreKit
-- [beginRefundRequest(for:in:)](https://developer.apple.com/documentation/storekit/transaction/beginrefundrequest(for:in:)) - StoreKit
+- [canMakePayments](https://developer.apple.com/documentation/storekit/appstore/canmakepayments) - StoreKit
+- [beginRefundRequest(for:in:)](https://developer.apple.com/documentation/storekit/transaction/beginrefundrequest(for:in:)-65tph) - StoreKit
 - [Product.SubscriptionInfo](https://developer.apple.com/documentation/storekit/product/subscriptioninfo) - StoreKit
 - [showManageSubscriptions(in:)](https://developer.apple.com/documentation/storekit/appstore/showmanagesubscriptions(in:)) - StoreKit
-- [presentOfferCodeRedeemSheet(in:)](https://developer.apple.com/documentation/storekit/appstore/presentoffercodeoffersheet(in:)) - StoreKit
+- [presentOfferCodeRedeemSheet(in:)](https://developer.apple.com/documentation/storekit/appstore/presentoffercoderedeemsheet(in:)) - StoreKit
 
 ## Changelog
 
@@ -124,7 +124,5 @@ The sign-up screen in your watchOS app needs to display the same set of informat
 - Added a guideline for displaying the total billing price for every in-app purchase item and consolidated guidance into one page.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/in-app-purchase)*

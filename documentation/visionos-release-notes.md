@@ -4,22 +4,35 @@ Learn about changes to the visionOS SDK.
 
 ## Overview
 
-> **OS 27 is in beta as of August 2026.** Developer beta 1 arrived June 8, 2026 and public beta 1 on July 13, 2026. Beta numbering diverges across platforms, so check each platform's notes rather than assuming parity. Apple has not announced release dates. The current shipping line is OS 26.6.
+> **Checked September 8, 2026:** visionOS **26.6.1** (`23O780`, August 17) is shipping; visionOS 27 **beta 8** (`24M5361a`) was released August 31. [Release listings](https://developer.apple.com/news/releases/) establish neither a public-beta program nor a general-availability date or complete OS27 model list.
 
-The Apple Developer Program provides everything you need to build and distribute your apps on the App Store. Membership includes access to beta OS releases, advanced app capabilities, and tools to develop, test, and distribute apps and Safari extensions. For more information, visit Apple Developer Program.
+Use these notes for spatial and shared-framework SDK changes. See the [Apple Developer Program](../os27-intro/Program.md) for testing and distribution requirements.
+
+### OS27 Migration Priorities
+
+- UIKit-based apps built with the latest SDK must adopt [scenes](https://developer.apple.com/documentation/uikit/transitioning-to-the-uikit-scene-based-life-cycle) or fail to launch on visionOS 27.
+- Plan ODR/`NSBundleResourceRequest` migration to Background Assets, including localized packs and unavailable downloads.
+- Review asynchronous SwiftUI document APIs and the nullable PhotoKit resource filename replacement.
+- Re-test permission denial, tracking loss, immersion transitions, and remote disconnection. The earlier `RemoteImmersiveSpace` discovery failure is **resolved** in beta 8, not a permanent Compositor Services restriction.
+- For managed installations, audit [selected system-process TLS](https://support.apple.com/en-us/126655) and its documented exceptions.
+
+Source: [visionOS 27 beta 8 notes](https://developer.apple.com/documentation/visionos-release-notes/visionos-27-release-notes). See the [OS27 introduction](../os27-intro/visionOS.md) and retain the [OS26 context](../os26-intro/visionOS.md) for older targets.
+
+[Xcode 27 beta 6](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) requires **Apple silicon and macOS Tahoe 26.4 or later**, not macOS 27. Its physical-Vision-Pro Device Hub video/input limitation is specific to that tool release, not an OS-wide app limitation.
 
 ### Bug Reporting
 
-For issues not mentioned in release notes, file bugs through Feedback Assistant.
+For issues not mentioned in release notes, file bugs through [Feedback Assistant](https://feedbackassistant.apple.com/), including OS/SDK builds, device model, and reproduction steps.
 
 ## Topics
 
 ### visionOS 27
-- [visionOS 27 Beta Release Notes](https://developer.apple.com/documentation/visionos-release-notes/visionos-27-release-notes) - Update your apps to use new features, and test your apps against API changes. Pre-release; content changes through the beta period.
+- [visionOS 27 Beta 8 Release Notes](https://developer.apple.com/documentation/visionos-release-notes/visionos-27-release-notes) - Pre-release changes and known/resolved issues; checked September 8, 2026.
 
 ### visionOS 26
-- [visionOS 26.6 Release Notes](https://developer.apple.com/documentation/visionos-release-notes) - Current shipping release. Update your apps to use new features, and test your apps against API changes.
-- [visionOS 26.5 Beta 4 Release Notes](https://developer.apple.com/documentation/visionos-release-notes/visionos-26_5-release-notes) - Update your apps to use new features, and test your apps against API changes.
+- [visionOS 26.6.1 security/release listing](https://support.apple.com/en-us/100100) - Shipping maintenance release, August 17, 2026.
+- [visionOS 26.6 Release Notes](https://developer.apple.com/documentation/visionos-release-notes/visionos-26_6-release-notes) - SDK notes for the 26.6 line.
+- [visionOS 26.5 Release Notes](https://developer.apple.com/documentation/visionos-release-notes/visionos-26_5-release-notes) - Earlier OS26 SDK changes and fixes.
 - [visionOS 26.4 Release Notes](https://developer.apple.com/documentation/visionos-release-notes/visionos-26_4-release-notes) - Update your apps to use new features, and test your apps against API changes.
 - [visionOS 26.3 Release Notes](https://developer.apple.com/documentation/visionos-release-notes/visionos-26_3-release-notes) - Update your apps to use new features, and test your apps against API changes.
 - [visionOS 26.2 Release Notes](https://developer.apple.com/documentation/visionos-release-notes/visionos-26_2-release-notes) - Update your apps to use new features, and test your apps against API changes.
@@ -42,7 +55,5 @@ For issues not mentioned in release notes, file bugs through Feedback Assistant.
 - [visionOS Release Notes](https://developer.apple.com/documentation/visionos-release-notes/visionos-release-notes) - Update your apps to use new features, and test your apps against API changes.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/visionos-release-notes)*

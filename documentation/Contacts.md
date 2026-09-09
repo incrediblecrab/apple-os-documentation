@@ -2,7 +2,7 @@
 
 Access the user's contacts, and format and localize contact information.
 
-**Platforms:** iOS 9.0+ | iPadOS 9.0+ | Mac Catalyst 13.0+ | macOS 10.11+ | visionOS 1.0+ | watchOS 2.0+
+**Platforms:** iOS 9.0+ | iPadOS 9.0+ | Mac Catalyst 13.1+ | macOS 10.11+ | visionOS 1.0+ | watchOS 2.0+
 
 ## Overview
 
@@ -10,7 +10,9 @@ The Contacts framework provides Swift and Objective-C APIs to access the user's 
 
 ### Working with the user's contacts
 
-The Contacts framework is available on all Apple platforms, and replaces the Address Book framework in iOS and macOS.
+Contacts replaces Address Book for modern iOS and macOS development. Check individual API availability: the creation example uses UIKit and a system-symbol image initializer available from iOS/iPadOS 13 and Mac Catalyst 13.1. It is not a watchOS save workflow; `CNSaveRequest` is unavailable on watchOS.
+
+The examples are separate fragments to use inside app functions, not one combined script. Later fragments assume `import Contacts` and appropriate app-supplied `store`, `contact`, `homeAddress`, or `keysToFetch` values. Before database operations, configure the contacts usage description and resolve authorization as described under Privacy. Run synchronous store I/O on a background worker, and fetch the keys each operation needs.
 
 ### Contact objects
 
@@ -21,13 +23,18 @@ The contact class is like NSDictionary in that it has a mutable subclass, CNMuta
 ```swift
 import UIKit
 import Contacts
- 
+
 // Create a mutable object to add to the contact.
 let contact = CNMutableContact()
 
-// Store the profile picture as data.
-let image = UIImage(systemName: "person.crop.circle")
-contact.imageData = image?.jpegData(compressionQuality: 1.0)
+// Rasterize the optional symbol before encoding it as contact image data.
+if let image = UIImage(systemName: "person.crop.circle") {
+    let size = CGSize(width: 80, height: 80)
+    let renderer = UIGraphicsImageRenderer(size: size)
+    contact.imageData = renderer.pngData { _ in
+        image.draw(in: CGRect(origin: .zero, size: size))
+    }
+}
 
 contact.givenName = "John"
 contact.familyName = "Appleseed"
@@ -72,30 +79,26 @@ The Contacts framework helps you format and localize contact information. For ex
 
 ```swift
 // Formatting the contact name.
-let fullName = CNContactFormatter.string(from: contact, style: .fullName)
-print("\(String(describing: fullName))")
-// John Appleseed
+if let fullName = CNContactFormatter.string(from: contact, style: .fullName) {
+    print(fullName)
+}
 
 // Formatting the postal address.
 let postalString = CNPostalAddressFormatter().string(from: homeAddress)
-print("\(postalString)")
-// One Apple Park Way
-// Cupertino
-// CA
-// 95014
+print(postalString)
 ```
+
+The rendered name and postal layout depend on the locale and address contents. For a fetched contact, include the formatter's required-key descriptor described below.
 
 You can display localized object property names and predefined labels based on the current locale setting of the device. Many objects in the Contacts framework, such as CNContact, include the localizedString(forKey:) method, which lets you get the localized version of a key name. In addition, the CNLabeledValue class includes the localizedString(forLabel:) method, which lets you get the localized label for the predefined labels in the Contacts framework.
 
 ```swift
-// The device locale is Spanish.
+// Use the device's current locale.
 let displayName = CNContact.localizedString(forKey: CNContactNicknameKey)
 print(displayName)
-// Prints "alias"
 
 let displayLabel = CNLabeledValue<NSString>.localizedString(forLabel: CNLabelHome)
 print(displayLabel)
-// Prints "casa".
 ```
 
 ### Fetching contacts
@@ -140,11 +143,19 @@ let keysToFetch = [CNContactEmailAddressesKey as CNKeyDescriptor, CNContactForma
 
 ### Privacy
 
-Users can grant or deny access to contact data on a per-app basis. Any call to CNContactStore blocks the app while asking the user to grant or deny access. Note that the user receives a prompt only the first time an app requests access; all subsequent CNContactStore calls use the existing permissions. To avoid having your app's UI main thread block for this access, you can use either the asynchronous method requestAccess(for:completionHandler:) or dispatch your CNContactStore usage to a background thread.
+People can grant full access, grant access to selected contacts, or deny access. Check `CNContactStore.authorizationStatus(for:)` instead of interpreting every successful authorization request as full access. Request permission asynchronously when status is not determined, and keep synchronous store I/O off the UI thread.
 
 > **Important:** An iOS app linked on or after iOS 10 needs to include in its Info.plist file the usage description keys for the types of data it needs to access or it crashes. To access Contacts data specifically, it needs to include NSContactsUsageDescription.
 
+[`CNAuthorizationStatus.limited`](https://developer.apple.com/documentation/contacts/cnauthorizationstatus/limited) predates OS 27: its availability starts at iOS/iPadOS/Mac Catalyst 18, visionOS 2, and watchOS 11. With limited access, only authorized contacts are fetchable/editable; the app also has access to contacts it creates. Do not treat an inaccessible contact as a deleted person.
+
+On supported UI platforms, `ContactAccessButton` and the contact-access picker let people expand access. The picker's completion reports newly added identifiers, not the contacts whose access was removed. Refetch the currently authorized set after access changes. See [Accessing the contact store](https://developer.apple.com/documentation/contacts/accessing-the-contact-store) and the [Contacts/ContactsUI sample](https://developer.apple.com/documentation/contacts/accessing-a-person-s-contact-data-using-contacts-and-contactsui).
+
+Handle denied/restricted authorization and fetch/save errors as distinct outcomes. Reading or writing contact notes additionally requires Apple's approved contacts-notes entitlement on the platforms described in the authorization guide.
+
 ### Partial contacts
+
+A partial **contact object** below has only some properties loaded; this is different from limited **contact access**, which controls which people's records the app may access.
 
 A partial contact results when the system fetches only some of a contact object's properties from a contact store. All fetched contact objects are partial contacts. If you try to access a property value that the system didn't fetch, you get an exception. If you are unsure which keys the system fetched in the contact, check the availability of the property values before you access them. You can either use isKeyAvailable(_:) to check the availability of a single contact key, or areKeysAvailable(_:) to check multiple keys. If the desired keys aren't available, refetch the contact with them.
 
@@ -168,7 +179,7 @@ if contact.isKeyAvailable(CNContactPhoneNumbersKey) {
 
 ### Unified contacts
 
-You can automatically link contacts in different accounts that represent the same person. Linked contacts display in macOS and iOS apps as unified contacts. A unified contact is an in-memory, temporary view of the set of linked contacts that the system merges into one contact.
+The system can present linked contacts from different accounts as a unified contact. A unified contact is an in-memory view that combines linked records; this description is not a programmatic contact-linking API.
 
 By default the Contacts framework returns unified contacts. Each fetched unified contact object (CNContact) has its own unique identifier that's different from any individual contact's identifier in the set of linked contacts. When refetching a unified contact, be sure to use its identifier.
 
@@ -201,20 +212,30 @@ do {
 Modify and save an existing contact:
 
 ```swift
-// Update the home email address for John Appleseed.
-guard let mutableContact = contact.mutableCopy() as? CNMutableContact else { return }
-let newEmail = CNLabeledValue(label: CNLabelHome, value: "john@example.com" as NSString)
-mutableContact.emailAddresses.append(newEmail)
-
-let saveRequest = CNSaveRequest()
-saveRequest.update(mutableContact)
 do {
+    let fetchedContact = try store.unifiedContact(
+        withIdentifier: contact.identifier,
+        keysToFetch: [CNContactEmailAddressesKey as CNKeyDescriptor])
+    guard let mutableContact = fetchedContact.mutableCopy() as? CNMutableContact else { return }
+
+    let newEmail = "john@example.com" as NSString
+    if let index = mutableContact.emailAddresses.firstIndex(where: { $0.label == CNLabelHome }) {
+        mutableContact.emailAddresses[index] =
+            mutableContact.emailAddresses[index].settingValue(newEmail)
+    } else {
+        mutableContact.emailAddresses.append(CNLabeledValue(label: CNLabelHome, value: newEmail))
+    }
+
+    let saveRequest = CNSaveRequest()
+    saveRequest.update(mutableContact)
     try store.execute(saveRequest)
 } catch {
     print("Saving contact failed, error: \(error)")
     // Handle the error.
 }
 ```
+
+This replaces the first home email value while preserving its label and labeled-value identifier, or adds one if none exists. Refetching the email key first avoids accessing an unloaded property on a partial contact.
 
 ### Contacts changed notifications
 
@@ -229,8 +250,8 @@ A group is a set of contacts within a container. Not all accounts support groups
 ## Topics
 
 ### Essentials
-- [Accessing the contact store](https://developer.apple.com/documentation/contacts/accessing_the_contact_store) - Request permission from the person to read and write their contact data.
-- [Accessing a person's contact data using Contacts and ContactsUI](https://developer.apple.com/documentation/contacts/accessing_a_persons_contact_data_using_contacts_and_contactsui) - Allow people to grant your app access to contact data by adding the Contact access button and Contact access picker to your app.
+- [Accessing the contact store](https://developer.apple.com/documentation/contacts/accessing-the-contact-store) - Request permission from the person to read and write their contact data.
+- [Accessing a person's contact data using Contacts and ContactsUI](https://developer.apple.com/documentation/contacts/accessing-a-person-s-contact-data-using-contacts-and-contactsui) - Allow people to grant your app access to contact data by adding the Contact access button and Contact access picker to your app.
 - **CNContactStore** - The object that fetches and saves contacts, groups, and containers from the user's Contacts database.
 - **NSContactsUsageDescription** - A message that tells people why the app is requesting access to their contacts.
 - **com.apple.developer.contacts.notes** - A Boolean value that indicates whether the app may access the notes in contact entries.
@@ -238,8 +259,8 @@ A group is a set of contacts within a container. Not all accounts support groups
 ### Contact data
 - **CNContact** - An immutable object that stores information about a single contact, such as the contact's first name, phone numbers, and addresses.
 - **CNMutableContact** - A mutable object that stores information about a single contact, such as the contact's first name, phone numbers, and addresses.
-- [Data Objects](https://developer.apple.com/documentation/contacts/data_objects) - Access contact-related data, such as the user's postal address and phone number.
-- [Contact Keys](https://developer.apple.com/documentation/contacts/contact_keys) - Specify contact-related properties during fetch operations.
+- [Data Objects](https://developer.apple.com/documentation/contacts/data-objects) - Access contact-related data, such as the user's postal address and phone number.
+- [Contact Keys](https://developer.apple.com/documentation/contacts/contact-keys) - Specify contact-related properties during fetch operations.
 
 ### Fetch and save requests
 - **CNContactFetchRequest** - An object that defines the options to use when fetching contacts.
@@ -270,10 +291,8 @@ A group is a set of contacts within a container. Not all accounts support groups
 - **CNContactsUserDefaults** - An object that defines the default options to use when displaying contacts.
 
 ### Errors
-- [Error Information](https://developer.apple.com/documentation/contacts/error_information) - Diagnose errors generated by the Contacts framework.
+- [Error Information](https://developer.apple.com/documentation/contacts/error-information) - Diagnose errors generated by the Contacts framework.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/Contacts)*

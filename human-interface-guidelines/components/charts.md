@@ -81,7 +81,7 @@ When you use Swift Charts to create a chart, you get a default implementation of
 
 Important: Unlike an image — which requires one descriptive accessibility label — a chart often needs to offer an accessibility label for each important or interactive element. Depending on the purpose of your chart and the scope and density of its marks, you need to decide whether it's essential to describe each mark or whether it improves the accessibility experience to describe groups of marks. In some cases, it can make sense to use a single accessibility label that provides a succinct, high-level description of the chart, such as when you use a small version of a chart in a button that reveals a more detailed version.
 
-- **Write accessibility labels that support the purpose of your chart** - For example, Maps shows elevation changes for a cycling route using a set of individual bars that each represent the elevation for a small portion of the route. The purpose of the chart is to give people a sense of the terrain for the entire route, not to provide individual elevations. For this reason, Maps provides accessibility labels that summarize the elevation changes in a group of bars; it doesn't provide an accessibility label per bar. In contrast, Health offers an accessibility label for each bar in the Steps chart, because the purpose of the chart is to give people their actual step count for each tracking period.
+- **Write accessibility labels that support the purpose of your chart** - For example, Maps charts the elevation change along a cycling route to convey the terrain for the route as a whole. Its accessibility labels summarize portions of the route rather than each individual moment. In contrast, Health offers an accessibility label for each bar in the Steps chart, because the purpose of the chart is to give people their actual step count for each tracking period.
 
 The following guidelines can help you write useful accessibility labels for chart elements:
 
@@ -106,13 +106,13 @@ The following guidelines can help you write useful accessibility labels for char
 
 ### Developer Documentation
 
-- [Swift Charts](https://developer.apple.com/documentation/Charts) - SwiftCharts
+- [Swift Charts](https://developer.apple.com/documentation/Charts)
 
 ### Videos
 
-- [Bring Swift Charts to the third dimension](https://developer.apple.com/videos/play/wwdc2024/10282/)
-- [Design app experiences with charts](https://developer.apple.com/videos/play/wwdc2023/10037/)
-- [Design an effective chart](https://developer.apple.com/videos/play/wwdc2022/110356/)
+- [Bring Swift Charts to the third dimension](https://developer.apple.com/videos/play/wwdc2025/313)
+- [Design app experiences with charts](https://developer.apple.com/videos/play/wwdc2022/110342)
+- [Design an effective chart](https://developer.apple.com/videos/play/wwdc2022/110340)
 
 ## Changelog
 
@@ -120,7 +120,5 @@ The following guidelines can help you write useful accessibility labels for char
 - New page.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/charts)*

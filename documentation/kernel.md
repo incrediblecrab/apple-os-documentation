@@ -8,16 +8,26 @@ Develop kernel-resident device drivers and kernel extensions.
 
 The Kernel Framework provides the APIs and support for kernel-resident device drivers and other kernel extensions. It defines the base class for I/O Kit device drivers (IOService), several helper classes, and the families that support many types of devices.
 
+### Deployment and debugging boundaries
+
+Prefer [DriverKit](DriverKit.md) or [SystemExtensions](SystemExtensions.md) when they provide the required functionality. The Kernel framework is not blanket-deprecated, but its historical macOS 10.0 baseline does not imply that every listed declaration or kernel extension can run on every later system.
+
+Apple's [current installation guide](https://developer.apple.com/documentation/apple-silicon/installing-a-custom-kernel-extension) describes a user-managed workflow with approval and, for executable kexts on macOS 11+, an auxiliary kernel collection and restart. On Apple silicon, that workflow also requires Reduced Security and allowing third-party kexts in Recovery. This is not the normal DriverKit installation model. Load kexts as the final installer step so a restart does not interrupt the rest of installation.
+
+Updating or unloading an executable kext can remain pending until restart; the previous code may still be running. The guide distinguishes codeless kexts, which require approval but do not require that restart. It identifies `kmutil` as the replacement for older kext-management tools, rather than claiming that all older command names were removed.
+
+Apple-silicon kexts require the `arm64e` architecture and its pointer-authentication rules. Kernel Integrity Protection restricts modification of kernel and driver code after initialization. For debugging, use logs, a kernel core file, or the [Kernel Debug Kit workflow](https://developer.apple.com/documentation/apple-silicon/debugging-a-custom-kernel-extension) matching the target macOS version. Two-machine debugging requires separately configured target and debugger Macs; NMI instructions are development-target procedures, not ordinary app debugging.
+
 ## Topics
 
 ### Kernel Extensions
 - [Implementing drivers, system extensions, and kexts](https://developer.apple.com/documentation/kernel/implementing_drivers_system_extensions_and_kexts) - Create drivers and system extensions to communicate with hardware and provide low-level services, and only use kernel extensions for a few tasks.
-- [Installing a custom kernel extension](https://developer.apple.com/documentation/kernel/installing_a_custom_kernel_extension) - Install kernel extensions using a custom installer package, and help users understand the installation process.
-- [Debugging a custom kernel extension](https://developer.apple.com/documentation/kernel/debugging_a_custom_kernel_extension) - Configure your system to enable the debugging of custom kernel extensions from a second Mac.
+- [Installing a custom kernel extension](https://developer.apple.com/documentation/apple-silicon/installing-a-custom-kernel-extension) - Approval, collection updates, restart requirements, and the codeless-kext exception.
+- [Debugging a custom kernel extension](https://developer.apple.com/documentation/apple-silicon/debugging-a-custom-kernel-extension) - Logs, core files, and matching-KDK two-machine debugging.
 - [Generating a Non-Maskable Interrupt](https://developer.apple.com/documentation/kernel/generating_a_non-maskable_interrupt) - Interrupt the kernel on a target Mac and attach a remote debugger to it.
 
 ### IOKit Drivers
-- [IOKit Fundamentals](https://developer.apple.com/documentation/kernel/iokit_fundamentals) - Implement a driver for your custom hardware using a third-party kernel extension.
+- [IOKit Fundamentals](https://developer.apple.com/documentation/kernel/iokit_fundamentals) - Legacy I/O Kit architecture for kernel drivers and application-side device interfaces, not a DriverKit implementation guide.
 
 ### Hardware Families
 Add support for specific hardware protocols such as USB, and for standard network, serial, audio, and graphics interfaces.
@@ -30,10 +40,10 @@ Access the runtime support and base classes of the kernel library.
 
 ### BSD
 - **architecture** - Access machine-level and architectural information about the current platform.
-- **bsm** - Audit resource usage on the system.
+- [bsm](https://developer.apple.com/documentation/kernel/bsm) - Audit event, class, user-identity, and session data types.
 - **hfs** - Access HFS file-system data structures.
 - **kern** - Access kernel-level interfaces including clock, task, kernel extension, lock, and compression utilities.
-- **Math** - Perform mathematical operations and manipulate integer, float, and double values.
+- [Math](https://developer.apple.com/documentation/kernel/math) - Mathematical routines and numeric declarations in the kernel reference.
 - **miscfs** - Access device nodes and other file-system entities.
 - **net** - Access network-related utilities.
 - **Strings** - Compare, convert, and catenate strings and access the resulting content of those strings.
@@ -43,7 +53,7 @@ Access the runtime support and base classes of the kernel library.
 
 ### Mach
 - **mach** - Access Mach interfaces including processor, memory, thread, and semaphore support.
-- **mach-o** - Access interfaces associated with the Mach-O runtime.
+- [mach-o](https://developer.apple.com/documentation/kernel/mach-o) - Mach-O image, loader, and dynamic-library structures.
 
 ### Utilities
 
@@ -54,7 +64,7 @@ Debug your kernel extensions using the kernel debugger, assertions, exceptions, 
 Perform digital signal processing on data.
 
 ### Deprecated
-- **Deprecated Symbols** - Review unsupported symbols and their replacements.
+- **Deprecated Symbols** - Review deprecated interfaces and their replacements; deprecation alone does not establish that a symbol has been removed.
 
 ### Additional Reference
 - **Kernel Functions**
@@ -83,10 +93,10 @@ Perform digital signal processing on data.
 ### See Also
 #### Related Documentation
 - [IOKit Fundamentals](https://developer.apple.com/library/archive/documentation/DeviceDrivers/Conceptual/IOKitFundamentals/Introduction/Introduction.html)
-- [About This Document](https://developer.apple.com/library/archive/documentation/DeviceDrivers/Conceptual/IOKitFundamentals/Introduction/Introduction.html#//apple_ref/doc/uid/TP0000011-CH204-TPXREF101)
+- [Kernel Programming Guide — About This Document](https://developer.apple.com/library/archive/documentation/Darwin/Conceptual/KernelProgramming/About/About.html#//apple_ref/doc/uid/TP30000905-CH204)
+
+These archived guides provide architectural background. Their historical toolchain and hardware discussions are not current deployment or macOS 27 host-eligibility requirements.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/kernel)*

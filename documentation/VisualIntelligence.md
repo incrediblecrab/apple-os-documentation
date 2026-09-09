@@ -2,7 +2,7 @@
 
 Include your app's content in search results that visual intelligence provides.
 
-**Platforms:** iOS 26.0+ | iPadOS 26.0+ | Mac Catalyst 26.0+
+**Platforms:** iOS 26.0+ | iPadOS 26.0+ | Mac Catalyst 26.0+ | macOS 27.0+ (beta)
 
 ## Overview
 
@@ -17,11 +17,9 @@ To integrate your app with visual intelligence and include your app's content in
 - **SemanticContentDescriptor** - A type that represents a scene that visual intelligence captures, like a screenshot, photo, or photo and video stream.
 
 ### App intents essentials
-- [Making actions and content discoverable and widely available](https://developer.apple.com/documentation/appintents/making-actions-and-content-discoverable-and-widely-available) - Adopt App Intents to make your app discoverable with Spotlight, controls, widgets, and the Action button.
+- [Adopting App Intents to support system experiences](https://developer.apple.com/documentation/appintents/adopting-app-intents-to-support-system-experiences.md) - Create app intents and entities so people can use your app's content and actions across system experiences.
 - [Creating your first app intent](https://developer.apple.com/documentation/appintents/creating-your-first-app-intent) - Create your first app intent that makes your app available in system experiences like Spotlight or the Shortcuts app.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/VisualIntelligence)*

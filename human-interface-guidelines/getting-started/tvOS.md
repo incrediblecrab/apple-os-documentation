@@ -23,7 +23,7 @@ As you begin designing your app or game for tvOS, start by understanding the fol
 - Top Shelf
 - TV provider accounts
 
-> **tvOS 27+:** Liquid Glass refinements apply to the focus-driven television interface. Because tvOS is viewed at a distance and navigated by focus rather than touch, verify that **focus states remain unmistakable** against refined translucent materials — especially over bright, moving video artwork.
+Start with [Design principles](design-principles.md). Judge the experience from across the room, using a remote rather than a touch simulation.
 
 ## Topics
 
@@ -39,17 +39,33 @@ Great tvOS experiences integrate the platform and device capabilities that peopl
 
 - **Enhance multiuser support** - Enhance multiuser support by making sign-in easy and infrequent, handling shared sign-in, and automatically switching profiles when people change the current viewer.
 
+### Focus-driven interaction
+
+- Make every actionable element reachable with directional navigation. Use the system's [focus effects](../inputs/focus-and-selection.md), and distinguish moving focus from activating an item.
+- Keep focus movement predictable across rows, menus, and overlays. When a temporary view closes, return people to an understandable place in the task.
+- Combine related artwork and descriptive text into a single [lockup](../components/lockups.md) when they represent one selectable item, rather than adding unnecessary focus stops.
+- Preserve expected [remote](../inputs/remotes.md) selection and back behavior. Minimize text entry, and use system entry and sign-in experiences where appropriate.
+- Check controls over bright, dark, and moving video. A focus treatment that works on a static solid background may not remain distinct over media or [materials](../foundations/materials.md).
+
+### Accessibility and validation
+
+- Use readable type and generous spacing for the viewing distance. Support [Dynamic Type](../foundations/typography.md) where available, and test enlarged text and long labels without clipping. Do not simply reuse a phone's layout at television scale.
+- Test focus order, labels, playback controls, and dismissal using [VoiceOver](../technologies/voiceover.md). Include supported remote, controller, and keyboard input paths.
+- Localize [right-to-left layouts](../foundations/right-to-left.md) while preserving the intended direction of media timelines and playback controls.
+- Honor [Reduce Motion](../foundations/motion.md) and supported display preferences. Focus and selection must remain obvious without relying only on parallax, translucency, or color.
+
 ### Resources
 
+- [Design principles](design-principles.md)
 - [Apple Design Resources](https://developer.apple.com/design/resources/)
 
 ### Developer Documentation
 
-- [tvOS Pathway](https://developer.apple.com/pathways/tvos/)
+- [tvOS Pathway](https://developer.apple.com/tvos/get-started/)
 
 ### Videos
 
-- [Build SwiftUI apps for tvOS](https://developer.apple.com/videos/play/wwdc2022/10258/)
+- [Build SwiftUI apps for tvOS](https://developer.apple.com/videos/play/wwdc2020/10042)
 
 ## Changelog
 
@@ -57,7 +73,5 @@ Great tvOS experiences integrate the platform and device capabilities that peopl
 - Refined best practices for multiuser support.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/designing-for-tvos)*

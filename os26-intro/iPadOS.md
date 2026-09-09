@@ -1,26 +1,26 @@
 # iPadOS 26.0 Developer Introduction
 
-Build apps and games for the distinct iPad experience. Take advantage of the new design, which elevates the content users care about most. Create more customized apps that appear in more places across the system with controls, widgets, and Live Activities. And with Apple Intelligence, you can bring personal intelligence into your apps to deliver new capabilities, all with great performance and built-in privacy.
+Maintain iPad apps that adapt to windows, keyboard and pointer input, Apple Pencil, and external displays. iPadOS 26 adds Liquid Glass and on-device Foundation Models, while earlier document and multitasking capabilities remain part of a complete iPad experience.
 
 **Platform:** iPadOS 26.0+
 
-> **Generation status:** iPadOS 26 is the current shipping line — **iPadOS 26.6**, released July 27, 2026. iPadOS 27 is in beta and drops all A12-class iPads; see [os27-intro/iPadOS.md](../os27-intro/iPadOS.md).
+> **Status checked September 8, 2026:** the shipping release is **iPadOS 26.6.2** (`23G90`), released September 8. iPadOS 27 beta 8 was released August 31; see the [iPadOS 27 introduction](../os27-intro/iPadOS.md). Its exact device list is not verified here; do not infer that A12-class hardware has reached its final release.
 
 ## Overview
 
-iPadOS 26.0 delivers powerful capabilities designed specifically for iPad's unique form factor and capabilities. This release emphasizes Liquid Glass design, Apple Intelligence integration, and enhanced productivity features that take advantage of iPad's versatile nature.
+Treat a resizable scene, not a fixed full-screen rectangle, as the unit of UI design. Keep document state separate from window state and test layouts with touch, keyboard, and pointer input. Hardware-dependent intelligence and display capabilities need their own availability checks.
 
 ## Key Features
 
 ### New Design
 
 **Say hello to Liquid Glass**  
-Experience the revolutionary new design system that adapts beautifully to iPad's larger canvas. Liquid Glass provides translucent materials and fluid animations that enhance the iPad experience while maintaining the platform's distinctive character.
+Use standard controls and materials for Liquid Glass, then test custom sidebars, toolbars, and popovers at different window sizes and accessibility settings.
 
 ### Apple Intelligence
 
 **Tap into the on-device large language model**  
-Leverage Apple's advanced AI capabilities optimized for iPad's powerful hardware. Apple Intelligence enables sophisticated content creation, analysis, and automation while preserving user privacy.
+Foundation Models provides on-device generation on eligible hardware. Keep document editing functional if the model is unavailable or a request fails, and distinguish on-device work from any separately consented cloud integration.
 
 ### Enhanced App Capabilities
 
@@ -28,18 +28,18 @@ Leverage Apple's advanced AI capabilities optimized for iPad's powerful hardware
 Make your app's core functions available throughout the iPadOS system. Enable seamless integration with multitasking, search, and productivity workflows.
 
 **Apple Pencil Integration**  
-Harness pixel-perfect precision and industry-leading low latency with Apple Pencil. Create drawing, note-taking, and creative apps with unparalleled responsiveness and accuracy.
+Support drawing and editing with the appropriate PencilKit and UIKit input APIs. Test the Pencil models and gestures your app advertises instead of assuming every accessory provides identical capabilities.
 
 **Live Activities**  
-Provide important information right now with Live Activities optimized for iPad's display. Keep users informed with real-time updates that integrate seamlessly with iPad's interface.
+Use ActivityKit and a widget extension for supported iPad Live Activity presentations. Handle update limits and design useful content even when a fresh network update is unavailable.
 
 **Enhanced Notifications**  
-Communicate with users even when your app isn't running. iPadOS notification enhancements provide richer experiences that take advantage of iPad's screen real estate.
+Provide local or remote notifications and supported actions, respecting authorization and adapting their content to the system presentation.
 
 ### Productivity Features
 
 **Advanced Multitasking**  
-Help people get more done with enhanced multitasking capabilities. Support Split View, Slide Over, and Stage Manager to create productive workflows.
+Support the windowing modes available on the running iPadOS version and device. Re-test resizing, keyboard focus, restoration, and external-display transitions instead of assuming every minor release has identical multitasking behavior.
 
 **Window Management**  
 Take advantage of iPad's flexible window system to create apps that adapt to different sizes and configurations.
@@ -50,54 +50,59 @@ Dive into the latest key technologies and capabilities:
 
 - **Liquid Glass Design System**: Adaptive visual effects for larger displays
 - **Apple Intelligence**: Advanced AI capabilities for productivity and creativity
-- **Enhanced Apple Pencil Support**: Improved precision and new interaction models
-- **Advanced Multitasking**: Better window management and productivity workflows
-- **Improved Widgets**: More customization and interactive capabilities
-- **Stage Manager Enhancements**: Better app organization and workflow management
-- **Enhanced Accessibility**: Improved support for assistive technologies
+- **Apple Pencil and input**: Preserve drawing and editing behavior across supported accessories
+- **Windowing**: Adapt document and navigation layouts to changing geometry
+- **Widgets and system actions**: Surface useful content outside the app
+- **Accessibility**: Test keyboard access, text size, contrast, and alternative input
 
 ### iPadOS 26.1 Updates (November 2025)
-- Updated multitasking features and window management improvements
-- Performance optimizations and bug fixes
+- The [26.1 notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-26_1-release-notes) correct `UIDocument`'s erroneous main-actor-only annotation; affected Swift code can produce new diagnostics.
+- The same notes fix local asset-file URL lookup and a back-deployed `navigationLinkIndicatorVisibility` crash, with an SDK rebuild required for the latter.
 
 ### iPadOS 26.2 Updates
 - **Hypertension Notifications API**: Authorize `HKCategoryTypeIdentifierHypertensionEvent` to read hypertension notifications from Apple Watch
 - **StoreKit `AppStore.ageRatingCode`**: Fetch the current age rating code for your app to detect rating changes
-- **DeclaredAgeRange fixes**: Recompile against the 26.2 SDK to resolve runtime crashes in age-range APIs
+- **DeclaredAgeRange fixes**: Recompile against the 26.2 SDK for the affected eligibility/declaration symbols enumerated in issue 165248390, not as a universal remedy for age-range errors
 
 ### iPadOS 26.3 Updates
-- **StoreKit fix**: `Product.products(for:)` now throws errors instead of failing silently
+- **StoreKit fix**: Corrects a defect that made `Product.products(for:)` fail silently instead of throwing an error
 
 ### iPadOS 26.4 Updates
-- **Memory Integrity Enforcement (MIE)**: Apps can opt in to full MIE protections (previously limited to Soft Mode)
-- **Background Assets offline APIs**: Check asset-pack status offline; ensure latest version is available locally
+- **Memory Integrity Enforcement (MIE)**: The 26.4 notes add opt-in full protections, previously limited to Soft Mode; check hardware and build-setting requirements
+- **Background Assets offline APIs**: Query available local status information and request the latest local asset-pack version; some status information still requires a connection
 - **StoreKit revocation fields**: New `Transaction.revocationType` and `Transaction.revocationPercentage` properties
-- **AudioAccessoryKit (developer testing)**: Third-party audio accessory makers can provide headphone information for automatic audio switching
+- **AudioAccessoryKit (developer testing)**: The 26.4 notes describe automatic-audio-switching integration and a future EU customer rollout, not worldwide availability
 - **SwiftUI fix**: `.userActivity` now correctly surfaces as the current user activity
 - **Networking fix**: Resolves `CFRunLoopSource` leaks when PAC or Auto proxy discovery is configured
 
-### iPadOS 26.5 and 26.6 Updates
-- iPadOS 26.5 shipped during spring 2026
-- **iPadOS 26.6 (July 27, 2026)** is the current shipping release of the OS 26 line
-- See the [iOS & iPadOS Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes) for the latest changes
+### iPadOS 26.5 through 26.6.2
+- Keep the [26.5](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-26_5-release-notes) and [26.6](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-26_6-release-notes) notes for version-specific diagnosis
+- **iPadOS 26.6.2 (September 8, 2026)** is the shipping maintenance baseline
+- [Apple's security release list](https://support.apple.com/en-us/100100) describes patch scope separately from SDK changes
 
-> **Looking ahead:** iPadOS 27 is in beta as of August 2026. It drops every A12-class iPad, making iPadOS 26 the terminal release for those devices. See the [iPadOS 27 Developer Introduction](../os27-intro/iPadOS.md).
+### Preparing an OS26 App for OS27
+
+- Adopt the [UIKit scene life cycle](https://developer.apple.com/documentation/uikit/transitioning-to-the-uikit-scene-based-life-cycle) before a 27-SDK rebuild. Multiple-window support is optional, but scenes are required to launch.
+- Audit external-display scene registration, menu image visibility, document I/O, and ODR-to-Background-Assets migration using the [iPadOS 27 checklist](../os27-intro/iPadOS.md).
+- Finish UI adaptation: [`UIDesignRequiresCompatibility`](https://developer.apple.com/documentation/bundleresources/information-property-list/uidesignrequirescompatibility) is ignored by builds for iPadOS 27 or later.
+- Keep SiriKit legacy support while adding modern App Intents integrations. Do not raise the deployment floor based on an unverified hardware-drop claim.
+- Xcode 27 beta 6 requires **Apple silicon and macOS Tahoe 26.4 or later**, not macOS 27. The current [submission SDK requirement](../guides/app-store-readiness.md) is separate from the OS versions your app supports.
 
 ## Getting Started
 
 **New to iPadOS development?**  
-Check out the [iPadOS Pathway](https://developer.apple.com/ipados/), an easy-to-navigate collection of resources to get started with iPad app development.
+Check out the [iPadOS Pathway](https://developer.apple.com/ipados/get-started/), a collection of resources to get started with iPad app development.
 
 ## Developer Success Stories
 
 ### The reign of Carrot Weather
-Learn how Brian Mueller harnessed the power of iPadOS to make a weather app for "meatbags" everywhere, taking advantage of widgets and interactive features.
+[Apple's Carrot Weather profile](https://developer.apple.com/news/?id=kf623ldf) explains how Brian Mueller combines weather information with the app's distinctive personality.
 
 ### The long history of Goodnotes
-The note-taking app has been maximizing the power of iPadOS since Day 1, showcasing how to leverage Apple Pencil and multitasking capabilities.
+[Apple's Goodnotes profile](https://developer.apple.com/articles/goodnotes/) traces its development on iPad and adoption of Apple Pencil.
 
 ### Powering up Procreate
-Find out how Apple Pencil helped level up this world‑class iPad app for creatives, demonstrating the potential of precision input and powerful graphics.
+[Apple's Procreate story](https://developer.apple.com/news/?id=e409h6ja) describes motion filtering and Pencil stroke smoothing as examples of making drawing more accessible.
 
 ## Resources
 
@@ -107,8 +112,8 @@ Find out how Apple Pencil helped level up this world‑class iPad app for creati
 - [App Store Connect](https://developer.apple.com/app-store-connect/) - App management and analytics
 
 ### Documentation
-- [iPadOS Developer Documentation](https://developer.apple.com/documentation/ipados/)
-- [Apple Pencil Documentation](https://developer.apple.com/documentation/pencilkit/)
+- [UIKit Documentation](https://developer.apple.com/documentation/uikit)
+- [PencilKit Documentation](https://developer.apple.com/documentation/pencilkit/)
 - [Multitasking on iPad](https://developer.apple.com/design/human-interface-guidelines/multitasking/)
 
 ### Related Platforms
@@ -125,10 +130,12 @@ Build apps that integrate seamlessly across all Apple platforms:
 Sharpen your skills through in-person and online activities around the world. Connect with Apple engineers and designers to optimize your iPad experiences.
 
 ### Apple Developer Program
-Join the [Apple Developer Program](Program.md) to access beta software, advanced app capabilities, and distribution through the App Store.
+Join the [Apple Developer Program](Program.md) for TestFlight, App Store distribution, and capabilities that require membership. Developer beta access is a separate account benefit.
 
 ---
 
 *Platform requirements and feature availability may vary. Some capabilities and services may not be available in all regions or all languages.*
 
-*Reviewed 2026-08-09 against the OS 27 generation. See [os27-intro](../os27-intro/) for the current beta line.*
+## Sources
+
+[Designing for iPadOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-ipados), [Liquid Glass adoption](https://developer.apple.com/documentation/technologyoverviews/adopting-liquid-glass), and [SystemLanguageModel](https://developer.apple.com/documentation/foundationmodels/systemlanguagemodel) support the platform guidance. [Apple Developer releases](https://developer.apple.com/news/releases/), [26.2 notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-26_2-release-notes), [26.4 notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-26_4-release-notes), [iOS/iPadOS 27 notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes), [SiriKit](https://developer.apple.com/documentation/sirikit), and [Xcode 27 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) support the status and migration guidance checked September 8, 2026. Inline story sources describe historical examples.

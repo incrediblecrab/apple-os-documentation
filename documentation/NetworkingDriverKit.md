@@ -6,11 +6,13 @@ Develop drivers for Ethernet networking devices.
 
 ## Overview
 
-Use NetworkingDriverKit to develop drivers for USB Ethernet adapters. This framework extends the API of DriverKit, providing you with a service class for managing your networking driver. It also provides support for managing the memory you use to store packets, transferring those packets between the device and networking stack, and inspecting the Ethernet link status.
+Use NetworkingDriverKit to develop Ethernet drivers. The framework manages network services, packet storage and queues, and Ethernet link status. The device transport is separate: real drivers can connect these queues to hardware through USBDriverKit or PCIDriverKit.
+
+The linked network-driver sample is hardware-independent: it uses a timer to simulate received packets. Its location in the PCIDriverKit documentation does not mean the sample itself operates a physical PCI adapter.
 
 Note that Ethernet is the only networking interface currently supported by NetworkingDriverKit.
 
-Develop your driver with DriverKit and NetworkingDriverKit. Use USBDriverKit to manage the connection to your hardware device. Include your driver inside your macOS app and use the System Extensions framework to install and upgrade the driver on the user's Mac.
+Develop your driver with DriverKit, NetworkingDriverKit, and the appropriate supported transport framework. Include the driver inside your macOS app and use SystemExtensions to install and upgrade it.
 
 > **Note:** NetworkingDriverKit is available on macOS.
 
@@ -20,8 +22,8 @@ Develop your driver with DriverKit and NetworkingDriverKit. Use USBDriverKit to 
 - **com.apple.developer.driverkit.family.networking** - A Boolean value that indicates whether to match the driver against devices that communicate using networking protocols.
 
 ### Samples
-- [Connecting a network driver](https://developer.apple.com/documentation/networkingdriverkit/connecting_a_network_driver) - Create an Ethernet driver that interfaces with the system's network protocol stack.
-- [DriverKit sample code](https://developer.apple.com/documentation/networkingdriverkit/driverkit_sample_code) - Explore projects that demonstrate how to write macOS device drivers with the DriverKit family of frameworks.
+- [Connecting a network driver](https://developer.apple.com/documentation/pcidriverkit/connecting-a-network-driver) - Create an Ethernet driver that interfaces with the system's network protocol stack.
+- [DriverKit sample code](https://developer.apple.com/documentation/driverkit/driverkit-sample-code) - Explore projects that demonstrate how to write macOS device drivers with the DriverKit family of frameworks.
 
 ### Network Service
 - **IOUserNetworkEthernet** - The object you use to manage the setup, configuration, and teardown of your networking driver.
@@ -56,7 +58,5 @@ Develop your driver with DriverKit and NetworkingDriverKit. Use USBDriverKit to 
 - **kIOUserNetworkHWAssistLRONumSeg**
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/NetworkingDriverKit)*

@@ -2,11 +2,11 @@
 
 Create, distribute, and update orders in Wallet.
 
-**Platforms:** iOS 16.0+ | iPadOS 16.0+ | macOS 13.0+
+**Client integration catalog:** iOS 16.0+ | iPadOS 16.0+ | macOS 13.0+. The order web-service protocol runs on your server and has no native OS deployment target.
 
 ## Overview
 
-Use Wallet Orders to give users the ability to track and manage their purchases in Wallet. You can donate an order to Wallet seamlessly through Apple Pay after payment authorization.
+Use Wallet Orders to let people track and manage purchases in Wallet. Supply order details with a successful Apple Pay authorization result: the [`PKPaymentOrderDetails`](https://developer.apple.com/documentation/passkit/pkpaymentorderdetails) contract says the device retrieves the metadata only when payment authorization succeeds. The catalog's platform labels do not promise a Wallet order-tracking interface on every client.
 
 To give people the ability to track their orders in Wallet, you need to:
 
@@ -34,7 +34,5 @@ To give people the ability to track their orders in Wallet, you need to:
 - **LogEntries** - An array of log messages.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/WalletOrders)*

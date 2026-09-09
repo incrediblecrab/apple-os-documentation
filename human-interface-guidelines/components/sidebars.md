@@ -2,7 +2,7 @@
 
 A sidebar appears on the leading side of a view and lets people navigate between sections in your app or game.
 
-**Platforms:** iOS | iPadOS | macOS | visionOS
+**Platforms:** iOS | iPadOS | macOS | tvOS | visionOS
 
 ## Overview
 
@@ -14,9 +14,7 @@ A sidebar requires a large amount of vertical and horizontal space. When space i
 
 ### Best Practices
 
-> **iPadOS 27+, macOS Golden Gate 27+:** Sidebars extend to the full window edge with refraction continuing beneath them, and sidebar icons retain their tint color. The refined glass treatment also responds to the transparency slider and accessibility contrast settings.
-
-- **Extend content beneath the sidebar** - In iOS, iPadOS, and macOS, as with other controls such as toolbars and tab bars, sidebars float above content in the Liquid Glass layer. To reinforce the separation and floating appearance of the sidebar, extend content beneath it either by letting it horizontally scroll or applying a background extension view, which mirrors adjacent content to give the impression of stretching it under the sidebar. For developer guidance, see [backgroundExtensionEffect()](https://developer.apple.com/documentation/swiftui/view/backgroundextensioneffect()).
+- **Extend visually rich content beneath a floating sidebar** - On iOS, iPadOS, and macOS, sidebars can appear in the Liquid Glass layer above content. Where appropriate, let rich content scroll beneath the sidebar or use a background extension effect to mirror adjacent imagery into that area. See [backgroundExtensionEffect()](https://developer.apple.com/documentation/swiftui/view/backgroundextensioneffect()).
 
 - **Let people customize the contents when possible** - A sidebar lets people navigate to important areas in your app, so it works well when people can decide which areas are most important and in what order they appear.
 
@@ -30,23 +28,22 @@ A sidebar requires a large amount of vertical and horizontal space. When space i
 
 - **Use succinct, descriptive labels** - If you need to include two levels of hierarchy in a sidebar, use succinct, descriptive labels to title each group. To help keep labels short, omit unnecessary words.
 
+- **Use icon color purposefully** - Sidebar icons normally use the app's accent color. On macOS, respect the system accent color a person chooses. Use fixed colors sparingly when they convey meaning or importance, as Mail does with its yellow VIP icon.
+
 ### Platform Considerations
 
 No additional considerations for tvOS. Not supported in watchOS.
 
-**iOS**  
-- Avoid using a sidebar. A sidebar takes up a lot of space in landscape orientation and isn't available in portrait orientation. Instead, consider using a tab bar, which takes less space and remains visible in both orientations.
+**iOS, iPadOS**
 
-**iPadOS**  
-- When you use the sidebarAdaptable style of tab view to present a sidebar, you choose whether to display a sidebar or a tab bar when your app opens. Both variations include a button that people can use to switch between them. This style also responds automatically to rotation and window resizing, providing a version of the control that's appropriate to the width of the view.
+- Use the adaptable tab style with its platform-specific presentation. The [`sidebarAdaptable` API reference](https://developer.apple.com/documentation/swiftui/tabviewstyle/sidebaradaptable) specifies a bottom tab bar on iOS and a top tab bar that can become a sidebar on iPadOS. On iPadOS, choose the initial appearance and retain the standard toggle; the style responds to rotation and window resizing. The HIG discusses these platforms together, but the API doesn't promise the same presentation on both.
 - Consider using a tab bar first. A tab bar provides more space to feature content, and offers enough flexibility to navigate between many apps' main areas. If you need to expose more areas than fit in a tab bar, the tab bar's convertible sidebar-style appearance can provide access to content that people use less frequently. For guidance, see [Tab bars](https://developer.apple.com/design/human-interface-guidelines/tab-bars).
-- If necessary, apply the correct appearance to a sidebar. If you're not using SwiftUI to create a sidebar, you can use the UICollectionLayoutListConfiguration.Appearance.sidebar appearance of a collection view list layout. For developer guidance, see [UICollectionLayoutListConfiguration.Appearance](https://developer.apple.com/documentation/uikit/uicollectionlayoutlistconfiguration/appearance).
+- For a UIKit collection-view sidebar, choose the sidebar appearance from [UICollectionLayoutListConfiguration.Appearance](https://developer.apple.com/documentation/uikit/uicollectionlayoutlistconfiguration-swift.struct/appearance-swift.enum) rather than recreating its styling.
 
 Developer note: To display a sidebar only, use NavigationSplitView to present a sidebar in the primary pane of a split view, or use UISplitViewController.
 
 **macOS**  
-- A sidebar's row height, text, and glyph size depend on its overall size, which can be small, medium, or large. You can set the size programmatically, but people can also change it by selecting a different sidebar icon size in General settings.
-- Avoid stylizing your app by specifying a fixed color for all sidebar icons. By default, sidebar icons use the current accent color and people expect to see their chosen accent color throughout all the apps they use. Although a fixed color can help clarify the meaning of an icon, you want to make sure that most sidebar icons display the color people choose.
+- A sidebar's row height, text, and glyph size depend on its small, medium, or large size. Respect the person's system sidebar icon-size preference as well as programmatic sizing.
 - Consider automatically hiding and revealing a sidebar when its container window resizes. For example, reducing the size of a Mail viewer window can automatically collapse its sidebar, making more room for message content.
 - Avoid putting critical information or actions at the bottom of a sidebar. People often relocate a window in a way that hides its bottom edge.
 
@@ -63,19 +60,23 @@ Developer note: To display a sidebar only, use NavigationSplitView to present a 
 
 - [sidebarAdaptable](https://developer.apple.com/documentation/swiftui/tabviewstyle/sidebaradaptable) - SwiftUI
 - [NavigationSplitView](https://developer.apple.com/documentation/swiftui/navigationsplitview) - SwiftUI
-- [sidebar](https://developer.apple.com/documentation/swiftui/listviewstyle/sidebar) - SwiftUI
-- [UICollectionLayoutListConfiguration](https://developer.apple.com/documentation/uikit/uicollectionlayoutlistconfiguration) - UIKit
+- [sidebar](https://developer.apple.com/documentation/swiftui/liststyle/sidebar) - SwiftUI
+- [UICollectionLayoutListConfiguration](https://developer.apple.com/documentation/uikit/uicollectionlayoutlistconfiguration-swift.struct) - UIKit
 - [NSSplitViewController](https://developer.apple.com/documentation/appkit/nssplitviewcontroller) - AppKit
 
 ### Videos
 
-- [Elevate the design of your iPad app](https://developer.apple.com/videos/play/wwdc2024/10145/)
+- [Elevate the design of your iPad app](https://developer.apple.com/videos/play/wwdc2025/208)
 
 ## Changelog
 
+These dates describe changes to Apple's HIG article, not edits to this repository.
+
+### June 8, 2026
+- Updated sidebar icon-color guidance and clarified the adaptable sidebar style.
+
 ### June 9, 2025
 - Added guidance for extending content beneath the sidebar
-- Updated iPadOS and macOS platform considerations
 
 ### August 6, 2024
 - Updated guidance to include the SwiftUI adaptable sidebar style
@@ -87,7 +88,5 @@ Developer note: To display a sidebar only, use NavigationSplitView to present a 
 - Updated to include guidance for visionOS
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/sidebars)*

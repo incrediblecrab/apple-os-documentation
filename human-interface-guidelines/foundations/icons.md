@@ -18,7 +18,7 @@ You can design interface icons — also called glyphs — or you can choose symb
 
 **In general, match the weights of interface icons and adjacent text.** Unless you want to emphasize either the icons or the text, using the same weight for both gives your content a consistent appearance and level of emphasis.
 
-**If necessary, add padding to a custom interface icon to achieve optical alignment.** Some icons — especially asymmetric ones — can look unbalanced when you center them geometrically instead of optically. For example, the download icon shown below has more visual weight on the bottom than on the top, which can make it look too low if it's geometrically centered.
+**If necessary, add padding to a custom interface icon to achieve optical alignment.** Some icons — especially asymmetric ones — can look unbalanced when you center them geometrically instead of optically. For example, a download icon with more visual weight at the bottom can look too low when it's geometrically centered.
 
 **Provide a selected-state version of an interface icon only if necessary.** You don't need to provide selected and unselected appearances for an icon that's used in standard system components such as toolbars, tab bars, and buttons. The system updates the visual appearance of the selected state automatically.
 
@@ -26,7 +26,7 @@ You can design interface icons — also called glyphs — or you can choose symb
 
 **Include text in your design only when it's essential for conveying meaning.** For example, using a character in an interface icon that represents text formatting can be the most direct way to communicate the concept. If you need to display individual characters in your icon, be sure to localize them. If you need to suggest a passage of text, design an abstract representation of it, and include a flipped version of the icon to use when the context is right-to-left. For guidance, see Right to left.
 
-**If you create a custom interface icon, use a vector format like PDF or SVG.** The system automatically scales a vector-based interface icon for high-resolution displays, so you don't need to provide high-resolution versions of it. In contrast, PNG — used for app icons and other images that include effects like shading, textures, and highlighting — doesn't support scaling, so you have to supply multiple versions for each PNG-based interface icon. Alternatively, you can create a custom SF Symbol and specify a scale that ensures the symbol's emphasis matches adjacent text. For guidance, see SF Symbols.
+**If you create a custom interface icon, use a vector format like PDF or SVG.** Vector artwork can scale for high-resolution displays without requiring separately drawn resolutions. In contrast, enlarging a PNG doesn't add detail, so provide appropriately sized raster assets rather than relying on upscaling. Alternatively, you can create a custom SF Symbol and specify a scale that ensures the symbol's emphasis matches adjacent text. For guidance, see SF Symbols.
 
 **Provide alternative text labels for custom interface icons.** Alternative text labels — or accessibility descriptions — aren't visible, but they let VoiceOver audibly describe what's onscreen, simplifying navigation for people with visual disabilities. For guidance, see VoiceOver.
 
@@ -34,7 +34,7 @@ You can design interface icons — also called glyphs — or you can choose symb
 
 ## Standard icons
 
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+, tvOS 27+, watchOS 27+, visionOS 27+:** SF Symbols 8 includes over 7,000 symbols, giving you more system-provided options for clear, consistent iconography across platform appearances.
+Browse [SF Symbols](https://developer.apple.com/sf-symbols/) for familiar action imagery. Check each symbol's availability and usage restrictions, and provide an accessible name when an icon is used without a visible label.
 
 For icons to represent common actions in menus, toolbars, buttons, and other places in interfaces across Apple platforms, you can use these SF Symbols.
 
@@ -46,9 +46,9 @@ For icons to represent common actions in menus, toolbars, buttons, and other pla
 | Copy | An icon showing two copies of a document. | document.on.document |
 | Paste | An icon showing a document in front of a clipboard. | document.on.clipboard |
 | Done | An icon showing a checkmark. | checkmark |
-| Save | | |
+| Save | An icon showing a checkmark. | checkmark |
 | Cancel | An icon showing an X. | xmark |
-| Close | | |
+| Close | An icon showing an X. | xmark |
 | Delete | An icon showing a trash can. | trash |
 | Undo | An icon showing an arrow curving toward the top left. | arrow.uturn.backward |
 | Redo | An icon showing an arrow curving toward the top right. | arrow.uturn.forward |
@@ -56,7 +56,7 @@ For icons to represent common actions in menus, toolbars, buttons, and other pla
 | Duplicate | An icon showing a square with a plus sign on top of another square. | plus.square.on.square |
 | Rename | An icon showing a pencil. | pencil |
 | Move to | An icon showing a folder. | folder |
-| Folder | | |
+| Folder | An icon showing a folder. | folder |
 | Attach | An icon showing a paperclip. | paperclip |
 | Add | An icon showing a plus sign. | plus |
 | More | An icon showing an ellipsis. | ellipsis |
@@ -67,7 +67,7 @@ For icons to represent common actions in menus, toolbars, buttons, and other pla
 |--------|------|-------------|
 | Select | An icon showing a checkmark in a circle. | checkmark.circle |
 | Deselect | An icon showing an X. | xmark |
-| Close | | |
+| Close | An icon showing an X. | xmark |
 | Delete | An icon showing a trash can. | trash |
 
 ### Text formatting
@@ -90,10 +90,10 @@ For icons to represent common actions in menus, toolbars, buttons, and other pla
 |--------|------|-------------|
 | Search | An icon showing a magnifying glass. | magnifyingglass |
 | Find | An icon showing a magnifying glass above a document. | text.page.badge.magnifyingglass |
-| Find and Replace | | |
-| Find Next | | |
-| Find Previous | | |
-| Use Selection for Find | | |
+| Find and Replace | An icon showing a magnifying glass above a document. | text.page.badge.magnifyingglass |
+| Find Next | An icon showing a magnifying glass above a document. | text.page.badge.magnifyingglass |
+| Find Previous | An icon showing a magnifying glass above a document. | text.page.badge.magnifyingglass |
+| Use Selection for Find | An icon showing a magnifying glass above a document. | text.page.badge.magnifyingglass |
 | Filter | An icon showing a stack of three horizontal lines decreasing in width from top to bottom. | line.3.horizontal.decrease |
 
 ### Sharing and exporting
@@ -101,7 +101,7 @@ For icons to represent common actions in menus, toolbars, buttons, and other pla
 | Action | Icon | Symbol name |
 |--------|------|-------------|
 | Share | An icon showing an arrow pointing up from the middle of square. | square.and.arrow.up |
-| Export | | |
+| Export | An icon showing an arrow pointing up from the middle of a square. | square.and.arrow.up |
 | Print | An icon showing a printer. | printer |
 
 ### Users and accounts
@@ -109,8 +109,8 @@ For icons to represent common actions in menus, toolbars, buttons, and other pla
 | Action | Icon | Symbol name |
 |--------|------|-------------|
 | Account | An icon showing an abstract representation of a person's head and shoulders in a circular outline. | person.crop.circle |
-| User | | |
-| Profile | | |
+| User | An icon showing an abstract representation of a person's head and shoulders in a circular outline. | person.crop.circle |
+| Profile | An icon showing an abstract representation of a person's head and shoulders in a circular outline. | person.crop.circle |
 
 ### Ratings
 
@@ -188,7 +188,7 @@ Designing a single, expressive image for the background fill can be a great way 
 
 ### Videos
 
-- [Designing Glyphs](https://developer.apple.com/videos/play/wwdc2021/10252/)
+- [Designing Glyphs](https://developer.apple.com/videos/play/wwdc2017/823)
 
 ## Changelog
 
@@ -199,7 +199,5 @@ Designing a single, expressive image for the background fill can be a great way 
 - Updated to include guidance for visionOS.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/icons)*

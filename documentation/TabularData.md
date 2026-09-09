@@ -45,10 +45,8 @@ The **TabularData** framework provides Swift types for loading, manipulating, an
 - **Order** - A type that represents a sort ordering.
 - **ColumnID** - A column identifier that stores a column's name and the type of its elements.
 - **FormattingOptions** - A set of parameters that indicate how to present the contents of data frame or column types to a printable string.
-- **JSONWritingOptions** - A set of JSON file-reading options.
+- [`JSONWritingOptions`](https://developer.apple.com/documentation/tabulardata/jsonwritingoptions) - A JSON options structure, available from iOS/iPadOS/Mac Catalyst/tvOS 16, macOS 13, watchOS 9, and visionOS 1. The current reference's “file-reading” abstract does not establish a JSON-writing method on `DataFrame`.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/TabularData)*

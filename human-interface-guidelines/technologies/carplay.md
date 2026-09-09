@@ -8,33 +8,31 @@ CarPlay lets people get directions, make calls, send and receive messages, liste
 
 People download CarPlay apps from the App Store and install them on iPhone like any other app. When people connect their iPhone with their vehicle, app icons for installed CarPlay apps appear on the CarPlay Home screen.
 
-CarPlay is designed for drivers to use while they're driving. Keep this context in mind as you design your CarPlay app, providing features that help people perform tasks quickly and with minimal interaction.
+Driver-facing CarPlay experiences need to support quick tasks with minimal interaction. The guidance below focuses on that driving context. Some capabilities have a different safety boundary: Apple's WWDC26 guidance describes video apps for supported vehicles only while parked, as well as voice-based conversational apps. Follow the requirements for your app category rather than assuming every CarPlay capability is usable while driving.
 
-To create the interface of your CarPlay app, you use the system-defined templates that are appropriate for the type of app you're developing, such as audio, communication, navigation, or fueling. For each template, your app provides the content and iOS renders it in CarPlay. Because the system displays UI components and handles the interface with the vehicle, you don't need to adjust your layout for different screen resolutions, or manage input from different types of hardware like touchscreens, knobs, or touch pads.
+Use the system-defined templates appropriate to your app category. Your app supplies their content, while CarPlay manages standard controls, layout adaptation, and vehicle input. This doesn't make all custom content automatic: a navigation app, for example, draws the map beneath a `CPMapTemplate` control overlay. Test your content and artwork across supported display and input configurations.
 
-To learn how to create various types of CarPlay apps and use the system-provided templates, see CarPlay App Programming Guide. The general design guidelines below apply to all types of CarPlay apps.
-
-> **iOS 27+:** CarPlay gains **native video app support**, with playback restricted to when the vehicle is parked, and brings the rebuilt Siri into the car. Design video experiences explicitly around the parked-state requirement.
+See the [CarPlay Developer Guide](https://developer.apple.com/download/files/CarPlay-Developer-Guide.pdf) for app-category rules and templates. CarPlay apps require approval for the category-specific entitlement; adding templates alone doesn't establish eligibility.
 
 ## Topics
 
 ### iPhone Interactions
 
-- **Eliminate app interactions on iPhone when CarPlay is active** - Interactions with your app need to occur using the car's built-in controls and display. If your app requires setup on iPhone, make sure people perform it before the vehicle is in motion.
+- **Eliminate app interactions on iPhone while driving** - Interactions need to occur using the car's built-in controls and display. If your app requires setup on iPhone, make sure people perform it while parked, before the vehicle is in motion.
 - **Never lock people out of CarPlay because the connected iPhone requires input** - Your app needs to function when iPhone is inaccessible — for example, when people put it in a bag or in the trunk while driving. If people must resolve a problem on the connected iPhone, let them do so after the vehicle stops.
 - **Make sure your app works without requiring people to unlock iPhone** - Most people use CarPlay while their iPhone is locked, so ensure that the features you provide in your CarPlay app work as expected in this scenario.
 
 ### Audio
 
-- **Let people choose when to start playback** - In general, avoid beginning playback automatically unless your app's purpose is to play a single source of audio, or your app is resuming previously interrupted audio. Also, avoid starting an audio session until you're ready to actually play audio because starting a session silences other audio sources, like the car's built-in radio.
-- **Start playback as soon as audio has sufficiently loaded** - After people make a selection, it may take several seconds for audio to begin playing, depending on buffering and network conditions. The system keeps the selection highlighted and displays a spinning activity indicator until your app signals that the audio is ready to play.
+- **Let people choose when to start playback** - In general, avoid beginning playback automatically unless your app's purpose is to play a single source of audio, or your app is resuming previously interrupted audio. Don't activate a playback audio session until audio is ready, because an interrupting session can stop another source such as the vehicle's radio. Navigation prompts require appropriate mixing rather than treating all audio sessions alike.
+- **Start playback as soon as audio has sufficiently loaded** - Buffering and network conditions can delay a selection. Use the template's loading behavior while processing it: for a `CPListItem` selection handler, CarPlay displays progress until your app calls the supplied completion closure. This is an app-managed completion signal, not automatic detection that a stream is playable.
 - **Display the Now Playing screen when audio is ready to play** - Don't delay playback until descriptive information completes loading. If necessary, continue loading such information in the background, and show it when it's available.
 - **Resume audio playback after an interruption only when it's appropriate** - For example, your app can resume audio after a temporary interruption like a phone call. Permanent interruptions, such as a music playlist initiated by Siri, are nonresumable. When a resumable interruption occurs, your app needs to resume playback when the interruption ends if audio was actively playing when the interruption started.
 - **When necessary, automatically adjust audio levels, but don't change the overall volume** - Although your app can adjust relative, independent volume levels to achieve a great mix of audio, people need to control the final output volume.
 
 ### Layout
 
-CarPlay supports a wide range of display resolutions with varying pixel densities and aspect ratios. The system automatically scales app icons and interfaces based on the resolution of the display, so they always appear onscreen at roughly the same size. Some common screen sizes are:
+CarPlay supports portrait and landscape displays with varying resolutions, pixel densities, and aspect ratios. The system scales app icons and standard interface components to keep their physical appearance reasonably consistent. The HIG lists these examples, not an exhaustive set of supported displays:
 
 | Dimensions (pixels) | Aspect ratio |
 |-------------------|--------------|
@@ -51,7 +49,7 @@ CarPlay supports a wide range of display resolutions with varying pixel densitie
 
 - **Prefer a limited color palette that coordinates with your app logo** - Subtle use of color is a great way to communicate your brand.
 - **Avoid using the same color for interactive and noninteractive elements** - If interactive and noninteractive elements have the same color, it's hard for people to know where to tap.
-- **Test your app's color scheme under a variety of lighting conditions in an actual car** - Lighting varies significantly based on time of day, weather, window tinting, and more. Colors you see on your computer at design time won't always look the same when your app is used in the real world. Consider how color brightness might affect the experience of driving at night, and how low-contrast colors can wash out in direct sunlight.
+- **Test your app's color scheme under a variety of lighting conditions in a parked car** - Lighting varies significantly based on time of day, weather, window tinting, and more. Colors you see on your computer at design time won't always look the same when your app is used in the real world. Consider how color brightness might affect the experience of driving at night, and how low-contrast colors can wash out in direct sunlight.
 - **Ensure your app looks great in both dark and light environments** - CarPlay supports both light and dark appearances, and may automatically adjust the current appearance based on lighting conditions.
 - **Choose colors that help you communicate effectively with everyone** - Different people see and interpret colors differently. For guidance on using colors in ways that people appreciate, see Inclusive color.
 
@@ -78,15 +76,22 @@ No additional considerations for iOS. Not supported in iPadOS, macOS, tvOS, visi
 
 ### Developer Documentation
 
-- [CarPlay App Programming Guide](https://developer.apple.com/documentation/carplay)
+- [CarPlay Developer Guide](https://developer.apple.com/download/files/CarPlay-Developer-Guide.pdf)
+- [CarPlay framework](https://developer.apple.com/documentation/carplay)
+- [CPMapTemplate](https://developer.apple.com/documentation/carplay/cpmaptemplate) - Template overlay and app-drawn map responsibilities
+- [CPListItem.handler](https://developer.apple.com/documentation/carplay/cplistitem/handler) - Selection completion and progress behavior
+
+### Videos
+
+- [Rev up your CarPlay app](https://developer.apple.com/videos/play/wwdc2026/212/)
 
 ## Changelog
+
+These dates describe Apple's HIG article history.
 
 ### May 2, 2023
 - Consolidated guidance into one page.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/carplay)*

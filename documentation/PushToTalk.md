@@ -14,7 +14,7 @@ The Push to Talk framework is a power-efficient, user-friendly, and privacy-focu
 
 ### Essentials
 
-- [Creating a Push to Talk app](https://developer.apple.com/documentation/pushtotalk/creating_a_push_to_talk_app) - Build a walkie-talkie style app with system user interface controls.
+- [Creating a Push to Talk app](https://developer.apple.com/documentation/pushtotalk/creating-a-push-to-talk-app) - Build a walkie-talkie style app with system user interface controls.
 - **PTChannelManager** - An object that represents a push-to-talk channel manager.
 
 ### Channel management
@@ -49,7 +49,5 @@ The Push to Talk framework is a power-efficient, user-friendly, and privacy-focu
 - **PTInstantiationErrorDomain** - A string representation of the instantiation error domain.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/PushToTalk)*

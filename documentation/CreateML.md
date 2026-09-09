@@ -12,26 +12,26 @@ You train a model to recognize patterns by showing it representative samples. Fo
 
 Create ML leverages the machine learning infrastructure built in to Apple products like Photos and Siri. This means your image classification and natural language models are smaller and take much less time to train.
 
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** For generative language tasks, evaluate [Foundation Models](FoundationModels.md) before training a custom model — OS 27 generalizes it to a `LanguageModel` protocol covering on-device and third-party providers. Use [Evaluations](Evaluations.md) to validate model-backed feature behavior.
+For language-generation tasks, compare [Foundation Models](FoundationModels.md) with training a task-specific model. These solve different problems: a provider protocol does not replace training, supply every cloud provider, or guarantee offline availability. Keep representative held-out data for Create ML model validation; use [Evaluations](Evaluations.md) when measuring language-feature quality through its documented model workflow.
 
 ## Topics
 
 ### Image Models
-- [Creating an Image Classifier Model](https://developer.apple.com/documentation/createml/creating_an_image_classifier_model) - Train a machine learning model to classify images, and add it to your Core ML app.
+- [Creating an Image Classifier Model](https://developer.apple.com/documentation/createml/creating-an-image-classifier-model.md) - Train a machine learning model to classify images, and add it to your Core ML app.
 - **MLImageClassifier** - A model you train to classify images.
 - **MLObjectDetector** - A model you train to classify one or more objects within an image.
 - **MLHandPoseClassifier** - A task that creates a hand pose classification model by training with images of people's hands that you provide.
 
 ### Video Models
-- [Creating an Action Classifier Model](https://developer.apple.com/documentation/createml/creating_an_action_classifier_model) - Train a machine learning model to recognize a person's body movements.
-- [Detecting Human Actions in a Live Video Feed](https://developer.apple.com/documentation/createml/detecting_human_actions_in_a_live_video_feed) - Identify body movements by sending a person's pose data from a series of video frames to an action-classification model.
+- [Creating an Action Classifier Model](https://developer.apple.com/documentation/createml/creating-an-action-classifier-model.md) - Train a machine learning model to recognize a person's body movements.
+- [Detecting human actions in a live video feed](https://developer.apple.com/documentation/createml/detecting-human-actions-in-a-live-video-feed.md) - Identify body movements by sending a person's pose data from a series of video frames to an action-classification model.
 - **MLActionClassifier** - A model you train with videos to classify a person's body movements.
 - **MLHandActionClassifier** - A task that creates a hand action classification model by training with videos of people's hand movements that you provide.
 - **MLStyleTransfer** - A model you train to apply an image's style to other images or videos.
 
 ### Text Models
-- [Creating a text classifier model](https://developer.apple.com/documentation/createml/creating_a_text_classifier_model) - Train a machine learning model to classify natural language text.
-- [Creating a word tagger model](https://developer.apple.com/documentation/createml/creating_a_word_tagger_model) - Train a machine learning model to tag individual words in natural language text.
+- [Creating a text classifier model](https://developer.apple.com/documentation/createml/creating-a-text-classifier-model.md) - Train a machine learning model to classify natural language text.
+- [Creating a word tagger model](https://developer.apple.com/documentation/createml/creating-a-word-tagger-model.md) - Train a machine learning model to tag individual words in natural language text.
 - **MLTextClassifier** - A model you train to classify natural language text.
 - **MLWordTagger** - A word-tagging model you train to classify natural language text at the word level.
 - **MLGazetteer** - A collection of terms and their labels, which augments a tagger that analyzes natural language text.
@@ -46,7 +46,7 @@ Create ML leverages the machine learning infrastructure built in to Apple produc
 ### Tabular Models
 Model types for general tasks, such as labeling, estimating, or finding similarities. The models learn from columns of data values in a data table.
 
-- [Creating a Model from Tabular Data](https://developer.apple.com/documentation/createml/creating_a_model_from_tabular_data) - Train a machine learning model by using Core ML to import and manage tabular data.
+- [Creating a model from tabular data](https://developer.apple.com/documentation/createml/creating-a-model-from-tabular-data.md) - Use Create ML to import tabular data and train models for deployment with Core ML.
 - **MLClassifier** - A model you train to classify data into discrete categories.
 - **MLRegressor** - A model you train to estimate continuous values.
 - **MLRecommender** - A model you train to make recommendations based on item similarity, grouping, and, optionally, item ratings.
@@ -56,10 +56,10 @@ Model types for general tasks, such as labeling, estimating, or finding similari
 - **MLDataValue** - The value of a cell in a data table.
 
 ### Data Visualizations
-- [Data Visualizations](https://developer.apple.com/documentation/createml/data_visualizations) - Render images of data tables and columns in a playground.
+- [Data visualizations](https://developer.apple.com/documentation/createml/data-visualizations.md) - Render images of data tables and columns in a playground.
 
 ### Model Accuracy
-- [Improving Your Model's Accuracy](https://developer.apple.com/documentation/createml/improving_your_model_s_accuracy) - Use metrics to tune the performance of your machine learning model.
+- [Improving Your Model's Accuracy](https://developer.apple.com/documentation/createml/improving-your-model-s-accuracy.md) - Use metrics to tune the performance of your machine learning model.
 - **MLClassifierMetrics** - Metrics you use to evaluate a classifier's performance.
 - **MLRegressorMetrics** - Metrics you use to evaluate a regressor's performance.
 - **MLWordTaggerMetrics** - Metrics you use to evaluate a word tagger's performance.
@@ -80,10 +80,10 @@ Communal types that Create ML uses in all of its model-creation tasks.
 - **MLSplitStrategy** - Data partitioning approaches, typically for creating a validation dataset from a training dataset.
 
 ### Articles
-- [Creating a Text Classifier Model](https://developer.apple.com/documentation/createml/creating_a_text_classifier_model) - Train a machine learning model to classify natural language text.
-- [Data Visualizations](https://developer.apple.com/documentation/createml/data_visualizations) - Render images of data tables and columns in a playground.
-- [Gathering Training Videos for an Action Classifier](https://developer.apple.com/documentation/createml/gathering_training_videos_for_an_action_classifier) - Collect quality example videos that effectively train action classifiers.
-- [Option Set Support](https://developer.apple.com/documentation/createml/option_set_support) - Inspect and modify a video augmentation option set with the properties and methods it inherits from standard protocols.
+- [Creating a text classifier model](https://developer.apple.com/documentation/createml/creating-a-text-classifier-model.md) - Train a machine learning model to classify natural language text.
+- [Data visualizations](https://developer.apple.com/documentation/createml/data-visualizations.md) - Render images of data tables and columns in a playground.
+- [Gathering Training Videos for an Action Classifier](https://developer.apple.com/documentation/createml/recording-or-choosing-training-videos.md) - Collect quality example videos that effectively train action classifiers.
+- [Option set support](https://developer.apple.com/documentation/createml/option-set-support.md) - Inspect the inherited option-set operations of `MLHandActionClassifier.VideoAugmentationOptions`.
 
 ### Enumerations
 - **MLBoundingBoxAnchor** - A location within a bounding box that an annotation's coordinates use as their reference point.
@@ -91,7 +91,5 @@ Communal types that Create ML uses in all of its model-creation tasks.
 - **MLBoundingBoxUnits** - The units a bounding box annotation uses to define its position and size.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/CreateML)*

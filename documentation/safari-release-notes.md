@@ -1,72 +1,85 @@
 # Safari Release Notes
 
-Learn about changes for Safari and Safari View Controller for iOS, iPadOS, macOS, and in visionOS; WKWebView for iOS, iPadOS, macOS, watchOS, and in visionOS; and Web Inspector on macOS.
+Review Safari, embedded web-content, and Web Inspector changes. Check each API's platform availability separately; a web-engine change does not make every SafariServices or WebKit interface available on every Apple platform.
 
 ## Overview
 
-> **Safari 27 is in beta as of August 2026**, alongside the OS 27 generation. Safari 27 adds AI tab grouping by topic, extension generation from a natural-language description, and webpage change monitoring. Verify API-level detail against Apple's published release notes before depending on it.
+> **Checked September 8, 2026:** Safari 27 remains beta. The [Safari 27 notes](https://developer.apple.com/documentation/safari-release-notes/safari-27-release-notes) carry the header **July 20, 2026 — 27.0 beta (`20625.1.24`)**. Separately, [Apple's security list](https://support.apple.com/en-us/100100) records **Safari 26.6.1 for macOS Sonoma and Sequoia on August 18**. That standalone update is not the version of every OS-bundled WebKit build.
 
 Safari is a web browser app and web technology platform available on iOS and macOS. It's built on WebKit, a fast, open-source web rendering engine that implements web standards. Safari includes Apple web innovations such as Intelligent Tracking Prevention, Reader mode, Safari App Extensions, and Web Inspector.
 
+### Safari 27 Developer Checks
+
+- The beta notes list availability on iOS/iPadOS/visionOS 27 beta, macOS 27 beta, **macOS 26**, and **macOS Sequoia**. Safari's host availability is not identical to the OS27 installation matrix.
+- `ariaNotify` enables programmatic screen-reader announcements. Test announcement timing and accessibility rather than using it to replace meaningful document structure.
+- CSS additions include `stretch` sizing, `:heading`, `:host:has()`, and additional color/anchor-positioning behavior. Feature-detect and test fallbacks for older Safari and embedded web views you support.
+- Re-test the accessibility, layout, and animation issues marked resolved in the notes; a fixed beta issue is not an enduring web-platform restriction.
+- Distinguish Safari product features, Safari extension capabilities, and APIs exposed through `WKWebView`. A browser feature announcement alone does not establish an embeddable API.
+
+Source: [Safari 27 Beta Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari-27-release-notes). The browser beta header and OS release listings do not establish a general-availability date.
+
 ## Topics
 
+### Version 27
+- [Safari 27 Beta Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari-27-release-notes) - Pre-release browser and web-platform changes; check the note's own build and host availability.
+
 ### Version 26
-- [Safari 26.5 Beta Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_26_5_release_notes) - Released March 30, 2026 — 26.5 beta (20624.2.1)
-- [Safari 26.4 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_26_4_release_notes) - Released March 24, 2026 — 26.4 (20624.1.16)
-- [Safari 26.3 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_26_3_release_notes) - Released February 11, 2026 — 26.3 (20623.2.7)
-- [Safari 26.2 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_26_2_release_notes) - Released December 12, 2025 — 26.2 (20623.1.14)
-- [Safari 26.1 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_26_1_release_notes) - Released November 3, 2025 — 26.1 (20622.2.11)
-- [Safari 26.0 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_26_release_notes) - Released September 15, 2025 — 26.0 (20622.1.22)
+- [Safari 26.6.1 security/release listing](https://support.apple.com/en-us/100100) - August 18, 2026; standalone update for macOS Sonoma and Sequoia.
+- [Safari 26.6 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari-26_6-release-notes) - Released July 27, 2026 — 26.6 (`20624.4.5`).
+- [Safari 26.5 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari-26_5-release-notes) - Released May 11, 2026 — 26.5 (`20624.2.5`).
+- [Safari 26.4 Release Notes](https://developer.apple.com/documentation/Safari-Release-Notes/safari-26_4-release-notes) - Released March 24, 2026 — 26.4 (20624.1.16)
+- [Safari 26.3 Release Notes](https://developer.apple.com/documentation/Safari-Release-Notes/safari-26_3-release-notes) - Released February 11, 2026 — 26.3 (20623.2.7)
+- [Safari 26.2 Release Notes](https://developer.apple.com/documentation/Safari-Release-Notes/safari-26_2-release-notes) - Released December 12, 2025 — 26.2 (20623.1.14)
+- [Safari 26.1 Release Notes](https://developer.apple.com/documentation/Safari-Release-Notes/safari-26_1-release-notes) - Released November 3, 2025 — 26.1 (20622.2.11)
+- [Safari 26.0 Release Notes](https://developer.apple.com/documentation/Safari-Release-Notes/safari-26-release-notes) - Released September 15, 2025 — 26.0 (20622.1.22)
 
 ### Version 18
-- [Safari 18.6 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_18_6_release_notes) - Released July 29, 2025 — 18.6 (20621.3.11)
-- [Safari 18.5 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_18_5_release_notes) - Released May 12, 2025 — 18.5 (20621.2.5)
-- [Safari 18.4 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_18_4_release_notes) - Released March 31, 2025 — 18.4 (20621.1.15)
-- [Safari 18.3 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_18_3_release_notes) - Released January 27, 2025 — 18.3 (20620.2.4)
-- [Safari 18.2 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_18_2_release_notes) - Released December 11, 2024 — 18.2 (20620.1.16)
-- [Safari 18.1 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_18_1_release_notes) - Released October 28, 2024 — 18.1 (20619.2.8)
-- [Safari 18.0.1 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_18_0_1_release_notes) - Released October 3, 2024 — 18.0.1 (20619.1.26.30)
-- [Safari 18.0 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_18_0_release_notes) - Released September 16, 2024 — 18.0 (20619.1.26)
+- [Safari 18.6 Release Notes](https://developer.apple.com/documentation/Safari-Release-Notes/safari-18_6-release-notes) - Released July 29, 2025 — 18.6 (20621.3.11)
+- [Safari 18.5 Release Notes](https://developer.apple.com/documentation/Safari-Release-Notes/safari-18_5-release-notes) - Released May 12, 2025 — 18.5 (20621.2.5)
+- [Safari 18.4 Release Notes](https://developer.apple.com/documentation/Safari-Release-Notes/safari-18_4-release-notes) - Released March 31, 2025 — 18.4 (20621.1.15)
+- [Safari 18.3 Release Notes](https://developer.apple.com/documentation/Safari-Release-Notes/safari-18_3-release-notes) - Released January 27, 2025 — 18.3 (20620.2.4)
+- [Safari 18.2 Release Notes](https://developer.apple.com/documentation/Safari-Release-Notes/safari-18_2-release-notes) - Released December 11, 2024 — 18.2 (20620.1.16)
+- [Safari 18.1 Release Notes](https://developer.apple.com/documentation/Safari-Release-Notes/safari-18_1-release-notes) - Released October 28, 2024 — 18.1 (20619.2.8)
+- [Safari 18.0.1 Release Notes](https://developer.apple.com/documentation/Safari-Release-Notes/safari-18_0_1-release-notes) - Released October 3, 2024 — 18.0.1 (20619.1.26.30)
+- [Safari 18 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari-18-release-notes) - Released September 16, 2024 — 18 (20619.1.26)
 
 ### Version 17
-- [Safari 17.6 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_17_6_release_notes) - Released July 29, 2024 — 17.6 (19618.3.11)
-- [Safari 17.5 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_17_5_release_notes) - Released May 13, 2024 — 17.5 (19618.2.12)
-- [Safari 17.4 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_17_4_release_notes) - Released March 5, 2024 — 17.4 (19618.1.15)
-- [Safari 17.3 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_17_3_release_notes) - Released January 22, 2024 — Version 17.3 (19617.2.4)
-- [Safari 17.2 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_17_2_release_notes) - Released December 11, 2023 — Version 17.2 (19617.1.17)
-- [Safari 17.1 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_17_1_release_notes) - Released October 25, 2023 — Version 17.1 (19616.2.9)
-- [Safari 17 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_17_release_notes) - Released September 18, 2023 — Version 17 (19616.1.27)
+- [Safari 17.6 Release Notes](https://developer.apple.com/documentation/Safari-Release-Notes/safari-17_6-release-notes) - Released July 29, 2024 — 17.6 (19618.3.11)
+- [Safari 17.5 Release Notes](https://developer.apple.com/documentation/Safari-Release-Notes/safari-17_5-release-notes) - Released May 13, 2024 — 17.5 (19618.2.12)
+- [Safari 17.4 Release Notes](https://developer.apple.com/documentation/Safari-Release-Notes/safari-17_4-release-notes) - Released March 5, 2024 — 17.4 (19618.1.15)
+- [Safari 17.3 Release Notes](https://developer.apple.com/documentation/Safari-Release-Notes/safari-17_3-release-notes) - Released January 22, 2024 — Version 17.3 (19617.2.4)
+- [Safari 17.2 Release Notes](https://developer.apple.com/documentation/Safari-Release-Notes/safari-17_2-release-notes) - Released December 11, 2023 — Version 17.2 (19617.1.17)
+- [Safari 17.1 Release Notes](https://developer.apple.com/documentation/Safari-Release-Notes/safari-17_1-release-notes) - Released October 25, 2023 — Version 17.1 (19616.2.9)
+- [Safari 17 Release Notes](https://developer.apple.com/documentation/Safari-Release-Notes/safari-17-release-notes) - Released September 18, 2023 — Version 17 (19616.1.27)
 
 ### Version 16
-- [Safari 16.6 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_16_6_release_notes) - Released July 24, 2023 — Version 16.6 (18615.3.12)
-- [Safari 16.5 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_16_5_release_notes) - Released May 18, 2023 — Version 16.5 (18615.2.9)
-- [Safari 16.4 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_16_4_release_notes) - Released March 27, 2023 — Version 16.4 (18615.1.26)
-- [Safari 16.3 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_16_3_release_notes) - Released January 23, 2023 — Version 16.3 (18614.4.6)
-- [Safari 16.2 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_16_2_release_notes) - Released December 13, 2022 — Version 16.2 (18614.3.7)
-- [Safari 16.1 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_16_1_release_notes) - Released October 24, 2022 — Version 16.1 (18614.2.9)
-- [Safari 16 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_16_release_notes) - Released September 12, 2022 — Version 16 (18614.1.25)
+- [Safari 16.6 Release Notes](https://developer.apple.com/documentation/Safari-Release-Notes/safari-16_6-release-notes) - Released July 24, 2023 — Version 16.6 (18615.3.12)
+- [Safari 16.5 Release Notes](https://developer.apple.com/documentation/Safari-Release-Notes/safari-16_5-release-notes) - Released May 18, 2023 — Version 16.5 (18615.2.9)
+- [Safari 16.4 Release Notes](https://developer.apple.com/documentation/Safari-Release-Notes/safari-16_4-release-notes) - Released March 27, 2023 — Version 16.4 (18615.1.26)
+- [Safari 16.3 Release Notes](https://developer.apple.com/documentation/Safari-Release-Notes/safari-16_3-release-notes) - Released January 23, 2023 — Version 16.3 (18614.4.6)
+- [Safari 16.2 Release Notes](https://developer.apple.com/documentation/Safari-Release-Notes/safari-16_2-release-notes) - Released December 13, 2022 — Version 16.2 (18614.3.7)
+- [Safari 16.1 Release Notes](https://developer.apple.com/documentation/Safari-Release-Notes/safari-16_1-release-notes) - Released October 24, 2022 — Version 16.1 (18614.2.9)
+- [Safari 16 Release Notes](https://developer.apple.com/documentation/Safari-Release-Notes/safari-16-release-notes) - Released September 12, 2022 — Version 16 (18614.1.25)
 
 ### Version 15
-- [Safari 15.6 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_15_6_release_notes) - Released July 20, 2022 — Version 15.6 (17613.3.9)
-- [Safari 15.5 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_15_5_release_notes) - Released May 16, 2022 — Version 15.5 (17613.2.7)
-- [Safari 15.4 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_15_4_release_notes) - Released March 14, 2022 — Version 15.4 (17613.1.17)
-- [Safari 15.2 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_15_2_release_notes) - Released December 13, 2021 — Version 15.2 (17612.3.6)
-- [Safari 15 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_15_release_notes) - Released September 20, 2021 — Version 15 (17612.1.27)
+- [Safari 15.6 Release Notes](https://developer.apple.com/documentation/Safari-Release-Notes/safari-15_6-release-notes) - Released July 20, 2022 — Version 15.6 (17613.3.9)
+- [Safari 15.5 Release Notes](https://developer.apple.com/documentation/Safari-Release-Notes/safari-15_5-release-notes) - Released May 16, 2022 — Version 15.5 (17613.2.7)
+- [Safari 15.4 Release Notes](https://developer.apple.com/documentation/Safari-Release-Notes/safari-15_4-release-notes) - Released March 14, 2022 — Version 15.4 (17613.1.17)
+- [Safari 15.2 Release Notes](https://developer.apple.com/documentation/Safari-Release-Notes/safari-15_2-release-notes) - Released December 13, 2021 — Version 15.2 (17612.3.6)
+- [Safari 15 Release Notes](https://developer.apple.com/documentation/Safari-Release-Notes/safari-15-release-notes) - Released September 20, 2021 — Version 15 (17612.1.27)
 
 ### Version 14
-- [Safari 14.1 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_14_1_release_notes) - Released April 26, 2021 — Version 14.1 (16611.1.21)
-- [Safari 14 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_14_release_notes) - Released September 16, 2020 — Version 14 (16610.1.28)
+- [Safari 14.1 Release Notes](https://developer.apple.com/documentation/Safari-Release-Notes/safari-14_1-release-notes) - Released April 26, 2021 — Version 14.1 (16611.1.21)
+- [Safari 14 Release Notes](https://developer.apple.com/documentation/Safari-Release-Notes/safari-14-release-notes) - Released September 16, 2020 — Version 14 (16610.1.28)
 
 ### Version 13
-- [Safari 13.1 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_13_1_release_notes) - Released March 24, 2020 — Version 13.1 (15609.1.20)
-- [Safari 13 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_13_release_notes) - Released September 19, 2019 — Version 13 (15608.2.11)
+- [Safari 13.1 Release Notes](https://developer.apple.com/documentation/Safari-Release-Notes/safari-13_1-release_notes) - Released March 24, 2020 — Version 13.1 (15609.1.20)
+- [Safari 13 Release Notes](https://developer.apple.com/documentation/Safari-Release-Notes/safari-13-release-notes) - Released September 19, 2019 — Version 13 (15608.2.11)
 
 ### Version 12
-- [Safari 12.1 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_12_1_release_notes) - Released March 25, 2019 — Version 12.1 (14607.1.40)
-- [Safari 12 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari_12_release_notes) - Released September 17, 2018 — Version 12 (14606.1.36)
+- [Safari 12.1 Release Notes](https://developer.apple.com/documentation/Safari-Release-Notes/safari-12_1-release-notes) - Released March 25, 2019 — Version 12.1 (14607.1.40)
+- [Safari 12 Release Notes](https://developer.apple.com/documentation/Safari-Release-Notes/safari-12-release-notes) - Released September 17, 2018 — Version 12 (14606.1.36)
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/safari-release-notes)*

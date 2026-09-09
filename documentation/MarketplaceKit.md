@@ -13,34 +13,38 @@ In addition to alternative app marketplaces, this framework also serves:
 - Web browsers, specifically by requesting app installation on a webpage.
 - Apps that install from an alternative app marketplace or webpage, by determining the installation source at runtime. This allows an app to branch its functionality depending on the installation source.
 
-**Important:** To request the marketplace entitlement, see Getting started as an alternative app marketplace in the European Union. To apply to distribute your app from your website, see Getting started with Web Distribution in the EU.
+**Important:** Marketplace entitlement approval and alternative distribution requirements vary by region. Consult [Participating in alternative distribution for specific regions](https://developer.apple.com/documentation/marketplacekit/participating-in-alternative-distribution-for-specific-regions), [Regional distribution](../guides/regional-distribution.md), and [App Store readiness](../guides/app-store-readiness.md).
 
-## What's New in the OS 27 SDK
+## Current API and integration guidance
 
-Alternative and web distribution is available in the European Union, Brazil, and Japan. Japan's MSCA support for alternative marketplaces arrived in iOS 26.2. Notarization remains the mandatory baseline review; MarketplaceKit requires iOS 17.4 or later for marketplaces, iOS 17.5 or later for web distribution, and Xcode 15.3 or later.
+[`MarketplaceAppExtension`](https://developer.apple.com/documentation/marketplacekit/marketplaceappextension), available from iOS/iPadOS 26.0, supports marketplace authentication, installation, and launching. [`MarketplaceExtension`](https://developer.apple.com/documentation/marketplacekit/marketplaceextension) and [`MarketplaceExtensionConfiguration`](https://developer.apple.com/documentation/marketplacekit/marketplaceextensionconfiguration) are formally deprecated from 26.0 on those platforms; their declarations do not announce removal.
+
+Review [age-rating restrictions](https://developer.apple.com/documentation/marketplacekit/providing-age-rating-appropriate-content) and the documented [`TransactionReporting`](https://developer.apple.com/documentation/marketplacekit/transactionreporting) API where applicable. Eligibility, fees, and reporting obligations are policy questions, not features that can be inferred from the device's OS version.
+
+Handle installation cancellation, unmet requirements, expired authorization, and [`MarketplaceKitError`](https://developer.apple.com/documentation/marketplacekit/marketplacekiterror). Use the supported [reauthentication workflow](https://developer.apple.com/documentation/marketplacekit/reauthenticating-a-person-to-manage-apps), and distinguish download progress from a completed installation. Check individual API availability rather than applying one minimum SDK version to marketplaces, browsers, and web distribution.
 
 ## Topics
 
 ### Essentials
-- [Creating an alternative app marketplace](https://developer.apple.com/documentation/marketplacekit/creating_an_alternative_app_marketplace) - Enable the distribution of other third-party apps from within your marketplace app.
-- [Distributing your app from your website](https://developer.apple.com/documentation/marketplacekit/distributing_your_app_from_your_website) - Configure your app and website to enable people to install your app on their devices from your website.
-- [Distributing your app on an alternative app marketplace](https://developer.apple.com/documentation/marketplacekit/distributing_your_app_on_an_alternative_app_marketplace) - Design your app for alternative distribution from an alternative app marketplace.
+- [Creating an alternative app marketplace](https://developer.apple.com/documentation/marketplacekit/creating-an-alternative-app-marketplace) - Enable the distribution of other third-party apps from within your marketplace app.
+- [Distributing your app from your website](https://developer.apple.com/documentation/marketplacekit/distributing-your-app-from-your-website) - Configure your app and website to enable people to install your app on their devices from your website.
+- [Distributing your app on an alternative app marketplace](https://developer.apple.com/documentation/marketplacekit/distributing-your-app-on-an-alternative-marketplace) - Design your app for alternative distribution from an alternative app marketplace.
 
 ### Web services
-- [Processing alternative app marketplace notifications](https://developer.apple.com/documentation/marketplacekit/processing_alternative_app_marketplace_notifications) - Manage the addition and removal of apps available on your alternative marketplace.
-- [Ingesting an alternative distribution package](https://developer.apple.com/documentation/marketplacekit/ingesting_an_alternative_distribution_package) - Process an available app version from App Store Connect and store it for download from your server.
-- [Installing your app from your website](https://developer.apple.com/documentation/marketplacekit/installing_your_app_from_your_website) - Manage the installation of an app that you develop and distribute through your website.
-- [Installing apps from an alternative marketplace](https://developer.apple.com/documentation/marketplacekit/installing_apps_from_an_alternative_marketplace) - Manage the installation of apps that developers distribute from your marketplace app.
-- [Supplying an install verification token](https://developer.apple.com/documentation/marketplacekit/supplying_an_install_verification_token) - Support the installation of alternative distribution apps by creating signed JSON web tokens.
+- [Processing alternative app marketplace notifications](https://developer.apple.com/documentation/marketplacekit/processing-alternative-marketplace-notifications) - Manage the addition and removal of apps available on your alternative marketplace.
+- [Ingesting an alternative distribution package](https://developer.apple.com/documentation/marketplacekit/ingesting-an-alternative-distribution-package) - Process an available app version from App Store Connect and store it for download from your server.
+- [Installing your app from your website](https://developer.apple.com/documentation/marketplacekit/installing-your-app-from-your-website) - Manage the installation of an app that you develop and distribute through your website.
+- [Installing apps from an alternative marketplace](https://developer.apple.com/documentation/marketplacekit/installing-apps-from-an-alternative-marketplace) - Manage the installation of apps that developers distribute from your marketplace app.
+- [Supplying an install verification token](https://developer.apple.com/documentation/marketplacekit/supplying-an-install-verification-token) - Support the installation of alternative distribution apps by creating signed JSON web tokens.
 
 ### Authorization
-- [Reauthenticating a person to manage apps](https://developer.apple.com/documentation/marketplacekit/reauthenticating_a_person_to_manage_apps) - Renew your app's authorization when an app needs updating or when a device restores from backup.
+- [Reauthenticating a person to manage apps](https://developer.apple.com/documentation/marketplacekit/reauthenticating-a-person-to-manage-apps) - Renew your app's authorization when an app needs updating or when a device restores from backup.
 - **com.apple.developer.marketplace.app-installation** - The entitlement that enables an app to vend other apps as an alternative app marketplace.
 - **com.apple.developer.browser.app-installation** - The entitlement that enables a browser to install alternative-distribution apps from a website.
-- [App License Delivery SDK](https://developer.apple.com/documentation/marketplacekit/app_license_delivery_sdk) - Secure the installation of alternative distribution apps on iOS or iPadOS devices by vending licenses from your web server.
+- [App License Delivery SDK](AppLicenseDeliverySDK.md) - Secure the installation of alternative distribution apps on iOS or iPadOS devices by vending licenses from your web server.
 
 ### Browser support
-- [Enabling alternative distribution app installation in a browser](https://developer.apple.com/documentation/marketplacekit/enabling_alternative_distribution_app_installation_in_a_browser) - Add support for browser apps to install alternative distribution apps from websites.
+- [Enabling alternative distribution app installation in a browser](https://developer.apple.com/documentation/marketplacekit/enabling-alternative-distribution-app-installation-in-a-browser) - Add support for browser apps to install alternative distribution apps from websites.
 
 ### App management
 - **AppLibrary** - An object that manages search characteristics, licensing, and the installation of apps.
@@ -52,8 +56,11 @@ Alternative and web distribution is available in the European Union, Brazil, and
 - **MarketplaceKitURIScheme** - A URI scheme that defines an alternative distribution app installation link.
 
 ### Background services
-- **MarketplaceExtension** - An extension that facilitates authentication, installation, and launching a marketplace with deep links.
-- **MarketplaceExtensionConfiguration** - The type for a marketplace extension's configuration object.
+- [`MarketplaceAppExtension`](https://developer.apple.com/documentation/marketplacekit/marketplaceappextension) - An extension that facilitates authentication, installation, and launching a marketplace with deep links.
+
+### Deprecated extension interfaces
+- **MarketplaceExtension** - Deprecated; review `MarketplaceAppExtension` for new integration work.
+- **MarketplaceExtensionConfiguration** - Deprecated configuration interface.
 
 ### App distribution UI
 - **ActionButton** - A user-interface element that enables a person to install, update, or launch apps by tapping the element.
@@ -72,7 +79,5 @@ Alternative and web distribution is available in the European Union, Brazil, and
 - **MarketplaceKitError** - Errors that can occur in the marketplace workflow.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/MarketplaceKit)*

@@ -6,23 +6,39 @@ A material is a visual effect that creates a sense of depth, layering, and hiera
 
 ## Overview
 
-Materials help visually separate foreground elements, such as text and controls, from background elements, such as content and solid colors. By allowing color to pass through from background to foreground, a material establishes visual hierarchy to help people more easily retain a sense of place.
+Materials communicate hierarchy while preserving context from the background. Choose them by the role of a surface, not by a fixed color or blur level.
 
-Apple platforms feature two types of materials: Liquid Glass, and standard materials. Liquid Glass is a dynamic material that unifies the design language across Apple platforms, allowing you to present controls and navigation without obscuring underlying content. In contrast to Liquid Glass, the standard materials help with visual differentiation within the content layer.
+Liquid Glass is for the functional layer of controls and navigation. Standard materials help organize the content beneath that layer. The same visual vocabulary does not imply identical rendering or API availability on every platform.
 
 ## Topics
 
 ### Liquid Glass
 
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Standard controls built with Xcode 27 continue to use the OS 26 Liquid Glass API surface; no new named Liquid Glass API types are required. Rebuilding with the iOS 27 SDK opts iPhone and iPad apps into the refined appearance because UIDesignRequiresCompatibility is ignored by the iOS 27 SDK.
+Use Liquid Glass to distinguish navigation and important controls from the content they affect. Let system bars handle scrolling content and foreground legibility instead of recreating the treatment with a static image.
 
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Liquid Glass now diffuses busy background content more aggressively, adds a subtle darkened edge ring, and renders brighter specular highlights, improving legibility without extra visual noise. People can tune overall translucency with the transparency slider in Settings > Appearance, and the material also responds to Reduce Transparency and Increase Contrast.
+**Do not use glass as a general content background.** Repeated glass cards compete with navigation and weaken the separation between content and controls. An embedded slider or toggle can briefly adopt glass during interaction; that exception is not a reason to apply glass to its entire surrounding content area.
 
-Liquid Glass forms a distinct functional layer for controls and navigation elements — like tab bars and sidebars — that floats above the content layer, establishing a clear visual hierarchy between functional elements and content. Liquid Glass allows content to scroll and peek through from beneath these elements to give the interface a sense of dynamism and depth, all while maintaining legibility for controls and navigation.
+**Use Liquid Glass effects sparingly.** Prefer standard controls and navigation, which adopt the system treatment. Reserve custom glass effects for important functional elements; repeating glass backgrounds throughout a content grid weakens hierarchy. See [Applying Liquid Glass to custom views](https://developer.apple.com/documentation/swiftui/applying-liquid-glass-to-custom-views).
 
-**Don't use Liquid Glass in the content layer.** Liquid Glass works best when it provides a clear distinction between interactive elements and content, and including it in the content layer can result in unnecessary complexity and a confusing visual hierarchy. Instead, use standard materials for elements in the content layer, such as app backgrounds. An exception to this is for controls in the content layer with a transient interactive element like sliders and toggles; in these cases, the element takes on a Liquid Glass appearance to emphasize its interactivity when a person activates it.
+#### Choosing regular or clear
 
-**Use Liquid Glass effects sparingly.** Standard components from system frameworks pick up the appearance and behavior of this material automatically. If you apply Liquid Glass effects to a custom control, do so sparingly. Liquid Glass seeks to bring attention to the underlying content, and overusing this material in multiple custom controls can provide a subpar user experience by distracting from that content. Limit these effects to the most important functional elements in your app. For developer guidance, see Applying Liquid Glass to custom views.
+| Liquid Glass variant | Use | Legibility considerations |
+|----------------------|-----|---------------------------|
+| `regular` | The usual choice for controls, navigation, and text-heavy elements such as sidebars and popovers. | Adjusts the background's blur and luminosity to help foreground content remain readable. Scroll edge effects provide additional separation over scrolling content. |
+| `clear` | Controls floating over visually rich photos or video, when preserving the media's visibility matters. | Highly translucent; choose it only when the foreground remains legible against the actual media. |
+
+For clear glass over bright content, the HIG suggests considering a **35%-opaque dark dimming layer** behind the component. This is design guidance, not a guarantee of sufficient contrast. Check the resulting text and symbols over representative content. Do not add another dimming layer when the background is already sufficiently dark or standard AVKit playback controls supply their own.
+
+The `regular` and `clear` variants belong to Liquid Glass. They are not interchangeable with the thicknesses of standard `Material`, and a system appearance preference is not an instruction to replace all materials with one variant.
+
+#### Appearance and accessibility
+
+- Test the Liquid Glass appearances the target system actually offers, alongside Reduce Transparency and Increase Contrast where available. The material can change with these preferences; do not assume a fixed amount of translucency or a particular Settings control.
+- Use semantic foreground colors and validate text, icons, focus, and selected states against bright, dark, and moving backgrounds.
+- Keep state understandable through labels, shapes, or other noncolor cues, and expose it to [VoiceOver](../technologies/voiceover.md).
+- Check larger text and Reduce Motion as well as contrast. Custom animations and layouts need their own testing even when the material adapts automatically.
+
+For SDK adoption and the compatibility key, see [Adopting Liquid Glass](../../liquid-glass/adopting-liquid-glass.md).
 
 ### Standard materials
 
@@ -30,46 +46,51 @@ Use standard materials and effects — such as blur, vibrancy, and blending mode
 
 **Choose materials and effects based on semantic meaning and recommended usage.** Avoid selecting a material or effect based on the apparent color it imparts to your interface, because system settings can change its appearance and behavior. Instead, match the material or vibrancy style to your specific use case.
 
-**Help ensure legibility by using vibrant colors on top of materials.** When you use system-defined vibrant colors, you don't need to worry about colors seeming too dark, bright, saturated, or low contrast in different contexts. Regardless of the material you choose, use vibrant colors on top of it. For guidance, see System colors.
+**Prefer semantic, system-defined foreground colors on materials.** Their vibrant variants adapt to context and appearance preferences. Still check the resulting contrast, especially for secondary text and fine symbols. See [Color](color.md).
 
 **Consider contrast and visual separation when choosing a material to combine with blur and vibrancy effects.** For example, consider that:
 
 - Thicker materials, which are more opaque, can provide better contrast for text and other elements with fine features.
 - Thinner materials, which are more translucent, can help people retain their context by providing a visible reminder of the content that's in the background.
 
-For developer guidance, see Material.
+For developer guidance, see [Material](https://developer.apple.com/documentation/swiftui/material).
 
 ### Platform Considerations
 
-**iOS, iPadOS**  
+#### iOS and iPadOS
+
+Use standard ultra-thin, thin, regular, or thick materials to organize the content layer beneath Liquid Glass.
+
 iOS and iPadOS define vibrant colors for labels, fills, and separators that are specifically designed to work with each material.
 
-Labels and fills both have several levels of vibrancy; separators have one level. The name of a level indicates the relative amount of contrast between an element and the background: The default level has the highest contrast, whereas quaternary (when it exists) has the lowest contrast.
+Label and fill roles provide different emphasis levels. Choose a role appropriate to the information's importance, and check contrast against the selected material. In particular, avoid quaternary labels over thin and ultra-thin materials.
 
-Except for quaternary, you can use the following vibrancy values for labels on any material. In general, avoid using quaternary on top of the thin and ultraThin materials, because the contrast is too low.
-
-- UIVibrancyEffectStyle.label (default)
-- UIVibrancyEffectStyle.secondaryLabel
-- UIVibrancyEffectStyle.tertiaryLabel
-- UIVibrancyEffectStyle.quaternaryLabel
+- `UIVibrancyEffectStyle.label` (default, highest label contrast)
+- `UIVibrancyEffectStyle.secondaryLabel`
+- `UIVibrancyEffectStyle.tertiaryLabel`
+- `UIVibrancyEffectStyle.quaternaryLabel` (lowest label contrast)
 
 You can use the following vibrancy values for fills on all materials.
 
-- UIVibrancyEffectStyle.fill (default)
-- UIVibrancyEffectStyle.secondaryFill
-- UIVibrancyEffectStyle.tertiaryFill
+- `UIVibrancyEffectStyle.fill` (default)
+- `UIVibrancyEffectStyle.secondaryFill`
+- `UIVibrancyEffectStyle.tertiaryFill`
 
-The system provides a single, default vibrancy value for a separator, which works well on all materials.
+The system also provides the `UIVibrancyEffectStyle.separator` role for separators.
 
-**macOS**  
-macOS provides several standard materials with designated purposes, and vibrant versions of all system colors. For developer guidance, see NSVisualEffectView.Material.
+#### macOS
+
+Choose standard materials by their semantic purpose, rather than attempting to match a particular shade. macOS also supplies vibrant versions of system colors. See [NSVisualEffectView.Material](https://developer.apple.com/documentation/appkit/nsvisualeffectview/material-swift.enum).
 
 **Choose when to allow vibrancy in custom views and controls.** Depending on configuration and system settings, system views and controls use vibrancy to make foreground content stand out against any background. Test your interface in a variety of contexts to discover when vibrancy enhances the appearance and improves communication.
 
-**Choose a background blending mode that complements your interface design.** macOS defines two modes that blend background content: behind window and within window. For developer guidance, see NSVisualEffectView.BlendingMode.
+**Choose the appropriate source of background content.** Behind-window blending uses content outside the window; within-window blending uses content in the window. See [NSVisualEffectView.BlendingMode](https://developer.apple.com/documentation/appkit/nsvisualeffectview/blendingmode-swift.enum).
 
-**tvOS**  
-**Use thinner, translucent materials to elevate content and make it feel fresh.** Thicker materials tend to hide shadows, reducing depth and making it harder to distinguish content clearly. You might consider using thicker materials if you want to evoke a heavier feeling or suggest that the content is older.
+#### tvOS
+
+Liquid Glass appears in navigation and system experiences. Some elements, including buttons and image views, take on the treatment when focused. Preserve recognizable [focus and selection](../inputs/focus-and-selection.md) over moving video and artwork, and test from the expected viewing distance.
+
+Standard materials continue to organize the content layer. Their thickness controls how much underlying content remains visible.
 
 For example, consider using standard materials in the following ways:
 
@@ -79,16 +100,14 @@ For example, consider using standard materials in the following ways:
 | thin | Overlay views that partially obscure onscreen content and require a light color scheme |
 | regular | Overlay views that partially obscure onscreen content |
 | thick | Overlay views that partially obscure onscreen content and require a dark color scheme |
-| ultraThick | Full-screen views that require a dark color scheme |
 
-You can also use the prominent blur effect for adaptable, full-screen backgrounds in your tvOS app.
+#### visionOS
 
-**visionOS**  
 In visionOS, windows generally use an unmodifiable system-defined material called glass that helps people stay grounded by letting light, the current Environment, virtual content, and objects in people's surroundings show through. Glass is an adaptive material that limits the range of background color information so a window can continue to provide contrast for app content while becoming brighter or darker depending on people's physical surroundings and other virtual content.
 
 > **Note:** visionOS doesn't have a distinct Dark Mode setting. Instead, glass automatically adapts to the luminance of the objects and colors behind it.
 
-**Avoid using opaque colors in a window.** Areas of opacity can block people's view, making them feel constricted and reducing their awareness of the virtual and physical objects around them.
+**Prefer translucency to opaque window backgrounds.** Preserve awareness of the surroundings without compromising the legibility of essential content. visionOS window glass is a platform-specific material; do not treat it as a requirement to apply Liquid Glass to every spatial surface.
 
 **If necessary, choose materials that help you create visual separations or indicate interactivity in your app.** If you need to create a custom component, you may need to specify a system material for it. Use the following examples for guidance.
 
@@ -104,7 +123,8 @@ visionOS defines three vibrancy values that help you communicate a hierarchy of 
 - Use UIVibrancyEffectStyle.secondaryLabel for descriptive text like footnotes and subtitles.
 - Use UIVibrancyEffectStyle.tertiaryLabel for inactive elements, and only when text doesn't need high legibility.
 
-**watchOS**  
+#### watchOS
+
 **Use materials to provide context in a full-screen modal view.** Because full-screen modal views are common in watchOS, the contrast provided by material layers can help orient people in your app and distinguish controls and system elements from other content. Avoid removing or replacing material backgrounds for modal sheets when they're provided by default.
 
 ### Related Components
@@ -115,18 +135,23 @@ visionOS defines three vibrancy values that help you communicate a hierarchy of 
 
 ### Developer Documentation
 
-- [Adopting Liquid Glass](https://developer.apple.com/documentation/adopting-liquid-glass)
-- [glassEffect(_:in:isEnabled:)](https://developer.apple.com/documentation/swiftui/view/glasseffect(_:in:isenabled:)) - SwiftUI
+- [Adopting Liquid Glass](https://developer.apple.com/documentation/technologyoverviews/adopting-liquid-glass)
+- [glassEffect(_:in:)](https://developer.apple.com/documentation/swiftui/view/glasseffect(_:in:)) - SwiftUI
+- [Glass.regular](https://developer.apple.com/documentation/swiftui/glass/regular) - SwiftUI
+- [Glass.clear](https://developer.apple.com/documentation/swiftui/glass/clear) - SwiftUI
 - [Material](https://developer.apple.com/documentation/swiftui/material) - SwiftUI
 - [UIVisualEffectView](https://developer.apple.com/documentation/uikit/uivisualeffectview) - UIKit
 - [NSVisualEffectView](https://developer.apple.com/documentation/appkit/nsvisualeffectview) - AppKit
 
 ### Videos
 
-- [Meet Liquid Glass](https://developer.apple.com/videos/play/wwdc2025/10001/)
-- [Get to know the new design system](https://developer.apple.com/videos/play/wwdc2025/10002/)
+- [Meet Liquid Glass](https://developer.apple.com/videos/play/wwdc2025/219)
+- [Get to know the new design system](https://developer.apple.com/videos/play/wwdc2025/356)
 
 ## Changelog
+
+### September 9, 2025
+- Apple updated its Liquid Glass guidance.
 
 ### June 9, 2025
 - Added guidance for Liquid Glass.
@@ -144,7 +169,5 @@ visionOS defines three vibrancy values that help you communicate a hierarchy of 
 - Added guidance on using materials to provide context and orientation in watchOS apps.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/materials)*

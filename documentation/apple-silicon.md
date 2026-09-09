@@ -8,47 +8,59 @@ Build apps, libraries, frameworks, plug-ins, and other executable code that run 
 
 Getting the best performance on Apple silicon sometimes requires making adjustments to the way you use hardware resources. Minimize your dependence on the hardware by using higher-level technologies whenever possible. For example, use Grand Central Dispatch instead of creating and managing threads yourself. Test your changes on Apple silicon to verify that your code behaves optimally.
 
-> **macOS Golden Gate 27+:** macOS 27 is the **first Apple-silicon-only macOS**, dropping the final four Intel Macs (iMac 2020, Mac Pro 2019, MacBook Pro 16-inch 2019, MacBook Pro 13-inch 2020 four-port). It is also the **last release with full Rosetta 2 support** — from macOS 28, Rosetta is expected to be retained only as a limited compatibility layer for older unmaintained games and their dependent frameworks. Replace any Intel-only binary in your distribution and build chain with a native Apple silicon build. **Xcode 27 requires macOS 27**, so build machines and CI runners must migrate first.
+## OS27 Toolchain and Rosetta Planning
 
-> **Note:** The scope of Rosetta in macOS 28 reflects Apple's stated direction rather than shipped documentation. Verify against Apple's platform release notes before making irreversible plans.
+**Checked September 8, 2026:** macOS 27 is at beta 8 (August 31), while Xcode 27 is at beta 6 (August 24). macOS Tahoe 26.6.2, released August 17, remains the shipping baseline. See [Apple's release list](https://developer.apple.com/news/releases/).
+
+| Question | Verified distinction |
+|---|---|
+| Can this Mac host Xcode 27 beta 6? | It must be an **Apple silicon Mac running macOS Tahoe 26.4 or later**. macOS 27 is not required; Intel Macs are not eligible hosts. |
+| Can Xcode 27 build for older Intel Macs? | Its macOS 27 SDK supports universal Intel/Apple-silicon apps that back-deploy to **macOS 12 or later**. Choose your deployment target and architectures independently. |
+| Can an Intel executable run on an Apple silicon Mac? | Rosetta is a translation environment, not a way to make Intel hardware satisfy Xcode's host requirement. Test each executable and its dependencies. |
+
+Source for the host and universal-build requirements: [Xcode 27 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes), including “Intel Deprecation.”
+
+With a minimum macOS or DriverKit deployment target of 27 or later, `ARCHS_STANDARD` omits `x86_64`. The notes permit an explicit `ARCHS` setting to include it; do not confuse that build choice with Intel-host eligibility or an OS supported-model list (161837535).
+
+The [macOS 27 notes](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes) say that Rosetta is not automatically restored after an OS upgrade, apps previously set to open with Rosetta launch natively, and installer packages without `hostArchitecture` default to `arm64`. Audit installer scripts, plug-ins, helper executables, and build tools—not just the main app.
+
+Apple also states that Intel-based software will not be compatible with macOS 28, excluding legacy games. That documented future direction is not a claim that every Intel app is already unusable on macOS 27. The precise macOS 27 model list is not verified here; do not derive one solely from an Apple-silicon chip family. Retain universal builds and earlier-platform tests where your supported audience still needs them.
 
 ## Topics
 
 ### Essentials
-- [Porting your macOS apps to Apple silicon](https://developer.apple.com/documentation/apple_silicon/porting_your_macos_apps_to_apple_silicon) - Create a version of your macOS app that runs on both Apple silicon and Intel-based Mac computers.
-- [Building a universal macOS binary](https://developer.apple.com/documentation/apple_silicon/building_a_universal_macos_binary) - Create macOS apps and other executables that run natively on both Apple silicon and Intel-based Mac computers.
+- [Porting your macOS apps to Apple silicon](https://developer.apple.com/documentation/Apple-Silicon/porting-your-macos-apps-to-apple-silicon) - Create a version of your macOS app that runs on both Apple silicon and Intel-based Mac computers.
+- [Building a universal macOS binary](https://developer.apple.com/documentation/Apple-Silicon/building-a-universal-macos-binary) - Create macOS apps and other executables that run natively on both Apple silicon and Intel-based Mac computers.
 
 ### General porting tips
-- [Addressing architectural differences in your macOS code](https://developer.apple.com/documentation/apple_silicon/addressing_architectural_differences_in_your_macos_code) - Fix problems that stem from architectural differences between Apple silicon and Intel-based Mac computers.
-- [Porting your audio code to Apple silicon](https://developer.apple.com/documentation/apple_silicon/porting_your_audio_code_to_apple_silicon) - Eliminate issues in your audio-specific code when running on Apple silicon Mac computers.
-- [Porting just-in-time compilers to Apple silicon](https://developer.apple.com/documentation/apple_silicon/porting_just-in-time_compilers_to_apple_silicon) - Update your just-in-time (JIT) compiler to work with the Hardened Runtime capability, and with Apple silicon.
+- [Addressing architectural differences in your macOS code](https://developer.apple.com/documentation/Apple-Silicon/addressing-architectural-differences-in-your-macos-code) - Fix problems that stem from architectural differences between Apple silicon and Intel-based Mac computers.
+- [Porting your audio code to Apple silicon](https://developer.apple.com/documentation/Apple-Silicon/porting-your-audio-code-to-apple-silicon) - Eliminate issues in your audio-specific code when running on Apple silicon Mac computers.
+- [Porting just-in-time compilers to Apple silicon](https://developer.apple.com/documentation/Apple-Silicon/porting-just-in-time-compilers-to-apple-silicon) - Update your just-in-time (JIT) compiler to work with the Hardened Runtime capability, and with Apple silicon.
 
 ### Graphics
-- [Porting your Metal code to Apple silicon](https://developer.apple.com/documentation/apple_silicon/porting_your_metal_code_to_apple_silicon) - Create a version of your Metal app that runs on both Apple silicon and Intel-based Mac computers.
+- [Porting your Metal code to Apple silicon](https://developer.apple.com/documentation/Apple-Silicon/porting-your-metal-code-to-apple-silicon) - Create a version of your Metal app that runs on both Apple silicon and Intel-based Mac computers.
 
 ### Performance
-- [Tuning your code's performance for Apple silicon](https://developer.apple.com/documentation/apple_silicon/tuning_your_code_s_performance_for_apple_silicon) - Improve your code to get the best performance from both Apple silicon and Intel-based Mac computers.
-- [Apple Silicon CPU Optimization Guide Version 4](https://developer.apple.com/documentation/apple_silicon/apple_silicon_cpu_optimization_guide_version_4) - Identify performance optimization strategies for Apple silicon M-series and A-series chips.
+- [Tuning your code's performance for Apple silicon](https://developer.apple.com/documentation/apple-silicon/tuning-your-code-s-performance-for-apple-silicon) - Improve your code to get the best performance from both Apple silicon and Intel-based Mac computers.
+- [Apple Silicon CPU Optimization Guide](https://developer.apple.com/documentation/apple-silicon/cpu-optimization-guide) - Identify performance optimization strategies for Apple silicon M-series and A-series chips.
 
 ### Rosetta
-- [About the Rosetta translation environment](https://developer.apple.com/documentation/apple_silicon/about_the_rosetta_translation_environment) - Learn how Rosetta translates executables, and understand what Rosetta can't translate.
+- [About the Rosetta translation environment](https://developer.apple.com/documentation/Apple-Silicon/about-the-rosetta-translation-environment) - Learn how Rosetta translates executables, and understand what Rosetta can't translate.
 
 ### iOS apps on Mac
-- [Running your iOS apps in macOS](https://developer.apple.com/documentation/apple_silicon/running_your_ios_apps_in_macos) - Modernize the iOS apps you choose to run on a Mac with Apple silicon, or opt out of running on a Mac altogether.
-- [Adapting iOS code to run in the macOS environment](https://developer.apple.com/documentation/apple_silicon/adapting_ios_code_to_run_in_the_macos_environment) - Support modern iOS features that result in a better user experience when running on Apple silicon.
-- [Providing touch gesture equivalents using Touch Alternatives](https://developer.apple.com/documentation/apple_silicon/providing_touch_gesture_equivalents_using_touch_alternatives) - Enable Touch Alternatives to provide keyboard, mouse, and trackpad equivalents to your iOS app when it runs on a Mac with Apple silicon.
-- [Providing an edge-to-edge, full-screen experience in your iPad app running on a Mac](https://developer.apple.com/documentation/apple_silicon/providing_an_edge-to-edge_full-screen_experience_in_your_ipad_app_running_on_a_mac) - Take advantage of the true native resolution of a Mac display when running your iPad app in full-screen mode on a Mac.
+- [Running your iOS apps in macOS](https://developer.apple.com/documentation/Apple-Silicon/running-your-ios-apps-in-macos) - Modernize the iOS apps you choose to run on a Mac with Apple silicon, or opt out of running on a Mac altogether.
+- [Adapting iOS code to run in the macOS environment](https://developer.apple.com/documentation/Apple-Silicon/adapting-ios-code-to-run-in-the-macos-environment) - Support modern iOS features that result in a better user experience when running on Apple silicon.
+- [Providing touch gesture equivalents using Touch Alternatives](https://developer.apple.com/documentation/Apple-Silicon/providing-touch-gesture-equivalents-using-touch-alternatives) - Enable Touch Alternatives to provide keyboard, mouse, and trackpad equivalents to your iOS app when it runs on a Mac with Apple silicon.
+- [Providing an edge-to-edge, full-screen experience in your iPad app running on a Mac](https://developer.apple.com/documentation/Apple-Silicon/providing-an-edge-to-edge-full-screen-experience-in-your-ipad-app-running-on-a-mac) - Take advantage of the true native resolution of a Mac display when running your iPad app in full-screen mode on a Mac.
 
 ### Kernel and drivers
-- [Implementing drivers, system extensions, and kexts](https://developer.apple.com/documentation/apple_silicon/implementing_drivers_system_extensions_and_kexts) - Create drivers and system extensions to communicate with hardware and provide low-level services, and only use kernel extensions for a few tasks.
-- [Installing a custom kernel extension](https://developer.apple.com/documentation/apple_silicon/installing_a_custom_kernel_extension) - Install kernel extensions using a custom installer package, and help users understand the installation process.
-- [Debugging a custom kernel extension](https://developer.apple.com/documentation/apple_silicon/debugging_a_custom_kernel_extension) - Configure your system to enable the debugging of custom kernel extensions from a second Mac.
+- [Implementing drivers, system extensions, and kexts](https://developer.apple.com/documentation/kernel/implementing_drivers_system_extensions_and_kexts) - Create drivers and system extensions to communicate with hardware and provide low-level services, and only use kernel extensions for a few tasks.
+- [Installing a custom kernel extension](https://developer.apple.com/documentation/Apple-Silicon/installing-a-custom-kernel-extension) - Install kernel extensions using a custom installer package, and help users understand the installation process.
+- [Debugging a custom kernel extension](https://developer.apple.com/documentation/Apple-Silicon/debugging-a-custom-kernel-extension) - Configure your system to enable the debugging of custom kernel extensions from a second Mac.
 
 ### Security
-- [Improving control flow integrity with pointer authentication](https://developer.apple.com/documentation/apple_silicon/improving_control_flow_integrity_with_pointer_authentication) - Increase confidence that your code uses pointers correctly.
+- [Improving control flow integrity with pointer authentication](https://developer.apple.com/documentation/Apple-Silicon/improving-control-flow-integrity-with-pointer-authentication) - Increase confidence that your code uses pointers correctly.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/apple-silicon)*

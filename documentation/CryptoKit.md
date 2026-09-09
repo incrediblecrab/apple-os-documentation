@@ -2,7 +2,7 @@
 
 Perform cryptographic operations securely and efficiently.
 
-**Platforms:** iOS 13.0+ | iPadOS 13.0+ | Mac Catalyst 15.0+ | macOS 10.15+ | tvOS 15.0+ | visionOS 1.0+ | watchOS 8.0+
+**Framework catalog:** iOS 13.0+ | iPadOS 13.0+ | Mac Catalyst 15.0+ | macOS 10.15+ | tvOS 15.0+ | visionOS 1.0+ | watchOS 8.0+. This catalog is not the earliest availability of every symbol: for example, `SHA256` has Catalyst 13.0, tvOS 13.0, and watchOS 6.0 declaration annotations.
 
 ## Overview
 
@@ -19,10 +19,10 @@ Prefer CryptoKit over lower-level interfaces. CryptoKit frees your app from mana
 ## Topics
 
 ### Essentials
-- [Complying with Encryption Export Regulations](https://developer.apple.com/documentation/cryptokit/complying_with_encryption_export_regulations) - Declare the use of encryption in your app to streamline the app submission process.
-- [Performing Common Cryptographic Operations](https://developer.apple.com/documentation/cryptokit/performing_common_cryptographic_operations) - Use CryptoKit to carry out operations like hashing, key generation, and encryption.
-- [Storing CryptoKit Keys in the Keychain](https://developer.apple.com/documentation/cryptokit/storing_cryptokit_keys_in_the_keychain) - Convert between strongly typed cryptographic keys and native keychain types.
-- [Using the quantum-secure APIs](https://developer.apple.com/documentation/cryptokit/using_the_quantum-secure_apis) - Enhance your app's privacy and security by using quantum-secure workflows.
+- [Complying with Encryption Export Regulations](https://developer.apple.com/documentation/security/complying-with-encryption-export-regulations) - Declare the use of encryption in your app to streamline the app submission process.
+- [Performing Common Cryptographic Operations](https://developer.apple.com/documentation/cryptokit/performing-common-cryptographic-operations) - Use CryptoKit to carry out operations like hashing, key generation, and encryption.
+- [Storing CryptoKit Keys in the Keychain](https://developer.apple.com/documentation/cryptokit/storing-cryptokit-keys-in-the-keychain) - Convert between strongly typed cryptographic keys and native keychain types.
+- [Enhancing your app's privacy and security with quantum-secure workflows](https://developer.apple.com/documentation/cryptokit/enhancing-your-app-s-privacy-and-security-with-quantum-secure-workflows) - Compare the documented hybrid encryption, key-encapsulation, and signature workflows.
 
 ### Cryptographically Secure Hashes
 - **HashFunction** - A type that performs cryptographically secure hashing.
@@ -53,7 +53,10 @@ Prefer CryptoKit over lower-level interfaces. CryptoKit frees your app from mana
 
 ### Key Encapsulation Mechanisms (KEM)
 - **KEM** - A key encapsulation mechanism.
-- **MLKEM768** - The Module-Lattice key encapsulation mechanism (KEM).- **MLKEM1024** - The Module-Lattice key encapsulation mechanism (KEM).- **XWingMLKEM768X25519** - The X-Wing (ML-KEM768 with X25519) Key Encapsulation Mechanism, defined in https://datatracker.ietf.org/doc/html/draft-connolly-cfrg-xwing-kem-06
+- **MLKEM768** - A Module-Lattice key encapsulation mechanism.
+- **MLKEM1024** - A Module-Lattice key encapsulation mechanism.
+- [XWingMLKEM768X25519](https://developer.apple.com/documentation/cryptokit/xwingmlkem768x25519) - A hybrid key encapsulation mechanism combining ML-KEM768 and X25519.
+
 ### KEM Keys
 - **KEMPrivateKey** - The private key for a key encapsulation mechanism.
 - **KEMPublicKey** - The public key for a key encapsulation mechanism.
@@ -78,11 +81,11 @@ Prefer CryptoKit over lower-level interfaces. CryptoKit frees your app from mana
 ### Structures
 - **CorecryptoCurveType**
 - **SHA3_256** - An implementation of Secure Hashing Algorithm 3 (SHA-3) hashing with a 256-bit digest.
-- **SHA3_256Digest** - The output of a Secure Hashing Algorithm 3 (SHA-2) hash with a 256-bit digest.
+- **SHA3_256Digest** - The 256-bit output of SHA3-256.
 - **SHA3_384** - An implementation of Secure Hashing Algorithm 3 (SHA-3) hashing with a 384-bit digest.
-- **SHA3_384Digest** - The output of a Secure Hashing Algorithm 3 (SHA-2) hash with a 384-bit digest.
+- **SHA3_384Digest** - The 384-bit output of SHA3-384.
 - **SHA3_512** - An implementation of Secure Hashing Algorithm 3 (SHA-3) hashing with a 512-bit digest.
-- **SHA3_512Digest** - The output of a Secure Hashing Algorithm 3 (SHA-2) hash with a 512-bit digest.
+- **SHA3_512Digest** - The 512-bit output of SHA3-512.
 
 ### Type Aliases
 - **CryptoKitMetaError**
@@ -91,9 +94,17 @@ Prefer CryptoKit over lower-level interfaces. CryptoKit frees your app from mana
 - **SHA2_512** - An implementation of Secure Hashing Algorithm 2 (SHA-2) hashing with a 512-bit digest.
 
 ### Enumerations
-- **MLDSA65** - The MLDSA65 Digital Signature Algorithm- **MLDSA87** - The MLDSA87 Digital Signature Algorithm
----
+- **MLDSA65** - A Module-Lattice digital signature algorithm.
+- **MLDSA87** - A Module-Lattice digital signature algorithm.
 
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
+### Availability and key handling
+
+Check each symbol's minimum version rather than applying this framework's historical minimum to every algorithm. For example, `XWingMLKEM768X25519` and the SHA-3 digest types are 26.0-generation APIs, not new 27-only additions.
+
+Keep private keys and shared secrets out of logs, use the documented serialization and keychain interfaces, and handle key-generation, decoding, and authentication failures. An authentication failure must not be treated as successfully decrypted data.
+
+The keychain sample distinguishes NIST keys that map to `SecKey` from key types stored as generic-password data. A Secure Enclave key's exported representation is a device-bound encrypted block, not an export of its raw private key.
+
+---
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/CryptoKit)*

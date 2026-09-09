@@ -28,8 +28,9 @@ For related documentation, see [Mac Technology Overview](https://developer.apple
 - **kDADiskOptionPrivate**
 
 ### Variables
-- `let kDADiskDescriptionFSKitPrefix: CFString`
-- `let kDADiskDescriptionRepairRunningKey: CFString`- `var kDADiskMountOptionNoFollow: Int`
+- `let kDADiskDescriptionFSKitPrefix: CFString` — macOS 14.4+ / Mac Catalyst 17.4+.
+- `let kDADiskDescriptionRepairRunningKey: CFString` — macOS / Mac Catalyst 26.0+.
+- `var kDADiskMountOptionNoFollow: Int`
 - `var kDAReturnBadArgument: Int`
 - `var kDAReturnBusy: Int`
 - `var kDAReturnError: Int`
@@ -45,7 +46,5 @@ For related documentation, see [Mac Technology Overview](https://developer.apple
 - `var kDAReturnUnsupported: Int`
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/DiskArbitration)*

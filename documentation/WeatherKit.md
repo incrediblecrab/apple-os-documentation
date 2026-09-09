@@ -8,10 +8,11 @@ Deliver weather conditions and alerts to your users.
 
 **WeatherKit** provides timely weather information including current conditions, minute precipitation, along with hourly, and daily forecasts. It also provides severe weather alerts.
 
+[`WeatherAvailability`](https://developer.apple.com/documentation/weatherkit/weatheravailability) distinguishes unsupported or temporarily unavailable minute forecasts and weather alerts. These datasets are not guaranteed for every location; handle missing data instead of presenting it as a clear-weather or no-alert result.
+
 ## Topics
 
 ### Fundamentals
-- [Fetching weather forecasts with WeatherKit](https://developer.apple.com/documentation/weatherkit/fetching-weather-forecasts-with-weatherkit) - Request and display weather data for destination airports in a flight-planning app.
 - **Weather** - A model representing the aggregate weather data the caller requests.
 - **WeatherService** - Provides an interface for obtaining weather data.
 
@@ -38,7 +39,7 @@ Deliver weather conditions and alerts to your users.
 - **DayWeather** - A structure that represents the weather conditions for the day.
 
 ### Celestial information
-- **SunEvents** - An enumeration that represents dates of solar events, including sunrise, sunset, dawn, and dusk.
+- [`SunEvents`](https://developer.apple.com/documentation/weatherkit/sunevents) - A structure representing solar-event dates, including sunrise, sunset, dawn, and dusk.
 - **MoonEvents** - A structure that represents lunar events.
 - **MoonPhase** - An enumeration that specifies the moon phase kind.
 
@@ -77,7 +78,5 @@ Deliver weather conditions and alerts to your users.
 - **HistoricalComparison** - An enum that represents a recognized comparison in the statistical analysis of a location's historical weather data.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/WeatherKit)*

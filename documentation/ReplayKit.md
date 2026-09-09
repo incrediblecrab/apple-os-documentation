@@ -8,10 +8,16 @@ Record or stream video from the screen, and audio from the app and microphone.
 
 Using the **ReplayKit** framework, users can record video from the screen, and audio from the app and microphone. They can then share their recordings with other users through email, messages, and social media. You can build app extensions for live broadcasting your content to sharing services. ReplayKit is incompatible with **AVPlayer** content.
 
+## Screen-streaming migration
+
+The current [ScreenCaptureKit overview](https://developer.apple.com/documentation/screencapturekit) directs screen streaming and mirroring to ScreenCaptureKit and says that its workflow no longer needs a broadcast extension. The OS 27 SDK extends that framework to iOS, iPadOS, tvOS, and visionOS, while preserving earlier Mac availability.
+
+Use [ScreenCaptureKit](ScreenCaptureKit.md) for new supported capture paths, with its system content picker and capture authorization. Retain ReplayKit where older deployment targets or existing recording/broadcast integrations require it. This guidance is not a claim that the entire ReplayKit framework was removed in OS 27, nor does it make `AVPlayer` content recordable through ReplayKit.
+
 ## Topics
 
 ### Replay Sharing
-- [Recording and Streaming Your macOS App](https://developer.apple.com/documentation/replaykit/recording_and_streaming_your_macos_app) - Share screen recordings, or broadcast live audio and video of your app, by adding ReplayKit to your macOS apps and games.
+- [Recording and Streaming Your macOS App](https://developer.apple.com/documentation/replaykit/recording-and-streaming-your-macos-app) - Share screen recordings, or broadcast live audio and video of your app, by adding ReplayKit to your macOS apps and games.
 - **RPScreenRecorder** - The shared recorder object that provides the ability to record audio and video of your app.
 - **RPPreviewViewController** - An object that displays a user interface where users preview and edit a screen recording that you create with ReplayKit.
 
@@ -20,9 +26,6 @@ Using the **ReplayKit** framework, users can record video from the screen, and a
 - **RPBroadcastHandler** - An object that sends messages to the broadcasting app.
 - **RPBroadcastSampleHandler** - An object that processes buffer objects as received from ReplayKit.
 - **RPBroadcastMP4ClipHandler** - An object that processes MP4 movie clips from ReplayKit.
-
-### Deprecated
-Live Broadcast Implementation
 
 ### Live Broadcast Implementation
 - **RPBroadcastActivityViewController** - A view controller that displays a user interface where users choose a broadcast service.
@@ -39,7 +42,5 @@ Live Broadcast Implementation
 - **ReplayKit Constants** - ReplayKit constants affecting multiple classes.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/ReplayKit)*

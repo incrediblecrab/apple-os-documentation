@@ -10,13 +10,13 @@ On all Apple platforms, the system-provided Settings app lets people adjust thin
 
 When necessary, you can provide a custom settings area within your app or game to offer general settings that affect your overall experience, like interface style or game-saving behavior. If you need to offer settings that affect only a specific task, you can provide these options within the task itself, so people don't have to leave the experience to customize it.
 
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** A continuous **transparency slider** at Settings > Appearance (System Settings > Appearance on macOS) replaces the OS 26 Clear/Tinted toggle. Translucency is now a spectrum people control, not two presets — your settings screens and every other surface must remain legible across the full range, and under Reduce Transparency and Increase Contrast.
+Respect the system appearance and [accessibility preferences](../foundations/accessibility.md) available on the device. Test settings screens with larger text, reduced transparency, reduced motion, and increased contrast where supported; do not assume a single fixed material appearance.
 
 ## Topics
 
 ### Best Practices
 
-- **Provide optimal default settings** - Aim to provide default settings that give the best experience to the largest number of people. For example, you can automatically maximize performance for the device your game is running on instead of asking players to make this choice after your game launches (for developer guidance, see [Improving your game's graphics performance and settings](https://developer.apple.com/documentation/metal/improving_your_game_s_graphics_performance_and_settings)). When you choose appropriate default settings, people may not have to make any adjustments before they can start enjoying your app or game.
+- **Choose useful defaults** - Let people begin a task without unnecessary configuration. For games, adapt the initial graphics settings to the device instead of making people diagnose performance at first launch; see [Improving your game's graphics performance and settings](https://developer.apple.com/documentation/metal/improving-your-games-graphics-performance-and-settings).
 
 - **Minimize the number of settings** - Although people appreciate having control over an app or game, too many settings can make the experience feel less approachable, while also making it hard to find a particular setting.
 
@@ -77,7 +77,5 @@ In watchOS, apps and games don't add custom settings to the system-provided Sett
 - Reorganized some guidance into new topics and added game-specific examples
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/settings)*

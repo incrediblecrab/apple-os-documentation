@@ -4,7 +4,7 @@ Create 3D games and add 3D content to apps using high-level scene descriptions, 
 
 **Platforms:** iOS 8.0+ | iPadOS 8.0+ | Mac Catalyst 13.1+ | macOS 10.8+ | tvOS 9.0+ | visionOS 1.0+ | watchOS 3.0+
 
-**Status:** Deprecated - Use RealityKit instead. For more information, see WWDC25 session 288: Bring your SceneKit projects to RealityKit.
+**Status:** Deprecated in the OS 26 SDKs, before OS 27. Use RealityKit for new 3D work. See [Bring your SceneKit projects to RealityKit](https://developer.apple.com/videos/play/wwdc2025/288/), WWDC25 session 288.
 
 ## Overview
 
@@ -12,9 +12,18 @@ SceneKit combines a high-performance rendering engine with a descriptive API for
 
 > **Note:** In visionOS, you can display SceneKit content only in 2D views and textures. For information about how to create immersive 3D content, see Creating fully immersive experiences in your app.
 
-> **Deprecated.** Apple has directed new 3D work to [RealityKit](RealityKit.md). SceneKit continues to function for existing projects, but treat it as maintenance-only for new development.
+## Migration planning
 
-> **Note:** Report the deprecation status against Apple's current SceneKit documentation before relying on a specific removal timeline; no removal date has been published.
+Apple's WWDC25 guidance describes a soft deprecation: existing apps continue to work, with maintenance focused on critical bugs. It does not require an immediate rewrite and does not announce a removal date. The OS 27 documentation refresh is not the start of this deprecation.
+
+For a new app or substantial update:
+
+1. Map node properties and application behavior to RealityKit's entity-component-system architecture. Do not assume that changing view classes automatically migrates animations, physics, or custom shaders.
+2. Prefer exporting USD from original content-creation files. When only `.scn` assets remain, Apple's session demonstrates Xcode export and the Xcode 26 `scntool`, including combining separate animation files during conversion.
+3. Rebuild and inspect materials, lighting, audio, particles, and animation in Reality Composer Pro and [RealityKit](RealityKit.md). Verify the converted assets in the target renderer; a successful export is not a visual-equivalence test.
+4. Use [USD](USD.md) validation guidance for imported features. [USDKit](USDKit.md) adds OS 27 authoring and composition, but is not a requirement for every RealityKit migration or an automatic SceneKit converter.
+
+Retain the reference below for existing SceneKit code, including its visionOS restriction to 2D views and textures.
 
 ## Topics
 
@@ -24,7 +33,7 @@ SceneKit combines a high-performance rendering engine with a descriptive API for
 - **SceneView** - A SwiftUI view for displaying 3D SceneKit content.
 
 ### Scene Structure
-- [Organizing a Scene with Nodes](https://developer.apple.com/documentation/scenekit/organizing_a_scene_with_nodes) - Use nodes to define the structure of a scene.
+- [Organizing a Scene with Nodes](https://developer.apple.com/documentation/scenekit/organizing-a-scene-with-nodes) - Use nodes to define the structure of a scene.
 - **SCNNode** - A structural element of a scene graph, representing a position and transform in a 3D coordinate space, to which you can attach geometry, lights, cameras, or other displayable content.
 - **SCNReferenceNode** - A scene graph node that serves as a placeholder for content to be loaded from a separate scene file.
 
@@ -71,7 +80,7 @@ SceneKit combines a high-performance rendering engine with a descriptive API for
 - **SCNTechnique** - A specification for augmenting or postprocessing SceneKit's rendering of a scene using additional drawing passes with custom Metal or OpenGL shaders.
 - **SCNTechniqueSupport** - The common interface for SceneKit objects that support multipass rendering using SCNTechnique objects.
 - **SCNNodeRendererDelegate** - Methods you can implement to use your own custom Metal or OpenGL drawing code to render content for a node.
-- [Postprocessing a Scene With Custom Symbols](https://developer.apple.com/documentation/scenekit/postprocessing_a_scene_with_custom_symbols) - Create visual effects in a scene by defining a rendering technique with custom symbols.
+- [Postprocessing a Scene With Custom Symbols](https://developer.apple.com/documentation/scenekit/postprocessing-a-scene-with-custom-symbols) - Create visual effects in a scene by defining a rendering technique with custom symbols.
 
 ### Scene Asset Import
 - **SCNSceneSource** - An object that manages the data-reading tasks associated with loading scene contents from a file or data.
@@ -87,7 +96,5 @@ SceneKit combines a high-performance rendering engine with a descriptive API for
 - **SceneKit Constants** - Constants used throughout the SceneKit framework.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/SceneKit)*

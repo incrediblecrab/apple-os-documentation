@@ -12,8 +12,6 @@ For example, an alert can tell people about a problem, warn them when their acti
 
 ### Best practices
 
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Liquid Glass now diffuses busy background content more aggressively, adds a subtle darkened edge ring, and renders brighter specular highlights, improving legibility without extra visual noise. People can tune overall translucency with the transparency slider in Settings > Appearance, and the material also responds to Reduce Transparency and Increase Contrast.
-
 - **Use alerts sparingly** - Alerts give people important information, but they interrupt the current task to do so. Encourage people to pay attention to your alerts by making certain that each one offers only essential information and useful actions.
 
 - **Avoid using an alert merely to provide information** - People don't appreciate an interruption from an alert that's informative, but not actionable. If you need to provide only information, prefer finding an alternative way to communicate it within the relevant context. For example, when a server connection is unavailable, Mail displays an indicator that people can choose to learn more.
@@ -28,7 +26,7 @@ An alert is a modal view that can look different in different platforms and devi
 
 ### Content
 
-In all platforms, alerts display a title, optional informative text, and up to three buttons. On some platforms, alerts can include additional elements:
+The HIG describes an alert around a title, optional informative text, and up to three buttons. Treat this as presentation guidance, not a claim about every alert API's maximum capacity. Additional elements vary by platform:
 - In iOS, iPadOS, macOS, and visionOS, an alert can include a text field.
 - Alerts in macOS and visionOS can include an icon and an accessory view.
 - macOS alerts can add a suppression checkbox and a Help button.
@@ -45,7 +43,7 @@ In all alert copy, be direct, and use a neutral, approachable tone. Alerts often
 
 ### Buttons
 
-- **Create succinct, logical button titles** - Aim for a one- or two-word title that describes the result of selecting the button. Prefer verbs and verb phrases that relate directly to the alert text — for example, "View All," "Reply," or "Ignore." In informational alerts only, you can use "OK" for acceptance, avoiding "Yes" and "No." Always use "Cancel" to title a button that cancels the alert's action. As with all button titles, use title-style capitalization and no ending punctuation.
+- **Create succinct, logical button titles** - Aim for a one- or two-word title that describes the result, such as "View all," "Reply," or "Ignore." Avoid vague Yes/No labels. Use "OK" only for a purely informational acknowledgment, and "Cancel" for canceling the alert's action. The current HIG calls for sentence-style capitalization and no ending punctuation in button titles.
 
 - **Avoid using OK as the default button title** - Unless the alert is purely informational. The meaning of "OK" can be unclear even in alerts that ask people to confirm that they want to do something. For example, does "OK" mean "OK, I want to complete the action" or "OK, I now understand the negative results my action would have caused"? A specific button title like "Erase," "Convert," "Clear," or "Delete" helps people understand the action they're taking.
 
@@ -53,7 +51,7 @@ In all alert copy, be direct, and use a neutral, approachable tone. Alerts often
 
 - **Use the destructive style appropriately** - Use it to identify a button that performs a destructive action people didn't deliberately choose. For example, when people deliberately choose a destructive action — such as Empty Trash — the resulting alert doesn't apply the destructive style to the Empty Trash button because the button performs the person's original intent.
 
-- **Include a Cancel button for destructive actions** - If there's a destructive action, include a Cancel button to give people a clear, safe way to avoid the action. Always use the title "Cancel" for a button that cancels an alert's action. Note that you don't want to make a Cancel button the default button.
+- **Include a Cancel button for destructive actions** - Give people an explicit, safe way to avoid the action, and don't make Cancel the default. If the situation warrants deliberate reading, omit a default button rather than encouraging an automatic Return-key response. For a single default button that simply dismisses an alert, use Done instead of Cancel.
 
 - **Provide alternative ways to cancel** - In addition to choosing a Cancel button, people appreciate using keyboard shortcuts or other quick ways to cancel an onscreen alert:
   - Exit to the Home Screen (iOS, iPadOS)
@@ -69,9 +67,9 @@ In all alert copy, be direct, and use a neutral, approachable tone. Alerts often
 **macOS**  
 macOS automatically displays your app icon in an alert, but you can supply an alternative icon or symbol. In addition, macOS lets you:
 - Configure repeating alerts to let people suppress subsequent occurrences of the same alert
-- Append a custom view if it's necessary to provide additional information (for developer guidance, see accessoryView)
+- Append a custom view if it's necessary to provide additional information (see [accessoryView](https://developer.apple.com/documentation/appkit/nsalert/accessoryview))
 - Include a Help button that opens your help documentation
-- Use a caution symbol sparingly. Using a caution symbol like exclamationmark.triangle too frequently in your alerts diminishes its significance. Use the symbol only when extra attention is really needed, as when confirming an action that might result in unexpected loss of data.
+- Use a caution symbol sparingly. Reserve a symbol like `exclamationmark.triangle` for situations that need extra attention, such as unexpected data loss, not merely because someone deliberately chose to save over or remove data.
 
 **visionOS**  
 - When your app is running in the Shared Space, visionOS displays an alert in front of the app's window, slightly forward along the z-axis.
@@ -89,11 +87,13 @@ No additional considerations for tvOS or watchOS.
 
 ### Developer documentation
 
-- [alert(_:isPresented:actions:)](https://developer.apple.com/documentation/swiftui/view/alert(_:ispresented:actions:)) — SwiftUI
+- [alert(_:isPresented:actions:)](https://developer.apple.com/documentation/swiftui/view/alert(_:ispresented:actions:)-1bkka) — SwiftUI
 - [UIAlertController](https://developer.apple.com/documentation/uikit/uialertcontroller) — UIKit
 - [NSAlert](https://developer.apple.com/documentation/appkit/nsalert) — AppKit
 
 ## Changelog
+
+These dates describe changes to Apple's HIG article, not edits to this repository.
 
 ### February 2, 2024
 - Enhanced guidance for using default and Cancel buttons.
@@ -105,7 +105,5 @@ No additional considerations for tvOS or watchOS.
 - Updated to include guidance for visionOS.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/alerts)*

@@ -1,40 +1,41 @@
 # AdServices
 
-Attribute app-download campaigns that originate from the App Store, Apple News, or Stocks on iOS devices.
+Attribute Apple Ads app-download campaigns on the App Store.
 
 **Platforms:** iOS 14.3+ | iPadOS 14.3+ | Mac Catalyst 14.3+ | macOS 11.1+ | visionOS 1.0+
 
 ## Overview
 
-The Apple Ads Attribution API is a solution that combines the AdServices framework on client devices and a RESTful API for server-side communication with Apple's attribution server. The API retrieves attribution data from app downloads and redownloads from Apple Search Ads campaigns. Measure attribution data using specific Apple Search Ads campaign metadata against the performance of Apple Search Ads campaigns. See Attribution payload for attribution responses.
+Apple Ads attribution combines a client-generated token with Apple's server-side attribution API. Its records describe Apple Ads campaigns and app conversions; this is separate from creating or managing campaigns.
 
-Some developers use a server-side integration with Mobile Measurement Providers (MMPs) for enhanced reporting. Developers also have the option to hand off attribution data to an MMP or to manage their attribution data themselves. The following diagram illustrates using the AdServices framework in combination with a RESTful endpoint to retrieve attribution data:
+### Token and attribution flow
 
-A diagram showing the sequence of interaction between the AdServices framework and RESTful API.
+1. Call [`AAAttribution.attributionToken()`](https://developer.apple.com/documentation/adservices/aaattribution/attributiontoken()), which can throw.
+2. Send the returned token yourself or through a mobile measurement provider to Apple's documented attribution endpoint.
+3. Inspect the response rather than treating an HTTP success as a matched ad conversion.
+4. Correlate returned campaign identifiers with the appropriate [Apple Ads Platform API](AppleAdsPlatformAPI.md) reports.
 
-In step 1, the AdServices framework makes a call to request a token.
+The [token reference](https://developer.apple.com/documentation/adservices/aaattribution/attributiontoken()) specifies `POST https://api-adservices.apple.com/api/v1/`, a single token as the body, and `Content-Type: text/plain`. Tokens expire after **24 hours**. This token is not a campaign-management OAuth token.
 
-In step 2, the AdServices framework generates a token. For more detail, see attributionToken().
+### Failure handling
 
-In step 3, an MMP or developer uses the token in a RESTful API request to retrieve an attribution record from Apple's attribution server. For more detail, see Attribution payload.
+HTTP `200` can contain `attribution=false`; it does not establish that a paid conversion matched. `400` indicates an invalid token. `404` can occur for an expired token or shortly after issuing a valid one; for a valid token, Apple's guidance is **5-second retry intervals, at most three attempts**. A `500` indicates a temporary service problem.
 
-In step 4, the attribution record that returns has key-value pairs that correspond to your campaigns in the Apple Search Ads Campaign Management API. For more detail, see Attribution payload descriptions.
+Developer Mode produces test payloads. Keep those separate from production measurements, and do not infer a campaign match from a token, missing record, or failed request.
 
 ## Topics
 
 ### Essentials
-- **Changelog** - A log of Ad Services framework updates.
+- [Changelog](https://developer.apple.com/documentation/adservices/changelog) - AdServices framework updates.
 
 ### Tokens
-- **AAAttribution** - The parent class that the framework uses to request a token.
+- [`AAAttribution`](https://developer.apple.com/documentation/adservices/aaattribution) - The class used to request a token.
 
 ### Errors
-- **AAAttributionError** - The error code that the parent class issues.
-- **AAAttributionErrorDomain: String** - The framework attribution error domain.
-- **Code** - The error code that the parent class issues.
+- [`AAAttributionError`](https://developer.apple.com/documentation/adservices/aaattributionerror) - Token-generation errors.
+- [`AAAttributionErrorDomain`](https://developer.apple.com/documentation/adservices/aaattributionerrordomain) - The attribution error domain.
+- [`Code`](https://developer.apple.com/documentation/adservices/aaattributionerror/code) - Attribution error codes.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/AdServices)*

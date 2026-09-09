@@ -10,6 +10,8 @@ VisionKit analyzes pixel information and isolates important data such as text of
 
 **DataScannerViewController** presents a camera pass-through view that enables the user to interact with any of the recognized content types (DataScannerViewController.RecognizedDataType) as seen in the environment, and provides captured information to the app for processing.
 
+Before presenting the scanner, check `DataScannerViewController.isSupported` and `isAvailable`. Camera use needs `NSCameraUsageDescription` and the person's permission; handle the delegate's unavailable error and offer a non-camera path when scanning cannot run. See [Scanning data with the camera](https://developer.apple.com/documentation/visionkit/scanning-data-with-the-camera.md).
+
 The Image Analysis interface (**ImageAnalysisInteraction** on iOS, and **ImageAnalysisOverlayView** on macOS) displays on top of an image and enables people to interact with content types (ImageAnalysisInteraction.InteractionTypes) that the framework recognizes in the image. For example, the Live Text interface enables them to select any text present in the image (textSelection), or invoke a URL (dataDetectors). Also, the text selection UI offers framework-standard buttons for copying selected text, or looking up the subject on the web for more information.
 
 VisionKit's Document Camera view controller (**VNDocumentCameraViewController**) is a camera pass-through experience that enables users to scan physical documents. The user scans the document page by page by tapping a camera interface in the view, which provides your app with the resulting images by page number after the scan completes. With the collection of scanned images, your app can create a digital version of the physical document, such as by exporting the scanned images to PDF.
@@ -23,7 +25,7 @@ In iOS 17 and macOS 14 and later, VisionKit identifies subjects within an image 
 ## Topics
 
 ### Content recognition and interaction in images
-- [Enabling Live Text interactions with images](https://developer.apple.com/documentation/visionkit/enabling_live_text_interactions_with_images) - Add a Live Text interface that enables users to perform actions with text and QR codes that appear in images.
+- [Enabling Live Text interactions with images](https://developer.apple.com/documentation/visionkit/enabling-live-text-interactions-with-images.md) - Add a Live Text interface that enables users to perform actions with text and QR codes that appear in images.
 - **ImageAnalyzer** - An object that finds items in images that people can interact with, such as subjects, text, and QR codes.
 - **ImageAnalysis** - An object that represents the results of analyzing an image, and provides the input for the Live Text interface object.
 - **ImageAnalysisInteraction** - An interface that enables people to interact with recognized text, barcodes, and other objects in an image.
@@ -32,21 +34,20 @@ In iOS 17 and macOS 14 and later, VisionKit identifies subjects within an image 
 - **ImageAnalysisOverlayViewDelegate** - A delegate that handles image-analysis and user-interaction callbacks for an overlay view.
 
 ### Barcode and text scanning through the camera
-- [Scanning data with the camera](https://developer.apple.com/documentation/visionkit/scanning_data_with_the_camera) - Enable Live Text data scanning of text and codes that appear in the camera's viewfinder.
+- [Scanning data with the camera](https://developer.apple.com/documentation/visionkit/scanning-data-with-the-camera.md) - Enable Live Text data scanning of text and codes that appear in the camera's viewfinder.
 - **DataScannerViewController** - An object that scans the camera live video for text, data in text, and machine-readable codes.
 - **DataScannerViewControllerDelegate** - A delegate object that responds when people interact with items that the data scanner recognizes.
 - **RecognizedItem** - An item that the data scanner recognizes in the camera's live video.
 
 ### Document scanning through the camera
-- [Structuring Recognized Text on a Document](https://developer.apple.com/documentation/visionkit/structuring_recognized_text_on_a_document) - Detect, recognize, and structure text on a business card or receipt using Vision and VisionKit.
+- [Structuring recognized text on a document](https://developer.apple.com/documentation/visionkit/structuring-recognized-text-on-a-document.md) - Detect, recognize, and structure text on a business card or receipt using Vision and VisionKit.
 - **VNDocumentCameraViewController** - An object that presents UI for a camera pass-through that helps people scan physical documents.
 - **VNDocumentCameraViewControllerDelegate** - A delegate protocol through which the document camera returns its scanned results.
 - **VNDocumentCameraScan** - A single document scanned in the document camera.
 
 ### Structures
-- **CameraRegionView** - CameraRegionView displays a view of a stabilized region of interest within a user's view, and then provide Passthrough camera feed for the selected region. It also allows additional post-processing of the passthrough camera frames. Example of such region of interest could be documents, a user manual, gauges or displays.
----
+- [CameraRegionView](https://developer.apple.com/documentation/visionkit/cameraregionview.md) - A visionOS 26.0+ view of a stabilized camera region, with optional frame post-processing. Requires enterprise API access and the `com.apple.developer.arkit.camera-region.allow` entitlement; this is not a general iOS camera API.
 
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
+---
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/VisionKit)*

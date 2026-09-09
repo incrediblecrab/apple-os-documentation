@@ -8,15 +8,17 @@ Make responsive apps that update the presentation when underlying data changes.
 
 Observation provides a robust, type-safe, and performant implementation of the observer design pattern in Swift. This pattern allows an observable object to maintain a list of observers and notify them of specific or general state changes. This has the advantages of not directly coupling objects together and allowing implicit distribution of updates across potential multiple observers.
 
-The Observation frameworks provides the following capabilities:
+The Observation framework provides the following capabilities:
 
 - Marking a type as observable
 - Tracking changes within an instance of an observable type
 - Observing and utilizing those changes elsewhere, such as in an app's user interface
 
-To declare a type as observable, attach the Observable() macro to the type declaration. This macro declares and implements conformance to the Observable protocol to the type at compile time.
+Attach `@Observable` to a model class to synthesize observation support and `Observable` conformance:
 
 ```swift
+import Observation
+
 @Observable
 class Car {
     var name: String = ""
@@ -29,10 +31,11 @@ class Car {
 }
 ```
 
-To track changes, use the withObservationTracking(_:onChange:) function. For example, in the following code, the function calls the onChange closure when a car's name changes. However, it doesn't call the closure when a car's needsRepair flag changes. That's because the function only tracks properties read in its apply closure, and the closure doesn't read the needsRepair property.
+`withObservationTracking(_:onChange:)` tracks the properties read by its `apply` closure. Here, changing `name` invalidates the registration; changing `needsRepairs` does not. The callback is one-shot: [SE-0395](https://github.com/swiftlang/swift-evolution/blob/main/proposals/0395-observability.md) specifies the first change to a tracked property. Schedule a new render/registration to continue observing.
 
 ```swift
-func render() {
+@MainActor
+func render(cars: [Car]) {
     withObservationTracking {
         for car in cars {
             print(car.name)
@@ -45,6 +48,12 @@ func render() {
 
 ## Topics
 
+### Concurrency and framework integration
+- [`Observations`](https://developer.apple.com/documentation/observation/observations) is an asynchronous sequence of transactional changes on iOS/iPadOS/Mac Catalyst/macOS/tvOS/visionOS/watchOS 26+. Its element must be `Sendable`; the sequence does not make the observed model automatically thread-safe.
+- The original [`withObservationTracking(_:onChange:)`](https://developer.apple.com/documentation/observation/withobservationtracking(_:onchange:)) API remains available at this framework's earlier minimums and tracks the properties actually read by its closure.
+- Xcode 27 changes SwiftUI's `@State` implementation and initialization rules, with behavior back-deployed to the iOS 17-aligned systems. See [SwiftUI state initialization](SwiftUI.md#state-initialization-in-xcode-27); do not describe this as a new OS 27 minimum for `@Observable`.
+- [AppKit](AppKit.md#controls-input-and-observation) and [UIKit](UIKit.md#text-and-framework-integration) integrate automatic tracking into supported view/layout update paths. Use their documented hooks rather than assuming every arbitrary closure is tracked.
+
 ### Observable conformance
 - **Observable()** - Defines and implements conformance of the Observable protocol.
 - **Observable** - A type that emits notifications to observers when underlying data changes.
@@ -54,17 +63,15 @@ func render() {
 - **ObservationRegistrar** - Provides storage for tracking and access to data changes.
 
 ### Observation in SwiftUI
-- [Managing model data in your app](https://developer.apple.com/documentation/observation/managing_model_data_in_your_app) - Create connections between your app's data model and views.
-- [Migrating from the Observable Object protocol to the Observable macro](https://developer.apple.com/documentation/observation/migrating_from_the_observable_object_protocol_to_the_observable_macro) - Update your existing app to leverage the benefits of Observation in Swift.
+- [Managing model data in your app](https://developer.apple.com/documentation/swiftui/managing-model-data-in-your-app) - Create connections between your app's data model and views.
+- [Migrating from the Observable Object protocol to the Observable macro](https://developer.apple.com/documentation/swiftui/migrating-from-the-observable-object-protocol-to-the-observable-macro) - Update your existing app to leverage the benefits of Observation in Swift.
 
 ### Structures
-- **Observations** - An asychronous sequence generated from a closure that tracks the transactional changes of @Observable types.
+- **Observations** - An asynchronous sequence generated from a closure that tracks the transactional changes of @Observable types.
 ### Macros
 - **ObservationIgnored()** - Disables observation tracking of a property.
-- **ObservationTracked()** - Synthesizes a property for accessors.
+- **ObservationTracked()** - Synthesizes property accessors as part of the framework's implementation; ordinary clients normally use `@Observable` rather than applying this macro directly.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/Observation)*

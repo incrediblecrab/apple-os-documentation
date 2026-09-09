@@ -2,13 +2,15 @@
 
 An extension other apps use to access files and folders managed by your app and synced with a remote storage.
 
-**Platforms:** iOS 11.0+ | iPadOS 11.0+ | Mac Catalyst 11.0+ | macOS 10.15+ | visionOS 1.0+
+**Platforms (extension models):** iOS/iPadOS 8.0+ for the legacy nonreplicated class; iOS/iPadOS 16.0+ and macOS 11.0+ for replicated extensions; visionOS 1.0+.
+
+The current framework overview dates its nonreplicated workflow to iOS 11, while the [`NSFileProviderExtension`](https://developer.apple.com/documentation/fileprovider/nsfileproviderextension) declaration begins at iOS 8. These are not interchangeable availability claims: later item-management APIs have their own minimums. The two principal extension declarations do not list Mac Catalyst support.
 
 ## Overview
 
 If your app focuses on providing and syncing user documents from remote storage, you can implement a File Provider extension to give users access to those documents when they're using other apps. If you just need to share local documents, see Share files locally below.
 
-A diagram that depicts the interaction between an app and your server facilitated by a File Provider extension. The app communicates with the document browser, which requests data to the File Provider extension. The File Provider extension syncs updates with the remote server.
+The document browser requests content through the File Provider extension, which synchronizes with your remote storage.
 
 The framework has two different starting points for building your File Provider extension.
 
@@ -16,9 +18,9 @@ The framework has two different starting points for building your File Provider 
 The system manages the content accessed through the File Provider extension. Available in macOS 11+ and iOS 16+.
 
 **NSFileProviderExtension**  
-The extension hosts and manages the files accessed through the File Provider extension. Available in iOS 11+.
+The extension hosts and manages its files. The principal class begins at iOS 8; the current item-based workflow described by the framework overview requires iOS 11+.
 
-The replicated extension takes responsibility for monitoring and managing the local copies of your documents. The file provider focuses on syncing data between the local copy and the remote storage—uploading any local changes and downloading any remote changes. For more information, see Replicated File Provider extension.
+In the replicated model, the system manages the on-disk replicas. Your extension supplies remote content and applies changes to remote storage. For more information, see Replicated File Provider extension.
 
 The nonreplicated extension manages a local copy of the extension's content, including creating and managing placeholders for remote files. It also syncs the content with your remote storage. For more information, see Nonreplicated File Provider extension.
 
@@ -33,11 +35,11 @@ After you set these keys, other apps can open and edit the contents of your Docu
 ## Topics
 
 ### Essentials
-- [File Provider updates](https://developer.apple.com/documentation/fileprovider/fileprovider_updates) - Learn about important changes to File Provider.
+- [File Provider updates](https://developer.apple.com/documentation/updates/fileprovider) - Learn about important changes to File Provider.
 
 ### Extension types
-- [Replicated File Provider extension](https://developer.apple.com/documentation/fileprovider/replicated_file_provider_extension) - Build a File Provider extension that syncs the local copies of your files with your remote storage.
-- [Nonreplicated File Provider extension](https://developer.apple.com/documentation/fileprovider/nonreplicated_file_provider_extension) - Build a File Provider extension that hosts and manages the user's local files.
+- [Replicated File Provider extension](https://developer.apple.com/documentation/fileprovider/replicated-file-provider-extension) - Build a File Provider extension that syncs the local copies of your files with your remote storage.
+- [Nonreplicated File Provider extension](https://developer.apple.com/documentation/fileprovider/nonreplicated-file-provider-extension) - Build a File Provider extension that hosts and manages the user's local files.
 
 ### Extension management
 - **class NSFileProviderManager** - A manager object that you use to communicate with the file provider from either your app or your File Provider extension.
@@ -64,17 +66,15 @@ After you set these keys, other apps can open and edit the contents of your Docu
 - **let NSFileProviderErrorCollidingItemKey: String** - The key for accessing the existing item from a filename collision error's user info dictionary.
 
 ### Data export
-- [Exporting file provider metrics data](https://developer.apple.com/documentation/fileprovider/exporting_file_provider_metrics_data) - Download and analyze usage, consistency, and error data.
+- [Exporting file provider metrics data](https://developer.apple.com/documentation/fileprovider/exporting-file-provider-metrics-data) - Download and analyze usage, consistency, and error data.
 
 ### Global variables and macros
 - **Global variables and macros**
 
 ### Structures
-- **struct NSFileProviderUserInfoKey**
-- **struct NSFileProviderVolumeUnsupportedReason** - Constants that describe why an external volume might not be eligible for storing a domain.
+- [`NSFileProviderUserInfoKey`](https://developer.apple.com/documentation/fileprovider/nsfileprovideruserinfokey) - A structure available on supported platforms from version 26.
+- [`NSFileProviderVolumeUnsupportedReason`](https://developer.apple.com/documentation/fileprovider/nsfileprovidervolumeunsupportedreason) - macOS 15+ constants explaining why an external volume is ineligible for a domain.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/FileProvider)*

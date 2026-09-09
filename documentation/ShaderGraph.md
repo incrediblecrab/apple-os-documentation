@@ -18,6 +18,14 @@ Shader Graph uses MaterialX 1.38 conventions to improve interoperability with co
 
 Shader Graph also includes several nodes that are unique to RealityKit. Some of these nodes are available as standard MaterialX definitions that you can use within your content creation workflow. To download these definitions, see MaterialX definitions.
 
+### OS 27 rendering checks
+
+The [iOS and iPadOS](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes#RealityKit), [macOS](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes#RealityKit), and [visionOS](https://developer.apple.com/documentation/visionos-release-notes/visionos-27-release-notes#RealityKit) Beta 8 notes checked September 8, 2026 mark support failures for some MaterialX 1.39 nodes as **resolved** (172875414). This is not a claim that every MaterialX node or import path works identically across renderers.
+
+The visionOS notes also mark overly dark opaque ShaderGraph materials under dynamic lights (177974279) and loading failures for `ND_realitykit_pbr_surfaceshader_2_0` in Quick Look or USDKit (181616779) as resolved. Use those assets as regression cases rather than retaining permanent beta workarounds.
+
+Validate the final material in the destination app and consult [USD feature support](https://developer.apple.com/documentation/usd/validating-usd-files), especially when moving between Reality Composer Pro, Quick Look, and [USDKit](USDKit.md).
+
 ## Topics
 
 ### Node Categories
@@ -71,7 +79,5 @@ Add RealityKit surfaces or textures to your material and access and manipulate s
 Generate a MaterialX preview surface.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/ShaderGraph)*

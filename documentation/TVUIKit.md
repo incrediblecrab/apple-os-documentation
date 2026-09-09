@@ -8,20 +8,24 @@ Show common user interface elements from Apple TV in your native app.
 
 When you build an app for tvOS with **UIKit**, you can use **TVUIKit** to refine the display of your content for a TV environment. Use the **TV Services** framework to provide deeper integration between your app and Apple TV.
 
-For more information about combining Apple technologies to build a great Apple TV experience, see [Planning your tvOS app](https://developer.apple.com/documentation/tvos/planning_your_tvos_app).
+For platform planning, see [Planning your tvOS app](https://developer.apple.com/tvos/planning/).
+
+When rebuilding a UIKit-based TV app with the 27 SDK, apply the [UIKit scene-lifecycle requirement](UIKit.md#required-scene-life-cycle-and-launch-screen) on tvOS as well. TVUIKit controls do not replace the app life cycle. This framework is separate from the deprecated [TVMLKit](TVMLKit.md) client-server UI model.
 
 ## Topics
 
 ### Collections of Content
-- [Creating immersive experiences using a full-screen layout](https://developer.apple.com/documentation/tvuikit/creating_immersive_experiences_using_a_full-screen_layout) - Display content with a collection view that maximizes the tvOS experience.
+These full-screen collection types require tvOS 13+, later than the framework's tvOS 12 baseline.
+
+- [Creating immersive experiences using a full-screen layout](https://developer.apple.com/documentation/tvuikit/creating-immersive-experiences-using-a-full-screen-layout) - Build a browsable full-screen collection layout.
 - **TVCollectionViewFullScreenLayout** - A collection view layout that organizes items into a browsable, full-screen display format.
 - **TVCollectionViewDelegateFullScreenLayout** - Methods that send notifications of events during cell transitions.
 - **TVCollectionViewFullScreenCell** - A full-screen cell to use in full-screen display format.
 - **TVCollectionViewFullScreenLayoutAttributes** - Attributes to manage the appearance of the collection view's layout.
 
 ### Content Views
-- **TVMediaItemContentView** - A view that represents media content, such as movies and TV shows.
-- **TVMonogramContentView** - A view that contains a circular image of a person or the person's initials.
+- [`TVMediaItemContentView`](https://developer.apple.com/documentation/tvuikit/tvmediaitemcontentview) - A media-content view, tvOS 15+.
+- [`TVMonogramContentView`](https://developer.apple.com/documentation/tvuikit/tvmonogramcontentview) - A circular image or localized initials view, tvOS 15+.
 
 ### Numeric Input
 - **TVDigitEntryViewController** - A view controller that enables the user to enter digits, like a passcode, in your app.
@@ -33,13 +37,11 @@ For more information about combining Apple technologies to build a great Apple T
 - **TVCardView** - A view that responds to focus interaction with a motion effect it applies to all of its subviews.
 - **TVPosterView** - An optimized view for displaying an image, a header, and a footer.
 - **TVCaptionButtonView** - A button-like view that responds to user interactions.
-- **TVMonogramView** - A specialized lockup view that contains a circular image of a person or the person's initials, along with a footer view.
+- [`TVMonogramView`](https://developer.apple.com/documentation/tvuikit/tvmonogramview) - The older monogram lockup view, introduced in tvOS 12 and deprecated in tvOS 27.
 
 ### Deprecated
-See archived documentation for deprecated classes and methods.
+For `TVMonogramView`, move to [`TVMonogramContentConfiguration`](https://developer.apple.com/documentation/tvuikit/tvmonogramcontentconfiguration-swift.struct) and `TVMonogramContentView`. Deprecation of that view doesn't deprecate the entire TVUIKit framework.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/TVUIKit)*

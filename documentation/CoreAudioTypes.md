@@ -40,9 +40,9 @@ If you're unfamiliar with the specialized terminology regarding the manipulation
 - **AudioStreamBasicDescription** - A format specification for an audio stream.
 - **AudioStreamPacketDescription** - A value that describes a packet in a buffer of audio data.
 - **AudioFormatFlags** - A type definition for audio format flags.
-- [Audio Format Flags](https://developer.apple.com/documentation/coreaudiotypes/audio_format_flags) - Commonly used combinations of data format flags for an audio stream description.
+- [Audio Format Flags](https://developer.apple.com/documentation/coreaudiotypes/audio-format-flags) - Commonly used combinations of data format flags for an audio stream description.
 - **AudioFormatID** - A type definition for audio format identifiers.
-- [Audio Format Identifiers](https://developer.apple.com/documentation/coreaudiotypes/audio_format_identifiers) - Identifiers for supported audio formats.
+- [Audio Format Identifiers](https://developer.apple.com/documentation/coreaudiotypes/audio-format-identifiers) - Identifiers for supported audio formats.
 - **kAudioStreamAnyRate** - A value that indicates that an audio stream can use any sample rate.
 - **MPEG4ObjectID** - Constants that define the type of MPEG-4 audio data.
 
@@ -82,7 +82,5 @@ If you're unfamiliar with the specialized terminology regarding the manipulation
 - **kAudio_TooManyFilesOpenError**
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/CoreAudioTypes)*

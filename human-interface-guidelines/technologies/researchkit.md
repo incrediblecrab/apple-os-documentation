@@ -10,7 +10,7 @@ The ResearchKit framework provides predesigned screens and transitions that make
 
 *These guidelines are for informational purposes only and don't constitute legal advice. Contact an attorney to obtain advice with respect to the development of a research app and any applicable laws.*
 
-> **iOS 27+, watchOS 27+:** Health gains perimenopause notifications with symptom logging, and GymKit pairs directly from iPhone without requiring an Apple Watch. Study designs that assume watch-mediated equipment pairing should be revisited.
+Study consent, ethics review, and operating-system data permissions are separate responsibilities; using ResearchKit's screens doesn't satisfy them automatically. For App Store apps conducting health-related human-subject research, [App Review Guidelines 5.1.3](https://developer.apple.com/app-store/review/guidelines/) specifies consent requirements and independent ethics-review approval.
 
 ## Topics
 
@@ -41,11 +41,13 @@ Always display the onboarding screens in the correct order:
 
 - **Break a long consent form into easily digestible sections** - Each section can cover one aspect of the study, such as data gathering, data use, potential benefits, possible risks, time commitment, how to withdraw, and so on.
 
+- **Make the complete consent form available before agreement** - A staged overview or optional explanation must not prevent participants from reading the entire form before deciding.
+
 - **Use simple, straightforward language** - Provide a high-level overview for each section. If necessary, provide a more detailed explanation that participants can read by tapping a Learn More button.
 
 - **If it makes sense, provide a quiz that tests the participant's understanding** - You might do this for questions the participant would otherwise be asked when obtaining consent in person.
 
-- **Get the participant's consent and contact information** - After agreeing to join the study, participants receive a confirmation dialog, followed by screens in which they provide their signature and contact details.
+- **Record consent and collect contact information only when appropriate** - Use the confirmation and signature flow your study requires. Contact details aren't mandatory just because the framework provides screens for them; request only information appropriate to the study.
 
 #### 4. Request Permission to Access Data
 
@@ -95,21 +97,21 @@ ResearchKit offers a profile screen you can use to let participants manage perso
 
 ### Related Technologies
 
-- [Research & Care > ResearchKit](https://developer.apple.com/researchkit/) - Framework overview
+- [Research & Care > ResearchKit](https://www.researchandcare.org/researchkit/) - Framework overview
 
 ### Developer Documentation
 
-- [Research & Care > Developers](https://developer.apple.com/health-fitness/) - Developer resources
-- [Protecting user privacy — HealthKit](https://developer.apple.com/documentation/healthkit/protecting_user_privacy) - Privacy guidelines
+- [Research & Care > Developers](https://www.researchandcare.org/developers/) - Developer resources
+- [Protecting user privacy — HealthKit](https://developer.apple.com/documentation/healthkit/protecting-user-privacy) - Privacy guidelines
 - [ResearchKit GitHub project](https://github.com/ResearchKit/ResearchKit) - Open source framework
 
 ## Changelog
+
+These dates describe Apple's HIG article history.
 
 ### September 12, 2023
 - Updated artwork.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/researchkit)*

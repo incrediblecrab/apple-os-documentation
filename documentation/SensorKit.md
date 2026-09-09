@@ -18,14 +18,26 @@ See SRSensor for the complete list.
 
 **Note:** This framework ignores calls from Mac apps that you build with Mac Catalyst, and from compatible iPad and iPhone apps running in visionOS.
 
+SensorKit access is for Apple-approved research studies. The [reader entitlement](https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.sensorkit.reader.allow), `com.apple.developer.sensorkit.reader.allow`, is an **array of sensor-name strings**, not a Boolean grant to all data. The configuration guide requires an explicit App ID and an approved, manually created provisioning profile. Entitlement approval does not replace the participant's consent.
+
+Provide the study-purpose string [`NSSensorKitUsageDescription`](https://developer.apple.com/documentation/bundleresources/information-property-list/nssensorkitusagedescription), the per-sensor [`NSSensorKitUsageDetail`](https://developer.apple.com/documentation/bundleresources/information-property-list/nssensorkitusagedetail) dictionary, and [`NSSensorKitPrivacyPolicyURL`](https://developer.apple.com/documentation/bundleresources/information-property-list/nssensorkitprivacypolicyurl). A sensor's usage-detail dictionary can mark data as required for the study; this does not override denial. Participants can subsequently change individual sensor permissions in Settings.
+
+### Typed readers in the 27 beta
+
+[`SRReader<Sensor>`](https://developer.apple.com/documentation/sensorkit/srreader) is the new typed reader, with `Sensor` conforming to [`SRDataSensor`](https://developer.apple.com/documentation/sensorkit/srdatasensor). Its iOS/iPadOS 27 declarations include an observable `authorizationStatus`, asynchronous throwing recording methods, and [`samples(matching:)`](https://developer.apple.com/documentation/sensorkit/srreader/samples(matching:)), which returns an asynchronous sequence of typed fetch responses. Handle authorization changes, fetch errors, and cancellation.
+
+`SRSensorReader` is deprecated in 27 in favor of `SRReader<Sensor>`; this is not removal of SensorKit or of all its sample/query types. When maintaining the legacy reader, request authorization with `requestAuthorization(sensors:completion:)` and inspect the reader's authorization status rather than treating request completion as consent. The typed reader's Catalyst SDK declaration does not supersede the framework's documented runtime exclusion.
+
+Individual sample types have later minima than the framework: speech, face, and wrist-temperature types listed below require iOS/iPadOS 17; ECG and PPG sample types require 17.4; acoustic settings and sleep sessions require 26.
+
 ## Topics
 
 ### Essentials
-- **SensorKit updates** - Learn about important changes to SensorKit.
+- [SensorKit updates](https://developer.apple.com/documentation/updates/sensorkit) - Dated framework change summaries.
 
 ### Setup
-- [Configuring your project for sensor reading](https://developer.apple.com/documentation/sensorkit/configuring_your_project_for_sensor_reading) - Add metadata to your app to attain system and user permission to access sensor data.
-- **SRSensorReader** - An object that establishes user authorization and records data for a particular sensor.
+- [Configuring your project for sensor reading](https://developer.apple.com/documentation/sensorkit/configuring-your-project-for-sensor-reading) - Configure the research entitlement, study metadata, and per-sensor consent request.
+- **SRSensorReader** - The legacy reader for per-sensor authorization and recording; deprecated in 27 in favor of the typed reader.
 
 ### Authorization
 - **com.apple.developer.sensorkit.reader.allow** - The necessary entitlement to access sensor data that's required by your app's preapproved research study.
@@ -53,13 +65,13 @@ See SRSensor for the complete list.
 
 ### Analyzing faces
 - **SRFaceMetrics** - An object that represents metrics about the user's face.
-- **SR_ARKIT_SUPPORTED: Int32** - A flag that indicates whether the ARKit framework is available in the SDK for the SensorKit framework.
+- **SR_ARKIT_SUPPORTED: Int32** - A flag indicating ARKit's availability in the SDK, not a runtime hardware-capability check.
 
 ### Recording wrist temperatures
 - **SRWristTemperatureSession** - An object that represents wrist temperatures that a device records during a period of time.
 - **SRWristTemperature** - The temperature of the user's wrist while the user sleeps.
 
-### Recording ectrocardiogram data
+### Recording electrocardiogram data
 - **SRElectrocardiogramSample** - The sample electrocardiogram sensor data.
 
 ### Recording photoplethysmogram data
@@ -70,7 +82,5 @@ See SRSensor for the complete list.
 - **SRSleepSession** - An object that represents a user's sleep session data.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/SensorKit)*

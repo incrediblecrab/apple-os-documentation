@@ -19,55 +19,55 @@ Use this API to retrieve information about albums, songs, artists, playlists, mu
 ## Topics
 
 ### Essentials
-- [Generating Developer Tokens](https://developer.apple.com/documentation/applemusicapi/generating_developer_tokens) - Generate a developer token needed to make requests to Apple Music API.
-- [User Authentication for MusicKit](https://developer.apple.com/documentation/musickit/user_authentication_for_musickit) - Authenticate requests for user data using the Music User Token.
-- [Handling Requests and Responses](https://developer.apple.com/documentation/applemusicapi/handling_requests_and_responses) - Write a request and handle responses from the API.
-- [Handling Resource Representation and Relationships](https://developer.apple.com/documentation/applemusicapi/handling_resource_representation_and_relationships) - Fetch resources with extended attributes and included relationships and relationship views.
-- [Storefronts and Localization](https://developer.apple.com/documentation/applemusicapi/storefronts_and_localization) - Pick a region-specific geographic location from which to retrieve catalog information, or retrieve information from the user's personal library.
-- [Common Objects](https://developer.apple.com/documentation/applemusicapi/common_objects) - Understand the common JSON objects that framework responses contain.
-- [Managing Content Ratings, Alternate Versions, and Equivalencies](https://developer.apple.com/documentation/applemusicapi/managing_content_ratings_alternate_versions_and_equivalencies) - Handle multiple and alternate versions of content.
-- [Fetching Resources by Page](https://developer.apple.com/documentation/applemusicapi/fetching_resources_by_page) - Use pagination to fetch the next set of objects.
+- [Generating Developer Tokens](https://developer.apple.com/documentation/applemusicapi/generating-developer-tokens) - Generate a developer token needed to make requests to Apple Music API.
+- [User Authentication for MusicKit](https://developer.apple.com/documentation/applemusicapi/user-authentication-for-musickit) - Authenticate requests for user data using the Music User Token.
+- [Handling Requests and Responses](https://developer.apple.com/documentation/applemusicapi/handling-requests-and-responses) - Write a request and handle responses from the API.
+- [Handling Resource Representation and Relationships](https://developer.apple.com/documentation/applemusicapi/handling-resource-representation-and-relationships) - Fetch resources with extended attributes and included relationships and relationship views.
+- [Storefronts and Localization](https://developer.apple.com/documentation/applemusicapi/storefronts-and-localization) - Pick a region-specific geographic location from which to retrieve catalog information, or retrieve information from the user's personal library.
+- [Common Objects](https://developer.apple.com/documentation/applemusicapi/common-objects) - Understand the common JSON objects that framework responses contain.
+- [Managing Content Ratings, Alternate Versions, and Equivalencies](https://developer.apple.com/documentation/applemusicapi/managing-content-ratings-alternate-versions-and-equivalencies) - Handle multiple and alternate versions of content.
+- [Fetching Resources by Page](https://developer.apple.com/documentation/applemusicapi/fetching-resources-by-page) - Use pagination to fetch the next set of objects.
 
 ### Albums, Artists, Songs, and Videos
-- [Albums](https://developer.apple.com/documentation/applemusicapi/albums) - Get an album's name, artist, list of tracks, artwork, release date, and recording information, and add new albums to the user's library.
-- [Artists](https://developer.apple.com/documentation/applemusicapi/artists) - Get information about an artist, including the content they created and references to them in playlists and radio stations.
-- [Songs](https://developer.apple.com/documentation/applemusicapi/songs) - Get information about a particular song, including the artist who created it and the album on which it appeared.
-- [Music Videos](https://developer.apple.com/documentation/applemusicapi/music_videos) - Get information about a music video, including the artist who created it and the associated album, and add new videos to the user's library.
+- [Albums](https://developer.apple.com/documentation/applemusicapi/albums-api) - Get an album's name, artist, list of tracks, artwork, release date, and recording information, and add new albums to the user's library.
+- [Artists](https://developer.apple.com/documentation/applemusicapi/artists-api) - Get information about an artist, including the content they created and references to them in playlists and radio stations.
+- [Songs](https://developer.apple.com/documentation/applemusicapi/songs-api) - Get information about a particular song, including the artist who created it and the album on which it appeared.
+- [Music Videos](https://developer.apple.com/documentation/applemusicapi/music-videos-api) - Get information about a music video, including the artist who created it and the associated album, and add new videos to the user's library.
 
 ### Playlists and Stations
-- [Playlists](https://developer.apple.com/documentation/applemusicapi/playlists) - Get the contents of playlists, add new playlists to the user's library, and add tracks to an existing playlist.
-- [Apple Music Stations](https://developer.apple.com/documentation/applemusicapi/apple_music_stations) - Get information about streaming content offered by Apple Music.
+- [Playlists](https://developer.apple.com/documentation/applemusicapi/playlists-api) - Get the contents of playlists, add new playlists to the user's library, and add tracks to an existing playlist.
+- [Apple Music Stations](https://developer.apple.com/documentation/applemusicapi/apple-music-stations) - Get information about streaming content offered by Apple Music.
 
 ### Search
 - [Search](https://developer.apple.com/documentation/applemusicapi/search) - Search for albums, songs, artists, and other information in the user's personal library or the Apple Music Catalog.
 
 ### Ratings, Genres, and Charts
-- [Ratings](https://developer.apple.com/documentation/applemusicapi/ratings) - Get and set ratings for albums, songs, playlists, music videos, and stations.
-- [Music Genres](https://developer.apple.com/documentation/applemusicapi/music_genres) - Get information about the genres of the user's music or items in the Apple Music Catalog.
-- [Charts](https://developer.apple.com/documentation/applemusicapi/charts) - Get chart information that shows the popularity of albums, songs, and music videos.
+- [Ratings](https://developer.apple.com/documentation/applemusicapi/ratings-api) - Get and set ratings for albums, songs, playlists, music videos, and stations.
+- [Music Genres](https://developer.apple.com/documentation/applemusicapi/music-genres) - Get information about the genres of the user's music or items in the Apple Music Catalog.
+- [Charts](https://developer.apple.com/documentation/applemusicapi/charts-api) - Get chart information that shows the popularity of albums, songs, and music videos.
 
 ### Activities, Curators, and Record Labels
-- [Activities](https://developer.apple.com/documentation/applemusicapi/activities) - Get request and response activities associated with the Apple Music Catalog.
-- [Curators](https://developer.apple.com/documentation/applemusicapi/curators) - Get information about the person who curated a playlist or station.
-- [Record Labels](https://developer.apple.com/documentation/applemusicapi/record_labels) - Get information on record labels in the Apple Music Catalog.
+- [Activities](https://developer.apple.com/documentation/applemusicapi/activities-api) - Get request and response activities associated with the Apple Music Catalog.
+- [Curators](https://developer.apple.com/documentation/applemusicapi/curators-api) - Get information about the person who curated a playlist or station.
+- [Record Labels](https://developer.apple.com/documentation/applemusicapi/record-labels-api) - Get information on record labels in the Apple Music Catalog.
 
 ### Adding a resource to favorites
-- [Add resource to favorites](https://developer.apple.com/documentation/applemusicapi/add_resource_to_favorites) - Add the user's resource to favorites.
+- [Add resource to favorites](https://developer.apple.com/documentation/applemusicapi/add-resource-to-favorites) - Add the user's resource to favorites.
 
 ### Getting a user's replay data
-- [Get the user's replay data](https://developer.apple.com/documentation/applemusicapi/get_the_user_s_replay_data) - Fetch the user's replay data for the latest eligible year.
+- [Get the user's replay data](https://developer.apple.com/documentation/applemusicapi/get-the-user's-replay-data) - Fetch the user's replay data for the latest eligible year.
 
 ### Recommendations and history
 - [Recommendations](https://developer.apple.com/documentation/applemusicapi/recommendations) - Get music recommendations based on the user's library and purchase history.
 - [History](https://developer.apple.com/documentation/applemusicapi/history) - Get historical information about the songs and stations the user played recently.
 
 ### Fetching Multiple Resource Types
-- [Get Multiple Catalog Resources Using Resource-Typed ID Parameters](https://developer.apple.com/documentation/applemusicapi/get_multiple_catalog_resources_using_resource-typed_id_parameters) - Fetch one or more catalog resources by using their identifiers.
-- [Get Multiple Library Resources Using Resource-Typed ID Parameters](https://developer.apple.com/documentation/applemusicapi/get_multiple_library_resources_using_resource-typed_id_parameters) - Fetch one or more library resources by using their identifiers.
+- [Get Multiple Catalog Resources Using Resource-Typed ID Parameters](https://developer.apple.com/documentation/applemusicapi/get-multiple-catalog-resources-by-resource-typed-ids-parameters) - Fetch one or more catalog resources by using their identifiers.
+- [Get Multiple Library Resources Using Resource-Typed ID Parameters](https://developer.apple.com/documentation/applemusicapi/get-multiple-library-resources-by-resource-typed-ids-parameters) - Fetch one or more library resources by using their identifiers.
 
 ### Endpoints
-- [Placeholder Endpoint to Test Connectivity](https://developer.apple.com/documentation/applemusicapi/placeholder_endpoint_to_test_connectivity)
-- [Get a User's Storefront](https://developer.apple.com/documentation/applemusicapi/get_a_user_s_storefront) - Fetch a storefront for a specific user.
+- [Placeholder Endpoint to Test Connectivity](https://developer.apple.com/documentation/applemusicapi/dummy-endpoint-to-test-connectivity)
+- [Get a User's Storefront](https://developer.apple.com/documentation/applemusicapi/get-a-user's-storefront) - Fetch a storefront for a specific user.
 
 ### Dictionaries
 - **AlbumPeriodSummaries** - The album for the period summary.
@@ -92,7 +92,5 @@ Use this API to retrieve information about albums, songs, artists, playlists, mu
 - [StoreKit](https://developer.apple.com/documentation/storekit) - Support In-App Purchases and interactions with the App Store.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/AppleMusicAPI)*

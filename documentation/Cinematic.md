@@ -11,16 +11,19 @@ The Cinematic framework enables you to add professional-level editing and playba
 ## Topics
 
 ### Essentials
-- [Playing and editing Cinematic mode video](https://developer.apple.com/documentation/cinematic/playing_and_editing_cinematic_mode_video) - Play and edit Cinematic mode video with an adjustable depth of field and focus points.
+
+- [Playing and editing Cinematic mode video](https://developer.apple.com/documentation/cinematic/playing-and-editing-cinematic-mode-video) - Play and edit Cinematic mode video with an adjustable depth of field and focus points.
 - **CNScript** - A collection of focus decisions, focus transitions, detections, and detection tracks associated with a movie captured in Cinematic mode and methods to change them.
 
 ### Reading and rendering
+
 - **CNAssetInfo** - An object that provides Cinematic-specific information about an asset, including its tracks.
 - **CNCompositionInfo** - An object that enables you to add the appropriate number of tracks for a Cinematic asset.
 - **CNRenderingSession** - An object representing the context in which rendering occurs.
 
 ### Editing
-- [Editing Spatial Audio with an audio mix](https://developer.apple.com/documentation/cinematic/editing_spatial_audio_with_an_audio_mix) - Add Spatial Audio editing capabilities with the Audio Mix API in the Cinematic framework.
+
+- [Editing Spatial Audio with an audio mix](https://developer.apple.com/documentation/cinematic/editing-spatial-audio-with-an-audio-mix) - Add Spatial Audio editing capabilities with the Audio Mix API in the Cinematic framework.
 - **CNDetection** - A structure that represents a detected subject, face, torso or pet at a particular time.
 - **CNDecision** - An object that represents a decision to focus on a particular detection, or group of detections, at a particular time.
 - **CNDetectionTrack** - An object representing a series of detections of the same subject over time.
@@ -29,24 +32,28 @@ The Cinematic framework enables you to add professional-level editing and playba
 - **CNDetectionType** - The type of object detected, such as face, torso, cat, dog and so on.
 
 ### Custom Object Tracking
+
 - **CNBoundsPrediction** - A structure representing the bounds of the predicted subject.
 - **CNObjectTracker** - An object that converts a normalized point or rectangle into a detection track that tracks an object over time.
 
 ### Structures
+
 - **CNCinematicError**
 
 ### Reference
+
 - **Cinematic Enumerations**
 - **Cinematic Constants**
 - **Cinematic Data Types**
 
 ### Classes
+
 - **CNAssetSpatialAudioInfo**
 
 ### Enumerations
-- **CNSpatialAudioContentType**- **CNSpatialAudioRenderingStyle**
----
 
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
+- **CNSpatialAudioContentType**
+- **CNSpatialAudioRenderingStyle**
+---
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/Cinematic)*

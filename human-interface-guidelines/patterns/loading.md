@@ -8,8 +8,6 @@ The best content-loading experience finishes before people become aware of it.
 
 If your app or game loads assets, levels, or other content, design the behavior so it doesn't disrupt or negatively impact the user experience.
 
-> **iOS 27+, iPadOS 27+:** Because long uploads and exports now continue in the background when people leave your app, loading and progress affordances should reflect work that survives backgrounding rather than implying the person must stay put.
-
 ## Topics
 
 ### Best practices
@@ -47,7 +45,7 @@ As much as possible, avoid showing a loading indicator in your watchOS experienc
 
 ### Videos
 
-- [Discover Apple-Hosted Background Assets](https://developer.apple.com/videos/play/wwdc2024/10057)
+- [Discover Apple-Hosted Background Assets](https://developer.apple.com/videos/play/wwdc2025/325)
 
 ## Changelog
 
@@ -58,7 +56,5 @@ As much as possible, avoid showing a loading indicator in your watchOS experienc
 - Added guidelines for showing progress and storing downloads, and enhanced guidance for games.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/loading)*

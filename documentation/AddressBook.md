@@ -8,12 +8,14 @@ Access the centralized database for storing users' contacts.
 
 The Address Book is a centralized database containing contacts and their personal information. Users enter personal information about themselves and their friends only once, instead of entering it repeatedly whenever the information is used. Apps that support the AddressBook framework share this contact information with other apps, including Apple's Mail and Messages.
 
-**Important:** Do not use the AddressBook framework in macOS 10.11 and later. Use the APIs defined in the Contacts framework instead.
+**Migration recommendation:** Apple says not to use AddressBook for macOS 10.11-and-later development; use [Contacts](Contacts.md) instead. That framework-level recommendation is not an OS 27 removal notice. The reviewed macOS [`ABAddressBook`](https://developer.apple.com/documentation/addressbook/abaddressbook-swift.class) declaration does not carry a dated deprecation annotation; do not turn the recommendation into an invented universal SDK deprecation date.
+
+Keep this reference for legacy integration work, consult individual symbols for platform-specific status, and use modern Contacts authorization rather than assuming database access is automatically granted. [Address Book UI](AddressBookUI.md) has separately documented iOS deprecations.
 
 ## Topics
 
 ### Essentials
-- **ABAddressBook** - The main object you use to access the Address Book database.
+- [`ABAddressBook`](https://developer.apple.com/documentation/addressbook/abaddressbook-swift.class) - The legacy macOS address-book object.
 
 ### Data Types
 - **ABPerson** - An object that encapsulates all information about a person in the Address Book database.
@@ -42,10 +44,8 @@ The Address Book is a centralized database containing contacts and their persona
 - **AddressBook Data Types** - Get the data types you use to specify Address Book information.
 
 ### Deprecated symbols
-- **Deprecated symbols** - Review unsupported symbols and their replacements.
+- [Deprecated symbols](https://developer.apple.com/documentation/addressbook/deprecated-symbols) - Check individual legacy symbols and their replacements.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/AddressBook)*

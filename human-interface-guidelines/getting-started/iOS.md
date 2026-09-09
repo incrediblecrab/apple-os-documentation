@@ -24,7 +24,7 @@ As you begin designing your app or game for iOS, start by understanding the foll
 - Shortcuts
 - Activity views
 
-> **iOS 27+:** Liquid Glass is refined — stronger content diffusion, a darkened edge ring, and brighter specular highlights — and a continuous **transparency slider** in Settings > Appearance replaces the OS 26 Clear/Tinted toggle. App icons gain sharper layer separation. `UIDesignRequiresCompatibility` is ignored by the iOS 27 SDK, so rebuilding opts you fully in. iOS 27 drops no iPhones.
+Start with [Design principles](design-principles.md), then evaluate your app around handheld use rather than a particular device size.
 
 ## Topics
 
@@ -40,21 +40,34 @@ Great iPhone experiences integrate the platform and device capabilities that peo
 
 - **Integrate platform capabilities** - With people's permission, integrate information available through platform capabilities in ways that enhance the experience without asking people to enter data. For example, you might accept payments, provide security through biometric authentication, or offer features that use the device's location.
 
+### Put the platform into practice
+
+- Keep the main action reachable without precision or a change of grip. Preserve familiar [gestures](../inputs/gestures.md), and provide visible alternatives for actions hidden behind gestures.
+- Use a clear [tab bar](../components/tab-bars.md) or navigation hierarchy for primary destinations. Keep the current task recognizable when someone returns from a notification, widget, or another app.
+- Adapt to the keyboard, safe areas, and rotation without hiding the field being edited or its next action. See [Layout](../foundations/layout.md) and [Keyboards](../inputs/keyboards.md).
+- Put navigation and controls in the functional layer; do not make every content card translucent. See [Materials](../foundations/materials.md).
+
+### Accessibility and validation
+
+- Test [Dynamic Type](../foundations/typography.md), including accessibility sizes, with long labels and the keyboard visible. Reflow rather than clipping essential actions.
+- Walk through the same task using [VoiceOver](../technologies/voiceover.md) and supported keyboard navigation; give controls useful names, values, and a logical reading order.
+- Check [right-to-left layouts](../foundations/right-to-left.md), including back navigation and directional icons, rather than mirroring photos or media controls indiscriminately.
+- Test light and dark appearances, contrast over real content, Reduce Transparency, and [Reduce Motion](../foundations/motion.md). Preserve feedback without depending on blur, color, or animation alone.
+
 ### Resources
 
+- [Design principles](design-principles.md)
 - [Apple Design Resources](https://developer.apple.com/design/resources/)
 
 ### Developer Documentation
 
-- [iOS Pathway](https://developer.apple.com/pathways/ios/)
+- [iOS Pathway](https://developer.apple.com/ios/get-started/)
 
 ### Videos
 
-- [Meet Liquid Glass](https://developer.apple.com/videos/play/wwdc2025/10001/)
-- [Get to know the new design system](https://developer.apple.com/videos/play/wwdc2025/10002/)
+- [Meet Liquid Glass](https://developer.apple.com/videos/play/wwdc2025/219)
+- [Get to know the new design system](https://developer.apple.com/videos/play/wwdc2025/356)
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/designing-for-ios)*

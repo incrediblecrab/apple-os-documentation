@@ -13,18 +13,18 @@ On Apple platforms, a game can support input from physical game controllers or d
 
 To reach the widest audience and provide the best experience for each platform, keep these factors in mind when choosing the input methods to support.
 
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+, tvOS 27+:** On-screen control overlays use the refined Liquid Glass material — verify legibility over bright, fast-moving game content across the transparency slider range. On Mac, **macOS 27 is Apple-silicon-only and the last release with full Rosetta 2**.
+Test onscreen controls against bright and moving game content. Keep labels, selection, and feedback perceptible under the platform's supported [accessibility settings](../foundations/accessibility.md); do not depend on a particular background or material appearance.
 
 ## Topics
 
 ### Touch Controls
 
-For iOS and iPadOS games, supporting touch interaction means that you can provide virtual controls on top of game content while also letting players interact with game elements by touching them directly. You can use the Touch Controller framework to add these virtual controls to your game. Keep the following guidelines in mind to create an enjoyable touch control experience.
+For iOS and iPadOS games, supporting touch interaction means that you can provide virtual controls on top of game content while also letting players interact with game elements directly. The [Touch Controller framework](https://developer.apple.com/documentation/touchcontroller) provides these controls for Metal-based games. Keep the following guidelines in mind to create an enjoyable touch control experience.
 
 - **Determine whether it makes sense to display virtual controls on top of game content** - In general, virtual game controls benefit games that offer a large number of actions or require players to control movement. However, sometimes gameplay is more immersive and effective when players can interact directly with in-game objects. Look for opportunities to reduce the amount of virtual controls that overlap your game content by associating actions with in-game gestures instead. For example, consider letting players tap objects to select them instead of adding a virtual selection button.
 - **Place virtual buttons where they're easy to access** - Take into account the device's boundaries and safe areas as well as comfortable locations for controls. Make sure to position buttons where they don't overlap system features like the Home indicator or Dynamic Island on iPhone. Place frequently used buttons near a player's thumb, avoiding the circular regions where players expect movement and camera input to happen. Place secondary controls, like menus, at the top of the screen.
 - **Make sure controls are large enough** - Make sure frequently used controls are a minimum size of 44x44 pt, and less important controls, such as menus, are a minimum size of 28x28 pt to accommodate people's fingers.
-- **Always include visible and tactile press states** - A virtual control feels unresponsive without a visual and physical press state. Help players understand when they successfully interact with a button by adding a visual press state effect, such as a glow, that they can see even when their finger is covering the control. Combine this press state with sound and haptics to enhance the feeling of feedback.
+- **Provide visible feedback, with haptics where supported** - A press effect such as a glow should remain perceptible around the finger covering the control. Supplement it with sound and available haptics, but don't require every touchscreen device to produce tactile feedback. Check the relevant [haptic capability](https://developer.apple.com/documentation/corehaptics/chhapticdevicecapability/supportshaptics) and see [Playing haptics](https://developer.apple.com/design/human-interface-guidelines/playing-haptics).
 - **Use symbols that communicate the actions they perform** - Choose artwork that visually represents the action each button performs, such as a graphic of a weapon to represent an attack. Avoid using abstract shapes or controller-based naming like A, X, or R1 as artwork, which makes it harder for players to understand and remember what specific controls do.
 - **Show and hide virtual controls to reflect gameplay** - Take advantage of the dynamic nature of touch controls and adapt what controls players see onscreen depending on their context. You can hide controls when an action isn't available or relevant, letting you reduce clutter and help players concentrate on what's important. For example, consider hiding movement controls until a player touches the screen to reduce the amount of UI overlapping your game content.
 - **Combine functionality into a single control** - Consider redesigning game mechanics that require players to press multiple buttons at the same time or in a sequence. Leverage gestures such as double tap and touch and hold to provide different variations of the same action, such as touch and hold to use a special powered up version of an attack. For multiple actions, such as walking or sprinting, consider combining the actions into a single control.
@@ -53,7 +53,7 @@ For iOS and iPadOS games, supporting touch interaction means that you can provid
 Keyboard players appreciate using keyboard bindings to speed up their interactions with apps and games.
 
 - **Prioritize single-key commands** - Single-key commands are generally easier and faster for players to perform, especially while they're simultaneously using a mouse or trackpad. For example, you might use the first letter of a menu item as a shortcut, such as I for Inventory or M for Map; you might also map the game's main action to the Space bar, taking advantage of the key's relatively large size.
-- **Test key binding comfort game using an Apple keyboard** - For example, if a key binding uses the Control key (^) on a non-Apple keyboard, consider remapping it to the Command key (⌘) on an Apple keyboard. On Apple keyboards, the Command key is conveniently located next to the Space bar, making it especially easy to reach when players are using the W, A, S, and D keys.
+- **Test key bindings on an Apple keyboard** - For example, if a binding uses Control on another keyboard, consider whether Command (⌘) is more comfortable on an Apple keyboard. Command is near the Space bar and can be easier to reach alongside W, A, S, and D movement controls. Preserve system-reserved shortcuts and allow customization.
 - **Take the proximity of keys into account** - For example, if players navigate using the W, A, S, and D keys, consider using nearby keys to define other high-value commands. Similarly, if there's a group of closely related actions, it can work well to map their bindings to keys that are physically close together, such as using the number keys for inventory categories.
 - **Let players customize key bindings** - Although players tend to expect a reasonable set of defaults, many people need to customize a game's key bindings for personal comfort and play style.
 
@@ -72,24 +72,26 @@ Not supported in watchOS.
 - [Gestures](https://developer.apple.com/design/human-interface-guidelines/gestures) - Gesture input
 - [Keyboards](https://developer.apple.com/design/human-interface-guidelines/keyboards) - Keyboard input
 - [Playing haptics](https://developer.apple.com/design/human-interface-guidelines/playing-haptics) - Haptic feedback
-- [visionOS](https://developer.apple.com/design/human-interface-guidelines/visionos) - Platform guidance
+- [visionOS gestures](https://developer.apple.com/design/human-interface-guidelines/gestures#visionOS) - Spatial input guidance
 
 ### Developer Documentation
 
 - [Create games for Apple platforms](https://developer.apple.com/games/) - Game development
-- [Touch Controller](https://developer.apple.com/documentation/gamecontroller/touch_controller) - Touch controls framework
+- [Touch Controller](https://developer.apple.com/documentation/touchcontroller) - Touch controls framework
 - [Game Controller](https://developer.apple.com/documentation/gamecontroller) - Game controller framework
-- [Adding touch controls to games that support game controllers in iOS](https://developer.apple.com/documentation/gamecontroller/adding_touch_controls_to_games_that_support_game_controllers_in_ios) - Implementation guide
-- [GCRequiresControllerUserInteraction](https://developer.apple.com/documentation/bundleresources/information_property_list/gcrequirescontrolleruserinteraction) - Controller requirement
+- [Adding virtual controls to games that support game controllers in iOS](https://developer.apple.com/documentation/gamecontroller/adding-virtual-controls-to-games-that-support-game-controllers-in-ios) - Implementation guide
+- [GCRequiresControllerUserInteraction](https://developer.apple.com/documentation/bundleresources/information-property-list/gcrequirescontrolleruserinteraction) - Platform-specific controller requirements and recommendations
 - [GCControllerElement](https://developer.apple.com/documentation/gamecontroller/gccontrollerelement) - Controller elements
 
 ### Videos
 
-- [Design advanced games for Apple platforms](https://developer.apple.com/videos/play/wwdc2024/10166/)
-- [Tap into virtual and physical game controllers](https://developer.apple.com/videos/play/wwdc2024/10092/)
+- [Design advanced games for Apple platforms](https://developer.apple.com/videos/play/wwdc2024/10085)
+- [Make your game great with touch](https://developer.apple.com/videos/play/wwdc2026/358)
 - [Explore game input in visionOS](https://developer.apple.com/videos/play/wwdc2024/10094/)
 
 ## Changelog
+
+These dates describe changes to Apple's HIG article, not edits to this repository.
 
 ### June 9, 2025
 - Updated touch control best practices, updated game controller mapping for UI, and added guidance for spatial game controller support in visionOS.
@@ -98,7 +100,5 @@ Not supported in watchOS.
 - Added guidance for supporting touch controls and changed title from Game controllers.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/game-controls)*

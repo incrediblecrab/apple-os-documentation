@@ -1,0 +1,63 @@
+name: Landmarks sample
+
+on:
+  push:
+    paths:
+      - "os26-liquid-glass-example/**"
+      - "scripts/check_sample.sh"
+      - ".github/workflows/sample.yml"
+  pull_request:
+    paths:
+      - "os26-liquid-glass-example/**"
+      - "scripts/check_sample.sh"
+      - ".github/workflows/sample.yml"
+  workflow_dispatch:
+    inputs:
+      run_beta:
+        description: Also exercise the documented Xcode 27 preview runner
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  shipping-toolchain:
+    runs-on: macos-26
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_26.6.app/Contents/Developer
+      EXPECTED_XCODE_MAJOR: "26"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - run: bash scripts/check_sample.sh "${{ runner.temp }}/landmarks"
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: always()
+        with:
+          name: landmarks-xcode26-results
+          path: |
+            ${{ runner.temp }}/landmarks/model-test-summary.json
+            ${{ runner.temp }}/landmarks/ModelTests.xcresult
+          if-no-files-found: error
+
+  beta-toolchain:
+    if: github.event_name == 'workflow_dispatch' && inputs.run_beta
+    runs-on: xcode-27
+    env:
+      DEVELOPER_DIR: /Applications/Xcode.app/Contents/Developer
+      EXPECTED_XCODE_MAJOR: "27"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - run: bash scripts/check_sample.sh "${{ runner.temp }}/landmarks"
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: always()
+        with:
+          name: landmarks-xcode27-results
+          path: |
+            ${{ runner.temp }}/landmarks/model-test-summary.json
+            ${{ runner.temp }}/landmarks/ModelTests.xcresult
+          if-no-files-found: error

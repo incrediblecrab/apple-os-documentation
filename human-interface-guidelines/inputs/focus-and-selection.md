@@ -12,7 +12,7 @@ In many cases, focusing an item also selects it. The exception is when automatic
 
 Different platforms communicate focus in different ways. For example, iPadOS and macOS show focus by drawing a ring around an item or highlighting it; tvOS generally uses the parallax effect to give the focused item an appearance of depth and liveliness. The combination of focus effects and interactions is sometimes called a focus system or focus model.
 
-> **tvOS 27+, visionOS 27+:** Focus states must remain unmistakable against the refined Liquid Glass material, particularly where glass composites over bright, moving video artwork. The most common regression in this generation is a focus ring that reads clearly on a solid background but disappears over glass. Never rely on translucency alone to signal focus.
+Verify that focus and selection remain distinct over the actual background, including moving media. Prefer system focus effects, and keep state understandable with [accessibility accommodations](../foundations/accessibility.md) enabled rather than relying only on translucency or motion.
 
 ## Topics
 
@@ -21,7 +21,7 @@ Different platforms communicate focus in different ways. For example, iPadOS and
 - **Rely on system-provided focus effects** - System-defined focus effects are precisely tuned to complement interactions with Apple devices, providing experiences that feel responsive, fluid, and lifelike. Incorporating system-provided focus behaviors gives your app consistency and predictability, helping people understand it quickly. Consider creating custom focus effects only if it's absolutely necessary.
 - **Avoid changing focus without people's interaction** - People rely on the focus system to help them know where they are in your app. If you change focus without their interaction, people have to spend time finding the newly focused item, delaying their current task. The exception is when people are moving focus using an input device that lets them make discrete, directional movements — like a keyboard, remote, or game controller — and a previously focused item disappears. In this scenario, there are only a small number of items within one discrete step of the previously focused item, so moving focus to one of these remaining items ensures that the focus indicator is in a location people can easily find.
 - **Be consistent with the platform as you help people bring focus to items in your app** - For example, in iPadOS and macOS, a full keyboard access mode helps people use the keyboard to reach every control, so you only need to support focus for content elements like list items, text fields, and search fields, and not for controls like buttons, sliders, and toggles. In contrast, tvOS users rely on using directional gestures on a remote or game controller (or pressing the arrow keys on an attached keyboard) to reach every onscreen element, so you need to make sure that people can bring focus to every element in your app.
-- **Indicate focus using visual appearances that are consistent with the platform** - For example, consider a window that contains a list of items. In iPadOS and macOS, the system draws focused list items using white text and a background highlight that matches the app's accent color, drawing unfocused items using the standard text color and a gray background highlight.
+- **Indicate focus using visual appearances that are consistent with the platform** - Let system list and collection styles distinguish focused and unfocused items. The treatment can involve accent-colored text or a background highlight; don't hard-code one color combination for every component and appearance.
 - **In general, use a focus ring for a text or search field, but use a highlight in a list or collection** - Although you can use a focus ring to draw attention to an item that fills a cell, like a photo, it's usually easier for people to view lists and collections when an entire row is highlighted.
 
 ### Platform Considerations
@@ -40,7 +40,7 @@ The halo focus effect — also known as the focus ring — displays a customizab
 
 - **Customize the halo focus effect when necessary** - By default, the system uses an item's shape to infer the shape of its halo. If the system-provided halo doesn't give you the appearance you want, you can refine it to match contours like rounded corners or shapes defined by Bézier paths. You can also adjust a halo's position if another component occludes or clips it.
 
-The highlighted appearance — in which the component's background uses the app's accent color — also indicates focus, but it's not a focus effect. The highlight appearance occurs automatically when people select a collection view cell on which you've set background and content configurations.
+The highlighted appearance — in which the component's text uses the app's accent color — also indicates focus, but it's not a focus effect. This treatment occurs automatically when people select a collection view cell configured with the appropriate content configuration.
 
 - **Ensure that focus moves through your custom views in ways that make sense** - As people continue pressing the Tab key, focus moves through focus groups in reading order: leading to trailing, and top to bottom. Although focus moves through system-provided views in ways that people expect, you might need to adjust the order in which the focus system visits your custom views.
 - **Adjust the priority of an item to reflect its importance within a focus group** - When a group receives focus, its primary item automatically receives focus too, making it easy for people to select the item they're most likely to want.
@@ -65,7 +65,7 @@ visionOS supports the same focus system as in iPadOS and tvOS, letting people us
 
 Note: When people look at a virtual object to identify it as the object they want to interact with, the system uses the hover effect, not a focus effect, to provide visual feedback. The hover effect isn't related to the focus system.
 
-Not supported in iOS or watchOS.
+These platform considerations describe the focus-navigation patterns above, not every form of input or accessibility focus. For example, SwiftUI's [`FocusState`](https://developer.apple.com/documentation/swiftui/focusstate) is also available on iOS and watchOS.
 
 ### Related Components
 
@@ -74,16 +74,16 @@ Not supported in iOS or watchOS.
 
 ### Developer Documentation
 
-- [Focus-based navigation](https://developer.apple.com/documentation/uikit/focus-based_navigation) - UIKit
-- [About focus interactions for Apple TV](https://developer.apple.com/documentation/uikit/focus_interactions_for_apple_tv/about_focus_interactions_for_apple_tv) - UIKit
+- [Focus-based navigation](https://developer.apple.com/documentation/uikit/focus-based-navigation) - UIKit
+- [About focus interactions for Apple TV](https://developer.apple.com/documentation/uikit/about-focus-interactions-for-apple-tv) - UIKit
 - [UIFocusHaloEffect](https://developer.apple.com/documentation/uikit/uifocushaloeffect) - UIKit
-- [focusGroupIdentifier](https://developer.apple.com/documentation/swiftui/view/focusgroupidentifier(_:)) - SwiftUI
+- [focusGroupIdentifier](https://developer.apple.com/documentation/uikit/uifocusenvironment/focusgroupidentifier) - UIKit
 - [UIFocusGroupPriority](https://developer.apple.com/documentation/uikit/uifocusgrouppriority) - UIKit
 - [UICollectionView](https://developer.apple.com/documentation/uikit/uicollectionview) - UIKit
 - [NSTableView](https://developer.apple.com/documentation/appkit/nstableview) - AppKit
 - [UICollectionViewCell](https://developer.apple.com/documentation/uikit/uicollectionviewcell) - UIKit
-- [Adding user-focusable elements to a tvOS app](https://developer.apple.com/documentation/uikit/focus_interactions_for_apple_tv/adding_user-focusable_elements_to_a_tvos_app) - UIKit
-- [Focus Attributes](https://developer.apple.com/documentation/tvml/focus_attributes) - TVML
+- [Adding user-focusable elements to a tvOS app](https://developer.apple.com/documentation/uikit/adding-user-focusable-elements-to-a-tvos-app) - UIKit
+- [Focus Attributes](https://developer.apple.com/documentation/tvml/focus-attributes) - TVML
 
 ### Videos
 
@@ -100,7 +100,5 @@ Not supported in iOS or watchOS.
 - Updated to include guidance for visionOS.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/focus-and-selection)*

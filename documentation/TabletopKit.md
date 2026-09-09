@@ -20,11 +20,20 @@ Follow these steps to implement your TabletopKit game:
 
 To get started, create a **TabletopGame** object that represents your game instance and a **TableSetup** object that represents your game layout and equipment.
 
+## Multiplayer integration checks
+
+TabletopKit remains a visionOS framework with a 2.0 minimum; a newer sample's requirements do not change that baseline. [Synchronizing group gameplay with TabletopKit](https://developer.apple.com/documentation/tabletopkit/synchronizing-group-gameplay-with-tabletopkit) requires visionOS 26 and Xcode 26 and demonstrates custom actions, programmatic interactions, and Group Activities coordination.
+
+Represent shared gameplay through registered equipment, state, and actions, then update rendering from the resulting state. A local visual adjustment alone is not a synchronized rule change. Keep the renderer, game observer, and network-session lifetime distinct.
+
+Test players joining and leaving, game reset, and simultaneous interactions across devices. Detach the network coordinator when the associated group-session management ends. Use [Game Controller](GameController.md) separately if your game also accepts hardware input; framework availability does not grant accessory-tracking permission.
+
 ## Topics
 
 ### Essentials
-- [Creating tabletop games](https://developer.apple.com/documentation/tabletopkit/creating_tabletop_games) - Develop a spatial board game where multiple players interact with pieces on a table
-- [Synchronizing group gameplay with TabletopKit](https://developer.apple.com/documentation/tabletopkit/synchronizing_group_gameplay_with_tabletopkit) - Maintain game state across multiple players in a race to capture all the coins
+
+- [Creating tabletop games](https://developer.apple.com/documentation/tabletopkit/creating-tabletop-games) - Develop a spatial board game where multiple players interact with pieces on a table
+- [Synchronizing group gameplay with TabletopKit](https://developer.apple.com/documentation/tabletopkit/synchronizing-group-gameplay-with-tabletopkit) - Maintain game state across multiple players in a race to capture all the coins
 - **TabletopGame** - An object that manages the setup and gameplay of a tabletop game
 - **TableSetup** - An object that represents the arrangement of seats, equipment, and counters around the game table
 - **Tabletop** protocol - A protocol for the table surface in your game
@@ -32,6 +41,7 @@ To get started, create a **TabletopGame** object that represents your game insta
 - **TabletopShape** - An object that represents the physical properties of the table
 
 ### Seats
+
 - **TableSeat** protocol - A protocol for seats at the table that players occupy
 - **EntityTableSeat** protocol - A protocol for seats at the table that you render using RealityKit
 - **TableSeatIdentifier** - A unique identifier for seats
@@ -39,6 +49,7 @@ To get started, create a **TabletopGame** object that represents your game insta
 - **SeatState** protocol - A protocol for seat data that TabletopKit syncs between players
 
 ### Equipment
+
 - **Equipment** protocol - A protocol for equipment that players directly interact with in a game
 - **EntityEquipment** protocol - A protocol for equipment in a game that you render using RealityKit
 - **EquipmentIdentifier** - A unique identifier for equipment
@@ -50,19 +61,23 @@ To get started, create a **TabletopGame** object that represents your game insta
 - **ControllingSeats** - The seats that can manipulate or interact with the equipment
 
 ### Equipment Layout
+
 - **EquipmentLayout** protocol - A protocol for objects that describe the layout of equipment
 - **DefaultEquipmentLayout** - An object that provides a standard configuration for equipment layout
 - **EquipmentPose2D** - An object that represents the position and rotation of equipment on the XZ plane
 - **EquipmentPose3D** - An object that represents the 3D position and orientation of equipment on the table
 
 ### Score Counters
+
 - **ScoreCounter** - An object that keeps a score in a tabletop game
 
 ### Players
+
 - **Player** - A player in a tabletop game
 - **PlayerIdentifier** - A unique identifier for players
 
 ### Actions
+
 - **TabletopAction** protocol - A protocol for objects that describe an action in a tabletop game
 - **MoveEquipmentAction** - An action that moves a piece of equipment on the table or changes the grouping
 - **UpdateEquipmentAction** - An action that updates properties of equipment on the table
@@ -71,7 +86,8 @@ To get started, create a **TabletopGame** object that represents your game insta
 - **CreateBookmarkAction** - An action that takes a snapshot of the game
 
 ### Interactions
-- **TabletopInteraction** - A protocol for objects that manage the entire flow of players interacting with equipment
+
+- **TabletopInteraction** - A class that manages the flow of a player's interaction with equipment
 - **TossableRepresentation** - An object that represents geometric shapes that the player can throw during gameplay, such as dice
 - **TableSnapshot** - A snapshot of the current state of the table
 - **TableVisualState** - A structure that represents the appearance of an object on the table
@@ -79,28 +95,33 @@ To get started, create a **TabletopGame** object that represents your game insta
 - **TableCursorIdentifier** - A unique identifier for cursors
 
 ### Bookmarks
+
 - **StateBookmark** - A snapshot of the game state at a point in time
 - **StateBookmarkIdentifier** - A unique identifier for bookmarks
 
 ### Multiplayer Network Session
+
 - **TabletopNetworkSession** - An object that coordinates network-related tasks in multiplayer games
 - **TabletopNetworkSessionCoordinator** protocol - A protocol for objects that manage network sessions between peers
 - **TabletopSendMessageResult** - The possible results of sending messages in a network session
 
 ### Debugging
+
 - **DebugDrawOptions** - Types of items in a rendering that you want to debug
 
-### Protocols- **CustomAction** protocol - A protocol that represents an action whose behavior is implemented outside of TabletopKit
+### Protocols
+
+- **CustomAction** protocol - A protocol that represents an action whose behavior is implemented outside of TabletopKit
 - **CustomEquipmentState** protocol - A specialized protocol for the equipment state that allows to accommodate custom data that TabletopKit syncs between players
 - **MutableEquipmentState** protocol - A protocol for equipment data that TabletopKit syncs between players, and that can be mutated
 
-### Structures- **CounterCollection** - A collection of score counters that can be inspected and modified
+### Structures
+
+- **CounterCollection** - A collection of score counters that can be inspected and modified
 - **EquipmentCollection** - A collection of equipment whose state can be inspected and modified
 - **EquipmentStateCollection** - A collection of equipment states that can be inspected and modified
 - **TableState** - The state of the table that can be queried and modified
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/TabletopKit)*

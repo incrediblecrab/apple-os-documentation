@@ -13,12 +13,12 @@ For more about Core Foundation, see Core Foundation Design Concepts.
 ## Topics
 
 ### Utilities
-- [Base Utilities](https://developer.apple.com/documentation/corefoundation/base_utilities)
-- [Byte-Order Utilities](https://developer.apple.com/documentation/corefoundation/byte-order_utilities)
-- [Core Foundation URL Access Utilities](https://developer.apple.com/documentation/corefoundation/core_foundation_url_access_utilities)
-- [Preferences Utilities](https://developer.apple.com/documentation/corefoundation/preferences_utilities)
-- [Socket Name Server Utilities](https://developer.apple.com/documentation/corefoundation/socket_name_server_utilities)
-- [Time Utilities](https://developer.apple.com/documentation/corefoundation/time_utilities)
+- [Base Utilities](https://developer.apple.com/documentation/corefoundation/base-utilities)
+- [Byte-Order Utilities](https://developer.apple.com/documentation/corefoundation/byte-order-utilities)
+- [Core Foundation URL Access Utilities](https://developer.apple.com/documentation/corefoundation/core-foundation-url-access-utilities)
+- [Preferences Utilities](https://developer.apple.com/documentation/corefoundation/preferences-utilities)
+- [Socket Name Server Utilities](https://developer.apple.com/documentation/corefoundation/socket-name-server-utilities)
+- [Time Utilities](https://developer.apple.com/documentation/corefoundation/time-utilities)
 
 ### Opaque Types
 - **CFAllocator**
@@ -87,11 +87,14 @@ For more about Core Foundation, see Core Foundation Design Concepts.
 - **Core Foundation Macros**
 
 ### Variables
-- **kCFURLUbiquitousItemIsSyncPausedKey**- **kCFURLUbiquitousItemSupportedSyncControlsKey**
-### Functions
-- **CFAttributedStringGetStatisticalWritingDirections**
----
+- [`kCFURLUbiquitousItemIsSyncPausedKey`](https://developer.apple.com/documentation/corefoundation/kcfurlubiquitousitemissyncpausedkey) — 26+ on supported platforms.
+- [`kCFURLUbiquitousItemSupportedSyncControlsKey`](https://developer.apple.com/documentation/corefoundation/kcfurlubiquitousitemsupportedsynccontrolskey) — 26+ on supported platforms.
 
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
+### Functions
+- [`CFAttributedStringGetStatisticalWritingDirections(_:_:_:_:_:)`](https://developer.apple.com/documentation/corefoundation/cfattributedstringgetstatisticalwritingdirections(_:_:_:_:_:)) — 26+ on supported platforms.
+
+For the documented OS 27 URL-encoding and capacity-reporting changes, see [Foundation](Foundation.md#urls-and-available-capacity). Do not assume those notes change every low-level CFURL function or its ownership rules.
+
+---
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/CoreFoundation)*

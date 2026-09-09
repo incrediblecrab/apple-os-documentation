@@ -6,16 +6,16 @@ Present an interface through which users can pair their devices with other Bluet
 
 ## Overview
 
-The BluetoothUI framework provides interfaces that allow user selection of Bluetooth services.
+The IOBluetoothUI framework provides interfaces for selecting Bluetooth devices and services, pairing, and presenting object transfers.
 
 ## Topics
 
 ### Classes
 - **IOBluetoothAccessibilityIgnoredImageCell**
 - **IOBluetoothAccessibilityIgnoredTextFieldCell**
-- **IOBluetoothDeviceSelectorController** - A NSWindowController subclass to display a window to initiate pairing to other bluetooth devices.
+- **IOBluetoothDeviceSelectorController** - A window controller that searches for Bluetooth devices and returns the selected `IOBluetoothDevice` objects.
 - **IOBluetoothDeviceSelectorControllerRef**
-- **IOBluetoothObjectPushUIController** - An NSWindowController subclass that supports the creation of an IOBluetoothObjectPushUIController object.
+- **IOBluetoothObjectPushUIController** - A window controller for presenting a file transfer to a Bluetooth device.
 - **IOBluetoothPairingController** - A NSWindowController subclass to display a window to initiate pairing to other bluetooth devices.
 - **IOBluetoothPairingControllerRef**
 - **IOBluetoothPasskeyDisplay**
@@ -23,16 +23,14 @@ The BluetoothUI framework provides interfaces that allow user selection of Bluet
 - **IOBluetoothServiceBrowserControllerRef**
 
 ### Reference
-- [IOBluetoothUIUserLib.h](https://developer.apple.com/documentation/iobluetoothui/iobluetoothuiuserlib_h)
-- [IOBluetoothUI Enumerations](https://developer.apple.com/documentation/iobluetoothui/iobluetoothui_enumerations)
-- [IOBluetoothUI Constants](https://developer.apple.com/documentation/iobluetoothui/iobluetoothui_constants)
-- [IOBluetoothUI Functions](https://developer.apple.com/documentation/iobluetoothui/iobluetoothui_functions)
+- [IOBluetoothUIUserLib.h](https://developer.apple.com/documentation/iobluetoothui/iobluetoothuiuserlib-h)
+- [IOBluetoothUI Enumerations](https://developer.apple.com/documentation/iobluetoothui/iobluetoothui-enumerations)
+- [IOBluetoothUI Constants](https://developer.apple.com/documentation/iobluetoothui/iobluetoothui-constants)
+- [IOBluetoothUI Functions](https://developer.apple.com/documentation/iobluetoothui/iobluetoothui-functions)
 
 ### Structures
 - **BluetoothKeyboardReturnType**
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/IOBluetoothUI)*

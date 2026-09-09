@@ -33,24 +33,24 @@ In iOS 17, Messages allows you to interactively resize iMessage apps with a vert
 
 ### Become the default messaging app
 
-In iOS and iPadOS 18.2 and later, a person may select an app other than the Messages app to send instant messages. If you wish to make your app the default messages app, see Preparing your app to be the default messaging app.
+In iOS and iPadOS 18.2 and later, a person may select another app to send instant messages. The [default messaging guide](https://developer.apple.com/documentation/messages/preparing-your-app-to-be-the-default-messaging-app) requires the `com.apple.developer.messaging-app` entitlement and handling `im:` URLs. This role is distinct from authorization to send critical SMS messages.
 
 ## Topics
 
 ### Default messaging app
-- [Preparing your app to be the default messaging app](https://developer.apple.com/documentation/messages/preparing_your_app_to_be_the_default_messaging_app) - Configure your messaging app so people can set it as the default on their device.
+- [Preparing your app to be the default messaging app](https://developer.apple.com/documentation/messages/preparing-your-app-to-be-the-default-messaging-app) - Configure your messaging app so people can set it as the default on their device.
 
 ### Custom sticker packs
-- [Adding Sticker packs and iMessage apps to the system Stickers app, Messages camera, and FaceTime](https://developer.apple.com/documentation/messages/adding_sticker_packs_and_imessage_apps_to_the_system_stickers_app_messages_camera_and_facetime) - Enable your Sticker pack or iMessage app in the media context.
-- [Adding your sticker packs to Messages](https://developer.apple.com/documentation/messages/adding_your_sticker_packs_to_messages) - Drag and drop your sticker pack into the Stickers asset catalog to let people access your stickers from Messages.
+- [Adding Sticker packs and iMessage apps to the system Stickers app, Messages camera, and FaceTime](https://developer.apple.com/documentation/messages/adding-sticker-packs-and-imessage-apps-to-the-system-stickers-app-messages-camera-and-facetime) - Enable your Sticker pack or iMessage app in the media context.
+- [Adding your sticker packs to Messages](https://developer.apple.com/documentation/messages/adding-your-sticker-packs-to-messages) - Drag and drop your sticker pack into the Stickers asset catalog to let people access your stickers from Messages.
 - **MSStickerBrowserViewController** - A view controller that provides dynamic content to the standard sticker browser.
 - **MSStickerBrowserView** - A browser view that displays a dynamically generated list of stickers.
 - **MSStickerView** - A view for displaying a sticker.
 - **MSStickerSize** - The size of the stickers in the browser view.
 
 ### Custom iMessage app interface
-- [IceCreamBuilder: Building an iMessage Extension](https://developer.apple.com/documentation/messages/icecreambuilder_building_an_imessage_extension) - Allow users to collaborate on the design of ice cream sundae stickers.
-- [Creating a Sticker App with a Custom Layout](https://developer.apple.com/documentation/messages/creating_a_sticker_app_with_a_custom_layout) - Expand on the Messages sticker app template to create an app with a customized user interface.
+- [IceCreamBuilder: Building an iMessage Extension](https://developer.apple.com/documentation/messages/icecreambuilder-building-an-imessage-extension) - Allow users to collaborate on the design of ice cream sundae stickers.
+- [Creating a Sticker App with a Custom Layout](https://developer.apple.com/documentation/messages/creating-a-sticker-app-with-a-custom-layout) - Expand on the Messages sticker app template to create an app with a customized user interface.
 - **MSMessagesAppViewController** - The principal view controller for iMessage apps.
 - **MSMessagesAppTranscriptPresentation** - A protocol that provides support for displaying live messages in the transcript of the Messages app.
 - **MSMessagesAppPresentationStyle** - Presentation styles that describe your iMessage app's appearance.
@@ -67,10 +67,13 @@ In iOS and iPadOS 18.2 and later, a person may select an app other than the Mess
 - **MSMessageLiveLayout** - A layout that provides a custom, interactive view inside the transcript.
 
 ### Critical messages
-- [Sending SMS messages from an app](https://developer.apple.com/documentation/messages/sending_sms_messages_from_an_app) - Send critical messages from inside your app using the Critical Messaging API.
-- **MSCriticalSMSMessenger** - The user interface for the Critical Messaging API.
+
+This separate API starts at iOS/iPadOS 18.2. It requires the Critical Messaging entitlement, `NSCriticalMessagingUsageDescription`, and authorization for the recipients. Sending is supported only while the app is backgrounded; foreground attempts fail with `notSupported`. Authorization can change in Settings, rate limiting can produce `sendFailed`, and unavailable SMS service can prevent delivery. Do not treat it as a guaranteed safety-message delivery channel.
+
+- [Sending SMS messages from an app](https://developer.apple.com/documentation/messages/critical-messaging-api) - Configure and use the entitlement-controlled Critical Messaging API.
+- [`MSCriticalSMSMessenger`](https://developer.apple.com/documentation/messages/mscriticalsmsmessenger) - The API entry point for critical SMS messaging and recipient authorization.
 - **MSRecipient** - A structure that describes the recipient of a critical message.
-- **MSCriticalMessage** - A simple struct to encapsulate the message string.
+- **MSCriticalMessage** - A message for critical communications.
 - **MSCriticalMessagingAuthorizationStatus** - Values that describe the authorization status for the Critical Messaging API.
 
 ### Errors
@@ -80,7 +83,5 @@ In iOS and iPadOS 18.2 and later, a person may select an app other than the Mess
 - **MSCriticalMessagingError** - Values that describe errors the Critical Messaging API returns.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/Messages)*

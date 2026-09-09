@@ -1,26 +1,26 @@
 # macOS Tahoe 26.0 Developer Introduction
 
-Build great apps and games for macOS that take full advantage of the powerful capabilities of Mac. Create a stunning new look for your apps with Liquid Glass. Provide users with seamless access to your app content across the system with widgets, Live Activities, and App Intents. You can unlock powerful and immersive experiences through new technologies like Metal 4 and the Video Effects API. And maximize the performance of apps and games by building them natively for Apple silicon.
+Maintain Mac apps using AppKit or SwiftUI, adopt Liquid Glass where appropriate, and expose useful actions through App Intents. macOS Tahoe 26 also provides on-device Foundation Models and new graphics capabilities; availability must be checked independently from the Mac's ability to run the OS.
 
 **Platform:** macOS Tahoe 26.0+
 
-> **Generation status:** macOS Tahoe 26 is the current shipping line — **macOS Tahoe 26.6.1**, released August 6, 2026. It is the **final macOS release supporting Intel Macs**. macOS Golden Gate 27 is Apple-silicon-only; see [os27-intro/macOS.md](../os27-intro/macOS.md).
+> **Status checked September 8, 2026:** the shipping release is **macOS Tahoe 26.6.2** (`25G83`), released August 17. macOS Golden Gate 27 beta 8 was released August 31; see the [macOS 27 introduction](../os27-intro/macOS.md). Release listings do not establish a general-availability date or a complete supported-model list.
 
 ## Overview
 
-macOS Tahoe 26.0 represents a significant evolution in desktop computing, bringing Liquid Glass design, Apple Intelligence, and powerful new capabilities to Mac. This release emphasizes performance, creativity, and seamless integration across the Apple ecosystem.
+Keep older-OS support and universal-binary decisions explicit. Rebuilding for a new SDK can change controls, menus, and window behavior without requiring you to discard your existing deployment targets. Profile on representative hardware and test permissions, keyboard navigation, and document recovery.
 
 ## Key Features
 
 ### New Design
 
 **Say hello to Liquid Glass**  
-Transform your Mac apps with the revolutionary Liquid Glass design system. Experience translucent materials, fluid animations, and dynamic visual effects that adapt to content and context while maintaining the familiar Mac interface paradigms.
+Adopt system materials and review custom window chrome, toolbars, menus, and sidebars. Test contrast and transparency settings while preserving standard Mac interactions.
 
 ### Apple Intelligence
 
 **Tap into the on-device large language model**  
-Harness the power of Apple's advanced AI capabilities optimized for Mac hardware. Apple Intelligence enables sophisticated automation, content generation, and intelligent features while maintaining user privacy and security.
+Foundation Models gives eligible Macs on-device language-model access. Check model availability and handle unavailable or failed generation without blocking unrelated app features.
 
 ### Enhanced App Capabilities
 
@@ -28,55 +28,61 @@ Harness the power of Apple's advanced AI capabilities optimized for Mac hardware
 Make your app's core functions available throughout macOS. Enable users to access your app's features through Spotlight, Shortcuts, and system-wide automation.
 
 **Live Activities**  
-Provide important information right now with Live Activities on Mac. Keep users informed with real-time updates that integrate seamlessly with the macOS interface and notification system.
+Consider how an iPhone app's Live Activities appear on Mac through Continuity. Do not assume this provides a native macOS ActivityKit implementation with the same availability as the iPhone API.
 
 **Enhanced Widgets**  
-Deliver timely, elevated information with powerful widget capabilities. macOS 26.0 expands widget functionality with new sizes, interactive elements, and customization options.
+Use WidgetKit for supported desktop and Notification Center presentations. Test the OS26 appearance and timeline behavior without presenting earlier widget interactivity as a new Tahoe-only feature.
 
 ### Graphics and Performance
 
 **Metal-powered games**  
-Create games and graphics-intensive applications with astonishing realism and incredible creativity. Metal 4 provides unprecedented access to GPU capabilities and performance optimization.
+Use Metal for graphics and compute workloads, and check the GPU requirements of Metal 4 features. Measure performance on the hardware you support.
 
-**Video Effects API**  
-Unlock exponential visual storytelling possibilities with the new Video Effects API. Create sophisticated video processing, real-time effects, and professional-grade media applications.
+**Video processing**
+
+Use the documented AVFoundation and VideoToolbox APIs for capture, playback, and processing. Check codec and hardware support before offering an effect; “Video Effects” is not a substitute framework name.
 
 ### System Integration
 
 **Menu Bar and Window Management**  
-Take advantage of macOS's flexible window system, completely transparent menu bar, and enhanced Stage Manager capabilities for better productivity workflows.
+Adapt windows, menus, and custom chrome to the running system appearance and supported multitasking modes. Respect contrast and transparency settings instead of assuming an always-transparent menu bar.
 
 **Desktop Customization**  
-Provide users with extensive customization options including multiple appearance variants, dynamic backgrounds, and adaptive interface elements.
+Respect system appearance, accent choices, and accessibility settings in your app's content and controls; app customization does not require changing the person's desktop.
 
 ## What's New in macOS Tahoe 26
 
 Dive into the latest key technologies and capabilities:
 
-- **Liquid Glass Design System**: Revolutionary visual effects and transparent materials
-- **Apple Intelligence**: Advanced AI capabilities for productivity and creativity
-- **Metal 4**: Next-generation graphics performance and capabilities
-- **Video Effects API**: Professional-grade video processing and effects
-- **Enhanced Widgets**: More interactive and customizable interface elements
-- **Stage Manager Improvements**: Better window organization and multitasking
-- **Transparent Menu Bar**: Seamless desktop integration
-- **Apple Silicon Optimization**: Maximum performance on Apple silicon Macs
+- **Liquid Glass**: System appearance changes, with custom UI requiring review
+- **Foundation Models**: On-device language-model access on eligible Macs
+- **Metal 4**: Graphics features subject to GPU support
+- **Widgets and App Intents**: Useful entry points outside your app's windows
+- **Native Apple silicon builds**: Audit helpers and plug-ins as well as the main executable
+
+### Maintenance and OS27 Preparation
+
+- Use **26.6.2** as the current maintenance baseline while retaining the [26.0](https://developer.apple.com/documentation/macos-release-notes/macos-26-release-notes) and [26.6](https://developer.apple.com/documentation/macos-release-notes/macos-26_6-release-notes) notes for historical behavior.
+- **Xcode 27 beta 6 runs on Apple silicon with macOS Tahoe 26.4 or later; macOS 27 is not required.** Intel Macs are not eligible Xcode 27 hosts, although its macOS SDK can build universal apps for older deployment targets.
+- Plan for the [documented macOS 27 Rosetta and installer changes](../os27-intro/macOS.md). Running an Intel app under Rosetta and running Xcode on an Intel host are different questions.
+- Audit [managed-service TLS](https://support.apple.com/en-us/126655), menu image visibility, and SwiftUI document migrations before upgrading production deployments. Mac Catalyst apps also need the UIKit scene life cycle when rebuilt with the latest SDK.
+- Keep the [App Store readiness checklist](../guides/app-store-readiness.md) separate from Developer ID distribution and deployment-target choices.
 
 ## Getting Started
 
 **New to macOS development?**  
-Check out the [macOS Pathway](https://developer.apple.com/macos/), an easy-to-navigate collection of resources to get started with Mac app development.
+Check out the [macOS Pathway](https://developer.apple.com/macos/get-started/), a collection of resources to get started with Mac app development.
 
 ## Developer Success Stories
 
 ### Masters of puppets
-How ROUND8 Studio carved out a niche for Lies of P on Mac, demonstrating the gaming potential of Apple silicon and Metal optimization.
+[Apple's Lies of P profile](https://developer.apple.com/news/?id=jimo1g6z) describes ROUND8 Studio's Mac game and features such as MetalFX upscaling.
 
 ### Assassin's Creed Shadows
-Find out how Ubisoft brought its "most ambitious" game to Mac, showcasing advanced graphics capabilities and cross-platform development.
+[Apple's Ubisoft interview](https://developer.apple.com/news/?id=q2zte70j) discusses bringing Assassin's Creed Shadows to Mac using Apple silicon and Metal 3.
 
 ### The rise of Tide Guide
-Find out how Tucker Macdonald built a world-class tide tracker for Mac, taking advantage of native macOS features and design principles.
+[Apple's Tide Guide profile](https://developer.apple.com/news/?id=4r9b23wx) follows Tucker MacDonald's development of a tide and weather app.
 
 ## Resources
 
@@ -86,10 +92,10 @@ Find out how Tucker Macdonald built a world-class tide tracker for Mac, taking a
 - [App Store Connect](https://developer.apple.com/app-store-connect/) - App management and analytics
 
 ### Documentation
-- [macOS Developer Documentation](https://developer.apple.com/documentation/macos/)
+- [macOS Release Notes](https://developer.apple.com/documentation/macos-release-notes)
 - [AppKit Documentation](https://developer.apple.com/documentation/appkit/)
 - [Metal Documentation](https://developer.apple.com/documentation/metal/)
-- [Video Effects API](https://developer.apple.com/documentation/videoeffects/)
+- [VideoToolbox](https://developer.apple.com/documentation/videotoolbox/)
 
 ### Related Platforms
 Build apps that integrate seamlessly across all Apple platforms:
@@ -105,7 +111,7 @@ Build apps that integrate seamlessly across all Apple platforms:
 Sharpen your skills through in-person and online activities around the world. Connect with Apple engineers and designers to create powerful Mac experiences.
 
 ### Apple Developer Program
-Join the [Apple Developer Program](Program.md) to access beta software, advanced app capabilities, and distribution through the Mac App Store.
+Join the [Apple Developer Program](Program.md) for TestFlight, Mac App Store distribution, Developer ID services, and other membership capabilities. Developer beta access is separate.
 
 ### Distribution Options
 - **Mac App Store**: Reach customers worldwide with built-in discovery and payment processing
@@ -115,4 +121,6 @@ Join the [Apple Developer Program](Program.md) to access beta software, advanced
 
 *Platform requirements and feature availability may vary. Some capabilities and services may not be available in all regions or all languages.*
 
-*Reviewed 2026-08-09 against the OS 27 generation. See [os27-intro](../os27-intro/) for the current beta line.*
+## Sources
+
+[Designing for macOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-macos), [Liquid Glass adoption](https://developer.apple.com/documentation/technologyoverviews/adopting-liquid-glass), and [SystemLanguageModel](https://developer.apple.com/documentation/foundationmodels/systemlanguagemodel) support the platform guidance. [Apple Developer releases](https://developer.apple.com/news/releases/), [security updates](https://support.apple.com/en-us/100100), [macOS 27 notes](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes), and [Xcode 27 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) support the status and migration guidance checked September 8, 2026. Inline story sources describe historical examples.

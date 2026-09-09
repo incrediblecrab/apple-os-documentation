@@ -6,7 +6,9 @@ Communicate with accessories that connect to a device with the Apple Lightning c
 
 ## Overview
 
-Use the External Accessory framework to set up and manage a connection to an MFi accessory your iOS app supports. The framework supports hardware that connects to an iOS or iPadOS device physically through an Apple Lightning or a 30-pin connector, or wirelessly with Bluetooth technology. The framework notifies your app when the accessory connects or disconnects from the user's device. While connected, you communicate directly with the accessory using any hardware protocols the device supports.
+Use External Accessory to manage connections to supported MFi accessories. Apple's reference describes Lightning, legacy 30-pin and Bluetooth transports; this is not a general-purpose interface to every device that fits a connector. The framework notifies your app when an accessory connects or disconnects.
+
+An `EASession` communicates using a manufacturer-supported protocol that your app declares in `UISupportedExternalAccessoryProtocols`. That property-list key is an array of reverse-DNS protocol-name strings. Your app formats the protocol's messages and configures the session's input and output streams; the framework does not implement arbitrary device protocols for you.
 
 > **Note:** iPad and iPhone apps running on a Mac with Apple silicon can't connect to external accessories using this framework. You may continue to link apps to this framework and run other features on Apple silicon.
 
@@ -30,7 +32,5 @@ For more information about how to connect to external accessories, see External 
 - **EAWiFiUnconfiguredAccessory** - An object that provides information about an unconfigured MFi Wireless Accessory Configuration accessory.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/ExternalAccessory)*

@@ -8,7 +8,7 @@ Using drag and drop, people can move or duplicate selected photos, text, and oth
 
 To perform drag and drop, people select content in one location, called the source, and drop it in another, called the destination. These locations can be in the same container — like a text view — or in different containers, like text views on opposite sides of a split view, or even in different apps.
 
-Depending on various factors, the drag and drop action might move the selected content to the destination or copy it. After a successful drop, moved content exists only in the destination; copied content exists in both locations. As a general rule, dropping selected content within the same container moves it, whereas dropping content in a different container copies it. Dragging and dropping content between apps always results in a copy.
+The operation depends on the platform, content, and agreement between source and destination. Moving within a container and copying between containers are useful defaults, not a universal rule for every drag. UIKit permits a move only within the same app and requires copying data shared with another app; its delegates still implement the actual insertion and removal. AppKit exposes operation masks for different dragging contexts, so don't generalize UIKit's cross-app rule to every Mac operation.
 
 People use different interactions to perform drag and drop depending on platform. For example:
 
@@ -27,19 +27,19 @@ People use different interactions to perform drag and drop depending on platform
 
 - **Determine when dragging and dropping content results in a move or a copy** - In general, a move makes sense when the source and destination containers are the same — such as dragging text from one location to another within a document — and a copy makes sense when they're different, like dragging an image from one document to another. Before you change these defaults, consider the behavior that most people expect and prefer the one that is least likely to result in frustration or data loss.
 
-- **Support multi-item drag and drop** - People appreciate the convenience of dragging a group of items to a destination, instead of dragging each item separately. In iOS, iPadOS, macOS, and visionOS, people can select multiple items and drag them as a group; macOS also lets people select multiple items from several apps and drag them as a group. In iPadOS, people can select an item, start dragging it, and add other items to the group without stopping the drag operation.
+- **Support multi-item drag and drop when appropriate** - Let people move a selected group instead of handling every item separately. On iPad, supported interactions can add items to a drag already in progress. Don't assume that touch-based gathering or multiple simultaneous drag activities work identically on a Mac.
 
-- **Prefer letting people undo a drag-and-drop operation** - Sometimes, people inadvertently drop content in the wrong destination, so they appreciate being able to undo the action and return to their previous state. You might also be able to help people avoid mistakes by asking for confirmation before completing a drag-and-drop operation that can't be undone. In macOS, for example, the Finder asks for confirmation when people drag a file into a write-only folder because they won't be able to open the folder and remove the dropped item. In some situations, it might make sense to provide a way to reverse the results of drag and drop when people can't undo it. For example, Photos lets people cancel photo sharing after dropping a photo into a shared photo stream.
+- **Prefer letting people undo a drag-and-drop operation** - Sometimes, people inadvertently drop content in the wrong destination, so they appreciate being able to undo the action and return to their previous state. You might also be able to help people avoid mistakes by asking for confirmation before completing a drag-and-drop operation that can't be undone. In macOS, for example, the Finder asks for confirmation when people drag a file into a write-only folder because they won't be able to open the folder and remove the dropped item. If a drop starts a sharing operation, provide a way to stop or reverse it when the service supports that; don't imply that already-delivered copies can always be recalled.
 
 - **Offer multiple versions of dragged content** - By providing multiple alternatives ordered from highest to lowest fidelity, the destination can choose the highest quality version it can accept. For example, if people can drag a line drawing they created in your app, you could offer a PDF vector representation, a lossless PNG image with transparency, and a lossy JPEG image without transparency, in that order. Another example is an app that uses rich, complicated objects, like charts. This app might offer the native chart object followed by a simpler version — like an image of the chart — for destinations that don't support chart objects.
 
-- **Consider supporting spring loading** - Spring loading lets people activate certain controls, like buttons and segmented controls, by dragging selected content over them. For example, Calendar lets people drag a selected event over the day, week, month, or year segments in the toolbar, giving them a convenient way to move the event to a different date. On a Mac equipped with a Magic Trackpad, a button or segmented control can activate when people force-click it while continuing to hold the content; on iPad, these components can activate when people hover over them while holding the content.
+- **Consider supporting spring loading** - Spring loading lets people activate supporting controls while holding dragged content over them, making another view or destination accessible without ending the drag. Activation depends on the platform, input device, and preferences: for example, a supported Force Touch trackpad can offer pressure-based activation, while supported iPad controls can respond to hovering dragged content.
 
 ### Providing feedback
 
-Drag and drop is a dynamic process that can result in multiple outcomes. To help people feel in control the process, it's crucial to provide clear and continuous feedback throughout.
+Drag and drop is a dynamic process that can result in multiple outcomes. To help people feel in control of the process, provide clear and continuous feedback throughout.
 
-- **Display a drag image immediately** - As soon as people drag a selection about three points, display a translucent representation of the content people are dragging. Translucency helps distinguish the representation from the original content and lets people see destinations as they pass over them. Display the drag image until people drop the content.
+- **Display the drag preview promptly** - The HIG describes showing feedback after approximately three points of selection movement. Treat that as design guidance, not a universal gesture-recognition constant for touch, pointer, and spatial input. Use the platform's drag lifecycle and previews; a translucent representation can distinguish the dragged content while keeping destinations visible.
 
 - **Modify the drag image to help predict results** - If it adds clarity, modify the drag image to help people predict the result of a drag-and-drop operation. For example, when dragging a photo into a document, the drag image could expand to show the default size of the photo in the document. You can also use drag flocking to visually group multiple drag items — letting people confirm that they haven't missed an item they want to drag — and then ungroup the items when people drop them. Although changing the drag image can provide valuable feedback, avoid creating a distracting experience in which the drag image is constantly and radically changing.
 
@@ -51,11 +51,11 @@ Drag and drop is a dynamic process that can result in multiple outcomes. To help
 
 - **Scroll the contents when necessary** - When people drag an item within a scrolling container that has a lot of content, the content can automatically scroll as people move the item over it. This behavior makes it easy for people to find the right place to drop the item, but if they continue the drag operation outside of the container, automatic scrolling is no longer necessary. System-provided text views and text fields behave this way by default.
 
-- **Pick the richest version of dropped content** - When there's a choice, pick the richest version of dropped content your app can accept. For example, if people drag a chart object from another app, the drag operation might offer both the rich, native chart object and a simple image of it. If your app supports charts, extract and display the native chart object; it it doesn't, use the image instead.
+- **Pick the richest version of dropped content** - When there's a choice, pick the richest version of dropped content your app can accept. For example, if people drag a chart object from another app, the drag operation might offer both the rich, native chart object and a simple image of it. If your app supports charts, extract and display the native chart object; if it doesn't, use the image instead.
 
 - **Extract only the relevant portion** - For example, when people drag a contact to a recipient field in an email, Mail displays only the name and email address, not the contact's address information.
 
-- **Check for the Option key at drop time** - When a physical keyboard is attached, check for the Option key at drop time. When people hold the Option key while dragging, they can force a drag-and-drop operation within the same container to behave like a copy. If people stop holding Option before dropping content in the same container, the drag operation results in a move.
+- **Honor supported modifier-key behavior at drop time** - Where Option requests a copy, evaluate the final modifier state rather than only the state at drag start. Advertise and perform only operations that the source and destination allow; a modifier doesn't make an unsupported copy or move valid.
 
 - **Provide feedback for time-consuming transfers** - For example, you might display a progress indicator to help people estimate how long the transfer will take. In collections, lists, and tables, you might also display a placeholder at the drop location so people know where to find the content after it finishes transferring. The system can display an alert when a time-consuming transfer occurs between apps.
 
@@ -73,7 +73,7 @@ Not supported in tvOS or watchOS.
 Let people perform multiple simultaneous drag activities. In iPadOS, people can sequentially add items to an in-progress drag session, gathering as many items as their fingers can handle. For example, people can select an app icon on the Home Screen, start dragging it, and select additional app icons before dropping all of them in a different Home Screen or in a folder. To support this interaction, you need to let people add items during a drag — providing visual feedback through flocking — and accept multiple, simultaneous drops.
 
 **macOS**  
-- Consider letting people drag content from your app into the Finder. When you support this, be sure to present the content in a format your app can open later. For example, Calendar lets people drag an event to the Finder as a .ics file. People can share this file with others or drag it back to Calendar to open it. When necessary, you can output dragged content in a clipping, which is a temporary container for storing dragged content. For example, most system apps let people drag text to the Finder, where it appears as a clipping. Later, people can drag the clipping into a text field or other location that accepts text. Note that a drag-and-drop clipping isn't related to the Clipboard.
+- Consider letting people drag content from your app into the Finder. When you support this, be sure to present the content in a format your app can open later. For example, Calendar lets people drag an event to the Finder as an .ics file that can be shared or reopened. Text can also be represented by a clipping file that people later drag into a compatible destination. A clipping is separate from the Clipboard; don't imply that the system automatically deletes it after the drag.
 
 - Let people drag selected content from an inactive window without first making the window active. Selected content in an inactive window is known as a background selection and has a different appearance from selected content in the active window. In general, people expect to drag a background selection to the active window without bringing the inactive window forward.
 
@@ -86,16 +86,18 @@ Let people perform multiple simultaneous drag activities. In iPadOS, people can 
 - As much as possible, let people select and drag content with a single motion. Unless people are selecting multiple items, they appreciate it when they don't have to pause between making a selection and starting the drag operation.
 
 **visionOS**  
-When possible, launch your app to handle content that people drop into empty space. When you associate a user activity with draggable app content, your app can open a window or scene that handles the content when people drop it. For example, when people drop a URL into empty space, it launches Safari; when people drop Quick Look–supported content, Quick Look launches to display it. For developer guidance, see NSUserActivity.
+When appropriate, support opening content dropped into empty space. Associate a user activity with draggable content and configure the app to handle that activity and activate the appropriate scene. The HIG illustrates URLs opening in Safari and supported files opening in Quick Look; these are examples, not a promise that any dropped payload launches your app. See [NSUserActivity](https://developer.apple.com/documentation/foundation/nsuseractivity).
 
 ### Related
 
-- [Universal Control](https://developer.apple.com/design/human-interface-guidelines/universal-control)
+- [Universal Control](https://support.apple.com/en-us/102459)
 
 ### Developer documentation
 
-- [Drag and drop — UIKit](https://developer.apple.com/documentation/uikit/drag_and_drop)
-- [Drag and Drop — AppKit](https://developer.apple.com/documentation/appkit/drag_and_drop)
+- [Drag and drop — UIKit](https://developer.apple.com/documentation/uikit/drag-and-drop)
+- [UIDropOperation.move](https://developer.apple.com/documentation/uikit/uidropoperation/move) - Same-app restriction and delegate responsibilities
+- [Drag and Drop — AppKit](https://developer.apple.com/documentation/appkit/drag-and-drop)
+- [NSDraggingSource operation mask](https://developer.apple.com/documentation/appkit/nsdraggingsource/draggingsession(_:sourceoperationmaskfor:)) - Permitted operations by dragging context
 - [File Provider](https://developer.apple.com/documentation/fileprovider)
 
 ### Videos
@@ -106,6 +108,8 @@ When possible, launch your app to handle content that people drop into empty spa
 
 ## Changelog
 
+These dates describe Apple's HIG article history.
+
 ### October 24, 2023
 - Added artwork.
 
@@ -113,7 +117,5 @@ When possible, launch your app to handle content that people drop into empty spa
 - Updated to include guidance for visionOS.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/drag-and-drop)*

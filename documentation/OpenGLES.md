@@ -2,7 +2,11 @@
 
 Create 3D and 2D graphics effects with this compact, efficient subset of OpenGL.
 
-**Platforms:** iOS 2.0–12.0 (Deprecated) | iPadOS 2.0–12.0 (Deprecated) | tvOS 9.0–12.0 (Deprecated) | visionOS 1.0–1.0 (Deprecated)
+**Legacy availability:** iOS/iPadOS 2.0+ (deprecated in 12.0) | tvOS 9.0+ (deprecated in 12.0)
+
+**Compatibility annotations:** Apple's reference also marks visionOS 1.0 as deprecated from 1.0 and inherits a Mac Catalyst “2.0” annotation. These are not recommended native graphics deployment targets or evidence of a real Catalyst 2 release. Use individual declarations and target-SDK guidance for compatibility code.
+
+Deprecation is not a removal date. Retain this reference for existing EAGL/OpenGL ES integrations and use [Metal](Metal.md) for new rendering work.
 
 ## Overview
 
@@ -51,7 +55,5 @@ For a complete reference to the OpenGL ES APIs and OpenGL ES Shading Language, s
 - **OpenGL ES Programming Guide**
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/OpenGLES)*

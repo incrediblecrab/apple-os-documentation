@@ -17,11 +17,11 @@ Although the most effective experiences are approachable and intuitive, you can 
 
 A tip is a small, transient view that briefly describes how to use a feature in your app. Tips are a great way to teach people about new or less obvious features in your app, or help them discover faster ways to accomplish a task. For developer guidance, see TipKit.
 
-- **Use the most appropriate tip type for your app's user interface** - Display an inline tip to avoid covering important information. Display a popover tip when you don't want to interrupt your content flow. If you use a popover, consider excluding images because the tip already points to the highlighted feature.
+- **Choose a tip style for the context** - A popover preserves the content's layout, while an inline tip keeps surrounding information visible. An annotation-style inline tip points to a specific element; a hint-style tip can explain something without pointing to a particular piece of UI.
 - **Use tips for simple features** - Tips work best on features that are easy to describe and that people can complete with a few simple steps. If a feature requires more than three actions, it's probably too complicated for a tip.
 - **Make tips short, actionable, and engaging** - A tip's goal is to encourage people to try new features. Use direct, action-oriented language to describe what the feature does and explain how to use it. Keep your tips to one or two sentences and avoid including content that's promotional or related to a different feature or user flow. Promotional content is anything that advertises, sells, or isn't aligned with the current context of what the person is doing.
 - **Define rules to help ensure your tips reach the intended audience** - Not everyone benefits from every tip. For example, people who've already used a feature won't appreciate viewing a tip that describes it. Use parameter-based or event-based eligibility rules to control when a tip appears, and only display a tip if someone might benefit from its use. When your app has more than one tip, set the display frequency so tips display at a reasonable cadence — for example, once every 24 hours.
-- **If there's an image that people associate with the feature, consider including it in the tip** - For example, a tip with a star can help people understand that the tip is related to favorites. Note that you may not need to include an image if the tip already points to the highlighted feature.
+- **Use a meaningful image when it helps** - Prefer a filled symbol associated with the feature, such as a filled star for favorites. If the tip already points directly to that same image in the interface, don't repeat it inside the tip.
 - **Use buttons to direct people to information or options** - If your feature has settings people can customize, or you want to redirect people to an area where they can learn more about a feature, consider adding a button. Buttons can take people directly to the settings where they make adjustments. Or if there's more information people might find useful, add a button to take them to additional resources, such as a setup flow.
 
 ### Platform Considerations
@@ -29,7 +29,7 @@ A tip is a small, transient view that briefly describes how to use a feature in 
 No additional considerations for iOS, iPadOS, tvOS, or watchOS.
 
 **macOS, visionOS**  
-A tooltip (called a help tag in user documentation) displays a small, transient view that briefly describes how to use a component in the interface. In apps that run on a Mac — including iPhone and iPad apps — tooltips can appear when a person holds the pointer over an element; in visionOS apps, a tooltip can appear when a person looks at an element or holds the pointer over it. For developer guidance, see help(_:).
+A tooltip (called a help tag in user documentation) displays a small, transient view that briefly describes how to use a component in the interface. In apps that run on a Mac — including iPhone and iPad apps — tooltips can appear when a person holds the pointer over an element; in visionOS apps, a tooltip can appear when a person looks at an element or holds the pointer over it. See [help(_:)](https://developer.apple.com/documentation/swiftui/view/help(_:)-6oiyb), which also configures an accessibility hint.
 
 - **Describe only the control that people indicate interest in** - When people want to know how to use a specific control, they don't want to learn how to use nearby controls or how to perform a larger task.
 - **Explain the action or task the control initiates** - It often works well to begin the description with a verb — for example, "Restore default settings" or "Add or remove a language from the list."
@@ -43,7 +43,7 @@ A tooltip (called a help tag in user documentation) displays a small, transient 
 - [Onboarding](https://developer.apple.com/design/human-interface-guidelines/onboarding)
 - [Feedback](https://developer.apple.com/design/human-interface-guidelines/feedback)
 - [Writing](https://developer.apple.com/design/human-interface-guidelines/writing)
-- [Help menu](https://developer.apple.com/design/human-interface-guidelines/help-menu)
+- [Help menu](https://developer.apple.com/design/human-interface-guidelines/the-menu-bar#Help-menu)
 
 ### Developer Documentation
 
@@ -56,6 +56,8 @@ A tooltip (called a help tag in user documentation) displays a small, transient 
 
 ## Changelog
 
+These dates describe changes to Apple's HIG article, not edits to this repository.
+
 ### December 5, 2023
 - Included visionOS in guidance for creating tooltips.
 
@@ -63,7 +65,5 @@ A tooltip (called a help tag in user documentation) displays a small, transient 
 - Added guidance for creating tips.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/offering-help)*

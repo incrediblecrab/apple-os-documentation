@@ -18,9 +18,9 @@ The Core Media framework defines the media pipeline used by AVFoundation and oth
 - **CMAttachment** - Add supporting metadata to sample buffers.
 - **CMTaggedBuffer** - An instance of a media buffer containing metadata tags.
 - **CMMutableDataBlockBuffer** - A block buffer that provides read-write access to a range of bytes.
-- **CMReadOnlyDataBlockBuffer** - A block buffer that provides read-only access to the a range of bytes.
+- **CMReadOnlyDataBlockBuffer** - A block buffer that provides read-only access to a range of bytes.
 - **CMReadySampleBuffer** - Buffer carrying readily available samples of media data.
-- **CMSampleDataReference** - References sample data in at a URL.
+- **CMSampleDataReference** - References sample data at a URL.
 - **CMTaggedDynamicBuffer** - Contains a collection of tags associated with a read-only media buffer.
 
 ### Time Representation
@@ -53,12 +53,10 @@ The Core Media framework defines the media pipeline used by AVFoundation and oth
 - **CMMemoryPool** - An object that optimizes memory allocation when working with large blocks of memory.
 
 ### Reference
-- [Core Media Constants](https://developer.apple.com/documentation/coremedia/core_media_constants)
-- [Core Media Functions](https://developer.apple.com/documentation/coremedia/core_media_functions)
-- [Core Media Type Aliases](https://developer.apple.com/documentation/coremedia/core_media_type_aliases)
+- [Core Media Constants](https://developer.apple.com/documentation/coremedia/core-media-constants)
+- [Core Media Functions](https://developer.apple.com/documentation/coremedia/core-media-functions)
+- [Core Media Type Aliases](https://developer.apple.com/documentation/coremedia/core-media-type-aliases)
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/CoreMedia)*

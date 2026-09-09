@@ -15,7 +15,7 @@ Providing clear, consistent feedback as people interact with your app or game ca
 
 The most effective feedback tends to match the significance of the information to the way it's delivered. For example, it often works well to display status information in a passive way so that people can view it when they need it. In contrast, a warning about possible data loss needs to interrupt people so they have a chance to avoid the problem.
 
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Feedback drawn on glass surfaces must remain perceptible across the full transparency slider range and under Increase Contrast. Do not signal state through translucency alone — pair it with color, shape, or text.
+Keep feedback perceptible when people reduce visual effects or use increased contrast. Pair visual state changes with meaningful text, shape, and [accessibility information](../foundations/accessibility.md), rather than relying only on translucency, color, or animation.
 
 ## Topics
 
@@ -49,7 +49,7 @@ Avoid displaying an indeterminate progress indicator — such as a loading indic
 
 ### Developer documentation
 
-- [Animation and haptics — UIKit](https://developer.apple.com/documentation/uikit/animation_and_haptics)
+- [Animation and haptics — UIKit](https://developer.apple.com/documentation/uikit/animation-and-haptics)
 
 ### Videos
 
@@ -57,7 +57,5 @@ Avoid displaying an indeterminate progress indicator — such as a loading indic
 - [Essential Design Principles](https://developer.apple.com/videos/play/wwdc2017/802)
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/feedback)*

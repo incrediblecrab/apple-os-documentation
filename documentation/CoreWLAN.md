@@ -2,7 +2,9 @@
 
 Query AirPort interfaces and choose wireless networks.
 
-**Platforms:** Mac Catalyst 13.0+ | macOS 10.6+
+**Platforms:** macOS 10.6+; the `CWWiFiClient` workflow below requires macOS 10.10+.
+
+The framework catalog also lists Mac Catalyst 13.0, but the client APIs described here are macOS APIs. In particular, `CWWiFiClient` is explicitly unavailable to Mac Catalyst in the macOS 26.5 SDK. Importing module constants is not evidence that a Catalyst app can use this Wi-Fi client.
 
 ## Overview
 
@@ -13,6 +15,8 @@ You access the Wi-Fi subsystem by working with a CWWiFiClient instance. This cli
 Because creating the client object is resource intensive, it's usually best to work with a single object over the life of your app rather than creating a series of short lived instances. For convenience, the client class defines a shared instance singleton that you can use for this purpose.
 
 You can use the CoreWLAN framework in an app that adopts App Sandbox without any special exceptions as long as you use the interface objects vended from a client instance. If you initialize interface objects directly, you incur low level system socket accesses that are not considered sandbox safe. For more information about App Sandbox, read App Sandbox Design Guide.
+
+Handle query failures independently of object creation. For example, `CWInterface.ssid()` can return `nil` after an error, when not associated with a network, or when the SSID cannot be represented as a supported string.
 
 ## Topics
 
@@ -40,7 +44,5 @@ You can use the CoreWLAN framework in an app that adopts App Sandbox without any
 - **CWCipherKeyFlags** - Cipher key flags.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/CoreWLAN)*

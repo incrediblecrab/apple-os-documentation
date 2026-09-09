@@ -6,7 +6,7 @@ Access and manage key operating system services, such as launch and identity ser
 
 ## Overview
 
-This collection of documents provides the API reference for the Core Services framework, which encompasses many fundamental operating system services used by Carbon applications.
+Core Services is an umbrella for several low-level service APIs, including material inherited from Carbon-era applications. The header describes the umbrella module's catalog metadata, not uniform availability for every component. For example, the Launch Services and Search Kit references below describe Mac application services; inspect each component's own requirements.
 
 ## Topics
 
@@ -42,7 +42,5 @@ Interact with legacy technologies.
 **Core Services Constants**
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/coreservices)*

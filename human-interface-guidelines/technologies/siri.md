@@ -1,144 +1,86 @@
 # Siri
 
-Siri makes it easy for people to accomplish everyday tasks quickly, using voice, touch, or automation.
+Make useful actions and relevant content available through concise, understandable interactions outside your app's main interface.
 
 **Platforms:** iOS | iPadOS | macOS | tvOS | visionOS | watchOS
 
 ## Overview
 
-When you use SiriKit to define the tasks and actions that your app supports, people can use Siri to perform them even when your app isn't running. If you're an accessory maker, you can also help people use Siri to control your accessories by integrating them with HomeKit or AirPlay. Here are some of the ways people can use Siri to interact with your app or accessory:
+People use Siri in different contexts, including hands-free situations and devices without an app screen in view. Design around the task and its outcome rather than assuming a particular visual presentation.
 
-- Ask Siri to perform a system-defined task that your app supports, like send a message, play a song, or start a workout
-- Run a shortcut, which is a way to accelerate actions your app defines through onscreen interactions or by voice
-- Use the Shortcuts app to adjust what a shortcut does, including combining several actions to perform one multistep shortcut
-- Tap a suggestion to perform a shortcut with your app (Siri can suggest shortcuts that people might want to perform, based on their current context and the information you provide)
-- Use Siri to control an accessory that integrates with your app
-
-Siri works with your products on iPhone, iPad, Mac, Apple Watch, HomePod, and AirPods, so people can use it almost everywhere.
-
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+, tvOS 27+, watchOS 27+, visionOS 27+:** Siri is **rebuilt on Apple Foundation Models** — extended natural conversation, cross-app context, multi-step in-app actions, and awareness of personal on-device data. A standalone **Siri app** lets people review and continue conversations, syncing across devices.
->
-> **SiriKit is deprecated.** SiriKit-based intents are **not recognized** by the new Siri. Expose your functionality through **App Intents** entity and intent schemas instead, and validate with the new App Intents Testing framework. There are no fixed phrases to define — the system maps natural language onto your schemas.
+The current HIG describes integration with Apple Intelligence and Siri AI through App Intents. Device, system, language, and feature availability still need to be checked for the experiences you support.
 
 ## Topics
 
-### Best Practices
+### Make actions and content discoverable
 
-**Integrating Your App with Siri**
+- Describe useful actions as app intents and relevant content as app entities. Use terms people already recognize from your app.
+- Where a system [app schema](https://developer.apple.com/documentation/appintents/app-schema-domains) matches the action's meaning, use that shared definition rather than inventing a parallel vocabulary.
+- Use [App Shortcuts](../components/app-shortcuts.md) for custom actions that fall outside the system's common schemas.
+- Prioritize frequent tasks and the contexts where they help: a short hands-free action may need different defaults and feedback than a task performed while reading a screen.
+- Keep advertisements and sales pitches out of responses.
 
-- **Identify key tasks in your app that people might want to perform on a regular basis** - Focus on actions that people use frequently and would benefit from voice activation.
-- **Drive engagement by telling the system about your app's key tasks and by supporting suggestions** - When you provide information about your actions to the system, Siri can suggest shortcuts when people are likely to be interested in them.
-- **Design functional conversational flows that feel natural** - For actions that people can perform through voice interaction, create flows that mirror natural conversation patterns.
-- **Consider various usage contexts** - Explore the different ways people might perform your app's tasks, such as in hands-free situations, and the devices they might be using.
+### Supply useful context
 
-**Voice Experience Design**
+- Annotate onscreen content with appropriate entities so contextual references can identify what a person is interacting with. See [Providing contextual cues to Apple Intelligence and Siri](https://developer.apple.com/documentation/appintents/providing-contextual-cues-to-apple-intelligence-and-siri).
+- Make relevant entities available to Spotlight deliberately. Favorites, recent items, or other personally useful content may be more helpful than indiscriminately exposing an entire collection.
+- Donate actions people actually take to help the system surface useful suggestions. Keep donated information accurate when the underlying content changes.
+- Treat contextual information as personal data: follow [Privacy](../foundations/privacy.md), minimize what you share, and preserve the person's control.
 
-- **Complete requests without leaving Siri whenever possible** - If a request must be finished in your app, take people directly to the expected destination without showing intermediary screens.
-- **When a request has financial impact, default to the safest and least expensive option** - Never deceive people or misrepresent information. For purchases with multiple pricing levels, don't default to the most expensive.
-- **Provide alternative results if media playback requests are ambiguous** - When you display alternative results within the Siri UI, people can easily choose different content if your first offering isn't what they want.
-- **Design streamlined workflows for Apple Watch** - Use intelligent defaults instead of asking for input whenever possible.
+### Dialogue, confirmation, and results
 
-**Custom Vocabulary and Examples**
+- Prefer the system's built-in responses when they already communicate the task. Add custom dialogue only when it improves clarity.
+- Keep spoken responses short, specific, and useful on their own. Essential information must not depend on a visual snippet being present.
+- Use [Snippets](../components/snippets.md) for focused confirmations and results. Review consequential details before acting, and clearly distinguish a proposed action from a completed one.
+- Ask a clarifying question when the request is ambiguous. Avoid reading a very long list of choices when a question can narrow it.
+- Explain a failure in terms of the actual problem and a useful next step, rather than only saying that something went wrong.
+- Use device-neutral wording when possible. A request can originate on one device and affect another.
 
-- **Create example requests** - When people tap the Help button in the Siri interface, they view a guide that can include example phrases you supply.
-- **Define custom vocabulary that people use with your app** - Help Siri learn specific terms people might use in requests, like account names, contact names, and workout names.
-- **Consider defining alternative app names** - If people might refer to your app in different ways, provide alternative names to help Siri understand what people mean.
+### Accessibility and editorial care
 
-### System Intents
+- Test dialogue without looking at the screen, and test visual results with [VoiceOver](voiceover.md), [larger text](../foundations/typography.md), and increased contrast where supported.
+- Keep labels, values, and action states accessible. Optional custom properties may not appear in every response, so do not put essential meaning only in an optional visual element.
+- Use inclusive wording and respect parental controls. Remember that a spoken response can be heard by people nearby.
+- Refer to Siri by name, without gendered pronouns. Do not impersonate Siri or Apple, and follow Apple's editorial and trademark guidance for localized references.
 
-SiriKit defines a large number of system intents that represent common tasks people do, such as playing music, sending messages to friends, and managing notes. For system intents, Siri defines the conversational flow, while your app provides the data to complete the interaction.
+### Maintaining SiriKit integrations
 
-**Available Domains:**
-- **VoIP Calling** - Initiate calls
-- **Workouts** - Start, pause, resume, end, and cancel workouts  
-- **Lists and Notes** - Create notes, search for notes, create reminders
-- **Media** - Search for and play media content, like or dislike items, add items to library or playlist
-- **Messaging** - Send messages, search for messages, read received messages
-- **Payments** - Send payments, request payments
-- **Car Commands** - Activate hazard lights, lock/unlock doors, check fuel or power level
+[Apple's SiriKit documentation](https://developer.apple.com/documentation/sirikit) explicitly retains legacy support through SiriKit, Intents, and IntentsUI for Shortcuts actions, widget configuration, and **most existing Siri interactions**. It recommends App Intents for modern integration.
 
-### Custom Intents
+This is neither a blanket SiriKit deprecation nor a guarantee that every old intent works in every new context. For an existing integration, inspect the specific APIs and migration guidance, preserve necessary legacy behavior, and test the supported devices and invocation paths.
 
-If your app lets people perform an everyday task that doesn't fit into any of the SiriKit domains, you can create a custom intent to represent it. Custom intents give people a quick way to initiate frequently performed actions by speaking a simple phrase or accepting a suggestion from Siri.
+## Related guidance
 
-**Custom Intent Categories:**
-- **Generic** - Do, Run, Go
-- **Information** - View, Open
-- **Order** - Order, Book, Buy
-- **Start** - Start
-- **Navigate** - Navigate
-- **Share** - Share, Post, Send
-- **Create** - Create, Add
-- **Search** - Search, Find, Filter
-- **Download** - Download, Get
-- **Other** - Set, Request, Toggle, Check in
+- [App Shortcuts](../components/app-shortcuts.md)
+- [Snippets](../components/snippets.md)
+- [Generative AI](generative-ai.md)
+- [Writing](../foundations/writing.md)
 
-**Design Guidelines:**
-- **Design custom intents that accelerate common, useful tasks** - Take advantage of the familiarity people have with your app
-- **Ensure your intent works well in every scenario** - Make it easy for people to run your intent as a shortcut, regardless of how they initiate it
-- **Design intents for tasks that aren't overly complex** - People benefit most from intents that reduce the number of actions required to complete a task
-- **Design your intents to be long-lived** - Avoid offering intents that are date-specific or associated with temporary data
-- **Support background operation** - The best intents support shortcuts that run quickly without bringing your app to the front
+## Developer documentation
 
-### Shortcuts and Suggestions
+- [App Intents](https://developer.apple.com/documentation/appintents)
+- [Apple Intelligence and Siri AI](https://developer.apple.com/documentation/appintents/apple-intelligence-and-siri-ai)
+- [Making actions and content discoverable by Apple Intelligence](https://developer.apple.com/documentation/appintents/making-actions-and-content-discoverable-by-apple-intelligence)
+- [Displaying static and interactive snippets](https://developer.apple.com/documentation/appintents/displaying-static-and-interactive-snippets)
+- [SiriKit](https://developer.apple.com/documentation/sirikit)
 
-When you support shortcuts, people have various ways to discover and interact with the custom and system intents your app provides:
+## Videos
 
-- Siri can suggest shortcuts for actions people have performed at least once
-- Your app can supply shortcuts for actions people haven't done yet but might want to do
-- People can use the Shortcuts app to view all their shortcuts and combine actions from different apps
-- People can automate shortcuts by defining conditions that run them
-
-**Shortcut Best Practices:**
-- **Make app actions widely available** - Donate information about actions to help the system offer them to people in various ways
-- **Make a donation every time people perform the action** - This helps the system accurately predict when to offer shortcuts
-- **Only donate actions that people actually perform** - Don't donate when people browse menus or perform unrelated actions
-- **Remove donations for actions that require corresponding data** - If required information no longer exists, delete the donation
-
-### Platform Considerations
-
-**iOS, iPadOS**  
-In iPadOS and iOS, an app's keyboard shortcuts appear in the shortcut interface that displays when people hold the Command key on a connected keyboard.
-
-**macOS**  
-The Shortcuts app is available in macOS 12 and later.
-
-**tvOS**  
-tvOS apps can use gyroscope data from the Siri Remote to enhance Siri interactions.
-
-**visionOS**  
-When people connect a physical keyboard while using your visionOS app or game, the system displays a virtual keyboard overlay.
-
-**watchOS**  
-The Shortcuts app is available in watchOS 7 and later. All watchOS apps participating in a nearby interaction experience must be in the foreground.
-
-### Related Components
-
-- [App Shortcuts](https://developer.apple.com/design/human-interface-guidelines/app-shortcuts) - App shortcuts guidance
-- [Design for intelligence](https://developer.apple.com/design/human-interface-guidelines/designing-for-intelligence) - Intelligence design principles
-
-### Developer Documentation
-
-- [SiriKit](https://developer.apple.com/documentation/sirikit) - Framework
-- [System intents](https://developer.apple.com/documentation/sirikit/system_intents) - Available system intents
-- [Creating an Intents UI Extension](https://developer.apple.com/documentation/sirikit/creating_an_intents_ui_extension) - Custom UI guidance
-
-### Videos
-
-- [Design interactive snippets](https://developer.apple.com/videos/play/wwdc2023/10229/)
-- [Explore Machine Learning in Apple Frameworks](https://developer.apple.com/videos/play/wwdc2023/10166/)
+- [Build intelligent Siri experiences with App Schemas](https://developer.apple.com/videos/play/wwdc2026/240/)
+- [Explore advanced App Intents features for Siri and Apple Intelligence](https://developer.apple.com/videos/play/wwdc2026/343/)
+- [Discover new capabilities in the App Intents framework](https://developer.apple.com/videos/play/wwdc2026/345/)
 
 ## Changelog
 
+### June 8, 2026
+- Apple revised the HIG for Siri AI.
+
 ### June 5, 2023
-- Removed Add to Siri guidance
-- Added references to the new App Shortcuts page
+- Apple removed Add to Siri guidance and added App Shortcuts references.
 
 ### May 2, 2023
-- Consolidated guidance into one page
+- Apple consolidated Siri guidance into one page.
 
 ---
 
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
-
-*Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/siri)*
+*Sources: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/siri) and [SiriKit support guidance](https://developer.apple.com/documentation/sirikit)*

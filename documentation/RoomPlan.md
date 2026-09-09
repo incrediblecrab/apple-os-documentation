@@ -29,10 +29,16 @@ The framework outputs a scan as parametric data, which makes it easy for your ap
 
 Mac apps built with Mac Catalyst can access CapturedRoom and CapturedStructure and can perform encoding, decoding, and exporting. Environment scanning relies on a camera, LiDAR, and other sensors that support augmented reality on iOS and iPad OS devices. However, macOS apps built with Mac Catalyst can process the results of room-capture sessions performed on those devices. RoomPlan ignores all capture-session-related calls on macOS apps built with Mac Catalyst.
 
+### Integrate exported content with newer workflows
+
+Use [USD](USD.md) validation when a captured room becomes an asset for a different renderer. [USDKit](USDKit.md) and [Spatial Preview](SpatialPreview.md) add OS 27 editing and review options; they do not add RoomPlan scanning to Macs or make RoomPlan a visionOS tracking API.
+
+Preserve the captured parametric data when later editing or measurement depends on it, and test exported materials, scale, and replacement models in the destination app. A rendered USD preview and the original room-capture result serve different purposes.
+
 ## Topics
 
 ### Essentials
-- [Create a 3D model of an interior room by guiding the user through an AR experience](https://developer.apple.com/documentation/roomplan/create_a_3d_model_of_an_interior_room_by_guiding_the_user_through_an_ar_experience) - Highlight physical structures and display text that guides a user to scan the shape of their physical environment using a framework-provided view.
+- [Create a 3D model of an interior room by guiding the user through an AR experience](https://developer.apple.com/documentation/roomplan/create-a-3d-model-of-an-interior-room-by-guiding-the-user-through-an-ar-experience) - Highlight physical structures and display text that guides a user to scan the shape of their physical environment using a framework-provided view.
 
 ### User Interface
 - **RoomCaptureView** - A view that enables the user to scan their room with the device's camera.
@@ -43,8 +49,8 @@ Mac apps built with Mac Catalyst can access CapturedRoom and CapturedStructure a
 - **RoomCaptureSessionDelegate** - A specification of important events in the room-scanning process.
 
 ### Captured Data
-- [Merging multiple scans into a single structure](https://developer.apple.com/documentation/roomplan/merging_multiple_scans_into_a_single_structure) - Export a 3D model that consists of multiple rooms captured in the same physical vicinity.
-- [Scanning the rooms of a single structure](https://developer.apple.com/documentation/roomplan/scanning_the_rooms_of_a_single_structure) - Create an AR experience that enables people to scan a building that contains multiple rooms.
+- [Merging multiple scans into a single structure](https://developer.apple.com/documentation/roomplan/merging-multiple-scans-into-a-single-structure) - Export a 3D model that consists of multiple rooms captured in the same physical vicinity.
+- [Scanning the rooms of a single structure](https://developer.apple.com/documentation/roomplan/scanning-the-rooms-of-a-single-structure) - Create an AR experience that enables people to scan a building that contains multiple rooms.
 - **CapturedRoom** - A structure that provides the key details of a scanned room.
 - **CapturedStructure** - An object that holds the results of the merger of multiple capture sessions.
 - **CapturedRoomData** - An opaque object that holds the raw results of a scan.
@@ -53,13 +59,11 @@ Mac apps built with Mac Catalyst can access CapturedRoom and CapturedStructure a
 - Determine details about the objects and surfaces that the framework identifies in a scan.
 
 ### 3D Asset Output
-- [Providing custom models for captured rooms and structure exports](https://developer.apple.com/documentation/roomplan/providing_custom_models_for_captured_rooms_and_structure_exports) - Enhance the look of an exported 3D model by substituting object bounding boxes with detailed 3D renditions.
+- [Providing custom models for captured rooms and structure exports](https://developer.apple.com/documentation/roomplan/providing-custom-models-for-captured-rooms-and-structure-exports) - Enhance the look of an exported 3D model by substituting object bounding boxes with detailed 3D renditions.
 - **RoomBuilder** - An object that generates a 3D asset from room-capture data.
 - **StructureBuilder** - An object that combines multiple scan sessions into a single captured result.
 - **USDExportOptions** - Options that determine the underlying data format of a scan export.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/RoomPlan)*

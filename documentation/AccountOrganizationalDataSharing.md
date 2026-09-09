@@ -2,22 +2,22 @@
 
 Provide people with the ability to authorize your apps and websites that access information about them on Apple REST services, like Roster API.
 
-**Platforms:** AccountOrganizationalDataSharing 1.0+
+**Service API version:** AccountOrganizationalDataSharing 1.0. This is a REST service version, not an Apple OS deployment minimum.
 
 ## Overview
 
-With OAuth 2.0, Account & Organizational Data Sharing gives your users a safe way to authorize your apps and websites to access information about them on Apple services, for example Roster API.
+Account & Organizational Data Sharing uses OAuth 2.0 to authorize apps and websites to access information on designated Apple services, such as Roster API.
 
 ## Topics
 
 ### Generating Tokens
-- [Creating a client secret](https://developer.apple.com/documentation/accountorganizationaldatasharing/creating_a_client_secret) - Generate a signed token to identify your client application.
-- [Fetch Apple's public key for verifying token signature](https://developer.apple.com/documentation/accountorganizationaldatasharing/fetch_apple_s_public_key_for_verifying_token_signature) - Retrieve the public key associated with the cryptographic identity Apple uses to sign the token.
-- [Generate and validate tokens](https://developer.apple.com/documentation/accountorganizationaldatasharing/generate_and_validate_tokens) - Validate an authorization grant code delivered to your app to obtain tokens, or validate an existing refresh token.
+- [Creating a client secret](https://developer.apple.com/documentation/accountorganizationaldatasharing/creating-a-client-secret) - Generate a signed token to identify your client application.
+- [Fetch Apple's public key for verifying token signature](https://developer.apple.com/documentation/accountorganizationaldatasharing/fetch-apple's-public-key-for-verifying-token-signature) - Retrieve the public key associated with the cryptographic identity Apple uses to sign the token.
+- [Generate and validate tokens](https://developer.apple.com/documentation/accountorganizationaldatasharing/generate-and-validate-tokens) - Validate an authorization grant code delivered to your app to obtain tokens, or validate an existing refresh token.
 
 ### Using and Revoking Tokens
-- [Request an authorization](https://developer.apple.com/documentation/accountorganizationaldatasharing/request_an_authorization) - Request a user authorization to Account & Organizational Data Sharing apps and web services.
-- [Revoke tokens](https://developer.apple.com/documentation/accountorganizationaldatasharing/revoke_tokens) - Invalidate the tokens and associated user authorizations for someone when they are no longer associated with your app.
+- [Request an authorization](https://developer.apple.com/documentation/accountorganizationaldatasharing/request-an-authorization) - Request a user authorization to Account & Organizational Data Sharing apps and web services.
+- [Token revocation](https://developer.apple.com/documentation/accountorganizationaldatasharing/revoke-tokens) - Invalidate a user's tokens and associated authorization using a valid access or refresh token. Handle errors separately from successful or already-invalidated responses.
 
 ### Common Objects
 - **JWKSet** - A set of JSON web keys.
@@ -25,7 +25,5 @@ With OAuth 2.0, Account & Organizational Data Sharing gives your users a safe wa
 - **ErrorResponse** - The error object returned after an unsuccessful request.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/AccountOrganizationalDataSharing)*

@@ -21,7 +21,7 @@ The entry point for your extension is an object that conforms to MEExtension. Wh
 
 ### Essentials
 - **MEExtension** - A type that provides objects for manipulating email messages, such as performing actions on messages or blocking content when users view messages.
-- [Build Mail App Extensions](https://developer.apple.com/documentation/mailkit/build_mail_app_extensions) - Create app extensions that block content, perform message and composing actions, and help message security.
+- [Build Mail App Extensions](https://developer.apple.com/documentation/mailkit/build-mail-app-extensions) - Create app extensions that block content, perform message and composing actions, and help message security.
 ### Content Blockers
 - **MEContentBlocker** - An object that provides a set of rules to block content when displaying a message.
 ### Message Actions
@@ -34,7 +34,5 @@ The entry point for your extension is an object that conforms to MEExtension. Wh
 - **MEMessage** - An object that contains information about a mail message, such as the subject, addressees, date sent, and the message contents.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/MailKit)*

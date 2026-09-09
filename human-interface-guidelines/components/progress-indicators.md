@@ -21,8 +21,6 @@ An indeterminate progress indicator — also called an activity indicator — us
 
 ### Best Practices
 
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Liquid Glass now diffuses busy background content more aggressively, adds a subtle darkened edge ring, and renders brighter specular highlights, improving legibility without extra visual noise. People can tune overall translucency with the transparency slider in Settings > Appearance, and the material also responds to Reduce Transparency and Increase Contrast.
-
 - **When possible, use a determinate progress indicator** - An indeterminate progress indicator shows that a process is occurring, but it doesn't help people estimate how long a task will take. A determinate progress indicator can help people decide whether to do something else while waiting for the task to complete, restart the task at a different time, or abandon the task.
 - **Be as accurate as possible when reporting advancement in a determinate progress indicator** - Consider evening out the pace of advancement to help people feel confident about the time needed for the task to complete. Showing 90 percent completion in five seconds and the last 10 percent in 5 minutes can make people wonder if your app is still working and can even feel deceptive.
 - **Keep progress indicators moving so people know something is continuing to happen** - People tend to associate a stationary indicator with a stalled process or a frozen app. If a process stalls for some reason, provide feedback that helps people understand the problem and what they can do about it.
@@ -36,7 +34,7 @@ An indeterminate progress indicator — also called an activity indicator — us
 ### Platform Considerations
 
 **iOS, iPadOS**  
-- **Hide the unfilled portion of the track in toolbars** - By default, a progress bar's track includes both filled and unfilled portions. When you use a progress bar in a toolbar — for example, to show a page loading — configure it to hide the unfilled portion of the track.
+- **Use a toolbar-appropriate progress presentation** - For a UIKit progress view in a toolbar, use [UIProgressView.Style.bar](https://developer.apple.com/documentation/uikit/uiprogressview/style/bar). Let the system style determine its appearance rather than depending on a particular unfilled-track treatment.
 
 **Refresh Content Controls**  
 A refresh control lets people immediately reload content, typically in a table view, without waiting for the next automatic content update to occur. A refresh control is a specialized type of activity indicator that's hidden by default, becoming visible when people drag down the view they want to reload. In Mail, for example, people can drag down the list of Inbox messages to check for new messages.
@@ -73,7 +71,5 @@ By default the system displays the progress indicators in white over the scene's
 - Updated guidance to reflect changes in watchOS 10.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/progress-indicators)*

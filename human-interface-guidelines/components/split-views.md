@@ -14,10 +14,8 @@ It's common to use a split view to display a sidebar for navigation, where the l
 
 ### Best Practices
 
-> **iPadOS 27+, macOS Golden Gate 27+:** Sidebars extend to the full window edge with refraction continuing beneath them, and sidebar icons retain their tint color. The refined glass treatment also responds to the transparency slider and accessibility contrast settings.
-
 - **Persistently highlight current selection** - To support navigation, persistently highlight the current selection in each pane that leads to the detail view. The selected appearance clarifies the relationship between the content in various panes and helps people stay oriented.
-- **Enable drag and drop between panes** - Consider letting people drag and drop content between panes. Because a split view provides access to multiple levels of hierarchy, people can conveniently move content from one part of your app to another by dragging items to different panes. For guidance, see [Drag and drop](https://developer.apple.com/design/human-interface-guidelines/drag-and-drop).
+- **Consider drag and drop between panes where supported** - Because a split view provides access to multiple levels of hierarchy, dragging between panes can help people move content within your app. This is an optional interaction on platforms that support drag and drop, not a requirement for every split-view implementation. See [Drag and drop](https://developer.apple.com/design/human-interface-guidelines/drag-and-drop).
 
 ### Platform Considerations
 
@@ -62,13 +60,15 @@ It's common to use a split view to display a sidebar for navigation, where the l
 - [NSSplitViewController](https://developer.apple.com/documentation/appkit/nssplitviewcontroller) - AppKit
 - [HSplitView](https://developer.apple.com/documentation/swiftui/hsplitview) - SwiftUI
 - [VSplitView](https://developer.apple.com/documentation/swiftui/vsplitview) - SwiftUI
-- [NSSplitView.DividerStyle](https://developer.apple.com/documentation/appkit/nssplitview/dividerstyle) - AppKit
+- [NSSplitView.DividerStyle](https://developer.apple.com/documentation/appkit/nssplitview/dividerstyle-swift.enum) - AppKit
 
 ### Videos
 
-- [Make your UIKit app more flexible](https://developer.apple.com/videos/play/wwdc2022/10059/) - WWDC session on flexible layouts
+- [Make your UIKit app more flexible](https://developer.apple.com/videos/play/wwdc2025/282) - WWDC session on flexible layouts
 
 ## Changelog
+
+These dates describe changes to Apple's HIG article, not edits to this repository.
 
 ### June 9, 2025
 - Added iOS and iPadOS platform considerations
@@ -80,7 +80,5 @@ It's common to use a split view to display a sidebar for navigation, where the l
 - Added guidance for split views in watchOS
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/split-views)*

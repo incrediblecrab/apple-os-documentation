@@ -10,6 +10,7 @@ import SwiftUI
 /// A view with a toggle button that shows or hides earned badges in a vertical layout.
 struct BadgesView: View {
     @Environment(ModelData.self) private var modelData
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var isExpanded: Bool = false
     @Namespace private var namespace
     
@@ -31,7 +32,7 @@ struct BadgesView: View {
 
                 Button {
                     // Animates this button and badges when `isExpanded` changes values.
-                    withAnimation {
+                    withAnimation(reduceMotion ? nil : .default) {
                         isExpanded.toggle()
                     }
                 } label: {

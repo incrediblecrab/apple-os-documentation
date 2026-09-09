@@ -8,9 +8,11 @@ Retrieve the properties of the media in the user's iTunes library.
 
 With this framework, you can retrieve media information, such as track and playlist metadata, directly from the user's iTunes library, eliminating the need to query the iTunes XML file.
 
-To use this framework, create an ITLibrary object by calling the libraryWithAPIVersion:error: class method. You can interrogate the instance that returns to obtain its properties and the properties of its media items. For example:
+To use this framework, create an `ITLibrary` object using the Objective-C `libraryWithAPIVersion:error:` class method or its Swift initializer. Inspect the returned library's properties and media items, and handle initialization errors.
 
-**Important:** You must code sign your app to retrieve information with this framework, and iTunes library access is read-only. This framework is available to users with iTunes 11 or later.
+**Important:** You must code sign your app to retrieve information with this framework, and library access is read-only. Apple's reference retains the historical iTunes 11-or-later prerequisite and iTunes terminology; this local-library API is distinct from Apple Music catalog, subscription, and streaming authorization.
+
+The [ITLibrary overview](https://developer.apple.com/documentation/ituneslibrary/itlibrary) also requires the person's permission and an `NSAppleMusicUsageDescription` entry explaining your use of the library. The system terminates an app that attempts access without that usage-description key. Code signing does not replace user authorization.
 
 ## Topics
 
@@ -32,7 +34,5 @@ To use this framework, create an ITLibrary object by calling the libraryWithAPIV
 - **DidChangeLibraryMessage**
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/iTunesLibrary)*

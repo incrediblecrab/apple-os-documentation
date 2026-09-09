@@ -10,8 +10,6 @@ People can wear their Apple Watch during many types of workouts, and they might 
 
 You can create a workout experience for Apple Watch, iPhone, or iPad that helps people reach their goals by leveraging activity data from the device and using familiar components to display fitness metrics.
 
-> **iOS 27+, watchOS 27+:** **GymKit now pairs with gym equipment directly from iPhone**, without requiring an Apple Watch to be present. Cycle Tracking notifies people when logged patterns suggest **perimenopause**, with symptom logging, and Fitness+ adds perimenopause and menopause workout categories. Workout route and treadmill distance accuracy are improved.
-
 ## Topics
 
 ### Best Practices
@@ -44,6 +42,8 @@ Many watchOS workout apps use this arrangement:
 
 ### Sample Messaging for Sensor Limitations
 
+These are examples from Apple's HIG, not promises about every workout app's measurements. Adapt the wording to the workout type and the data your app actually records.
+
 - **Pool Swim**: "GPS is not used during a Pool Swim, and water may prevent a heart-rate measurement, but Apple Watch will still track your calories, laps, and distance using the built-in accelerometer."
 
 - **Other Workout Type**: "In this type of workout, you earn the calorie equivalent of a brisk walk anytime sensor readings are unavailable."
@@ -60,22 +60,12 @@ No additional considerations for iOS, iPadOS, or watchOS. Not supported in macOS
 
 ### Developer Documentation
 
-- [WorkoutKit](https://developer.apple.com/documentation/workoutkit) - Framework for building workout experiences
-- [Workouts and activity rings — HealthKit](https://developer.apple.com/documentation/healthkit/workouts_and_activity_rings) - Integration with HealthKit
-- [Track workouts with HealthKit on iOS and iPadOS](https://developer.apple.com/videos/play/wwdc2022/10017/) - WWDC video guide
-- [Build custom workouts with WorkoutKit](https://developer.apple.com/videos/play/wwdc2023/10018/) - WWDC video guide
+- [WorkoutKit](https://developer.apple.com/documentation/workoutkit) - Create, preview, and sync workout plans to the Workout app
+- [Workouts and activity rings — HealthKit](https://developer.apple.com/documentation/healthkit/workouts-and-activity-rings) - Integration with HealthKit
+- [Track workouts with HealthKit on iOS and iPadOS](https://developer.apple.com/videos/play/wwdc2025/322) - WWDC video guide
+- [Build custom workouts with WorkoutKit](https://developer.apple.com/videos/play/wwdc2023/10016) - WWDC video guide
 - [Build a workout app for Apple Watch](https://developer.apple.com/videos/play/wwdc2021/10009/) - WWDC video guide
 
-## Changelog
-
-### Version 1.0
-- Initial documentation for workout experiences
-- Guidelines for watchOS workout sessions
-- Best practices for sensor data handling
-- Platform-specific considerations
-
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/workouts)*

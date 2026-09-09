@@ -58,19 +58,21 @@ class ModelData {
 
     var windowSize: CGSize = .zero
 
-    init() {
+    init(loadMapItems: Bool = true) {
         loadLandmarks()
         loadCollections()
-        
-        Task {
-            do {
-                let fetched = try await fetchMapItems(for: landmarks)
-                
-                await MainActor.run {
-                    self.mapItemsByLandmarkId = fetched
+
+        if loadMapItems {
+            Task {
+                do {
+                    let fetched = try await fetchMapItems(for: landmarks)
+
+                    await MainActor.run {
+                        self.mapItemsByLandmarkId = fetched
+                    }
+                } catch {
+                    print("Couldn't fetch map items: \(error.localizedDescription)")
                 }
-            } catch {
-                print("Couldn't fetch map items: \(error.localizedDescription)")
             }
         }
     }
@@ -224,10 +226,18 @@ class ModelData {
         for landmark in landmarks {
             guard let placeID = landmark.placeID else { continue }
             
-            guard let identifier = MKMapItem.Identifier(rawValue: placeID) else { continue }
+            guard let identifier = MKMapItem.Identifier(rawValue: placeID) else {
+                print("Invalid map item identifier for landmark \(landmark.id).")
+                continue
+            }
             let request = MKMapItemRequest(mapItemIdentifier: identifier)
-            if let mapItem = try? await request.mapItem {
+            do {
+                let mapItem = try await request.mapItem
                 fetchedMapItemsByLandmarkId[landmark.id] = mapItem
+            } catch is CancellationError {
+                throw CancellationError()
+            } catch {
+                print("Couldn't fetch map item for landmark \(landmark.id): \(error.localizedDescription)")
             }
         }
         

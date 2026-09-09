@@ -16,11 +16,11 @@ Develop your driver with DriverKit and HIDDriverKit, and package it in an app th
 
 ### Essentials
 - **com.apple.developer.driverkit.transport.hid** - A Boolean value that indicates whether the driver communicates with human interface devices.
-- [Handling Keyboard Events from a Human Interface Device](https://developer.apple.com/documentation/hiddriverkit/handling_keyboard_events_from_a_human_interface_device) - Process keyboard-related data from a human interface device and dispatch events to the system.
-- [Handling Stylus Input from a Human Interface Device](https://developer.apple.com/documentation/hiddriverkit/handling_stylus_input_from_a_human_interface_device) - Process stylus-related input from a human interface device and dispatch events to the system.
+- [Handling Keyboard Events from a Human Interface Device](https://developer.apple.com/documentation/hiddriverkit/handling-keyboard-events-from-a-human-interface-device) - Process keyboard-related data from a human interface device and dispatch events to the system.
+- [Handling Stylus Input from a Human Interface Device](https://developer.apple.com/documentation/hiddriverkit/handling-stylus-input-from-a-human-interface-device) - Process stylus-related input from a human interface device and dispatch events to the system.
 
 ### Samples
-- [DriverKit sample code](https://developer.apple.com/documentation/hiddriverkit/driverkit_sample_code) - Explore projects that demonstrate how to write macOS device drivers with the DriverKit family of frameworks.
+- [DriverKit sample code](https://developer.apple.com/documentation/driverkit/driverkit-sample-code) - Explore projects that demonstrate how to write macOS device drivers with the DriverKit family of frameworks.
 
 ### Driver Interfaces
 - **com.apple.developer.driverkit.family.hid.eventservice** - A Boolean value that indicates whether the driver provides a HID-related event service to the system.
@@ -71,7 +71,5 @@ Develop your driver with DriverKit and HIDDriverKit, and package it in an app th
 - **IOHIDServiceSensorControlOptions**
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/HIDDriverKit)*

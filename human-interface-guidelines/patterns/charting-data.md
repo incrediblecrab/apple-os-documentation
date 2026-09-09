@@ -6,7 +6,7 @@ Presenting data in a chart can help you communicate information with clarity and
 
 ## Overview
 
-Charts provide efficient ways to communicate complex information without requiring people to read and interpret a lot of text. The graphical nature of charts also gives you additional opportunities to express the personality of your experience and add visual interest to your interface. To learn about the components you use to create a chart, see Charts.
+Charts provide efficient ways to communicate complex information without requiring people to read and interpret a lot of text. The graphical nature of charts also gives you additional opportunities to express the personality of your experience and add visual interest to your interface. To learn about the components you use to create a chart, see [Charts](https://developer.apple.com/design/human-interface-guidelines/charts).
 
 A chart can range from a simple graphic that provides glanceable information to a rich, interactive experience that can form the centerpiece of your app and encourage people to explore the data from various perspectives. Whether simple or complex, you can use charts to help people perform data-driven tasks that are important to them, such as:
 
@@ -16,7 +16,7 @@ A chart can range from a simple graphic that provides glanceable information to 
 
 Not every collection of data needs to be displayed in a chart. If you simply need to provide data — and you don't need to convey information about it or help people analyze it — consider offering the data in other ways, such as in a list or table that people can scroll, search, and sort.
 
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** Charts placed over or near glass surfaces should stay legible across the full range of the transparency slider in Settings > Appearance, and under Reduce Transparency and Increase Contrast. Never rely on translucency alone to distinguish series.
+Keep chart labels and series legible against their actual background and with supported [accessibility preferences](../foundations/accessibility.md). Distinguish series with labels, shapes, or patterns in addition to color; translucency alone is not sufficient.
 
 ## Topics
 
@@ -26,7 +26,7 @@ Not every collection of data needs to be displayed in a chart. If you simply nee
 
 - **Keep a chart simple, letting people choose when they want additional details** - Resist the temptation to pack as much data as possible into a chart. Too much data can make a chart visually overwhelming and difficult to use, obscuring the relationships and other information you want to convey. If you have a lot of data to present — or a lot of functionality to provide — consider giving people a way to reveal it gradually. For example, you might let people choose to view different levels of detail or subsets of data to match their interest. To help people learn how to use an interactive chart, you might offer several versions of the chart, each with more functionality than the last.
 
-- **Make every chart in your app accessible** - A chart communicates visually through graphical representations of data and visual descriptions. In addition to the visual descriptions you display, it's crucial to provide both accessibility labels that describe chart values and components, and accessibility elements that help people interact with the chart. For guidance, see Enhancing the accessibility of a chart.
+- **Make every chart in your app accessible** - A chart communicates visually through graphical representations of data and visual descriptions. In addition to the visual descriptions you display, it's crucial to provide both accessibility labels that describe chart values and components, and accessibility elements that help people interact with the chart. See [Enhancing the accessibility of a chart](https://developer.apple.com/design/human-interface-guidelines/charts#Enhancing-the-accessibility-of-a-chart).
 
 ### Designing effective charts
 
@@ -58,17 +58,17 @@ No additional considerations for iOS, iPadOS, macOS, tvOS, visionOS, or watchOS.
 
 ### Videos
 
-- [Bring Swift Charts to the third dimension](https://developer.apple.com/videos/play/wwdc2023/10037)
-- [Design app experiences with charts](https://developer.apple.com/videos/play/wwdc2022/110430)
+- [Bring Swift Charts to the third dimension](https://developer.apple.com/videos/play/wwdc2025/313)
+- [Design app experiences with charts](https://developer.apple.com/videos/play/wwdc2022/110342)
 - [Design an effective chart](https://developer.apple.com/videos/play/wwdc2022/110340)
 
 ## Changelog
+
+These dates describe changes to Apple's HIG article, not edits to this repository.
 
 ### September 23, 2022
 - New page.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/charting-data)*

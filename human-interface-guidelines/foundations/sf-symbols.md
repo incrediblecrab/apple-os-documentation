@@ -10,13 +10,11 @@ You can use a symbol to convey an object or concept wherever interface icons can
 
 Availability of individual symbols and features varies based on the version of the system you're targeting. Symbols and symbol features introduced in a given year aren't available in earlier operating systems.
 
-Visit SF Symbols to download the app and browse the full set of symbols. Be sure to understand the terms and conditions for using SF Symbols, including the prohibition against using symbols — or images that are confusingly similar — in app icons, logos, or any other trademarked use. For developer guidance, see Configuring and displaying symbol images in your UI.
+Visit [SF Symbols](https://developer.apple.com/sf-symbols/) to download the app and browse the symbols. Check individual symbol availability, licensing terms, and any symbol-specific restrictions. SF Symbols must not be used as app icons, logos, or other trademarked imagery; a symbol's presence in a design file does not grant broader rights. For implementation, see [Configuring and displaying symbol images in your UI](https://developer.apple.com/documentation/uikit/configuring-and-displaying-symbol-images-in-your-ui).
 
 ## Topics
 
 ### Rendering modes
-
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+, tvOS 27+, watchOS 27+, visionOS 27+:** SF Symbols 8 includes over 7,000 symbols, giving you more system-provided options for clear, consistent iconography across platform appearances.
 
 SF Symbols provides four rendering modes — monochrome, hierarchical, palette, and multicolor — that give you multiple options when applying color to symbols. For example, you might want to use multiple opacities of your app's accent color to give symbols depth and emphasis, or specify a palette of contrasting colors to display symbols that coordinate with various color schemes.
 
@@ -168,12 +166,12 @@ No additional considerations for iOS, iPadOS, macOS, tvOS, visionOS, or watchOS.
 ### Developer Documentation
 
 - [Symbols](https://developer.apple.com/documentation/symbols) - Symbols framework
-- [Configuring and displaying symbol images in your UI](https://developer.apple.com/documentation/uikit/uiimage/configuring_and_displaying_symbol_images_in_your_ui) - UIKit
-- [Creating custom symbol images for your app](https://developer.apple.com/documentation/uikit/uiimage/creating_custom_symbol_images_for_your_app) - UIKit
+- [Configuring and displaying symbol images in your UI](https://developer.apple.com/documentation/uikit/configuring-and-displaying-symbol-images-in-your-ui) - UIKit
+- [Creating custom symbol images for your app](https://developer.apple.com/documentation/uikit/creating-custom-symbol-images-for-your-app) - UIKit
 
 ### Videos
 
-- [What's new in SF Symbols 7](https://developer.apple.com/videos/play/wwdc2025/10179)
+- [What's new in SF Symbols 7](https://developer.apple.com/videos/play/wwdc2025/337)
 
 ## Changelog
 
@@ -187,7 +185,5 @@ No additional considerations for iOS, iPadOS, macOS, tvOS, visionOS, or watchOS.
 - Added a new section on variable color. Removed instructions on creating custom symbol paths, exporting templates, and layering paths, deferring to developer articles that cover these topics.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/sf-symbols)*

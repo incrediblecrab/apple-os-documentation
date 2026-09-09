@@ -18,12 +18,12 @@ For information about Final Cut Pro concepts, see What are libraries and Intro t
 
 ### Effects
 
-- [FxPlug](https://developer.apple.com/documentation/fxplug) - Create custom effects plug-ins for Final Cut Pro and Motion.
-- [Create an effect template for use in Final Cut Pro](https://developer.apple.com/documentation/professional_video_applications/create_an_effect_template_for_use_in_final_cut_pro) - Use Motion to create custom filters, generators, and transitions for Final Cut Pro.
+- [FxPlug](https://developer.apple.com/documentation/professional-video-applications/fxplug) - Create custom effects plug-ins for Final Cut Pro and Motion.
+- [Create an effect template for use in Final Cut Pro](https://developer.apple.com/documentation/professional-video-applications/create-an-effect-template-for-use-in-final-cut-pro) - Use Motion to create custom filters, generators, and transitions for Final Cut Pro.
 
 ### XML Data Exchange
 
-- [Content and Metadata Exchanges with Final Cut Pro](https://developer.apple.com/documentation/professional_video_applications/content_and_metadata_exchanges_with_final_cut_pro) - Send media assets and timeline sequences to Final Cut Pro for editing, and receive rendered media and editing decisions in your app.
+- [Content and Metadata Exchanges with Final Cut Pro](https://developer.apple.com/documentation/professional-video-applications/content-and-metadata-exchanges-with-final-cut-pro) - Send media assets and timeline sequences to Final Cut Pro for editing, and receive rendered media and editing decisions in your app.
 
 ### Workflow Extensions
 
@@ -35,14 +35,14 @@ For information about Final Cut Pro concepts, see What are libraries and Intro t
 
 ### Compressor Encoder Extensions
 
-- [Encoder Extensions](https://developer.apple.com/documentation/professional_video_applications/encoder_extensions) - Add custom output file formats to the Final Cut Pro workflow.
+- [Encoder Extensions](https://developer.apple.com/documentation/professional-video-applications/encoder-extensions) - Add custom output file formats to the Final Cut Pro workflow.
 
 ### Reference
 
-- [Professional Video Applications Enumerations](https://developer.apple.com/documentation/professional_video_applications/enumerations)
-- [Professional Video Applications Constants](https://developer.apple.com/documentation/professional_video_applications/constants)
-- [Professional Video Applications Data Types](https://developer.apple.com/documentation/professional_video_applications/data_types)
-- [Professional Video Applications Protocols](https://developer.apple.com/documentation/professional_video_applications/protocols)
+- [Professional Video Applications Enumerations](https://developer.apple.com/documentation/professional-video-applications/professional-video-applications-enumerations)
+- [Professional Video Applications Constants](https://developer.apple.com/documentation/professional-video-applications/professional-video-applications-constants)
+- [Professional Video Applications Data Types](https://developer.apple.com/documentation/professional-video-applications/professional-video-applications-data-types)
+- [Professional Video Applications Protocols](https://developer.apple.com/documentation/professional-video-applications/professional-video-applications-protocols)
 
 ### Variables
 
@@ -52,7 +52,5 @@ For information about Final Cut Pro concepts, see What are libraries and Intro t
 - **kFxPropertyKey_VariesWhenParamsAreStatic** - A key that determines whether your rendering varies even when the parameters remain the same.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/professional_video_applications)*

@@ -30,7 +30,7 @@ Outline views work well to display text-based content and often appear in the le
 
 ### Platform Considerations
 
-Not supported in iOS, iPadOS, tvOS, visionOS, or watchOS.
+The macOS outline-view guidance above describes the AppKit-style control. Apple's HIG lists other platforms as unsupported for this component, but this isn't a restriction on hierarchical interfaces in SwiftUI: [OutlineGroup](https://developer.apple.com/documentation/swiftui/outlinegroup) also has availability on other platforms, including iOS and visionOS.
 
 ### Related Components
 
@@ -48,7 +48,5 @@ Not supported in iOS, iPadOS, tvOS, visionOS, or watchOS.
 - [Stacks, Grids, and Outlines in SwiftUI](https://developer.apple.com/videos/play/wwdc2020/10031/)
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/outline-views)*

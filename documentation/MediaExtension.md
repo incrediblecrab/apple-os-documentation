@@ -15,8 +15,8 @@ MediaExtension format readers encapsulate media assets that the system doesn't n
 - **MEFormatReaderExtension** - A protocol that defines a factory to create a new format reader with a byte source.
 - **MEFormatReaderInstantiationOptions** - An object that contains options to pass to a format reader extension.
 - **MEFileInfo** - An object that contains file properties from the media asset.
-- [Format reader property list dictionaries](https://developer.apple.com/documentation/mediaextension/format_reader_property_list_dictionaries) - Include property list dictionaries to describe a format reader and register the formats it supports.
-- [Format reader entitlement](https://developer.apple.com/documentation/mediaextension/format_reader_entitlement) - Include an entitlement to indicate your extension is a MediaExtension format reader.
+- [Format reader property list dictionaries](https://developer.apple.com/documentation/mediaextension/format-reader-property-list-dictionaries) - Include property list dictionaries to describe a format reader and register the formats it supports.
+- [Format reader entitlement](https://developer.apple.com/documentation/mediaextension/format-reader-entitlement) - Include an entitlement to indicate your extension is a MediaExtension format reader.
 
 ### Track readers
 - **METrackReader** - A protocol that defines the information to provide about a track within a media asset.
@@ -37,8 +37,8 @@ MediaExtension format readers encapsulate media assets that the system doesn't n
 - **MEVideoDecoderExtension** - A protocol that defines a factory to create new video decoders for a codec type that the extension implements.
 - **MEDecodeFrameOptions** - An object that guides the video decoder operation on a per-frame basis.
 - **MEVideoDecoderPixelBufferManager** - Describes pixel buffer requirements and creates new pixel buffers.
-- [Video decoder property list dictionary](https://developer.apple.com/documentation/mediaextension/video_decoder_property_list_dictionary) - Include a property list dictionary to describe a video decoder.
-- [Video decoder entitlement](https://developer.apple.com/documentation/mediaextension/video_decoder_entitlement) - Include an entitlement to indicate your extension is a MediaExtension video decoder.
+- [Video decoder property list dictionary](https://developer.apple.com/documentation/mediaextension/video-decoder-property-list-dictionary) - Include a property list dictionary to describe a video decoder.
+- [Video decoder entitlement](https://developer.apple.com/documentation/mediaextension/video-decoder-entitlement) - Include an entitlement to indicate your extension is a MediaExtension video decoder.
 
 ### RAW processors
 - **MERAWProcessor** - A protocol that defines the requirements for a RAW processor.
@@ -46,8 +46,8 @@ MediaExtension format readers encapsulate media assets that the system doesn't n
 - **MERAWProcessorPixelBufferManager** - Describes pixel buffer requirements and creates new pixel buffers.
 - **MERAWProcessingParameter** - An object for the RAW processor to describe each processing parameter the processor exposes.
 - **MERAWProcessorNotification** - Notifications that indicate a RAW processor state change.
-- [RAW processor property list dictionary](https://developer.apple.com/documentation/mediaextension/raw_processor_property_list_dictionary) - Include a property list dictionary to describe a RAW processor.
-- [RAW processor entitlement](https://developer.apple.com/documentation/mediaextension/raw_processor_entitlement) - Include an entitlement to indicate your extension is a MediaExtension RAW processor.
+- [RAW processor property list dictionary](https://developer.apple.com/documentation/mediaextension/raw-processor-property-list-dictionary) - Include a property list dictionary to describe a RAW processor.
+- [RAW processor entitlement](https://developer.apple.com/documentation/mediaextension/raw-processor-entitlement) - Include an entitlement to indicate your extension is a MediaExtension RAW processor.
 
 ### Errors
 - **MediaExtensionErrorDomain** - The domain of the error.
@@ -62,7 +62,5 @@ MediaExtension format readers encapsulate media assets that the system doesn't n
 - **kMERAWProcessorProcessorInfoKey**
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/MediaExtension)*

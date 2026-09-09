@@ -2,13 +2,21 @@
 
 Connect with network interfaces to read and write packets on guest operating systems.
 
-**Platforms:** Mac Catalyst 13.0+ | macOS 10.10+
+**Platforms:** macOS 10.10+
+
+**Availability qualification:** Apple's catalog lists Mac Catalyst 13.0, but the public macOS 26.5 SDK explicitly rejects both `vmnet_start_interface` and the newer network-configuration API for Mac Catalyst. This reference covers native macOS use; the catalog listing is not evidence of a usable Catalyst interface.
 
 ## Overview
 
 The vmnet framework is an API for virtual machines to read and write packets.
 
-The API allows a Guest OS interface to be in host mode or shared mode. Interfaces in host mode can communicate with the native host system and other interfaces running in host mode. In shared mode, the network interface can send and receive packets to the Internet, the native host, and other interfaces running in sharing mode.
+Interfaces support three modes:
+
+- **Host:** communication with the host and eligible peer interfaces, without an external-network connection.
+- **Shared:** external connectivity through NAT, plus host and eligible peer communication.
+- **Bridged:** direct bridging to an eligible physical interface; macOS 10.15+.
+
+Subnet selection and interface isolation affect which peers can communicate. Use `vmnet_copy_shared_interface_list` to find eligible bridged interfaces rather than assuming every physical interface is usable. The macOS 26 network-object configuration APIs described below accept host or shared mode; do not pass bridged mode merely because it exists in the older mode enumeration.
 
 **Note:** For more information about virtualization technologies, see the Hypervisor framework.
 
@@ -17,13 +25,23 @@ The API allows a Guest OS interface to be in host mode or shared mode. Interface
 The vmnet framework has the following requirements:
 
 **Entitlements**  
-A sandboxed user space process must have the com.apple.vm.networking entitlement in order to use vmnet API.
+The Boolean [`com.apple.vm.networking`](https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.vm.networking) entitlement enables virtual networking without escalating to root. It defaults to `NO` and is restricted to developers of virtualization software; Apple's reference directs applicants to their Apple representative. Handle missing authorization instead of assuming that a virtualization or sandbox entitlement grants network access.
 
 ### Architecture
 
-The VM Network API provides support for an interface in the guest operating system. The API provides the MAC address and MTU that needs to be configured on the guest OS interface. The interface receives a private IPv4 address via DHCP. IPv4 traffic originating from the guest operating system must use the private IPv4 address. Packets sent from a different IPv4 address are dropped by the system.
+Configure the guest with the interface parameters returned by vmnet, including MTU and the MAC address when automatic allocation is enabled. The default host/shared path uses private IPv4 addressing and DHCP. This is not a universal DHCP-only contract: custom IPv4 ranges permit static assignments outside the DHCP pool, isolated host networks can omit DHCP, and the macOS 26 configuration API can disable DHCP explicitly. Use source addresses appropriate to the selected network; default-interface source-address checks can drop invalid traffic.
 
-You can create a maximum of 32 interfaces with a limit of 4 per guest operating system. Each read/write call allows up to 200 packets to be read or written for a maximum of 256KB. Each packet written should be a complete ethernet frame.
+Size I/O from the interface's reported limits, not a fixed packet-count or byte-budget assumption. `vmnet_read_max_packets_key` and `vmnet_write_max_packets_key` are available in macOS 15; `vmnet_max_packet_size_key` bounds each packet. Reads report the actual packet count, which may be zero. Supply complete Ethernet frames and handle oversized packets, too many packets, exhausted buffers, and interface-creation failures.
+
+The macOS 15.4 `vmnet_enable_virtio_header_key` option adds a **12-byte Virtio network header** to every packet. Include those bytes in buffer sizing and do not combine this option with `vmnet_enable_checksum_offload_key`.
+
+### Interface and network lifecycle
+
+For either starting API, check the immediate result and wait for successful asynchronous setup before using the interface. Register or disable event callbacks with the documented queue/callback pairing. After `vmnet_stop_interface`, further packet I/O fails.
+
+In macOS 26+, create a `vmnet_network_configuration_ref`, customize it, and create a `vmnet_network_ref` before starting interfaces with `vmnet_interface_start_with_network`. The network object owns its resource reservations. A successfully started interface retains that object; stopping the interface releases its reference. Release independently owned Core Foundation configuration/network references when no longer needed.
+
+Configuration functions control NAT44/NAT66, DHCP, DNS proxying, router advertisements, subnets, MTU, reservations, and forwarding. Treat returned status codes, `NULL` objects, authorization failures, and conflicting sharing services as real failure paths. These 26+ operations are not part of the framework's 10.10 baseline.
 
 ## Topics
 
@@ -31,7 +49,7 @@ You can create a maximum of 32 interfaces with a limit of 4 per guest operating 
 - **com.apple.vm.networking** - A Boolean that indicates whether the app manages virtual network interfaces without escalating privileges to the root user.
 
 ### Starting and Stopping Interfaces
-- **vmnet_start_interface** - Starts host or shared mode on an interface with a specified configuration.
+- **vmnet_start_interface** - Starts an interface with a specified configuration, including supported bridged-mode configurations on macOS 10.15+.
 - **vmnet_interface_set_event_callback** - Schedules a callback to be executed when events for the specified interface are received.
 - **vmnet_stop_interface** - Stops the interface.
 
@@ -57,11 +75,11 @@ You can create a maximum of 32 interfaces with a limit of 4 per guest operating 
 - [vmnet Data Types](https://developer.apple.com/documentation/vmnet/vmnet_data_types)
 
 ### Variables
-- **vmnet_enable_virtio_header_key**
-- **vmnet_read_max_packets_key**
-- **vmnet_write_max_packets_key**
+- **vmnet_enable_virtio_header_key** - Enables the packet-header option; macOS 15.4+.
+- **vmnet_read_max_packets_key** - Maximum packet count for a read; macOS 15+.
+- **vmnet_write_max_packets_key** - Maximum packet count for a write; macOS 15+.
 
-### Functions
+### Network-object functions — macOS 26+
 - **vmnet_interface_start_with_network**
 - **vmnet_network_configuration_add_dhcp_reservation**
 - **vmnet_network_configuration_add_port_forwarding_rule**
@@ -87,7 +105,5 @@ You can create a maximum of 32 interfaces with a limit of 4 per guest operating 
 - **vmnet_network_ref**
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/vmnet)*

@@ -17,25 +17,17 @@ Token validity is checked up-front by MusicKit on the Web and it must be valid a
 Use the script tags and link to Apple's hosted version of MusicKit on the Web:
 
 ```html
-<script src="https://js-cdn.music.apple.com/musickit/v3/musickit.js" data-web-components async></script>
+<script src="https://js-cdn.music.apple.com/musickit/v3/musickit.js" async></script>
 ```
 
-The `data-web-components` attribute instructs MusicKit to also load the Web Components for playback controls. The `async` attribute is recommended for non-blocking page rendering.
+The `async` attribute avoids blocking page rendering. Register the initialization listener before this asynchronous script is added.
 
 ### Configuration
 
-You can configure MusicKit on the Web with markup or JavaScript:
+The current v3 introduction configures the library using JavaScript. The [v3 migration guide](https://js-cdn.music.apple.com/musickit/v3/docs/index.html?path=/docs/tech-notes-migrating-to-v3--page) removes declarative HTML support and the `declarativeMarkup` option. Do not treat older meta-tag or web-component bootstrap examples as the setup contract for this version.
 
-**Using meta tags:**
-```html
-<head>
-  <meta name="apple-music-developer-token" content="DEVELOPER-TOKEN" />
-  <meta name="apple-music-app-name" content="My Cool Web App" />
-  <meta name="apple-music-app-build" content="1978.4.1" />
-</head>
-```
+Register the listener before asynchronously loading the library, and replace the developer-token placeholder with a valid signed token. This is a setup excerpt, not a complete playback or authorization flow.
 
-**Using JavaScript:**
 ```javascript
 document.addEventListener('musickitloaded', async function () {
   try {
@@ -47,7 +39,8 @@ document.addEventListener('musickitloaded', async function () {
       },
     });
   } catch (err) {
-    // Handle configuration error
+    console.error('MusicKit configuration failed', err);
+    return;
   }
 
   const music = MusicKit.getInstance();
@@ -66,6 +59,8 @@ document.addEventListener('musickitloaded', async function () {
 
 **Important:** You won't see this event listener wrapper in all examples within this documentation, but you may need to add it in your code if you see an error in console similar to: `ReferenceError: Can't find variable: MusicKit`
 
+A listener added after the event has already fired does not replay that event. Establish the listener before adding the asynchronous script; acquire the MusicKit instance only after configuration succeeds.
+
 ## Topics
 
 ### Getting Started
@@ -74,16 +69,14 @@ document.addEventListener('musickitloaded', async function () {
 - Embedding the library in web applications
 
 ### Configuration
-- Markup-based configuration using meta tags
-- JavaScript-based configuration for advanced customization
+- JavaScript configuration with `MusicKit.configure`
+- Handling rejected or expired developer tokens
 - Handling the asynchronous initialization process
 
-### Web Components
-- Optional playback controls for quick implementation
-- Ready-to-use UI components for music playback
+### Version migration
+- [Migrating to v3](https://js-cdn.music.apple.com/musickit/v3/docs/index.html?path=/docs/tech-notes-migrating-to-v3--page) - Review removed declarative markup and changed instance APIs before adapting v1 examples.
+- [Apple Music API](AppleMusicAPI.md) - Keep catalog requests, developer credentials, and user-library authorization requirements distinct.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://js-cdn.music.apple.com/musickit/v3/docs/index.html?path=/story/introduction--page)*

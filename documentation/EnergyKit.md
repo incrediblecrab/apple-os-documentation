@@ -1,14 +1,14 @@
 # EnergyKit
 
-Provide a grid forecast for your app to help people choose when to use electricity.
+Use grid forecasts and energy insights to help people manage home electricity use.
 
 **Platforms:** iOS 26.0+ | iPadOS 26.0+
 
 ## Overview
 
-EnergyKit provides a grid forecast for your app to help people choose when to use electricity. This forecast is personalized for each person's Home location and based on various environmental and grid inputs, and identifies the times when there's relatively cleaner electricity on the grid. A person's rate plan information is also incorporated when they have connected to their utility account in the Home App.
+EnergyKit supplies forecasts for a home that identify relatively cleaner electricity periods. Where electricity rate information is available, guidance can also account for cost. Apps can use these forecasts to adjust device operation rather than treating a forecast as a guarantee of savings.
 
-EnergyKit helps you build apps that people can use to manage their home devices' electricity usage to help support the transition to a cleaner electricity grid. It's meant for residential, behind-the-meter applications, such as electricity usage of household devices, appliances, and EV charging. It's not meant for commercial or industrial applications. The system is designed for initial use cases involving smart thermostats (HVAC) and EV charging.
+The documented use cases are residential, metered locations, including smart thermostats and electric vehicle charging. Apps submit load events to describe device energy use and request insights that relate historical consumption to grid cleanliness and rate periods.
 
 Using EnergyKit, your app can:
 
@@ -19,14 +19,14 @@ Using EnergyKit, your app can:
 
 ### Add the entitlement to your app
 
-To use EnergyKit, the system requires your app to have the com.apple.developer.energykit entitlement with a value of true. Add this entitlement by enabling the EnergyKit capability on your app's target in Xcode. For more information, see Adding capabilities to your app.
+Enable the EnergyKit capability in the app target. The required [EnergyKit entitlement](https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.energykit), `com.apple.developer.energykit`, is a Boolean with a value of `true`.
 
-> **Note:** The EnergyKit entitlement only supports development builds and Ad Hoc testing. The entitlement will support App Store submission and Test Flight at a later time.
+The iOS/iPadOS 27 beta adds the Boolean [EnergyKit LoadEvents entitlement](https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.energykit.loadevents-experience), `com.apple.developer.energykit.loadevents-experience`. Enable both this capability and the base EnergyKit capability to share submitted load-event information through activity logs, historical charts, and trend notifications in the Home app. This additional capability is not part of the framework's original 26.0 minimum.
 
 ## Topics
 
 ### Essentials
-- [Optimizing home electricity usage](https://developer.apple.com/documentation/energykit/optimizing_home_electricity_usage) - Shift electric vehicle charging schedules to times when the grid is cleaner and potentially less expensive.
+- [Optimizing home electricity usage](https://developer.apple.com/documentation/energykit/optimizing-home-electricity-usage) - Shift electric vehicle charging schedules to times when the grid is cleaner and potentially less expensive.
 - **com.apple.developer.energykit** - The entitlement the system requires for an app to use the EnergyKit framework.
 
 ### Load events
@@ -41,16 +41,14 @@ To generate device electricity consumption or runtime insights, your app needs t
 - **ElectricityGuidance** - A data model that provides guidance on when electricity is cleaner and less expensive.
 
 ### Insights
-- **ElectricityInsightRecord** - A structure that represents displayable environmental impact information for electricity usage.
+- **ElectricityInsightRecord** - A record of electricity usage, environmental impact, and cost information over a time interval.
 - **ElectricityInsightService** - A service for retrieving insights about electricity consumption.
 - **ElectricityInsightQuery** - A structure describing a query that you use to obtain environmental impact information in the form of electricity insight records.
-- **ElectricityInsightMeasure** - A measurement of electricity consumption.
+- **ElectricityInsightMeasure** - A protocol for measures used to describe electricity consumption insights.
 
 ### Error response
 - **EnergyKitError** - A specialized error that provides localized messages describing the error and why it occurred.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/EnergyKit)*

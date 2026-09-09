@@ -11,7 +11,7 @@ The PlaygroundBluetooth framework provides a common interface that you use to di
 ## Topics
 
 ### Peripheral Connection
-Connecting to Bluetooth Peripherals in Swift Playgrounds - Scan for peripherals and display them in your playground's live view.
+- [Connecting to Bluetooth Peripherals in Swift Playgrounds](https://developer.apple.com/documentation/playgroundbluetooth/connecting_to_bluetooth_peripherals_in_swift_playgrounds) - Scan for peripherals and display them in your playground's live view.
 
 - **PlaygroundBluetoothCentralManager** - A streamlined interface for connecting the central manager for the current playground page to nearby Bluetooth peripherals.
 - **PlaygroundBluetoothCentralManagerDelegate** - A delegate you use to respond to peripheral discovery and manage the lifecycle of connections.
@@ -23,7 +23,5 @@ Connecting to Bluetooth Peripherals in Swift Playgrounds - Scan for peripherals 
 - **PlaygroundBluetoothConnectionViewDataSource** - The protocol you adopt to display an available peripheral in a playground page's connection view.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/playgroundbluetooth)*

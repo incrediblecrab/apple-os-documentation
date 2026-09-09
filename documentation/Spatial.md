@@ -8,32 +8,53 @@ Create and manipulate 3D mathematical primitives.
 
 The Spatial module is a lightweight 3D mathematical library that provides a simple API for working with 3D primitives. Much of its functionality is similar to the 2D geometry support in Core Graphics, but in three dimensions.
 
+## Applying the types
+
+Use Spatial for coordinate calculations, not as a substitute for ARKit tracking or RealityKit rendering. Keep the source and destination coordinate spaces explicit when combining model-local, world, and view-relative values.
+
+Choose precision deliberately: the `Float`-suffixed types represent single-precision values and have their own symbol availability. Do not assume that every newer type is present at the framework's original minimum OS version. Test transform composition, inverse transforms, and conversions at the scales used by your assets.
+
+For [USDKit](USDKit.md) or [Spatial Preview](SpatialPreview.md) integration, preserve the asset's coordinate conventions instead of treating an identically named position as interchangeable between APIs.
+
 ## Topics
 
 ### Data structures
+
 - **Vector3D** - A three-element vector.
 - **Vector3DFloat** - A single-precision structure that defines a three-element vector.
 - **Axis3D** - Constants that describe an axis.
 ### 2D primitives
+
 - **Angle2D** - A geometric angle with a value you access in either radians or degrees.
 - **Angle2DFloat** - A single-precision geometric angle whose value you access in either radians or degrees.
 ### 3D primitives
+
 - **Point3D** - A point in a 3D coordinate system.
-- **Point3DFloat** - A single-precision structure that contains a point in a three-dimensional coordinate system.- **Size3D** - A size that describes width, height, and depth in a 3D coordinate system.
-- **Size3DFloat** - A single-precision structure that contains width, height, and depth values.- **Rect3D** - A rectangle in a 3D coordinate system.
-- **Rect3DFloat** - A single-precision structure that contains the location and dimensions of a 3D rectangle.- **Rotation3D** - A rotation in three dimensions.
-- **Rotation3DFloat** - A single-precision structure that represents a rotation in three dimensions.- **RotationAxis3D** - A 3D rotation axis.
-- **RotationAxis3DFloat** - A 3D axis.- **Pose3D** - A structure that contains a 3D position and a 3D rotation.
-- **Pose3DFloat** - A single-precision structure that contains a position and rotation.- **ScaledPose3D** - A structure that contains a position, rotation, and scale.
+- **Point3DFloat** - A single-precision structure that contains a point in a three-dimensional coordinate system.
+- **Size3D** - A size that describes width, height, and depth in a 3D coordinate system.
+- **Size3DFloat** - A single-precision structure that contains width, height, and depth values.
+- **Rect3D** - A rectangle in a 3D coordinate system.
+- **Rect3DFloat** - A single-precision structure that contains the location and dimensions of a 3D rectangle.
+- **Rotation3D** - A rotation in three dimensions.
+- **Rotation3DFloat** - A single-precision structure that represents a rotation in three dimensions.
+- **RotationAxis3D** - A 3D rotation axis.
+- **RotationAxis3DFloat** - A 3D axis.
+- **Pose3D** - A structure that contains a 3D position and a 3D rotation.
+- **Pose3DFloat** - A single-precision structure that contains a position and rotation.
+- **ScaledPose3D** - A structure that contains a position, rotation, and scale.
 - **ScaledPose3DFloat** - A structure that contains a position, rotation, and scale.
 - **SphericalCoordinates3D** - A structure that defines spherical coordinates in radial, inclination, azimuthal order.
-- **SphericalCoordinates3DFloat** - A single-precision structure that defines spherical coordinates in radial, inclination, azimuthal order.- **Ray3D** - A ray in a 3D coordinate system.
+- **SphericalCoordinates3DFloat** - A single-precision structure that defines spherical coordinates in radial, inclination, azimuthal order.
+- **Ray3D** - A ray in a 3D coordinate system.
 - **Ray3DFloat** - A single-precision structure that contains the origin and direction of a 3D ray.
 ### Affine and projective transforms
+
 - **AffineTransform3D** - A 3D affine transformation matrix.
-- **AffineTransform3DFloat** -- **ProjectiveTransform3D** - A 3D projective transformation matrix.
+- **AffineTransform3DFloat** - A single-precision 3D affine transform.
+- **ProjectiveTransform3D** - A 3D projective transformation matrix.
 - **ProjectiveTransform3DFloat** - A single-precision 3D projective transformation matrix.
 ### Converting between coordinate spaces
+
 - **CoordinateSpace3D** - A type that represents a coordinate space which you can use to convert values to and from other coordinate spaces.
 - **CoordinateSpace3DFloat**
 - **CoordinateSpaceValue3D** - An opaque value which can be resolved to a concrete value in a CoordinateSpace3D.
@@ -42,6 +63,7 @@ The Spatial module is a lightweight 3D mathematical library that provides a simp
 - **WorldReferenceCoordinateSpace** - A coordinate space that represents a world reference point.
 
 ### Applying trigonometric functions
+
 - **cos(Angle2D)** - Returns Double
 - **cos(Angle2DFloat)** - Returns Float
 - **cosh(Angle2D)** - Returns Double
@@ -56,6 +78,7 @@ The Spatial module is a lightweight 3D mathematical library that provides a simp
 - **tanh(Angle2DFloat)** - Returns Float
 
 ### Protocols
+
 - **Primitive3D** - A set of methods common to Spatial primitives.
 - **Rotatable3D** - A set of methods that defines the interface to rotate Spatial entities.
 - **Scalable3D** - A set of methods that defines the interface to scale Spatial entities.
@@ -73,12 +96,12 @@ The Spatial module is a lightweight 3D mathematical library that provides a simp
 - **VolumetricProtocol** - A set of methods for working with Spatial primitives with volume.
 
 ### Structures
-- **EulerAnglesFloat** -
+
+- **EulerAnglesFloat**
 ### Enumerations
+
 - **AxisWithFactorsFloat** - The axis of a shear transform.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/Spatial)*

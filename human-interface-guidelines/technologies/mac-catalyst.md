@@ -7,9 +7,9 @@ When you use Mac Catalyst to create a Mac version of your iPad app, you give peo
 ## Overview
 
 **Developer note**  
-To discover how views and controls can change when you create a Mac app using Mac Catalyst, download UIKit Catalog: Creating and customizing views and controls and build the macOS target.
+To inspect how views and controls adapt, use [UIKit Catalog: Creating and customizing views and controls](https://developer.apple.com/documentation/uikit/uikit-catalog-creating-and-customizing-views-and-controls) with a Mac Catalyst destination.
 
-> **macOS Golden Gate 27+:** macOS 27 is **Apple-silicon-only** and the last release with full Rosetta 2 support. **Xcode 27 requires macOS 27**, so migrate build machines and CI runners before adopting the OS 27 SDK. Catalyst apps adopt the refined Liquid Glass appearance on recompile, with no supported opt-out.
+Review [Adopting Liquid Glass](../../liquid-glass/adopting-liquid-glass.md) for the compatibility key's build-target rules, including Mac Catalyst. SDK selection, the runtime OS, and the deployment target are separate concerns.
 
 ## Topics
 
@@ -19,12 +19,12 @@ Many iPad apps are great candidates for creating a Mac app built with Mac Cataly
 
 - **Drag and drop** - When you support drag and drop in your iPad app, you also get support for drag and drop in the Mac version.
 - **Keyboard navigation and shortcuts** - Even though a physical keyboard may not always be available on iPad, iPad users appreciate using the keyboard to navigate and keyboard shortcuts to streamline their interactions. On the Mac, people expect apps to offer both keyboard navigation and shortcuts.
-- **Multitasking** - Apps that do a good job scaling the interface to support Split View, Slide Over, and Picture in Picture lay the necessary groundwork to support the extensive window resizability that Mac users expect.
+- **Multitasking and resizability** - Adapt to the window sizes and multitasking modes available on iPad, with Picture in Picture where appropriate. Flexible layout is useful preparation for Mac window resizing; older Split View and Slide Over terminology isn't a complete description of current iPad windowing.
 - **Multiple windows** - By supporting multiple scenes on iPad, you also get support for multiple windows in the macOS version of your app.
 
-Although great iPad apps can provide a solid foundation for creating a Mac app built with Mac Catalyst, some apps rely on frameworks or features that don't exist on a Mac. For example, if the essential features of your experience require capabilities like gyroscope, accelerometer, or rear camera, frameworks like HealthKit or ARKit, or if the primary function you offer is something like marking, handwriting, or navigation, your app might not be suitable for the Mac.
+Check required hardware, framework availability, and actual runtime capability separately. A sensor-dependent or camera-based experience may need a different Mac design, and handwriting or navigation may not translate naturally to desktop input. Don't infer capability merely because code links: HealthKit, for example, is present on macOS 13 and later, but its documentation says apps there can't read or write HealthKit data and `isHealthDataAvailable()` returns false.
 
-Creating a Mac version of your iPad app with Mac Catalyst gives the app automatic support for fundamental macOS features such as:
+Mac Catalyst adapts standard UIKit behavior and supplies integration points for fundamental macOS features. Review and configure the parts your app actually uses:
 
 - Pointer interactions and keyboard-based focus and navigation
 - Window management
@@ -32,7 +32,7 @@ Creating a Mac version of your iPad app with Mac Catalyst gives the app automati
 - Rich text interaction, including copy and paste as well as contextual menus for editing
 - File management
 - Menu bar menus
-- App-specific settings in the system-provided Settings app
+- An app-specific Settings window when the app includes a `Settings.bundle`, available from the app menu rather than macOS System Settings
 
 System-provided UI elements take on a more Mac-like appearance, too; for example:
 
@@ -45,12 +45,12 @@ System-provided UI elements take on a more Mac-like appearance, too; for example
 
 ### Choose an Idiom
 
-When you first create your Mac app using Mac Catalyst, Xcode defaults to the "Scale Interface to Match iPad" setting, or iPad idiom. With this setting, the system ensures that your Mac app appears consistent with the macOS display environment without requiring significant changes to the app's layout. However, text and graphics may appear slightly less detailed because iPadOS views and text scale down to 77% in macOS when you use the iPad idiom.
+When you first create your Mac app using Mac Catalyst, Xcode defaults to the "Scale Interface to Match iPad" setting, or iPad idiom. With this setting, the system adapts the interface to Mac sizing while preserving iPad-like layout metrics. Text and graphics may appear less detailed because the HIG describes scaling iPad views to approximately 77% in this idiom.
 
 When your app feels at home on the Mac using the iPad idiom, consider switching to the Mac idiom. With this setting, text and artwork render in more detail, some interface elements and views take on an even more Mac-like appearance, and graphics-intensive apps may see improved performance and lower power consumption.
 
 **Developer note**  
-When you adopt the Mac idiom, the unscaled views and interface elements report different metrics, often resulting in a significant amount of additional work. To reduce the amount of work, avoid using fixed font, view, or layout sizes. For developer guidance, see Choosing a user interface idiom for your Mac app.
+When you adopt the Mac idiom, the unscaled views and interface elements report different metrics, often resulting in significant layout work. Avoid fixed font, view, and layout sizes where possible. Audit control compatibility too: the developer guide says `UIPageControl` isn't available in the Mac idiom and displaying it raises an exception. See [Choosing a user interface idiom for your Mac app](https://developer.apple.com/documentation/uikit/choosing-a-user-interface-idiom-for-your-mac-app).
 
 ### Best Practices
 
@@ -70,7 +70,7 @@ When you use Mac Catalyst to create a Mac version of your iPad app, you need to 
 
 - **Make sure people retain access to important tab-bar items** - Give people quick access to top-level items by listing them in the macOS View menu.
 
-- **Offer multiple ways to move between pages** - Mac users appreciate Next and Previous buttons in addition to iPad or trackpad gestures that let them swipe between pages.
+- **Offer multiple ways to move between pages** - Mac users appreciate Next and Previous buttons and keyboard access in addition to supported trackpad gestures.
 
 #### Layout
 
@@ -88,21 +88,27 @@ Mac users are familiar with the persistent menu bar and expect to find all of an
 **Developer note**  
 To support keyboard shortcuts for menu commands, use UIKeyCommand. To add and remove custom app menus, use UIMenuBuilder and add menu items that represent your iPad app's commands as menu items with UICommand.
 
+Mac Catalyst doesn't provide unrestricted AppKit access. Use only AppKit APIs explicitly available to Mac Catalyst; native AppKit, a Catalyst build, and an unmodified iPad app running on Apple silicon are distinct environments.
+
 ### Related Technologies
 
 - [Designing for macOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-macos) - Platform-specific design guidelines
 
 ### Developer Documentation
 
-- [Mac Catalyst](https://developer.apple.com/documentation/uikit/mac_catalyst) - UIKit
+- [Mac Catalyst](https://developer.apple.com/documentation/uikit/mac-catalyst) - UIKit
+- [Creating a Mac version of your iPad app](https://developer.apple.com/documentation/uikit/creating-a-mac-version-of-your-ipad-app) - Supported destination and target setup
+- [Displaying a Settings window](https://developer.apple.com/documentation/uikit/displaying-a-settings-window) - Settings bundle integration
+- [Adding menus and shortcuts to the menu bar and user interface](https://developer.apple.com/documentation/uikit/adding-menus-and-shortcuts-to-the-menu-bar-and-user-interface)
+- [HKHealthStore.isHealthDataAvailable()](https://developer.apple.com/documentation/healthkit/hkhealthstore/ishealthdataavailable()) - Framework presence versus health-data access
 
 ## Changelog
+
+These dates describe Apple's HIG article history.
 
 ### May 2, 2023
 - Consolidated guidance into one page.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/mac-catalyst)*

@@ -2,7 +2,9 @@
 
 Add graphics acceleration to your guest driver stack.
 
-**Platforms:** Mac Catalyst 14.0+ | macOS 11.0+
+**Platforms:** macOS 11.0+ for the native virtual-machine graphics interfaces described here.
+
+The framework catalog lists Mac Catalyst 14.0, but the macOS 26.5 SDK explicitly makes `PGDeviceDescriptor` and the device factories unavailable to Mac Catalyst. Do not infer a working Catalyst virtualization path from that catalog entry.
 
 ## Overview
 
@@ -12,7 +14,7 @@ To implement accelerated graphics inside your virtualization solution, you need 
 
 1. Advertise the virtual graphics card in the virtual machine hardware so that macOS can install the correct driver.
 
-2. Create a **PGDeviceDescriptor**, providing the necessary blocks to connect your virtual machine implementation to the ParavirtualizedGraphics framework. Use this descriptor to create a **PGDevice** object, which you keep alive as long as the virtual machine is still active. The ParavirtualizedGraphics framework calls your blocks when it needs to allocate memory or take other relevant actions.
+2. Create a **PGDeviceDescriptor**, providing the necessary blocks to connect your virtual machine implementation to the ParavirtualizedGraphics framework. On macOS 15.2 and later, use `PGCreateDeviceWithDescriptor(_:)` to create the device and handle a `nil` result. Keep the device alive while the virtual machine uses it. The framework invokes the supplied blocks for memory and other host operations.
 
 3. Create a **PGDisplayDescriptor** for each virtual display that you want to connect to the device, specifying the display's properties and blocks for the framework to call for display events. Use this descriptor to create a **PGDisplay** object. Handle the appropriate display events to display the graphics data that the framework provides.
 
@@ -26,7 +28,7 @@ To implement accelerated graphics inside your virtualization solution, you need 
 - **PGCopyOptionROMURL()** - Copies the URL of the ROM image to use on the guest graphics device.
 
 ### Devices
-- **PGNewDeviceWithDescriptor()** - Creates a new paravirtualized graphics device.
+- **PGNewDeviceWithDescriptor(_:)** - The legacy factory, introduced in macOS 11 and deprecated in macOS 15.2 in favor of `PGCreateDeviceWithDescriptor`. The replacement has the corrected ARC ownership annotation. The macOS 26.5 SDK still declares the legacy factory; its omission from the current root topic list is not evidence of removal from that SDK.
 - **PGDeviceDescriptor** - A description of the paravirtualized graphics device to create.
 - **PGDevice** - A paravirtualized GPU device object.
 
@@ -46,10 +48,8 @@ To implement accelerated graphics inside your virtualization solution, you need 
 - **PG_SUPPORT_CREATE_DEVICE**
 
 ### Functions
-- **PGCreateDeviceWithDescriptor()** - Creates a new paravirtualized graphics device.
+- [PGCreateDeviceWithDescriptor(_:)](https://developer.apple.com/documentation/paravirtualizedgraphics/pgcreatedevicewithdescriptor(_:)) - The macOS 15.2+ factory returns an optional `PGDevice` implementation.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/ParavirtualizedGraphics)*

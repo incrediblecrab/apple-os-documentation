@@ -1,75 +1,80 @@
 # Foundation Models
 
-Perform tasks with the on-device model that specializes in language understanding, structured output, and tool calling.
+Build language and image-understanding features with sessions, structured generation, and tools.
 
-**Platforms:** iOS 26.0+ | iPadOS 26.0+ | Mac Catalyst 26.0+ | macOS 26.0+ | visionOS 26.0+
+**Original on-device APIs:** iOS 26.0+ | iPadOS 26.0+ | Mac Catalyst 26.0+ | macOS 26.0+ | visionOS 26.0+
 
 ## Overview
 
-The Foundation Models framework provides access to Apple's on-device large language model that powers Apple Intelligence to help you perform intelligent tasks specific to your use case. The text-based on-device model identifies patterns that allow for generating new text that's appropriate for the request you make, and it can make decisions to call code you write to perform specialized tasks.
+Foundation Models provides a shared Swift session interface for Apple's on-device model, Private Cloud Compute (PCC), and custom language-model providers. Use it for tasks such as summarization, extraction, image understanding, and tool-assisted workflows. Generated structure is not proof of factual accuracy or authorization to perform an action.
 
-An illustration that represents a foundation model.
+The OS 26 on-device APIs remain useful. The OS 27 additions extend the framework rather than retroactively raising all deployment minimums:
 
-Generate text content based on requests you make. The on-device model excels at a diverse range of text generation tasks, like summarization, entity extraction, text understanding, refinement, dialog for games, generating creative content, and more.
+| Surface | Documented availability |
+|---|---|
+| `SystemLanguageModel` | iOS/iPadOS/Mac Catalyst/macOS/visionOS 26.0+ |
+| `LanguageModelSession` | The platforms above at 26.0+; watchOS 27.0+ |
+| `LanguageModel`, `LanguageModelExecutor`, `LanguageModelCapabilities` | iOS/iPadOS/Mac Catalyst/macOS/visionOS/watchOS 27.0+ |
+| `PrivateCloudComputeLanguageModel` | iOS/iPadOS/Mac Catalyst/macOS/visionOS/watchOS 27.0+ |
+| `LanguageModelSession.DynamicProfile`, `ImageAttachmentContent`, `LanguageModelError` | iOS/iPadOS/Mac Catalyst/macOS/visionOS/watchOS 27.0+ |
 
-Generate entire Swift data structures with guided generation. With the @Generable macro, you can define custom data structures and the framework provides strong guarantees that the model generates instances of your type.
-
-To expand what the on-device foundation model can do, use Tool to create custom tools that the model can call to assist with handling your request. For example, the model can call a tool that searches a local or online database for information, or calls a service in your app.
-
-To use the on-device language model, people need to turn on Apple Intelligence on their device. For a list of supported devices, see Apple Intelligence.
-
-For more information about acceptable usage of the Foundation Models framework, see Acceptable use requirements for the Foundation Models framework.
-
-## What's New in OS 27
-
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+, visionOS 27+:** Foundation Models generalizes beyond Apple's on-device model.
-
-**The `LanguageModel` protocol**
-
-The framework now exposes a generalized `LanguageModel` protocol. Your app can target Apple's on-device model or any conformant provider, including cloud models — Google Gemini is available as an optional cloud model for certain Siri features, alongside other providers such as Claude. Write against the protocol rather than a concrete model type so provider choice stays a configuration decision.
-
-**Siri**
-
-Siri itself is rebuilt on Apple Foundation Models in OS 27, with extended conversational context, cross-app awareness, and multi-step in-app actions. Apps that expose good App Intents schemas become actionable through that assistant. See [App Intents](AppIntents.md).
-
-**Validating model-backed features**
-
-Model output is non-deterministic, so unit tests alone are insufficient. The new [Evaluations](Evaluations.md) framework is designed for validating AI feature behavior.
-
-> **Note:** Multimodal prompt support and Dynamic Profiles were reported among the OS 27 additions but could not be confirmed against a published Apple documentation page. Verify against the [Foundation Models documentation](https://developer.apple.com/documentation/foundationmodels) before depending on them.
+These declarations do not list tvOS. A session or protocol available on watchOS does not imply an on-device `SystemLanguageModel` there. Check each symbol and the chosen model rather than applying one platform list to the whole framework.
 
 ## Topics
 
-### Essentials
-- [Generating content and performing tasks with Foundation Models](https://developer.apple.com/documentation/foundationmodels/generating_content_and_performing_tasks_with_foundation_models) - Enhance the experience in your app by prompting an on-device large language model.
-- [Improving safety from generative model output](https://developer.apple.com/documentation/foundationmodels/improving_safety_from_generative_model_output) - Create generative experiences that appropriately handle sensitive inputs and respect people.
-- [Adding intelligent app features with generative models](https://developer.apple.com/documentation/foundationmodels/adding_intelligent_app_features_with_generative_models) - Build robust apps with guided generation and tool calling by adopting the Foundation Models framework.
-- **class SystemLanguageModel** - An on-device large language model capable of text-generation tasks.
-- **struct UseCase** - A type that represents the use case for prompting.
+### Sessions and structured output
 
-### Prompting
-- **class LanguageModelSession** - An object that represents a session that interacts with a large language model.
-- **struct Instructions** - Instructions define the model's intended behavior on prompts.
-- **struct Prompt** - A prompt from a person to the model.
-- **struct Transcript** - A transcript that documents interactions with a language model. Transcripts contain an ordered list of entries, representing inputs to and outputs from the model.
-- **struct GenerationOptions** - Options that control how the model generates its response to a prompt.
+- [`SystemLanguageModel`](https://developer.apple.com/documentation/foundationmodels/systemlanguagemodel.md) — Access the on-device Apple model and inspect its availability before use.
+- [`LanguageModelSession`](https://developer.apple.com/documentation/foundationmodels/languagemodelsession.md) — Maintain session history and generate or stream responses.
+- [`Prompt`](https://developer.apple.com/documentation/foundationmodels/prompt.md), [`Instructions`](https://developer.apple.com/documentation/foundationmodels/instructions.md), and [`GenerationOptions`](https://developer.apple.com/documentation/foundationmodels/generationoptions.md) — Separate task input, intended behavior, and generation settings.
+- [`Generable`](https://developer.apple.com/documentation/foundationmodels/generable.md) and [guided generation](https://developer.apple.com/documentation/foundationmodels/generating-swift-data-structures-with-guided-generation.md) — Describe structured output with `@Generable` and `@Guide`; validate business constraints after generation.
+- [`Tool`](https://developer.apple.com/documentation/foundationmodels/tool.md) — Define named, typed operations callable by a model. Check arguments, authorization, and side effects in the implementation.
+- [Transcripts](https://developer.apple.com/documentation/foundationmodels/transcripts.md) — Inspect session entries and attachments for debugging and evaluation.
 
-### Guided generation
-- [Generating Swift data structures with guided generation](https://developer.apple.com/documentation/foundationmodels/generating_swift_data_structures_with_guided_generation) - Create robust apps by describing output you want programmatically.
-- **protocol Generable** - A type that the model uses when responding to prompts.
+### Custom providers
 
-### Tool calling
-- [Expanding generation with tool calling](https://developer.apple.com/documentation/foundationmodels/expanding_generation_with_tool_calling) - Build tools that enable the model to perform tasks that are specific to your use case.
-- [Generate dynamic game content with guided generation and tools](https://developer.apple.com/documentation/foundationmodels/generate_dynamic_game_content_with_guided_generation_and_tools) - Make gameplay more lively with AI generated dialog and encounters personalized to the player.
-- **protocol Tool** - A tool that a model can call to gather information at runtime or perform side effects.
+[`LanguageModel`](https://developer.apple.com/documentation/foundationmodels/languagemodel.md) describes capabilities and an `executorConfiguration`. Its associated executor bridges the framework to a server API or local inference engine. [`LanguageModelExecutor`](https://developer.apple.com/documentation/foundationmodels/languagemodelexecutor.md) implements `init(configuration:)`, `prewarm(model:transcript:)`, and `respond(to:model:streamingInto:)`; the generation channel carries output deltas back to the session.
 
-### Feedback
-- **struct LanguageModelFeedbackAttachment** - Feedback appropriate for attaching to Feedback Assistant.
+Use [`LanguageModelCapabilities`](https://developer.apple.com/documentation/foundationmodels/languagemodelcapabilities.md) to describe supported behavior. A common session interface does not make every model equally capable of image input, guided generation, tools, or reasoning.
 
-**Note:** To use the Foundation Models framework, people need to turn on Apple Intelligence on their device. For a list of supported devices, see Apple Intelligence documentation.
+Apple's [iOS overview](https://developer.apple.com/ios/whats-new/) names cloud models such as Claude and Gemini as provider examples. That is **not** evidence that Apple ships a package, account, or entitlement for every named provider. Obtain and verify the actual implementation, credentials, terms, and capabilities separately. For local models, see [running a Core AI model in a session](https://developer.apple.com/documentation/foundationmodels/running-a-core-ai-model-in-a-foundation-models-session.md) and [Core AI](CoreAI.md).
 
----
+### Multimodal input
 
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
+- [Analyzing images with multimodal prompting](https://developer.apple.com/documentation/foundationmodels/analyzing-images-with-multimodal-prompting.md) — Include text and images in a request, with an appropriate orientation and a clear analysis task.
+- [`Attachment`](https://developer.apple.com/documentation/foundationmodels/attachment.md), [`ImageAttachmentContent`](https://developer.apple.com/documentation/foundationmodels/imageattachmentcontent.md), and [`ImageReference`](https://developer.apple.com/documentation/foundationmodels/imagereference.md) — Supply image data and refer to it from tools or a transcript.
+- [Vision](Vision.md) provides [`OCRTool`](https://developer.apple.com/documentation/vision/ocrtool.md) and [`BarcodeReaderTool`](https://developer.apple.com/documentation/vision/barcodereadertool.md) for a session's image-analysis toolset.
 
-*Source: [Apple Developer Documentation](https://developer.apple.com/documentation/FoundationModels)*
+Supported image inputs include `CGImage`, `CIImage`, `CVPixelBuffer`, and image URLs. Create them through `Attachment` initializers, not by constructing `ImageAttachmentContent` directly. Model support is still required; an attachment type's availability does not promise that any custom provider can consume it.
+
+### Dynamic Profiles
+
+[Dynamic sessions](https://developer.apple.com/documentation/foundationmodels/composing-dynamic-sessions-with-instructions-and-profiles.md) reevaluate instructions and tools as app state changes:
+
+- [`DynamicInstructions`](https://developer.apple.com/documentation/foundationmodels/dynamicinstructions.md) supplies instructions and tools before each model request.
+- [`LanguageModelSession.Profile`](https://developer.apple.com/documentation/foundationmodels/languagemodelsession/profile.md) associates those instructions with session-level configuration, including a model.
+- [`LanguageModelSession.DynamicProfile`](https://developer.apple.com/documentation/foundationmodels/languagemodelsession/dynamicprofile.md) selects one active profile; changes take effect on the next model request while preserving the session.
+
+Profile transitions can change the model, tools, and data destination. Make those transitions explicit in the app's configuration and test them, especially when moving from on-device to remote processing.
+
+### Private Cloud Compute
+
+[`PrivateCloudComputeLanguageModel`](https://developer.apple.com/documentation/foundationmodels/privatecloudcomputelanguagemodel.md) uses Apple's server model for stronger reasoning and a larger context window. [The adoption article](https://developer.apple.com/documentation/foundationmodels/adding-server-side-intelligence-with-private-cloud-compute.md) documents a network requirement, runtime `availability`, daily request limits, `quotaUsage`, and `Error.quotaLimitReached(_:)`.
+
+Access requires eligibility and a managed entitlement. At this cutoff, Apple's [access page](https://developer.apple.com/private-cloud-compute/) limits no-cloud-API-cost access to App Store Small Business Program developers with the entitlement assigned to their account and fewer than two million first-time App Store downloads from any of their apps. Eligible App Store apps can use PCC where Apple Intelligence is available; TestFlight and ad hoc testing are also permitted, with testing installs excluded from that download count. This is **conditional access**, not universally free or unlimited PCC. Consult the access page for continued-eligibility and migration terms.
+
+Apple model access also depends on supported hardware, Apple Intelligence availability, region, and runtime readiness. Check the actual model before presenting the feature. A successful availability check does not eliminate later quota, network, or generation failures.
+
+### Errors and fallback
+
+[`LanguageModelError`](https://developer.apple.com/documentation/foundationmodels/languagemodelerror.md) covers context overflow, rate limits, timeouts, refusal, guardrail violations, unsupported capabilities, unsupported transcript content, unsupported generation guides, and unsupported languages/locales. OS 26 integrations must retain handling appropriate to their older API surface.
+
+For loss of connectivity or unavailable PCC, use an eligible on-device model **only if it supports the task**, or offer a non-AI path. Do not assume all devices have an offline Apple model. Do not silently retry a refused request against another provider or automatically send private content to a server to work around an on-device failure.
+
+## Validation
+
+Use [Evaluations](Evaluations.md) for per-model and per-profile quality, judge calibration, and tool trajectories; use [Swift Testing](Testing.md) for deterministic validation and error handling. Record OS, model configuration, language/region, toolset, dataset, and entitlement state. [Xcode's Foundation Models instrument](Xcode.md#profiling) helps investigate latency and token usage.
+
+Follow the [intelligence integration recipe](../guides/intelligence-integration.md). For exposing app actions to the system, use [App Intents](AppIntents.md); implementing a `LanguageModel` is a different integration.
+
+*Sources: [Foundation Models](https://developer.apple.com/documentation/foundationmodels.md), [`LanguageModel`](https://developer.apple.com/documentation/foundationmodels/languagemodel.md), [iOS developer overview](https://developer.apple.com/ios/whats-new/).*

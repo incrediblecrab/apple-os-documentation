@@ -6,27 +6,29 @@ Add actions to the document browser's context menu.
 
 ## Overview
 
-Use the File Provider UI extension to add custom actions to your File Provider extension. These actions appear if the user long presses an item while browsing your file provider's content. When the user selects your action, the system displays your custom user interface, where the user completes the action. After the user is finished, you must explicitly cancel or complete the action.
+Use a File Provider UI extension to present custom actions from the file browser's context menu. Define actions in `NSExtensionFileProviderActions`, including an identifier, localized name, and activation predicate. An action without a predicate isn't displayed; `TRUEPREDICATE` makes it eligible regardless of the selected items.
 
-For more about File Provider extensions, see File Provider.
+Provide one `FPUIActionExtensionViewController` subclass and configure each selected action in `prepare(forAction:itemIdentifiers:)`. Finish through the extension context's `completeRequest()` or `cancelRequest(withError:)`; merely hiding your view doesn't complete the request.
 
-For more about creating extensions, see App Extension Programming Guide.
+On macOS 11+, [FileProvider](FileProvider.md) also supports custom actions performed directly by the provider without additional UI. That is a separate workflow from this UI extension.
+
+The published Catalyst minima are inconsistent: the framework catalog says 15, while the controller and error declarations say 11. The header preserves the framework catalog rather than treating that earlier symbol label as a reliable deployment target.
+
+For extension architecture, see the archived [App Extension Programming Guide](https://developer.apple.com/library/archive/documentation/General/Conceptual/ExtensibilityPG/index.html).
 
 ## Topics
 
 ### Document Browser Customization
-- [Adding Actions to the Context Menu](https://developer.apple.com/documentation/fileproviderui/adding_actions_to_the_context_menu) - Present custom actions from your File Provider extension in the system's file browser.
-- **class FPUIActionExtensionViewController** - The custom user interface used to perform a selected action.
+- [Adding Actions to the Context Menu](https://developer.apple.com/documentation/fileproviderui/adding-actions-to-the-context-menu) - Configure action metadata, predicates, presentation, and completion.
+- [`FPUIActionExtensionViewController`](https://developer.apple.com/documentation/fileproviderui/fpuiactionextensionviewcontroller) - Subclass this controller to present the selected action.
 
 ### Errors
-- **enum FPUIExtensionErrorCode** - The error codes for errors raised by the File Provider UI extension.
-- **let FPUIErrorDomain: String** - The error domain for errors raised by the File Provider UI extension.
+- [`FPUIExtensionErrorCode`](https://developer.apple.com/documentation/fileproviderui/fpuiextensionerrorcode) - Error codes distinguishing failure and user cancellation.
+- [`FPUIErrorDomain`](https://developer.apple.com/documentation/fileproviderui/fpuierrordomain) - The extension's error-domain string.
 
 ### Reference
-- **FileProviderUI Data Types**
+- [FileProviderUI Data Types](https://developer.apple.com/documentation/fileproviderui/fileproviderui-data-types) - The action identifier and related reference macros.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/FileProviderUI)*

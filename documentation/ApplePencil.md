@@ -6,23 +6,23 @@ Enhance your iPad app's user experience by supporting drawing, handwriting, and 
 
 Apple Pencil is an input accessory for iPad that people rely on for tasks like drawing, sketching, painting, jotting notes, marking up documents, and more. In addition to drawing and handwriting, Apple Pencil can also serve as a pointer and UI interaction tool.
 
-As you optimize your app for iPad, there are many ways you can enhance it with Apple Pencil features. Choose the features that make the most sense in the context of your app, and adopt those features using APIs from PencilKit, SwiftUI, and UIKit.
+Choose the Pencil features that fit your iPad app and adopt them through [PencilKit](PencilKit.md), [SwiftUI](SwiftUI.md), and [UIKit](UIKit.md). Apple Pencil is a technology collection, not a separate framework to import. Hardware capabilities depend on both the Pencil model and compatible iPad.
 
 ### Drawing
 
-Apple Pencil integrates seamlessly with PencilKit, a framework that lets you incorporate hand-drawn content into your app. PencilKit provides tools for creating, erasing, and selecting pencil strokes on a drawing canvas. You can also implement drawing with high-precision touches from UIKit. Input from Apple Pencil provides data like azimuth, altitude, roll angle, and the amount of force recorded at its tip, which you can use to create rich drawing experiences.
+Use PencilKit for a drawing canvas and tools, or UIKit touch data for your own renderer. Available touch information includes position, azimuth, altitude, roll, and force, but not every Pencil model provides every measurement. For example, [`rollAngle`](https://developer.apple.com/documentation/uikit/uitouch/rollangle) returns `0` for a model without barrel-roll support. Force can initially be estimated; process expected updates when your renderer needs them.
 
 ### Handwriting
 
-With Apple Pencil, people can enter handwritten text in any text field, and Scribble automatically converts their handwriting into typed text input. Scribble is available in multiple languages and is on by default. You can also customize Scribble behavior to meet your app's needs using the Scribble API in UIKit.
+Scribble converts handwriting into typed text in supported editable text views. It is enabled by default for supported languages, but people can change the setting and apps can customize or suppress it. [`UIScribbleInteraction`](https://developer.apple.com/documentation/uikit/uiscribbleinteraction) works with editable `UITextInput` views; indirect Scribble interactions extend text entry to other custom views.
 
 ### Double tap and squeeze
 
-People can double-tap and squeeze certain models of Apple Pencil to perform actions quickly. People choose which action they want to perform in response to a double tap or squeeze in Settings, or you can implement a custom action that's specific to your app. You handle a double tap or squeeze using SwiftUI or UIKit.
+Supported Pencil models can report double taps; squeeze is an Apple Pencil Pro feature. Read and respect the person's preferred action when using SwiftUI or UIKit interaction APIs, rather than assuming every gesture means “switch tool.”
 
 ### Haptics
 
-Apple Pencil Pro can provide tactile feedback by playing haptics. Used sparingly and consistently, haptic feedback can enhance the experience of using Apple Pencil Pro to perform tasks like snapping objects to a grid. You provide haptic feedback using the sensory feedback API in SwiftUI or the feedback generators API in UIKit.
+Apple Pencil Pro can provide haptic feedback, for example when an object snaps to a guide. Request feedback through SwiftUI sensory-feedback APIs or UIKit feedback generators. The system decides whether to play it based on hardware, settings, and app state; a request isn't a playback guarantee.
 
 ### Hover
 
@@ -30,53 +30,51 @@ When a person holds a supported model of Apple Pencil close above the screen wit
 
 ### Pointers
 
-Apple Pencil can behave similar to a pointer, like a trackpad or mouse. For example, you can configure your views to provide visual feedback when a person holds Apple Pencil over the view. Add visual feedback to your views during hover using hover events in SwiftUI or pointer interactions in UIKit.
+On compatible hardware, Pencil hover can provide pointer-style feedback over a view. Use SwiftUI hover events or UIKit pointer interactions for appropriate visual affordances.
 
-For more details on Apple Pencil features and compatibility, see Apple Pencil.
+For the hardware combinations and feature differences, see Apple's [Apple Pencil comparison](https://www.apple.com/apple-pencil/). An API's availability alone doesn't establish hardware support.
 
 ## Topics
 
 ### Essentials
-- [Apple Pencil updates](https://developer.apple.com/documentation/ApplePencil/apple_pencil_updates) - Learn about important changes to Apple Pencil.
+- [Apple Pencil updates](https://developer.apple.com/documentation/updates/applepencil) - Learn about important changes to Apple Pencil.
 
 ### Drawing
-- [Drawing with PencilKit](https://developer.apple.com/documentation/ApplePencil/drawing_with_pencilkit) - Add expressive, low-latency drawing to your app using PencilKit.
-- [Inspecting, Modifying, and Constructing PencilKit Drawings](https://developer.apple.com/documentation/ApplePencil/inspecting_modifying_and_constructing_pencilkit_drawings) - Score users' ability to match PencilKit drawings generated from text, by accessing the strokes and points inside PencilKit drawings.
-- [Getting high-fidelity input with coalesced touches](https://developer.apple.com/documentation/ApplePencil/getting_high-fidelity_input_with_coalesced_touches) - Learn how to support high-precision touches in your app.
-- [Implementing coalesced touch support in an app](https://developer.apple.com/documentation/ApplePencil/implementing_coalesced_touch_support_in_an_app) - Learn how to create a simple app that handles coalesced touches.
+- [Drawing with PencilKit](https://developer.apple.com/documentation/pencilkit/drawing-with-pencilkit) - Add drawing with PencilKit.
+- [Inspecting, Modifying, and Constructing PencilKit Drawings](https://developer.apple.com/documentation/pencilkit/inspecting-modifying-and-constructing-pencilkit-drawings) - A sample comparing user drawings with text-derived drawings through stroke and point data.
+- [Getting high-fidelity input with coalesced touches](https://developer.apple.com/documentation/uikit/getting-high-fidelity-input-with-coalesced-touches) - Process additional touch samples.
+- [Implementing coalesced touch support in an app](https://developer.apple.com/documentation/uikit/implementing-coalesced-touch-support-in-an-app) - A coalesced-touch example.
 
 ### Handwriting
-- [Customizing Scribble with Interactions](https://developer.apple.com/documentation/ApplePencil/customizing_scribble_with_interactions) - Enable writing on a non-text-input view by adding interactions.
-- **Handwriting recognition** - Configure text fields and custom views that accept text to handle input from Apple Pencil.
+- [Customizing Scribble with Interactions](https://developer.apple.com/documentation/pencilkit/customizing-scribble-with-interactions) - Enable writing on a non-text-input view by adding interactions.
+- [Handwriting recognition](https://developer.apple.com/documentation/uikit/handwriting-recognition) - Text-input and indirect Scribble interfaces.
 
 ### Double tap and squeeze
-- **Apple Pencil interactions** - Handle user interactions like double tap and squeeze on Apple Pencil.
-- [Handling squeezes from Apple Pencil](https://developer.apple.com/documentation/ApplePencil/handling_squeezes_from_apple_pencil) - Detect and respond to squeezes a person makes on Apple Pencil Pro.
-- [Handling double taps from Apple Pencil](https://developer.apple.com/documentation/ApplePencil/handling_double_taps_from_apple_pencil) - Detect and respond to double taps a person makes on Apple Pencil.
+- [Apple Pencil interactions](https://developer.apple.com/documentation/uikit/apple-pencil-interactions) - UIKit gesture-interaction APIs.
+- [Handling squeezes from Apple Pencil](https://developer.apple.com/documentation/applepencil/handling-squeezes-from-apple-pencil) - Handle Apple Pencil Pro squeezes.
+- [Handling double taps from Apple Pencil](https://developer.apple.com/documentation/applepencil/handling-double-taps-from-apple-pencil) - Handle double taps on supported models.
 
 ### Haptics
-- [Playing haptic feedback in your app](https://developer.apple.com/documentation/ApplePencil/playing_haptic_feedback_in_your_app) - Provide tactile feedback when people perform certain actions in your app.
+- [Playing haptic feedback in your app](https://developer.apple.com/documentation/applepencil/playing-haptic-feedback-in-your-app) - Choose and request feedback for meaningful interactions.
 
 ### Hover
-- [Adopting hover support for Apple Pencil](https://developer.apple.com/documentation/ApplePencil/adopting_hover_support_for_apple_pencil) - Enhance user feedback for your iPadOS app with a hover preview for Apple Pencil input.
+- [Adopting hover support for Apple Pencil](https://developer.apple.com/documentation/uikit/adopting-hover-support-for-apple-pencil) - A hover-preview sample with specific hardware requirements.
 
 ### Pointers
-- **Input events** - Respond to input from a hardware device, like a keyboard or a Touch Bar.
-- **Pointer interactions** - Support pointer interactions in your custom controls and views.
-- [Integrating pointer interactions into your iPad app](https://developer.apple.com/documentation/ApplePencil/integrating_pointer_interactions_into_your_ipad_app) - Support touch interactions in your iPad app by adding pointer interactions to your views.
+- [Input events](https://developer.apple.com/documentation/swiftui/input-events) - SwiftUI input and hover-event APIs.
+- [Pointer interactions](https://developer.apple.com/documentation/uikit/pointer-interactions) - UIKit pointer feedback for custom views.
+- [Integrating pointer interactions into your iPad app](https://developer.apple.com/documentation/uikit/integrating-pointer-interactions-into-your-ipad-app) - Add pointer affordances to iPad views.
 
 ### Design
-- **Apple Pencil and Scribble** - Apple Pencil helps make drawing, handwriting, and marking effortless and natural, in addition to performing well as a pointer and UI interaction tool.
-- **Playing haptics** - Playing haptics can engage people's sense of touch and bring their familiarity with the physical world into your app or game.
+- [Apple Pencil and Scribble](https://developer.apple.com/design/human-interface-guidelines/apple-pencil-and-scribble) - Drawing, handwriting, and interaction design.
+- [Playing haptics](https://developer.apple.com/design/human-interface-guidelines/playing-haptics) - Feedback design guidance.
 
 ### Related videos
-- Introducing PencilKit
-- What's new in PencilKit
-- Meet Scribble for iPad
-- Inspect, modify, and construct PencilKit drawings
+- [Introducing PencilKit](https://developer.apple.com/videos/play/wwdc2019/221/)
+- [What's new in PencilKit](https://developer.apple.com/videos/play/wwdc2020/10107/)
+- [Meet Scribble for iPad](https://developer.apple.com/videos/play/wwdc2020/10106/)
+- [Inspect, modify, and construct PencilKit drawings](https://developer.apple.com/videos/play/wwdc2020/10148/)
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/ApplePencil)*

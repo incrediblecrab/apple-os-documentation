@@ -6,11 +6,13 @@ Manage your CloudKit containers and databases from JavaScript.
 
 ## Overview
 
-CKTool JS gives you access to features provided in the CloudKit Console API, facilitating CloudKit setup operations for local development and integration testing. It's a JavaScript client library alternative to the macOS cktool command-line utility distributed with Xcode. To learn more about cktool, see Automating CloudKit Development.
+CKTool JS gives you access to features provided in the CloudKit Console API, facilitating CloudKit setup operations for local development and integration testing. It's a JavaScript client library alternative to the macOS cktool command-line utility distributed with Xcode. To learn more about cktool, see [Automating CloudKit Development](https://developer.apple.com/icloud/cloudkit/automating/).
+
+The [setup guide](https://developer.apple.com/documentation/cktooljs/integrating-cloudkit-access-into-your-javascript-automation-scripts) requires a CloudKit management token and, for container data access, a user token. Keep management credentials out of publicly delivered code. This automation library is distinct from [CloudKit JS](CloudKitJS.md), which provides user-facing web access.
 
 With this library, you can:
 
-- Apply a CloudKit schema file to Sandbox databases (for more information about CloudKit schema files, see Integrating a Text-Based Schema into Your Workflow).
+- Apply a CloudKit schema file to development/Sandbox databases (see [Integrating a Text-Based Schema into Your Workflow](https://developer.apple.com/documentation/cloudkit/integrating-a-text-based-schema-into-your-workflow)).
 - Populate databases with test data.
 - Reset Sandbox databases to the production configuration.
 - Write scripts for your integration tests to incorporate.
@@ -26,7 +28,7 @@ The library consists of three main modules:
 ## Topics
 
 ### Essentials
-- [Integrating CloudKit access into your JavaScript automation scripts](https://developer.apple.com/documentation/CKToolJS/integrating_cloudkit_access_into_your_javascript_automation_scripts) - Configure your JavaScript project to use CKTool JS.
+- [Integrating CloudKit access into your JavaScript automation scripts](https://developer.apple.com/documentation/cktooljs/integrating-cloudkit-access-into-your-javascript-automation-scripts) - Configure your JavaScript project to use CKTool JS.
 
 ### Promises API
 - **PromisesApi** - A class that exposes promise-based functions for interacting with the API.
@@ -47,14 +49,12 @@ The library consists of three main modules:
 
 ### Errors
 - **ErrorBase** - The base class of any error emitted by functions in the client library.
-- **Database, Length, Validation, and Value Errors**
+- [Database, Length, Validation, and Value Errors](https://developer.apple.com/documentation/cktooljs/database-length-validation-and-value-errors)
 
 ### Classes
-- **Blob**
-- **File**
+- [`Blob`](https://developer.apple.com/documentation/cktooljs/blob)
+- [`File`](https://developer.apple.com/documentation/cktooljs/file)
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/CKToolJS)*

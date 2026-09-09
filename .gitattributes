@@ -1,0 +1,5 @@
+# Keep raw review hashes stable across checkout platforms.
+* text=auto eol=lf
+
+# Preserve the original sample license bytes, including its CRLF line endings.
+os26-liquid-glass-example/LICENSE.txt -text

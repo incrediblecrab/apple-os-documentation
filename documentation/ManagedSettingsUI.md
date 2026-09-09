@@ -6,16 +6,18 @@ Define and configure the appearance of shielding views.
 
 ## Overview
 
-Managed Settings provides a default Screen Time shield, but its appearance may not match your app's branding and style. Use Managed Settings UI to customize the look of your shield's buttons, titles, icons, and more.
+ManagedSettingsUI customizes the appearance of shields over restricted apps and websites. [ManagedSettings](ManagedSettings.md) handles restrictions, enforcement, and shield actions; changing the shield's appearance doesn't change authorization or access rules.
+
+Subclass `ShieldConfigurationDataSource` in the shield configuration extension and return a configuration promptly. The extension's sandbox prevents network requests and moving sensitive content outside its address space. The system falls back to its appearance if a callback isn't overridden or takes too long, and supplies default values for configuration properties left `nil`.
+
+On iOS/iPadOS/Mac Catalyst 26.4+, [`secondaryButtonSubmenuItems`](https://developer.apple.com/documentation/managedsettingsui/shieldconfiguration/secondarybuttonsubmenuitems) supports up to three strings for secondary-button menu actions. Handle the corresponding `ShieldAction` submenu cases in ManagedSettings. A `nil` or empty array retains the normal secondary-button action; the system adds the menu's Cancel action. This is a 26.4 feature, not an OS 27-only API.
 
 ## Topics
 
 ### Shield Configuration
-- **ShieldConfigurationDataSource** - The base class for the principal object of an app extension that configures a shield's appearance.
-- **ShieldConfiguration** - An object that defines the appearance of a shield to display over an application or website.
+- [`ShieldConfigurationDataSource`](https://developer.apple.com/documentation/managedsettingsui/shieldconfigurationdatasource) - The base class for the extension's appearance provider.
+- [`ShieldConfiguration`](https://developer.apple.com/documentation/managedsettingsui/shieldconfiguration) - A structure specifying shield text, imagery, colors, and buttons.
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/ManagedSettingsUI)*

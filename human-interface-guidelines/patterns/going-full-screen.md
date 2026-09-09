@@ -8,7 +8,7 @@ iPhone, iPad, and Mac offer full-screen modes that let people expand a window to
 
 Apple TV and Apple Watch don't offer full-screen modes because apps and games already fill the screen by default. Apple Vision Pro doesn't offer a full-screen mode because people can expand a window to fill more of their view or use the Digital Crown to hide passthrough and transition to a more immersive experience (for guidance, see Immersive experiences).
 
-> **iPadOS 27+:** With Split View and Slide Over folded into the windowing framework and a persistent menu bar option available, re-test full-screen transitions across free-form window sizes and external displays rather than a fixed set of multitasking states.
+On iPad, test entering and leaving full screen from different window sizes and supported display configurations. Preserve the current task and usable navigation; see [Designing for iPadOS](../getting-started/iPadOS.md).
 
 ## Topics
 
@@ -20,7 +20,7 @@ Apple TV and Apple Watch don't offer full-screen modes because apps and games al
 
 - **Provide access to essential features** - Continue to provide access to essential features and controls so people can complete their task without exiting full-screen mode. For example, a full-screen media experience needs to make playback controls persistently available or easy to reveal when people need them.
 
-- **Preserve Dock access** - Except in games, let people reveal the Dock while your iPadOS or macOS app is in full-screen mode. In iPadOS and macOS, it's important to preserve access to the Dock so people can quickly open other apps and Dock items. To help prevent people from accidentally revealing the Dock while they're playing your full-screen game, you can ask iPadOS to ignore an initial swipe up from the screen's bottom edge or hide the Dock entirely in macOS. For developer guidance, see preferredScreenEdgesDeferringSystemGestures (SwiftUI), preferredScreenEdgesDeferringSystemGestures (UIKit) and hideDock (AppKit).
+- **Preserve Dock access** - Except in games, let people reveal the Dock in a full-screen iPadOS or macOS experience. For a game prone to accidental edge gestures, consider [UIHostingController's gesture-deferral property](https://developer.apple.com/documentation/swiftui/uihostingcontroller/preferredscreenedgesdeferringsystemgestures) or [UIViewController's equivalent](https://developer.apple.com/documentation/uikit/uiviewcontroller/preferredscreenedgesdeferringsystemgestures) on iPadOS. AppKit's [hideDock](https://developer.apple.com/documentation/appkit/nsapplication/presentationoptions-swift.struct/hidedock) option entirely hides and disables the Dock on macOS.
 
 - **Support resumption** - After people switch away from your full-screen experience, help them resume where they left off when they return. For example, a game or a slideshow needs to pause automatically when people leave the experience so they don't miss anything.
 
@@ -30,15 +30,15 @@ Apple TV and Apple Watch don't offer full-screen modes because apps and games al
 
 ### Platform considerations
 
-Not supported in tvOS, visionOS, or watchOS.
+This window-expansion mode isn't provided in tvOS, visionOS, or watchOS. That doesn't rule out full-screen modal presentations or visionOS immersive experiences.
 
 **iOS, iPadOS**  
-Consider deferring system gestures to prevent accidental exits in a full-screen app or game. By default, the Home Screen indicator automatically hides shortly after someone switches to your app or game. It reappears when someone interacts with the bottom portion of the screen, allowing them to swipe once to exit. Whenever possible, retain this behavior because it's familiar and what people expect. If supporting this results in unexpected exits, you can enable two swipes rather than one to exit. For developer guidance, see preferredScreenEdgesDeferringSystemGestures.
+Preserve familiar system gestures unless they cause accidental exits. Gesture deferral can make the first edge swipe yield to the app and require another swipe to leave; it is separate from hiding the Home indicator. UIKit's [prefersHomeIndicatorAutoHidden](https://developer.apple.com/documentation/uikit/uiviewcontroller/prefershomeindicatorautohidden) defaults to false, and even returning true is only a preference, not a guarantee of hiding. The HIG describes an auto-hiding full-screen experience, but it isn't the default behavior promised by every view controller.
 
 **macOS**  
-- Use the system-provided full-screen experience. Using the system's full-screen support ensures that your full-screen window works well in all contexts. For example, some Mac models include a camera housing that occupies an area at the top-center of the screen. Using the system's full-screen support automatically accommodates this area. For developer guidance, see toggleFullScreen(_:).
+- Use the system-provided full-screen experience. It accommodates system layout constraints such as the camera housing on supported Mac displays. See [toggleFullScreen(_:)](https://developer.apple.com/documentation/appkit/nswindow/togglefullscreen(_:)).
 
-- In a game, don't change the display mode when players go full screen. People expect to be in control of their display mode, and changing it automatically doesn't improve performance.
+- In a game, don't change the hardware display mode just because someone enters full screen. Preserve the person's display choice; rendering resolution and scaling are separate decisions. See [Managing your game window for Metal in macOS](https://developer.apple.com/documentation/metal/managing-your-game-window-for-metal-in-macos).
 
 - Always let people choose when to enter full-screen mode. Prefer letting people use your window's Enter Full Screen button, View menu item, or the Control-Command-F keyboard shortcut. Avoid offering a custom menu of window modes. In a game, you might also provide a custom toggle that turns full-screen mode on and off.
 
@@ -53,13 +53,16 @@ Consider deferring system gestures to prevent accidental exits in a full-screen 
 
 - [fullScreenCover(item:onDismiss:content:) — SwiftUI](https://developer.apple.com/documentation/swiftui/view/fullscreencover(item:ondismiss:content:))
 - [NSScreen — AppKit](https://developer.apple.com/documentation/appkit/nsscreen)
-- [NSWindow.CollectionBehavior — AppKit](https://developer.apple.com/documentation/appkit/nswindow/collectionbehavior)
+- [NSWindow.CollectionBehavior — AppKit](https://developer.apple.com/documentation/appkit/nswindow/collectionbehavior-swift.struct)
+- [Managing your game window for Metal in macOS](https://developer.apple.com/documentation/metal/managing-your-game-window-for-metal-in-macos)
 
 ### Videos
 
-- [Elevate the design of your iPad app](https://developer.apple.com/videos/play/wwdc2023/10051)
+- [Elevate the design of your iPad app](https://developer.apple.com/videos/play/wwdc2025/208)
 
 ## Changelog
+
+These dates describe changes to Apple's HIG article, not edits to this repository.
 
 ### June 9, 2025
 - Updated guidance for hiding toolbars and navigation controls, and deferring Home Screen indicator gestures in full-screen iOS and iPadOS apps and games.
@@ -68,7 +71,5 @@ Consider deferring system gestures to prevent accidental exits in a full-screen 
 - Enhanced guidance for playing a game in full-screen mode.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/going-full-screen)*

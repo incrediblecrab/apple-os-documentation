@@ -142,12 +142,12 @@ SF Compact is the system font in watchOS, and apps can also use NY. In complicat
 ### Developer Documentation
 
 - [Text input and output](https://developer.apple.com/documentation/swiftui/text-input-and-output) - SwiftUI
-- [Text display and fonts](https://developer.apple.com/documentation/uikit/text_display_and_fonts) - UIKit
+- [Text display and fonts](https://developer.apple.com/documentation/uikit/text-display-and-fonts) - UIKit
 - [Fonts](https://developer.apple.com/documentation/appkit/fonts) - AppKit
 
 ### Videos
 
-- [Get started with Dynamic Type](https://developer.apple.com/videos/play/wwdc2023/10275)
+- [Get started with Dynamic Type](https://developer.apple.com/videos/play/wwdc2024/10074)
 - [Meet the expanded San Francisco font family](https://developer.apple.com/videos/play/wwdc2022/110381)
 - [The details of UI typography](https://developer.apple.com/videos/play/wwdc2020/10175)
 
@@ -185,8 +185,8 @@ Point size based on image resolution of 144 ppi for @2x and 216 ppi for @3x desi
 | Body | Regular | 15 | 20 |
 | Callout | Regular | 14 | 19 |
 | Subhead | Regular | 13 | 18 |
-| Footnote | Regular | 13 | 18 |
-| Caption 1 | Regular | 12 | 16 |
+| Footnote | Regular | 12 | 16 |
+| Caption 1 | Regular | 11 | 13 |
 | Caption 2 | Regular | 11 | 13 |
 
 #### Medium
@@ -201,8 +201,8 @@ Point size based on image resolution of 144 ppi for @2x and 216 ppi for @3x desi
 | Body | Regular | 16 | 21 |
 | Callout | Regular | 15 | 20 |
 | Subhead | Regular | 14 | 19 |
-| Footnote | Regular | 13 | 18 |
-| Caption 1 | Regular | 12 | 16 |
+| Footnote | Regular | 12 | 16 |
+| Caption 1 | Regular | 11 | 13 |
 | Caption 2 | Regular | 11 | 13 |
 
 #### Large (default)
@@ -264,7 +264,7 @@ Point size based on image resolution of 144 ppi for @2x and 216 ppi for @3x desi
 | Headline | Semibold | 23 | 29 |
 | Body | Regular | 23 | 29 |
 | Callout | Regular | 22 | 28 |
-| Subhead | Regular | 21 | 26 |
+| Subhead | Regular | 21 | 28 |
 | Footnote | Regular | 19 | 24 |
 | Caption 1 | Regular | 18 | 23 |
 | Caption 2 | Regular | 17 | 22 |
@@ -416,7 +416,5 @@ Not all apps express tracking values as 1/1000 em. Point size based on image res
 - Updated to include guidance for visionOS.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/typography)*

@@ -11,7 +11,9 @@ import SwiftUI
 @main
 struct LandmarksApp: App {
     /// An object that manages the app's data and state.
-    @State private var modelData = ModelData()
+    @State private var modelData = ModelData(
+        loadMapItems: !ProcessInfo.processInfo.arguments.contains("--offline-demo")
+    )
 
     var body: some Scene {
         WindowGroup {

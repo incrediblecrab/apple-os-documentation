@@ -34,8 +34,8 @@ No additional considerations for iOS or iPadOS.
 Many tvOS images combine multiple layers with transparency to create a feeling of depth. For guidance, see Layered images.
 
 **visionOS**  
-- You can add the appearance of depth to image views in a standard window to give your content more visual substance and improve the experience when people view it from an angle. If you display 3D content in a standard window, the system clips it when it extends too far from the window's surface; for guidance, see Windows.
-- If you want to display true 3D content, use a volume; for guidance, see visionOS volumes.
+- Image views in windows can present 2D images, stereoscopic images, and spatial photos. RealityKit can also place images beside 3D content outside an image view and generate spatial scenes from 2D images; see [ImagePresentationComponent](https://developer.apple.com/documentation/realitykit/imagepresentationcomponent).
+- Choose a window or volume according to the presentation and interaction needs of other 3D content; a volume is not the only place 3D content can appear. See [Windows in visionOS](https://developer.apple.com/design/human-interface-guidelines/windows#visionOS).
 
 **watchOS**  
 Use SwiftUI to create animations when possible. Alternatively, you can use WatchKit to animate a sequence of images within an image element if necessary. For developer guidance, see WKImageAnimatable.
@@ -44,7 +44,7 @@ Use SwiftUI to create animations when possible. Alternatively, you can use Watch
 
 - [Images](https://developer.apple.com/design/human-interface-guidelines/images)
 - [Image wells](https://developer.apple.com/design/human-interface-guidelines/image-wells)
-- [Image buttons](https://developer.apple.com/design/human-interface-guidelines/image-buttons)
+- [Image buttons](https://developer.apple.com/design/human-interface-guidelines/buttons#Image-buttons)
 - [SF Symbols](https://developer.apple.com/design/human-interface-guidelines/sf-symbols)
 
 ### Developer Documentation
@@ -55,16 +55,16 @@ Use SwiftUI to create animations when possible. Alternatively, you can use Watch
 
 ### Videos
 
-- [Support HDR images in your app](https://developer.apple.com/videos/play/wwdc2023/10053/)
-- [Add rich graphics to your SwiftUI app](https://developer.apple.com/videos/play/wwdc2023/10080/)
+- [Support HDR images in your app](https://developer.apple.com/videos/play/wwdc2023/10181)
+- [Add rich graphics to your SwiftUI app](https://developer.apple.com/videos/play/wwdc2021/10021)
 
 ## Changelog
+
+These dates describe changes to Apple's HIG article, not edits to this repository.
 
 ### June 21, 2023
 - Updated to include guidance for visionOS.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/image-views)*

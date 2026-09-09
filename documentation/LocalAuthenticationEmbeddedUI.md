@@ -2,14 +2,18 @@
 
 Present a standard local authentication view icon in a custom authentication view.
 
-**Platforms:** iOS 16.0+ | iPadOS 16.0+ | Mac Catalyst 16.0+ | macOS 12.0+ | visionOS 1.0+
+**Supported view:** macOS 12.0+. `LAAuthenticationView` is an AppKit `NSView`, not a UIKit or Catalyst view.
+
+The framework catalog lists additional SDK platforms, but the actual view reference is macOS-only and the public 26.5 SDK explicitly excludes the iOS family. Do not use that catalog listing as permission to embed this component in an iPhone, iPad, or Catalyst app.
 
 ## Overview
 When you authenticate users with the Local Authentication framework, the framework handles all user interaction by default. If you want to create a custom authentication user interface, build it around an LAAuthenticationView instance. The authentication view displays an icon that users associate with biometric authentication, like the Touch ID icon, and then modifies that icon over time to reflect changes in the authentication state. You can add other text, images, or interactive elements to your custom view as needed.
 
-A screenshot of a view with the title Access My Transactions above a circular finger print icon, which is in turn above a secure text entry field. The finger print icon is highlighted.
+Attach the view to its `LAContext` before starting policy evaluation. The surrounding UI must explain why authentication is needed, because the component is primarily an icon. Do not infer authorization from the icon alone: handle the context's success, cancellation, and error results.
 
 For all local authentication operations, the system manages the underlying biometric data, but with a local authentication view, you can customize the authentication interface to match the design of your app. At the same time, familiar iconography helps users understand what you are asking from them.
+
+The compact view is designed for supported biometric or companion authentication. Do not assume it can supply a generic password fallback when those mechanisms are unavailable. For a SwiftUI Mac interface, also see `LocalAuthentication.LocalAuthenticationView` (macOS 13+).
 
 ## Topics
 
@@ -20,7 +24,5 @@ For all local authentication operations, the system manages the underlying biome
 - **Local Authentication Embedded UI Data Types**
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/LocalAuthenticationEmbeddedUI)*

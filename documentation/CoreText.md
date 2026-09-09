@@ -2,7 +2,9 @@
 
 Create text layouts, optimize font handling, and access font metrics and glyph data.
 
-**Platforms:** iOS 3.2+ | iPadOS 3.2+ | Mac Catalyst 13.1+ | macOS 10.8+ | tvOS 9.0+ | visionOS 1.0+ | watchOS 2.0+
+**Platforms:** iOS 3.2+ | iPadOS 3.2+ | Mac Catalyst 13.1+ | macOS 10.5+ | tvOS 9.0+ | visionOS 1.0+ | watchOS 2.0+
+
+The [Core Text Programming Guide](https://developer.apple.com/library/archive/documentation/StringsTextFonts/Conceptual/CoreText_Programming/Introduction/Introduction.html) dates the original API to Mac OS X 10.5 and iOS 3.2. The current framework catalog instead lists macOS 10.8; use individual declarations for the availability of later symbols rather than treating the catalog value as the framework's introduction date.
 
 ## Overview
 
@@ -39,17 +41,15 @@ Core Text provides a low-level programming interface for laying out text and han
 - **Macros**
 
 ### Classes
-- **CTRubyAnnotation**
+- [`CTRubyAnnotation`](https://developer.apple.com/documentation/coretext/ctrubyannotation)
 
 ### Protocols
-- **CTAdaptiveImageProviding**
+- [`CTAdaptiveImageProviding`](https://developer.apple.com/documentation/coretext/ctadaptiveimageproviding)
 
 ### See Also
 #### Related Documentation
 - [Core Text Programming Guide](https://developer.apple.com/library/archive/documentation/StringsTextFonts/Conceptual/CoreText_Programming/Introduction/Introduction.html)
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/CoreText)*

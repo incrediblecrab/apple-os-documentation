@@ -6,7 +6,7 @@ Develop drivers for USB-based devices.
 
 ## Overview
 
-Use the **USBDriverKit** framework to develop drivers for custom or non-class-compliant USB devices for use with macOS. The objects in this framework serve as providers for your driver. Use them as is to access the device configurations, interfaces, and endpoints of the USB device. Each object provides methods for fetching any needed descriptors from the USB device, and for initiating requests to perform your driver's custom behaviors.
+Use the **USBDriverKit** framework to develop drivers for custom or non-class-compliant USB devices on supported platforms. Its objects are providers for your driver, not the same classes as the app-facing IOUSBHost framework. Use them to access configurations, interfaces, endpoints and descriptors, and to submit USB requests.
 
 Develop your driver by subclassing **IOService** in the **DriverKit** framework. On macOS, use the **System Extensions** framework to install and upgrade your driver. On iPadOS, the system automatically discovers and upgrades drivers along with their host apps.
 
@@ -20,7 +20,7 @@ Develop your driver by subclassing **IOService** in the **DriverKit** framework.
 - **com.apple.developer.driverkit.transport.usb** - An array of dictionaries that identify the USB devices the driver supports.
 
 ### Samples
-- [DriverKit sample code](https://developer.apple.com/documentation/usbdriverkit/driverkit_sample_code) - Explore projects that demonstrate how to write macOS device drivers with the DriverKit family of frameworks.
+- [DriverKit sample code](https://developer.apple.com/documentation/driverkit/driverkit-sample-code) - Explore projects that demonstrate how to write macOS device drivers with the DriverKit family of frameworks.
 
 ### Providers
 - **IOUSBHostInterface** - A provider object that manages interactions with an interface of the USB device.
@@ -30,9 +30,9 @@ Develop your driver by subclassing **IOService** in the **DriverKit** framework.
 - **IOUSBHostPipe** - An object you use to transfer data to or from a USB endpoint.
 
 ### USB Specifications
-- [USB Device Descriptors](https://developer.apple.com/documentation/usbdriverkit/usb_device_descriptors) - Determine the capabilities and configuration of a device using descriptors from the USB specification.
-- [Additional Specifications](https://developer.apple.com/documentation/usbdriverkit/additional_specifications) - Request information from a device and get hardware and timing information.
-- [Registry Property Names](https://developer.apple.com/documentation/usbdriverkit/registry_property_names) - Search for specific keys in the device registry.
+- [USB Device Descriptors](https://developer.apple.com/documentation/usbdriverkit/usb-device-descriptors) - Determine the capabilities and configuration of a device using descriptors from the USB specification.
+- [Additional Specifications](https://developer.apple.com/documentation/usbdriverkit/additional-specifications) - Request information from a device and get hardware and timing information.
+- [Registry Property Names](https://developer.apple.com/documentation/usbdriverkit/registry-property-names) - Search for specific keys in the device registry.
 
 ### Utilities
 Manipulate bit structures and convert integers between device- and platform-native formats.
@@ -66,7 +66,5 @@ Manipulate bit structures and convert integers between device- and platform-nati
 - **kUSBHostPortPropertyProtocolRevision3**
 
 ---
-
-*SDK baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Build with Xcode 27 and Swift 6.4. Reviewed 2026-08-09.*
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/USBDriverKit)*

@@ -8,9 +8,7 @@ Nearby interactions support on-device experiences that integrate the presence of
 
 A great nearby interaction feels intuitive and natural to people, because it builds on their innate awareness of the world around them. For example, a person playing music on their iPhone can continue listening on their HomePod mini when they bring the devices close together, simply by transferring the audio output from their iPhone to the HomePod mini.
 
-Nearby interactions are available on devices that support Ultra Wideband technology (to learn more, see Ultra Wideband availability), and rely on the Nearby Interaction framework. Before participating in nearby interaction experiences, people grant permission for their device to interact while they're using your app. The Nearby Interaction APIs help you preserve people's privacy by relying on randomly generated device identifiers that last only as long as the interaction session your app initiates.
-
-> **iOS 27+, watchOS 27+:** **GymKit now pairs with gym equipment directly from iPhone**, without requiring an Apple Watch to be present. Proximity-based pairing flows that assumed watch mediation should be revisited.
+Nearby interactions rely on the Nearby Interaction framework and compatible Ultra Wideband hardware. Check [`NISession.deviceCapabilities`](https://developer.apple.com/documentation/nearbyinteraction/nisession/devicecapabilities) for the features your app needs; API availability alone doesn't establish hardware or regional support. See [Ultra Wideband availability](https://support.apple.com/en-us/HT212274). Before participating, people grant permission for your app to interact. The APIs help preserve privacy by using randomly generated device identifiers that last only as long as the interaction session.
 
 ## Topics
 
@@ -32,13 +30,13 @@ Nearby interactions are available on devices that support Ultra Wideband technol
 ### Platform Considerations
 
 **iOS**  
-On iPhone, Nearby Interaction APIs provide a peer device's distance and direction.
+On supported iPhone hardware, Nearby Interaction can provide a peer device's distance and direction. Handle missing measurements and check capabilities before relying on either.
 
 **iPadOS**  
-No additional considerations for iPadOS.
+Check runtime device capabilities rather than inferring Ultra Wideband support from the availability of the framework on iPadOS.
 
 **watchOS**  
-On Apple Watch, Nearby Interaction APIs provide a peer device's distance. Also, all watchOS apps participating in a nearby interaction experience must be in the foreground.
+On supported Apple Watch hardware, Nearby Interaction provides a peer device's distance, not its direction. Design the interaction for foreground use and respond appropriately if the system suspends the session; don't assume background-ranging capabilities documented for particular iOS configurations also apply to watchOS.
 
 Not supported in macOS, tvOS, or visionOS.
 
@@ -49,11 +47,11 @@ Not supported in macOS, tvOS, or visionOS.
 ### Developer Documentation
 
 - [Nearby Interaction](https://developer.apple.com/documentation/nearbyinteraction) - Framework
-- [Ultra Wideband availability](https://developer.apple.com/documentation/nearbyinteraction/ultra_wideband_availability) - Device support
+- [Ultra Wideband availability](https://support.apple.com/en-us/HT212274) - Hardware and regional support
 
 ### Videos
 
-- [Design for spatial interaction](https://developer.apple.com/videos/play/wwdc2021/10094/)
+- [Design for spatial interaction](https://developer.apple.com/videos/play/wwdc2021/10245)
 - [Meet Nearby Interaction](https://developer.apple.com/videos/play/wwdc2020/10668/)
 
 ## Changelog
@@ -62,7 +60,5 @@ Not supported in macOS, tvOS, or visionOS.
 - Changed page title from Spatial interactions.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/nearby-interactions)*

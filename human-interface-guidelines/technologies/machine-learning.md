@@ -10,7 +10,7 @@ In addition to providing familiar features like image recognition and content re
 
 For related guidance on how to use machine learning models to enable intelligent content creation experiences, see [Generative AI](https://developer.apple.com/design/human-interface-guidelines/generative-ai).
 
-> **iOS 27+, iPadOS 27+, macOS Golden Gate 27+:** For language tasks, prefer Foundation Models, which in OS 27 generalizes to a **`LanguageModel` protocol** covering Apple's on-device model and third-party providers. Use the new **Evaluations** framework to validate non-deterministic model behavior. Disclose third-party AI data sharing and obtain permission per guideline **5.1.2(i)**.
+For generated text or other model-created content, also follow [Generative AI](generative-ai.md): explain capabilities and limitations, disclose personal-data use, obtain permission, and provide recovery when a result is unsuitable.
 
 ## Topics
 
@@ -48,12 +48,12 @@ Machine learning results depend on data. The more sensitive the data, the more s
 #### Visible or Invisible
 
 - **Visible** - People are usually aware of visible app features because such features tend to offer suggestions or choices that people view and interact with.
-- **Invisible** - An invisible feature provides results that aren't obvious to people. For example, the keyboard learns how people type over time so it can optimize the tap area for each key.
+- **Invisible** - An invisible feature improves the experience without requiring an explicit choice. Apple's current example is News suggesting topics and channels based on previous engagement.
 
 #### Dynamic or Static
 
-- **Dynamic** - Some models improve dynamically, as people interact with the app feature. Face ID improves dynamically as people's faces gradually change over time.
-- **Static** - Others improve offline and affect the feature only when the app updates. Photos improves its object recognition capabilities with every new iOS release.
+- **Dynamic** - Some models improve as people interact with the feature, potentially using calibration or feedback.
+- **Static** - Other models improve offline, with changes reaching people when the app updates. Do not promise that a particular model changes with every operating-system release.
 
 ### Explicit Feedback
 
@@ -174,7 +174,7 @@ Every feature has certain limitations to what it can deliver. When there's a mis
 
 ### Developer Documentation
 
-- [Apple Intelligence and machine learning](https://developer.apple.com/machine-learning/) - Apple Intelligence
+- [Apple Intelligence and machine learning](https://developer.apple.com/documentation/technologyoverviews/ai-machine-learning) - Apple Intelligence
 - [Create ML](https://developer.apple.com/documentation/createml) - Create ML
 - [Core ML](https://developer.apple.com/documentation/coreml) - Core ML
 
@@ -187,7 +187,5 @@ Every feature has certain limitations to what it can deliver. When there's a mis
 - Consolidated guidance into one page.
 
 ---
-
-*Design baseline: Apple OS 27 generation — iOS 27, iPadOS 27, macOS Golden Gate 27, tvOS 27, watchOS 27, visionOS 27 (developer beta as of August 2026; expected September 2026). Current shipping line: OS 26.6. Reviewed 2026-08-09.*
 
 *Source: [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/machine-learning)*
