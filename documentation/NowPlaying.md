@@ -6,7 +6,7 @@ Publish media metadata and supported playback commands to system playback surfac
 
 **RemoteMediaSession platforms:** iOS 27.0+ | iPadOS 27.0+ | Mac Catalyst 27.0+
 
-**Status:** OS 27 beta APIs, reviewed September 8, 2026. The framework-wide platform list does not make every remote-session API available on every platform.
+**Status:** OS 27 APIs, reviewed September 8, 2026. The framework-wide platform list does not make every remote-session API available on every platform.
 
 ## Overview
 

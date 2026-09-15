@@ -4,9 +4,9 @@ Learn about changes to the watchOS SDK and new features for Apple Watch app deve
 
 ## Overview
 
-> **Checked September 8, 2026:** watchOS **26.6** (`23U67`, July 27) is shipping; watchOS 27 **beta 8** (`24R5360a`) was released August 31. [Release listings](https://developer.apple.com/news/releases/) do not establish a general-availability date or complete Watch/iPhone pairing requirements.
+> **Checked September 8, 2026:** watchOS **26.6** (`23U67`, July 27) was the shipping 26-generation release. **Update September 14, 2026:** watchOS **27.0** (`24R364`) is shipping. [Release listings](https://developer.apple.com/news/releases/) do not establish complete Watch/iPhone pairing requirements.
 
-Use these notes for watch-specific SDK changes, deprecations, and beta fixes. See the [Apple Developer Program](../os27-intro/Program.md) for testing and distribution requirements.
+Use these notes for watch-specific SDK changes, deprecations, and known/resolved issues. See the [Apple Developer Program](../os27-intro/Program.md) for testing and distribution requirements.
 
 For issues not mentioned in release notes, file bugs through [Feedback Assistant](https://feedbackassistant.apple.com/).
 
@@ -15,16 +15,16 @@ For issues not mentioned in release notes, file bugs through [Feedback Assistant
 - HealthKit adds heart-rate and cycling-power zones. Check authorization and unavailable data rather than assuming every device produces every measurement.
 - `WKExtension` and `WKExtensionDelegate` are deprecated for apps whose **minimum deployment target is watchOS 9.2 or later**. Review the SwiftUI app life cycle; the UIKit scene requirement on other platforms does not apply here.
 - Re-test SwiftUI `@State` initialization and `AsyncImage` caching with Xcode 27, including on older supported targets.
-- Audit the relevant [system-process TLS](https://support.apple.com/en-us/126655) flows using Apple's watch-specific guidance. Complication, connectivity, and workout fixes listed as resolved in beta 8 are not enduring limitations.
+- Audit the relevant [system-process TLS](https://support.apple.com/en-us/126655) flows using Apple's watch-specific guidance. Complication, connectivity, and workout fixes listed as resolved are not enduring limitations.
 
-Source: [watchOS 27 beta 8 notes](https://developer.apple.com/documentation/watchos-release-notes/watchos-27-release-notes). See [watchOS apps](watchOS-Apps.md) and the [OS27 introduction](../os27-intro/watchOS.md).
+Source: [watchOS 27 release notes](https://developer.apple.com/documentation/watchos-release-notes/watchos-27-release-notes). See [watchOS apps](watchOS-Apps.md) and the [OS27 introduction](../os27-intro/watchOS.md).
 
-[Xcode 27 beta 6](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) requires **Apple silicon and macOS Tahoe 26.4 or later**, not macOS 27. Hardware support, companion-device requirements, SDK availability, and submission policy are separate checks.
+[Xcode 27](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) requires **Apple silicon and macOS Tahoe 26.6 or later**, not macOS 27. Hardware support, companion-device requirements, SDK availability, and submission policy are separate checks.
 
 ## Topics
 
 ### watchOS 27
-- [watchOS 27 Beta 8 Release Notes](https://developer.apple.com/documentation/watchos-release-notes/watchos-27-release-notes) - Pre-release changes and known/resolved issues; checked September 8, 2026.
+- [watchOS 27 Release Notes](https://developer.apple.com/documentation/watchos-release-notes/watchos-27-release-notes) - Shipping release dated September 14, 2026.
 
 ### watchOS 26
 - [watchOS 26.6 Release Notes](https://developer.apple.com/documentation/watchos-release-notes/watchos-26_6-release-notes) - Shipping release dated July 27, 2026.

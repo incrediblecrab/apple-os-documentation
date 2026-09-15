@@ -18,9 +18,9 @@ For access to home configuration data, enable the Boolean `com.apple.developer.h
 
 Check the manager's authorization status where available and handle `HMError.Code.homeAccessNotAuthorized` in completion handlers. A person can deny initial access or revoke it later in Settings. Accessory setup is a distinct flow: `HMAccessorySetupManager` does not require the calling app to already have home-data authorization.
 
-## 27 beta: Home intelligence behavior
+## OS 27: Home intelligence behavior
 
-**Reviewed September 8, 2026:** The iOS/iPadOS, macOS, and tvOS 27 beta 8 release notes say that, when Apple Intelligence in Home is enabled, HomeKit Secure Video recordings are processed on-device **and through Private Cloud Compute** for video descriptions and search. Apple Intelligence for Home requires an iCloud+ subscription starting at 2 TB.
+**Reviewed September 8, 2026:** The iOS/iPadOS, macOS, and tvOS 27 release notes say that, when Apple Intelligence in Home is enabled, HomeKit Secure Video recordings are processed on-device **and through Private Cloud Compute** for video descriptions and search. Apple Intelligence for Home requires an iCloud+ subscription starting at 2 TB.
 
 These are conditional Home-system features, not new permissions for third-party apps to read recordings or a promise that every accessory gains 4K recording. They do not replace the authorization requirements for the app's own home-data access.
 
@@ -64,4 +64,4 @@ These are conditional Home-system features, not new permissions for third-party 
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/HomeKit)*
 
-*27-beta sources: [iOS/iPadOS release notes — HomeKit](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes.md) and [macOS release notes — HomeKit](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes.md).*
+*27 sources: [iOS/iPadOS release notes — HomeKit](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes.md) and [macOS release notes — HomeKit](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes.md).*

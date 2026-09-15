@@ -16,15 +16,15 @@ Note
 
 Download the latest version of Xcode from the Mac App Store. Download beta versions of Xcode from the Apple Developer website.
 
-## Xcode 27 beta 6
+## Xcode 27
 
-At the September 8, 2026 cutoff, the [beta 6 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md) specify an **Apple silicon Mac running macOS Tahoe 26.4 or later**. The Overview establishes the host OS; the Intel Deprecation section explicitly states that Xcode 27 installs and runs only on Apple silicon (162138432). This is not an inference from Rosetta or a macOS 27 deployment requirement. Consult [Xcode Support](https://developer.apple.com/support/xcode/) for compatible hosts and deployment targets.
+Xcode 27 (`27A266a`) shipped September 14, 2026. The [release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md) specify an **Apple silicon Mac running macOS Tahoe 26.6 or later**. The Overview establishes the host OS; the Intel Deprecation section explicitly states that Xcode 27 installs and runs only on Apple silicon, that the macOS 27 SDK supports back deploying Universal apps to macOS 12 and later, and that Intel development remains possible with Rosetta-supporting macOS such as macOS 27. This is not an inference from Rosetta or a macOS 27 deployment requirement. Consult [Xcode Support](https://developer.apple.com/support/xcode/) for compatible hosts and deployment targets.
 
 The macOS 27 SDK still supports universal-app back-deployment to macOS 12 and later. Separately, `ARCHS_STANDARD` no longer includes `x86_64` by default when the minimum deployment target is macOS 27 or DriverKit 27; the notes permit adding it explicitly to `ARCHS` when needed (161837535). A universal output binary does not make Intel hardware an eligible IDE host.
 
 **Toolchain**
 
-The beta includes the **Swift 6.4 compiler** and iOS, iPadOS, macOS, tvOS, watchOS, and visionOS 27 SDKs. Compiler version is not Swift language mode. Record both, together with SDK and run-destination versions, in local and [CI](Xcode-Cloud.md) results.
+Xcode 27 includes the **Swift 6.4 compiler** and iOS, iPadOS, macOS, tvOS, watchOS, and visionOS 27 SDKs. Compiler version is not Swift language mode. Record both, together with SDK and run-destination versions, in local and [CI](Xcode-Cloud.md) results.
 
 **Testing**
 
@@ -38,9 +38,9 @@ Use [Swift Testing](Testing.md) for new Swift unit tests, [XCTest](XCTest.md) wi
 - `xctrace record` accepts `--show-recording-options` and `--recording-options <json path>` for template-specific recording settings. `xctrace export` can read `.atrc` and `.logarchive` inputs directly.
 - Instruments requires at least iOS 17, tvOS 17, or watchOS 10 on those target devices. A new instrument's richer data may require a newer runtime.
 
-**Outstanding beta limitations**
+**Outstanding release-note limitations**
 
-The release notes still list delayed multi-process console output (165098287), unreliable input extraction from Core AI prediction events (172502576), and limitations in Device Hub input and device visualization. These affect diagnosis, not just app code. In beta 6, `xctrace record` failing to start for simulator targets is listed as **fixed** (183624872). Verify against the selected beta rather than treating every earlier beta issue as current.
+The release notes still list delayed multi-process console output (165098287), unreliable input extraction from Core AI prediction events (172502576), and limitations in Device Hub input and device visualization. These affect diagnosis, not just app code. In Xcode 27, `xctrace record` failing to start for simulator targets is listed as **fixed** (183624872). Verify against the selected toolchain rather than treating every earlier beta issue as current.
 
 ## Topics
 

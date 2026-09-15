@@ -16,7 +16,7 @@ For traditional commands, an APNs notification prompts the device to contact the
 
 MDM also works with [Managed App Distribution](ManagedAppDistribution.md) for managed app delivery and [ManagedApp](ManagedApp.md) for managed configuration and secrets. Apps, books, and subscriptions have their own content-management service APIs.
 
-### 27 beta: audit management-server TLS
+### OS 27: audit management-server TLS
 
 **Reviewed September 8, 2026:** The 27 operating systems enforce stricter TLS requirements for selected processes handling MDM, DDM, Automated Device Enrollment, profile installation, app installation, and software updates. This includes enterprise app distribution; it does not apply indiscriminately to all traffic from managed apps.
 
@@ -70,4 +70,4 @@ The change excludes SCEP-server connections during profile installation or DDM-a
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/DeviceManagement)*
 
-*27-beta sources: [network-environment preparation](https://support.apple.com/en-us/126655) and [iOS/iPadOS release notes — Network Security](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes.md).*
+*27 sources: [network-environment preparation](https://support.apple.com/en-us/126655) and [iOS/iPadOS release notes — Network Security](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes.md).*

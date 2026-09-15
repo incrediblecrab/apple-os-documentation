@@ -24,7 +24,7 @@ Choose whether submission queues under resource pressure (the default `.queue` s
 
 Background GPU access requires supported hardware, a check of `BGTaskScheduler.supportedResources`, the requested `.gpu` resource, and the `com.apple.developer.background-tasks.continued-processing.gpu` entitlement. None of these removes task scheduling or cancellation constraints.
 
-### 27 beta: background inference entitlement
+### OS 27: background inference entitlement
 
 **Reviewed September 8, 2026:** Background access to the Neural Engine requires [`com.apple.developer.background-tasks.continued-processing.inference`](https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.background-tasks.continued-processing.inference) on the 27 operating systems. Apple's entitlement documentation explicitly applies this requirement even when inference is **not** inside a continued-processing task, including work using Core AI, Core ML, or Metal Performance Shaders Graph.
 

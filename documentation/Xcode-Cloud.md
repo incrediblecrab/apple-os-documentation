@@ -24,11 +24,11 @@ Note
 
 For additional information about Xcode Cloud that includes videos from WWDC21 and WWDC22, see The Xcode Cloud toolkit.
 
-### OS 27 beta workflows
+### OS 27 workflows
 
-Record the workflow's selected Xcode version and test destinations rather than assuming it matches a developer's local installation. The [Xcode 27 beta 6 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md) require **Apple silicon and macOS Tahoe 26.4+** for the local IDE; they do not establish which managed Xcode Cloud environments are available. Check the workflow editor and [Xcode Cloud documentation](https://developer.apple.com/documentation/xcode/xcode-cloud.md).
+Record the workflow's selected Xcode version and test destinations rather than assuming it matches a developer's local installation. The [Xcode 27 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md) require **Apple silicon and macOS Tahoe 26.6+** for the local IDE; they do not establish which managed Xcode Cloud environments are available. Check the workflow editor and [Xcode Cloud documentation](https://developer.apple.com/documentation/xcode/xcode-cloud.md).
 
-Retain a supported-release workflow while validating a beta workflow. Include [Swift Testing](Testing.md), [XCTest](XCTest.md), and applicable [App Intents Testing](AppIntentsTesting.md) tests. Gate model-backed [Evaluations](Evaluations.md) on actual runtime/model availability, and report unavailable environments separately from passing evaluations.
+Retain a supported-release workflow while validating an OS 27 workflow. Include [Swift Testing](Testing.md), [XCTest](XCTest.md), and applicable [App Intents Testing](AppIntentsTesting.md) tests. Gate model-backed [Evaluations](Evaluations.md) on actual runtime/model availability, and report unavailable environments separately from passing evaluations.
 
 ## Topics
 

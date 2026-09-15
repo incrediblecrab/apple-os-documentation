@@ -20,7 +20,7 @@ Note: The classes of the CloudKit framework aren't for subclassing. Use these cl
 
 ## OS 27 sharing regression check
 
-The [iOS & iPadOS 27 beta 8 notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes) mark administrator self-demotion in a `CKShare` as **resolved** (177621316): saving a change of the administrator's own role to `CKShareParticipantRole.privateUser` previously had no effect. Retest sharing and permission transitions instead of treating self-demotion as permanently unavailable.
+The [iOS & iPadOS 27 release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes) mark administrator self-demotion in a `CKShare` as **resolved** (177621316): saving a change of the administrator's own role to `CKShareParticipantRole.privateUser` previously had no effect. Retest sharing and permission transitions instead of treating self-demotion as permanently unavailable.
 
 Keep CloudKit synchronization separate from local persistence and schema migration. [SwiftData's OS 27 observers](SwiftData.md#os-27-queries-and-change-observation) can respond to external/store changes, but do not remove the need to handle offline data, conflicts, and account state.
 

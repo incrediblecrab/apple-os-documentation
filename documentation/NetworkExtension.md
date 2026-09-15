@@ -28,9 +28,9 @@ The platform header is umbrella metadata, not a provider-deployment matrix. [TN3
 
 Treat denied authorization, disabled or removed configurations, and provider startup or routing failures as normal outcomes. A saved configuration or an entitlement alone does not prove that traffic is flowing through the provider.
 
-### 27 beta networking notes
+### OS 27 networking notes
 
-**Reviewed September 8, 2026:** The iOS/iPadOS 27 beta 8 release notes mark the wired-CarPlay exclusion issue as resolved: a VPN using `includeAllNetworks = true` previously failed to honor `excludeLocalNetworks` for wired CarPlay. Test routing and reconnect behavior on the OS versions you support rather than assuming older betas had the fix.
+**Reviewed September 8, 2026:** The iOS/iPadOS 27 release notes mark the wired-CarPlay exclusion issue as resolved: a VPN using `includeAllNetworks = true` previously failed to honor `excludeLocalNetworks` for wired CarPlay. Test routing and reconnect behavior on the OS versions you support rather than assuming older betas had the fix.
 
 The separate 27 TLS hardening concerns selected management, enrollment, installation, and update **system processes**. It is not an instruction to apply one new policy indiscriminately to every VPN flow. See [Security](Security.md) for exact scope and server-side requirements.
 
@@ -125,4 +125,4 @@ An Always-on VPN is a managed device configuration, not merely a Personal VPN th
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/NetworkExtension)*
 
-*27-beta source: [iOS/iPadOS release notes — NetworkExtension and Network Security](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes.md).*
+*27 source: [iOS/iPadOS release notes — NetworkExtension and Network Security](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes.md).*

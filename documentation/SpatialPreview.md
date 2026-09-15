@@ -4,7 +4,7 @@ Preview documents and editable 3D scenes from a Mac app on Apple Vision Pro.
 
 **Platforms:** macOS 27.0+ | visionOS 27.0+
 
-**Status:** OS 27 beta APIs, reviewed September 8, 2026. The authoring app runs on the Mac; the connected visionOS device presents the preview. This is not an iOS or iPadOS preview API.
+**Status:** OS 27 APIs, reviewed September 8, 2026. The authoring app runs on the Mac; the connected visionOS device presents the preview. This is not an iOS or iPadOS preview API.
 
 ## Overview
 
@@ -37,7 +37,7 @@ Spatial Preview connects an existing Mac workflow to a spatial display. Use it t
 
 Test on a compatible Mac and Apple Vision Pro, not only in a document editor or SwiftUI preview. Validate reconnects, large scene updates, and asset dependencies. Framework availability is separate from whether a particular USD renderer supports an asset's materials or geometry; see [USD feature validation](USD.md).
 
-The **macOS 27 Beta 8** notes mark discovery of incompatible older visionOS devices, failures with certain large poorly connected meshes, and synchronization failures for USDZ assets over 75 MB as **resolved**. The visionOS notes also mark the mesh-preview problem as resolved. These are regression-test cases, not documented current file-size or triangle-count limits.
+The **macOS 27 release** notes mark discovery of incompatible older visionOS devices, failures with certain large poorly connected meshes, and synchronization failures for USDZ assets over 75 MB as **resolved**. The visionOS notes also mark the mesh-preview problem as resolved. These are regression-test cases, not documented current file-size or triangle-count limits.
 
 ## Sources
 

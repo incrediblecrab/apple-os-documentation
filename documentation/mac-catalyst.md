@@ -13,17 +13,17 @@ Mac apps built with Mac Catalyst can only use AppKit APIs marked as available in
 
 ## OS26 and OS27 Planning
 
-**Checked September 8, 2026:** macOS Tahoe **26.6.2** (August 17) is shipping; macOS 27 **beta 8** is dated August 31. Keep the older Catalyst guidance below when supporting earlier deployment targets. [Release listings](https://developer.apple.com/news/releases/) do not establish a general-availability date or a hardware compatibility list.
+**Checked September 8, 2026:** macOS Tahoe **26.6.2** (August 17) is the last 26-generation release; macOS 27 Golden Gate **27.0** shipped September 14. Keep the older Catalyst guidance below when supporting earlier deployment targets.
 
 - **Scenes are required:** on Mac Catalyst 27, apps built with the latest SDK must use the UIKit scene-based life cycle or fail to launch. Move UI state, activation, and restoration to the relevant scene; multiple-window support remains optional. See [scene migration](https://developer.apple.com/documentation/uikit/transitioning-to-the-uikit-scene-based-life-cycle).
 - **Reopen behavior changes:** switching to a Catalyst app with no open windows no longer automatically creates a window unless activation is through Dock or Spotlight. Test document and reopen commands.
 - **Menu images:** review `UIMenuElement.preferredImageVisibility` for menu-bar/context-menu images rather than depending on every supplied image being shown.
 - **Appearance:** [`UIDesignRequiresCompatibility`](https://developer.apple.com/documentation/bundleresources/information-property-list/uidesignrequirescompatibility) is ignored for Mac Catalyst 27 builds. Re-test custom toolbars and title-bar content.
-- **Resolved is not unsupported:** beta 8 lists the earlier Mac-idiom `UIStepper` failure as fixed. Keep it as a regression test, not a permanent Catalyst exclusion.
+- **Resolved is not unsupported:** the 27.0 notes list the earlier Mac-idiom `UIStepper` failure as fixed. Keep it as a regression test, not a permanent Catalyst exclusion.
 
 Sources: [macOS 27 notes](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes) and [iOS/iPadOS 27 UIKit notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes).
 
-**Xcode 27 beta 6** requires **Apple silicon and macOS Tahoe 26.4 or later**, not macOS 27. Intel app translation through Rosetta does not imply Intel-host support. Check the [Xcode notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) separately from your app's deployment target and [distribution requirements](../guides/app-store-readiness.md).
+**Xcode 27** (`27A266a`, September 14) requires **Apple silicon and macOS Tahoe 26.6 or later**, not macOS 27. Intel app translation through Rosetta does not imply Intel-host support. Check the [Xcode notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) separately from your app's deployment target and [distribution requirements](../guides/app-store-readiness.md).
 
 ## Topics
 

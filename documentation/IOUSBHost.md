@@ -22,7 +22,7 @@ For native macOS's legacy device-capture option, a non-root caller needs Boolean
 
 ### macOS 27 accessory access
 
-**Reviewed September 8, 2026:** [AccessoryAccess](AccessoryAccess.md) adds a macOS 27 beta workflow for matching connected USB accessories and coordinating exclusive access for IOUSBHost clients. It requires Boolean [`com.apple.developer.accessory-access.usb`](https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.accessory-access.usb) set to `true` and a UI application that appears in the Dock, not a background-only service. Missing the entitlement produces an AccessoryAccess `internalError` with “Unable to communicate with service.” This is not a blanket deprecation of IOUSBHost.
+**Reviewed September 8, 2026:** [AccessoryAccess](AccessoryAccess.md) adds a macOS 27 workflow for matching connected USB accessories and coordinating exclusive access for IOUSBHost clients. It requires Boolean [`com.apple.developer.accessory-access.usb`](https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.accessory-access.usb) set to `true` and a UI application that appears in the Dock, not a background-only service. Missing the entitlement produces an AccessoryAccess `internalError` with “Unable to communicate with service.” This is not a blanket deprecation of IOUSBHost.
 
 Discovery does not guarantee that an accessory can be opened. Handle exclusive-use conflicts, disconnection, and failed transfers, and keep the new manager's availability separate from IOUSBHost's older minimum versions.
 
@@ -69,4 +69,4 @@ Properties on the device and interface classes in the service plane.
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/IOUSBHost)*
 
-*27-beta source: [AAUSBAccessoryManager](https://developer.apple.com/documentation/accessoryaccess/aausbaccessorymanager.md).*
+*27 source: [AAUSBAccessoryManager](https://developer.apple.com/documentation/accessoryaccess/aausbaccessorymanager.md).*

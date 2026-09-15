@@ -4,7 +4,7 @@ Maintain Mac apps using AppKit or SwiftUI, adopt Liquid Glass where appropriate,
 
 **Platform:** macOS Tahoe 26.0+
 
-> **Status checked September 8, 2026:** the shipping release is **macOS Tahoe 26.6.2** (`25G83`), released August 17. macOS Golden Gate 27 beta 8 was released August 31; see the [macOS 27 introduction](../os27-intro/macOS.md). Release listings do not establish a general-availability date or a complete supported-model list.
+> **Status checked September 8, 2026:** the last 26-generation release is **macOS Tahoe 26.6.2** (`25G83`), released August 17. macOS 27 Golden Gate (`26A428`) shipped September 14, 2026; see the [macOS 27 introduction](../os27-intro/macOS.md). The release listing does not establish a complete supported-model list.
 
 ## Overview
 
@@ -63,7 +63,7 @@ Dive into the latest key technologies and capabilities:
 ### Maintenance and OS27 Preparation
 
 - Use **26.6.2** as the current maintenance baseline while retaining the [26.0](https://developer.apple.com/documentation/macos-release-notes/macos-26-release-notes) and [26.6](https://developer.apple.com/documentation/macos-release-notes/macos-26_6-release-notes) notes for historical behavior.
-- **Xcode 27 beta 6 runs on Apple silicon with macOS Tahoe 26.4 or later; macOS 27 is not required.** Intel Macs are not eligible Xcode 27 hosts, although its macOS SDK can build universal apps for older deployment targets.
+- **Xcode 27 runs on Apple silicon with macOS Tahoe 26.6 or later; macOS 27 is not required.** Intel Macs are not eligible Xcode 27 hosts, although its macOS 27 SDK can back deploy Universal apps to macOS 12 and later, and Intel development remains possible with Rosetta-supporting macOS such as macOS 27.
 - Plan for the [documented macOS 27 Rosetta and installer changes](../os27-intro/macOS.md). Running an Intel app under Rosetta and running Xcode on an Intel host are different questions.
 - Audit [managed-service TLS](https://support.apple.com/en-us/126655), menu image visibility, and SwiftUI document migrations before upgrading production deployments. Mac Catalyst apps also need the UIKit scene life cycle when rebuilt with the latest SDK.
 - Keep the [App Store readiness checklist](../guides/app-store-readiness.md) separate from Developer ID distribution and deployment-target choices.

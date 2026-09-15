@@ -4,7 +4,7 @@ Maintain iPad apps that adapt to windows, keyboard and pointer input, Apple Penc
 
 **Platform:** iPadOS 26.0+
 
-> **Status checked September 8, 2026:** the shipping release is **iPadOS 26.6.2** (`23G90`), released September 8. iPadOS 27 beta 8 was released August 31; see the [iPadOS 27 introduction](../os27-intro/iPadOS.md). Its exact device list is not verified here; do not infer that A12-class hardware has reached its final release.
+> **Status checked September 8, 2026:** the last 26-generation release is **iPadOS 26.7** (`23H24`), released September 9. iPadOS 27.0 (`24A437`) shipped September 14, 2026; see the [iPadOS 27 introduction](../os27-intro/iPadOS.md). Its exact device list is not verified here; do not infer that A12-class hardware has reached its final release.
 
 ## Overview
 
@@ -77,7 +77,7 @@ Dive into the latest key technologies and capabilities:
 
 ### iPadOS 26.5 through 26.6.2
 - Keep the [26.5](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-26_5-release-notes) and [26.6](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-26_6-release-notes) notes for version-specific diagnosis
-- **iPadOS 26.6.2 (September 8, 2026)** is the shipping maintenance baseline
+- **iPadOS 26.7 (September 9, 2026)** is the last 26-generation maintenance baseline
 - [Apple's security release list](https://support.apple.com/en-us/100100) describes patch scope separately from SDK changes
 
 ### Preparing an OS26 App for OS27
@@ -86,7 +86,7 @@ Dive into the latest key technologies and capabilities:
 - Audit external-display scene registration, menu image visibility, document I/O, and ODR-to-Background-Assets migration using the [iPadOS 27 checklist](../os27-intro/iPadOS.md).
 - Finish UI adaptation: [`UIDesignRequiresCompatibility`](https://developer.apple.com/documentation/bundleresources/information-property-list/uidesignrequirescompatibility) is ignored by builds for iPadOS 27 or later.
 - Keep SiriKit legacy support while adding modern App Intents integrations. Do not raise the deployment floor based on an unverified hardware-drop claim.
-- Xcode 27 beta 6 requires **Apple silicon and macOS Tahoe 26.4 or later**, not macOS 27. The current [submission SDK requirement](../guides/app-store-readiness.md) is separate from the OS versions your app supports.
+- Xcode 27 requires **Apple silicon and macOS Tahoe 26.6 or later**, not macOS 27. The current [submission SDK requirement](../guides/app-store-readiness.md) is separate from the OS versions your app supports.
 
 ## Getting Started
 

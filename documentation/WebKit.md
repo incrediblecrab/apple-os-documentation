@@ -17,7 +17,7 @@ Your app supplies its browsing controls; an embedded web view is not Safari's fu
 
 ## Safari 27 web-platform changes
 
-The [WebKit announcement](https://webkit.org/blog/17967/news-from-wwdc26-webkit-in-safari-27-beta/) and [Safari 27 beta notes](https://developer.apple.com/documentation/safari-release-notes/safari-27-release-notes) describe developer-facing changes:
+The [WebKit announcement](https://webkit.org/blog/17967/news-from-wwdc26-webkit-in-safari-27-beta/) and [Safari 27 release notes](https://developer.apple.com/documentation/safari-release-notes/safari-27-release-notes) describe developer-facing changes:
 
 - **Customizable select:** `appearance: base-select`, `::picker(select)`, `::picker-icon`, `::checkmark`, and `<selectedcontent>` extend native form controls without replacing their semantics.
 - **Scroll anchoring:** the browser adjusts scrolling when content changes above the viewport. `overflow-anchor: auto` is the default; opt out selectively with `none` where application-controlled scrolling requires it.
@@ -26,7 +26,7 @@ The [WebKit announcement](https://webkit.org/blog/17967/news-from-wwdc26-webkit-
 - **Accessibility and streams:** `ariaNotify()` enables announcements; readable-stream async iteration, `ReadableStream.from()`, and transferable streams expand streaming workflows.
 - **Spatial web:** `<model>` expands to iOS/iPadOS/macOS. Immersive website environments and spatial/panorama image controls are specifically visionOS 27 features, not promises for every Safari host.
 
-Safari 27 beta is also available on **macOS 26 and macOS Sequoia**, according to its release notes. A Safari version is not an OS version, and a browser's feature list does not establish availability of a native WebKit symbol on an older host. Use feature detection and test actual Safari, web-app, and embedded-view environments. See the [Safari 27 migration guide](../guides/safari27-migration.md).
+Safari 27 is available for **iOS 27, iPadOS 27, visionOS 27, macOS 27, macOS 26, and macOS Sequoia**, according to its release notes. A Safari version is not an OS version, and a browser's feature list does not establish availability of a native WebKit symbol on an older host. Use feature detection and test actual Safari, web-app, and embedded-view environments. See the [Safari 27 migration guide](../guides/safari27-migration.md).
 
 ## Native embedding APIs
 

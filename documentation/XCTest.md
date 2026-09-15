@@ -31,7 +31,7 @@ For new Swift unit tests, consider [Swift Testing](Testing.md), included in Xcod
 - [Performance tests](https://developer.apple.com/documentation/xctest/performance-tests.md) — Compare measurements against a baseline under consistent conditions.
 - [Xcode profiling](Xcode.md#profiling) — Use Instruments to explain a regression; a passing microbenchmark does not establish whole-app responsiveness.
 
-## Xcode 27 beta behavior
+## Xcode 27 behavior
 
 The [Xcode 27 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md) add test-plan control over target-app crash severity during UI testing and over Swift Testing/XCTest interoperability warnings. Keep crash handling intentional, and continue to separate assertion frameworks.
 

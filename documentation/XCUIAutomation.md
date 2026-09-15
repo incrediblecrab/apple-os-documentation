@@ -12,7 +12,7 @@ Note
 
 UI testing isn't available to apps you build using the visionOS SDK. You can still use it to test compatible iPad and iPhone apps that you build using the iOS SDK but run in visionOS.
 
-## Xcode 27 beta integration
+## Xcode 27 integration
 
 Continue to host UI automation in [XCTest](XCTest.md), not Swift Testing. The [Xcode 27 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md) add a test-plan setting for the severity of target-app crashes during UI testing: off, warning, failure (the default), or fatal failure. Choose it explicitly so a crash is not mistaken for a successful flow.
 

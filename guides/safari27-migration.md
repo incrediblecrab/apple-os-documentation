@@ -1,10 +1,10 @@
 # Safari 27 migration
 
-**Scope:** Web content, embedded WebKit, and Safari extensions; September 8, 2026 beta-source review.
+**Scope:** Web content, embedded WebKit, and Safari extensions; September 14, 2026 release-note review.
 
 ## Separate browser, host, and native API versions
 
-The [Safari 27 beta notes](https://developer.apple.com/documentation/safari-release-notes/safari-27-release-notes) list iOS/iPadOS/visionOS/macOS 27 betas **and macOS 26 and macOS Sequoia**. Do not require macOS 27 merely because a person uses Safari 27. Conversely, a newer Safari installation does not prove that a native WebKit 27 symbol is available to an app on an older host.
+The [Safari 27 release notes](https://developer.apple.com/documentation/safari-release-notes/safari-27-release-notes) list Safari 27 for iOS 27, iPadOS 27, visionOS 27, macOS 27, **macOS 26, and macOS Sequoia**. Do not require macOS 27 merely because a person uses Safari 27. Conversely, a newer Safari installation does not prove that a native WebKit 27 symbol is available to an app on an older host.
 
 Test the actual deployment combinations: Safari, Home Screen/Mac web apps, embedded `WKWebView`, and extensions can differ in permissions, data stores, available APIs, and platform interaction. Use capability checks instead of user-agent version branching.
 
@@ -88,9 +88,9 @@ Retest forms with touch/keyboard/VoiceOver; delayed-content scrolling; transform
 
 ## Sources
 
-- [WebKit: Safari 27 beta developer changes](https://webkit.org/blog/17967/news-from-wwdc26-webkit-in-safari-27-beta/)
+- [WebKit: Safari 27 developer changes](https://webkit.org/blog/17967/news-from-wwdc26-webkit-in-safari-27-beta/)
 - [Web technology sessions at WWDC26](https://webkit.org/blog/17974/web-technology-sessions-at-wwdc26/)
-- [Safari 27 beta release notes](https://developer.apple.com/documentation/safari-release-notes/safari-27-release-notes)
+- [Safari 27 release notes](https://developer.apple.com/documentation/safari-release-notes/safari-27-release-notes)
 - [CSS appearance definitions](https://drafts.csswg.org/css-ui-4/) and [picker/control styling](https://drafts.csswg.org/css-forms-1/)
 - [Grid Lanes field guide](https://gridlanes.webkit.org/) and [progressive-enhancement strategies](https://webkit.org/blog/17758/when-will-css-grid-lanes-arrive-how-long-until-we-can-use-it/)
 - [WebAssembly JSPI design](https://github.com/WebAssembly/js-promise-integration/blob/main/proposals/js-promise-integration/Overview.md) and [ARIA notification interface](https://w3c.github.io/aria/#ARIANotifyMixin)

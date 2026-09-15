@@ -1,6 +1,6 @@
 # Migrating On Demand Resources to Background Assets
 
-**Review cutoff:** September 8, 2026; OS 27 beta documentation and Xcode 27 beta 6.
+**Review cutoff:** September 14, 2026; OS 27 release documentation and Xcode 27.
 
 ## Overview
 
@@ -22,13 +22,13 @@ Choose an asset-delivery design independently from your background-computation d
 
 - Original download types such as `BADownloadManager` and `BAURLDownload` start at iOS/iPadOS/Mac Catalyst **16.1**, macOS 13, tvOS 18.4, and native visionOS 2.4. The umbrella framework's 16.0 catalog entry is not a valid availability guard for those classes.
 - Managed asset-pack APIs start at version **26.0** on their supported iOS, iPadOS, Mac Catalyst, macOS, tvOS, and visionOS targets.
-- Localized asset packs are a **27 beta** addition. Guard their APIs separately from basic managed packs.
+- Localized asset packs are a **27 SDK** addition. Guard their APIs separately from basic managed packs.
 - Continued-processing APIs start at iOS/iPadOS 26.0, not BackgroundTasks' older framework minimum. The DocC Catalyst listing conflicts with explicit Catalyst exclusions in the public macOS 26.5 SDK; do not plan a Catalyst processing path from that catalog entry alone. See [BackgroundTasks](../documentation/BackgroundTasks.md).
 - WatchOS is not an Apple-hosted managed Background Assets target. The `NSBundleResourceRequest` metadata also records watchOS deprecation, but this does not make the proposed pack replacement available there.
 - Keep an availability-gated legacy delivery path when supporting operating systems that cannot use the replacement you choose. Do not raise every deployment target to 27 merely because a deprecation appears in that SDK.
 - Do not assume ODR is that fallback on Mac Catalyst: Foundation explicitly documents that `NSBundleResourceRequest` ignores calls made by Catalyst apps, despite its Catalyst availability metadata.
 
-Xcode 27 beta 6 requires an **Apple silicon Mac running macOS Tahoe 26.4 or later**, not macOS 27. Building Universal or Intel app output, back-deploying to older systems, and running Intel apps through Rosetta do not make an Intel Mac eligible to host Xcode 27.
+Xcode 27 requires an **Apple silicon Mac running macOS Tahoe 26.6 or later**, not macOS 27. Building Universal or Intel app output, back-deploying Universal apps to macOS 12 and later, and Intel development with Rosetta-supporting macOS such as macOS 27 do not make an Intel Mac eligible to host Xcode 27.
 
 ## Map content and lifecycle explicitly
 
@@ -77,4 +77,4 @@ For a user-initiated continued-processing task, choose a submission strategy, re
 - [Downloading files in the background](https://developer.apple.com/documentation/foundation/downloading-files-in-the-background.md)
 - [Performing long-running tasks on iOS and iPadOS](https://developer.apple.com/documentation/backgroundtasks/performing-long-running-tasks-on-ios-and-ipados.md)
 - [Background inference entitlement](https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.background-tasks.continued-processing.inference.md)
-- [Xcode 27 beta 6 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md)
+- [Xcode 27 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md)

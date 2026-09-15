@@ -4,7 +4,7 @@ Discover connected USB accessories and coordinate access to them on Mac.
 
 **Platforms:** macOS 27.0+
 
-**Status:** Beta APIs; reviewed September 8, 2026.
+**Status:** OS 27 APIs; reviewed September 8, 2026.
 
 ## Overview
 
@@ -20,11 +20,11 @@ Obtain the manager through its shared property instead of constructing one direc
 
 An accessory can be opened exclusively for transfers. Discovery is not a guarantee of access: another client may already be using it, it may disconnect, or its state may change before the operation completes.
 
-## Failure handling and beta notes
+## Failure handling and release notes
 
 Handle [`AAError.Code`](https://developer.apple.com/documentation/accessoryaccess/aaerror/code), including an already-registered listener, inaccessible accessory, and invalid accessory state. Errors may also originate in lower-level frameworks. Unregister listeners and stop using disconnected accessories rather than retaining stale access indefinitely.
 
-The macOS 27 beta 8 release notes mark the earlier App Sandbox and macOS-VM support issues as **resolved**. They are not current blanket prohibitions; still test the app's actual sandbox, entitlement, and virtualized-device configuration.
+The macOS 27 release notes mark the earlier App Sandbox and macOS-VM support issues as **resolved**. They are not current blanket prohibitions; still test the app's actual sandbox, entitlement, and virtualized-device configuration.
 
 ## Topics
 

@@ -10,11 +10,11 @@ Getting the best performance on Apple silicon sometimes requires making adjustme
 
 ## OS27 Toolchain and Rosetta Planning
 
-**Checked September 8, 2026:** macOS 27 is at beta 8 (August 31), while Xcode 27 is at beta 6 (August 24). macOS Tahoe 26.6.2, released August 17, remains the shipping baseline. See [Apple's release list](https://developer.apple.com/news/releases/).
+**Checked September 8, 2026; updated for September 14 GA:** macOS 27 Golden Gate 27.0 (`26A428`) and Xcode 27 (`27A266a`) shipped September 14, 2026. macOS Tahoe 26.6.2, released August 17, is the previous macOS shipping baseline. See [Apple's release list](https://developer.apple.com/news/releases/).
 
 | Question | Verified distinction |
 |---|---|
-| Can this Mac host Xcode 27 beta 6? | It must be an **Apple silicon Mac running macOS Tahoe 26.4 or later**. macOS 27 is not required; Intel Macs are not eligible hosts. |
+| Can this Mac host Xcode 27? | It must be an **Apple silicon Mac running macOS Tahoe 26.6 or later**. macOS 27 is not required; Intel Macs are not eligible hosts. |
 | Can Xcode 27 build for older Intel Macs? | Its macOS 27 SDK supports universal Intel/Apple-silicon apps that back-deploy to **macOS 12 or later**. Choose your deployment target and architectures independently. |
 | Can an Intel executable run on an Apple silicon Mac? | Rosetta is a translation environment, not a way to make Intel hardware satisfy Xcode's host requirement. Test each executable and its dependencies. |
 

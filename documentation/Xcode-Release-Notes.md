@@ -4,9 +4,9 @@ Learn about changes to Xcode.
 
 ## Overview
 
-At the **September 8, 2026** cutoff, [Xcode 27 beta 6](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md) includes the Swift 6.4 compiler and OS 27 SDKs, and requires **Apple silicon and macOS Tahoe 26.4 or later**. The notes state the hardware restriction separately under Intel Deprecation (162138432). It is a pre-release toolchain. Host hardware/OS, compiler, language mode, SDK, and test runtime versions should be recorded separately.
+As of **September 14, 2026**, [Xcode 27](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md) (`27A266a`) includes the Swift 6.4 compiler and OS 27 SDKs, and requires **Apple silicon and macOS Tahoe 26.6 or later**. The notes state the hardware restriction separately under Intel Deprecation (162138432). The macOS 27 SDK supports back deploying Universal apps to macOS 12 and later, and Intel development remains possible with Rosetta-supporting macOS such as macOS 27. Host hardware/OS, compiler, language mode, SDK, and test runtime versions should be recorded separately.
 
-The beta 6 notes include changes from earlier betas. Distinguish their resolved issues from the current known-issues sections; see [Xcode](Xcode.md) for the reviewed testing and profiling changes and [Swift](Swift.md) for compiler changes.
+The Xcode 27 notes include changes from earlier betas. Distinguish their resolved issues from the current known-issues sections; see [Xcode](Xcode.md) for the reviewed testing and profiling changes and [Swift](Swift.md) for compiler changes.
 
 Download release versions of Xcode from the Mac App Store and beta versions from the Apple Developer website. Check the selected version's release notes and host requirements before installing.
 
@@ -15,7 +15,7 @@ For information about Xcode Cloud releases, see Xcode Cloud release notes.
 ## Topics
 
 ### Xcode 27
-- [Xcode 27 Beta 6 Release Notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md) - Pre-release Swift 6.4 compiler and OS 27 SDKs; **Apple silicon/macOS Tahoe 26.4+ host**.
+- [Xcode 27 Release Notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md) - Swift 6.4 compiler and OS 27 SDKs; **Apple silicon/macOS Tahoe 26.6+ host**.
 
 ### Xcode 26
 - [Xcode 26.6 Release Notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-26_6-release-notes.md) - Swift 6.3 compiler and OS 26.5 SDKs; macOS Tahoe 26.2+ host.

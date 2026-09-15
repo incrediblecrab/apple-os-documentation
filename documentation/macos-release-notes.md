@@ -4,7 +4,7 @@ Learn about changes to the macOS SDK.
 
 ## Overview
 
-> **Checked September 8, 2026:** macOS Tahoe **26.6.2** (`25G83`, August 17) is shipping; macOS 27 **beta 8** (`26A5425a`) was released August 31. [Release listings](https://developer.apple.com/news/releases/) do not establish a general-availability date or a complete OS27 model list.
+> **Checked September 8, 2026:** macOS Tahoe **26.6.2** (`25G83`, August 17) is the last 26-generation release; macOS 27 Golden Gate **27.0** (`26A428`) shipped September 14.
 
 Release notes provide details on API changes, known issues, fixes, workarounds, and deprecations for recent software releases.
 
@@ -14,22 +14,22 @@ Release notes provide details on API changes, known issues, fixes, workarounds, 
 - Audit Rosetta-dependent helpers and plug-ins. The notes describe native launch preference, Rosetta not being automatically restored after upgrade, and `arm64` defaults for installers without `hostArchitecture`.
 - Mac Catalyst apps built with the latest SDK must adopt the [UIKit scene life cycle](https://developer.apple.com/documentation/uikit/transitioning-to-the-uikit-scene-based-life-cycle). Re-test activation with no open windows.
 - Audit [TLS for selected managed-system connections](https://support.apple.com/en-us/126655), not all app networking indiscriminately.
-- Treat beta 8 fixes such as Accessory Access sandbox/VM support as resolved regression cases, not permanent limitations.
+- Treat resolved issues such as Accessory Access sandbox/VM support as regression cases, not permanent limitations.
 
-Source: [macOS 27 beta 8 notes](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes). See the [macOS 27 introduction](../os27-intro/macOS.md) for the selected changes and [Apple silicon](apple-silicon.md) for architecture planning.
+Source: [macOS 27 Golden Gate notes](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes). See the [macOS 27 introduction](../os27-intro/macOS.md) for the selected changes and [Apple silicon](apple-silicon.md) for architecture planning.
 
-**Xcode 27 beta 6 requires Apple silicon and macOS Tahoe 26.4 or later—not macOS 27.** Building universal apps or running Intel apps through Rosetta does not make Intel Macs eligible hosts. See [Xcode notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes).
+**Xcode 27 (`27A266a`, September 14) requires Apple silicon and macOS Tahoe 26.6 or later—not macOS 27.** Building universal apps or running Intel apps through Rosetta does not make Intel Macs eligible hosts. See [Xcode notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes).
 
 ### Bug Reporting
 
 For issues not mentioned in release notes, send feedback through Feedback Assistant.
 
-Include the version and build, for example **macOS 27 beta 8 (`26A5425a`)**, along with the Xcode/SDK build, architecture, and reproduction steps. Find the build in About This Mac and submit through [Feedback Assistant](https://feedbackassistant.apple.com/).
+Include the version and build, for example **macOS 27.0 (`26A428`)**, along with the Xcode/SDK build, architecture, and reproduction steps. Find the build in About This Mac and submit through [Feedback Assistant](https://feedbackassistant.apple.com/).
 
 ## Topics
 
 ### macOS 27
-- [macOS 27 Golden Gate Beta 8 Release Notes](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes) - Pre-release API changes, known/resolved issues, and migrations; checked September 8, 2026.
+- [macOS 27 Golden Gate Release Notes](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes) - API changes, known/resolved issues, and migrations.
 
 ### macOS 26
 - [macOS Tahoe 26.6.2 security/release listing](https://support.apple.com/en-us/100100) - Shipping maintenance release, August 17, 2026.

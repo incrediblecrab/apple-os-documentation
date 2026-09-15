@@ -30,7 +30,7 @@ For design guidance, see the [Notifications HIG](https://developer.apple.com/des
 
 Keep ordinary notifications, [ActivityKit](ActivityKit.md) Live Activities, and [WidgetKit push updates](WidgetKit.md#api-and-os-27-migration-checks) distinct. They use different registration/update contracts; widget pushes remain budgeted requests for timeline reloads. A system notification-grouping change does not grant additional app authorization or delivery guarantees.
 
-The [iOS & iPadOS 27 beta notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes) mark critical alerts being automatically enabled for any app requesting notification permission as **resolved** (179179362). Do not rely on that earlier-beta behavior: check current notification settings and test authorization on clean and upgraded installations. See [UserNotificationsUI](UserNotificationsUI.md) for content extensions and [SafariServices](SafariServices.md) for the separate browser/extension context.
+The [iOS & iPadOS 27 release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes) mark critical alerts being automatically enabled for any app requesting notification permission as **resolved** (179179362). Do not rely on that earlier-beta behavior: check current notification settings and test authorization on clean and upgraded installations. See [UserNotificationsUI](UserNotificationsUI.md) for content extensions and [SafariServices](SafariServices.md) for the separate browser/extension context.
 
 ## Topics
 

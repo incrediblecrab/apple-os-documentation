@@ -4,7 +4,7 @@ Maintain focused Apple Watch experiences using SwiftUI, HealthKit, notifications
 
 **Platform:** watchOS 26.0+
 
-> **Status checked September 8, 2026:** the shipping release is **watchOS 26.6** (`23U67`), released July 27. watchOS 27 beta 8 was released August 31; see the [watchOS 27 introduction](../os27-intro/watchOS.md). Release listings do not establish a general-availability date or complete pairing requirements.
+> **Status checked September 14, 2026:** the shipping release is **watchOS 26.6** (`23U67`), released July 27. watchOS 27.0 (`24R364`) shipped September 14; see the [watchOS 27 introduction](../os27-intro/watchOS.md). Release listings do not establish complete pairing requirements.
 
 ## Overview
 
@@ -79,7 +79,7 @@ Use these checks alongside the [watchOS 26 notes](https://developer.apple.com/do
 - The watchOS 27 notes deprecate `WKExtension` and `WKExtensionDelegate` for apps whose minimum deployment target is **watchOS 9.2 or later**. Review the SwiftUI app life cycle without discarding an older-target path prematurely.
 - Check HealthKit zone support and Xcode 27's `@State` changes using the [watchOS 27 checklist](../os27-intro/watchOS.md). The exact OS27 Watch/iPhone pairing list is not verified here.
 - Preserve SiriKit legacy behavior while using App Intents for modern integrations; see [Apple's SiriKit guidance](https://developer.apple.com/documentation/sirikit).
-- Xcode 27 beta 6 requires **Apple silicon and macOS Tahoe 26.4 or later**, not macOS 27. Keep deployment targets separate from [submission SDK requirements](../guides/app-store-readiness.md).
+- Xcode 27 (`27A266a`) requires **Apple silicon and macOS Tahoe 26.6 or later**, not macOS 27. Keep deployment targets separate from [submission SDK requirements](../guides/app-store-readiness.md).
 
 ## Getting Started
 

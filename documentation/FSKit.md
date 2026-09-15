@@ -37,11 +37,11 @@ Apple documents two file-system designs, but only the unary design is currently 
 
 **Implementation scope, reviewed September 8, 2026:** Apple's overview describes both designs but explicitly says the current implementation supports only `FSUnaryFileSystem`. Do not read the broader design discussion as a promise that every multi-resource/multi-volume path is available.
 
-For the documented unary workflow, implement `UnaryFileSystemExtension`, return your `FSUnaryFileSystem` subclass, and conform to `FSUnaryFileSystemOperations`, including resource loading. A volume is an `FSVolume` subclass. The pre-27 volume API uses `FSVolume.Operations`, which also requires `FSVolume.PathConfOperations`; the 27 beta provides the replacement below.
+For the documented unary workflow, implement `UnaryFileSystemExtension`, return your `FSUnaryFileSystem` subclass, and conform to `FSUnaryFileSystemOperations`, including resource loading. A volume is an `FSVolume` subclass. The pre-27 volume API uses `FSVolume.Operations`, which also requires `FSVolume.PathConfOperations`; the 27 SDK provides the replacement below.
 
 ### macOS 27 handler protocols
 
-[`FSVolume.Handler`](https://developer.apple.com/documentation/fskit/fsvolume/handler) is new in macOS 27 beta and replaces [`FSVolume.Operations`](https://developer.apple.com/documentation/fskit/fsvolume/operations), deprecated in 27 rather than removed. Both require `FSVolume.PathConfOperations`. Adopt the appropriate additional handler protocols for optional volume capabilities.
+[`FSVolume.Handler`](https://developer.apple.com/documentation/fskit/fsvolume/handler) is new in macOS 27 and replaces [`FSVolume.Operations`](https://developer.apple.com/documentation/fskit/fsvolume/operations), deprecated in 27 rather than removed. Both require `FSVolume.PathConfOperations`. Adopt the appropriate additional handler protocols for optional volume capabilities.
 
 The handler APIs use specialized results derived from [`FSVolumeHandlerResult`](https://developer.apple.com/documentation/fskit/fsvolumehandlerresult). Relevant replies can include item attributes and free-space information. This is a change to the volume-operation interface, not support for the currently unavailable multi-resource `FSFileSystem` design.
 

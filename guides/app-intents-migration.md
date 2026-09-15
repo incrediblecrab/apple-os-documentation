@@ -8,7 +8,7 @@ Move one custom intent to App Intents, preserve its identity and data, and verif
 - Establish a passing legacy flow before changing it. [SiriKit](../documentation/SiriKit.md) still provides legacy support for most existing Siri interactions, Shortcuts actions, and widget configuration. Apple recommends App Intents for modern integration; it has not made a blanket framework-removal announcement.
 - [App Intents](../documentation/AppIntents.md) begins at iOS/iPadOS 16, Mac Catalyst 16, macOS 13, tvOS 16, watchOS 9, and visionOS 1. Keep legacy paths for earlier deployment targets.
 - This custom-intent recipe uses [`CustomIntentMigratedAppIntent`](https://developer.apple.com/documentation/appintents/customintentmigratedappintent.md), available at iOS/iPadOS/Mac Catalyst/tvOS 16, macOS 13, watchOS 9, and visionOS 1.0. Versioned DocC metadata confirms Catalyst 16; the visionOS 1.0 API availability was checked with the installed XRSimulator 26.5 SDK.
-- [App Intents Testing](../documentation/AppIntentsTesting.md) requires OS 27 APIs and an **XCTest UI testing bundle**. Use Xcode 27 beta 6 on an Apple silicon Mac running macOS Tahoe 26.4+ for this beta workflow.
+- [App Intents Testing](../documentation/AppIntentsTesting.md) requires OS 27 APIs and an **XCTest UI testing bundle**. Use Xcode 27 (`27A266a`) on an Apple silicon Mac running macOS Tahoe 26.6 or later for this workflow.
 
 ## 1. Share the action implementation
 
@@ -59,7 +59,7 @@ In a UI testing target signed with the app's team:
 6. Navigate to the relevant screen and inspect `viewAnnotations()`, including `entity` and `isSelected`.
 7. Verify failures: stale identifiers, ambiguous input, denied access, offline services, cancellation, and missing definitions.
 
-The [App Intents Testing reference](../documentation/AppIntentsTesting.md) links the exact APIs and records a singular/plural typo in one beta article example. Use the symbol reference's plural `intents` member.
+The [App Intents Testing reference](../documentation/AppIntentsTesting.md) links the exact APIs and records a singular/plural typo in one article example. Use the symbol reference's plural `intents` member.
 
 Keep setup-only intents out of release builds with a debug compilation condition. Hiding an intent with `isDiscoverable = false` is not access control.
 

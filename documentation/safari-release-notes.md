@@ -4,24 +4,24 @@ Review Safari, embedded web-content, and Web Inspector changes. Check each API's
 
 ## Overview
 
-> **Checked September 8, 2026:** Safari 27 remains beta. The [Safari 27 notes](https://developer.apple.com/documentation/safari-release-notes/safari-27-release-notes) carry the header **July 20, 2026 — 27.0 beta (`20625.1.24`)**. Separately, [Apple's security list](https://support.apple.com/en-us/100100) records **Safari 26.6.1 for macOS Sonoma and Sequoia on August 18**. That standalone update is not the version of every OS-bundled WebKit build.
+> **Checked September 8, 2026:** Safari 27 has since shipped. The [Safari 27 notes](https://developer.apple.com/documentation/safari-release-notes/safari-27-release-notes) carry the header **Released September 14, 2026 — 27.0 (`20625.1.29`)**. Separately, [Apple's security list](https://support.apple.com/en-us/100100) records **Safari 26.6.1 for macOS Sonoma and Sequoia on August 18**. That standalone update is not the version of every OS-bundled WebKit build.
 
 Safari is a web browser app and web technology platform available on iOS and macOS. It's built on WebKit, a fast, open-source web rendering engine that implements web standards. Safari includes Apple web innovations such as Intelligent Tracking Prevention, Reader mode, Safari App Extensions, and Web Inspector.
 
 ### Safari 27 Developer Checks
 
-- The beta notes list availability on iOS/iPadOS/visionOS 27 beta, macOS 27 beta, **macOS 26**, and **macOS Sequoia**. Safari's host availability is not identical to the OS27 installation matrix.
+- The release notes list availability on iOS 27, iPadOS 27, visionOS 27, macOS 27, **macOS 26**, and **macOS Sequoia**. Safari's host availability is not identical to the OS27 installation matrix.
 - `ariaNotify` enables programmatic screen-reader announcements. Test announcement timing and accessibility rather than using it to replace meaningful document structure.
 - CSS additions include `stretch` sizing, `:heading`, `:host:has()`, and additional color/anchor-positioning behavior. Feature-detect and test fallbacks for older Safari and embedded web views you support.
-- Re-test the accessibility, layout, and animation issues marked resolved in the notes; a fixed beta issue is not an enduring web-platform restriction.
+- Re-test the accessibility, layout, and animation issues marked resolved in the notes; a fixed issue is not an enduring web-platform restriction.
 - Distinguish Safari product features, Safari extension capabilities, and APIs exposed through `WKWebView`. A browser feature announcement alone does not establish an embeddable API.
 
-Source: [Safari 27 Beta Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari-27-release-notes). The browser beta header and OS release listings do not establish a general-availability date.
+Source: [Safari 27 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari-27-release-notes). The browser release and OS release listings establish Safari's own build and host availability; check each WebKit and SafariServices API separately.
 
 ## Topics
 
 ### Version 27
-- [Safari 27 Beta Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari-27-release-notes) - Pre-release browser and web-platform changes; check the note's own build and host availability.
+- [Safari 27 Release Notes](https://developer.apple.com/documentation/safari-release-notes/safari-27-release-notes) - Released September 14, 2026 — 27.0 (`20625.1.29`); check the note's own host availability.
 
 ### Version 26
 - [Safari 26.6.1 security/release listing](https://support.apple.com/en-us/100100) - August 18, 2026; standalone update for macOS Sonoma and Sequoia.

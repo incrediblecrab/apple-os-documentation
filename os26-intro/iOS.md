@@ -4,7 +4,7 @@ Build and maintain iPhone apps using the iOS 26 generation's Liquid Glass interf
 
 **Platform:** iOS 26.0+
 
-> **Status checked September 8, 2026:** the shipping release is **iOS 26.6.2** (`23G90`), released September 8. iOS 27 beta 8 was released August 31; see the [iOS 27 introduction](../os27-intro/iOS.md). A beta listing does not establish a general-availability date.
+> **Status checked September 8, 2026:** the last 26-generation release is **iOS 26.6.2** (`23G90`), released September 8. iOS 27.0 (`24A437`) shipped September 14, 2026; see the [iOS 27 introduction](../os27-intro/iOS.md). The general-availability release supersedes the earlier beta listing.
 
 ## Overview
 
@@ -90,7 +90,7 @@ Dive into the latest key technologies and capabilities:
 - Migrate UIKit app-delegate UI handling to scenes before rebuilding with the latest SDK: on iOS 27, an unmigrated app fails to launch. See [scene migration](https://developer.apple.com/documentation/uikit/transitioning-to-the-uikit-scene-based-life-cycle).
 - Plan migration from ODR to Background Assets and complete custom UI work before the temporary [`UIDesignRequiresCompatibility`](https://developer.apple.com/documentation/bundleresources/information-property-list/uidesignrequirescompatibility) key is ignored by 27-SDK builds.
 - Keep existing SiriKit behavior while adopting App Intents; [Apple documents legacy support](https://developer.apple.com/documentation/sirikit), not a blanket SiriKit shutdown.
-- Xcode 27 beta 6 needs **Apple silicon and macOS Tahoe 26.4 or later**, not macOS 27. Keep OS26 deployment tests while adding [OS27 migration tests](../os27-intro/iOS.md); the exact iOS 27 device list is not verified here.
+- Xcode 27 needs **Apple silicon and macOS Tahoe 26.6 or later**, not macOS 27. Keep OS26 deployment tests while adding [OS27 migration tests](../os27-intro/iOS.md); the exact iOS 27 device list is not verified here.
 - Apply the current [App Store readiness requirements](../guides/app-store-readiness.md) independently of your deployment target.
 
 ## Getting Started

@@ -24,9 +24,9 @@ System-family contexts include:
 | System medium | Home Screen, Today View | Home Screen, Today View | Desktop, Notification Center | Spatial placement |
 | System large | Home Screen, Today View | Home Screen, Today View | Desktop, Notification Center | Spatial placement |
 | System extra large | Not a regular iPhone placement | Home Screen, Today View | Desktop, Notification Center | Compatible iPhone/iPad widgets map to portrait; native apps use the portrait family |
-| System extra large portrait | Home Screen and Today View, iOS 27 beta | Today View, iPadOS 27 beta | Desktop, macOS 27 beta | Native portrait family from visionOS 26 |
+| System extra large portrait | Home Screen and Today View, iOS 27 | Today View, iPadOS 27 | Desktop, macOS 27 | Native portrait family from visionOS 26 |
 
-The portrait row follows the current [`systemExtraLargePortrait`](https://developer.apple.com/documentation/widgetkit/widgetfamily/systemextralargeportrait) declaration and its documented contexts, including the 27 beta additions. The [`systemExtraLarge`](https://developer.apple.com/documentation/widgetkit/widgetfamily/systemextralarge) documentation distinguishes native visionOS widgets from compatible iPhone/iPad widgets; don't assume one extra-large orientation rule applies to both.
+The portrait row follows the current [`systemExtraLargePortrait`](https://developer.apple.com/documentation/widgetkit/widgetfamily/systemextralargeportrait) declaration and its documented contexts, including the 27 additions. The [`systemExtraLarge`](https://developer.apple.com/documentation/widgetkit/widgetfamily/systemextralarge) documentation distinguishes native visionOS widgets from compatible iPhone/iPad widgets; don't assume one extra-large orientation rule applies to both.
 
 Accessory-family contexts include:
 
@@ -234,7 +234,7 @@ The HIG doesn't define a tvOS WidgetKit widget presentation. This isn't a claim 
 
 ### Specifications
 
-These are selected published HIG design-reference entries, not an exhaustive current device catalogue or fixed production constraints. They don't provide dimensions for every newer device or the 27 beta portrait-family contexts. Use adaptive layout and the actual widget context; preserve the distinction between iPad design canvas and displayed device sizes.
+These are selected published HIG design-reference entries, not an exhaustive current device catalogue or fixed production constraints. They don't provide dimensions for every newer device or the 27 portrait-family contexts. Use adaptive layout and the actual widget context; preserve the distinction between iPad design canvas and displayed device sizes.
 
 #### iOS widget dimensions
 

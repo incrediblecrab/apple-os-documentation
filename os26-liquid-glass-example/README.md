@@ -63,7 +63,7 @@ fixtures, runs at least seven model tests on macOS, and builds the iOS simulator
 application. The `weak let` fixture requires Swift 6.3 or later; it is not compiled
 into the app and does not raise the app's deployment target.
 
-For a separately installed beta, select it only for the command:
+For a separately installed Xcode 27 toolchain, select it only for the command:
 
 ```bash
 DEVELOPER_DIR=/Applications/Xcode-beta.app/Contents/Developer \
@@ -71,14 +71,14 @@ DEVELOPER_DIR=/Applications/Xcode-beta.app/Contents/Developer \
   bash scripts/check_sample.sh /tmp/landmarks-xcode27-check
 ```
 
-Replace that example path with the actual installed bundle. Xcode 27 beta 6
-requires Apple silicon and macOS Tahoe 26.4 or later, not macOS 27. The script fails if the selected
+Replace that example path with the actual installed bundle. Xcode 27 (`27A266a`)
+requires Apple silicon and macOS Tahoe 26.6 or later, not macOS 27. The script fails if the selected
 toolchain is not the requested major version; it does not silently test Xcode 26
-and report a beta success.
+and report an Xcode 27 success.
 
 The [sample workflow](../.github/workflows/sample.yml) uses the officially listed
 `macos-26` runner with Xcode 26.6. A manual `run_beta` option uses the documented
-`xcode-27` preview runner. Runner availability was checked against the
+`xcode-27` runner. Runner availability was checked against the
 [official image inventory](https://github.com/actions/runner-images);
 writing a workflow is not evidence that a hosted run passed.
 

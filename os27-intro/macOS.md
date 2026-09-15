@@ -4,17 +4,17 @@ Prepare Mac apps for macOS Golden Gate 27 by reviewing AppKit behavior, document
 
 **Platform:** macOS Golden Gate 27.0+
 
-> **Status checked September 8, 2026:** macOS 27 **beta 8** (`26A5425a`) was released August 31. The shipping release is **macOS Tahoe 26.6.2** (`25G83`), released August 17. The [release listings](https://developer.apple.com/news/releases/) do not establish a macOS 27 general-availability date.
+> **Status checked September 14, 2026:** macOS 27 Golden Gate 27.0 (`26A428`) shipped September 14. The previous 26-generation release is **macOS Tahoe 26.6.2** (`25G83`), released August 17.
 
 ## Overview
 
-The [macOS 27 beta 8 notes](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes) document changes that affect existing apps, not just new features. Test a shipping build on the new OS and a newly linked build separately. Continue testing Tahoe and other supported deployment targets instead of treating SDK adoption as an automatic deployment-floor increase.
+The [macOS 27 release notes](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes) document changes that affect existing apps, not just new features. Test a shipping build on the new OS and a newly linked build separately. Continue testing Tahoe and other supported deployment targets instead of treating SDK adoption as an automatic deployment-floor increase.
 
 ## Toolchain and Architecture
 
-### Xcode 27 beta 6
+### Xcode 27
 
-Released August 24, **Xcode 27 beta 6 requires an Apple silicon Mac running macOS Tahoe 26.4 or later** and includes Swift 6.4 and the 27 SDKs. **It does not require macOS 27.** The [Xcode notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) explicitly exclude Intel Macs as hosts, while allowing the macOS 27 SDK to build universal Intel/Apple-silicon apps that back-deploy to macOS 12 or later.
+Released September 14, **Xcode 27 (`27A266a`) requires an Apple silicon Mac running macOS Tahoe 26.6 or later** and includes Swift 6.4 and the 27 SDKs. **It does not require macOS 27.** The [Xcode notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) explicitly exclude Intel Macs as hosts, while allowing the macOS 27 SDK to build universal Intel/Apple-silicon apps that back-deploy to macOS 12 or later.
 
 For CI, verify the runner architecture, host OS, selected Xcode, SDK, deployment target, and architectures of build-time tools independently. Running an Intel executable through Rosetta on an Apple silicon host does not make an Intel Mac eligible to run Xcode 27.
 
@@ -30,7 +30,7 @@ The macOS notes document these migration considerations:
 - Intel plug-ins and loaders may not appear in the system's incompatibility warnings. Audit bundled helpers and dependencies rather than relying on that list.
 - Apple states that Intel-based software will not be compatible with macOS 28, excluding legacy games. This is a documented future migration direction, not a claim that all Intel apps are already unusable on macOS 27.
 
-**Exact macOS 27 model list: not verified by the sources reviewed here.** The Xcode host architecture requirement is verified; it is not evidence that every Mac with a particular chip can install every OS beta. Check OS installation eligibility separately.
+**Exact macOS 27 model list: not verified by the sources reviewed here.** The Xcode host architecture requirement is verified; it is not evidence that every Mac with a particular chip can install every OS release. Check OS installation eligibility separately.
 
 ## Developer-Facing Changes
 
@@ -57,10 +57,10 @@ The macOS notes document these migration considerations:
 
 ## Migration Checklist
 
-1. Move Xcode 27 build jobs to eligible Apple silicon runners on Tahoe 26.4 or later; validate native build tools before switching production CI.
+1. Move Xcode 27 build jobs to eligible Apple silicon runners on Tahoe 26.6 or later; validate native build tools before switching production CI.
 2. Decide deliberately whether universal binaries and older deployment targets remain necessary. Replace Intel-only dependencies without dropping users merely because the SDK changed.
 3. Finish UI work instead of relying on [`UIDesignRequiresCompatibility`](https://developer.apple.com/documentation/bundleresources/information-property-list/uidesignrequirescompatibility), which is ignored when building for macOS 27 or later. Test menu visibility, keyboard focus, window restoration, and accessibility.
-4. Re-test corrected beta failures. For example, beta 8 lists Accessory Access sandbox/VM issues as resolved; those are not permanent framework limitations.
+4. Re-test corrected pre-release failures. For example, the 27 notes list Accessory Access sandbox/VM issues as resolved; those are not permanent framework limitations.
 5. Check [App Store readiness](../guides/app-store-readiness.md) separately from SDK migration. App Store and Developer ID distribution have different workflows.
 
 ## Getting Started
@@ -71,7 +71,7 @@ Check out the [macOS Pathway](https://developer.apple.com/macos/get-started/) fo
 ## Resources
 
 ### Development Tools
-- [Xcode](https://developer.apple.com/xcode/) - Xcode 27 beta 6: Apple silicon, macOS Tahoe 26.4 or later
+- [Xcode](https://developer.apple.com/xcode/) - Xcode 27: Apple silicon, macOS Tahoe 26.6 or later
 - [TestFlight](https://developer.apple.com/testflight/) - Beta testing platform
 - [App Store Connect](https://developer.apple.com/app-store-connect/) - App management and analytics
 
@@ -100,4 +100,4 @@ Check out the [macOS Pathway](https://developer.apple.com/macos/get-started/) fo
 
 ## Sources
 
-[Apple Developer releases](https://developer.apple.com/news/releases/), [macOS 27 notes](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes), and [Xcode 27 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes), with additional scoped citations above. Reviewed September 8, 2026; beta behavior, model eligibility, and future Rosetta scope should be rechecked before release.
+[Apple Developer releases](https://developer.apple.com/news/releases/), [macOS 27 notes](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes), and [Xcode 27 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes), with additional scoped citations above. Reviewed September 8, 2026; version-specific behavior, model eligibility, and future Rosetta scope should be rechecked before release.

@@ -42,9 +42,9 @@ Select a real package release and consult the examples for that revision. The pa
 | Requirement | Details |
 |-------------|---------|
 | **Mac hardware** | Apple silicon; an Intel Mac is not a supported Mac host for these projects. |
-| **Mac operating system** | Upstream documents macOS 26 support and does not support older macOS releases. Validate newer beta hosts with the selected release. |
+| **Mac operating system** | Upstream documents macOS 26 support and does not support older macOS releases. Validate newer hosts with the selected release. |
 | **Library build tools** | The checked Containerization README specifies Xcode 26; its package manifest uses Swift tools version 6.2. Follow that revision's build instructions. |
-| **Using Xcode 27 beta 6** | Xcode requires macOS Tahoe 26.4 or later. It does not require a macOS 27 host. |
+| **Using Xcode 27** | Xcode requires macOS Tahoe 26.6 or later. It does not require a macOS 27 host. |
 
 The pinned `Package.swift` declares a macOS 15 deployment floor for package products. That compilation setting is different from the README's supported macOS 26 Mac workflow; it does not establish support for running the complete container stack on macOS 15.
 
@@ -80,6 +80,6 @@ An embedded Mac VM implementation still needs the appropriate [Virtualization en
 
 - [Containerization README at September 8 cutoff](https://github.com/apple/containerization/blob/9eacc197d7c3663eb29cbab6d51244ede6d1cd7d/README.md)
 - [container README at September 8 cutoff](https://github.com/apple/container/blob/9a8917ca2da5cd6ba059b9ba5ca5a74892e9bb7d/README.md)
-- [Xcode 27 beta 6 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md)
+- [Xcode 27 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md)
 - [Intel Linux translation, including the macOS 27 change](https://developer.apple.com/documentation/virtualization/running-intel-binaries-in-linux-vms)
 - [macOS 27 release notes — Rosetta](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes.md)

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "as_of": "2026-09-08",
+  "as_of": "2026-09-14",
   "review_history_note": "Each document's review records the initial catalog/changed-content pass and its original limitations. Separate full-body outcomes, exact page hashes and evidence are recorded in metadata/accuracy.json; the initial scopes and dates are not silently upgraded.",
   "review_scopes": {
     "catalog-only": "Topic/source mapping checked; the body is not certified as fact-checked.",
@@ -48,7 +48,7 @@
       "sources": [],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08"
+        "checked_on": "2026-09-14"
       },
       "release_status": "independent",
       "platforms": []
@@ -62,7 +62,7 @@
       "sources": [],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08"
+        "checked_on": "2026-09-14"
       },
       "release_status": "independent",
       "platforms": []
@@ -304,7 +304,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": "Curated app-side routing workflow, protocol declarations, launch modes, optional controls/data channels, failure cleanup and provider boundary. iOS/iPadOS 27 guidance; Catalyst annotation conflict is explicit."
       },
       "release_status": "beta",
@@ -388,7 +388,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": "macOS 27 USB discovery, UI-app requirement, exclusive access, entitlement and busy/disconnected failures; beta 8 resolved sandbox/VM issues are not current blanket prohibitions."
       },
       "release_status": "beta",
@@ -879,7 +879,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": [
           "Added source-backed macOS 27 refresh, text-selection, control-event, gesture, Observation, tab-role, menu, panel, and titlebar changes; distinguished linked-SDK/runtime behavior and resolved issues; removed speculative rendering/Rosetta/host claims; corrected Xcode host to Tahoe 26.4+."
         ],
@@ -1350,7 +1350,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": "Existing audio-switching versus new fixed spatial audio, iOS 26.4 metadata, unspecified iPad minimum, developer-only 27-beta testing and later EU customer availability."
       },
       "release_status": "mixed",
@@ -1464,7 +1464,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": "Selected enrollment/management system-process TLS hardening, ATS requirements, exclusions and 26.4-generation predeployment auditing."
       },
       "release_status": "independent",
@@ -1556,7 +1556,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": "ODR deprecation, original versus managed/localized pack availability, configuration, localization reconciliation, availability errors, storage/removal and migration links."
       },
       "release_status": "mixed",
@@ -1581,7 +1581,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": "Continued-processing 26 availability, scheduling/cancellation/expiration limits, GPU distinction and Boolean 27 background-inference entitlement beyond continued-processing tasks."
       },
       "release_status": "mixed",
@@ -1829,7 +1829,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": "Sourced beta behavior/test considerations, removal of unverified parked-video claims, current references, and accurate continuing legacy SiriKit support.",
         "limitations": [
           "No vehicle/head-unit, CarPlay entitlement, or Siri interaction tested. App Intents recommendation is not presented as SiriKit removal."
@@ -2040,7 +2040,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": [
           "Classified the administrator self-demotion issue as resolved and clarified server sync, local persistence, sharing, and schema-migration boundaries."
         ],
@@ -2335,7 +2335,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": "Replaced fabricated package/API examples with cutoff-pinned Apple repositories; separated library, cctl example and container CLI; verified Mac architecture, Swift tools and Xcode host requirements."
       },
       "release_status": "mixed",
@@ -2361,7 +2361,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": "Replaced announcement-only stub with documented AIModel/AIModelAsset, InferenceFunction, NDArray, compute selection, specialization/cache lifecycle, AOT, preparation and profiling tools, and CoreML non-neural guidance.",
         "limitations": [
           "CoreAI gauge input extraction issue 172502576 remains documented.",
@@ -3338,7 +3338,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": "Scoped MDM/DDM/install/update system-process TLS minimum and ATS requirements, exclusions and representative workflow audits."
       },
       "release_status": "independent",
@@ -3481,7 +3481,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": "Verified driver adoption/entitlement boundaries and new macOS VideoDriverKit relationship without inferring family-wide iPad support."
       },
       "release_status": "mixed",
@@ -3525,7 +3525,7 @@
       ],
       "review": {
         "scope": "catalog-only",
-        "checked_on": "2026-09-08"
+        "checked_on": "2026-09-14"
       },
       "release_status": "not-assessed",
       "platforms": [
@@ -3830,7 +3830,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": "Current unary implementation guidance, list repairs, filesystem-module entitlement, security-scoped-resource sample and its macOS/Xcode 26 minimum. Removed newly added unverifiable mount-entitlement link."
       },
       "release_status": "shipping",
@@ -4094,7 +4094,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": "Physical Apple Vision Pro and visionOS 26.4 core client/session requirements, entitlement, pairing and viewing-region consent, configured cloud endpoints, performance/failure handling. Provider context/endpoint types separately require visionOS 27. Microphone defect is resolved."
       },
       "release_status": "mixed",
@@ -4399,7 +4399,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": "Removed unsupported 4K/on-device-only/transcription claims; documented actual Home Intelligence, Private Cloud Compute and iCloud+ 2 TB requirements from release notes."
       },
       "release_status": "mixed",
@@ -4506,7 +4506,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": "macOS 27 AccessoryAccess relationship, entitlement and exclusive-access failure boundaries; no blanket IOUSBHost deprecation or raised legacy minimum."
       },
       "release_status": "mixed",
@@ -5274,7 +5274,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": "Dedicated provider app, entitlement and matching protocol IDs; discovery privacy, activation/pairing, cached devices and connection lifetime; real-time audio/video and prompt audio-driver publication requirements; explicit Catalyst source conflict."
       },
       "release_status": "beta",
@@ -5675,7 +5675,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": "27 Swift MetricManager async delivery, opaque AsyncSequence declaration versus release-note AsyncStream description, daily intervals, stable state domains, diagnostics, visionOS restrictions and retained MX references."
       },
       "release_status": "mixed",
@@ -5875,7 +5875,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": "Joined-list and decoder-description corrections; selected system TLS policy versus ordinary app connections and low-level APIs not automatically receiving ATS enforcement."
       },
       "release_status": "mixed",
@@ -5901,7 +5901,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": "Actual resolved wired-CarPlay VPN exclusion issue and scoped management-system TLS cross-reference, not an invented new blanket flow policy."
       },
       "release_status": "mixed",
@@ -5998,7 +5998,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": "Distinct local and remote platform lists, observable models, audio setup, timestamped playback, foreground system-primary requests, extension/APNs lifecycle and no mixed legacy/new local publishers."
       },
       "release_status": "mixed",
@@ -6291,7 +6291,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": "Current framework overview/topics and separation of payment/Wallet capabilities; removed unsupported template/count and Wallet Insights claims and repaired affected references.",
         "limitations": [
           "Not a complete PassKit symbol review; no payment authorization, provisioning, or pass creation tested."
@@ -6322,7 +6322,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": [
           "Added OS 27 stroke identity/selection/erasure and async on-device recognition guidance, language/version checks, and the beta render-state rename; avoided conflating macOS recognition with canvas selection availability."
         ],
@@ -6637,7 +6637,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": "New authoring-tool reference with Apple-silicon/Tahoe26.5 host, standalone beta5 status, project/graph/animation/lighting/audio workflows and concrete beta limitations.",
         "limitations": [
           "RCP2 timeline migration can fail.",
@@ -7156,7 +7156,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": "Selected system-process TLS 1.2+ and ATS cipher/certificate scope, SCEP/content-caching exceptions, NIAP opt-in key values and no all-app policy claim."
       },
       "release_status": "mixed",
@@ -7221,7 +7221,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": "Client entitlement, current analysis policy, privacy restrictions, 27 detectedTypes ContentType set and guarded isSensitive fallback."
       },
       "release_status": "mixed",
@@ -7244,7 +7244,7 @@
       ],
       "review": {
         "scope": "catalog-only",
-        "checked_on": "2026-09-08"
+        "checked_on": "2026-09-14"
       },
       "release_status": "not-assessed",
       "platforms": [
@@ -7616,7 +7616,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": "Mac authoring to compatible Apple Vision Pro, endpoint/session choice, connection-state recovery, external USD bridge and edit-loop prevention; large-asset/discovery beta defects treated as resolved rather than hard limits."
       },
       "release_status": "beta",
@@ -7726,7 +7726,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": "Assigned ownership/revocation, actual back-deployed symbols, Bundle/Suite product types, platform-specific offer-code verification, Advanced Commerce metadata, entitlement/finishing guidance, server/policy crosslinks, stale assertion removal, and topic-link repairs.",
         "limitations": [
           "Beta documentation, not SDK compilation or sandbox fulfillment. Autogenerated topics required JSON; the release-note naming mismatch is explicitly recorded above. Existing broad topic listings were retained where not implicated."
@@ -7818,7 +7818,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": [
           "Corrected beta/compiler-versus-language-mode/host claims, warning-group diagnose, anyAppleOS26+, weak let6.3, cancellation shields and implemented changelog features; removed unsourced @C.",
           "Integrated the independently verified Apple-silicon Xcode host requirement, separate from the Swift compiler and language mode."
@@ -7859,7 +7859,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": [
           "Added sectioned query macros, .codable, ResultsObserver, and HistoryObserver with 27 availability; classified the background-save/ModelActor deadlock as resolved; preserved context/actor and migration architecture; repaired joined bullets, canonical adoption/update links, and Codable spelling."
         ],
@@ -8047,7 +8047,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": "Removed absolute user-space safety claim; verified activation/pending approval/failure/deactivation and family-specific entitlement boundaries."
       },
       "release_status": "mixed",
@@ -8214,7 +8214,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": [
           "Added an OS26/27 planning snapshot with sourced release/toolchain, lifecycle, assets, TLS and App Intents boundaries."
         ],
@@ -8282,7 +8282,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": "Preserved Swift6/Xcode16 introduction, corrected tool labeling/host, clarified framework boundaries, real evaluation trait and XCTest UI bundle, repetition and interoperability changes.",
         "limitations": [
           "No local OS27 framework test runs; new-framework availability is separate from Swift Testing's introduction."
@@ -8567,7 +8567,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": "OS 27 Swift authoring platforms, layer/stage/prim model, render modes/hit-testing, main-actor preview edits, import/render failure checks, resolved value-authoring bugs and early-beta compressed-asset incompatibility."
       },
       "release_status": "beta",
@@ -8628,7 +8628,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": [
           "Added a concrete OS27 migration snapshot; corrected legacy SiriKit language and canonical resource destinations."
         ],
@@ -8654,7 +8654,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": [
           "Distinguished notifications, Live Activities, and budgeted widget pushes; classified critical-alert auto-enabling issue 179179362 as resolved; added authorization regression checks and canonical update/permission links."
         ],
@@ -8790,7 +8790,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": "Fixed configuration-to-VM object error, matched guest/host architectures, Linux user-space Rosetta boundary and 27-gated DiskImageKit attachment without changing framework minimum."
       },
       "release_status": "mixed",
@@ -9035,7 +9035,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": [
           "Replaced consumer AI/browser marketing with real Safari standards and native embedding APIs; separated browser/host/API versions and 26-generation SwiftUI WebKit types; added verified handles/content-world/navigation/form APIs and current extension/testing cross-links."
         ],
@@ -9108,7 +9108,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": [
           "Removed invented material rendering recipes; documented actual 26-generation widget push behavior, opportunistic reload budgets, lack of broadcast support, and the resolved @UnionValue rendering issue."
         ],
@@ -9186,7 +9186,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": "New primary-documented XCTest reference with cases, assertions, async expectations, UI/performance responsibilities, attachments and beta test-plan changes.",
         "limitations": [
           "Xcode5 framework introduction is not the availability of every API or destination.",
@@ -9211,7 +9211,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": "Preserved native-visionOS limitation, corrected tool label, added crash-severity test-plan behavior and AppIntentsTesting relationship.",
         "limitations": [
           "Native visionOS-SDK UI testing remains excluded by the current overview.",
@@ -9256,7 +9256,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": "Added beta workflow/toolchain recording and test gating without claiming local host requirements establish managed runner availability.",
         "limitations": [
           "Managed Xcode27 beta workflow availability must be confirmed in the workflow editor.",
@@ -9281,7 +9281,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": [
           "Corrected September8 beta6, macOS26.4 host, Swift compiler/language-mode separation and release navigation including documented Xcode26.6/26.5 notes.",
           "Integrated the explicit Apple-silicon IDE host restriction from Intel Deprecation 162138432 without inferring OS device support."
@@ -9309,7 +9309,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": [
           "Corrected beta6 host/compiler, removed unsourced design and duplicated submission assertions, added real test/profiling surfaces, xctrace options, runtime requirements and known/fixed issues.",
           "Parent independently verified Intel Deprecation issues 162138432 and 161837535 and integrated explicit Apple-silicon host eligibility and distinct universal-build behavior."
@@ -9377,7 +9377,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": [
           "Separated Xcode host architecture, universal compilation/back-deployment, Rosetta execution and installer/plugin testing."
         ],
@@ -9679,7 +9679,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": [
           "Updated stable/beta status and concrete UIKit, asset, iPad-display, HealthKit and SDK migration priorities."
         ],
@@ -9751,7 +9751,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": [
           "Added scoped scene/design migration, menu/window behavior and resolved-regression guidance; normalized resource URLs."
         ],
@@ -9779,7 +9779,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": [
           "Updated stable/beta status and Rosetta, installer, AppKit/Catalyst, SwiftUI document and toolchain migration guidance."
         ],
@@ -9957,7 +9957,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": [
           "Added the verified Safari 27 beta header/build and host scope, scoped the 26.6.1 security release, and checked 26.5/26.6 date/build entries."
         ],
@@ -10046,7 +10046,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": "Added verified swift test failure summary and bounded repeat-until options; separated tools/compiler/language/deployment versions and linked canonical DocC/concurrency guidance.",
         "limitations": [
           "Swift6.4-specific repetition flags were source-verified, not executed with installed Swift6.3.3."
@@ -10118,7 +10118,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": [
           "Updated 26.6/beta 8 status, UIKit scenes, design opt-out, ODR/Background Assets and capability-tested media guidance."
         ],
@@ -10148,7 +10148,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": [
           "Added platform-specific OS27 scene, asset, spatial/media and resolved-regression planning with explicit compatibility uncertainty."
         ],
@@ -10179,7 +10179,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": [
           "Updated 26.6.1/beta 8 status, spatial/media/asset migration and correctly marked beta 8 resolved issues."
         ],
@@ -10226,7 +10226,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": [
           "Added scoped WatchKit lifecycle, HealthKit, SwiftUI and networking migration; corrected SiriKit legacy support wording."
         ],
@@ -10254,7 +10254,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": [
           "Updated 26.6/beta 8 status, deployment-target-qualified WatchKit deprecations, HealthKit zones and networking guidance."
         ],
@@ -10371,7 +10371,7 @@
       "release_status": "mixed",
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": "New custom-SiriKit migration recipe preserving intentClassName, shared actions, saved shortcuts, entity identity and legacy support; exact onscreen API minimums and out-of-process validation steps.",
         "limitations": [
           "Custom-intent migration protocol does not establish a universal migration for every SiriKit domain.",
@@ -10444,7 +10444,7 @@
       "release_status": "mixed",
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": "ODR/NSBundleResourceRequest deprecation migration, minimum-version distinctions, managed/localized assets versus downloads/continued work, missing and partial assets, cancellation, inference entitlement, Xcode host and testing without runtime guarantees."
       },
       "platforms": []
@@ -10495,7 +10495,7 @@
       "release_status": "mixed",
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08"
+        "checked_on": "2026-09-14"
       },
       "platforms": []
     },
@@ -10520,7 +10520,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": [
           "Original security and compliance guide: attestation/transparency/privacy boundary, actual API scope, managed eligibility, availability/quota/network/service failures and consent-safe fallback."
         ]
@@ -10574,7 +10574,7 @@
       "release_status": "mixed",
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": [
           "Created a compact progressive-enhancement guide covering older macOS hosts, native select fallback, scroll anchoring, transformed anchors and updated CSS keywords, verified Grid Lanes syntax/26.4 baseline, JSPI, ariaNotify, spatial platform scope, native embedding availability, extension distribution, and release checks."
         ],
@@ -10601,7 +10601,7 @@
       "release_status": "mixed",
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": "New task-focused migration recipe with compiler/mode prerequisites, staged strict checking, actor/Sendable cache example, cancellation/errors, rollback and targeted test/profiling instructions.",
         "limitations": [
           "The original actor example type-checked in Swift6 mode with Swift6.3.3.",
@@ -12248,7 +12248,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": [
           "Refreshed 2 canonical references from the primary DocC reference map; these are link-target checks, not independent audits of every linked body."
         ],
@@ -15201,7 +15201,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": [
           "Updated current SDK/age requirements, review-policy and regional boundaries; verified membership/testing basics and corrected enrollment order and D-U-N-S exceptions."
         ],
@@ -15234,7 +15234,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": [
           "Refreshed shipping status, selected 26.2/26.4 context and 27 migration/toolchain guidance; removed unsupported assertions and broad SiriKit deprecation."
         ],
@@ -15269,7 +15269,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": [
           "Refreshed shipping and selected OS26 point-release context, window/external-display migration, toolchain requirements and explicit device uncertainty."
         ],
@@ -15303,7 +15303,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": [
           "Refreshed shipping baseline and OS27 AppKit/SwiftUI, Rosetta, installer and host-architecture planning."
         ],
@@ -15337,7 +15337,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": [
           "Refreshed shipping status and focused scene/design/asset/media migration; confirmed the focus-navigation resource destination."
         ],
@@ -15373,7 +15373,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": [
           "Refreshed shipping and selected 26.4 rendering context, scoped 27 spatial/scene/asset migration and resolved-issue guidance."
         ],
@@ -15408,7 +15408,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": [
           "Refreshed shipping, lifecycle/HealthKit/network migration and toolchain facts; corrected and verified Paku's historical air-quality description."
         ],
@@ -15432,7 +15432,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08"
+        "checked_on": "2026-09-14"
       },
       "release_status": "mixed",
       "platforms": []
@@ -15462,7 +15462,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": [
           "Corrected beta/Xcode baseline, SDK and age deadlines, creator/AI/mini-app scopes, regional rules, conditional PCC access and enrollment workflow; removed unsupported tax/litigation specifics."
         ],
@@ -15498,7 +15498,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": [
           "Replaced unsupported marketing/API/compiler claims with beta 8 status and concrete scene/launch-screen, assets, privacy/API and toolchain migration."
         ],
@@ -15529,7 +15529,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": [
           "Rebuilt beta status and actionable iPad lifecycle/window/display, document, asset and toolchain planning; removed inferred hardware support."
         ],
@@ -15559,7 +15559,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": [
           "Replaced unsupported features with AppKit/Catalyst, SwiftUI documents, Rosetta/installer, TLS and Apple-silicon Xcode host guidance."
         ],
@@ -15589,7 +15589,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": [
           "Replaced speculative features with beta 8 scene/design, assets, SwiftUI and capability-gated media changes; explicit unknown device support."
         ],
@@ -15620,7 +15620,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": [
           "Replaced speculative changes with scoped scene, asset, spatial/media and beta 8 resolved-regression guidance; no inferred public-beta or hardware program."
         ],
@@ -15650,7 +15650,7 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-14",
         "scope_note": [
           "Replaced unsupported feature/device claims with qualified WatchKit lifecycle, HealthKit zones, SwiftUI and networking guidance."
         ],

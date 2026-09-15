@@ -10,7 +10,7 @@ Whether you're new to Apple platforms or you've been working with them for years
 
 Use the platform introductions for version-specific adoption work while retaining the earlier-platform references below. A framework's presence in this repository is not a claim that every API requires OS27 or works on every device.
 
-| Platform | Shipping-generation context | OS27 beta migration focus |
+| Platform | Previous-generation context | Current OS27 adoption focus |
 |---|---|---|
 | iPhone | [iOS 26](../os26-intro/iOS.md) | [iOS 27](../os27-intro/iOS.md): UIKit scenes and launch screens, assets, metrics, and data permissions |
 | iPad | [iPadOS 26](../os26-intro/iPadOS.md) | [iPadOS 27](../os27-intro/iPadOS.md): scene restoration, external displays, menus, and document I/O |
@@ -19,7 +19,7 @@ Use the platform introductions for version-specific adoption work while retainin
 | Apple Watch | [watchOS 26](../os26-intro/watchOS.md) | [watchOS 27](../os27-intro/watchOS.md): HealthKit zones and deployment-scoped WatchKit deprecations |
 | Apple Vision Pro | [visionOS 26](../os26-intro/visionOS.md) | [visionOS 27](../os27-intro/visionOS.md): scenes, spatial regression testing, and document/asset handling |
 
-The six OS27 platforms are at **beta 8, released August 31**. Xcode is independently at **27 beta 6, released August 24**; it requires **Apple silicon and macOS Tahoe 26.4 or later**, not macOS 27. See [releases](https://developer.apple.com/news/releases/) and [Xcode requirements](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes). Neither the release table nor a chip family alone establishes a complete device list or a general-availability date.
+The six OS27 platforms shipped September 14, 2026: iOS/iPadOS 27.0 (`24A437`), macOS 27 Golden Gate 27.0 (`26A428`), tvOS 27.0 (`24J361`), watchOS 27.0 (`24R364`), and visionOS 27.0 (`24M362`). Xcode 27 (`27A266a`) shipped September 14; it requires **Apple silicon and macOS Tahoe 26.6 or later**, not macOS 27. See [releases](https://developer.apple.com/news/releases/) and [Xcode requirements](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes). Neither the release table nor a chip family alone establishes a complete device list.
 
 Choose an implementation and then verify its individual availability, entitlements, and failure modes. Keep [App Store readiness](../guides/app-store-readiness.md), [regional distribution](../guides/regional-distribution.md), and [PCC approval/privacy](../guides/private-cloud-compute.md) separate from API definitions.
 

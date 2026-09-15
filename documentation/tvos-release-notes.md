@@ -6,9 +6,9 @@ Learn about changes to the tvOS SDK.
 
 ## Overview
 
-> **Checked September 8, 2026:** tvOS **26.6** (`23L773`, July 27) is shipping; tvOS 27 **beta 8** (`24J5360a`) was released August 31. [Release listings](https://developer.apple.com/news/releases/) do not establish a general-availability date or an OS27 device list.
+> **Checked September 8, 2026:** tvOS **26.6** (`23L773`, July 27) was the shipping 26-generation release. **Update September 14, 2026:** tvOS **27.0** (`24J361`) is shipping. [Release listings](https://developer.apple.com/news/releases/) do not establish an OS27 device list.
 
-Use these notes for SDK changes, deprecations, and beta-specific issues. For distribution and testing membership, see the [Apple Developer Program](../os27-intro/Program.md).
+Use these notes for SDK changes, deprecations, and known/resolved issues. For distribution and testing membership, see the [Apple Developer Program](../os27-intro/Program.md).
 
 ### OS27 Migration Priorities
 
@@ -17,9 +17,9 @@ Use these notes for SDK changes, deprecations, and beta-specific issues. For dis
 - Query VideoToolbox support before offering the new low-latency scaling/interpolation configurations.
 - Review custom focus/navigation surfaces and [system-process TLS requirements](https://support.apple.com/en-us/126655) for managed deployments.
 
-Source: [tvOS 27 beta 8 notes](https://developer.apple.com/documentation/tvos-release-notes/tvos-27-release-notes). Resolved beta issues should become regression tests, not lasting limitations. See the [tvOS 27 introduction](../os27-intro/tvOS.md).
+Source: [tvOS 27 release notes](https://developer.apple.com/documentation/tvos-release-notes/tvos-27-release-notes). Resolved earlier-beta issues should become regression tests, not lasting limitations. See the [tvOS 27 introduction](../os27-intro/tvOS.md).
 
-[Xcode 27 beta 6](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) requires **Apple silicon and macOS Tahoe 26.4 or later**, not macOS 27. Keep its host requirements separate from Apple TV hardware eligibility and your app's deployment target.
+[Xcode 27](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) requires **Apple silicon and macOS Tahoe 26.6 or later**, not macOS 27. Keep its host requirements separate from Apple TV hardware eligibility and your app's deployment target.
 
 ### Bug Reporting
 
@@ -28,7 +28,7 @@ For issues not mentioned in release notes, file bugs through [Feedback Assistant
 ## Topics
 
 ### tvOS 27
-- [tvOS 27 Beta 8 Release Notes](https://developer.apple.com/documentation/tvos-release-notes/tvos-27-release-notes) - Pre-release API changes and known/resolved issues; checked September 8, 2026.
+- [tvOS 27 Release Notes](https://developer.apple.com/documentation/tvos-release-notes/tvos-27-release-notes) - Shipping release dated September 14, 2026.
 
 ### tvOS 26
 - [tvOS 26.6 Release Notes](https://developer.apple.com/documentation/tvos-release-notes/tvos-26_6-release-notes) - Shipping release dated July 27, 2026.

@@ -24,9 +24,9 @@ With **Swift Testing** you leverage powerful and expressive capabilities of the 
 - Meet Swift Testing
 - Go further with Swift Testing
 
-## Xcode 27 beta testing changes
+## Xcode 27 testing changes
 
-The [Xcode 27 beta 6 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md) document individually identifiable parameterized-test links and improved handling of large parameterized suites. SwiftPM adds repeat-until-pass/fail execution; see [Swift packages](swift-packages.md).
+The [Xcode 27 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md) document individually identifiable parameterized-test links and improved handling of large parameterized suites. SwiftPM adds repeat-until-pass/fail execution; see [Swift packages](swift-packages.md).
 
 Choose a test surface according to the behavior under test:
 
@@ -35,7 +35,7 @@ Choose a test surface according to the behavior under test:
 - **[App Intents Testing](AppIntentsTesting.md):** Run out-of-process intent, query, Spotlight, and view-annotation tests in an XCTest UI testing bundle. This is not a replacement for all UI tests.
 - **[Evaluations](Evaluations.md):** Define datasets and metrics, attach `EvaluationTrait` with `@Test(.evaluates(...))`, and inspect `EvaluationContext.current.result`. Model-quality measurement supplements unit tests.
 
-Xcode 27 reports a warning when an assertion from one test framework fails inside a test from the other framework; the test-plan **Swift Testing and XCTest Interoperability** setting controls this behavior. It does not make mixing frameworks in a test recommended. Xcode 27 beta 6 requires **Apple silicon and macOS Tahoe 26.4+**; the new App Intents Testing and Evaluations APIs have their own OS 27 availability.
+Xcode 27 reports a warning when an assertion from one test framework fails inside a test from the other framework; the test-plan **Swift Testing and XCTest Interoperability** setting controls this behavior. It does not make mixing frameworks in a test recommended. Xcode 27 requires **Apple silicon and macOS Tahoe 26.6+**; the macOS 27 SDK supports back deploying Universal apps to macOS 12 and later, and Intel development remains possible with Rosetta-supporting macOS such as macOS 27. The new App Intents Testing and Evaluations APIs have their own OS 27 availability.
 
 ## Topics
 

@@ -33,7 +33,7 @@ Do not treat presentation or dismissal of a payment sheet as proof that a paymen
 
 ## OS 27: payment-option merchandising
 
-[`ApplePayMerchandisingView`](https://developer.apple.com/documentation/passkit/applepaymerchandisingview) is a SwiftUI view with **iOS 27 and iPadOS 27 beta** availability in the reviewed reference. It displays promotional payment information, not a payment authorization result.
+[`ApplePayMerchandisingView`](https://developer.apple.com/documentation/passkit/applepaymerchandisingview) is a SwiftUI view with **iOS 27 and iPadOS 27** availability in the reviewed reference. It displays promotional payment information, not a payment authorization result.
 
 Its initializer accepts a `Decimal` amount, `Locale.Currency`, and `Locale.Region`. [`ApplePayMerchandisingAction`](https://developer.apple.com/documentation/passkit/applepaymerchandisingaction), [`ApplePayMerchandisingStyle`](https://developer.apple.com/documentation/passkit/applepaymerchandisingstyle), and [`ApplePayMerchandisingPartnerConfiguration`](https://developer.apple.com/documentation/passkit/applepaymerchandisingpartnerconfiguration) configure the interaction and presentation. Provide an appropriate fallback view for cases where the content cannot render; do not infer that every partner or payment option is available in every region.
 

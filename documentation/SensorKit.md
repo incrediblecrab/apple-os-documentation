@@ -22,7 +22,7 @@ SensorKit access is for Apple-approved research studies. The [reader entitlement
 
 Provide the study-purpose string [`NSSensorKitUsageDescription`](https://developer.apple.com/documentation/bundleresources/information-property-list/nssensorkitusagedescription), the per-sensor [`NSSensorKitUsageDetail`](https://developer.apple.com/documentation/bundleresources/information-property-list/nssensorkitusagedetail) dictionary, and [`NSSensorKitPrivacyPolicyURL`](https://developer.apple.com/documentation/bundleresources/information-property-list/nssensorkitprivacypolicyurl). A sensor's usage-detail dictionary can mark data as required for the study; this does not override denial. Participants can subsequently change individual sensor permissions in Settings.
 
-### Typed readers in the 27 beta
+### Typed readers in OS 27
 
 [`SRReader<Sensor>`](https://developer.apple.com/documentation/sensorkit/srreader) is the new typed reader, with `Sensor` conforming to [`SRDataSensor`](https://developer.apple.com/documentation/sensorkit/srdatasensor). Its iOS/iPadOS 27 declarations include an observable `authorizationStatus`, asynchronous throwing recording methods, and [`samples(matching:)`](https://developer.apple.com/documentation/sensorkit/srreader/samples(matching:)), which returns an asynchronous sequence of typed fetch responses. Handle authorization changes, fetch errors, and cancellation.
 

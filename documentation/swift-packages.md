@@ -10,7 +10,7 @@ Xcode supports creating and publishing Swift packages, as well as adding, removi
 
 To learn more about the API you use in your package manifest, see Package. To learn more about the Swift Package Manager, see Swift.org and the open source Swift Package Manager repository.
 
-## Xcode 27 beta / Swift 6.4
+## Xcode 27 / Swift 6.4
 
 The [Xcode 27 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md) document two `swift test` improvements: a final summary of failed test targets, and repetition with `--maximum-repetitions` plus `--repeat-until pass` or `--repeat-until fail`. Only cases matching the repetition condition are repeated.
 

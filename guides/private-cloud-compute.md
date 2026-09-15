@@ -47,7 +47,7 @@ The API documents [availability reasons](https://developer.apple.com/documentati
 
 ## Verification Before Release
 
-Test absent entitlement, unavailable model, quota exhaustion, interrupted requests, and an explicit refusal to share. Record OS and SDK builds, minimize test data, and document your fallback without implying equivalent privacy guarantees across providers. The iOS/visionOS beta 8 notes mark earlier PCC simulator failures as resolved; do not treat those old beta failures as permanent restrictions.
+Test absent entitlement, unavailable model, quota exhaustion, interrupted requests, and an explicit refusal to share. Record OS and SDK builds, minimize test data, and document your fallback without implying equivalent privacy guarantees across providers. The iOS/visionOS 27 release notes mark earlier PCC simulator failures as resolved; do not treat those old failures as permanent restrictions.
 
 - [iOS & iPadOS 27 notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes)
 - [visionOS 27 notes](https://developer.apple.com/documentation/visionos-release-notes/visionos-27-release-notes)

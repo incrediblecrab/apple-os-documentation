@@ -22,7 +22,7 @@ The iOS 16 and Mac Catalyst 16 labels in Apple's catalog do not by themselves es
 
 Driver entitlements must match the signed provisioning profile and the transport/family being used. The containing app's System Extension capability is separate from the driver's own entitlements. Activation can fail because of entitlement mismatches or remain pending for user approval; do not treat submitting an activation request as a usable driver connection.
 
-For the 27 beta SDK, [VideoDriverKit](VideoDriverKit.md) is a new **macOS** video-driver family with DriverKit 27.0 availability. Do not infer iPadOS support from another family's availability. Its API replaces the need for the corresponding `IOVideoFamily`/DAL integration, not every legacy driver category.
+For the 27 SDK, [VideoDriverKit](VideoDriverKit.md) is a new **macOS** video-driver family with DriverKit 27.0 availability. Do not infer iPadOS support from another family's availability. Its API replaces the need for the corresponding `IOVideoFamily`/DAL integration, not every legacy driver category.
 
 ### Client access and input validation
 

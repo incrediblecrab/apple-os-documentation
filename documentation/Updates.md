@@ -4,11 +4,11 @@ View major documentation updates and highlights from WWDC, browse ongoing update
 
 ## OS27 Migration Snapshot — September 8, 2026
 
-All six OS27 platforms are at **beta 8 (August 31)**; **Xcode 27 beta 6** is dated **August 24**. Shipping baselines differ: iOS/iPadOS **26.6.2** (September 8), macOS **26.6.2** and visionOS **26.6.1** (August 17), and tvOS/watchOS **26.6** (July 27). [Apple's release list](https://developer.apple.com/news/releases/) does not establish general-availability dates from these betas.
+All six OS27 platforms shipped September 14: iOS/iPadOS **27.0** (`24A437`), macOS 27 Golden Gate **27.0** (`26A428`), tvOS **27.0** (`24J361`), watchOS **27.0** (`24R364`), and visionOS **27.0** (`24M362`). **Xcode 27** (`27A266a`) also shipped September 14. Previous 26-generation baselines are iOS **26.6.2** (September 8), iPadOS **26.7** (September 9), macOS **26.6.2** and visionOS **26.6.1** (August 17), and tvOS/watchOS **26.6** (July 27).
 
 ### Prioritize Verified Migration Work
 
-- **Build hosts:** [Xcode 27 beta 6](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) includes Swift 6.4 and requires **an Apple silicon Mac on macOS Tahoe 26.4 or later**, not macOS 27. Intel apps running through Rosetta are not Intel-host support.
+- **Build hosts:** [Xcode 27](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) includes Swift 6.4 and requires **an Apple silicon Mac on macOS Tahoe 26.6 or later**, not macOS 27. The macOS 27 SDK supports back deploying Universal apps to macOS 12 and later, and Intel development remains possible with Rosetta-supporting macOS such as macOS 27.
 - **UIKit scenes:** apps built with the latest SDK must adopt the scene life cycle on iOS, iPadOS, Mac Catalyst, tvOS, and visionOS 27 or fail to launch. Multiple-window support is optional. See [scene migration](https://developer.apple.com/documentation/uikit/transitioning-to-the-uikit-scene-based-life-cycle).
 - **Launch screens and assets:** the [iOS/iPadOS 27 notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes) require launch screens for 27-SDK apps. ODR/`NSBundleResourceRequest` deprecation in the iOS/iPadOS, tvOS, and visionOS notes points to Background Assets; localized packs add language-aware delivery.
 - **Design compatibility:** [`UIDesignRequiresCompatibility`](https://developer.apple.com/documentation/bundleresources/information-property-list/uidesignrequirescompatibility) is ignored when building for iOS, iPadOS, Mac Catalyst, macOS, or tvOS 27 or later. Do not extend that key's documented scope to watchOS or visionOS.
@@ -18,7 +18,7 @@ All six OS27 platforms are at **beta 8 (August 31)**; **Xcode 27 beta 6** is dat
 - **Intelligence:** [SiriKit](https://developer.apple.com/documentation/sirikit) retains legacy Shortcuts, widget-configuration, and most existing Siri support. Use [App Intents](AppIntents.md) for modern integration. [PCC](../guides/private-cloud-compute.md) has separate entitlement, eligibility, privacy, and runtime-failure requirements.
 - **Submission policy:** the SDK26 upload requirement and updated age-rating questionnaire are already in force. See [App Store readiness](../guides/app-store-readiness.md); the checked notice does not announce an OS27 SDK deadline.
 
-Beta 8 **Resolved Issues** are regression-test cases, not permanent API limitations. Validate SDK-linked behavior separately from running an older binary on the new OS. Exact OS27 device lists are not established by these summaries; do not extrapolate from OS26 lists.
+OS 27 **Resolved Issues** are regression-test cases, not permanent API limitations. Validate SDK-linked behavior separately from running an older binary on the new OS. Exact OS27 device lists are not established by these summaries; do not extrapolate from OS26 lists.
 
 ## Topics
 

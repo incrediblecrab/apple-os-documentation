@@ -22,11 +22,11 @@ The original `BADownloadManager`, `BADownloaderExtension`, and `BAURLDownload` i
 
 **Important**: Use the framework only to download additional assets for your app; don't use it for any other purposes. For example, don't collect or transmit data to identify a user or device or to perform advertising or advertising measurement.
 
-### 27 beta: ODR migration and localized asset packs
+### OS 27: ODR migration and localized asset packs
 
 **Reviewed September 8, 2026:** The iOS/iPadOS, tvOS, and visionOS 27 release notes deprecate **On Demand Resources and `NSBundleResourceRequest`** and direct developers to Background Assets. This is migration guidance, not a claim that existing ODR content stops working immediately. See the [migration guide](../guides/background-assets-migration.md) for deployment fallbacks and the distinction between downloads and background computation.
 
-Localized asset packs are new in the 27 beta generation for iOS/iPadOS, Mac Catalyst, macOS, tvOS, and visionOS. Xcode 27's `ba-package` manifest template adds a `language` key. It accepts an ISO-639 language identifier with optional region and script; variant subtags and other BCP-47 extensions are not supported.
+Localized asset packs are new in the 27 generation for iOS/iPadOS, Mac Catalyst, macOS, tvOS, and visionOS. Xcode 27's `ba-package` manifest template adds a `language` key. It accepts an ISO-639 language identifier with optional region and script; variant subtags and other BCP-47 extensions are not supported.
 
 The manifest's `localizedAssetPacks` and read-only `resolvedLanguage` describe packs matching language preferences. An app-specific language choice can override `AssetPackManager.resolvedLanguage`; setting it back to `nil` restores system selection. Changing this property alone does not download or remove packs: call `reconcilePreferredLanguages()` to reconcile storage. Reconciliation leaves manually downloaded localized packs in place.
 
@@ -85,4 +85,4 @@ Managed packs are not automatically purged merely because the app stops using th
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/BackgroundAssets)*
 
-*27-beta sources: [iOS/iPadOS release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes.md), [macOS release notes](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes.md), and [localized asset-pack documentation](https://developer.apple.com/documentation/backgroundassets/reducing-download-and-storage-demands-with-localized-asset-packs.md).*
+*27 sources: [iOS/iPadOS release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes.md), [macOS release notes](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes.md), and [localized asset-pack documentation](https://developer.apple.com/documentation/backgroundassets/reducing-download-and-storage-demands-with-localized-asset-packs.md).*

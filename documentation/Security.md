@@ -16,7 +16,7 @@ Prefer system cryptographic implementations over designing your own. Use [Crypto
 
 **Note:** Use the highest-level networking API that meets your needs. Prefer Foundation's URL Loading System for HTTP and URL resources, and [Network](Network.md) when direct transport access is required. The Secure Transport entry below is a legacy reference, not the recommended starting point for a new networking implementation.
 
-### 27 beta: stricter TLS for selected system processes
+### OS 27: stricter TLS for selected system processes
 
 **Reviewed September 8, 2026:** The 27 release notes tighten network security for system processes involved in **MDM, Declarative Device Management (DDM), Automated Device Enrollment, configuration-profile installation, app installation, and software updates**. This is not a statement that every app network call has acquired the same new policy.
 

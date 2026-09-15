@@ -4,7 +4,7 @@ Create, compose, inspect, and edit USD scenes using Apple's Swift API.
 
 **Platforms:** iOS 27.0+ | iPadOS 27.0+ | Mac Catalyst 27.0+ | macOS 27.0+ | tvOS 27.0+ | visionOS 27.0+
 
-**Status:** Introduced in the OS 27 SDKs; beta documentation reviewed September 8, 2026. No watchOS availability is listed.
+**Status:** Introduced in the shipping OS 27 SDKs; beta documentation was reviewed September 8, 2026. No watchOS availability is listed.
 
 ## Overview
 
@@ -37,11 +37,11 @@ Decide which layer owns each edit and preserve the source assets separately from
 
 For a Spatial Preview bridge, perform USDKit edits on the main actor and batch work from an external runtime as described in [Apple's bridging guide](https://developer.apple.com/documentation/spatialpreview/bridging-an-external-usd-runtime-to-spatial-preview). Prevent a synchronization feedback loop when applying edits that originated on the headset.
 
-## Applicability and beta checks
+## Applicability and release-note checks
 
 - **Composition is not universal rendering support.** Consult [Validating feature support for USD files](https://developer.apple.com/documentation/usd/validating-usd-files) for the selected renderer and import path. In particular, that guide says USDKit does not load USD physics data into RealityKit.
 - **Check failures at both stages.** Successful authoring does not prove that materials, referenced resources, or animation render as intended. Handle render errors and test representative content on each target platform.
-- **Resolved in the OS 27 beta notes:** failures to read or modify some attributes, and inability to author array, vector, matrix, and quaternion values. Do not retain those as current API restrictions.
+- **Resolved in the OS 27 release notes:** failures to read or modify some attributes, and inability to author array, vector, matrix, and quaternion values. Do not retain those as current API restrictions.
 - **Early-beta asset compatibility:** the macOS and visionOS notes document incompatible compressed meshes between Beta 1 and Beta 2 exports, including `usdcrush`. Preserve original assets and regenerate old beta-derived artifacts with a consistent toolchain rather than treating them as durable interchange files.
 
 ## Sources

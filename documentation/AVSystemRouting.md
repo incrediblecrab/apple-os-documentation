@@ -4,7 +4,7 @@ Route media from a playback app to hardware supported by a media device extensio
 
 **Platforms:** iOS 27.0+ | iPadOS 27.0+
 
-**Status:** OS 27 beta APIs, reviewed September 8, 2026. A TV or speaker can be the receiving device without being an SDK deployment platform for this framework.
+**Status:** OS 27 APIs, reviewed September 8, 2026. A TV or speaker can be the receiving device without being an SDK deployment platform for this framework.
 
 **Mac Catalyst discrepancy:** The framework reference annotates Mac Catalyst 27.0, but [Routing and streaming media to remote devices](https://developer.apple.com/documentation/avsystemrouting/routing-and-streaming-media-to-remote-devices) explicitly says AVSystemRouting and MediaDevice are unavailable on Mac Catalyst and visionOS. Do not promise Catalyst support from the catalog annotation alone; verify the target SDK and current deployment guidance.
 

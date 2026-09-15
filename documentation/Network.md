@@ -84,7 +84,7 @@ Use TLS appropriately for your own protocols and preserve server trust validatio
 - **Bonjour** - A browser that discovers Bonjour services.
 - **BonjourListenerProvider** - Advertise a Bonjour service.
 - **Coder** - Frames and encodes or decodes Codable messages.
-- [DTLS](https://developer.apple.com/documentation/network/dtls) - A **27 beta** protocol-stack type for encrypted byte datagrams using Datagram Transport Layer Security.
+- [DTLS](https://developer.apple.com/documentation/network/dtls) - A **27** protocol-stack type for encrypted byte datagrams using Datagram Transport Layer Security.
 - **DefaultProtocolStorage**
 - **Framer** - An instance of a Framer protocol to load into a protocol stack.
 - **IP** - The system definition of the Internet Protocol (IP).

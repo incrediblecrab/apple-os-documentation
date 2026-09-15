@@ -28,21 +28,21 @@ AppKit also works with SwiftUI, so you can implement parts of your AppKit app in
 
 ### Menus, panels, and compatibility
 
-Menu image behavior depends on **both the runtime and the linked SDK**. The macOS 27 beta notes initially describe hiding symbol images for apps linked on macOS 26 or later; a subsequent resolved entry extends automatic hiding to non-symbol images for apps linked with the macOS 27 SDK. Older-linked apps retain compatibility behavior. Use [`NSMenuItem.preferredImageVisibility`](https://developer.apple.com/documentation/appkit/nsmenuitem/preferredimagevisibility) for necessary exceptions, especially image-only items, and consult the [menu HIG](https://developer.apple.com/design/human-interface-guidelines/menus).
+Menu image behavior depends on **both the runtime and the linked SDK**. The macOS 27 notes initially describe hiding symbol images for apps linked on macOS 26 or later; a subsequent resolved entry extends automatic hiding to non-symbol images for apps linked with the macOS 27 SDK. Older-linked apps retain compatibility behavior. Use [`NSMenuItem.preferredImageVisibility`](https://developer.apple.com/documentation/appkit/nsmenuitem/preferredimagevisibility) for necessary exceptions, especially image-only items, and consult the [menu HIG](https://developer.apple.com/design/human-interface-guidelines/menus).
 
 The notes also describe the “macOS 26.0 only” image checkbox for xib-created items and automatically supplied images for common system items such as Settings, Share, and Print. Don't replace these qualified defaults with a rule that every menu image is hidden.
 
-Retest open/save-panel keyboard navigation, content-type filters, and filename extensions. The beta notes classify several panel problems as **resolved issues**, not enduring limitations. In macOS 27 SDK builds, `NSTextView` moves Layout Orientation into the Font submenu, and `NSTitlebarAccessoryViewController` allows out-of-bounds drawing by default (with clipping during some reveal/hidden transitions).
+Retest open/save-panel keyboard navigation, content-type filters, and filename extensions. The macOS 27 notes classify several panel problems as **resolved issues**, not enduring limitations. In macOS 27 SDK builds, `NSTextView` moves Layout Orientation into the Font submenu, and `NSTitlebarAccessoryViewController` allows out-of-bounds drawing by default (with clipping during some reveal/hidden transitions).
 
 SwiftUI controls are not guaranteed to retain an AppKit implementation detail: the macOS 27 notes say bordered SwiftUI `Menu`/`Picker` controls no longer use `NSPopUpButton`, and `Slider` no longer uses `NSSlider`. Avoid introspection that depends on those private view arrangements. [`NSHostingSceneRepresentation`](https://developer.apple.com/documentation/swiftui/nshostingscenerepresentation), available from macOS 26, remains the supported bridge for SwiftUI scenes in an AppKit-lifecycle app.
 
 ### Build host and design
 
-[Xcode 27 beta 6](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) requires an **Apple silicon Mac running macOS Tahoe 26.4 or later**, not macOS 27. Its host restriction does not prohibit building Universal output for supported older deployment targets. The build host, output architecture, SDK, and deployment target are separate choices; see [Xcode](Xcode.md) for the toolchain matrix.
+[Xcode 27](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) requires an **Apple silicon Mac running macOS Tahoe 26.6 or later**, not macOS 27. Its host restriction does not prohibit building Universal output for supported older deployment targets. The build host, output architecture, SDK, and deployment target are separate choices; see [Xcode](Xcode.md) for the toolchain matrix.
 
 `NSGlassEffectView`, `NSGlassEffectContainerView`, and `NSBackgroundExtensionView` arrived in macOS 26. Follow [Adopting Liquid Glass](https://developer.apple.com/documentation/technologyoverviews/adopting-liquid-glass), test Reduce Transparency and Increase Contrast, and review custom window chrome without relying on a fixed blur or highlight recipe. [Bundle Resources](BundleResources.md#ui-design-compatibility) documents the compatibility key's build-target limits.
 
-Sources: [AppKit updates](https://developer.apple.com/documentation/updates/appkit) and [macOS 27 release notes](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes), reviewed for the September 2026 betas. New symbols have their own availability; AppKit's minimum remains unchanged.
+Sources: [AppKit updates](https://developer.apple.com/documentation/updates/appkit) and [macOS 27 release notes](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes), reviewed for the September 2026 releases. New symbols have their own availability; AppKit's minimum remains unchanged.
 
 ## Topics
 

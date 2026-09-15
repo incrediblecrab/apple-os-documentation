@@ -16,7 +16,7 @@ This feature requires Bluetooth access to discover and pair with nearby devices,
 
 An entitlement does not replace the administrator's enrollment privileges or the person's Bluetooth and camera permissions. Handle denied access, cancelled pairing, and failed sign-in without treating a displayed enrollment sheet as successful device assignment.
 
-**27 beta, reviewed September 8, 2026:** System processes involved in Automated Device Enrollment now require servers to support TLS 1.2 or later with ATS-compliant cipher suites and certificates. This is part of the targeted management, installation, and update hardening—not a new blanket requirement on all app network calls.
+**27 operating systems, reviewed September 8, 2026:** System processes involved in Automated Device Enrollment now require servers to support TLS 1.2 or later with ATS-compliant cipher suites and certificates. This is part of the targeted management, installation, and update hardening—not a new blanket requirement on all app network calls.
 
 Audit the complete enrollment path, including vendor-hosted services and redirects. Apple's [network preparation guidance](https://support.apple.com/en-us/126655) explains logging, stricter TLS 1.2 requirements, and the SCEP/content-caching exceptions. For iPhone and iPad ADE testing, it describes installing the diagnostic profile with Apple Configurator before Setup Assistant reaches the Device Management pane.
 
@@ -30,4 +30,4 @@ Audit the complete enrollment path, including vendor-hosted services and redirec
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/AutomatedDeviceEnrollment)*
 
-*27-beta source: [Prepare your network environment for stricter security requirements](https://support.apple.com/en-us/126655).*
+*27 source: [Prepare your network environment for stricter security requirements](https://support.apple.com/en-us/126655).*

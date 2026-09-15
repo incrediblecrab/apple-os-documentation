@@ -48,10 +48,10 @@ OS updates invalidate cached specializations regardless of cache policy. Source-
 - [Inspecting, debugging, and profiling models](https://developer.apple.com/documentation/coreai/inspecting-debugging-and-profiling-core-ai-models.md) — Use the Xcode model viewer, Core AI debug gauge, Core AI instrument, and [Core AI Debugger](https://developer.apple.com/core-ai-debugger/).
 - [`AssetError`](https://developer.apple.com/documentation/coreai/asseterror.md) — Handle asset failures without assuming a usable model was loaded.
 
-## Validation and beta limitations
+## Validation and release-note limitations
 
 Test cold and warm loads, missing assets/functions, incompatible shapes, offline downloads, and cache invalidation on representative hardware. Keep a non-AI or previously supported model path when preparation or inference fails. Use [Evaluations](Evaluations.md) for language-feature quality and [XCTest](XCTest.md) for deterministic behavior and performance.
 
-The [Xcode 27 beta 6 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md) still list unreliable extraction of inputs from prediction events in the Core AI gauge (172502576). Do not treat a missing diagnostic capture as proof that inference had no input.
+The [Xcode 27 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md) still list unreliable extraction of inputs from prediction events in the Core AI gauge (172502576). Do not treat a missing diagnostic capture as proof that inference had no input.
 
 *Source: [Core AI](https://developer.apple.com/documentation/coreai.md).*

@@ -2,7 +2,7 @@
 
 Author, preview, and prepare 3D scenes for RealityKit applications.
 
-**Tool:** Reality Composer Pro 3; **host:** Apple silicon Mac running macOS Tahoe 26.5 or later. Beta 5 is a standalone download, no longer part of Xcode. This tool's host minimum differs from Xcode 27 beta 6's macOS 26.4 minimum.
+**Tool:** Reality Composer Pro 3; **host:** Apple silicon Mac running macOS Tahoe 26.5 or later. Beta 5 is a standalone download, no longer part of Xcode. This tool's host minimum differs from Xcode 27's macOS 26.6 minimum.
 
 ## Overview
 

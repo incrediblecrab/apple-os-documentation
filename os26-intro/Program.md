@@ -4,7 +4,7 @@ Use the Apple Developer Program for supported app services, testing, analytics, 
 
 **Standard annual membership:** $99 USD, with local pricing where available and conditional fee waivers.
 
-> **Status checked September 8, 2026:** this page retains OS26 Program context. Shipping releases are iOS/iPadOS **26.6.2** (September 8), macOS **26.6.2** and visionOS **26.6.1** (August 17), and tvOS/watchOS **26.6** (July 27). All six OS27 beta 8 releases are dated August 31. See the [OS27 Program overview](../os27-intro/Program.md) for the separate Xcode baseline and current policy scope.
+> **Status checked September 8, 2026:** this page retains OS26 Program context. Shipping 26-generation releases are iOS **26.6.2** (September 8), iPadOS **26.7** (September 9), macOS **26.6.2** and visionOS **26.6.1** (August 17), and tvOS/watchOS **26.6** (July 27). All six OS 27 platforms shipped September 14, 2026. See the [OS27 Program overview](../os27-intro/Program.md) for the separate Xcode baseline and current policy scope.
 
 ## Overview
 
@@ -14,7 +14,7 @@ Choose the enrollment and distribution route that fits your app and legal entity
 
 - **Since April 28, 2026:** uploads for iOS, iPadOS, tvOS, visionOS, and watchOS require Xcode 26 or later and the corresponding 26 SDK or later. Deployment targets may remain older; this notice does not set a macOS SDK minimum.
 - **Since January 31, 2026:** complete the updated age-rating questionnaire for each app to avoid interruptions when submitting updates. Automatic conversion to new ratings did not remove the questionnaire requirement.
-- The checked [Upcoming Requirements](https://developer.apple.com/news/upcoming-requirements/) page announces no OS27 SDK deadline. Beta listings do not establish general-availability dates or production upload acceptance.
+- The checked [Upcoming Requirements](https://developer.apple.com/news/upcoming-requirements/) page announces no OS27 SDK deadline. Release listings do not establish production upload acceptance.
 - **AI and privacy:** [5.1.2(i)](https://developer.apple.com/app-store/review/guidelines/#data-use-and-sharing) requires clear disclosure and explicit permission before third-party personal-data sharing, including third-party AI.
 - **Content scope:** general UGC moderation is governed by 1.2; the exceed-rating identification and age restriction rule in **1.2.1(a) applies to creator apps**. Software offered under **4.7** has additional host, permission, index, and age requirements.
 
@@ -28,14 +28,14 @@ Use [App Store readiness](../guides/app-store-readiness.md) for permission refus
 Apple customers adopt new software rapidly, so you can keep innovating. Integrate the latest Apple technologies in your apps to deliver incredible experiences on Apple platforms as soon as they're released.
 
 **Early Access Includes:**
-- iOS 27 and iPadOS 27 beta releases and developer previews
-- macOS Golden Gate 27 beta software
-- watchOS 27, tvOS 27, and visionOS 27 beta releases
-- Xcode 27 pre-release toolchains
+- iOS and iPadOS beta releases and developer previews
+- macOS beta software
+- watchOS, tvOS, and visionOS beta releases
+- Xcode pre-release toolchains
 
 An Apple developer account provides access to developer beta software without paid Program enrollment. Distribution, managed capabilities, and particular testing services have separate membership or approval requirements; check the account's available downloads.
 
-> **Toolchain planning:** Xcode 27 beta 6 was released August 24 and needs **an Apple silicon Mac running macOS Tahoe 26.4 or later**, not macOS 27. Intel Macs cannot host it; support for running Intel apps through Rosetta on Apple silicon is a separate question. See the [Xcode notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes).
+> **Toolchain planning:** Xcode 27 (`27A266a`) shipped September 14, 2026, and needs **an Apple silicon Mac running macOS Tahoe 26.6 or later**, not macOS 27. Intel Macs cannot host it; support for running Intel apps through Rosetta on Apple silicon is a separate question. See the [Xcode notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes).
 
 ### Access Comprehensive Services and Capabilities
 

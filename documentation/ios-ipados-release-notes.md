@@ -6,7 +6,7 @@ Learn about changes to the iOS & iPadOS SDK.
 
 ## Overview
 
-> **Checked September 8, 2026:** iOS/iPadOS **26.6.2** (`23G90`, September 8) is shipping; **27 beta 8** (`24A5430a`) was released August 31. [Release listings](https://developer.apple.com/news/releases/) do not establish a general-availability date or a complete OS27 device list.
+> **Checked September 8, 2026:** iOS **26.6.2** (`23G90`, September 8) and iPadOS **26.7** (`23H24`, September 9) are the last 26-generation releases; iOS/iPadOS **27.0** (`24A437`) shipped September 14.
 
 Release notes provide details on API changes, known issues, fixes, workarounds, and deprecations for recent software releases.
 
@@ -16,23 +16,23 @@ Release notes provide details on API changes, known issues, fixes, workarounds, 
 - The 27 SDK requires a launch-screen declaration. Review new external-display scene registration, presentation trait propagation, and menu behavior.
 - Migrate ODR/`NSBundleResourceRequest` to Background Assets; test localized packs and unavailable/offline assets.
 - Audit [stricter TLS for selected system processes](https://support.apple.com/en-us/126655), including management, enrollment, installation, and updates. This is not a universal change to every app socket.
-- Re-test beta 8's resolved issues rather than documenting them as permanent restrictions. See the [iOS](../os27-intro/iOS.md) and [iPadOS](../os27-intro/iPadOS.md) introductions for selected API migrations and current known-issue scope.
+- Re-test resolved issues in the 27.0 notes rather than documenting them as permanent restrictions. See the [iOS](../os27-intro/iOS.md) and [iPadOS](../os27-intro/iPadOS.md) introductions for selected API migrations and current known-issue scope.
 
-The [27 beta 8 notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes) are the feature source. [Xcode 27 beta 6](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) requires **Apple silicon and macOS Tahoe 26.4 or later**, not macOS 27. Keep host, linked SDK, deployment target, and [submission policy](../guides/app-store-readiness.md) separate.
+The [iOS/iPadOS 27 notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes) are the feature source. [Xcode 27](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) (`27A266a`, September 14) requires **Apple silicon and macOS Tahoe 26.6 or later**, not macOS 27. Keep host, linked SDK, deployment target, and [submission policy](../guides/app-store-readiness.md) separate.
 
 ### Bug Reporting
 
 For issues not mentioned in release notes, send feedback through Feedback Assistant.
 
-Include the OS version and build, for example **iOS 27 beta 8 (`24A5430a`)**, as well as the Xcode/SDK build and reproduction steps. Find the device build under Settings > General > About and submit through [Feedback Assistant](https://feedbackassistant.apple.com/).
+Include the OS version and build, for example **iOS 27.0 (`24A437`)**, as well as the Xcode/SDK build and reproduction steps. Find the device build under Settings > General > About and submit through [Feedback Assistant](https://feedbackassistant.apple.com/).
 
 ## Topics
 
 ### iOS & iPadOS 27
-- [iOS & iPadOS 27 Beta 8 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes) - Pre-release API changes, resolved/known issues, and migrations; checked September 8, 2026.
+- [iOS & iPadOS 27 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes) - API changes, resolved/known issues, and migrations.
 
 ### iOS & iPadOS 26
-- [iOS & iPadOS 26.6.2 security/release listing](https://support.apple.com/en-us/100100) - Shipping maintenance release, September 8, 2026; not a separate SDK feature page.
+- [iOS 26.6.2 and iPadOS 26.7 security/release listings](https://developer.apple.com/news/releases/) - Final 26-generation maintenance releases, September 8 and 9, 2026; not separate SDK feature pages.
 - [iOS & iPadOS 26.6 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-26_6-release-notes) - SDK notes for the 26.6 line.
 - [iOS & iPadOS 26.5 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-26_5-release-notes) - Earlier OS26 SDK changes and fixes.
 - [iOS & iPadOS 26.4 Release Notes](https://developer.apple.com/documentation/iOS-iPadOS-Release-Notes/ios-ipados-26_4-release-notes) - Update your apps to use new features, and test your apps against API changes.

@@ -23,7 +23,7 @@ The [June 2026 SwiftData update](https://developer.apple.com/documentation/updat
 - [`ResultsObserver`](https://developer.apple.com/documentation/swiftdata/resultsobserver) maintains fetched results and optional sections as local, other-context, or external changes arrive.
 - [`HistoryObserver`](https://developer.apple.com/documentation/swiftdata/historyobserver) tracks relevant remote history changes with tokens and an observable `eventCounter`. This signals work to process; it does not replace the app's conflict-resolution or sync design.
 
-The [iOS/iPadOS](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes) and [macOS](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes) 27 beta 8 notes mark the `@Query` deadlock involving a background `ModelContext` save and newly scheduled `ModelActor` tasks as **resolved** (178113288). Keep a regression test, but do not present it as a permanent restriction against background saves.
+The [iOS/iPadOS](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes) and [macOS](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes) 27 release notes mark the `@Query` deadlock involving a background `ModelContext` save and newly scheduled `ModelActor` tasks as **resolved** (178113288). Keep a regression test, but do not present it as a permanent restriction against background saves.
 
 ## Concurrency and migration
 

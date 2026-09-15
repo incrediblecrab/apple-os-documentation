@@ -4,7 +4,7 @@ Maintain spatial apps with SwiftUI windows and volumes, RealityKit content, and 
 
 **Platform:** visionOS 26.0+
 
-> **Status checked September 8, 2026:** the shipping release is **visionOS 26.6.1** (`23O780`), released August 17. visionOS 27 beta 8 was released August 31; see the [visionOS 27 introduction](../os27-intro/visionOS.md). Release listings do not establish a public-beta program or general-availability date.
+> **Status checked September 14, 2026:** the shipping release is **visionOS 26.6.1** (`23O780`), released August 17. visionOS 27.0 (`24M362`) shipped September 14; see the [visionOS 27 introduction](../os27-intro/visionOS.md). Release listings do not establish a public-beta program.
 
 ## Overview
 
@@ -95,8 +95,8 @@ These are selected adoption areas from the [visionOS 26 notes](https://developer
 
 - UIKit-based apps built with the latest SDK must adopt [scenes](https://developer.apple.com/documentation/uikit/transitioning-to-the-uikit-scene-based-life-cycle) or fail to launch on visionOS 27.
 - Audit ODR-to-Background-Assets migration, asynchronous SwiftUI document handling, and managed-service TLS using the [visionOS 27 checklist](../os27-intro/visionOS.md).
-- Re-test spatial and streaming fixes against beta 8 rather than carrying resolved issues forward as permanent limitations. The exact OS27 hardware list is not verified here.
-- Xcode 27 beta 6 needs **Apple silicon and macOS Tahoe 26.4 or later**, not macOS 27. Keep native and compatible-app tests, and check [submission requirements](../guides/app-store-readiness.md) separately.
+- Re-test spatial and streaming fixes against visionOS 27.0 rather than carrying resolved issues forward as permanent limitations. The exact OS27 hardware list is not verified here.
+- Xcode 27 (`27A266a`) needs **Apple silicon and macOS Tahoe 26.6 or later**, not macOS 27. Keep native and compatible-app tests, and check [submission requirements](../guides/app-store-readiness.md) separately.
 
 ## Getting Started
 

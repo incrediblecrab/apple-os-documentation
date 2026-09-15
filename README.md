@@ -1,8 +1,8 @@
 # Apple platform documentation
 
 Unofficial, community-maintained Apple platform references, design guidance, and migration
-playbooks in plain Markdown. This collection preserves OS 26 guidance while preparing
-for the OS 27 beta generation. It is not an Apple product or a complete mirror of every API.
+playbooks in plain Markdown. This collection preserves OS 26 guidance while covering
+the current OS 27 generation. It is not an Apple product or a complete mirror of every API.
 
 ## Start here
 
@@ -21,26 +21,26 @@ for the OS 27 beta generation. It is not an Apple product or a complete mirror o
 
 <!-- BEGIN GENERATED BASELINE -->
 
-**Research cutoff: September 8, 2026.** This is a dated snapshot, not a live latest-version service.
+**Research cutoff: September 14, 2026.** This is a dated snapshot, not a live latest-version service.
 
 | Product | Version | Status | Release date |
 |---|---|---|---|
-| iOS | 26.6.2 (`23G90`) | shipping | [September 8, 2026](https://developer.apple.com/news/releases/) |
-| iPadOS | 26.6.2 (`23G90`) | shipping | [September 8, 2026](https://developer.apple.com/news/releases/) |
+| iOS | 27.0 (`24A437`) | shipping | [September 14, 2026](https://developer.apple.com/news/releases/) |
+| iPadOS | 27.0 (`24A437`) | shipping | [September 14, 2026](https://developer.apple.com/news/releases/) |
+| macOS Golden Gate | 27.0 (`26A428`) | shipping | [September 14, 2026](https://developer.apple.com/news/releases/) |
+| tvOS | 27.0 (`24J361`) | shipping | [September 14, 2026](https://developer.apple.com/news/releases/) |
+| watchOS | 27.0 (`24R364`) | shipping | [September 14, 2026](https://developer.apple.com/news/releases/) |
+| visionOS | 27.0 (`24M362`) | shipping | [September 14, 2026](https://developer.apple.com/news/releases/) |
+| Xcode | 27 (`27A266a`) | shipping | [September 14, 2026](https://developer.apple.com/news/releases/) |
+| Safari | 27.0 (`20625.1.29`) | shipping | [September 14, 2026](https://developer.apple.com/documentation/safari-release-notes/safari-27-release-notes) |
+| iOS 26 | 26.6.2 (`23G90`) | shipping | [September 8, 2026](https://developer.apple.com/news/releases/) |
+| iPadOS 26 | 26.7 (`23H24`) | shipping | [September 9, 2026](https://developer.apple.com/news/releases/) |
 | macOS Tahoe | 26.6.2 (`25G83`) | shipping | [August 17, 2026](https://developer.apple.com/news/releases/) |
-| tvOS | 26.6 (`23L773`) | shipping | [July 27, 2026](https://developer.apple.com/news/releases/) |
-| watchOS | 26.6 (`23U67`) | shipping | [July 27, 2026](https://developer.apple.com/news/releases/) |
-| visionOS | 26.6.1 (`23O780`) | shipping | [August 17, 2026](https://developer.apple.com/news/releases/) |
-| Xcode | 26.6 (`17F113`) | shipping | [June 25, 2026](https://developer.apple.com/news/releases/) |
-| iOS | 27 beta 8 (`24A5430a`) | beta | [August 31, 2026](https://developer.apple.com/news/releases/) |
-| iPadOS | 27 beta 8 (`24A5430a`) | beta | [August 31, 2026](https://developer.apple.com/news/releases/) |
-| macOS Golden Gate | 27 beta 8 (`26A5425a`) | beta | [August 31, 2026](https://developer.apple.com/news/releases/) |
-| tvOS | 27 beta 8 (`24J5360a`) | beta | [August 31, 2026](https://developer.apple.com/news/releases/) |
-| watchOS | 27 beta 8 (`24R5360a`) | beta | [August 31, 2026](https://developer.apple.com/news/releases/) |
-| visionOS | 27 beta 8 (`24M5361a`) | beta | [August 31, 2026](https://developer.apple.com/news/releases/) |
-| Xcode | 27 beta 6 (`27A5252f`) | beta | [August 24, 2026](https://developer.apple.com/news/releases/) |
+| tvOS 26 | 26.6 (`23L773`) | shipping | [July 27, 2026](https://developer.apple.com/news/releases/) |
+| watchOS 26 | 26.6 (`23U67`) | shipping | [July 27, 2026](https://developer.apple.com/news/releases/) |
+| visionOS 26 | 26.6.1 (`23O780`) | shipping | [August 17, 2026](https://developer.apple.com/news/releases/) |
+| Xcode 26 | 26.6 (`17F113`) | shipping | [June 25, 2026](https://developer.apple.com/news/releases/) |
 | Safari (Sonoma and Sequoia security update) | 26.6.1 | shipping | [August 18, 2026](https://support.apple.com/en-us/100100) |
-| Safari | 27 beta (`20625.1.24`) | beta | [July 20, 2026](https://developer.apple.com/documentation/safari-release-notes/safari-27-release-notes) |
 
 **Catalog scope:** 405/405 technology entries and 157/157 indexed HIG articles have an explicit local disposition.
 The repository has 406 reference pages (including aliases), 158 HIG articles (including retained legacy material), and 254 cataloged Figma-directory images. Generated indexes are excluded from page counts.
@@ -54,9 +54,9 @@ OS, standalone Safari, Xcode, SDK, compiler, and deployment versions are separat
 
 ## Important adoption corrections
 
-- **Xcode 27 beta 6 requires Apple silicon and macOS Tahoe 26.4 or later**, not
+- **Xcode 27 (`27A266a`) requires an Apple silicon Mac running macOS Tahoe 26.6 or later**, not
   macOS 27. It includes Swift 6.4. The release notes explicitly restrict IDE hosts
-  to Apple silicon while preserving universal-app back-deployment; those are
+  to Apple silicon while preserving universal-app back-deployment to macOS 12 and later; those are
   separate constraints. See [Xcode](documentation/Xcode.md) and its
   [official release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes).
 - **Check UIKit scene-lifecycle adoption before rebuilding.** The current SDK has

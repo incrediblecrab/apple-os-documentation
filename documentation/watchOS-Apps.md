@@ -12,13 +12,13 @@ For watchOS, expect to spend more time planning, designing, and refining your ap
 
 ### OS26 and OS27 planning
 
-**Checked September 8, 2026:** watchOS **26.6** (`23U67`, July 27) is shipping; watchOS 27 **beta 8** (`24R5360a`) was released August 31. [Release listings](https://developer.apple.com/news/releases/) do not establish a general-availability date or complete Watch/iPhone pairing requirements.
+**Checked September 8, 2026:** watchOS **26.6** (`23U67`, July 27) was the shipping 26-generation release. **Update September 14, 2026:** watchOS **27.0** (`24R364`) is shipping. [Release listings](https://developer.apple.com/news/releases/) do not establish complete Watch/iPhone pairing requirements.
 
 - Preserve the older-platform guidance below and the [OS26 introduction](../os26-intro/watchOS.md) when maintaining older deployment targets.
 - The [watchOS 27 notes](https://developer.apple.com/documentation/watchos-release-notes/watchos-27-release-notes) add HealthKit heart-rate/cycling-power zones and deprecate `WKExtension`/`WKExtensionDelegate` for apps whose **minimum deployment target is watchOS 9.2 or later**. This is not the UIKit scene migration required on other platforms.
 - Re-test SwiftUI `@State` initializers and `AsyncImage` caching with Xcode 27. Keep complications and workouts useful when the phone or network is unavailable.
-- Treat beta 8's fixed complication, connectivity, and workout issues as regression tests—not permanent restrictions. Check authorization and unavailable health samples separately.
-- **Xcode 27 beta 6** requires **Apple silicon and macOS Tahoe 26.4 or later**, not macOS 27. Rosetta support for Intel apps does not allow Intel Macs to host Xcode 27. See the [Xcode notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes).
+- Treat fixed complication, connectivity, and workout issues as regression tests—not permanent restrictions. Check authorization and unavailable health samples separately.
+- **Xcode 27** requires **Apple silicon and macOS Tahoe 26.6 or later**, not macOS 27. The macOS 27 SDK supports back deploying Universal apps to macOS 12 and later, and Intel development remains possible with Rosetta-supporting macOS such as macOS 27. See the [Xcode notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes).
 
 The exact watchOS 27 model and companion-device list is not verified here. See the [OS27 introduction](../os27-intro/watchOS.md) for migration checks and [App Store readiness](../guides/app-store-readiness.md) for submission policy.
 

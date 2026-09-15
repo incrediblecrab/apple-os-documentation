@@ -12,7 +12,7 @@ The legacy manager documents daily performance metrics on macOS 26 and later, wh
 
 The framework supports diagnostics on visionOS, including compatible iPhone and iPad apps, but **does not deliver performance metric reports there**. This remains true for the new Swift API.
 
-### 27 beta: Swift report delivery
+### OS 27: Swift report delivery
 
 **Reviewed September 8, 2026:** Adopt [`MetricManager`](https://developer.apple.com/documentation/metrickit/metricmanager) for new integrations on iOS/iPadOS 27.0+, Mac Catalyst 27.0+, macOS 27.0+, and visionOS 27.0+ where the requested report type is supported.
 
@@ -28,7 +28,7 @@ The state-domain initializer is documented for iOS/iPadOS, Mac Catalyst, and mac
 
 New 27-generation diagnostics and metrics include `MemoryExceptionDiagnostic`, `MetalFrameRateMetric`, and `CrashDiagnostic.terminationCategory`. `MemoryExceptionDiagnostic` is specifically declared for iOS/iPadOS 27, not native macOS, Mac Catalyst, or visionOS. Treat optional or unavailable measurements as missing data rather than zero. Handle future metric and diagnostic cases when switching over results.
 
-The beta release notes also replace `ScrollHitchTimeMetric` and `MetricResult.scrollHitchTime(_:)` with `HitchTimeMetric` and `.hitchTime(_:)`. `HitchTimeRatio` expresses milliseconds of hitching per second of tracked duration. Recompile code using changed beta symbols to avoid missing-symbol or type-change failures.
+The 27 release notes also replace `ScrollHitchTimeMetric` and `MetricResult.scrollHitchTime(_:)` with `HitchTimeMetric` and `.hitchTime(_:)`. `HitchTimeRatio` expresses milliseconds of hitching per second of tracked duration. Recompile code using changed 27-generation symbols to avoid missing-symbol or type-change failures.
 
 [CrashReportExtension](CrashReportExtension.md) is a separate out-of-process crash-inspection facility, not the report subscription API. Its platform exclusions differ from MetricKit's.
 

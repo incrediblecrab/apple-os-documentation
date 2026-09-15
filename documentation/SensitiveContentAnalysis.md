@@ -20,7 +20,7 @@ If the policy is `.disabled`, the app cannot use the framework to detect sensiti
 
 Apple's integration guide explicitly says not to transmit information off-device about whether the framework identified media as sensitive. Keep detection outcomes local rather than turning the API into behavioral reporting. Handle processing delays and failures without prematurely revealing content the app is still checking.
 
-### 27 beta: content categories
+### OS 27: content categories
 
 **Reviewed September 8, 2026:** [`SCSensitivityAnalysis.detectedTypes`](https://developer.apple.com/documentation/sensitivecontentanalysis/scsensitivityanalysis/detectedtypes) is new in iOS/iPadOS 27.0, Mac Catalyst 27.0, macOS 27.0, and visionOS 27.0. Its `ContentType` values distinguish `.sexuallyExplicit` from `.goreOrViolence`.
 

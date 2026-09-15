@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "as_of": "2026-09-08",
+  "as_of": "2026-09-14",
   "recorded_at": "2026-09-09T09:19:15.528688+00:00",
   "complete": true,
   "method": "AI-assisted, full-body primary-source review in disjoint page worklists, followed by editorial reconciliation of every reported outcome, exact body and capture hashes, heading and code-fence accounting, consequential primary-source spot checks, and bounded independently reproduced example checks. This record is a projection of completed reviews, not an automated factual certification.",
   "limitations": [
-    "Research cutoff is September 8, 2026 in the editorial locale. Actual retrieval and consolidation timestamps may fall on September 9 or later UTC; they do not redate source publication or the page's research cutoff.",
+    "Research cutoff is September 14, 2026 in the editorial locale for the OS 27 general-availability pages reviewed in this pass; all other pages retain their September 8, 2026 cutoff and state it in their own record. Actual retrieval and consolidation timestamps may fall later in UTC; they do not redate source publication or a page's research cutoff.",
     "Some later mutable-source confirmations lack identical pre-cutoff captures and cannot establish exact cutoff bytes. These entries are explicitly marked; the editorial release baseline is not silently advanced.",
     "Reviews are AI-assisted, not human approval or a guarantee against factual error. Mutable primary sources may later differ. Raw source hashes bind the inspected captures; raw third-party source bodies and private execution artifacts are not redistributed. Explicitly rejected destinations and documentation shells are negative or routing evidence, not factual support for API claims.",
     "Exact Apple documentation contradictions are retained where meaningful; framework landing metadata does not override concrete symbol availability, runtime hardware, entitlement, region or service restrictions.",
@@ -172,10 +172,10 @@
     },
     {
       "path": "README.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "4c56988a88b5cd3bb3e1e9878c6ad9808845c725922bb071df86f385297718ed",
+      "content_sha256": "0adf785d209bb0da9e5f9e0fe12be1de7cf4c5874446b638909b0a8c15e86c88",
       "headings_reviewed": [
         "Apple platform documentation",
         "Start here",
@@ -389,22 +389,22 @@
         },
         {
           "path": "metadata/catalog.json",
-          "sha256": "0e78003d267001ff4e8702784e2f1994fea8c52b9f3e164e8a5d2d1d96bbee35",
+          "sha256": "3c9e6da0e01919b5dfe54bac47949e4d62fcf092a05d8e036ba6dac68f5a304a",
           "locator": "Coverage dispositions, document kinds and preserved review scopes."
         },
         {
           "path": "metadata/releases.json",
-          "sha256": "d9966d0418cc33199524cfe97ddf1b7b2e05f5065dbd047d8ce5ed132e9a5f2f",
+          "sha256": "7c06ab174eca0f4d644c8789da30b34b3269fc1b28367f7ffc2142c8db2bbd25",
           "locator": "All sixteen independently versioned release rows, builds, dates and source routes."
         },
         {
           "path": "metadata/claims.json",
-          "sha256": "c30bbfdb488a80b2afd8264d1974d1ded7a90a48786fdd076176489ad4ab4eeb",
+          "sha256": "2abb465383c94d6f4d69ffd27034adddb158ba4694f5427157e37f203c17b0a9",
           "locator": "Supported and unresolved high-impact claims."
         },
         {
           "path": "metadata/assets.json",
-          "sha256": "cec5705c4eb4da1f3f871d374a960fd24007ee19a9fceeba15d84209eed3acb8",
+          "sha256": "6d7324c1c877eb96044faa0515462bf61b7dd81db252e3d361d2e46e424838f8",
           "locator": "254 Figma-directory images and explicit rights states."
         },
         {
@@ -421,10 +421,10 @@
     },
     {
       "path": "bot-instructions.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "394a01a81d7cd073b7dd3f96d5b319384959d39eb4a477124a514e361ca94341",
+      "content_sha256": "01ae7afec1aebc26537871fd25086b9d2402bf4dcbb460566ffd46bd056aaabb",
       "headings_reviewed": [
         "Using this collection as AI context",
         "Select the relevant context",
@@ -621,8 +621,15 @@
         },
         {
           "path": "metadata/claims.json",
-          "sha256": "c30bbfdb488a80b2afd8264d1974d1ded7a90a48786fdd076176489ad4ab4eeb",
+          "sha256": "2abb465383c94d6f4d69ffd27034adddb158ba4694f5427157e37f203c17b0a9",
           "locator": "Dated corrections and explicitly unresolved assertions."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ]
     },
@@ -4463,10 +4470,10 @@
     },
     {
       "path": "documentation/AVSystemRouting.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "93cadb4dc8e32005355e610d1e85c6159fb8d71182c9755f4021000c97544a45",
+      "content_sha256": "d3b013aa552c0ab84ccb804c5117db2edcf41c579244b5b7b15ff39205a23c99",
       "headings_reviewed": [
         "AVSystemRouting",
         "Overview",
@@ -4994,6 +5001,13 @@
           "response_url": "https://developer.apple.com/tutorials/data/documentation/nowplaying/remotemediasessionrepresentable.json",
           "sha256": "cabcc26cc7d16f4c2c6050f6dd15defad29c29a241cefc54449ea531009ccaff",
           "locator": "Overview/discussion, declaration and platform metadata, or cited guide sections"
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ]
     },
@@ -7267,15 +7281,15 @@
     },
     {
       "path": "documentation/AccessoryAccess.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "1aa83984c0be0fd2330f7fcf6278a7efd3f06dbf3eab8d47eaec63b9b2808986",
+      "content_sha256": "eaa7ddc601cd8c9268f5e95af671ef3a3f699a3382ace883b3db9f394c76abda",
       "headings_reviewed": [
         "Accessory Access",
         "Overview",
         "Configuration and lifecycle",
-        "Failure handling and beta notes",
+        "Failure handling and release notes",
         "Topics",
         "Sources"
       ],
@@ -7323,7 +7337,7 @@
           "assessment": "Read full manager/accessory/listener references: shared access, Dock UI, internal serial callbacks, registered-listener lifetime and exclusive-open semantics. Verified Boolean entitlement and exact missing-entitlement error."
         },
         {
-          "heading": "Failure handling and beta notes",
+          "heading": "Failure handling and release notes",
           "line": 23,
           "source_urls": [
             "https://developer.apple.com/documentation/accessoryaccess",
@@ -7443,6 +7457,13 @@
           "source_published_on": null,
           "url": "https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes",
           "locator": "Complete Accessory Access resolved-issues section176815987/177390971."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ]
     },
@@ -13335,10 +13356,10 @@
     },
     {
       "path": "documentation/AppKit.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "verified-qualified",
-      "content_sha256": "3b53e91717b63b6f7b54c9e16fae172e889b8b4c3b5baccd130f14b3e3d0e823",
+      "content_sha256": "78c7a45881cfb70c294535360f18779b881fb6e6dab9ba1b3a39165e3f924310",
       "headings_reviewed": [
         "AppKit",
         "Overview",
@@ -14064,6 +14085,13 @@
           "source_published_on": null,
           "content_type": "application/json",
           "locator": "Intentional menu icon use rather than universal hiding"
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ]
     },
@@ -21610,10 +21638,10 @@
     },
     {
       "path": "documentation/AudioAccessoryKit.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "verified",
-      "content_sha256": "24fcc98bfdc70159a6d04b9550db15b5ae224b2c058644bcfe05a425e49e796e",
+      "content_sha256": "09aff85d6a7349fa885c04802e2506a666e63d7363605beddf6a946505a61fbf",
       "headings_reviewed": [
         "AudioAccessoryKit",
         "Overview",
@@ -21800,6 +21828,13 @@
           "source_published_on": null,
           "url": "https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes",
           "locator": "Complete AudioAccessoryKit section, fixed-spatial-audio issue178275661."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ]
     },
@@ -23850,10 +23885,10 @@
     },
     {
       "path": "documentation/AutomatedDeviceEnrollment.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "d384b68e5597df136d41ad139e0bc71bd547c7dc19ccc278d7fb3b4355bce62d",
+      "content_sha256": "68dcca059ea24b4b0f937b667016522d4b86552525fc59b457dcca97ebea5e2d",
       "headings_reviewed": [
         "Automated Device Enrollment",
         "Overview",
@@ -23954,6 +23989,13 @@
           "source_published_on": "2026-06-09",
           "retrieved_at": "2026-09-09T02:45:34.921365+00:00",
           "locator": "Entire article previously read; affected ADE/system workflows,26.4 diagnostic logging, TLS1.2-or-later, SCEP/caching exceptions, Configurator profile before Device Management pane."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ],
       "reviewed_at": "2026-09-09T05:45:55.700775+00:00"
@@ -24510,15 +24552,15 @@
     },
     {
       "path": "documentation/BackgroundAssets.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "460f352ba0da061b36f07807ba31b07983f8d0595879a573ce0a5dd5064805cb",
+      "content_sha256": "1e350545c44da3a68302af6e8f1d45146fb57f10e1ef960c6fe1a5395b2007a2",
       "headings_reviewed": [
         "Background Assets",
         "Overview",
         "visionOS availability",
-        "27 beta: ODR migration and localized asset packs",
+        "OS 27: ODR migration and localized asset packs",
         "Scheduling and storage constraints",
         "Topics",
         "Essentials",
@@ -24556,7 +24598,7 @@
           "assessment": "Checked compatible apps1.0 versus native2.4, StoreKit26 protocol inheritance, exact plist types, first-reference opt-in, unmanaged distinction and asset-only/privacy warning."
         },
         {
-          "heading": "27 beta: ODR migration and localized asset packs",
+          "heading": "OS 27: ODR migration and localized asset packs",
           "source_urls": [
             "https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes.md",
             "https://developer.apple.com/tutorials/data/documentation/foundation/nsbundleresourcerequest.json",
@@ -24885,6 +24927,20 @@
           "source_published_on": null,
           "retrieved_at": "2026-09-09T02:45:32.934580+00:00",
           "locator": "Complete Background Assets subsection: localized asset packs and language APIs."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
+        },
+        {
+          "url": "https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes",
+          "retrieval_url": "https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md",
+          "sha256": "0fa8f59962785e39afcd622cd1778cee4374ff97012e6ebe3da623c2da362202",
+          "locator": "Overview: Xcode 27 requires macOS Tahoe 26.6 or later and includes Swift 6.4. Intel Deprecation: Xcode 27 installs and runs only on Apple silicon Macs; macOS 27 SDK back deploys Universal apps to macOS 12 and later.",
+          "source_published_on": null
         }
       ],
       "reviewed_at": "2026-09-09T05:45:55.699779+00:00",
@@ -24907,15 +24963,15 @@
     },
     {
       "path": "documentation/BackgroundTasks.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "verified-qualified",
-      "content_sha256": "bf7a70fb3a92b589240aee60c4f31bd9401418f109cbd05988abdf38018ac731",
+      "content_sha256": "2ec53ad576330dcab7bd0c719842d9b760f8973159f005d91e0a88ec2f53e336",
       "headings_reviewed": [
         "Background Tasks",
         "Overview",
         "Continued processing is distinct from scheduled work",
-        "27 beta: background inference entitlement",
+        "OS 27: background inference entitlement",
         "Topics",
         "Essentials",
         "Background Tasks",
@@ -24961,7 +25017,7 @@
           ]
         },
         {
-          "heading": "27 beta: background inference entitlement",
+          "heading": "OS 27: background inference entitlement",
           "source_urls": [
             "https://developer.apple.com/tutorials/data/documentation/bundleresources/entitlements/com.apple.developer.background-tasks.continued-processing.inference.json",
             "https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes.md"
@@ -25154,6 +25210,13 @@
           "source_published_on": null,
           "retrieved_at": "2026-09-09T02:45:24.695551+00:00",
           "locator": "Relevant full discussion/metadata checked in the section assessment."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ],
       "reviewed_at": "2026-09-09T05:45:55.700164+00:00",
@@ -29945,15 +30008,15 @@
     },
     {
       "path": "documentation/CarPlay.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "258b96c93515e222d81335ce41c460661c9a25cc719048b6a071bea0d9c32d51",
+      "content_sha256": "9e7ce92493b6ec9925e941115a99c41608db6f1b4aed87ab4ca825409efd1bf5",
       "headings_reviewed": [
         "CarPlay",
         "Overview",
         "Related Sessions from WWDC20",
-        "iOS 27 beta integration checks",
+        "iOS 27 integration checks",
         "Topics",
         "CarPlay Integration",
         "General Purpose Templates",
@@ -30066,7 +30129,7 @@
           "assessment": "Navigation/reference entry checked against primary root session10635 relationship; no unsupported session-content claims."
         },
         {
-          "heading": "iOS 27 beta integration checks",
+          "heading": "iOS 27 integration checks",
           "line": 23,
           "source_urls": [
             "https://developer.apple.com/documentation/carplay",
@@ -30826,6 +30889,13 @@
             "representation": "pdf-extracted-text",
             "sha256": "8b00092f0f7b6e85c5b0e7d76b99a71256859b225b1362a9d450fbc5bf4a35c0"
           }
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ],
       "reviewed_at": "2026-09-09T05:37:48.915841+00:00"
@@ -34995,10 +35065,10 @@
     },
     {
       "path": "documentation/CloudKit.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "b2de9fd3f0394161dc4789e4033085f5fed0559a67d07db62dfa46dae215825f",
+      "content_sha256": "f4ec284ce7d866eb303d18c310f3197c90fbe52f2d94f8a4cc41264a36c4664d",
       "headings_reviewed": [
         "CloudKit",
         "Overview",
@@ -35418,6 +35488,13 @@
           "source_published_on": null,
           "content_type": "text/markdown; charset=utf-8",
           "locator": "Actual Beta8 title; resolved administrator self-demotion issue177621316"
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ]
     },
@@ -38790,10 +38867,10 @@
     },
     {
       "path": "documentation/Containerization.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "458c671e31152480780264ec515a1b988cb697106d9015e7266a6d6f56fe496c",
+      "content_sha256": "d0ff0f61ae92f97f3d83a3b449337c9e5b1db4bd5195b97ba88b93139fa35b39",
       "headings_reviewed": [
         "Containerization",
         "Overview",
@@ -39064,6 +39141,20 @@
           "source_published_on": null,
           "url": "https://developer.apple.com/tutorials/data/documentation/hypervisor.json",
           "locator": "FulllowlevelVMroot."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
+        },
+        {
+          "url": "https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes",
+          "retrieval_url": "https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md",
+          "sha256": "0fa8f59962785e39afcd622cd1778cee4374ff97012e6ebe3da623c2da362202",
+          "locator": "Overview: Xcode 27 requires macOS Tahoe 26.6 or later and includes Swift 6.4. Intel Deprecation: Xcode 27 installs and runs only on Apple silicon Macs; macOS 27 SDK back deploys Universal apps to macOS 12 and later.",
+          "source_published_on": null
         }
       ],
       "reviewed_at": "2026-09-09T07:00:58.932878+00:00",
@@ -39083,10 +39174,10 @@
     },
     {
       "path": "documentation/CoreAI.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "51e00528fb153834d9425c99e0c91794aa83725333c241d55c436704e28bdc17",
+      "content_sha256": "b7ec872a28c4727802a7b3de940151c08b1503da15d5857c9b2e46b33050e0c8",
       "headings_reviewed": [
         "Core AI",
         "Overview",
@@ -39095,7 +39186,7 @@
         "Arrays and images",
         "Specialization and caching",
         "Preparation and debugging tools",
-        "Validation and beta limitations"
+        "Validation and release-note limitations"
       ],
       "sections_reviewed": [
         {
@@ -39274,7 +39365,7 @@
           "assessment": "Root explicitly identifies Optimization, PyTorch Extensions, Models/Swift helpers, standalone Debugger, Xcode model viewer/gauge and Instruments. Full debugging article distinguishes their roles. AssetError is specifically model-asset errors."
         },
         {
-          "heading": "Validation and beta limitations",
+          "heading": "Validation and release-note limitations",
           "source_urls": [
             "https://developer.apple.com/documentation/coreai",
             "https://developer.apple.com/documentation/coreai",
@@ -39469,6 +39560,13 @@
           "sha256": "01c133567e93855f49a6f3966f8b906606ced0487efc49f721abf6b7fb0f99f2",
           "source_published_on": null,
           "locator": "Overview (beta 6 SDK/compiler/host); Intel Deprecation (162138432/161837535); relevant review issue IDs: 172502576"
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ]
     },
@@ -51543,14 +51641,14 @@
     },
     {
       "path": "documentation/DeviceManagement.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "7db2d349a78e3379fb3dcd1ea3c40d0a551231ea7e05cd73be58cb1a4e5d5c44",
+      "content_sha256": "f171fc30028094d209a4bd03f50b99b781292561438a8eea15eec394dee4939a",
       "headings_reviewed": [
         "Device Management",
         "Overview",
-        "27 beta: audit management-server TLS",
+        "OS 27: audit management-server TLS",
         "Topics",
         "Configuration Profiles",
         "MDM Protocol",
@@ -51579,7 +51677,7 @@
           "assessment": "Reviewed complete root, commands/enrollment/DDM sources; corrected unrestricted post-enrollment capabilities using actual Erase Device eligibility table, APNs command lifecycle, DDM coexistence and managed app/configuration roles."
         },
         {
-          "heading": "27 beta: audit management-server TLS",
+          "heading": "OS 27: audit management-server TLS",
           "source_urls": [
             "https://support.apple.com/en-us/126655",
             "https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes.md"
@@ -51870,6 +51968,13 @@
           "source_published_on": null,
           "retrieved_at": "2026-09-09T05:33:54.382785+00:00",
           "locator": "Relevant full content, canonical relationships and metadata: complete enrollment/DDM guides read, erase eligibility table, REST resource identity and exact403 error discussions; no command/profile executed."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ],
       "reviewed_at": "2026-09-09T05:45:55.701051+00:00"
@@ -53003,10 +53108,10 @@
     },
     {
       "path": "documentation/DriverKit.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "0f8adc02ec3c0f0d9c9e9998f475b04ea5b3589c9d96adcff715bf84159d02e4",
+      "content_sha256": "cd87955c656d56acbe2c7ee6d1bd60ec406f7d47d1104a85953cb066172e5c2a",
       "headings_reviewed": [
         "DriverKit",
         "Overview",
@@ -53815,6 +53920,13 @@
           "sha256": "0e93771201f08ef000be6c1fbf4584e89d70f20756468b42ad04117d15efd6b8",
           "url": "https://developer.apple.com/tutorials/data/documentation/bundleresources/entitlements/com.apple.developer.driverkit.allow-third-party-userclients.json",
           "locator": "Full relevant primary discussion and declaration/metadata; guides and linked sample article read completely, including code."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ],
       "reviewed_at": "2026-09-09T08:06:19.632133+00:00",
@@ -54238,10 +54350,10 @@
     },
     {
       "path": "documentation/EnergyKit.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "3a719bc7c67fe3f5ddb2b58a05c7145dfd6a89ced365e1a6605767e4c5375ce2",
+      "content_sha256": "ffa9ef6572fafd8bd493e2ddc18bbbdcd955a83b32ece9a71bed26c638fe2cb9",
       "headings_reviewed": [
         "EnergyKit",
         "Overview",
@@ -54447,6 +54559,13 @@
           "source_published_on": null,
           "url": "https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.energykit.loadevents-experience",
           "locator": "Complete primary Overview/discussion, platform metadata, topic relationships, and named declarations/entitlement details."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ],
       "additional_sections_reviewed": [
@@ -57877,10 +57996,10 @@
     },
     {
       "path": "documentation/FSKit.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "9b5e2efd8ca118aaa3d3c3784881d5acb50fe34e979a7f79e11afb00c172e3c0",
+      "content_sha256": "623d96e2f3f01818520d61f478e56733e9d9f0d2c89f122fbacfb95a92ceff0f",
       "headings_reviewed": [
         "FSKit",
         "Overview",
@@ -58432,6 +58551,13 @@
           "locator": "Full primary discussion, declarations and relevant availability/relationships.",
           "evidence_role": "post-cutoff-confirmation",
           "provenance_note": "Follow-up verification after the September 8 editorial cutoff. The capture establishes the inspected mutable declaration/discussion; no identical earlier raw capture was established, and its retrieval time is not a publication date or proof of exact cutoff bytes."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ],
       "reviewed_at": "2026-09-09T07:29:45.165061+00:00",
@@ -61812,10 +61938,10 @@
     },
     {
       "path": "documentation/FoveatedStreaming.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "verified-qualified",
-      "content_sha256": "9c90a21743d2558fa4cdcad94d69e2f84080385c25f3d8b0a542e9d7e44c8c66",
+      "content_sha256": "73eacf4e53d371beb73fcc07d4afe4bbf862b166775c365b136caaecd44e6ec0",
       "headings_reviewed": [
         "Foveated Streaming",
         "Overview",
@@ -62153,6 +62279,13 @@
           "response_url": "https://developer.apple.com/tutorials/data/documentation/bundleresources/information-property-list/approvedstreamingendpoints.json",
           "sha256": "362da6fa9b9bff492681eded180b7c9249ba81ae5f91aeefb061519b68541041",
           "locator": "Overview/discussion, declaration and platform metadata, or cited guide sections"
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ]
     },
@@ -66230,14 +66363,14 @@
     },
     {
       "path": "documentation/HomeKit.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "f7e902fd6e2ecf3a417edd2ae4cb8e28b4b89388c3c15e0c07a303cb383dac76",
+      "content_sha256": "574304f42997ce25328cb65e50749af7dd83226f15eedda2a7e62a1f5a1af8ba",
       "headings_reviewed": [
         "HomeKit",
         "Overview",
-        "27 beta: Home intelligence behavior",
+        "OS 27: Home intelligence behavior",
         "Topics",
         "Essentials",
         "Home Manager",
@@ -66288,7 +66421,7 @@
           "assessment": "Read complete inherited home database/accessory/service claims and full authorization guide/manager discussion. Added denial, Settings revocation, purpose-string crash condition and distinct setup-manager authorization exception."
         },
         {
-          "heading": "27 beta: Home intelligence behavior",
+          "heading": "OS 27: Home intelligence behavior",
           "line": 21,
           "source_urls": [
             "https://developer.apple.com/documentation/homekit",
@@ -66580,6 +66713,13 @@
           "source_published_on": null,
           "url": "https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes",
           "locator": "Release title/Overview and complete HomeKit section, issues178858470/181282161."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ],
       "additional_sections_reviewed": [
@@ -67915,10 +68055,10 @@
     },
     {
       "path": "documentation/IOUSBHost.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "a9ea6ecd868aaf90ca310d52b45a6a53230c325377f0c109820967e170ebbefb",
+      "content_sha256": "2118322ecf1e5fb37c6e8f525dfea2aad373c616f260243ff0e83818db192193",
       "headings_reviewed": [
         "IOUSBHost",
         "Overview",
@@ -68264,6 +68404,13 @@
           "sha256": "16320d7803a29bd36ebeed4b943bd111bb46b29baf652068ad9344ca5f55fea0",
           "url": "https://developer.apple.com/tutorials/data/documentation/iousbhost/iousbhost-data-types.json",
           "locator": "Actual linked reference collection; retained labels checked against root."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ],
       "reviewed_at": "2026-09-09T07:29:45.163463+00:00",
@@ -78580,10 +78727,10 @@
     },
     {
       "path": "documentation/MediaDevice.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "8e9ae47497f9eaff67eea61b1be83540e2259e2c6f234f128d4bd7dbe96d0b65",
+      "content_sha256": "f21bc3d12d24543be762279802cf59fd98580d81ab9851dd5936f45cf129aac0",
       "headings_reviewed": [
         "Media Device",
         "Overview",
@@ -78986,6 +79133,13 @@
           "response_url": "https://developer.apple.com/tutorials/data/documentation/bundleresources/entitlements/com.apple.developer.media-device-extension.json",
           "sha256": "7a4c87f8fcc664e17b41d344dd9bed6c17413b6e893bf6f36043a5e2d13ad4c6",
           "locator": "Overview/discussion, declaration and platform metadata, or cited guide sections"
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ]
     },
@@ -84142,14 +84296,14 @@
     },
     {
       "path": "documentation/MetricKit.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "34aebbf7d5450417e0fd7f7604be3252d1b9bf346a00e8603b38bda877cc2fa7",
+      "content_sha256": "9d7cbdaf5dd93185c578a6edc312b574395f8bdc68354f9e85d9b7f971fed8bc",
       "headings_reviewed": [
         "MetricKit",
         "Overview",
-        "27 beta: Swift report delivery",
+        "OS 27: Swift report delivery",
         "State and diagnostic integration",
         "Compatibility and testing",
         "Topics",
@@ -84216,7 +84370,7 @@
           "assessment": "Compared full reporting model against framework, monitoring guide and detailed MX manager discussion: daily aggregation/per-source payloads, macOS26 metric versus12 diagnostic delivery, and visionOS diagnostic-only behavior."
         },
         {
-          "heading": "27 beta: Swift report delivery",
+          "heading": "OS 27: Swift report delivery",
           "line": 15,
           "source_urls": [
             "https://developer.apple.com/documentation/metrickit",
@@ -84740,6 +84894,20 @@
           "source_published_on": null,
           "url": "https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes",
           "locator": "Complete MetricKit New Features/Deprecations section, including164439529/174892111/180024784/180455992."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
+        },
+        {
+          "url": "https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes",
+          "retrieval_url": "https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md",
+          "sha256": "0fa8f59962785e39afcd622cd1778cee4374ff97012e6ebe3da623c2da362202",
+          "locator": "Overview: Xcode 27 requires macOS Tahoe 26.6 or later and includes Swift 6.4. Intel Deprecation: Xcode 27 installs and runs only on Apple silicon Macs; macOS 27 SDK back deploys Universal apps to macOS 12 and later.",
+          "source_published_on": null
         }
       ],
       "additional_sections_reviewed": [
@@ -86497,10 +86665,10 @@
     },
     {
       "path": "documentation/Network.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "1288e2182586f865b44883c6e241d12c252a96853e0d9046b5b8e81b60b7874d",
+      "content_sha256": "d79491b26147725238069dea3638ea5b8deb2e23b97d9bfe21f064e123fb767b",
       "headings_reviewed": [
         "Network",
         "Overview",
@@ -86884,6 +87052,13 @@
           "source_published_on": null,
           "retrieved_at": "2026-09-09T02:50:14.666363+00:00",
           "locator": "Concrete API kind/availability or complete directly relevant article content:26 builders/coders/channels,27 DTLS, native Ethernet entitlement, actual TicTacToe modes, TLS identity/trust or complete L4S test context."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ],
       "reviewed_at": "2026-09-09T06:13:09.077125+00:00",
@@ -86918,15 +87093,15 @@
     },
     {
       "path": "documentation/NetworkExtension.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "ffc76e049b183af08f9c1d0d5c69e80eadaa5c7f139c2ba4d94892bd6335f664",
+      "content_sha256": "9de47cee65cdaa46f30ae461628812148d219c448e48f7fe0330af59b6be78e4",
       "headings_reviewed": [
         "Network Extension",
         "Overview",
         "Entitlements, consent, and deployment",
-        "27 beta networking notes",
+        "OS 27 networking notes",
         "Options for implementing VPN",
         "About Always-on VPN",
         "Topics",
@@ -86982,7 +87157,7 @@
           "assessment": "Exact array/string/Boolean metadata and actual allow-vpn/provider values checked; first-save authorization, managed precedence, special Hotspot grant, child-only Screen Time filter exception and user-enabled DNS settings."
         },
         {
-          "heading": "27 beta networking notes",
+          "heading": "OS 27 networking notes",
           "source_urls": [
             "https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes.md"
           ],
@@ -87407,6 +87582,13 @@
           "source_published_on": null,
           "retrieved_at": "2026-09-09T06:01:57.240492+00:00",
           "locator": "Complete exact entitlement details/values and relevant AlwaysOn property schema: array versus Boolean, allow-vpn/provider values, controlled bypass and user toggle."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ],
       "reviewed_at": "2026-09-09T06:13:09.077517+00:00"
@@ -88060,10 +88242,10 @@
     },
     {
       "path": "documentation/NowPlaying.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "verified-qualified",
-      "content_sha256": "88115cbd1e030d891192a29c13fe79a1f477e92d7f55e50ed7b63f162a785978",
+      "content_sha256": "a13a318a0f21b18b6c993a3c091441b12a25f2744bb2c9074836205fe212c6ce",
       "headings_reviewed": [
         "Now Playing",
         "Overview",
@@ -88382,6 +88564,13 @@
           "response_url": "https://developer.apple.com/tutorials/data/documentation/nowplaying/remotemediasessionrepresentable.json",
           "sha256": "cabcc26cc7d16f4c2c6050f6dd15defad29c29a241cefc54449ea531009ccaff",
           "locator": "Overview/discussion, declaration and platform metadata, or cited guide sections"
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ]
     },
@@ -90929,10 +91118,10 @@
     },
     {
       "path": "documentation/PassKit.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "821d228cdcd9c2bccbdad8f6cf06ba693978162daddc39afa160ea1029252a8e",
+      "content_sha256": "b2283773792733004b62e5cdb51610cfd760a41fe875c8307fd3c3c5a24d3c8d",
       "headings_reviewed": [
         "PassKit (Apple Pay and Wallet)",
         "Overview",
@@ -91417,6 +91606,13 @@
           "content_type": "application/json",
           "source_published_on": null,
           "locator": "Full metadata/abstract/primaryContentSections and topic relationships; complete guide/example bodies, native declarations/parameters or web endpoint/event/result contracts as applicable. Exact source bodies retained; see primary-review matrices and precise consequential checks."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ],
       "reviewed_at": "2026-09-09T06:27:01.134685+00:00",
@@ -91437,10 +91633,10 @@
     },
     {
       "path": "documentation/PencilKit.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "verified-qualified",
-      "content_sha256": "7470ffb2accdaddd1d77338c8800ef7e38e0a1c5db2e5ad1ee91f08feefe1200",
+      "content_sha256": "8017f641b488db0af4640bc542d410d8a053269d7565139ecfbe73622f8fb33e",
       "headings_reviewed": [
         "PencilKit",
         "Overview",
@@ -92190,6 +92386,13 @@
           "source_published_on": null,
           "content_type": "text/markdown; charset=utf-8",
           "locator": "Exact27 declaration: mutating erasePath versus returned PKDrawing erasingPath; optional UIBezierPath mobile versus NSBezierPath native Mac mask."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ]
     },
@@ -97287,10 +97490,10 @@
     },
     {
       "path": "documentation/README.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "verified",
-      "content_sha256": "aabb26a17916d47f1d243a81dd839318f9d4515ce0f118bc8e0d4be7b25f86c5",
+      "content_sha256": "849d237c48130f2c4de87b6ec0a781941212c147a1d4c7c352ce2cde0d0be0bd",
       "headings_reviewed": [
         "Reference index",
         "Platforms and release baselines",
@@ -97528,22 +97731,29 @@
       "sources": [
         {
           "path": "metadata/catalog.json",
-          "sha256": "0e78003d267001ff4e8702784e2f1994fea8c52b9f3e164e8a5d2d1d96bbee35",
+          "sha256": "3c9e6da0e01919b5dfe54bac47949e4d62fcf092a05d8e036ba6dac68f5a304a",
           "locator": "All selected topic rows, owners, kinds, aliases and intentionally non-authoritative platform/release tags."
         },
         {
           "path": "scripts/docs.py",
           "sha256": "9350ca21a4dd6a0414412af5d263613bf559901ea5a0885a0b6e0b1f1997028d",
           "locator": "generated_indexes/index_table: exact complete output and template semantics."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ]
     },
     {
       "path": "documentation/RealityComposerPro.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "verified-qualified",
-      "content_sha256": "86e8ea2bf2a4ddc569e8557352f6929e08edc880f7d1f45cc73a30d680177581",
+      "content_sha256": "e535bb362c9425aea975a6999b90045ede195c3aadd53f7a85db497d185a3aae",
       "headings_reviewed": [
         "Reality Composer Pro",
         "Overview",
@@ -97661,6 +97871,13 @@
           "sha256": "01c133567e93855f49a6f3966f8b906606ced0487efc49f721abf6b7fb0f99f2",
           "source_published_on": null,
           "locator": "Overview (beta 6 SDK/compiler/host); Intel Deprecation (162138432/161837535); relevant review issue IDs: see section-specific assessments"
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ]
     },
@@ -103434,7 +103651,7 @@
         },
         {
           "path": "metadata/assets.json",
-          "sha256": "cec5705c4eb4da1f3f871d374a960fd24007ee19a9fceeba15d84209eed3acb8",
+          "sha256": "6d7324c1c877eb96044faa0515462bf61b7dd81db252e3d361d2e46e424838f8",
           "locator": "Separate asset provenance/rights record."
         }
       ]
@@ -104895,14 +105112,14 @@
     },
     {
       "path": "documentation/Security.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "292217aa3366f2eda804184faeb0f81111b7cd8b53469f0fddcd614ad03c44c5",
+      "content_sha256": "cf89a6e6a402eaf5f8d5e4e1aaed403252735d4240a06190733fa6f79e20e748",
       "headings_reviewed": [
         "Security",
         "Overview",
-        "27 beta: stricter TLS for selected system processes",
+        "OS 27: stricter TLS for selected system processes",
         "App networking remains API-specific",
         "Topics",
         "Essentials",
@@ -104964,7 +105181,7 @@
           ]
         },
         {
-          "heading": "27 beta: stricter TLS for selected system processes",
+          "heading": "OS 27: stricter TLS for selected system processes",
           "line": 19,
           "source_urls": [
             "https://developer.apple.com/documentation/security",
@@ -105414,6 +105631,13 @@
           "source_published_on": null,
           "url": "https://developer.apple.com/documentation/security/sec_protocol_metadata_copy_server_name(_:)",
           "locator": "Full relevant primary root/discussion/declarations; exact section comparisons recorded below."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ],
       "validation_artifacts": [
@@ -105652,15 +105876,15 @@
     },
     {
       "path": "documentation/SensitiveContentAnalysis.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "ef993774850f816e0a492953741235af05201d1dc4f6fbda3e115ae57bf7e137",
+      "content_sha256": "89cdcdd4e654c2725782e7fb4a2e2d278e6f969095fb0dd3e5669f8a5ed92ce3",
       "headings_reviewed": [
         "SensitiveContentAnalysis",
         "Overview",
         "Authorization and privacy boundaries",
-        "27 beta: content categories",
+        "OS 27: content categories",
         "Intervene when content is sensitive",
         "Topics",
         "Setup",
@@ -105723,7 +105947,7 @@
           "assessment": "Read full entitlement and integration source including string-array metadata, provisioned values unspecified, Enterprise/free-account restriction, both intervention modes, disabled reasons, incoming/outgoing distinction, local-only outcomes and processing delay."
         },
         {
-          "heading": "27 beta: content categories",
+          "heading": "OS 27: content categories",
           "line": 23,
           "source_urls": [
             "https://developer.apple.com/documentation/sensitivecontentanalysis",
@@ -105977,6 +106201,13 @@
           "source_published_on": null,
           "url": "https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.sensitivecontentanalysis.client",
           "locator": "Full primary root and relevant detailed discussion/declarations; precise comparisons in section assessments."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ],
       "additional_sections_reviewed": [
@@ -106001,14 +106232,14 @@
     },
     {
       "path": "documentation/SensorKit.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "860da6066c1e4d6c148c9cc27c97739847e6ebbf2e889910e33ea6c9443ac2f5",
+      "content_sha256": "03270b9b492e266a770f62d4b6a2100ac1ac346e69d6c1a5e04598e20e1c576c",
       "headings_reviewed": [
         "SensorKit",
         "Overview",
-        "Typed readers in the 27 beta",
+        "Typed readers in OS 27",
         "Topics",
         "Essentials",
         "Setup",
@@ -106085,7 +106316,7 @@
           "assessment": "Read all sensor examples, research/provisioning conditions and runtime exclusions against full framework/configuration/reader bodies; verified array entitlement and study metadata, sensor-specific denial and Settings revocation."
         },
         {
-          "heading": "Typed readers in the 27 beta",
+          "heading": "Typed readers in OS 27",
           "line": 25,
           "source_urls": [
             "https://developer.apple.com/documentation/sensorkit",
@@ -106717,6 +106948,13 @@
           "source_published_on": null,
           "url": "https://developer.apple.com/documentation/sensorkit/srsleepsession",
           "locator": "Full root narrative/topic relationships, relevant declarations/platform metadata and detailed discussions named in section assessments."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ],
       "additional_sections_reviewed": [
@@ -110445,10 +110683,10 @@
     },
     {
       "path": "documentation/SpatialPreview.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "verified-qualified",
-      "content_sha256": "da8359950faff74ecd76f7b8ddc2bc4a51bc2fb0bf20defc8ea6341a6b206693",
+      "content_sha256": "bc24e3ebaded7c0100362a433ab253babbd83d85f2836ea8ab8615c3b7d2ac01",
       "headings_reviewed": [
         "Spatial Preview",
         "Overview",
@@ -110826,6 +111064,13 @@
           "response_url": "https://developer.apple.com/tutorials/data/documentation/usdkit/usdstagecomponent.json",
           "sha256": "1436babfe2694739ae3d8ebbc42b0da3f700e6c68e915bb200bdefb119968ae7",
           "locator": "Overview/discussion, declaration and platform metadata, or cited guide sections"
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ]
     },
@@ -111708,10 +111953,10 @@
     },
     {
       "path": "documentation/StoreKit.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "99cc17357a37a0d106e8545ba78bf3e6e0d5da2e3c5bc1c704837da6c87a4520",
+      "content_sha256": "f0268beb538ffa34e18ab2ab19668940ca40f069658cb5db908c89cd555753ae",
       "headings_reviewed": [
         "StoreKit",
         "Overview",
@@ -112410,6 +112655,13 @@
           "locator": "Complete primary body/declaration/table read in storekit-lifecycle-review.json. Focus: automatic versus optional verification, local/sandbox/TestFlight/production scope and, for StoreKit, product/purchase/restore lifecycle.",
           "evidence_role": "post-cutoff-confirmation",
           "provenance_note": "Confirmatory retrieval approximately32 seconds after the September8 editorial-day cutoff. No identical earlier raw capture was found in the completed reports. The declaration pages explicitly identify non-beta iOS15/macOS12-era StoreKit2 properties; the testing comparison concerns existing Xcode, sandbox and TestFlight modes. Earlier captured setup/sandbox guides corroborate the local-versus-server distinction. This follow-up is not backdated or presented as an OS27 feature announcement."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ],
       "reviewed_at": "2026-09-09T07:11:22.237545+00:00",
@@ -112767,15 +113019,15 @@
     },
     {
       "path": "documentation/Swift.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "59843b6a78036862ea7d5e012078d86e02335730513da21182a924f5cefc42f7",
+      "content_sha256": "a9dc05333b0bb29989288cd69a90b55018e0b4d1a493d0e7a2b1ccb1a9a6c57b",
       "headings_reviewed": [
         "Swift",
         "Overview",
         "Learn Swift",
-        "Swift 6.4 in the Xcode 27 beta toolchain",
+        "Swift 6.4 in Xcode 27",
         "Topics",
         "Essentials",
         "Standard Library",
@@ -112824,7 +113076,7 @@
           "assessment": "Language book tour/guide/reference, Swift Playgrounds on iPad and open-source community references match root overview."
         },
         {
-          "heading": "Swift 6.4 in the Xcode 27 beta toolchain",
+          "heading": "Swift 6.4 in Xcode 27",
           "source_urls": [
             "https://developer.apple.com/documentation/swift",
             "https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes",
@@ -113029,15 +113281,22 @@
           "sha256": "e4c0cd76a52d096332df67a59c2181dc82d1cef57b6b2086233a0f8d5f3471fe",
           "source_published_on": null,
           "locator": "Generated deprecated compatibility globals async, asyncDetached and detach; actual template definitions and availability annotations, not only modern Task.swift."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ]
     },
     {
       "path": "documentation/SwiftData.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "f8e714801212edcb643b4e0dec6b1e0921414289b7cd090fbc862c47b1ce18a4",
+      "content_sha256": "fbcda705f6e0faaea088907d50b8aed8deecef68be920b3fc41f7adfe01c1fc1",
       "headings_reviewed": [
         "SwiftData",
         "Overview",
@@ -114020,6 +114279,13 @@
           "source_published_on": null,
           "content_type": "text/markdown; charset=utf-8",
           "locator": "Beta8 title and same SwiftData resolved issue178113288"
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ]
     },
@@ -117654,10 +117920,10 @@
     },
     {
       "path": "documentation/SystemExtensions.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "aae198335e47e0b86f1eae467e9ef70308feb0807c7bca7b4cb0e78096b1455c",
+      "content_sha256": "6af7eff1e67495261b69720af146ade10b8e4477d9db51c71b46a2cb6849b67f",
       "headings_reviewed": [
         "System Extensions",
         "Overview",
@@ -118048,6 +118314,13 @@
           "sha256": "37034ce11fd31b3158d350f7d2eb7f1fb304ab13d07ae08cc138fb856ea649a7",
           "url": "https://developer.apple.com/tutorials/data/documentation/videodriverkit.json",
           "locator": "Complete relevant primary discussion/declaration or guide; precise comparison scope is specified in sections."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ],
       "reviewed_at": "2026-09-09T07:56:20.421910+00:00"
@@ -123172,10 +123445,10 @@
     },
     {
       "path": "documentation/TechnologyOverviews.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "23cfdee138968fede48f16a93886e17a4911cc8b4250264da718068fba48170b",
+      "content_sha256": "e2fca6b9a2899cf4908ebdf8f0cb878528673caae54a6f4b88959b4d8c141e98",
       "headings_reviewed": [
         "Technology Overviews",
         "Overview",
@@ -123697,16 +123970,16 @@
     },
     {
       "path": "documentation/Testing.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "2eaad72bed133d069a3580709318d27b730c2fae30065db52da9cc45fdd70c40",
+      "content_sha256": "f680c155a0cb8d56b5819d955a04420b50e0846f4389c3a6d62920d976476033",
       "headings_reviewed": [
         "Swift Testing",
         "Overview",
         "Key Features",
         "Related Videos",
-        "Xcode 27 beta testing changes",
+        "Xcode 27 testing changes",
         "Topics",
         "Essentials",
         "Test Parameterization",
@@ -123764,7 +124037,7 @@
           "assessment": "Root reference objects identify WWDC2024 sessions10179 (Meet Swift Testing) and10195 (Go further with Swift Testing)."
         },
         {
-          "heading": "Xcode 27 beta testing changes",
+          "heading": "Xcode 27 testing changes",
           "source_urls": [
             "https://developer.apple.com/documentation/testing",
             "https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes",
@@ -123912,6 +124185,13 @@
           "sha256": "929617ef584250e1c078381b708eabb3dd91ea0b0a47dcc72992fc74d81c65a2",
           "source_published_on": null,
           "locator": "Availability header, declarations, Overview/Discussion and topic definitions used by the section assessments"
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ]
     },
@@ -128905,10 +129185,10 @@
     },
     {
       "path": "documentation/USDKit.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "verified-qualified",
-      "content_sha256": "10a2791b7608427537a90355561674120bcbd37ca5abe5a48cb82ec0315298ef",
+      "content_sha256": "6c43085d7de2e3e71f699ae8479c82fdd472b10437e32b88ba12a567cbdb960f",
       "headings_reviewed": [
         "USDKit",
         "Overview",
@@ -128916,7 +129196,7 @@
         "Scene description",
         "Rendering and playback",
         "Implementation essentials",
-        "Applicability and beta checks",
+        "Applicability and release-note checks",
         "Sources"
       ],
       "sections_reviewed": [
@@ -128973,7 +129253,7 @@
           "assessment": "Read full USDStageComponent overview/property descriptions and external-runtime bridging guide; verified manual render, automatic updates, immutable hit-test choice and main-actor edits."
         },
         {
-          "heading": "Applicability and beta checks",
+          "heading": "Applicability and release-note checks",
           "source_urls": [
             "https://developer.apple.com/documentation/usd/validating-usd-files",
             "https://developer.apple.com/documentation/usdkit"
@@ -129411,6 +129691,13 @@
           "response_url": "https://developer.apple.com/tutorials/data/documentation/usdkit/usdrendererror.json",
           "sha256": "e0be8a3c169cda362fbb55d4ac6b568542ab9141b87484be54884951439158a2",
           "locator": "Overview/discussion, declaration and platform metadata, or cited guide sections"
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ]
     },
@@ -129538,10 +129825,10 @@
     },
     {
       "path": "documentation/Updates.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "8072469fb9d841d2b4b9c71d23fb9142e6dcea2af5fa6bbf96c8fb6ee00ab379",
+      "content_sha256": "8a60163380b81503eaa365aa5e4dea4e0b8cdca4f9abe13130ab60d4d55e56c5",
       "headings_reviewed": [
         "Updates",
         "OS27 Migration Snapshot \u2014 September 8, 2026",
@@ -129920,10 +130207,10 @@
     },
     {
       "path": "documentation/UserNotifications.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "7bd1a5c379377ca8eea7fa2963340ab4024d0bf6a4582b8ccaa0f21dc06932cf",
+      "content_sha256": "2dbece31ac13d1ab33990798a67c136ff67d09413f571628eb14018b2e7215dd",
       "headings_reviewed": [
         "User Notifications",
         "Overview",
@@ -130459,6 +130746,13 @@
           "source_published_on": null,
           "content_type": "text/markdown; charset=utf-8",
           "locator": "Separate WidgetKit registration and budgeted timeline reloads."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ]
     },
@@ -131587,16 +131881,16 @@
     },
     {
       "path": "documentation/Virtualization.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "528206a1a1dc2ae58293c521b231b0ca88466166eef2a2bc6770a65bea359b87",
+      "content_sha256": "1df1bbe0fd2df31be26491b1a911b11d430852a7a3bdedab858591c1b9579b40",
       "headings_reviewed": [
         "Virtualization",
         "Overview",
         "Host, guest, and translation support",
         "Intel Linux translation and iCloud",
-        "macOS 27 beta: disk-image and device integration",
+        "macOS 27: disk-image and device integration",
         "Topics",
         "Essentials",
         "Virtual machine setup",
@@ -131660,7 +131954,7 @@
           "assessment": "Read entire14k translation article and full iCloud guide. Critical27 distinction: built-in Intel Linux translation, availability.installed and immediate installer versus13-26 Rosetta installation; stillARMkernel, directoryshare/guestbinfmt/library setup. iCloud15 fresh-VM identity requirement, no upgrade-only enablement, moved/concurrentclone reauthentication."
         },
         {
-          "heading": "macOS 27 beta: disk-image and device integration",
+          "heading": "macOS 27: disk-image and device integration",
           "source_urls": [
             "https://developer.apple.com/tutorials/data/documentation/diskimagekit.json",
             "https://developer.apple.com/tutorials/data/documentation/virtualization/vzdiskimagestoragedeviceattachment/init(diskimage:cachingmode:synchronizationmode:).json",
@@ -132309,6 +132603,13 @@
           "source_published_on": null,
           "url": "https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes.md",
           "locator": "Rosetta163213094 versusDiskImages177868758; distinctfromnewLinuxtranslationguide."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ],
       "reviewed_at": "2026-09-09T07:00:58.923918+00:00"
@@ -135128,10 +135429,10 @@
     },
     {
       "path": "documentation/WebKit.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "ae3e3c8bc7b64561c41434d550032b6dfe1c55df761c7b1bb2895fe7c57c2e03",
+      "content_sha256": "fbd36e1a9683b57679d19d9f61be86904181a01ba23bee406b9f3f1f49875c80",
       "headings_reviewed": [
         "WebKit",
         "Overview",
@@ -135691,6 +135992,13 @@
           "source_published_on": null,
           "content_type": "text/plain; charset=utf-8",
           "locator": "alternateRequest comment: this navigation main resource;27 annotations; JS handle creation page-world defaultfalse"
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ]
     },
@@ -136237,10 +136545,10 @@
     },
     {
       "path": "documentation/WidgetKit.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "6d438fcb4b45f13b1013717bfb8e9910a1eb37f6a8dae5fcd34fd4bca29b090b",
+      "content_sha256": "484a050e7cdb45474f45d8e8346f67cbbeb51929b854342f0cdd2c2e6bb258f8",
       "headings_reviewed": [
         "WidgetKit",
         "Overview",
@@ -137126,6 +137434,13 @@
           "locator": "Concrete case declaration; metadata iOS/iPadOS/Catalyst/macOS27 beta versus visionOS26 nonbeta; complete Discussion lists iOS Home Screen, iOS/iPadOS Today View, macOS Desktop and visionOS as possible placements. Availability is not an all-surfaces placement guarantee.",
           "evidence_role": "duplicate-confirmation-of-pre-cutoff-capture",
           "provenance_note": "This later declaration re-fetch is byte-identical to the independently retained pre-cutoff capture retrieved at 2026-09-09T05:13:48.853731+00:00; neither retrieval timestamp is backdated."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ]
     },
@@ -137707,10 +138022,10 @@
     },
     {
       "path": "documentation/XCTest.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "verified",
-      "content_sha256": "78046b2933cc3f2f83abc0b734051932441709a1d534ae24d445903745183d11",
+      "content_sha256": "4a996cbb0c94e14b081fbf13d337c632fb38327331e329a5d3d599b4e2a6c12c",
       "headings_reviewed": [
         "XCTest",
         "Overview",
@@ -137718,7 +138033,7 @@
         "Test cases and assertions",
         "Async, UI, and integration testing",
         "Performance",
-        "Xcode 27 beta behavior"
+        "Xcode 27 behavior"
       ],
       "sections_reviewed": [
         {
@@ -137782,7 +138097,7 @@
           "assessment": "Performance Tests explicitly gathers metrics and fails substantial regressions against a baseline. Consistent conditions and whole-app profiling are editorial validation advice, not unsupported numeric performance promises."
         },
         {
-          "heading": "Xcode 27 beta behavior",
+          "heading": "Xcode 27 behavior",
           "source_urls": [
             "https://developer.apple.com/documentation/xctest",
             "https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes",
@@ -137836,19 +138151,26 @@
           "sha256": "bd6eb8d3e601e4a6710f770e4175f388ab64012e1e72b4fa779503ad3f47a92b",
           "source_published_on": null,
           "locator": "Availability header, declarations, Overview/Discussion and topic definitions used by the section assessments"
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ]
     },
     {
       "path": "documentation/XCUIAutomation.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "98ccc4ea05707c7f3a256ae0c016875878b4bb1ee04d9f43455e5e59235e5403",
+      "content_sha256": "468e86ef1d62947490df9d437d25767eb99659054d40fad01cdbad148ae8301d",
       "headings_reviewed": [
         "XCUIAutomation",
         "Overview",
-        "Xcode 27 beta integration",
+        "Xcode 27 integration",
         "Topics",
         "Essentials",
         "UI element queries",
@@ -137881,7 +138203,7 @@
           "assessment": "Read the entire UI-testing explanation and native-visionOS restriction. Source explicitly permits iOS-SDK-compatible iPhone/iPad apps onvisionOS but not native visionOS-SDK apps; XCTest hosts UI automation."
         },
         {
-          "heading": "Xcode 27 beta integration",
+          "heading": "Xcode 27 integration",
           "source_urls": [
             "https://developer.apple.com/documentation/xcuiautomation",
             "https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes",
@@ -138028,6 +138350,13 @@
           "sha256": "c1b2e373ff41c33a635d13116299e3880d2cfe2d4b3b2b42f571f9cea15dfce5",
           "source_published_on": null,
           "locator": "Availability header, declarations, Overview/Discussion and topic definitions used by the section assessments"
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ]
     },
@@ -138517,14 +138846,14 @@
     },
     {
       "path": "documentation/Xcode-Cloud.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "1ccaa40245f072965a3c72dcfdc7bb2406bd1a0f35ac4c15574b6c46c15c5b09",
+      "content_sha256": "f8d63d949e9b643c3140a2342a0c5704969a85eef513fc4a9a0737f58aae848f",
       "headings_reviewed": [
         "Xcode Cloud",
         "Overview",
-        "OS 27 beta workflows",
+        "OS 27 workflows",
         "Topics",
         "Essentials",
         "Setup and maintenance",
@@ -138554,7 +138883,7 @@
           "assessment": "Full CI/CD overview, Xcode/TestFlight/App Store Connect relationship, build/test/distribution flow and root image alt checked. The WWDC21/22 toolkit note is actually present in the current primary overview."
         },
         {
-          "heading": "OS 27 beta workflows",
+          "heading": "OS 27 workflows",
           "source_urls": [
             "https://developer.apple.com/documentation/xcode/xcode-cloud",
             "https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes"
@@ -138674,15 +139003,22 @@
           "sha256": "01c133567e93855f49a6f3966f8b906606ced0487efc49f721abf6b7fb0f99f2",
           "source_published_on": null,
           "locator": "Overview (beta 6 SDK/compiler/host); Intel Deprecation (162138432/161837535); relevant review issue IDs: see section-specific assessments"
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ]
     },
     {
       "path": "documentation/Xcode-Release-Notes.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "2125995a6f08ff0ac52a28a7f391b29e8e30e85c776e2139edaea1e1fddf6b96",
+      "content_sha256": "ec14dbdc8c3511bb52d9b6bc37b8e716b9cac12e9cc8c05f5f085aa76c31503a",
       "headings_reviewed": [
         "Xcode Release Notes",
         "Overview",
@@ -138879,19 +139215,26 @@
           "sha256": "66e69e08b3e1ceecd6485b6187b7d68b791265fed9b5537a0ed75accccaebe2f",
           "source_published_on": null,
           "locator": "Archived Xcode Release Notes Introduction; explicit no-longer-updated notice and earlier-release navigation."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ]
     },
     {
       "path": "documentation/Xcode.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "999f218f0a56bc828846c2f934e5a5b7cb74c240d283551deb96cad8c2ad32fd",
+      "content_sha256": "74ad8a1c84934eac6eacd546831c56d6034ad99be6dd16eef813c9ebdc345219",
       "headings_reviewed": [
         "Xcode",
         "Overview",
-        "Xcode 27 beta 6",
+        "Xcode 27",
         "Profiling",
         "Topics",
         "Essentials",
@@ -138923,7 +139266,7 @@
           "assessment": "Full workflow/editor/preview/debugger/tool/distribution overview checked. Compared actual image-reference alt text and corrected the unsupported physical-iPhone-running implication. Independently read conditional-breakpoint article. RCP is crosslinked rather than incorrectly presented as bundled."
         },
         {
-          "heading": "Xcode 27 beta 6",
+          "heading": "Xcode 27",
           "source_urls": [
             "https://developer.apple.com/documentation/xcode",
             "https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes",
@@ -139066,6 +139409,13 @@
           "sha256": "e6c3569f101ce09c9e8ecf4c3aec8f7c6ca4b6c63f9dcfd1555d331b859c4471",
           "source_published_on": null,
           "locator": "Availability header, declarations, Overview/Discussion and topic definitions used by the section assessments"
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ]
     },
@@ -140510,10 +140860,10 @@
     },
     {
       "path": "documentation/apple-silicon.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "90e27df6a1f899119a1a1a8c9e710ad42113e451187a755c187bc553edea7bcf",
+      "content_sha256": "8ebae5ac59d33a42b34975305193a7775e914821275bf34108dec887a0905c7d",
       "headings_reviewed": [
         "Apple silicon",
         "Overview",
@@ -143034,10 +143384,10 @@
     },
     {
       "path": "documentation/ios-ipados-release-notes.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "4edc508011b6eb8f1b712c14fa81d99b9f1c47ae4592cb7a785a3992587d3bef",
+      "content_sha256": "3607ef1c5c756f13b198f46367bf113619d9a4d9f83636e4169990eee5542c43",
       "headings_reviewed": [
         "iOS & iPadOS Release Notes",
         "Overview",
@@ -144153,10 +144503,10 @@
     },
     {
       "path": "documentation/mac-catalyst.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "a031071045b09ccbc16048ee6e7dbe2fd1747284b3506cdaded8a552c7d68735",
+      "content_sha256": "f8f27b4df2b870f7e86b69a13c5016bb7dbe7c3cdb8a40bd41aee4c19f66c9ad",
       "headings_reviewed": [
         "Mac Catalyst",
         "Overview",
@@ -144556,10 +144906,10 @@
     },
     {
       "path": "documentation/macos-release-notes.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "2cd454782279cc7fed038045db37c4643273440593c764df1a5ec5fabb56a9d6",
+      "content_sha256": "b1574d6e5bd0ddef051d6a5f623d4be616b2ddb7df0b9265edc4e3450b461f3e",
       "headings_reviewed": [
         "macOS Release Notes",
         "Overview",
@@ -146606,10 +146956,10 @@
     },
     {
       "path": "documentation/safari-release-notes.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "1e8a8b4f1d709063eace0fcd42fc700c6cf15c8ca60e61d73af8caba34fd47ae",
+      "content_sha256": "02d6243705669640ddd20b0a3084a61d9e40b6f7cf8fb22cd870d6b428d95445",
       "headings_reviewed": [
         "Safari Release Notes",
         "Overview",
@@ -146817,6 +147167,13 @@
           "source_published_on": null,
           "url": "https://support.apple.com/en-us/100100",
           "locator": "Security release table: September8 iOS/iPadOS26.6.2; August17 macOS26.6.2/visionOS26.6.1; July27 tvOS/watchOS26.6; November3,2025 OS26.1 entries; Safari standalone scope"
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ]
     },
@@ -147566,14 +147923,14 @@
     },
     {
       "path": "documentation/swift-packages.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "verified-qualified",
-      "content_sha256": "7d4950555c1513f08a38643292c4eefe09122f01d670636578a76359c449a93b",
+      "content_sha256": "b6b5de8322ade251496e988cf99e23440e949077c5df3f1e8ae04a08d49b3b15",
       "headings_reviewed": [
         "Swift packages",
         "Overview",
-        "Xcode 27 beta / Swift 6.4",
+        "Xcode 27 / Swift 6.4",
         "Topics",
         "Package dependencies",
         "Package creation",
@@ -147602,7 +147959,7 @@
           "assessment": "Read all paragraphs: package languages, binary/resource bundling, Xcode package creation/publishing/dependency management and SwiftPM relationship match the complete xcode/swift-packages source."
         },
         {
-          "heading": "Xcode 27 beta / Swift 6.4",
+          "heading": "Xcode 27 / Swift 6.4",
           "source_urls": [
             "https://developer.apple.com/documentation/xcode/swift-packages",
             "https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes",
@@ -147711,6 +148068,13 @@
           "sha256": "ce2173ab9452c26fa7856d802149e0175021c20646b4df6e208081402d7a367b",
           "source_published_on": null,
           "locator": "Package/SupportedPlatform/Product/Target and Resource reference; Swift tools-version declaration and per-version manifest API requirements."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ]
     },
@@ -148984,10 +149348,10 @@
     },
     {
       "path": "documentation/tvos-release-notes.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "verified-qualified",
-      "content_sha256": "e3180aa55521d80f8132c9aca8deb67e33876dc1af953a5ed4ac5d2baa62126a",
+      "content_sha256": "d515aab7a3c260c8e7085ae47886f0c945f64bc53c818ada6e2eabdf61f1b8db",
       "headings_reviewed": [
         "tvOS Release Notes",
         "Overview",
@@ -149339,10 +149703,10 @@
     },
     {
       "path": "documentation/visionOS.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "3067fd2c03a2f57e0c8084925bbcada38e0fa2b54c27a483b8ef39bef1af2640",
+      "content_sha256": "384f3a8a78ca53c90dd8ae46df1336e8164616ec5bb4913d81119acef1dc056d",
       "headings_reviewed": [
         "visionOS",
         "Overview",
@@ -149926,10 +150290,10 @@
     },
     {
       "path": "documentation/visionos-release-notes.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "verified-qualified",
-      "content_sha256": "98ebd037bcea5180e7609b47aaeb68b93326387d976cd7d052cff35075ac557c",
+      "content_sha256": "a46e7355c95e2749ac1c8c3d181a7e93c739aad8e01ac34f871d494f263fe82b",
       "headings_reviewed": [
         "visionOS Release Notes",
         "Overview",
@@ -150744,10 +151108,10 @@
     },
     {
       "path": "documentation/watchOS-Apps.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "5334429970e247d7297c34cc26c9ed05046767eb85cc10565926e68626bd3fba",
+      "content_sha256": "9508f09ffb9b353c0e28a08395687cd48705a15bc3968e894726337bc189a9e9",
       "headings_reviewed": [
         "watchOS apps",
         "Overview",
@@ -151435,10 +151799,10 @@
     },
     {
       "path": "documentation/watchos-release-notes.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "verified-qualified",
-      "content_sha256": "e6ef0db99a36a1c5c935c5ecc73a602caf5bbd5602478b996b69c80c7d065d7f",
+      "content_sha256": "3f76065472df20e4e2a261ff3c2f089e2b518ca6ad37a0ec06f6c77b2f30e74a",
       "headings_reviewed": [
         "watchOS Release Notes",
         "Overview",
@@ -153082,17 +153446,17 @@
         },
         {
           "path": "metadata/assets.json",
-          "sha256": "cec5705c4eb4da1f3f871d374a960fd24007ee19a9fceeba15d84209eed3acb8",
+          "sha256": "6d7324c1c877eb96044faa0515462bf61b7dd81db252e3d361d2e46e424838f8",
           "locator": "Repository JSON /assets/0 through /assets/253 (the 254 figma/ records, not the entire 301-record array): each /path, /sha256, /origin, /source, /kit_version, /platform, /appearance, /synchronized_on, /rights_status and /rights_note. JSON /schema_version and /as_of identify inventory format/cutoff; this is repository evidence, not an HTTP source."
         }
       ]
     },
     {
       "path": "guides/README.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "verified",
-      "content_sha256": "99e48aa059e46aff061b6d8217a3fbdd5893652bb8d66c62119c001b27c083b3",
+      "content_sha256": "7433e47862b6d48029d518174a5012185fd1da4b4ff8f789499b9eee4094fec0",
       "headings_reviewed": [
         "Migration and readiness guides"
       ],
@@ -153132,22 +153496,36 @@
       "sources": [
         {
           "path": "metadata/catalog.json",
-          "sha256": "0e78003d267001ff4e8702784e2f1994fea8c52b9f3e164e8a5d2d1d96bbee35",
+          "sha256": "3c9e6da0e01919b5dfe54bac47949e4d62fcf092a05d8e036ba6dac68f5a304a",
           "locator": "All selected topic rows, owners, kinds, aliases and intentionally non-authoritative platform/release tags."
         },
         {
           "path": "scripts/docs.py",
           "sha256": "9350ca21a4dd6a0414412af5d263613bf559901ea5a0885a0b6e0b1f1997028d",
           "locator": "generated_indexes/index_table: exact complete output and template semantics."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
+        },
+        {
+          "url": "https://developer.apple.com/documentation/safari-release-notes/safari-27-release-notes",
+          "retrieval_url": "https://developer.apple.com/documentation/safari-release-notes/safari-27-release-notes.md",
+          "sha256": "9161b8419df0995d289359b689fa0ed2037b0d51542901f5ac89e0e8ec39e522",
+          "locator": "Header: Released September 14, 2026 - 27.0 (20625.1.29). Overview lists availability for iOS 27, iPadOS 27, visionOS 27, macOS 27, macOS 26 and macOS Sequoia.",
+          "source_published_on": null
         }
       ]
     },
     {
       "path": "guides/app-intents-migration.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "bba665c68933a95b6e4648b5e854d574a184a39be0b83a1bccd3ffc7d37e13bc",
+      "content_sha256": "294828bb2c37d4ae4443e5a67b9e795da972a15db4587e432bd57729971893cb",
       "headings_reviewed": [
         "Migrate a custom SiriKit shortcut without breaking existing users",
         "Prerequisites and availability",
@@ -153645,6 +154023,13 @@
           "sha256": "c1b2e373ff41c33a635d13116299e3880d2cfe2d4b3b2b42f571f9cea15dfce5",
           "source_published_on": null,
           "locator": "Availability header, declarations, Overview/Discussion and topic definitions used by the section assessments"
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ]
     },
@@ -153986,10 +154371,10 @@
     },
     {
       "path": "guides/background-assets-migration.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "verified-qualified",
-      "content_sha256": "e28256e22189a6c1c45150901ed318ea76a729472a11422e7bf62761db36b2d0",
+      "content_sha256": "47f696e02f5203db86425cf04c470ec1c3cc71608698bc711829fb2ebd107c70",
       "headings_reviewed": [
         "Migrating On Demand Resources to Background Assets",
         "Overview",
@@ -154464,6 +154849,20 @@
           "source_published_on": null,
           "retrieved_at": "2026-09-09T02:45:25.736291+00:00",
           "locator": "Overview host Tahoe26.4+, Intel Deprecation162138432 Apple-silicon-only host, and Universal output161837535 read in full context."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
+        },
+        {
+          "url": "https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes",
+          "retrieval_url": "https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md",
+          "sha256": "0fa8f59962785e39afcd622cd1778cee4374ff97012e6ebe3da623c2da362202",
+          "locator": "Overview: Xcode 27 requires macOS Tahoe 26.6 or later and includes Swift 6.4. Intel Deprecation: Xcode 27 installs and runs only on Apple silicon Macs; macOS 27 SDK back deploys Universal apps to macOS 12 and later.",
+          "source_published_on": null
         }
       ],
       "reviewed_at": "2026-09-09T05:45:55.700550+00:00",
@@ -155539,10 +155938,10 @@
     },
     {
       "path": "guides/os27-migration.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "008c2f02226a605542ccf8152012c9100eb46dbc02f0b383459ecf2077b2a5fa",
+      "content_sha256": "72d2cadfb6c1ea04b05bd5aed4d8b165babc34d5b8141f858ac5d2f0e8762bef",
       "headings_reviewed": [
         "Preparing an existing app for OS 27",
         "Establish the compatibility matrix",
@@ -155708,15 +156107,29 @@
           "path": "scripts/check_sample.sh",
           "sha256": "4f3a02cac106ebb2bb4f38194feb04213431e0b9dcf0e2cbfc4673bf25aaca61",
           "locator": "Bounded sample build/model workflow; no fabricated beta success."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
+        },
+        {
+          "url": "https://developer.apple.com/documentation/safari-release-notes/safari-27-release-notes",
+          "retrieval_url": "https://developer.apple.com/documentation/safari-release-notes/safari-27-release-notes.md",
+          "sha256": "9161b8419df0995d289359b689fa0ed2037b0d51542901f5ac89e0e8ec39e522",
+          "locator": "Header: Released September 14, 2026 - 27.0 (20625.1.29). Overview lists availability for iOS 27, iPadOS 27, visionOS 27, macOS 27, macOS 26 and macOS Sequoia.",
+          "source_published_on": null
         }
       ]
     },
     {
       "path": "guides/private-cloud-compute.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "verified-qualified",
-      "content_sha256": "a93f6f3c83056bb5be545e9ce7ae307fcfeed133d997152f66a191d2f981f9fd",
+      "content_sha256": "fa166ac15490e5164f9124223e8a6933439d8c64ce9f7c433fec848c4202a9b4",
       "headings_reviewed": [
         "Private Cloud Compute Security Guide",
         "Overview",
@@ -155968,6 +156381,13 @@
           "source_published_on": null,
           "url": "https://developer.apple.com/documentation/visionos-release-notes/visionos-27-release-notes",
           "locator": "Foundation Models resolved issue 177684296"
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ]
     },
@@ -156131,10 +156551,10 @@
     },
     {
       "path": "guides/safari27-migration.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "bc62546928ab5102c8ee95449408932d6349a4137d491e8c5ef8b33bc596cba6",
+      "content_sha256": "ecc7ec7a9df013e15b4b8dc8ac770a9337b6e575cbc902a0bf3dc76020d8d28f",
       "headings_reviewed": [
         "Safari 27 migration",
         "Separate browser, host, and native API versions",
@@ -156409,6 +156829,13 @@
           "source_published_on": null,
           "content_type": "text/markdown; charset=utf-8",
           "locator": "Default persistent versus nonPersistent website data store and native configuration scope; browser installation does not establish a native27 symbol."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ],
       "validation_artifacts": [
@@ -156434,10 +156861,10 @@
     },
     {
       "path": "guides/swift-concurrency-migration.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "42d449aaa861a449b0a54bc34e4c237c909fc6cffce6fcf22cc5b8cebbeea87d",
+      "content_sha256": "ae357796ec98f8800df1cb54100365214a73c7021d84359414e758774253e9b7",
       "headings_reviewed": [
         "Migrate one asynchronous feature to Swift 6 checking",
         "Prerequisites and availability",
@@ -156678,15 +157105,22 @@
           "sha256": "ce2173ab9452c26fa7856d802149e0175021c20646b4df6e208081402d7a367b",
           "source_published_on": null,
           "locator": "Package/SupportedPlatform/Product/Target and Resource reference; Swift tools-version declaration and per-version manifest API requirements."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ]
     },
     {
       "path": "human-interface-guidelines/README.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "verified",
-      "content_sha256": "8eaa338ad010dcd728e27217d11c450e751ab45fd3d6c3c0caf6df1ed2bf799c",
+      "content_sha256": "8592d06334a6c491a16c2c0b20bc9536f3d54e7ff6e57e751860e58fbc6a0e90",
       "headings_reviewed": [
         "Human Interface Guidelines index"
       ],
@@ -156726,22 +157160,29 @@
       "sources": [
         {
           "path": "metadata/catalog.json",
-          "sha256": "0e78003d267001ff4e8702784e2f1994fea8c52b9f3e164e8a5d2d1d96bbee35",
+          "sha256": "3c9e6da0e01919b5dfe54bac47949e4d62fcf092a05d8e036ba6dac68f5a304a",
           "locator": "All selected topic rows, owners, kinds, aliases and intentionally non-authoritative platform/release tags."
         },
         {
           "path": "scripts/docs.py",
           "sha256": "9350ca21a4dd6a0414412af5d263613bf559901ea5a0885a0b6e0b1f1997028d",
           "locator": "generated_indexes/index_table: exact complete output and template semantics."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ]
     },
     {
       "path": "human-interface-guidelines/components/README.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "verified",
-      "content_sha256": "f92c4ccad4b75e5105761f1990c130f2990263958ef0891f9fc5c6a0f9c6a012",
+      "content_sha256": "4abb64d6fd1bf4f761bc36c02182ee653ba216f8632b6762bd6637ca3a11a46f",
       "headings_reviewed": [
         "Components"
       ],
@@ -156781,13 +157222,20 @@
       "sources": [
         {
           "path": "metadata/catalog.json",
-          "sha256": "0e78003d267001ff4e8702784e2f1994fea8c52b9f3e164e8a5d2d1d96bbee35",
+          "sha256": "3c9e6da0e01919b5dfe54bac47949e4d62fcf092a05d8e036ba6dac68f5a304a",
           "locator": "All selected topic rows, owners, kinds, aliases and intentionally non-authoritative platform/release tags."
         },
         {
           "path": "scripts/docs.py",
           "sha256": "9350ca21a4dd6a0414412af5d263613bf559901ea5a0885a0b6e0b1f1997028d",
           "locator": "generated_indexes/index_table: exact complete output and template semantics."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ]
     },
@@ -197264,10 +197712,10 @@
     },
     {
       "path": "human-interface-guidelines/components/widgets.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "d2173f2ac37b31a7ae51d70fbf359d55ab580db42a211fcd569fedc2ccc11661",
+      "content_sha256": "590a713c6d2c8b1b9660ef420a4cffc3786d543a04ed548747b1d2208188eae9",
       "headings_reviewed": [
         "Widgets",
         "Overview",
@@ -203958,6 +204406,13 @@
               "id": "p-8558ea2c9a13"
             }
           ]
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ],
       "additional_sections_reviewed": [
@@ -204698,10 +205153,10 @@
     },
     {
       "path": "human-interface-guidelines/foundations/README.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "verified",
-      "content_sha256": "1bf93e96fbadce50ac6f54c956bb7ebab75c957e69c86ffeb06685e2aaff0731",
+      "content_sha256": "564b7afb9a610d451cb59acfaec422fa0174502d05724cc781eabb95b013d0aa",
       "headings_reviewed": [
         "Foundations"
       ],
@@ -204741,13 +205196,20 @@
       "sources": [
         {
           "path": "metadata/catalog.json",
-          "sha256": "0e78003d267001ff4e8702784e2f1994fea8c52b9f3e164e8a5d2d1d96bbee35",
+          "sha256": "3c9e6da0e01919b5dfe54bac47949e4d62fcf092a05d8e036ba6dac68f5a304a",
           "locator": "All selected topic rows, owners, kinds, aliases and intentionally non-authoritative platform/release tags."
         },
         {
           "path": "scripts/docs.py",
           "sha256": "9350ca21a4dd6a0414412af5d263613bf559901ea5a0885a0b6e0b1f1997028d",
           "locator": "generated_indexes/index_table: exact complete output and template semantics."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ]
     },
@@ -225281,10 +225743,10 @@
     },
     {
       "path": "human-interface-guidelines/getting-started/README.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "verified",
-      "content_sha256": "b0fbc41e19327a654dd7e4b3397a2c7f76985c1d15e164e36e16d49e1cbbfef6",
+      "content_sha256": "27398d4350f0f1989fa45c611c2c396b36df649cd6e5b8e336a74eac24e4d1df",
       "headings_reviewed": [
         "Getting started"
       ],
@@ -225324,13 +225786,20 @@
       "sources": [
         {
           "path": "metadata/catalog.json",
-          "sha256": "0e78003d267001ff4e8702784e2f1994fea8c52b9f3e164e8a5d2d1d96bbee35",
+          "sha256": "3c9e6da0e01919b5dfe54bac47949e4d62fcf092a05d8e036ba6dac68f5a304a",
           "locator": "All selected topic rows, owners, kinds, aliases and intentionally non-authoritative platform/release tags."
         },
         {
           "path": "scripts/docs.py",
           "sha256": "9350ca21a4dd6a0414412af5d263613bf559901ea5a0885a0b6e0b1f1997028d",
           "locator": "generated_indexes/index_table: exact complete output and template semantics."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ]
     },
@@ -240191,10 +240660,10 @@
     },
     {
       "path": "human-interface-guidelines/inputs/README.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "verified",
-      "content_sha256": "9ab4bbd6c683f982dddda24f3e373421e134cee994f40c7019affedad5d49287",
+      "content_sha256": "1948b050065f919a455ce6c9993e14b8f4d581d8cdb4d414c83951be332f98f6",
       "headings_reviewed": [
         "Inputs"
       ],
@@ -240234,13 +240703,20 @@
       "sources": [
         {
           "path": "metadata/catalog.json",
-          "sha256": "0e78003d267001ff4e8702784e2f1994fea8c52b9f3e164e8a5d2d1d96bbee35",
+          "sha256": "3c9e6da0e01919b5dfe54bac47949e4d62fcf092a05d8e036ba6dac68f5a304a",
           "locator": "All selected topic rows, owners, kinds, aliases and intentionally non-authoritative platform/release tags."
         },
         {
           "path": "scripts/docs.py",
           "sha256": "9350ca21a4dd6a0414412af5d263613bf559901ea5a0885a0b6e0b1f1997028d",
           "locator": "generated_indexes/index_table: exact complete output and template semantics."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ]
     },
@@ -249433,10 +249909,10 @@
     },
     {
       "path": "human-interface-guidelines/patterns/README.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "verified",
-      "content_sha256": "cbfc77d13a14a9015519f594c442ae511562ad978a7c13bb8d0e922de7a80dce",
+      "content_sha256": "e9626bad07a8bdf2e57377ca67f0eda21b38e52f0bf0dc771c3a4a82d97162bf",
       "headings_reviewed": [
         "Patterns"
       ],
@@ -249476,13 +249952,20 @@
       "sources": [
         {
           "path": "metadata/catalog.json",
-          "sha256": "0e78003d267001ff4e8702784e2f1994fea8c52b9f3e164e8a5d2d1d96bbee35",
+          "sha256": "3c9e6da0e01919b5dfe54bac47949e4d62fcf092a05d8e036ba6dac68f5a304a",
           "locator": "All selected topic rows, owners, kinds, aliases and intentionally non-authoritative platform/release tags."
         },
         {
           "path": "scripts/docs.py",
           "sha256": "9350ca21a4dd6a0414412af5d263613bf559901ea5a0885a0b6e0b1f1997028d",
           "locator": "generated_indexes/index_table: exact complete output and template semantics."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ]
     },
@@ -268785,10 +269268,10 @@
     },
     {
       "path": "human-interface-guidelines/technologies/README.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "verified",
-      "content_sha256": "8b42d149d21529295ca7a8725682f00530c9d6e202d57620e7c661b1a65574bc",
+      "content_sha256": "f177283217ec2a501433b55e75d11d8d410db6197b22e863482693addac84ebc",
       "headings_reviewed": [
         "Technologies"
       ],
@@ -268828,13 +269311,20 @@
       "sources": [
         {
           "path": "metadata/catalog.json",
-          "sha256": "0e78003d267001ff4e8702784e2f1994fea8c52b9f3e164e8a5d2d1d96bbee35",
+          "sha256": "3c9e6da0e01919b5dfe54bac47949e4d62fcf092a05d8e036ba6dac68f5a304a",
           "locator": "All selected topic rows, owners, kinds, aliases and intentionally non-authoritative platform/release tags."
         },
         {
           "path": "scripts/docs.py",
           "sha256": "9350ca21a4dd6a0414412af5d263613bf559901ea5a0885a0b6e0b1f1997028d",
           "locator": "generated_indexes/index_table: exact complete output and template semantics."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ]
     },
@@ -305919,10 +306409,10 @@
     },
     {
       "path": "os26-intro/Program.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "1b5758b3c95caf93c43ccace8b56fe1f32f69a600d302129884239fc31bb3009",
+      "content_sha256": "79dbf11eb97bdd697de5bb5663ca633fabc6f6b0153d4ccb298abdba0fe85e9e",
       "headings_reviewed": [
         "Apple Developer Program",
         "Overview",
@@ -306785,10 +307275,10 @@
     },
     {
       "path": "os26-intro/iOS.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "904525c31553d48f8b93ece09fd9186e877b5b7cd97cf54af26f873cd1e545d3",
+      "content_sha256": "4d1285b93454c7c624631aa6238aed78906c3526f0a428d194de9db378c7cc99",
       "headings_reviewed": [
         "iOS 26.0 Developer Introduction",
         "Overview",
@@ -308225,10 +308715,10 @@
     },
     {
       "path": "os26-intro/iPadOS.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "481f93abbfc7e59171f344b211efe6f2fef943fc398544511f79c0453972a5b4",
+      "content_sha256": "3659f76f3a121fd4174dedff18bce654e5f59295bec71566351249a04294700b",
       "headings_reviewed": [
         "iPadOS 26.0 Developer Introduction",
         "Overview",
@@ -309588,10 +310078,10 @@
     },
     {
       "path": "os26-intro/macOS.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "5eb49b373565bec217610ef1d59881e0021b018af05cbd67dbda7e4db5408875",
+      "content_sha256": "0b9ef531c23ad00a1024f5563d401e77657375ab5d5f0e4e36f55415ee8f8e6a",
       "headings_reviewed": [
         "macOS Tahoe 26.0 Developer Introduction",
         "Overview",
@@ -310639,10 +311129,10 @@
     },
     {
       "path": "os26-intro/tvOS.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "512249812dff449905b7949a0d09ce79fbfd31c8bf5825765802607ae7467a6a",
+      "content_sha256": "457c091527bb7dc04f0b24e049b18403844d83c7e445fb25d0e1251b2ae5824f",
       "headings_reviewed": [
         "tvOS 26.0 Developer Introduction",
         "Overview",
@@ -311414,10 +311904,10 @@
     },
     {
       "path": "os26-intro/visionOS.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "bdee8e9be2a740720bf94912deefc862f5bd0ca02043bf77f24b62dcfaaa3fc1",
+      "content_sha256": "5ccf2da83f9f05fa3eef7e959b36c036d34a8147e0291fbde6a0217c19cf97e0",
       "headings_reviewed": [
         "visionOS 26.0 Developer Introduction",
         "Overview",
@@ -312748,10 +313238,10 @@
     },
     {
       "path": "os26-intro/watchOS.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "e4893fdc4ab945874b04f996d885aab09b45fe6a6013acd19fc68f180f1efeec",
+      "content_sha256": "fd065f02c77b5c9bdeb29cb862ee0970edfa2b68151db80c99381c22de3d2cb7",
       "headings_reviewed": [
         "watchOS 26.0 Developer Introduction",
         "Overview",
@@ -313933,10 +314423,10 @@
     },
     {
       "path": "os26-liquid-glass-example/README.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "a28c0b797db6f65bfa073a1286259f581827b8a814a2aa21dcd1ed70cd041fba",
+      "content_sha256": "9fa8a4204d609fb25794c2d739e997ec80fc2b9752f6bd7abf6aaab5eaff84af",
       "headings_reviewed": [
         "Landmarks: Building an app with Liquid Glass",
         "Overview",
@@ -314120,15 +314610,22 @@
           "path": "os26-liquid-glass-example/LICENSE.txt",
           "sha256": "a800a1bee43c13133b4ca839d58dfa2fc3729a9d99e6afaf0e5faf03a199cda6",
           "locator": "Software grant excludes accompanying photographs."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "2cc19a9d8fa0bde83aea3851a36e448995b21f4790df486876c931ee51139fc0",
+          "locator": "September 14, 2026 entries for iOS/iPadOS 27.0 (24A437), macOS 27.0 (26A428), tvOS 27.0 (24J361), visionOS 27.0 (24M362), watchOS 27.0 (24R364) and Xcode 27 (27A266a); September 9 iPadOS 26.7 (23H24).",
+          "source_published_on": null
         }
       ]
     },
     {
       "path": "os27-intro/Program.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "55ae2bf4d930d92539987db3a515d4386537563d652ced33c5e66b8d15626c83",
+      "content_sha256": "205c1c8758069cd42edd1cce2f578bd343ea59046ead72008a8147a61af4b34c",
       "headings_reviewed": [
         "Apple Developer Program \u2014 OS 27 Generation",
         "Overview",
@@ -314869,10 +315366,10 @@
     },
     {
       "path": "os27-intro/iOS.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "6d2bad0519744d4f21d20aa3c954a422c181c88b62767b22bb1d5400208908da",
+      "content_sha256": "bf6273ac1a78792adbe9d309a8fb30159955486654cf5fe1c5c68c11038ecb43",
       "headings_reviewed": [
         "iOS 27.0 Developer Introduction",
         "Overview",
@@ -315556,10 +316053,10 @@
     },
     {
       "path": "os27-intro/iPadOS.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "39ae3655d179c50da19b57e22aa862341168f2100a7d16fdf7ab73e3323dca6b",
+      "content_sha256": "2768607e8d279768895a31a6d19c0a0df94111088956e82648304687a981f3a2",
       "headings_reviewed": [
         "iPadOS 27.0 Developer Introduction",
         "Overview",
@@ -316278,15 +316775,15 @@
     },
     {
       "path": "os27-intro/macOS.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "68ab4c540018cc5b02a3cab01bdabaaebe4f48e7f4896e02bdfd7b5163268c76",
+      "content_sha256": "33bbfd1fbaee69bb5675252959de8f95200bf18ed730a4d3864483a26a045081",
       "headings_reviewed": [
         "macOS Golden Gate 27.0 Developer Introduction",
         "Overview",
         "Toolchain and Architecture",
-        "Xcode 27 beta 6",
+        "Xcode 27",
         "Rosetta and installers",
         "Developer-Facing Changes",
         "AppKit and Mac Catalyst",
@@ -316391,7 +316888,7 @@
           "assessment": "Reviewed both host/output architecture and translated-app/installer sections independently."
         },
         {
-          "heading": "Xcode 27 beta 6",
+          "heading": "Xcode 27",
           "level": 3,
           "line": 15,
           "source_urls": [
@@ -317021,10 +317518,10 @@
     },
     {
       "path": "os27-intro/tvOS.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "c395cd4d7f199dcc424b64df8d6d9273a01c2a578871a41e251af4f2122d70fc",
+      "content_sha256": "c537f8084dc0b88c26d44c27482d4078dd52145b0f72f1fb52ae97b10e5d7894",
       "headings_reviewed": [
         "tvOS 27.0 Developer Introduction",
         "Overview",
@@ -317559,10 +318056,10 @@
     },
     {
       "path": "os27-intro/visionOS.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "fe542075188d52c9e92c94374e1080dd376befec61be8270d104bc52e0ed2e89",
+      "content_sha256": "8115d5ea2931dd4bb6b7fcdaa99796e750d2b033ea25d1eeca0089b536cecf7b",
       "headings_reviewed": [
         "visionOS 27.0 Developer Introduction",
         "Overview",
@@ -318235,10 +318732,10 @@
     },
     {
       "path": "os27-intro/watchOS.md",
-      "as_of": "2026-09-08",
+      "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "c2624d900928025156c173588fb51949699445006af48db8b7088b5ccff7791b",
+      "content_sha256": "b4b8f67f6ed3d114c5d571be26b3691b49dfa53e7fd39be993c3ef3c14367f45",
       "headings_reviewed": [
         "watchOS 27.0 Developer Introduction",
         "Overview",

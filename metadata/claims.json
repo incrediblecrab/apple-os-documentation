@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "as_of": "2026-09-08",
+  "as_of": "2026-09-14",
   "claims": [
     {
       "id": "xcode27-host",
       "status": "verified",
-      "claim": "Xcode 27 beta 6 requires an Apple silicon Mac running macOS Tahoe 26.4 or later. The hardware restriction is explicit in Intel Deprecation, not inferred from the host OS.",
+      "claim": "Xcode 27 requires an Apple silicon Mac running macOS Tahoe 26.6 or later. The hardware restriction is explicit in Intel Deprecation, not inferred from the host OS.",
       "source": "https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md",
-      "locator": "Overview; Intel Deprecation / Deprecations in Xcode 27 Beta / 162138432",
-      "checked_on": "2026-09-08",
+      "locator": "Overview (\"Xcode 27 requires a Mac running macOS Tahoe 26.6 or later.\"); Intel Deprecation / Deprecations (\"Xcode 27 will only install and run on Apple silicon Macs.\")",
+      "checked_on": "2026-09-14",
       "source_published_on": null,
       "affected_paths": [
         "README.md",
@@ -33,8 +33,9 @@
         "os27-intro/visionOS.md",
         "os27-intro/watchOS.md"
       ],
-      "release_qualifier": "Xcode 27 beta 6",
-      "source_snapshot_url": "https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md"
+      "release_qualifier": "Xcode 27 (27A266a), general availability",
+      "source_snapshot_url": "https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md",
+      "sha256": "0fa8f59962785e39afcd622cd1778cee4374ff97012e6ebe3da623c2da362202"
     },
     {
       "id": "sirikit-legacy",
@@ -421,30 +422,31 @@
     {
       "id": "reality-composer-pro-host",
       "status": "verified",
-      "claim": "Reality Composer Pro beta 5 is a standalone app requiring Apple silicon and macOS Tahoe 26.5+; its Asset Generation feature separately requires macOS 27.",
-      "source": "https://developer.apple.com/documentation/realitycomposerpro/reality-composer-pro-beta-5-release-notes.md",
-      "locator": "Overview; General / Known Issues / 178159978",
-      "release_qualifier": "Reality Composer Pro 3 beta 5",
+      "claim": "Reality Composer Pro is a standalone app, no longer part of Xcode, requiring an Apple silicon Mac running macOS Tahoe 26.5 or later; its Asset Generation feature separately requires macOS 27.",
+      "source": "https://developer.apple.com/documentation/RealityComposerPro/Reality-Composer-Pro-Release-Notes.md",
+      "locator": "Overview (standalone download; requires Apple silicon and macOS Tahoe 26.5 or later); General / Known Issues / 178159978 (Asset Generation only supported on macOS 27)",
+      "release_qualifier": "Reality Composer Pro 3, general availability",
       "affected_paths": [
         "documentation/RealityComposerPro.md"
       ],
-      "checked_on": "2026-09-08",
+      "checked_on": "2026-09-14",
       "source_published_on": null,
-      "source_snapshot_url": "https://developer.apple.com/documentation/realitycomposerpro/reality-composer-pro-beta-5-release-notes.md"
+      "source_snapshot_url": "https://developer.apple.com/documentation/RealityComposerPro/Reality-Composer-Pro-Release-Notes.md",
+      "sha256": "a1419dc4f457f741a7f40829507338fab719fceed554f5d6f80dd248a0d88b69"
     },
     {
       "id": "gaussian-splat-platform-status",
       "status": "unverified",
-      "claim": "The iOS/iPadOS and macOS 27 beta 8 notes each simultaneously describe the Gaussian Splat Component API as upcoming (178061856) and a splat-rendering defect as resolved (183538823). Those statements, differing platform notes and symbol annotations do not establish uniform runtime availability or unavailability.",
-      "source": "https://developer.apple.com/documentation/realitykit/gaussiansplatcomponent",
-      "locator": "Symbol availability; iOS/iPadOS and macOS RealityKit / New Features / 178061856 versus Gaussian Splats / Resolved Issues / 183538823; visionOS Gaussian Splats section",
-      "release_qualifier": "OS 27 beta 8",
+      "claim": "The shipping iOS/iPadOS and macOS 27 release notes each simultaneously describe the Gaussian Splat Component API as upcoming and a splat-rendering defect as resolved (183538823). Those statements, differing platform notes and symbol annotations do not establish uniform runtime availability or unavailability.",
+      "source": "https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes.md",
+      "locator": "RealityKit entries: \"The Gaussian Splat Component API in RealityKit will be available in an upcoming release.\" alongside resolved issue 183538823.",
+      "release_qualifier": "OS 27 general availability; contradiction persists in the shipping notes",
       "affected_paths": [
         "documentation/RealityKit.md",
         "documentation/CompositorServices.md",
         "documentation/Metal.md"
       ],
-      "checked_on": "2026-09-08",
+      "checked_on": "2026-09-14",
       "source_published_on": null,
       "unresolved_question": "Which exact SDK/platform/build combinations support the planned splat workflow at runtime?",
       "action": "Preserve the documented discrepancy or unknown; do not invent a uniform availability or removal rule.",
@@ -452,7 +454,9 @@
         "https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes.md",
         "https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes.md",
         "https://developer.apple.com/documentation/visionos-release-notes/visionos-27-release-notes"
-      ]
+      ],
+      "source_snapshot_url": "https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes.md",
+      "sha256": "a65addc4751488b7bd15d625b0df9021b9e4c5045637bdc96dc08e4492f4142e"
     },
     {
       "id": "routing-catalyst-conflict",
@@ -531,16 +535,17 @@
       "status": "verified",
       "claim": "The macOS 27 SDK supports universal-app back-deployment to macOS 12+; ARCHS_STANDARD omits x86_64 by default for minimum targets of macOS 27 or DriverKit 27, with explicit ARCHS customization still possible.",
       "source": "https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md",
-      "locator": "Intel Deprecation / 161837535 and 162138432",
-      "release_qualifier": "Xcode 27 beta; target architectures are separate from IDE host eligibility",
+      "locator": "Intel Deprecation / New Features / 161837535; Intel Deprecation / Deprecations (macOS 27 SDK back deployment)",
+      "release_qualifier": "Xcode 27; target architectures are separate from IDE host eligibility",
       "affected_paths": [
         "documentation/Xcode.md",
         "documentation/apple-silicon.md",
         "guides/os27-migration.md"
       ],
-      "checked_on": "2026-09-08",
+      "checked_on": "2026-09-14",
       "source_published_on": null,
-      "source_snapshot_url": "https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md"
+      "source_snapshot_url": "https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md",
+      "sha256": "0fa8f59962785e39afcd622cd1778cee4374ff97012e6ebe3da623c2da362202"
     },
     {
       "id": "pcc-access-eligibility",

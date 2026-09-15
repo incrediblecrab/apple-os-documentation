@@ -1,6 +1,6 @@
 # Apple Developer Program — OS 27 Generation
 
-Use this overview to plan OS27 testing and distribution without confusing beta SDK availability with submission deadlines, entitlement approval, or regional eligibility. Policy statements are checked through **September 8, 2026**.
+Use this overview to plan OS27 testing and distribution without confusing SDK availability with submission deadlines, entitlement approval, or regional eligibility. Policy statements are checked through **September 8, 2026**.
 
 **Platforms:** iOS | iPadOS | macOS | tvOS | visionOS | watchOS
 
@@ -12,24 +12,25 @@ Eligible nonprofit, accredited educational, and government organizations may req
 
 ## Beta Access
 
-An Apple developer account provides developer beta access without paid Program enrollment. Use version-specific release notes and download eligibility for your Apple Account. A listed beta is a testing baseline, not permission to submit a beta-built app to production or an announced public release date.
+An Apple developer account provides developer beta access without paid Program enrollment. Use version-specific release notes and download eligibility for your Apple Account. OS 27 has shipped; a listed beta remains a testing baseline, not permission to submit a beta-built app to production.
 
 ### OS 27 Betas
 
-- **iOS, iPadOS, macOS, tvOS, watchOS, and visionOS 27 beta 8:** August 31, 2026.
-- **Xcode 27 beta 6 (`27A5252f`):** August 24, 2026; Swift 6.4 and the OS27 SDKs.
-- These are the releases listed at the cutoff, not an assumption that every future beta number will match. The listings do not establish general-availability dates or a visionOS public-beta program.
+- **iOS, iPadOS, macOS, tvOS, watchOS, and visionOS 27.0:** shipped September 14, 2026, with builds `24A437`, `24A437`, `26A428`, `24J361`, `24R364`, and `24M362`, respectively.
+- **Xcode 27 (`27A266a`):** shipped September 14, 2026; Swift 6.4 and the OS27 SDKs.
+- These general-availability releases supersede the August 31 beta listings as the current OS 27 baseline. The release listings do not establish a visionOS public-beta program.
 
 ### Current Shipping Releases
 
 | Platform | Version | Released |
 |----------|---------|----------|
-| iOS and iPadOS | 26.6.2 (`23G90`) | September 8, 2026 |
-| macOS Tahoe | 26.6.2 (`25G83`) | August 17, 2026 |
-| visionOS | 26.6.1 (`23O780`) | August 17, 2026 |
-| tvOS | 26.6 (`23L773`) | July 27, 2026 |
-| watchOS | 26.6 (`23U67`) | July 27, 2026 |
-| Xcode | 26.6 (`17F113`) | June 25, 2026 |
+| iOS | 27.0 (`24A437`) | September 14, 2026 |
+| iPadOS | 27.0 (`24A437`) | September 14, 2026 |
+| macOS 27 Golden Gate | 27.0 (`26A428`) | September 14, 2026 |
+| tvOS | 27.0 (`24J361`) | September 14, 2026 |
+| visionOS | 27.0 (`24M362`) | September 14, 2026 |
+| watchOS | 27.0 (`24R364`) | September 14, 2026 |
+| Xcode | 27 (`27A266a`) | September 14, 2026 |
 
 Sources: [Apple Developer releases](https://developer.apple.com/news/releases/) and [Apple security releases](https://support.apple.com/en-us/100100). Security-update scope is not a list of newly added APIs.
 
@@ -39,7 +40,7 @@ Sources: [Apple Developer releases](https://developer.apple.com/news/releases/) 
 
 **No OS27 SDK deadline appears in the checked notice.** Do not infer one from past annual schedules. Separately, responses to the updated age-rating questionnaire for **each app** were due **January 31, 2026** to avoid interruptions when submitting updates.
 
-> **Xcode 27 beta 6 requires an Apple silicon Mac running macOS Tahoe 26.4 or later—not macOS 27.** Intel Macs cannot host Xcode 27. Its macOS SDK can still build universal apps for macOS 12 or later, and Rosetta can run Intel apps on eligible Apple silicon systems; neither makes Intel hardware an eligible Xcode 27 host. Source: [Xcode 27 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes).
+> **Xcode 27 requires an Apple silicon Mac running macOS Tahoe 26.6 or later—not macOS 27.** Intel Macs cannot host Xcode 27. Its macOS SDK can still build universal apps for macOS 12 or later, and Rosetta can run Intel apps on eligible Apple silicon systems; neither makes Intel hardware an eligible Xcode 27 host. Source: [Xcode 27 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes).
 
 ## Review Requirements for OS26 and OS27 Apps
 

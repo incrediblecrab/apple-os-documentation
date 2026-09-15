@@ -4,11 +4,11 @@ Prepare Apple Watch apps for watchOS 27 by reviewing HealthKit zones, SwiftUI st
 
 **Platform:** watchOS 27.0+
 
-> **Status checked September 8, 2026:** watchOS 27 **beta 8** (`24R5360a`) was released August 31. The shipping release is **watchOS 26.6** (`23U67`), released July 27. The [release listings](https://developer.apple.com/news/releases/) do not establish a watchOS 27 general-availability date.
+> **Status checked September 14, 2026:** watchOS 27.0 (`24R364`) shipped September 14. The previous 26-generation release is **watchOS 26.6** (`23U67`), released July 27.
 
 ## Overview
 
-The [watchOS 27 beta 8 notes](https://developer.apple.com/documentation/watchos-release-notes/watchos-27-release-notes) distinguish new API behavior from fixes to complications, connectivity, and workouts. Keep your watchOS 26 deployment and device testing decisions separate from rebuilding with the new SDK.
+The [watchOS 27 release notes](https://developer.apple.com/documentation/watchos-release-notes/watchos-27-release-notes) distinguish new API behavior from fixes to complications, connectivity, and workouts. Keep your watchOS 26 deployment and device testing decisions separate from rebuilding with the new SDK.
 
 ## Developer-Facing Changes
 
@@ -16,7 +16,7 @@ The [watchOS 27 beta 8 notes](https://developer.apple.com/documentation/watchos-
 
 HealthKit adds support for **heart-rate and cycling-power zones**. Request authorization only for the data your feature needs, handle unavailable readings, and test workout transitions on a device. A new health data type is not a guarantee that every Watch model, region, or user has data for it.
 
-The beta notes also contain resolved workout and Workout Buddy issues. Those fixes do not establish a public third-party “Workout Buddy API” or a new hardware eligibility list.
+The 27 notes also contain resolved workout and Workout Buddy issues. Those fixes do not establish a public third-party “Workout Buddy API” or a new hardware eligibility list.
 
 ### SwiftUI and WatchKit
 
@@ -35,14 +35,14 @@ The beta notes also contain resolved workout and Workout Buddy issues. Those fix
 
 1. Rebuild and inspect deprecations with the actual deployment target; do not raise it merely to silence a warning.
 2. Exercise app launch, background refresh, complications, notifications, and workouts with the companion phone disconnected.
-3. Treat beta 8's resolved issues as regression cases, not permanent restrictions. Keep workarounds tied to an affected build.
+3. Treat the 27 notes' resolved issues as regression cases, not permanent restrictions. Keep workarounds tied to an affected build.
 4. If using Foundation Models/PCC, check the specific API's availability and runtime eligibility, not the OS version alone. See [PCC eligibility and failure handling](../guides/private-cloud-compute.md).
 
 ## Devices and Toolchain
 
 **Exact watchOS 27 Watch model and companion-iPhone requirements: not verified by the reviewed sources.** Do not infer them from the watchOS 26 list or assume that each health or intelligence feature works on every eligible device.
 
-**Xcode 27 beta 6**, released August 24, requires **an Apple silicon Mac running macOS Tahoe 26.4 or later**. macOS 27 is not required, and Rosetta does not make Intel Macs eligible hosts. See the [Xcode notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes).
+**Xcode 27** (`27A266a`), released September 14, requires **an Apple silicon Mac running macOS Tahoe 26.6 or later**. macOS 27 is not required, and Rosetta does not make Intel Macs eligible hosts. See the [Xcode notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes).
 
 Since April 28, 2026, watchOS uploads require Xcode 26 or later and the watchOS 26 SDK or later. The checked [requirements page](https://developer.apple.com/news/upcoming-requirements/) gives no OS 27 SDK deadline. See [App Store readiness](../guides/app-store-readiness.md).
 
@@ -79,4 +79,4 @@ Check out the [watchOS Pathway](https://developer.apple.com/watchos/get-started/
 
 ## Sources
 
-[Apple Developer releases](https://developer.apple.com/news/releases/), [watchOS 27 beta 8 notes](https://developer.apple.com/documentation/watchos-release-notes/watchos-27-release-notes), and [Xcode 27 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes), with additional scoped citations above. Reviewed September 8, 2026; health permissions, hardware eligibility, and beta behavior require separate validation.
+[Apple Developer releases](https://developer.apple.com/news/releases/), [watchOS 27 notes](https://developer.apple.com/documentation/watchos-release-notes/watchos-27-release-notes), and [Xcode 27 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes), with additional scoped citations above. Reviewed September 8, 2026; health permissions, hardware eligibility, and version-specific behavior require separate validation.

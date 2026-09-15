@@ -4,7 +4,7 @@ Display remotely rendered immersive content on Apple Vision Pro while retaining 
 
 **Platforms:** visionOS 26.4+ — Apple Vision Pro
 
-**Status:** Available before OS 27. The OS 27 beta notes below are not the framework's introduction date.
+**Status:** Available before OS 27. The OS 27 notes below are not the framework's introduction date.
 
 **Provider-extension availability:** `FoveatedStreamingProviderContext` and `FoveatedStreamingProviderEndpoint` require **visionOS 27.0+**, unlike the core session/client workflow available in 26.4.
 
@@ -43,7 +43,7 @@ Keep an explicit connection state in the UI, allow cancellation during connectio
 
 Test pairing failures, unreachable endpoints, interruptions, and reconnects against the real endpoint. Profile both the network and the renderer; a fast desktop frame rate alone does not establish acceptable headset latency.
 
-The **visionOS 27 Beta 8** notes mark the microphone-access failure in `FoveatedStreamingProvider` extensions as **resolved** (175954012). Do not describe provider microphone access as categorically unavailable on OS 27; ordinary authorization and application requirements still need validation.
+The **visionOS 27** release notes mark the microphone-access failure in `FoveatedStreamingProvider` extensions as **resolved** (175954012). Do not describe provider microphone access as categorically unavailable on OS 27; ordinary authorization and application requirements still need validation.
 
 ## Sources
 

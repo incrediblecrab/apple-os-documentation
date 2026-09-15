@@ -22,17 +22,17 @@ Check `VZVirtualMachine.isSupported`, validate the guest configuration, and hand
 
 Intel Linux translation runs supported x86_64 applications inside an **ARM Linux guest**; it does not boot an Intel Linux kernel on Apple silicon. In macOS 13–26, check Rosetta availability and handle authorization, download, and installation failures.
 
-**macOS 27 beta changes this requirement:** Intel Linux translation is included in macOS. Apple's guide states that `VZLinuxRosettaDirectoryShare.availability` returns `.installed` and `installRosetta` completes immediately. The Rosetta-named directory-share API and guest-side mounting/binary-handler setup still apply. Dynamically linked applications also need their matching Linux libraries. Do not apply the separate macOS-app Rosetta upgrade warning to this built-in Linux translation path.
+**macOS 27 changes this requirement:** Intel Linux translation is included in macOS. Apple's guide states that `VZLinuxRosettaDirectoryShare.availability` returns `.installed` and `installRosetta` completes immediately. The Rosetta-named directory-share API and guest-side mounting/binary-handler setup still apply. Dynamically linked applications also need their matching Linux libraries. Do not apply the separate macOS-app Rosetta upgrade warning to this built-in Linux translation path.
 
 iCloud access requires a qualifying VM created on macOS 15+ from a macOS 15+ restore image on Apple silicon. Merely upgrading an older VM does not enable iCloud. Moving the VM to another Mac, or running an additional clone concurrently, changes its derived identity and requires reauthentication.
 
-### macOS 27 beta: disk-image and device integration
+### macOS 27: disk-image and device integration
 
 **Reviewed September 8, 2026:** [DiskImageKit](DiskImageKit.md) adds standalone and stacked ASIF/raw images through `VZDiskImageStorageDeviceAttachment(diskImage:)`. Its additional caching and synchronization arguments have defaults. Gate this path on macOS 27 rather than the framework's 11.0 minimum.
 
 Keep disk-image layering separate from guest-filesystem resizing and VM snapshots. Handle incompatible image stacks and storage errors. See DiskImageKit for layer ordering and UUID constraints.
 
-The 27 beta also adds custom Virtio devices for Linux guests and physical USB passthrough. `VZCustomVirtioDeviceConfiguration` describes a device that the VMM implements through the delegate/provider APIs; this is not a host DriverKit driver. `VZUSBPassthroughDeviceConfiguration` takes an [AccessoryAccess](AccessoryAccess.md) `AAUSBAccessory`, not a raw arbitrary USB identifier. Capture occurs when the VM starts or attaches the device, not merely when the configuration object is created.
+The 27 release also adds custom Virtio devices for Linux guests and physical USB passthrough. `VZCustomVirtioDeviceConfiguration` describes a device that the VMM implements through the delegate/provider APIs; this is not a host DriverKit driver. `VZUSBPassthroughDeviceConfiguration` takes an [AccessoryAccess](AccessoryAccess.md) `AAUSBAccessory`, not a raw arbitrary USB identifier. Capture occurs when the VM starts or attaches the device, not merely when the configuration object is created.
 
 ## Topics
 
@@ -100,10 +100,10 @@ Configure devices appropriate to the guest and host, including their individual 
 - [Clipboard sharing](https://developer.apple.com/documentation/virtualization/clipboard-sharing) - SPICE-agent clipboard support starts in macOS 13; Linux guests need `spice-vdagent`.
 
 #### USB Devices
-- [USB Devices](https://developer.apple.com/documentation/virtualization/usb-devices) - Controllers and virtual USB devices; physical passthrough uses the separate 27 beta APIs.
+- [USB Devices](https://developer.apple.com/documentation/virtualization/usb-devices) - Controllers and virtual USB devices; physical passthrough uses the separate 27 APIs.
 
 #### Custom Virtio devices
-- [Custom Virtio drivers](https://developer.apple.com/documentation/virtualization/custom-drivers) - Implement custom Virtio devices for Linux guests using the macOS 27 beta configuration, delegate, and queue APIs.
+- [Custom Virtio drivers](https://developer.apple.com/documentation/virtualization/custom-drivers) - Implement custom Virtio devices for Linux guests using the macOS 27 configuration, delegate, and queue APIs.
 
 ### Enumerations
 - [Virtualization enumerations](https://developer.apple.com/documentation/virtualization/virtualization-enumerations) - Control the caching modes, disk synchronization, and macOS auxiliary storage options of VMs.

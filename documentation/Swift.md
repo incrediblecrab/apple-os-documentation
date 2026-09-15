@@ -29,9 +29,9 @@ If you're new to Swift, read The Swift Programming Language for a quick tour, a 
 
 Swift is developed in the open. To learn more about the open source Swift project and community, visit Swift.org.
 
-## Swift 6.4 in the Xcode 27 beta toolchain
+## Swift 6.4 in Xcode 27
 
-[Xcode 27 beta 6](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md) includes the Swift 6.4 compiler. This is a beta toolchain at the September 8, 2026 cutoff, not a final Swift release announcement. The compiler version is separate from a target's **Swift language mode**: installing a new compiler does not by itself migrate a Swift 5-mode target to Swift 6.
+[Xcode 27](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md) (build `27A266a`, shipped September 14, 2026) includes the Swift 6.4 compiler. The compiler version is separate from a target's **Swift language mode**: installing a new compiler does not by itself migrate a Swift 5-mode target to Swift 6.
 
 The following changes are recorded in the [Swift `release/6.4.x` changelog](https://raw.githubusercontent.com/swiftlang/swift/release/6.4.x/CHANGELOG.md). An accepted evolution proposal alone is not evidence that a feature is included in this toolchain.
 
@@ -63,9 +63,9 @@ func performPlatformSpecificWork() { }
 
 **Toolchain requirements**
 
-Xcode 27 beta 6 requires **Apple silicon and macOS Tahoe 26.4 or later**, not macOS 27. The release notes explicitly state the IDE's hardware restriction; it is not inferred from the host OS. Host requirements, SDK versions, deployment targets, language mode, and runtime API availability are separate constraints. See [Xcode](Xcode.md), [Swift packages](swift-packages.md), and the [concurrency migration recipe](../guides/swift-concurrency-migration.md).
+Xcode 27 requires **Apple silicon and macOS Tahoe 26.6 or later**, not macOS 27. The release notes explicitly state the IDE's hardware restriction; it is not inferred from the host OS. Host requirements, SDK versions, deployment targets, language mode, and runtime API availability are separate constraints. See [Xcode](Xcode.md), [Swift packages](swift-packages.md), and the [concurrency migration recipe](../guides/swift-concurrency-migration.md).
 
-**Beta source compatibility:** The Xcode release notes identify a source break for a computed property with an `init` accessor and an array/dictionary literal initializer when the getter precedes the `init` accessor (180969028). The documented workaround is to put the `init` accessor first.
+**Source compatibility:** The Xcode release notes identify a source break for a computed property with an `init` accessor and an array/dictionary literal initializer when the getter precedes the `init` accessor (180969028). The documented workaround is to put the `init` accessor first.
 
 ## Topics
 

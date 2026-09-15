@@ -4,7 +4,7 @@ Move a data-loading feature and its shared cache to checked isolation without un
 
 ## Prerequisites and availability
 
-- Use a reproducible toolchain and a passing test baseline. At the September 8, 2026 cutoff, **Xcode 27 beta 6 includes the Swift 6.4 compiler and requires an Apple silicon Mac running macOS Tahoe 26.4+**.
+- Use a reproducible toolchain and a passing test baseline. Xcode 27 (`27A266a`) shipped September 14, 2026, includes the Swift 6.4 compiler, and **requires an Apple silicon Mac running macOS Tahoe 26.6 or later**.
 - Record the compiler version, target **Swift language mode**, Strict Concurrency Checking setting, default actor isolation, SDK, and deployment target. They are separate settings.
 - The Swift 6 language mode is an opt-in compiler setting, not an OS 27 runtime requirement. Keep the deployment requirements of the APIs your feature actually calls.
 - This recipe uses established `actor`, `Sendable`, `@MainActor`, and asynchronous-call semantics. It does not require a speculative Swift 6.4 feature. See [Swift](../documentation/Swift.md) and [Apple's adoption guide](https://developer.apple.com/documentation/swift/adoptingswift6.md).
@@ -77,7 +77,7 @@ The [canonical Swift reference](../documentation/Swift.md) tracks the reviewed `
 4. Test the oldest supported runtime as well as OS 27. Compiler acceptance is not a substitute for deployment testing.
 5. Profile the feature with **Swift Concurrency plus Time Profiler or CPU Profiler**. Xcode 27's Profile detail and Swift Executors instrument help separate running work from queued or suspended tasks. Older runtimes may show unknown executor names.
 
-The outcome is a passing, checked module with explicit ownership and tested cancellation—not simply a changed language-version setting. Record any remaining beta source-compatibility limitations from [Xcode's release notes](../documentation/Xcode-Release-Notes.md).
+The outcome is a passing, checked module with explicit ownership and tested cancellation—not simply a changed language-version setting. Record any remaining source-compatibility limitations from [Xcode's release notes](../documentation/Xcode-Release-Notes.md).
 
 ## Sources
 
@@ -85,4 +85,4 @@ The outcome is a passing, checked module with explicit ownership and tested canc
 - [Swift language guide: Concurrency](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/concurrency/) ([DocC source](https://docs.swift.org/swift-book/data/documentation/the-swift-programming-language/concurrency.json))
 - [Swift 6.4 branch changelog](https://raw.githubusercontent.com/swiftlang/swift/release/6.4.x/CHANGELOG.md)
 - [SE-0481: weak let, implemented in Swift 6.3](https://raw.githubusercontent.com/swiftlang/swift-evolution/main/proposals/0481-weak-let.md)
-- [Xcode 27 beta 6 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md)
+- [Xcode 27 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md)

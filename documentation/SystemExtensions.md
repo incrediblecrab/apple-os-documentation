@@ -34,7 +34,7 @@ For updates, increment the extension's version and handle the replacement delega
 
 Entitlements are checked against the code signature and the development team's grants. A containing app's System Extension capability does not replace the driver, Endpoint Security, or Network Extension entitlements required by its extension.
 
-Use a deactivation request to remove an extension when appropriate, and handle loss of its services. The 27 beta [VideoDriverKit](VideoDriverKit.md) family uses this macOS activation model; it does not add general iPadOS SystemExtensions support.
+Use a deactivation request to remove an extension when appropriate, and handle loss of its services. The 27-generation [VideoDriverKit](VideoDriverKit.md) family uses this macOS activation model; it does not add general iPadOS SystemExtensions support.
 
 The workspace, extension-info, and workspace-observer APIs are macOS 15.1+, not the framework's original 10.15 baseline. Workspace access requires the System Extension entitlement. Availability metadata on inspection APIs or constants does not extend the macOS manager/request activation model to iPadOS.
 

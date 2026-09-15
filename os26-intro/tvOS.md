@@ -4,7 +4,7 @@ Maintain Apple TV apps with predictable focus navigation, readable media catalog
 
 **Platform:** tvOS 26.0+
 
-> **Status checked September 8, 2026:** the shipping release is **tvOS 26.6** (`23L773`), released July 27. tvOS 27 beta 8 was released August 31; see the [tvOS 27 introduction](../os27-intro/tvOS.md). A beta listing does not establish a general-availability date.
+> **Status checked September 14, 2026:** the shipping release is **tvOS 26.6** (`23L773`), released July 27. tvOS 27.0 (`24J361`) shipped September 14; see the [tvOS 27 introduction](../os27-intro/tvOS.md).
 
 ## Overview
 
@@ -70,7 +70,7 @@ The following are adoption checks, not claims that every capability debuted in t
 - Migrate ODR/`NSBundleResourceRequest` usage to Background Assets and test missing or evicted resources.
 - Finish appearance work: [`UIDesignRequiresCompatibility`](https://developer.apple.com/documentation/bundleresources/information-property-list/uidesignrequirescompatibility) is ignored by tvOS 27 builds.
 - Use the [tvOS 27 checklist](../os27-intro/tvOS.md) for scoped video and managed-network changes. Its exact supported-device list is not verified here.
-- Xcode 27 beta 6 requires **Apple silicon and macOS Tahoe 26.4 or later**, not macOS 27. Preserve OS26 tests and apply the [submission checklist](../guides/app-store-readiness.md) separately.
+- Xcode 27 (`27A266a`) requires **Apple silicon and macOS Tahoe 26.6 or later**, not macOS 27. Preserve OS26 tests and apply the [submission checklist](../guides/app-store-readiness.md) separately.
 
 ## Getting Started
 

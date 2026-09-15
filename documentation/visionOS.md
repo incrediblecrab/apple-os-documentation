@@ -12,13 +12,13 @@ Developing for visionOS requires a Mac with Apple silicon. Create new apps using
 
 ### OS26 and OS27 planning
 
-**Checked September 8, 2026:** visionOS **26.6.1** (`23O780`, August 17) is shipping; visionOS 27 **beta 8** (`24M5361a`) was released August 31. The [release listings](https://developer.apple.com/news/releases/) establish neither a general-availability date nor a public-beta program.
+**Checked September 8, 2026:** visionOS **26.6.1** (`23O780`, August 17) was the shipping 26-generation release. **Update September 14, 2026:** visionOS **27.0** (`24M362`) is shipping. The [release listings](https://developer.apple.com/news/releases/) do not establish a public-beta program.
 
 - Keep the [OS26 introduction](../os26-intro/visionOS.md) and earlier spatial samples below for supported older targets; this collection is not an OS27-only API catalog.
 - For a 27-SDK rebuild, UIKit-based apps must adopt [scenes](https://developer.apple.com/documentation/uikit/transitioning-to-the-uikit-scene-based-life-cycle) or fail to launch. Audit ODR-to-Background-Assets migration, localized packs, and SwiftUI's asynchronous document APIs.
 - Test native and compatible-app paths, authorization denial, tracking loss, asset unavailability, and recovery after immersive or streaming sessions end.
-- The [visionOS beta 8 notes](https://developer.apple.com/documentation/visionos-release-notes/visionos-27-release-notes) mark earlier `RemoteImmersiveSpace` discovery failures as resolved. Do not recast a fixed beta bug as an enduring framework restriction.
-- Xcode 27 beta 6 requires **Apple silicon and macOS Tahoe 26.4 or later**, not macOS 27. Its Device Hub limitation on direct video/input for a physical Vision Pro is tool-version-specific; see [Xcode notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes).
+- The [visionOS 27 release notes](https://developer.apple.com/documentation/visionos-release-notes/visionos-27-release-notes) mark earlier `RemoteImmersiveSpace` discovery failures as resolved. Do not recast a fixed earlier-beta bug as an enduring framework restriction.
+- Xcode 27 requires **Apple silicon and macOS Tahoe 26.6 or later**, not macOS 27. Its Device Hub limitation on direct video/input for a physical Vision Pro is tool-version-specific; see [Xcode notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes).
 
 The exact OS27 Vision Pro model list is not verified here. Check per-feature hardware, region, authorization, and entitlement requirements separately. See the [OS27 introduction](../os27-intro/visionOS.md), [App Store readiness](../guides/app-store-readiness.md), and [PCC guide](../guides/private-cloud-compute.md).
 

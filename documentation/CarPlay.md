@@ -20,7 +20,7 @@ Apple's current [SiriKit guidance](https://developer.apple.com/documentation/sir
 
 Session 10635: Accelerate Your App with CarPlay
 
-## iOS 27 beta integration checks
+## iOS 27 integration checks
 
 The [iOS 27 release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes), reviewed September 8, 2026, document fixes for `CPNavigationSession` ETA tray focus and `CPMapPanel` dismissal, delegate, and button-handler behavior. Test these paths on a supported CarPlay system, including non-touch input, rather than assuming a Simulator-only test covers vehicle interaction.
 

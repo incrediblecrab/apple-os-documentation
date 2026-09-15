@@ -21,7 +21,7 @@ Using EnergyKit, your app can:
 
 Enable the EnergyKit capability in the app target. The required [EnergyKit entitlement](https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.energykit), `com.apple.developer.energykit`, is a Boolean with a value of `true`.
 
-The iOS/iPadOS 27 beta adds the Boolean [EnergyKit LoadEvents entitlement](https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.energykit.loadevents-experience), `com.apple.developer.energykit.loadevents-experience`. Enable both this capability and the base EnergyKit capability to share submitted load-event information through activity logs, historical charts, and trend notifications in the Home app. This additional capability is not part of the framework's original 26.0 minimum.
+The iOS/iPadOS 27 release adds the Boolean [EnergyKit LoadEvents entitlement](https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.energykit.loadevents-experience), `com.apple.developer.energykit.loadevents-experience`. Enable both this capability and the base EnergyKit capability to share submitted load-event information through activity logs, historical charts, and trend notifications in the Home app. This additional capability is not part of the framework's original 26.0 minimum.
 
 ## Topics
 

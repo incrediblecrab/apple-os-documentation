@@ -59,7 +59,7 @@ deprecation.
 
 These are scoped September 8, 2026 findings, not permanent prohibition lists:
 
-- Xcode 27 beta 6 requires **Apple silicon and macOS Tahoe 26.4+**, and includes
+- Xcode 27 requires **Apple silicon and macOS Tahoe 26.6+**, and includes
   Swift 6.4. The notes' Intel Deprecation section explicitly establishes the
   hardware restriction; it is not inferred from the host OS or Rosetta.
   Universal-app back-deployment is a separate capability.

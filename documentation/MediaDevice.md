@@ -4,7 +4,7 @@ Expose a hardware media-sharing protocol through the system's media device picke
 
 **Platforms:** iOS 27.0+ | iPadOS 27.0+
 
-**Status:** OS 27 beta APIs, reviewed September 8, 2026. This is a provider-extension framework, not a general-purpose desktop media library.
+**Status:** OS 27 APIs, reviewed September 8, 2026. This is a provider-extension framework, not a general-purpose desktop media library.
 
 **Mac Catalyst discrepancy:** The framework reference lists Mac Catalyst 27.0, while [Apple's routing and streaming guide](https://developer.apple.com/documentation/avsystemrouting/routing-and-streaming-media-to-remote-devices) explicitly excludes Mac Catalyst and visionOS. Treat Catalyst deployment as unconfirmed by these conflicting sources, not as guaranteed support.
 
