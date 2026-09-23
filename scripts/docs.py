@@ -641,13 +641,15 @@ def generated_indexes(catalog: dict[str, Any]) -> dict[str, str]:
             f"# {title}", "", GENERATED_NOTICE, "",
             f"Catalog snapshot: {human_date(catalog['as_of'])}.",
             "",
-            "The review column preserves the initial catalog/changed-content pass.",
-            "`metadata/accuracy.json` separately records full-body outcomes for exact page hashes.",
-            "`catalog-only` verifies the topic mapping, not every statement. Platform tags are",
-            "navigation aids extracted from the page, not symbol-level availability guarantees.",
-            "`mixed` spans shipping and beta material; `independent` is not tied to one OS release.",
-            "`not-assessed` preserves uncertainty rather than silently claiming a shipping status.",
-            "See [contributor guidance](" + link_to(path, "CONTRIBUTING.md") + ").",
+            " ".join([
+                "The review column preserves the initial catalog/changed-content pass.",
+                "`metadata/accuracy.json` separately records full-body outcomes for exact page hashes.",
+                "`catalog-only` verifies the topic mapping, not every statement. Platform tags are",
+                "navigation aids extracted from the page, not symbol-level availability guarantees.",
+                "`mixed` spans shipping and beta material; `independent` is not tied to one OS release.",
+                "`not-assessed` preserves uncertainty rather than silently claiming a shipping status.",
+                "See [contributor guidance](" + link_to(path, "CONTRIBUTING.md") + ").",
+            ]),
             "",
         ]
         selected = [document for document in documents if document["path"].startswith(prefix)]

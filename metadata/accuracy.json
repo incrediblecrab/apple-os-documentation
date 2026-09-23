@@ -11,7 +11,8 @@
     "Exact Apple documentation contradictions are retained where meaningful; framework landing metadata does not override concrete symbol availability, runtime hardware, entitlement, region or service restrictions.",
     "Every page states its actual code-example review scope. Source comparison, parsing, type-checking, mocked checks and runtime execution are different evidence; none implies every linked upstream project or service was exercised.",
     "No local Xcode 27/Swift 6.4 or OS 27 runtime, earliest OS 26.0 runtime, physical-device/live-service suite, comprehensive visual-accessibility review, or hosted workflow execution was completed.",
-    "The source review does not establish redistribution rights for documentation, design images or sample photographs. Existing asset-rights uncertainties remain explicit in metadata/assets.json."
+    "The source review does not establish redistribution rights for documentation, design images or sample photographs. Existing asset-rights uncertainties remain explicit in metadata/assets.json.",
+    "On September 23, 2026, hard-wrapped prose was joined onto single lines in 15 reviewed pages and in the generated-index paragraph template in scripts/docs.py, and those pages' content_sha256 values and 13 evidence hashes for scripts/docs.py and LICENSE were re-stamped without repeating the full-body review. The change is whitespace-only: for every re-stamped page the text with whitespace collapsed and the HTML rendered by markdown-it and by pandoc are identical before and after, and scripts/docs.py changed only by joining the seven string literals of that one paragraph with spaces. The previously reviewed bytes are at commit b5a7b58."
   ],
   "coordinate_conventions": {
     "lines": "One-based inclusive line ranges in the identified coordinate representation.",
@@ -30,7 +31,7 @@
       "as_of": "2026-09-08",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "a942ff5c3adcfa83329698537f3cb65e02c40496a835e50fe683cbfe75cc3ccf",
+      "content_sha256": "1bf48316032ba039300edf43bdb39e30121c33e2e06b5a629ddf9760e1cfab3b",
       "headings_reviewed": [
         "Contributing",
         "Source and review contract",
@@ -135,7 +136,7 @@
         },
         {
           "path": "scripts/docs.py",
-          "sha256": "9350ca21a4dd6a0414412af5d263613bf559901ea5a0885a0b6e0b1f1997028d",
+          "sha256": "d0bf6f5d13db9d29a05bfa083543a3ebf16bca82b723ec8230f9f7f144f64fb7",
           "locator": "Metadata/source enums, register/generate/check/check_accuracy, bounded source reporting and comparison_hash."
         },
         {
@@ -175,7 +176,7 @@
       "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "ccef161caec0f1db5031da539fca27de0d8f427003985bb1e59cbdd373516eba",
+      "content_sha256": "e46a82cd3959eb87f3a7a027946e94dcf948f6ccd4a15aa6114ed859b21d8392",
       "headings_reviewed": [
         "Apple platform documentation",
         "Start here",
@@ -410,7 +411,7 @@
         },
         {
           "path": "scripts/docs.py",
-          "sha256": "9350ca21a4dd6a0414412af5d263613bf559901ea5a0885a0b6e0b1f1997028d",
+          "sha256": "d0bf6f5d13db9d29a05bfa083543a3ebf16bca82b723ec8230f9f7f144f64fb7",
           "locator": "baseline_section, generated_readme, inventory and offline gates."
         },
         {
@@ -420,7 +421,7 @@
         },
         {
           "path": "LICENSE",
-          "sha256": "17be4ee195439059d71fa9c530f32f8335e34f224b8377be1fda99207ee1cb0e",
+          "sha256": "a885c0ccca096fad6218bf04fd3c62eadd63c44298108248c8218ef27e26e28f",
           "locator": "MIT License grant; Copyright (c) 2025 Max Marquardt."
         }
       ]
@@ -430,7 +431,7 @@
       "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "01ae7afec1aebc26537871fd25086b9d2402bf4dcbb460566ffd46bd056aaabb",
+      "content_sha256": "601b0e4c1e95ddd0f5a42bbd2346d72235f97bfd6b1f644fe27a3869350525cf",
       "headings_reviewed": [
         "Using this collection as AI context",
         "Select the relevant context",
@@ -617,7 +618,7 @@
         },
         {
           "path": "scripts/docs.py",
-          "sha256": "9350ca21a4dd6a0414412af5d263613bf559901ea5a0885a0b6e0b1f1997028d",
+          "sha256": "d0bf6f5d13db9d29a05bfa083543a3ebf16bca82b723ec8230f9f7f144f64fb7",
           "locator": "Stable IDs, alias validation, source retrieval alternatives and non-certifying registration/generation."
         },
         {
@@ -97499,7 +97500,7 @@
       "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "verified",
-      "content_sha256": "849d237c48130f2c4de87b6ec0a781941212c147a1d4c7c352ce2cde0d0be0bd",
+      "content_sha256": "7bdf02e643e2a5afc5ca6a2eec02d76e2a7aa508c4803a7e56bed0651d3c545b",
       "headings_reviewed": [
         "Reference index",
         "Platforms and release baselines",
@@ -97742,7 +97743,7 @@
         },
         {
           "path": "scripts/docs.py",
-          "sha256": "9350ca21a4dd6a0414412af5d263613bf559901ea5a0885a0b6e0b1f1997028d",
+          "sha256": "d0bf6f5d13db9d29a05bfa083543a3ebf16bca82b723ec8230f9f7f144f64fb7",
           "locator": "generated_indexes/index_table: exact complete output and template semantics."
         },
         {
@@ -103405,7 +103406,7 @@
       "as_of": "2026-09-08",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "587172d3bf487816fcf312496b068a318a4f9e9e7ea3e29f6907389e3c6e3757",
+      "content_sha256": "91ba3bda7bd83b17103f34ab626c75366f528fa24ecf14410a678cfd3ded871c",
       "headings_reviewed": [
         "Sample Code Library",
         "Overview",
@@ -144359,7 +144360,7 @@
       "as_of": "2026-09-08",
       "full_body_reviewed": true,
       "status": "verified-qualified",
-      "content_sha256": "31aaeaef4ac9783dc3ea5771b2bf3fe9b9c010c73453bb1c516f303889e44f14",
+      "content_sha256": "8fd24139f995c1d2fbbe1f136c8e438b7ee6683ae28f7302c1888072af061c5a",
       "headings_reviewed": [
         "Kernel Management",
         "Topics",
@@ -153462,7 +153463,7 @@
       "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "verified",
-      "content_sha256": "7433e47862b6d48029d518174a5012185fd1da4b4ff8f789499b9eee4094fec0",
+      "content_sha256": "a76b9943be2668e6ecd74b9047c82378a078079f2d4a08dc31bff5eb29cab2aa",
       "headings_reviewed": [
         "Migration and readiness guides"
       ],
@@ -153507,7 +153508,7 @@
         },
         {
           "path": "scripts/docs.py",
-          "sha256": "9350ca21a4dd6a0414412af5d263613bf559901ea5a0885a0b6e0b1f1997028d",
+          "sha256": "d0bf6f5d13db9d29a05bfa083543a3ebf16bca82b723ec8230f9f7f144f64fb7",
           "locator": "generated_indexes/index_table: exact complete output and template semantics."
         },
         {
@@ -155947,7 +155948,7 @@
       "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "72d2cadfb6c1ea04b05bd5aed4d8b165babc34d5b8141f858ac5d2f0e8762bef",
+      "content_sha256": "94e643a04ca246295a200273728876d19e98bbbf53bf5a824db998900df5647d",
       "headings_reviewed": [
         "Preparing an existing app for OS 27",
         "Establish the compatibility matrix",
@@ -157126,7 +157127,7 @@
       "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "verified",
-      "content_sha256": "8592d06334a6c491a16c2c0b20bc9536f3d54e7ff6e57e751860e58fbc6a0e90",
+      "content_sha256": "7ea3be2bfb6320e74a03d87276c84748cd0be4effa278acac6c75323400efa6f",
       "headings_reviewed": [
         "Human Interface Guidelines index"
       ],
@@ -157171,7 +157172,7 @@
         },
         {
           "path": "scripts/docs.py",
-          "sha256": "9350ca21a4dd6a0414412af5d263613bf559901ea5a0885a0b6e0b1f1997028d",
+          "sha256": "d0bf6f5d13db9d29a05bfa083543a3ebf16bca82b723ec8230f9f7f144f64fb7",
           "locator": "generated_indexes/index_table: exact complete output and template semantics."
         },
         {
@@ -157188,7 +157189,7 @@
       "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "verified",
-      "content_sha256": "4abb64d6fd1bf4f761bc36c02182ee653ba216f8632b6762bd6637ca3a11a46f",
+      "content_sha256": "e81abde3c6c50aef2c27345247c376afad7219bfce78b2cc69acf3918980d525",
       "headings_reviewed": [
         "Components"
       ],
@@ -157233,7 +157234,7 @@
         },
         {
           "path": "scripts/docs.py",
-          "sha256": "9350ca21a4dd6a0414412af5d263613bf559901ea5a0885a0b6e0b1f1997028d",
+          "sha256": "d0bf6f5d13db9d29a05bfa083543a3ebf16bca82b723ec8230f9f7f144f64fb7",
           "locator": "generated_indexes/index_table: exact complete output and template semantics."
         },
         {
@@ -205162,7 +205163,7 @@
       "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "verified",
-      "content_sha256": "564b7afb9a610d451cb59acfaec422fa0174502d05724cc781eabb95b013d0aa",
+      "content_sha256": "82ab1bd484617fa7fd254155c6b94fa9d295c138e1103184e06948cda4bb3166",
       "headings_reviewed": [
         "Foundations"
       ],
@@ -205207,7 +205208,7 @@
         },
         {
           "path": "scripts/docs.py",
-          "sha256": "9350ca21a4dd6a0414412af5d263613bf559901ea5a0885a0b6e0b1f1997028d",
+          "sha256": "d0bf6f5d13db9d29a05bfa083543a3ebf16bca82b723ec8230f9f7f144f64fb7",
           "locator": "generated_indexes/index_table: exact complete output and template semantics."
         },
         {
@@ -225752,7 +225753,7 @@
       "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "verified",
-      "content_sha256": "27398d4350f0f1989fa45c611c2c396b36df649cd6e5b8e336a74eac24e4d1df",
+      "content_sha256": "7d3fce9c2431fd35dd026545907eac40470123a823d9e81b0966fa233c50adff",
       "headings_reviewed": [
         "Getting started"
       ],
@@ -225797,7 +225798,7 @@
         },
         {
           "path": "scripts/docs.py",
-          "sha256": "9350ca21a4dd6a0414412af5d263613bf559901ea5a0885a0b6e0b1f1997028d",
+          "sha256": "d0bf6f5d13db9d29a05bfa083543a3ebf16bca82b723ec8230f9f7f144f64fb7",
           "locator": "generated_indexes/index_table: exact complete output and template semantics."
         },
         {
@@ -240669,7 +240670,7 @@
       "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "verified",
-      "content_sha256": "1948b050065f919a455ce6c9993e14b8f4d581d8cdb4d414c83951be332f98f6",
+      "content_sha256": "2f58e425f787f76685bc766dfe73c2e05dc3c1e1778c74d99e3d87dbe63bef1b",
       "headings_reviewed": [
         "Inputs"
       ],
@@ -240714,7 +240715,7 @@
         },
         {
           "path": "scripts/docs.py",
-          "sha256": "9350ca21a4dd6a0414412af5d263613bf559901ea5a0885a0b6e0b1f1997028d",
+          "sha256": "d0bf6f5d13db9d29a05bfa083543a3ebf16bca82b723ec8230f9f7f144f64fb7",
           "locator": "generated_indexes/index_table: exact complete output and template semantics."
         },
         {
@@ -249918,7 +249919,7 @@
       "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "verified",
-      "content_sha256": "e9626bad07a8bdf2e57377ca67f0eda21b38e52f0bf0dc771c3a4a82d97162bf",
+      "content_sha256": "2276017a4a84419422f1c40ddcf597d9a8ab61d09d56ca477c1f263191e78081",
       "headings_reviewed": [
         "Patterns"
       ],
@@ -249963,7 +249964,7 @@
         },
         {
           "path": "scripts/docs.py",
-          "sha256": "9350ca21a4dd6a0414412af5d263613bf559901ea5a0885a0b6e0b1f1997028d",
+          "sha256": "d0bf6f5d13db9d29a05bfa083543a3ebf16bca82b723ec8230f9f7f144f64fb7",
           "locator": "generated_indexes/index_table: exact complete output and template semantics."
         },
         {
@@ -269277,7 +269278,7 @@
       "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "verified",
-      "content_sha256": "f177283217ec2a501433b55e75d11d8d410db6197b22e863482693addac84ebc",
+      "content_sha256": "f131804abdd8f0599e7a1aa918b3562670652135f6b30afcc52dc364e2e3fc91",
       "headings_reviewed": [
         "Technologies"
       ],
@@ -269322,7 +269323,7 @@
         },
         {
           "path": "scripts/docs.py",
-          "sha256": "9350ca21a4dd6a0414412af5d263613bf559901ea5a0885a0b6e0b1f1997028d",
+          "sha256": "d0bf6f5d13db9d29a05bfa083543a3ebf16bca82b723ec8230f9f7f144f64fb7",
           "locator": "generated_indexes/index_table: exact complete output and template semantics."
         },
         {

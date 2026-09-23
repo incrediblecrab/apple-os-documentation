@@ -1,8 +1,6 @@
 # Apple platform documentation
 
-Unofficial, community-maintained Apple platform references, design guidance, and migration
-playbooks in plain Markdown. This collection preserves OS 26 guidance while covering
-the current OS 27 generation. It is not an Apple product or a complete mirror of every API.
+Unofficial, community-maintained Apple platform references, design guidance, and migration playbooks in plain Markdown. This collection preserves OS 26 guidance while covering the current OS 27 generation. It is not an Apple product or a complete mirror of every API.
 
 ## Start here
 
@@ -48,65 +46,29 @@ Coverage is not a certification of every API symbol or every sentence.
 
 <!-- END GENERATED BASELINE -->
 
-See [release metadata](metadata/releases.json) for source URLs and builds, and the
-[coverage catalog](metadata/catalog.json) for individual mappings and review scopes.
-OS, standalone Safari, Xcode, SDK, compiler, and deployment versions are separate facts.
+See [release metadata](metadata/releases.json) for source URLs and builds, and the [coverage catalog](metadata/catalog.json) for individual mappings and review scopes. OS, standalone Safari, Xcode, SDK, compiler, and deployment versions are separate facts.
 
 ## Important adoption corrections
 
-- **Xcode 27 (`27A266a`) requires an Apple silicon Mac running macOS Tahoe 26.6 or later**, not
-  macOS 27. It includes Swift 6.4. The release notes explicitly restrict IDE hosts
-  to Apple silicon while preserving universal-app back-deployment to macOS 12 and later; those are
-  separate constraints. See [Xcode](documentation/Xcode.md) and its
-  [official release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes).
-- **Check UIKit scene-lifecycle adoption before rebuilding.** The current SDK has
-  a launch requirement, not just a new navigation recommendation. iOS/iPadOS apps
-  built with SDK 27 also need a declared launch screen for acceptance once the
-  App Store accepts that SDK.
-  See [UIKit](documentation/UIKit.md) and the [migration checklist](guides/os27-migration.md).
-- **SiriKit retains legacy support**, including most existing Siri interactions.
-  Prefer App Intents for modern integrations without treating legacy support as
-  a universal removal notice. See [SiriKit](documentation/SiriKit.md) and
-  [App Intents migration](guides/app-intents-migration.md).
-- **Design compatibility is platform- and build-specific.** The compatibility key
-  is ignored for the OS 27 build targets explicitly listed by Apple. Linked SDK,
-  runtime OS, and deployment target are not interchangeable.
-  See [Liquid Glass adoption](liquid-glass/adopting-liquid-glass.md).
-- **Submission and regional rules need their own checks.** For iOS, iPadOS, tvOS,
-  watchOS, and visionOS, the SDK 26 upload minimum has applied since April 28, 2026;
-  it does not require a deployment target of 26. Alternative marketplaces, web distribution, and alternative
-  payments have different eligibility rules. See [App Store readiness](guides/app-store-readiness.md)
-  and [regional distribution](guides/regional-distribution.md).
+- **Xcode 27 (`27A266a`) requires an Apple silicon Mac running macOS Tahoe 26.6 or later**, not macOS 27. It includes Swift 6.4. The release notes explicitly restrict IDE hosts to Apple silicon while preserving universal-app back-deployment to macOS 12 and later; those are separate constraints. See [Xcode](documentation/Xcode.md) and its [official release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes).
+- **Check UIKit scene-lifecycle adoption before rebuilding.** The current SDK has a launch requirement, not just a new navigation recommendation. iOS/iPadOS apps built with SDK 27 also need a declared launch screen for acceptance once the App Store accepts that SDK. See [UIKit](documentation/UIKit.md) and the [migration checklist](guides/os27-migration.md).
+- **SiriKit retains legacy support**, including most existing Siri interactions. Prefer App Intents for modern integrations without treating legacy support as a universal removal notice. See [SiriKit](documentation/SiriKit.md) and [App Intents migration](guides/app-intents-migration.md).
+- **Design compatibility is platform- and build-specific.** The compatibility key is ignored for the OS 27 build targets explicitly listed by Apple. Linked SDK, runtime OS, and deployment target are not interchangeable. See [Liquid Glass adoption](liquid-glass/adopting-liquid-glass.md).
+- **Submission and regional rules need their own checks.** For iOS, iPadOS, tvOS, watchOS, and visionOS, the SDK 26 upload minimum has applied since April 28, 2026; it does not require a deployment target of 26. Alternative marketplaces, web distribution, and alternative payments have different eligibility rules. See [App Store readiness](guides/app-store-readiness.md) and [regional distribution](guides/regional-distribution.md).
 
-The [claim register](metadata/claims.json) separates supported corrections from unresolved
-hardware, release-date, and design claims. A missing SDK deadline in a dated source snapshot
-is not a permanent promise that Apple will never announce one.
+The [claim register](metadata/claims.json) separates supported corrections from unresolved hardware, release-date, and design claims. A missing SDK deadline in a dated source snapshot is not a permanent promise that Apple will never announce one.
 
 ## Coverage and confidence
 
-The scope is Apple's top-level technology catalog, the indexed HIG articles, and the
-existing repository material. Catalog coverage does **not** mean every sentence was
-independently reverified or every code fragment was compiled.
+The scope is Apple's top-level technology catalog, the indexed HIG articles, and the existing repository material. Catalog coverage does **not** mean every sentence was independently reverified or every code fragment was compiled.
 
-Each document has one primary owner and a kind in `metadata/catalog.json`.
-`catalog-only` means its topic/source mapping was checked; `changed-content` means
-the recorded revision received a targeted source review. Historical, alias, and retained
-legacy pages remain discoverable rather than being silently deleted.
+Each document has one primary owner and a kind in `metadata/catalog.json`. `catalog-only` means its topic/source mapping was checked; `changed-content` means the recorded revision received a targeted source review. Historical, alias, and retained legacy pages remain discoverable rather than being silently deleted.
 
-The separate [full-body audit record](metadata/accuracy.json) binds page-level
-outcomes, evidence, qualifications, and code-example scope to exact content hashes
-and each page's research cutoff.
-It does not turn an AI-assisted source review into human approval or certify
-unavailable runtime checks. The local gate detects later edits and missing reviews;
-it cannot determine whether an attestation is factually true.
+The separate [full-body audit record](metadata/accuracy.json) binds page-level outcomes, evidence, qualifications, and code-example scope to exact content hashes and each page's research cutoff. It does not turn an AI-assisted source review into human approval or certify unavailable runtime checks. The local gate detects later edits and missing reviews; it cannot determine whether an attestation is factually true.
 
-Framework minimum availability stays separate from the version introducing an individual API.
-Services and web technologies do not inherit a blanket Swift or OS SDK requirement.
-The June 2025 Liquid Glass announcement remains historical.
+Framework minimum availability stays separate from the version introducing an individual API. Services and web technologies do not inherit a blanket Swift or OS SDK requirement. The June 2025 Liquid Glass announcement remains historical.
 
-Use [contributor guidance](CONTRIBUTING.md) for the evidence contract and
-`scripts/docs.py inventory` for current file and word counts. No tokenizer-derived
-corpus size is claimed.
+Use [contributor guidance](CONTRIBUTING.md) for the evidence contract and `scripts/docs.py inventory` for current file and word counts. No tokenizer-derived corpus size is claimed.
 
 ## Maintain the collection
 
@@ -120,27 +82,16 @@ python3 -m venv .venv
 .venv/bin/python -m unittest discover -s scripts/tests
 ```
 
-The local checks cover catalog ownership, sources, Markdown structure, local links and
-anchors, asset hashes, generated-file drift, and full-body review coverage/staleness.
-The separate upstream job reports changes
-and access failures; a successful HTTP response is not factual verification.
+The local checks cover catalog ownership, sources, Markdown structure, local links and anchors, asset hashes, generated-file drift, and full-body review coverage/staleness. The separate upstream job reports changes and access failures; a successful HTTP response is not factual verification.
 
-For application requirements and destination-specific commands, use the
-[sample README](os26-liquid-glass-example/README.md), not the documentation toolchain above.
+For application requirements and destination-specific commands, use the [sample README](os26-liquid-glass-example/README.md), not the documentation toolchain above.
 
 ## Attribution and reuse
 
 The [MIT License](LICENSE) covers the original writing and code in this repository.
 
-Apple documentation, trademarks, design resources, and third-party material retain their
-original rights and terms. New community summaries link to the relevant primary sources;
-this repository does not grant a blanket license over those sources.
+Apple documentation, trademarks, design resources, and third-party material retain their original rights and terms. New community summaries link to the relevant primary sources; this repository does not grant a blanket license over those sources.
 
-The Landmarks software retains its [Apple sample license](os26-liquid-glass-example/LICENSE.txt).
-That grant expressly excludes accompanying photographs. The [asset manifest](metadata/assets.json)
-records unresolved provenance and rights rather than implying permission to reuse images.
-Check the original terms before redistributing assets.
+The Landmarks software retains its [Apple sample license](os26-liquid-glass-example/LICENSE.txt). That grant expressly excludes accompanying photographs. The [asset manifest](metadata/assets.json) records unresolved provenance and rights rather than implying permission to reuse images. Check the original terms before redistributing assets.
 
-Report inaccuracies through the
-[issue tracker](https://github.com/incrediblecrab/apple-os-documentation/issues), including
-the affected path, exact claim, and primary source.
+Report inaccuracies through the [issue tracker](https://github.com/incrediblecrab/apple-os-documentation/issues), including the affected path, exact claim, and primary source.

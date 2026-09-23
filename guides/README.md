@@ -4,13 +4,7 @@
 
 Catalog snapshot: September 14, 2026.
 
-The review column preserves the initial catalog/changed-content pass.
-`metadata/accuracy.json` separately records full-body outcomes for exact page hashes.
-`catalog-only` verifies the topic mapping, not every statement. Platform tags are
-navigation aids extracted from the page, not symbol-level availability guarantees.
-`mixed` spans shipping and beta material; `independent` is not tied to one OS release.
-`not-assessed` preserves uncertainty rather than silently claiming a shipping status.
-See [contributor guidance](../CONTRIBUTING.md).
+The review column preserves the initial catalog/changed-content pass. `metadata/accuracy.json` separately records full-body outcomes for exact page hashes. `catalog-only` verifies the topic mapping, not every statement. Platform tags are navigation aids extracted from the page, not symbol-level availability guarantees. `mixed` spans shipping and beta material; `independent` is not tied to one OS release. `not-assessed` preserves uncertainty rather than silently claiming a shipping status. See [contributor guidance](../CONTRIBUTING.md).
 
 | Topic | Kind | Platforms tagged in page | Release status | Initial review scope |
 |---|---|---|---|---|
