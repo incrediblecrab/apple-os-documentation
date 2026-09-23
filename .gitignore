@@ -28,6 +28,7 @@
 
 # Include specific files
 !README.md
+!LICENSE
 !bot-instructions.md
 !CONTRIBUTING.md
 !requirements-dev.txt

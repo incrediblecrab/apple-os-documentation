@@ -130,6 +130,8 @@ For application requirements and destination-specific commands, use the
 
 ## Attribution and reuse
 
+The [MIT License](LICENSE) covers the original writing and code in this repository.
+
 Apple documentation, trademarks, design resources, and third-party material retain their
 original rights and terms. New community summaries link to the relevant primary sources;
 this repository does not grant a blanket license over those sources.

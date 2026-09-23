@@ -155,7 +155,7 @@
         },
         {
           "path": ".gitignore",
-          "sha256": "bbd17b16e268e91b5fff30f0d89dc4611edc3757564110b1839e13fec4603a60",
+          "sha256": "ce23d9eee1a027a784255727817824479e080046c6265e0a638746cec28985c3",
           "locator": "Allowlist inclusion of documentation, metadata, maintenance and workflow paths."
         },
         {
@@ -175,7 +175,7 @@
       "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "0adf785d209bb0da9e5f9e0fe12be1de7cf4c5874446b638909b0a8c15e86c88",
+      "content_sha256": "ccef161caec0f1db5031da539fca27de0d8f427003985bb1e59cbdd373516eba",
       "headings_reviewed": [
         "Apple platform documentation",
         "Start here",
@@ -296,7 +296,7 @@
             "https://developer.apple.com/news/upcoming-requirements/",
             "https://support.apple.com/en-us/118110"
           ],
-          "assessment": "License wording matches the actual sample grant and exclusion; asset metadata does not manufacture redistribution rights."
+          "assessment": "License wording matches the actual sample grant and exclusion; asset metadata does not manufacture redistribution rights. The MIT sentence matches the root LICENSE, an unmodified MIT License text, and is limited to original writing and code."
         }
       ],
       "code_examples": {
@@ -304,7 +304,8 @@
         "verification": "One shell-command fence inspected. Environment/dependency commands were used during implementation; current maintenance regression suite has 55 passing tests. Full-tree validation is performed against the actual complete publication candidate before acceptance."
       },
       "changes": [
-        "Added the separate factual-audit record and explicitly non-semantic staleness gate; preserved old review-scope meanings."
+        "Added the separate factual-audit record and explicitly non-semantic staleness gate; preserved old review-scope meanings.",
+        "Stated that the root MIT License covers the original writing and code; the carve-outs for Apple material, the sample license and assets that follow it are unchanged."
       ],
       "numerical_and_availability_checks": [
         "405/405 technology and 157/157 indexed HIG mappings; 406 reference pages, 158 HIG articles and 254 Figma-directory images at this snapshot.",
@@ -416,6 +417,11 @@
           "path": "os26-liquid-glass-example/LICENSE.txt",
           "sha256": "a800a1bee43c13133b4ca839d58dfa2fc3729a9d99e6afaf0e5faf03a199cda6",
           "locator": "Photograph exclusion."
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "17be4ee195439059d71fa9c530f32f8335e34f224b8377be1fda99207ee1cb0e",
+          "locator": "MIT License grant; Copyright (c) 2025 Max Marquardt."
         }
       ]
     },
