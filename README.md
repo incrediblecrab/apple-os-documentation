@@ -1,6 +1,28 @@
-# Apple platform documentation
+# apple-os-documentation
 
-Unofficial, community-maintained Apple platform references, design guidance, and migration playbooks in plain Markdown. This collection preserves OS 26 guidance while covering the current OS 27 generation. It is not an Apple product or a complete mirror of every API.
+Unofficial, community-maintained Apple platform references, design guidance, and migration playbooks in plain Markdown. The collection preserves OS 26 guidance while covering the current OS 27 generation; it is not an Apple product or a complete mirror of every API.
+
+**Objective:** keep a dated, source-linked Apple platform reference that can be read directly, used as AI context, and checked for drift against recorded metadata.
+
+**Inputs:** Apple developer documentation, Human Interface Guidelines, release notes, design resources, and local evidence records in `metadata/`; maintenance uses Python 3.11 or later and the scripts in `scripts/`.
+
+**Files:**
+
+- [`documentation/`](documentation/README.md): framework, language, tool, and service references
+- [`guides/`](guides/README.md): OS 27 migration, App Store readiness, regional distribution, and related checklists
+- [`human-interface-guidelines/`](human-interface-guidelines/README.md): indexed Apple HIG articles and retained legacy material
+- [`liquid-glass/`](liquid-glass/): Liquid Glass adoption and design notes
+- [`metadata/`](metadata/): release, catalog, claim, asset, and accuracy records used by the checks
+- [`os27-intro/`](os27-intro/): OS 27 introductory material
+- [`os26-intro/`](os26-intro/): retained OS 26 introductory material
+- [`os26-liquid-glass-example/`](os26-liquid-glass-example/README.md): Landmarks sample app demonstrating Liquid Glass
+- [`figma/`](figma/README.md): design images and provenance notes
+- [`scripts/`](scripts/): generation, inventory, and validation tooling
+- [`bot-instructions.md`](bot-instructions.md): guidance for using the collection as AI context
+- [`CONTRIBUTING.md`](CONTRIBUTING.md): evidence and contribution rules
+- [`requirements-dev.txt`](requirements-dev.txt): Python maintenance dependencies
+
+**Try it:** read the Markdown directly, or run `python3 -m venv .venv`, `.venv/bin/python -m pip install -r requirements-dev.txt`, `.venv/bin/python scripts/docs.py generate`, `.venv/bin/python scripts/docs.py check`, and `.venv/bin/python -m unittest discover -s scripts/tests`.
 
 ## Start here
 
@@ -40,9 +62,7 @@ Unofficial, community-maintained Apple platform references, design guidance, and
 | Xcode 26 | 26.6 (`17F113`) | shipping | [June 25, 2026](https://developer.apple.com/news/releases/) |
 | Safari (Sonoma and Sequoia security update) | 26.6.1 | shipping | [August 18, 2026](https://support.apple.com/en-us/100100) |
 
-**Catalog scope:** 405/405 technology entries and 157/157 indexed HIG articles have an explicit local disposition.
-The repository has 406 reference pages (including aliases), 158 HIG articles (including retained legacy material), and 254 cataloged Figma-directory images. Generated indexes are excluded from page counts.
-Coverage is not a certification of every API symbol or every sentence.
+**Catalog scope:** 405/405 technology entries and 157/157 indexed HIG articles have an explicit local disposition. The repository has 406 reference pages (including aliases), 158 HIG articles (including retained legacy material), and 254 cataloged Figma-directory images. Generated indexes are excluded from page counts. Coverage is not a certification of every API symbol or every sentence.
 
 <!-- END GENERATED BASELINE -->
 
@@ -50,17 +70,17 @@ See [release metadata](metadata/releases.json) for source URLs and builds, and t
 
 ## Important adoption corrections
 
-- **Xcode 27 (`27A266a`) requires an Apple silicon Mac running macOS Tahoe 26.6 or later**, not macOS 27. It includes Swift 6.4. The release notes explicitly restrict IDE hosts to Apple silicon while preserving universal-app back-deployment to macOS 12 and later; those are separate constraints. See [Xcode](documentation/Xcode.md) and its [official release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes).
-- **Check UIKit scene-lifecycle adoption before rebuilding.** The current SDK has a launch requirement, not just a new navigation recommendation. iOS/iPadOS apps built with SDK 27 also need a declared launch screen for acceptance once the App Store accepts that SDK. See [UIKit](documentation/UIKit.md) and the [migration checklist](guides/os27-migration.md).
-- **SiriKit retains legacy support**, including most existing Siri interactions. Prefer App Intents for modern integrations without treating legacy support as a universal removal notice. See [SiriKit](documentation/SiriKit.md) and [App Intents migration](guides/app-intents-migration.md).
-- **Design compatibility is platform- and build-specific.** The compatibility key is ignored for the OS 27 build targets explicitly listed by Apple. Linked SDK, runtime OS, and deployment target are not interchangeable. See [Liquid Glass adoption](liquid-glass/adopting-liquid-glass.md).
-- **Submission and regional rules need their own checks.** For iOS, iPadOS, tvOS, watchOS, and visionOS, the SDK 26 upload minimum has applied since April 28, 2026; it does not require a deployment target of 26. Alternative marketplaces, web distribution, and alternative payments have different eligibility rules. See [App Store readiness](guides/app-store-readiness.md) and [regional distribution](guides/regional-distribution.md).
+- Xcode 27 (`27A266a`) requires an Apple silicon Mac running macOS Tahoe 26.6 or later, not macOS 27. It includes Swift 6.4. The release notes explicitly restrict IDE hosts to Apple silicon while preserving universal-app back-deployment to macOS 12 and later; those are separate constraints. See [Xcode](documentation/Xcode.md) and its [official release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes).
+- Check UIKit scene-lifecycle adoption before rebuilding. The current SDK has a launch requirement, not just a new navigation recommendation. iOS/iPadOS apps built with SDK 27 also need a declared launch screen for acceptance once the App Store accepts that SDK. See [UIKit](documentation/UIKit.md) and the [migration checklist](guides/os27-migration.md).
+- SiriKit retains legacy support, including most existing Siri interactions. Prefer App Intents for modern integrations without treating legacy support as a universal removal notice. See [SiriKit](documentation/SiriKit.md) and [App Intents migration](guides/app-intents-migration.md).
+- Design compatibility is platform- and build-specific. The compatibility key is ignored for the OS 27 build targets explicitly listed by Apple. Linked SDK, runtime OS, and deployment target are not interchangeable. See [Liquid Glass adoption](liquid-glass/adopting-liquid-glass.md).
+- Submission and regional rules need their own checks. For iOS, iPadOS, tvOS, watchOS, and visionOS, the SDK 26 upload minimum has applied since April 28, 2026; it does not require a deployment target of 26. Alternative marketplaces, web distribution, and alternative payments have different eligibility rules. See [App Store readiness](guides/app-store-readiness.md) and [regional distribution](guides/regional-distribution.md).
 
 The [claim register](metadata/claims.json) separates supported corrections from unresolved hardware, release-date, and design claims. A missing SDK deadline in a dated source snapshot is not a permanent promise that Apple will never announce one.
 
 ## Coverage and confidence
 
-The scope is Apple's top-level technology catalog, the indexed HIG articles, and the existing repository material. Catalog coverage does **not** mean every sentence was independently reverified or every code fragment was compiled.
+The scope is Apple's top-level technology catalog, the indexed HIG articles, and the existing repository material. Catalog coverage does not mean every sentence was independently reverified or every code fragment was compiled.
 
 Each document has one primary owner and a kind in `metadata/catalog.json`. `catalog-only` means its topic/source mapping was checked; `changed-content` means the recorded revision received a targeted source review. Historical, alias, and retained legacy pages remain discoverable rather than being silently deleted.
 
@@ -88,10 +108,12 @@ For application requirements and destination-specific commands, use the [sample 
 
 ## Attribution and reuse
 
-The [MIT License](LICENSE) covers the original writing and code in this repository.
-
 Apple documentation, trademarks, design resources, and third-party material retain their original rights and terms. New community summaries link to the relevant primary sources; this repository does not grant a blanket license over those sources.
 
 The Landmarks software retains its [Apple sample license](os26-liquid-glass-example/LICENSE.txt). That grant expressly excludes accompanying photographs. The [asset manifest](metadata/assets.json) records unresolved provenance and rights rather than implying permission to reuse images. Check the original terms before redistributing assets.
 
 Report inaccuracies through the [issue tracker](https://github.com/incrediblecrab/apple-os-documentation/issues), including the affected path, exact claim, and primary source.
+
+## License
+
+MIT. See [`LICENSE`](LICENSE).
