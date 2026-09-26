@@ -12,7 +12,8 @@
     "Every page states its actual code-example review scope. Source comparison, parsing, type-checking, mocked checks and runtime execution are different evidence; none implies every linked upstream project or service was exercised.",
     "No local Xcode 27/Swift 6.4 or OS 27 runtime, earliest OS 26.0 runtime, physical-device/live-service suite, comprehensive visual-accessibility review, or hosted workflow execution was completed.",
     "The source review does not establish redistribution rights for documentation, design images or sample photographs. Existing asset-rights uncertainties remain explicit in metadata/assets.json.",
-    "On September 23, 2026, hard-wrapped prose was joined onto single lines in 15 reviewed pages and in the generated-index paragraph template in scripts/docs.py, and those pages' content_sha256 values and 13 evidence hashes for scripts/docs.py and LICENSE were re-stamped without repeating the full-body review. The change is whitespace-only: for every re-stamped page the text with whitespace collapsed and the HTML rendered by markdown-it and by pandoc are identical before and after, and scripts/docs.py changed only by joining the seven string literals of that one paragraph with spaces. The previously reviewed bytes are at commit b5a7b58."
+    "On September 23, 2026, hard-wrapped prose was joined onto single lines in 15 reviewed pages and in the generated-index paragraph template in scripts/docs.py, and those pages' content_sha256 values and 13 evidence hashes for scripts/docs.py and LICENSE were re-stamped without repeating the full-body review. The change is whitespace-only: for every re-stamped page the text with whitespace collapsed and the HTML rendered by markdown-it and by pandoc are identical before and after, and scripts/docs.py changed only by joining the seven string literals of that one paragraph with spaces. The previously reviewed bytes are at commit b5a7b58.",
+    "On September 26, 2026, README.md's shared-layout edit (commit 3af78bb) received a targeted review of what it changed, recorded in that page's changes and qualifications, and the review restored the dropped limit on its MIT statement. The same day, the Catalog scope paragraph template in scripts/docs.py baseline_section was joined onto one line to match that edit, and the scripts/docs.py evidence hashes of the 11 other records citing it were re-stamped without repeating their reviews; no statement those records support with scripts/docs.py depends on the line breaks of that paragraph. The change is whitespace-only: the old and new baseline_section outputs differ only by two newlines becoming spaces inside that paragraph, and generated_indexes output is byte-identical. The previously reviewed bytes are at commit 08b6a70."
   ],
   "coordinate_conventions": {
     "lines": "One-based inclusive line ranges in the identified coordinate representation.",
@@ -136,7 +137,7 @@
         },
         {
           "path": "scripts/docs.py",
-          "sha256": "d0bf6f5d13db9d29a05bfa083543a3ebf16bca82b723ec8230f9f7f144f64fb7",
+          "sha256": "469a8475854c8197bd0fa0f671b07d7c613cc3f906a5877fb692de01ce614175",
           "locator": "Metadata/source enums, register/generate/check/check_accuracy, bounded source reporting and comparison_hash."
         },
         {
@@ -176,19 +177,20 @@
       "as_of": "2026-09-14",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "e46a82cd3959eb87f3a7a027946e94dcf948f6ccd4a15aa6114ed859b21d8392",
+      "content_sha256": "6baa4082b7bd7ea58e427faefb4fd18cbb98b985e34613a1c89981c9f597feb8",
       "headings_reviewed": [
-        "Apple platform documentation",
+        "apple-os-documentation",
         "Start here",
         "Release snapshot",
         "Important adoption corrections",
         "Coverage and confidence",
         "Maintain the collection",
-        "Attribution and reuse"
+        "Attribution and reuse",
+        "License"
       ],
       "sections_reviewed": [
         {
-          "heading": "Apple platform documentation",
+          "heading": "apple-os-documentation",
           "source_urls": [
             "https://developer.apple.com/news/releases/",
             "https://support.apple.com/en-us/100100",
@@ -201,7 +203,44 @@
             "https://developer.apple.com/news/upcoming-requirements/",
             "https://support.apple.com/en-us/118110"
           ],
-          "assessment": "Unofficial dated collection and OS26-preserving scope; not an exhaustive API mirror."
+          "assessment": "Unofficial dated collection and OS26-preserving scope; not an exhaustive API mirror. September 26, 2026 targeted review of the shared-layout header: the title is the exact GitHub repository name, incrediblecrab/apple-os-documentation, and the reworded lead makes the same claims. Objective and Inputs match the source contract and Python 3.11 floor in CONTRIBUTING.md, the AI-context guidance in bot-instructions.md, and the generated-drift, page-hash and evidence-hash gates and upstream catalog and snapshot reports in scripts/docs.py. Every Files link resolves to a tracked path, and apart from dotfiles and the README itself the list omits only LICENSE, which the License section covers. Each description matches the catalog titles and kinds, and scripts/docs.py check reads all five metadata files. The descriptions summarize rather than enumerate: documentation/ also holds web-technology, overview and release-notes pages, and os26-intro/ is current OS 26 material kept alongside OS 27, not the retained-legacy review scope. The Try it commands are the five fenced commands under Maintain the collection.",
+          "repository_sources": [
+            {
+              "path": "CONTRIBUTING.md",
+              "sha256": "1bf48316032ba039300edf43bdb39e30121c33e2e06b5a629ddf9760e1cfab3b",
+              "locator": "Source and review contract; Local maintenance: Python 3.11 or later and the maintenance commands."
+            },
+            {
+              "path": "bot-instructions.md",
+              "sha256": "601b0e4c1e95ddd0f5a42bbd2346d72235f97bfd6b1f644fe27a3869350525cf",
+              "locator": "Title and opening paragraph: using the collection as AI context."
+            },
+            {
+              "path": "scripts/docs.py",
+              "sha256": "469a8475854c8197bd0fa0f671b07d7c613cc3f906a5877fb692de01ce614175",
+              "locator": "check, generate, check_accuracy, check_sources and compare_catalogs."
+            },
+            {
+              "path": "metadata/catalog.json",
+              "sha256": "3c9e6da0e01919b5dfe54bac47949e4d62fcf092a05d8e036ba6dac68f5a304a",
+              "locator": "Titles, kinds, release statuses and review scopes of the documents under each listed directory."
+            },
+            {
+              "path": "figma/README.md",
+              "sha256": "c4c2cee12940458aa2be7cfd40ea7721ff583dc3682501438255f6bc2e8f76df",
+              "locator": "Manifest and provenance."
+            },
+            {
+              "path": "os26-liquid-glass-example/README.md",
+              "sha256": "9fa8a4204d609fb25794c2d739e997ec80fc2b9752f6bd7abf6aaab5eaff84af",
+              "locator": "Title and opening paragraph."
+            },
+            {
+              "path": "requirements-dev.txt",
+              "sha256": "c3a75e999eb351a6333e73d415a379d71840809a6b9ec0c9d310251841aa8d87",
+              "locator": "Pinned maintenance dependencies."
+            }
+          ]
         },
         {
           "heading": "Start here",
@@ -297,16 +336,29 @@
             "https://developer.apple.com/news/upcoming-requirements/",
             "https://support.apple.com/en-us/118110"
           ],
-          "assessment": "License wording matches the actual sample grant and exclusion; asset metadata does not manufacture redistribution rights. The MIT sentence matches the root LICENSE, an unmodified MIT License text, and is limited to original writing and code."
+          "assessment": "License wording matches the actual sample grant and exclusion; asset metadata does not manufacture redistribution rights. On September 26, 2026 the MIT statement moved to the License section."
+        },
+        {
+          "heading": "License",
+          "source_urls": [],
+          "assessment": "Names the root LICENSE, whose text matches the SPDX license-list MIT text once whitespace is collapsed and the copyright line, Copyright (c) 2025 Max Marquardt, is set aside. The shared-layout edit reduced the MIT statement to a bare line and dropped its limit; this review restored that it covers the original writing and code in this repository, so the Attribution and reuse carve-outs for Apple material, the Landmarks sample and assets remain consistent with it.",
+          "repository_sources": [
+            {
+              "path": "LICENSE",
+              "sha256": "a885c0ccca096fad6218bf04fd3c62eadd63c44298108248c8218ef27e26e28f",
+              "locator": "MIT License grant; Copyright (c) 2025 Max Marquardt."
+            }
+          ]
         }
       ],
       "code_examples": {
         "fences_reviewed": 1,
-        "verification": "One shell-command fence inspected. Environment/dependency commands were used during implementation; current maintenance regression suite has 55 passing tests. Full-tree validation is performed against the actual complete publication candidate before acceptance."
+        "verification": "One shell-command fence under Maintain the collection; the Try it line repeats its five commands inline. On September 26, 2026 all five ran as printed in a fresh clone with Python 3.14.7: venv creation, pip install of the pinned requirements, generate with no resulting drift, check with no problems, and 55 passing unit tests. check and the tests also pass in the repository's Python 3.13.15 environment; the Python 3.11 floor was not executed."
       },
       "changes": [
         "Added the separate factual-audit record and explicitly non-semantic staleness gate; preserved old review-scope meanings.",
-        "Stated that the root MIT License covers the original writing and code; the carve-outs for Apple material, the sample license and assets that follow it are unchanged."
+        "Stated that the root MIT License covers the original writing and code; the carve-outs for Apple material, the sample license and assets that follow it are unchanged.",
+        "September 26, 2026: reviewed the shared-layout edit of commit 3af78bb (repository-name title; Objective, Inputs, Files and Try it header; License section; inline bold removed from Important adoption corrections and Coverage and confidence; Catalog scope paragraph joined onto one line, now also by the generator) and restored the limit that the MIT License covers the original writing and code in this repository, which the edit had dropped."
       ],
       "numerical_and_availability_checks": [
         "405/405 technology and 157/157 indexed HIG mappings; 406 reference pages, 158 HIG articles and 254 Figma-directory images at this snapshot.",
@@ -315,7 +367,8 @@
         "Apple-silicon IDE hosting and universal-app back-deployment are separately established in the full Xcode notes."
       ],
       "qualifications": [
-        "No OS27 runtime, hosted CI, physical-device or comprehensive accessibility success is claimed."
+        "No OS27 runtime, hosted CI, physical-device or comprehensive accessibility success is claimed.",
+        "The September 26, 2026 pass reviewed only what the shared-layout edit changed, against repository evidence; Apple-sourced statements whose wording it left unchanged were not re-checked against their primary sources."
       ],
       "remaining_blockers": [],
       "sources": [
@@ -411,7 +464,7 @@
         },
         {
           "path": "scripts/docs.py",
-          "sha256": "d0bf6f5d13db9d29a05bfa083543a3ebf16bca82b723ec8230f9f7f144f64fb7",
+          "sha256": "469a8475854c8197bd0fa0f671b07d7c613cc3f906a5877fb692de01ce614175",
           "locator": "baseline_section, generated_readme, inventory and offline gates."
         },
         {
@@ -423,6 +476,16 @@
           "path": "LICENSE",
           "sha256": "a885c0ccca096fad6218bf04fd3c62eadd63c44298108248c8218ef27e26e28f",
           "locator": "MIT License grant; Copyright (c) 2025 Max Marquardt."
+        },
+        {
+          "path": "CONTRIBUTING.md",
+          "sha256": "1bf48316032ba039300edf43bdb39e30121c33e2e06b5a629ddf9760e1cfab3b",
+          "locator": "Local maintenance: the Python 3.11 floor and the maintenance commands that the README repeats under Inputs, Try it and Maintain the collection."
+        },
+        {
+          "path": "requirements-dev.txt",
+          "sha256": "c3a75e999eb351a6333e73d415a379d71840809a6b9ec0c9d310251841aa8d87",
+          "locator": "The pinned maintenance dependencies installed by the Try it and Maintain the collection commands."
         }
       ]
     },
@@ -618,7 +681,7 @@
         },
         {
           "path": "scripts/docs.py",
-          "sha256": "d0bf6f5d13db9d29a05bfa083543a3ebf16bca82b723ec8230f9f7f144f64fb7",
+          "sha256": "469a8475854c8197bd0fa0f671b07d7c613cc3f906a5877fb692de01ce614175",
           "locator": "Stable IDs, alias validation, source retrieval alternatives and non-certifying registration/generation."
         },
         {
@@ -97743,7 +97806,7 @@
         },
         {
           "path": "scripts/docs.py",
-          "sha256": "d0bf6f5d13db9d29a05bfa083543a3ebf16bca82b723ec8230f9f7f144f64fb7",
+          "sha256": "469a8475854c8197bd0fa0f671b07d7c613cc3f906a5877fb692de01ce614175",
           "locator": "generated_indexes/index_table: exact complete output and template semantics."
         },
         {
@@ -153508,7 +153571,7 @@
         },
         {
           "path": "scripts/docs.py",
-          "sha256": "d0bf6f5d13db9d29a05bfa083543a3ebf16bca82b723ec8230f9f7f144f64fb7",
+          "sha256": "469a8475854c8197bd0fa0f671b07d7c613cc3f906a5877fb692de01ce614175",
           "locator": "generated_indexes/index_table: exact complete output and template semantics."
         },
         {
@@ -157172,7 +157235,7 @@
         },
         {
           "path": "scripts/docs.py",
-          "sha256": "d0bf6f5d13db9d29a05bfa083543a3ebf16bca82b723ec8230f9f7f144f64fb7",
+          "sha256": "469a8475854c8197bd0fa0f671b07d7c613cc3f906a5877fb692de01ce614175",
           "locator": "generated_indexes/index_table: exact complete output and template semantics."
         },
         {
@@ -157234,7 +157297,7 @@
         },
         {
           "path": "scripts/docs.py",
-          "sha256": "d0bf6f5d13db9d29a05bfa083543a3ebf16bca82b723ec8230f9f7f144f64fb7",
+          "sha256": "469a8475854c8197bd0fa0f671b07d7c613cc3f906a5877fb692de01ce614175",
           "locator": "generated_indexes/index_table: exact complete output and template semantics."
         },
         {
@@ -205208,7 +205271,7 @@
         },
         {
           "path": "scripts/docs.py",
-          "sha256": "d0bf6f5d13db9d29a05bfa083543a3ebf16bca82b723ec8230f9f7f144f64fb7",
+          "sha256": "469a8475854c8197bd0fa0f671b07d7c613cc3f906a5877fb692de01ce614175",
           "locator": "generated_indexes/index_table: exact complete output and template semantics."
         },
         {
@@ -225798,7 +225861,7 @@
         },
         {
           "path": "scripts/docs.py",
-          "sha256": "d0bf6f5d13db9d29a05bfa083543a3ebf16bca82b723ec8230f9f7f144f64fb7",
+          "sha256": "469a8475854c8197bd0fa0f671b07d7c613cc3f906a5877fb692de01ce614175",
           "locator": "generated_indexes/index_table: exact complete output and template semantics."
         },
         {
@@ -240715,7 +240778,7 @@
         },
         {
           "path": "scripts/docs.py",
-          "sha256": "d0bf6f5d13db9d29a05bfa083543a3ebf16bca82b723ec8230f9f7f144f64fb7",
+          "sha256": "469a8475854c8197bd0fa0f671b07d7c613cc3f906a5877fb692de01ce614175",
           "locator": "generated_indexes/index_table: exact complete output and template semantics."
         },
         {
@@ -249964,7 +250027,7 @@
         },
         {
           "path": "scripts/docs.py",
-          "sha256": "d0bf6f5d13db9d29a05bfa083543a3ebf16bca82b723ec8230f9f7f144f64fb7",
+          "sha256": "469a8475854c8197bd0fa0f671b07d7c613cc3f906a5877fb692de01ce614175",
           "locator": "generated_indexes/index_table: exact complete output and template semantics."
         },
         {
@@ -269323,7 +269386,7 @@
         },
         {
           "path": "scripts/docs.py",
-          "sha256": "d0bf6f5d13db9d29a05bfa083543a3ebf16bca82b723ec8230f9f7f144f64fb7",
+          "sha256": "469a8475854c8197bd0fa0f671b07d7c613cc3f906a5877fb692de01ce614175",
           "locator": "generated_indexes/index_table: exact complete output and template semantics."
         },
         {

@@ -704,12 +704,14 @@ def baseline_section(root: Path, catalog: dict[str, Any]) -> str:
     figma_count = sum(asset["path"].startswith("figma/") for asset in assets["assets"])
     lines.extend([
         "",
-        f"**Catalog scope:** {resolved['technology']}/{scoped['technology']} technology entries and "
-        f"{resolved['hig']}/{scoped['hig']} indexed HIG articles have an explicit local disposition.",
-        f"The repository has {counts['documentation']} reference pages (including aliases), "
-        f"{counts['human-interface-guidelines']} HIG articles (including retained legacy material), "
-        f"and {figma_count} cataloged Figma-directory images. Generated indexes are excluded from page counts.",
-        "Coverage is not a certification of every API symbol or every sentence.",
+        " ".join([
+            f"**Catalog scope:** {resolved['technology']}/{scoped['technology']} technology entries and "
+            f"{resolved['hig']}/{scoped['hig']} indexed HIG articles have an explicit local disposition.",
+            f"The repository has {counts['documentation']} reference pages (including aliases), "
+            f"{counts['human-interface-guidelines']} HIG articles (including retained legacy material), "
+            f"and {figma_count} cataloged Figma-directory images. Generated indexes are excluded from page counts.",
+            "Coverage is not a certification of every API symbol or every sentence.",
+        ]),
     ])
     return "\n".join(lines)
 

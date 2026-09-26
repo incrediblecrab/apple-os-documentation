@@ -116,4 +116,4 @@ Report inaccuracies through the [issue tracker](https://github.com/incrediblecra
 
 ## License
 
-MIT. See [`LICENSE`](LICENSE).
+MIT. See [`LICENSE`](LICENSE). It covers the original writing and code in this repository.
