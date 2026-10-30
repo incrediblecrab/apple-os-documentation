@@ -4,7 +4,11 @@ Build and maintain iPhone apps using the iOS 26 generation's Liquid Glass interf
 
 **Platform:** iOS 26.0+
 
-> **Status checked September 8, 2026:** the last 26-generation release is **iOS 26.6.2** (`23G90`), released September 8. iOS 27.0 (`24A437`) shipped September 14, 2026; see the [iOS 27 introduction](../os27-intro/iOS.md). The general-availability release supersedes the earlier beta listing.
+> **Status checked September 8, 2026:** the latest 26-generation release was **iOS 26.6.2** (`23G90`), released September 8.
+>
+> **September 14, 2026 update:** iOS 27.0 (`24A437`) shipped September 14, 2026; see the [iOS 27 introduction](../os27-intro/iOS.md). The general-availability release supersedes the earlier beta listing.
+>
+> **Status checked October 29, 2026:** the current 26-generation maintenance baseline is **iOS 26.7.2**, released October 26, 2026.
 
 ## Overview
 
@@ -80,9 +84,9 @@ Dive into the latest key technologies and capabilities:
 - **SwiftUI fix**: `.userActivity` now correctly surfaces as the current user activity
 - **Networking fix**: Resolves `CFRunLoopSource` leaks when PAC or Auto proxy discovery is configured
 
-### iOS 26.5 through 26.6.2
+### iOS 26.5 through 26.7.2
 - Retain the [26.5](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-26_5-release-notes) and [26.6](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-26_6-release-notes) notes when diagnosing older behavior
-- **iOS 26.6.2 (September 8, 2026)** supersedes 26.6 as the shipping maintenance baseline
+- **Checked October 29, 2026:** the 26-generation maintenance releases after 26.6.2 are **iOS 26.7** (September 14, 2026), **26.7.1** (September 28, 2026), and **26.7.2** (October 26, 2026); **26.7.2** is the current maintenance baseline
 - Consult [Apple's security release list](https://support.apple.com/en-us/100100) for security-update scope; absence of a published CVE is not evidence of a new developer API
 
 ### Preparing an OS26 App for OS27
@@ -143,4 +147,4 @@ Join the [Apple Developer Program](Program.md) for TestFlight, App Store distrib
 
 ## Sources
 
-[Designing for iOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-ios), [Liquid Glass adoption](https://developer.apple.com/documentation/technologyoverviews/adopting-liquid-glass), and [SystemLanguageModel](https://developer.apple.com/documentation/foundationmodels/systemlanguagemodel) support the platform guidance. [Apple Developer releases](https://developer.apple.com/news/releases/), [26.2 notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-26_2-release-notes), [26.4 notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-26_4-release-notes), [iOS/iPadOS 27 notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes), and [Xcode 27 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) support the status and migration guidance checked September 8, 2026. Inline story sources describe historical examples.
+[Designing for iOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-ios), [Liquid Glass adoption](https://developer.apple.com/documentation/technologyoverviews/adopting-liquid-glass), and [SystemLanguageModel](https://developer.apple.com/documentation/foundationmodels/systemlanguagemodel) support the platform guidance. [Apple Developer releases](https://developer.apple.com/news/releases/), the [release feed](https://developer.apple.com/news/releases/rss/releases.rss), [Apple's security release list](https://support.apple.com/en-us/100100), [26.2 notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-26_2-release-notes), [26.4 notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-26_4-release-notes), and [Xcode 27 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) support the release history, current 26-generation status, and migration guidance checked October 29, 2026. [iOS/iPadOS 27 notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes) also support the migration guidance. Inline story sources describe historical examples.

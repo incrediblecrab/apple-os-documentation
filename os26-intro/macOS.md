@@ -4,7 +4,11 @@ Maintain Mac apps using AppKit or SwiftUI, adopt Liquid Glass where appropriate,
 
 **Platform:** macOS Tahoe 26.0+
 
-> **Status checked September 8, 2026:** the last 26-generation release is **macOS Tahoe 26.6.2** (`25G83`), released August 17. macOS 27 Golden Gate (`26A428`) shipped September 14, 2026; see the [macOS 27 introduction](../os27-intro/macOS.md). The release listing does not establish a complete supported-model list.
+> **Status checked September 8, 2026:** the latest 26-generation release was **macOS Tahoe 26.6.2** (`25G83`), released August 17, 2026.
+
+macOS 27 Golden Gate (`26A428`) shipped September 14, 2026; see the [macOS 27 introduction](../os27-intro/macOS.md). The release listing does not establish a complete supported-model list.
+
+> **Update checked October 29, 2026:** the current 26-generation maintenance baseline is **macOS Tahoe 26.7.2**, released October 26, 2026, following **26.7** on September 14, 2026 and **26.7.1** on September 28, 2026. Apple's [security releases](https://support.apple.com/en-us/100100) list these updates without build numbers.
 
 ## Overview
 
@@ -62,7 +66,7 @@ Dive into the latest key technologies and capabilities:
 
 ### Maintenance and OS27 Preparation
 
-- Use **26.6.2** as the current maintenance baseline while retaining the [26.0](https://developer.apple.com/documentation/macos-release-notes/macos-26-release-notes) and [26.6](https://developer.apple.com/documentation/macos-release-notes/macos-26_6-release-notes) notes for historical behavior.
+- Use **26.7.2** as the current maintenance baseline while retaining the [26.0](https://developer.apple.com/documentation/macos-release-notes/macos-26-release-notes) and [26.6](https://developer.apple.com/documentation/macos-release-notes/macos-26_6-release-notes) notes for historical behavior.
 - **Xcode 27 runs on Apple silicon with macOS Tahoe 26.6 or later; macOS 27 is not required.** Intel Macs are not eligible Xcode 27 hosts, although its macOS 27 SDK can back deploy Universal apps to macOS 12 and later, and Intel development remains possible with Rosetta-supporting macOS such as macOS 27.
 - Plan for the [documented macOS 27 Rosetta and installer changes](../os27-intro/macOS.md). Running an Intel app under Rosetta and running Xcode on an Intel host are different questions.
 - Audit [managed-service TLS](https://support.apple.com/en-us/126655), menu image visibility, and SwiftUI document migrations before upgrading production deployments. Mac Catalyst apps also need the UIKit scene life cycle when rebuilt with the latest SDK.
@@ -123,4 +127,4 @@ Join the [Apple Developer Program](Program.md) for TestFlight, Mac App Store dis
 
 ## Sources
 
-[Designing for macOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-macos), [Liquid Glass adoption](https://developer.apple.com/documentation/technologyoverviews/adopting-liquid-glass), and [SystemLanguageModel](https://developer.apple.com/documentation/foundationmodels/systemlanguagemodel) support the platform guidance. [Apple Developer releases](https://developer.apple.com/news/releases/), [security updates](https://support.apple.com/en-us/100100), [macOS 27 notes](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes), and [Xcode 27 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) support the status and migration guidance checked September 8, 2026. Inline story sources describe historical examples.
+[Designing for macOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-macos), [Liquid Glass adoption](https://developer.apple.com/documentation/technologyoverviews/adopting-liquid-glass), and [SystemLanguageModel](https://developer.apple.com/documentation/foundationmodels/systemlanguagemodel) support the platform guidance. [Apple Developer releases](https://developer.apple.com/news/releases/), [security updates](https://support.apple.com/en-us/100100), [macOS 27 notes](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes), and [Xcode 27 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) support the dated release history and migration guidance reviewed October 29, 2026. Inline story sources describe historical examples.

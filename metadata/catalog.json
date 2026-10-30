@@ -15144,13 +15144,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-14",
-        "scope_note": [
-          "Refreshed shipping status, selected 26.2/26.4 context and 27 migration/toolchain guidance; removed unsupported assertions and broad SiriKit deprecation."
-        ],
-        "limitations": [
-          "Retained, not exhaustively reverified: General OS26 design/capability coverage, earlier examples and resource directory."
-        ]
+        "checked_on": "2026-10-29",
+        "scope_note": "October 29, 2026 targeted primary-source review of point-release changes since the September cutoff; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14."
       },
       "release_status": "shipping",
       "platforms": [
@@ -15213,13 +15208,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-14",
-        "scope_note": [
-          "Refreshed shipping baseline and OS27 AppKit/SwiftUI, Rosetta, installer and host-architecture planning."
-        ],
-        "limitations": [
-          "Retained, not exhaustively reverified: OS26 desktop-design and earlier platform/developer-resource context."
-        ]
+        "checked_on": "2026-10-29",
+        "scope_note": "October 29, 2026 targeted primary-source review of point-release changes since the September cutoff; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14."
       },
       "release_status": "shipping",
       "platforms": [
@@ -15403,13 +15393,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-14",
-        "scope_note": [
-          "Replaced unsupported marketing/API/compiler claims with beta 8 status and concrete scene/launch-screen, assets, privacy/API and toolchain migration."
-        ],
-        "limitations": [
-          "Retained, not exhaustively reverified: Useful general development/resource links; older concepts are not relabeled as new OS27 inventions."
-        ]
+        "checked_on": "2026-10-29",
+        "scope_note": "October 29, 2026 targeted primary-source review of point-release changes since the September cutoff; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14."
       },
       "release_status": "beta",
       "platforms": [

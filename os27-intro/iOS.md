@@ -4,7 +4,9 @@ Prepare iPhone apps for the iOS 27 SDK: migrate UIKit life-cycle handling, revie
 
 **Platform:** iOS 27.0+
 
-> **Status checked September 14, 2026:** iOS 27.0 (`24A437`) shipped September 14. The previous 26-generation release is **iOS 26.6.2** (`23G90`), released September 8.
+> **Status checked September 14, 2026:** iOS 27.0 (`24A437`) shipped September 14. The latest 26-generation release that day was **iOS 26.7**, also released September 14, 2026.
+
+> **Update checked October 29, 2026:** iOS **27.2** (`24B119`) shipped October 26, 2026; the developer feed also lists iOS 27.2 build `24B91020` without identifying its device scope. iOS 27.0.1 (`24A446`) shipped September 28, 2026. Apple's security list records iOS **27.1** for **iPhone Duo only** on October 23, 2026, without a build number; this release is absent from the checked developer feed. The latest 26-generation release is **iOS 26.7.2** (October 26, 2026), following iOS 26.7.1 (September 28, 2026); the security list gives no iOS build numbers for these maintenance releases.
 
 ## Overview
 
@@ -22,7 +24,7 @@ The following changes are documented in the [iOS & iPadOS 27 release notes](http
 
 ### Data, assets, and diagnostics
 
-- **Background Assets:** localized asset packs let the system select resources for a person's preferred languages. On Demand Resources and `NSBundleResourceRequest` are deprecated in favor of Background Assets. Plan download progress, offline access, cancellation, and missing-resource handling.
+- **Background Assets:** localized asset packs let the system select resources for a person's preferred languages. The notes deprecate On Demand Resources and `NSBundleResourceRequest` in favor of Background Assets; they do not announce removal. Plan download progress, offline access, cancellation, and missing-resource handling.
 - **HealthKit:** heart-rate and cycling-power zones are supported. The permissions flow can distinguish limited from full history, so an authorized query need not return all historical samples. New reproductive-health categories require their own HealthKit authorization.
 - **MetricKit:** the Swift-first `MetricManager` delivers reports through `AsyncStream`, including interval breakdowns and additional diagnostics. Check renamed/removed pre-release metric types when rebuilding rather than assuming code built with an earlier pre-release is compatible.
 - **StoreKit:** offer-code redemption reports verification results or errors; transaction APIs also represent managed-account assignments and subscription Bundles/Suites. Verify transactions before granting access and keep payment-policy decisions separate from API availability.
@@ -32,7 +34,7 @@ The following changes are documented in the [iOS & iPadOS 27 release notes](http
 - `AsyncImage` participates in HTTP caching and gains request/session customization. Test authenticated images, cache headers, and failure states.
 - Xcode 27 changes `@State` to a macro-based implementation that avoids repeated evaluation of an initial-value expression. Some initializer patterns need changes; the behavior also back-deploys to iOS 17-aligned releases.
 - Selectable SwiftUI `Text` gains system selection gestures when linked with the iOS 27 SDK. Check conflicts with custom gestures.
-- Presented UIKit controllers inherit traits through their view hierarchy. Re-test custom presentations and trait overrides.
+- In apps built with the iOS 27 SDK, presented UIKit controllers inherit traits through their view hierarchy. Re-test custom presentations and trait overrides.
 
 ## Migration Priorities
 
@@ -48,18 +50,21 @@ The iOS 27 notes mark earlier Foundation Models simulator/PCC problems and sever
 
 ## Devices and Toolchain
 
-**Exact iOS 27 device list: not verified by the release sources used here.** Do not infer it from iOS 26 compatibility or devices mentioned in bug reports. Apple Intelligence eligibility is a separate, feature-specific check; this page does not invent hardware tiers.
+**Device scope checked October 29, 2026:** Apple's security-release entries for iOS 27 and iOS 27.2 list **iPhone 11 and later**; they give a range rather than a model-by-model compatibility list. Apple Intelligence eligibility remains a separate, feature-specific check.
 
 **Xcode 27** (`27A266a`, September 14) includes Swift 6.4 and requires **an Apple silicon Mac running macOS Tahoe 26.6 or later**. It does not require macOS 27. Intel Macs cannot host Xcode 27; running Intel applications under Rosetta on Apple silicon is a different capability. See the [Xcode notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes).
 
+**Toolchain update checked October 29, 2026:** Xcode 27.1 (`27A9275`, October 15, 2026) includes the iOS 27.1 SDK; Xcode 27.2 includes SDKs for all six 27.2 platforms. Both include Swift 6.4 and require macOS Tahoe 26.6 or later. Apple's [security-releases list](https://support.apple.com/en-us/100100) dates Xcode 27.2 to October 29, 2026, while the checked [developer feed](https://developer.apple.com/news/releases/rss/releases.rss) still lists only Xcode 27.2 RC (`27B48`, October 19, 2026); these captures do not establish a final build number.
+
+**Point-release build caveats:** The [Xcode 27.1 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_1-release-notes) and [Xcode 27.2 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_2-release-notes) list Mac Catalyst compile failures for iOS 27.1-specific APIs; use compile-time platform conditionals to exclude affected code from Mac Catalyst builds. Xcode 27.2 incorrectly offers 27.1 deployment targets for macOS, watchOS, tvOS, and visionOS, and its notes warn that Mac Catalyst targets of 27.1 or 27.2 may be unable to use newly introduced APIs.
+
 ## Submission Requirements
 
-Since April 28, 2026, iOS uploads must use Xcode 26 or later and the iOS 26 SDK or later. This does not require raising your deployment target to iOS 26. The checked [Upcoming Requirements](https://developer.apple.com/news/upcoming-requirements/) page does not announce an OS 27 SDK deadline. Use the [App Store readiness checklist](../guides/app-store-readiness.md) for policy and submission checks.
+Since April 28, 2026, iOS uploads must use Xcode 26 or later and the iOS 26 SDK or later. This does not require raising your deployment target to iOS 26. Since September 9, 2026, however, iOS and iPadOS uploads must target iOS 13 or later. The [Upcoming Requirements](https://developer.apple.com/news/upcoming-requirements/) page checked October 29, 2026 does not announce an OS 27 SDK deadline. Use the [App Store readiness checklist](../guides/app-store-readiness.md) for policy and submission checks.
 
 ## Getting Started
 
-**New to iOS development?**
-Check out the [iOS Pathway](https://developer.apple.com/ios/get-started/) for resources to get started with iOS app development.
+**New to iOS development?** Check out the [iOS Pathway](https://developer.apple.com/ios/get-started/) for resources to get started with iOS app development.
 
 ## Resources
 
@@ -88,4 +93,4 @@ Check out the [iOS Pathway](https://developer.apple.com/ios/get-started/) for re
 
 ## Sources
 
-[Apple Developer releases](https://developer.apple.com/news/releases/), [iOS/iPadOS 27 notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes), and [Xcode 27 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes), with additional scoped citations above. Reviewed September 8, 2026; hardware, region, language, and entitlement availability require separate checks.
+[Apple Developer releases](https://developer.apple.com/news/releases/), [Apple security releases](https://support.apple.com/en-us/100100), [developer release feed](https://developer.apple.com/news/releases/rss/releases.rss), [iOS/iPadOS 27 notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes), [iOS/iPadOS 27.2 notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27_2-release-notes), [Xcode 27 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes), [Xcode 27.1 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_1-release-notes), and [Xcode 27.2 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_2-release-notes), with additional scoped citations above. Reviewed September 8, 2026; updated and fully reviewed October 29, 2026. Hardware, region, language, and entitlement availability require separate checks.
