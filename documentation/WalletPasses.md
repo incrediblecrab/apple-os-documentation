@@ -51,6 +51,7 @@ Test malformed or incorrectly signed packages, expired signing credentials, fail
 
 ### Essentials
 - [Creating a pass with Pass Designer](https://developer.apple.com/documentation/walletpasses/creating-a-pass-with-pass-designer) - Author and customize supported pass styles.
+- [Creating a Poster Generic Pass](https://developer.apple.com/documentation/walletpasses/creating-a-poster-generic-pass) - Use the top-level `posterGeneric` dictionary on iOS and watchOS 27 or later, alongside a legacy style dictionary for older clients. Poster generic passes support barcodes and do not require event-specific semantic tags.
 - [Creating the Source for a Pass](https://developer.apple.com/documentation/walletpasses/creating-the-source-for-a-pass) - Create the directory structure and add source files and images to define a pass.
 - [Building a Pass](https://developer.apple.com/documentation/walletpasses/building-a-pass) - Build a distributable pass.
 - [Defining the metadata of your Wallet Pass](https://developer.apple.com/documentation/walletpasses/defining-the-metadata-of-your-wallet-pass) - Configure documented pass metadata.
@@ -78,4 +79,4 @@ Test malformed or incorrectly signed packages, expired signing credentials, fail
 
 ---
 
-*Source: [Apple Developer Documentation](https://developer.apple.com/documentation/WalletPasses)*
+*Sources: [Apple Developer Documentation](https://developer.apple.com/documentation/walletpasses); [Creating a Poster Generic Pass](https://developer.apple.com/documentation/walletpasses/creating-a-poster-generic-pass)*

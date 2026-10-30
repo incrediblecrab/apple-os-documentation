@@ -10,7 +10,7 @@ This reference retains older CFNetwork APIs for maintaining existing code. The u
 
 For new HTTP work, prefer `URLSession`; for custom transports and Bonjour, prefer [Network](Network.md). CFNetwork is not a turnkey HTTP or FTP server implementation. Apple's [networking API guidance](https://developer.apple.com/documentation/technotes/tn3151-choosing-the-right-networking-api) also explains that Apple no longer provides a supported FTP API for new development. Preserve legacy FTP code only with an explicit migration plan rather than treating it as a modern secure transport.
 
-**27 SDK deprecations:** The `CFHost` functions, remaining `CFNetService` service-management functions, and stream-pair creation using a host or network service are deprecated in 27 in favor of Network framework. Some older service calls were already deprecated. This does not deprecate every CFNetwork API or mean these symbols have been removed. It is separate from the much older HTTP/FTP stream deprecations in iOS 9/macOS 10.11 and network-diagnostic deprecations in iOS 11/macOS 10.13.
+**27.0 SDK deprecations:** The `CFHost` functions listed below, `CFNetServiceCreate`, `CFNetServiceBrowserCreate`, and stream-pair creation using a host or network service are deprecated in 27.0 in favor of Network framework. Foundation's [`NetService`](https://developer.apple.com/documentation/foundation/netservice) has a separate 27.2 deprecation date. Some older service calls were already deprecated. This does not deprecate every CFNetwork API or mean these symbols have been removed. It is separate from the much older HTTP/FTP stream deprecations in iOS 9/macOS 10.11 and network-diagnostic deprecations in iOS 11/macOS 10.13.
 
 Low-level CFNetwork streams do not acquire the URL Loading System's ATS policy automatically. Preserve certificate-chain and hostname validation. `CFSocketStream` does not support TLS 1.3; use a modern networking API rather than assuming its negotiated-security setting selects every protocol supported elsewhere by the OS. See [Security](Security.md).
 
@@ -26,7 +26,7 @@ Low-level CFNetwork streams do not acquire the URL Loading System's ATS policy a
 - **CFHostInfoType** - Values indicating the type of data that is to be resolved or the type of data that was resolved.
 - **CFHostClientContext** - A structure containing user-defined data and callbacks for CFHost objects.
 
-#### Functions deprecated in 27
+#### Functions deprecated in 27.0
 - **CFHostCancelInfoResolution** - Cancels the resolution of a host.
 - **CFHostCreateCopy** - Creates a new host object by copying.
 - **CFHostCreateWithAddress** - Uses an address to create an instance of a host object.
@@ -126,7 +126,7 @@ The asynchronous PAC functions return a run-loop source that the caller must sch
 
 ### Network Services (Legacy)
 
-The service-management functions, including [`CFNetServiceCreate`](https://developer.apple.com/documentation/cfnetwork/cfnetservicecreate(_:_:_:_:_:)) and [`CFNetServiceBrowserCreate`](https://developer.apple.com/documentation/cfnetwork/cfnetservicebrowsercreate(_:_:_:)), are deprecated in 27. The associated opaque types and flags remain listed here for interpreting legacy code; not every type has its own deprecation annotation.
+The service-management functions [`CFNetServiceCreate`](https://developer.apple.com/documentation/cfnetwork/cfnetservicecreate(_:_:_:_:_:)) and [`CFNetServiceBrowserCreate`](https://developer.apple.com/documentation/cfnetwork/cfnetservicebrowsercreate(_:_:_:)) are deprecated in 27.0. The associated opaque types and flags remain listed here for interpreting legacy code; not every type has its own deprecation annotation.
 
 - **CFNetService** - An opaque reference representing a CFNetService.
 - **CFNetServiceBrowser** - An opaque reference representing a CFNetServiceBrowser.
@@ -157,8 +157,8 @@ Service-type and extended-idle properties classify traffic or request system tre
 - **kCFStreamPropertyFTPUserName** (Deprecated) - FTP User Name stream property key for set and copy operations. A value of type CFString for storing the login user name. Don't set this property when anonymous FTP is desired.
 - **CFSocketStreamSOCKSGetError** - This function gets error codes in the kCFStreamErrorDomainSOCKS domain from the CFStreamError returned by a stream operation.
 - **CFSocketStreamSOCKSGetErrorSubdomain** - Gets the error subdomain associated with errors in the kCFStreamErrorDomainSOCKS domain from the CFStreamError returned by a stream operation.
-- **CFStreamCreatePairWithSocketToCFHost** (Deprecated) - Creates readable and writable streams connected to a given CFHost object.
-- **CFStreamCreatePairWithSocketToNetService** (Deprecated) - Creates a pair of streams for a CFNetService.
+- **CFStreamCreatePairWithSocketToCFHost** (Deprecated in 27.0) - Creates readable and writable streams connected to a given CFHost object.
+- **CFStreamCreatePairWithSocketToNetService** (Deprecated in 27.0) - Creates a pair of streams for a CFNetService.
 - **kCFStreamNetworkServiceType** - The type of service for the stream. Providing the service type allows the system to properly handle certain attributes of the stream, including routing and suspension behavior. Most streams do not need to set this property. See Stream Service Types for a list of possible values.
 - **kCFStreamNetworkServiceTypeBackground** - Specifies that the stream is a background download.
 - **kCFStreamNetworkServiceTypeCallSignaling** - A call signaling service.
@@ -218,4 +218,4 @@ Service-type and extended-idle properties classify traffic or request system tre
 
 ---
 
-*Source: [Apple Developer Documentation](https://developer.apple.com/documentation/CFNetwork)*
+*Sources: [Apple Developer Documentation](https://developer.apple.com/documentation/cfnetwork); [NetService](https://developer.apple.com/documentation/foundation/netservice)*

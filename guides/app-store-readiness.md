@@ -1,6 +1,6 @@
 # App Store Readiness
 
-**Scope:** App Store submissions across Apple platforms. **Research cutoff:** September 8, 2026.
+**Scope:** App Store submissions across Apple platforms. **Research cutoff:** October 29, 2026.
 
 ## Overview
 
@@ -12,7 +12,7 @@ Use this policy checklist alongside platform migration testing. Compiling agains
 |---|---|
 | Build SDK | Since **April 28, 2026**, uploads for iOS, iPadOS, tvOS, visionOS, and watchOS must use Xcode 26 or later and the corresponding 26 SDK or later. The notice does not set a macOS SDK minimum. |
 | Mac upload contents | Since **February 18, 2025**, macOS apps uploaded to App Store Connect for TestFlight or the Mac App Store must have the `com.apple.quarantine` **extended file attribute removed from all files within the app**. This is an artifact check, not an `Info.plist` key or entitlement. |
-| Deployment target | Choose supported older OS versions separately from the SDK used to build. Do not raise the target merely to meet the upload requirement. |
+| Deployment target | Since **September 9, 2026**, iOS and iPadOS apps need a deployment target of **iOS 13 or later** for App Store Connect uploads. This deployment-target minimum is separate from the build-SDK requirement. |
 | OS27 planning | The checked requirements page gives no OS27 SDK deadline. Beta availability also does not prove that App Store Connect accepts a particular beta-built submission. |
 | Age questionnaire | Updated questions for **each app** were due **January 31, 2026** to avoid interruptions to update submissions. Confirm the responses in App Store Connect; automatic rating conversion did not remove this task. |
 | DSA trader status | Complete App Store Connect's trader/non-trader declaration, even if you do not distribute in the EU. Traders distributing on the EU App Store must complete the applicable contact-information verification. The **February 17, 2025** EU availability enforcement is already in effect; see [regional compliance guidance](regional-distribution.md). |

@@ -41,22 +41,22 @@ Unofficial, community-maintained Apple platform references, design guidance, and
 
 <!-- BEGIN GENERATED BASELINE -->
 
-**Research cutoff: September 14, 2026.** This is a dated snapshot, not a live latest-version service.
+**Research cutoff: October 29, 2026.** This is a dated snapshot, not a live latest-version service.
 
 | Product | Version | Status | Release date |
 |---|---|---|---|
-| iOS | 27.0 (`24A437`) | shipping | [September 14, 2026](https://developer.apple.com/news/releases/) |
-| iPadOS | 27.0 (`24A437`) | shipping | [September 14, 2026](https://developer.apple.com/news/releases/) |
-| macOS Golden Gate | 27.0 (`26A428`) | shipping | [September 14, 2026](https://developer.apple.com/news/releases/) |
-| tvOS | 27.0 (`24J361`) | shipping | [September 14, 2026](https://developer.apple.com/news/releases/) |
-| watchOS | 27.0 (`24R364`) | shipping | [September 14, 2026](https://developer.apple.com/news/releases/) |
-| visionOS | 27.0 (`24M362`) | shipping | [September 14, 2026](https://developer.apple.com/news/releases/) |
-| Xcode | 27 (`27A266a`) | shipping | [September 14, 2026](https://developer.apple.com/news/releases/) |
-| Safari | 27.0 (`20625.1.29`) | shipping | [September 14, 2026](https://developer.apple.com/documentation/safari-release-notes/safari-27-release-notes) |
-| iOS 26 | 26.6.2 (`23G90`) | shipping | [September 8, 2026](https://developer.apple.com/news/releases/) |
-| iPadOS 26 | 26.7 (`23H24`) | shipping | [September 9, 2026](https://developer.apple.com/news/releases/) |
-| macOS Tahoe | 26.6.2 (`25G83`) | shipping | [August 17, 2026](https://developer.apple.com/news/releases/) |
-| tvOS 26 | 26.6 (`23L773`) | shipping | [July 27, 2026](https://developer.apple.com/news/releases/) |
+| iOS | 27.2 (`24B119`) | shipping | [October 26, 2026](https://developer.apple.com/news/releases/) |
+| iPadOS | 27.2 (`24B119`) | shipping | [October 26, 2026](https://developer.apple.com/news/releases/) |
+| macOS Golden Gate | 27.2 (`26B123`) | shipping | [October 26, 2026](https://developer.apple.com/news/releases/) |
+| tvOS | 27.2 (`24K122`) | shipping | [October 26, 2026](https://developer.apple.com/news/releases/) |
+| watchOS | 27.2 (`24S118`) | shipping | [October 26, 2026](https://developer.apple.com/news/releases/) |
+| visionOS | 27.2 (`24N120`) | shipping | [October 26, 2026](https://developer.apple.com/news/releases/) |
+| Xcode | 27.2 | shipping | [October 29, 2026](https://support.apple.com/en-us/100100) |
+| Safari | 27.2 (`20625.2.8`) | shipping | [October 26, 2026](https://developer.apple.com/documentation/safari-release-notes/safari-27_2-release-notes) |
+| iOS 26 | 26.7.2 | shipping | [October 26, 2026](https://support.apple.com/en-us/100100) |
+| iPadOS 26 | 26.7.2 (`23H128`) | shipping | [October 26, 2026](https://developer.apple.com/news/releases/) |
+| macOS Tahoe | 26.7.2 | shipping | [October 26, 2026](https://support.apple.com/en-us/100100) |
+| tvOS 26 | 26.6.1 | shipping | [October 26, 2026](https://support.apple.com/en-us/100100) |
 | watchOS 26 | 26.6 (`23U67`) | shipping | [July 27, 2026](https://developer.apple.com/news/releases/) |
 | visionOS 26 | 26.6.1 (`23O780`) | shipping | [August 17, 2026](https://developer.apple.com/news/releases/) |
 | Xcode 26 | 26.6 (`17F113`) | shipping | [June 25, 2026](https://developer.apple.com/news/releases/) |

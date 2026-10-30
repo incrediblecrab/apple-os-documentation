@@ -38,7 +38,7 @@ The current reference includes Swift asynchronous streams and Objective-C-orient
 
 [`CLGeocoder`](https://developer.apple.com/documentation/corelocation/clgeocoder) has a **26.0 deprecation annotation** directing developers to MapKit. Use [MapKit geocoding requests](MapKit.md) for migration, while retaining availability-appropriate handling for older clients. This is a formal deprecation, not evidence that the class was removed in OS 27. Geocoding also has network and rate-limit failure modes; do not repeatedly geocode every location update.
 
-[`CLPlacemark`](https://developer.apple.com/documentation/corelocation/clplacemark) has a separate **27.0 deprecation annotation**, recommending [GeoToolbox's `PlaceDescriptor`](GeoToolbox.md) or MapKit. Do not assign the geocoder's 26.0 date to the placemark class, or interpret either deprecation as removal.
+[`CLPlacemark`](https://developer.apple.com/documentation/corelocation/clplacemark) has separate deprecation annotations of **27.2 on iOS, iPadOS, macOS, visionOS, and watchOS** and **27.0 on Mac Catalyst and tvOS**, recommending [GeoToolbox's `PlaceDescriptor`](GeoToolbox.md) or MapKit. Do not assign the geocoder's 26.0 date to the placemark class, or interpret either deprecation as removal.
 
 [`NSLocationDefaultAccuracyReduced`](https://developer.apple.com/documentation/bundleresources/information-property-list/nslocationdefaultaccuracyreduced) remains a documented, nondeprecated key. It sets the requested default accuracy; the person can still change precision in Settings.
 
@@ -62,7 +62,7 @@ Location push service extensions require the dedicated entitlement and the perso
 - **CLAccuracyAuthorization** - Constants that indicate the level of location accuracy the app has authorization to use.
 - **NSLocationAlwaysAndWhenInUseUsageDescription** - A message that tells people why the app is requesting access to their location information at all times.
 - **NSLocationWhenInUseUsageDescription** - A message that tells people why the app is requesting access to their location information while the app is running in the foreground.
-- **NSLocationUsageDescription** - A message that tells people why the app is requesting access to their location information.
+- **NSLocationUsageDescription** - A message that tells people why the app is requesting access to their location information. (Deprecated)
 - **NSLocationDefaultAccuracyReduced** - A Boolean value that indicates whether the app requests reduced location accuracy by default.
 - **NSLocationAlwaysUsageDescription** - A message that tells people why the app is requesting access to their location at all times. (Deprecated)
 
@@ -102,7 +102,7 @@ Location push service extensions require the dedicated entitlement and the perso
 - [Converting between coordinates and user-friendly place names](https://developer.apple.com/documentation/corelocation/converting-between-coordinates-and-user-friendly-place-names) - Convert between a latitude and longitude pair and a more user-friendly description of that location.
 - [Converting a user's location to a descriptive placemark](https://developer.apple.com/documentation/corelocation/converting-a-user-s-location-to-a-descriptive-placemark) - Transform the user's location that displays on a map into an informative textual description by reverse geocoding.
 - **CLGeocoder** - An interface for converting between geographic coordinates and place names. (Deprecated)
-- **CLPlacemark** - A user-friendly description of a geographic coordinate, often containing the name of the place, its address, and other relevant information. (Deprecated at 27.0; use GeoToolbox or MapKit.)
+- **CLPlacemark** - A user-friendly description of a geographic coordinate, often containing the name of the place, its address, and other relevant information. (Deprecated at 27.2 on iOS, iPadOS, macOS, visionOS, and watchOS; at 27.0 on Mac Catalyst and tvOS; use GeoToolbox or MapKit.)
 
 ### Location push service extension
 - **Location Push Service Extension** - An entitlement to enable a location-sharing app to query someone's location in response to a push notification.
@@ -122,4 +122,4 @@ Location push service extensions require the dedicated entitlement and the perso
 
 ---
 
-*Source: [Apple Developer Documentation](https://developer.apple.com/documentation/CoreLocation)*
+*Sources: [Apple Developer Documentation](https://developer.apple.com/documentation/corelocation), [CLPlacemark](https://developer.apple.com/documentation/corelocation/clplacemark), [Authorization guide](https://developer.apple.com/documentation/corelocation/requesting-authorization-to-use-location-services)*

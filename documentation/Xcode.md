@@ -26,6 +26,10 @@ The macOS 27 SDK still supports universal-app back-deployment to macOS 12 and la
 
 Xcode 27 includes the **Swift 6.4 compiler** and iOS, iPadOS, macOS, tvOS, watchOS, and visionOS 27 SDKs. Compiler version is not Swift language mode. Record both, together with SDK and run-destination versions, in local and [CI](Xcode-Cloud.md) results.
 
+Checked October 29, 2026: [Xcode 27.1](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_1-release-notes.md) (`27A9275`) shipped October 15, 2026 with Swift 6.4 and SDKs for iOS 27.1, iPadOS 27, macOS 27, tvOS 27, watchOS 27, and visionOS 27. [Xcode 27.2](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_2-release-notes.md) includes Swift 6.4 and all six platform SDKs at 27.2; both point releases require macOS Tahoe 26.6 or later. Apple's [security-releases list](https://support.apple.com/en-us/100100) dates Xcode 27.2 to October 29, 2026, while the [developer release feed](https://developer.apple.com/news/releases/rss/releases.rss) captured that day still lists only Xcode 27.2 RC (`27B48`, October 19, 2026), leaving the final build number unconfirmed.
+
+Both point releases list Mac Catalyst compilation failures when code uses iOS 27.1-specific APIs (185924957); the documented workaround is to exclude that code from Mac Catalyst builds with conditional compilation. In Xcode 27.2, the macOS, watchOS, tvOS, and visionOS SDKs incorrectly offer 27.1 as a deployment target, and Mac Catalyst builds targeting 27.1 or 27.2 may lack access to new APIs (187160501).
+
 **Testing**
 
 Use [Swift Testing](Testing.md) for new Swift unit tests, [XCTest](XCTest.md) with [XCUIAutomation](XCUIAutomation.md) for UI tests, and XCTest for performance tests. [App Intents Testing](AppIntentsTesting.md) exercises registered intents and queries out-of-process from a UI testing bundle. [Evaluations](Evaluations.md) adds dataset-based quality measurement and Swift Testing integration; it complements deterministic tests.
@@ -40,7 +44,7 @@ Use [Swift Testing](Testing.md) for new Swift unit tests, [XCTest](XCTest.md) wi
 
 **Outstanding release-note limitations**
 
-The release notes still list delayed multi-process console output (165098287), unreliable input extraction from Core AI prediction events (172502576), and limitations in Device Hub input and device visualization. These affect diagnosis, not just app code. In Xcode 27, `xctrace record` failing to start for simulator targets is listed as **fixed** (183624872). Verify against the selected toolchain rather than treating every earlier beta issue as current.
+The Xcode 27 notes still list delayed multi-process console output (165098287), but mark Core AI prediction-event input extraction (172502576) and simulator-target `xctrace record` startup (183624872) as **fixed**. Xcode 27.2 fixes Device Hub keyboard and mouse input for older simulator runtimes, including iOS 17 (181945323, 187484157), but still requires a USB-connected physical device for CarPlay (179494052) and cannot expose iPhone Duo screen content to accessibility tools (187148389). Verify against the selected toolchain rather than treating every earlier beta issue as current.
 
 ## Topics
 
@@ -58,7 +62,7 @@ The release notes still list delayed multi-process console output (165098287), u
 - [Build system](https://developer.apple.com/documentation/xcode/build-system.md) - Compile your code into a binary format, and customize your project settings to build your code.
 
 ### Code
-- [Source Editor](https://developer.apple.com/documentation/xcode/source-editor.md) - Edit your source files, locate issues, and make necessary changes using the Source Editor.
+- [Source editor](https://developer.apple.com/documentation/xcode/source-editor.md) - Edit code and investigate issues with Xcode's source editor.
 - [Bundles and frameworks](https://developer.apple.com/documentation/xcode/bundles-and-frameworks.md) - Organize code and resources in bundles and frameworks.
 - [Swift packages](https://developer.apple.com/documentation/xcode/swift-packages.md) - Create reusable code, organize it in a lightweight way, and share it across Xcode projects and with other developers.
 
@@ -86,4 +90,4 @@ The release notes still list delayed multi-process console output (165098287), u
 
 ---
 
-*Source: [Apple Developer Documentation](https://developer.apple.com/documentation/Xcode)*
+*Sources: [Apple Developer Documentation](https://developer.apple.com/documentation/xcode); [Xcode 27 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes); [Xcode 27.1 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_1-release-notes); [Xcode 27.2 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_2-release-notes); [Apple Developer Releases](https://developer.apple.com/news/releases/); [Apple security releases](https://support.apple.com/en-us/100100).*

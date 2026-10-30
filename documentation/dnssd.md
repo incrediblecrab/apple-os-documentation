@@ -17,7 +17,7 @@ In support of these main tasks, this API can directly assist you in performing t
 - Enumerating domains (finding recommended service domains).
 - Updating registrations (changing your DNS registration data dynamically).
 
-For new app discovery code, prefer [Network](Network.md) for Bonjour advertising, browsing, and connections. The **27 SDK deprecates Foundation's `NetService`** in favor of Network framework, so it is no longer the preferred migration target. Use DNS-SD's C API when cross-platform integration or specialized operations, such as resolving a service without connecting, require lower-level control. See [TN3151](https://developer.apple.com/documentation/technotes/tn3151-choosing-the-right-networking-api).
+For new app discovery code, prefer [Network](Network.md) for Bonjour advertising, browsing, and connections. The **27.2 SDK deprecates Foundation's `NetService`** in favor of Network framework, so it is no longer the preferred migration target. This is a deprecation, not removal. Use DNS-SD's C API when cross-platform integration or specialized operations, such as resolving a service without connecting, require lower-level control. See [TN3151](https://developer.apple.com/documentation/technotes/tn3151-choosing-the-right-networking-api).
 
 ### Permissions, failures, and availability
 
@@ -43,6 +43,7 @@ These are read-only imported SDK constants, not mutable configuration variables.
 - `var kDNSServiceAAAAPolicyFallback: DNSServiceAAAAPolicy`
 - `var kDNSServiceAAAAPolicyNone: DNSServiceAAAAPolicy`
 - `var kDNSServiceClass_IN: Int`
+- `var kDNSServiceErr_AWDLTimeout: Int`
 - `var kDNSServiceErr_AlreadyRegistered: Int`
 - `var kDNSServiceErr_BadFlags: Int`
 - `var kDNSServiceErr_BadInterfaceIndex: Int`
@@ -195,4 +196,4 @@ These are read-only imported SDK constants, not mutable configuration variables.
 
 ---
 
-*Source: [Apple Developer Documentation](https://developer.apple.com/documentation/dnssd)*
+*Sources: [Apple Developer Documentation](https://developer.apple.com/documentation/dnssd); [NetService](https://developer.apple.com/documentation/foundation/netservice)*

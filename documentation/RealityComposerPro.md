@@ -2,7 +2,7 @@
 
 Author, preview, and prepare 3D scenes for RealityKit applications.
 
-**Tool:** Reality Composer Pro 3; **host:** Apple silicon Mac running macOS Tahoe 26.5 or later. Beta 5 is a standalone download, no longer part of Xcode. This tool's host minimum differs from Xcode 27's macOS 26.6 minimum.
+**Tool:** Reality Composer Pro 3; **host:** Apple silicon Mac running macOS Tahoe 26.5 or later. The app is a standalone download, no longer part of Xcode. This tool's host minimum differs from Xcode 27's macOS 26.6 minimum.
 
 ## Overview
 
@@ -32,10 +32,10 @@ The version 3 documentation describes Shader Graph, Script Graph, Compute Graph,
 - [Lights and light layers](https://developer.apple.com/documentation/realitycomposerpro/lighting-a-scene-with-lights-and-light-layers.md) — Configure scene illumination.
 - [Audio components](https://developer.apple.com/documentation/realitycomposerpro/introduction-to-reality-composer-pro-audio.md) — Attach audio behavior and review playback resource costs.
 - [Reality Composer Pro Assistant](https://developer.apple.com/documentation/realitycomposerpro/working-with-the-reality-composer-pro-assistant.md) — Configure the authoring assistant; do not confuse it with an app-runtime model API.
-- [Release notes](https://developer.apple.com/documentation/realitycomposerpro/reality-composer-pro-release-notes.md) and [beta 5 notes](https://developer.apple.com/documentation/realitycomposerpro/reality-composer-pro-beta-5-release-notes.md) — Check the selected beta's known issues before treating an editor or preview failure as an app defect.
+- [Release notes](https://developer.apple.com/documentation/realitycomposerpro/reality-composer-pro-release-notes.md) — Check the current release's known issues before treating an editor or preview failure as an app defect.
 
 Validate imported assets, graph execution, device rendering, and performance independently. Use [Xcode](Xcode.md) profiling for the running app; editor previews alone do not establish runtime support or frame-time budgets.
 
-**Beta 5 limitations:** Project migration with Reality Composer Pro 2 timelines can fail (184861508); “On Initialize” can fail to start audio or animation on build/run, with “On Activate” documented as the workaround (182533099). Asset Generation requires macOS 27 even though the editor runs on Tahoe 26.5. The beta 5 notes also list shader, preview-texture, and mesh issues; review them before migrating production assets.
+**Known issues:** Asset Generation requires macOS 27 even though the editor runs on Tahoe 26.5. The release notes also list shader and mesh issues; review them before migrating production assets.
 
-*Source: [Reality Composer Pro](https://developer.apple.com/documentation/realitycomposerpro.md).*
+*Sources: [Reality Composer Pro](https://developer.apple.com/documentation/realitycomposerpro.md) and [release notes](https://developer.apple.com/documentation/realitycomposerpro/reality-composer-pro-release-notes.md).*

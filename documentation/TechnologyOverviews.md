@@ -21,6 +21,10 @@ Use the platform introductions for version-specific adoption work while retainin
 
 The six OS27 platforms shipped September 14, 2026: iOS/iPadOS 27.0 (`24A437`), macOS 27 Golden Gate 27.0 (`26A428`), tvOS 27.0 (`24J361`), watchOS 27.0 (`24R364`), and visionOS 27.0 (`24M362`). Xcode 27 (`27A266a`) shipped September 14; it requires **Apple silicon and macOS Tahoe 26.6 or later**, not macOS 27. See [releases](https://developer.apple.com/news/releases/) and [Xcode requirements](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes). Neither the release table nor a chip family alone establishes a complete device list.
 
+**October 29, 2026 update:** All six platforms shipped 27.2 on October 26, 2026: iOS/iPadOS (`24B119`), macOS Golden Gate (`26B123`), tvOS (`24K122`), watchOS (`24S118`), and visionOS (`24N120`). The [release feed](https://developer.apple.com/news/releases/rss/releases.rss) also lists iOS 27.2 build `24B91020`, without identifying its device scope.
+
+Apple's [security-release list](https://support.apple.com/en-us/100100) dates Xcode 27.2 to October 29, 2026; the feed still lists only the October 19, 2026 RC (`27B48`), so a final build number is not established by these captures. [Xcode 27.2](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_2-release-notes) supplies Swift 6.4 and SDKs for all six 27.2 platforms and requires macOS Tahoe 26.6 or later. [Xcode 27.1](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_1-release-notes) and 27.2 have a known Mac Catalyst compilation issue for code using iOS 27.1-specific APIs; Xcode 27.2 also incorrectly offers 27.1 deployment targets for macOS, watchOS, tvOS, and visionOS.
+
 Choose an implementation and then verify its individual availability, entitlements, and failure modes. Keep [App Store readiness](../guides/app-store-readiness.md), [regional distribution](../guides/regional-distribution.md), and [PCC approval/privacy](../guides/private-cloud-compute.md) separate from API definitions.
 
 ## Topics
@@ -44,4 +48,4 @@ Consult the Apple Developer Documentation for in-depth information about individ
 
 ---
 
-*Source: [Apple Developer Documentation](https://developer.apple.com/documentation/TechnologyOverviews)*
+*Sources: [Apple Developer Documentation](https://developer.apple.com/documentation/technologyoverviews), [release feed](https://developer.apple.com/news/releases/rss/releases.rss), [Apple security releases](https://support.apple.com/en-us/100100), [Xcode 27.1 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_1-release-notes), [Xcode 27.2 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_2-release-notes).*

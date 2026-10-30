@@ -6,7 +6,7 @@ Author GPU-driven particle simulations and compute effects for RealityKit.
 
 **Authoring:** Reality Composer Pro 3.0+
 
-Reality Composer Pro beta 5 is a standalone app requiring an Apple silicon Mac with macOS Tahoe 26.5 or later. These authoring requirements are separate from the runtime OS versions above; see its [release notes](https://developer.apple.com/documentation/realitycomposerpro/reality-composer-pro-beta-5-release-notes).
+Reality Composer Pro 3 is a standalone app requiring an Apple silicon Mac with macOS Tahoe 26.5 or later. These authoring requirements are separate from the runtime OS versions above; see its [release notes](https://developer.apple.com/documentation/realitycomposerpro/reality-composer-pro-release-notes).
 
 **Mac Catalyst:** `ComputeGraphSimulation` and the framework's DocC metadata explicitly list 27.0+. The framework's Markdown overview omits Catalyst, so its platform list alone is incomplete. No watchOS availability is listed.
 
@@ -37,8 +37,8 @@ The framework overview describes three stages: define a graph, assemble its reso
 
 Start with Apple's [working Compute Graph example](https://developer.apple.com/documentation/realitycomposerpro/building-a-working-compute-graph-example.md). Verify emission, initialization, simulation, and output independently, then test frame-time and memory costs in the actual app.
 
-The beta landing page names low-level graph-definition and assembly types but does not fully enumerate their symbol references. Follow documented nodes and the selected SDK rather than inventing a graph-construction signature. Keep an existing effect path for older OS versions or failed asset preparation.
+The framework landing page links graph-definition and assembly types, including `ComputeNodeGraph`, `ComputeNodeGraph.Assembly`, and `ComputeNodeGraph.Pipelines`. Follow documented nodes and the selected SDK rather than inventing a graph-construction signature. Keep an existing effect path for older OS versions or failed asset preparation.
 
-Reality Composer Pro beta 5 lists the failure to render loaded `ComputeGraphComponent` instances as fixed (177674901); its remaining editor and migration issues are tracked in [Reality Composer Pro](RealityComposerPro.md).
+For editor and migration guidance, see [Reality Composer Pro](RealityComposerPro.md).
 
-*Sources: [Compute Graph](https://developer.apple.com/documentation/computegraph.md), [ComputeGraphSimulation](https://developer.apple.com/documentation/computegraph/computegraphsimulation.md).*
+*Sources: [Compute Graph](https://developer.apple.com/documentation/computegraph.md), [ComputeGraphSimulation](https://developer.apple.com/documentation/computegraph/computegraphsimulation.md), [Reality Composer Pro release notes](https://developer.apple.com/documentation/realitycomposerpro/reality-composer-pro-release-notes.md).*

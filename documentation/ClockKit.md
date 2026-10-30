@@ -12,7 +12,7 @@ Existing ClockKit implementations supply dated timeline entries and templates fo
 
 The watch face determines available positions and sizes. ClockKit groups them into families with templates for text, images, and gauges; there isn't one layout shared by every watch face.
 
-The framework catalog currently labels watchOS 10, but `CLKComplication` and `CLKComplicationDataSource` declare watchOS 2. The complication workflow's watchOS 10 deprecation and the concrete `CLKComplication` declaration's watchOS 27 deprecation label are distinct source annotations, not runtime removal dates.
+The framework catalog currently labels watchOS 10, but `CLKComplication` and `CLKComplicationDataSource` declare watchOS 2. The complication workflow's watchOS 10 deprecation and the concrete `CLKComplication` declaration's watchOS 27.2 deprecation label are distinct source annotations, not runtime removal dates.
 
 ### Improve your app with complications
 
@@ -43,4 +43,4 @@ WidgetKit complications are available from watchOS 9. Once your WidgetKit extens
 
 ---
 
-*Source: [Apple Developer Documentation](https://developer.apple.com/documentation/ClockKit)*
+*Sources: [Apple Developer Documentation](https://developer.apple.com/documentation/clockkit); [CLKComplication](https://developer.apple.com/documentation/clockkit/clkcomplication)*

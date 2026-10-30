@@ -67,7 +67,7 @@ imageView.addSymbolEffect(.variableColor.reversing)
 
 `BreatheSymbolEffect`, `RotateSymbolEffect`, and `WiggleSymbolEffect` require iOS/iPadOS/Mac Catalyst/tvOS 18, macOS 15, visionOS 2, or watchOS 11. `DrawOnSymbolEffect` and `DrawOffSymbolEffect` require the 26 generation on all seven platforms; they aren't OS 27-only.
 
-The integer-count [`SymbolEffectOptions.repeat(_:)`](https://developer.apple.com/documentation/symbols/symboleffectoptions/repeat(_:)-33816) is deprecated in the 27 generation. The [`RepeatBehavior` overload](https://developer.apple.com/documentation/symbols/symboleffectoptions/repeat(_:)-3klm2) is the newer form, available from the 18/macOS 15/visionOS 2/watchOS 11 generation. Keep availability checks for apps supporting the framework's original minimum. Repetition options express a preferred behavior, not a guarantee that every animation is rendered.
+The integer-count [`SymbolEffectOptions.repeat(_:)`](https://developer.apple.com/documentation/symbols/symboleffectoptions/repeat(_:)-33816) is deprecated in version 27.2 on all seven platforms, not removed. The documented replacement is [`SymbolEffectOptions.RepeatBehavior.periodic(_:delay:)`](https://developer.apple.com/documentation/symbols/symboleffectoptions/repeatbehavior/periodic(_:delay:)), whose result you pass to the [`RepeatBehavior` overload](https://developer.apple.com/documentation/symbols/symboleffectoptions/repeat(_:)-3klm2). Both are available from the 18/macOS 15/visionOS 2/watchOS 11 generation. Keep availability checks for apps supporting the framework's original minimum. Repetition options express a preferred behavior, not a guarantee that every animation is rendered.
 
 ## Topics
 
@@ -112,4 +112,4 @@ The integer-count [`SymbolEffectOptions.repeat(_:)`](https://developer.apple.com
 
 ---
 
-*Source: [Apple Developer Documentation](https://developer.apple.com/documentation/Symbols)*
+*Sources: [Apple Developer Documentation](https://developer.apple.com/documentation/symbols); [`SymbolEffectOptions.RepeatBehavior.periodic(_:delay:)`](https://developer.apple.com/documentation/symbols/symboleffectoptions/repeatbehavior/periodic(_:delay:))*

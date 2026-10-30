@@ -10,7 +10,7 @@ When you build an app for tvOS with **UIKit**, you can use **TVUIKit** to refine
 
 For platform planning, see [Planning your tvOS app](https://developer.apple.com/tvos/planning/).
 
-When rebuilding a UIKit-based TV app with the 27 SDK, apply the [UIKit scene-lifecycle requirement](UIKit.md#required-scene-life-cycle-and-launch-screen) on tvOS as well. TVUIKit controls do not replace the app life cycle. This framework is separate from the deprecated [TVMLKit](TVMLKit.md) client-server UI model.
+For UIKit-based TV apps, review the [UIKit scene-lifecycle requirement](UIKit.md#required-scene-life-cycle-and-launch-screen). The [iOS & iPadOS 27 release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes) make scene adoption a launch requirement for apps built with the latest SDK, but that entry does not explicitly name tvOS. TVUIKit controls do not replace the app life cycle. This framework is separate from the deprecated [TVMLKit](TVMLKit.md) client-server UI model.
 
 ## Topics
 
@@ -37,11 +37,11 @@ These full-screen collection types require tvOS 13+, later than the framework's 
 - **TVCardView** - A view that responds to focus interaction with a motion effect it applies to all of its subviews.
 - **TVPosterView** - An optimized view for displaying an image, a header, and a footer.
 - **TVCaptionButtonView** - A button-like view that responds to user interactions.
-- [`TVMonogramView`](https://developer.apple.com/documentation/tvuikit/tvmonogramview) - The older monogram lockup view, introduced in tvOS 12 and deprecated in tvOS 27.
+- [`TVMonogramView`](https://developer.apple.com/documentation/tvuikit/tvmonogramview) - The older monogram lockup view, introduced in tvOS 12 and deprecated in tvOS 27.2.
 
 ### Deprecated
-For `TVMonogramView`, move to [`TVMonogramContentConfiguration`](https://developer.apple.com/documentation/tvuikit/tvmonogramcontentconfiguration-swift.struct) and `TVMonogramContentView`. Deprecation of that view doesn't deprecate the entire TVUIKit framework.
+For `TVMonogramView`, Apple's deprecation guidance points to [`TVMonogramContentView`](https://developer.apple.com/documentation/tvuikit/tvmonogramcontentview); configure it with the documented Swift [`TVMonogramContentConfiguration`](https://developer.apple.com/documentation/tvuikit/tvmonogramcontentconfiguration-swift.struct). The DocC `renamed` value is `__TVMonogramContentConfiguration`; this metadata spelling should not be presented as a documented public API name. The tvOS 27.2 deprecation is not a removal notice and does not deprecate the entire TVUIKit framework.
 
 ---
 
-*Source: [Apple Developer Documentation](https://developer.apple.com/documentation/TVUIKit)*
+*Sources: [Apple Developer Documentation](https://developer.apple.com/documentation/tvuikit), [TVMonogramView](https://developer.apple.com/documentation/tvuikit/tvmonogramview), [TVMonogramContentView](https://developer.apple.com/documentation/tvuikit/tvmonogramcontentview), [TVMonogramContentConfiguration](https://developer.apple.com/documentation/tvuikit/tvmonogramcontentconfiguration-swift.struct), [iOS & iPadOS 27 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes)*

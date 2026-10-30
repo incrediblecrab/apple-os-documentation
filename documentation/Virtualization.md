@@ -44,7 +44,7 @@ The 27 release also adds custom Virtio devices for Linux guests and physical USB
 ### Virtual machine setup
 Configure the boot loader, platform, and devices for the selected guest.
 
-- [Running macOS in a virtual machine on Apple silicon](https://developer.apple.com/documentation/virtualization/running-macos-in-a-virtual-machine-on-apple-silicon) - Installer and GUI sample apps in Swift and Objective-C; the sample's default deployment target is macOS 14.
+- [Running macOS in a virtual machine on Apple silicon](https://developer.apple.com/documentation/virtualization/running-macos-in-a-virtual-machine-on-apple-silicon) - Installer and GUI sample apps in Swift and Objective-C; the article lists macOS 27.0 and Xcode 27.0, and the sample defaults to macOS 27. Earlier deployment targets require adapting its macOS 27 API use.
 - [Running Linux in a Virtual Machine](https://developer.apple.com/documentation/virtualization/running-linux-in-a-virtual-machine) - A command-line kernel/initial-RAM-disk sample with a serial console.
 - [Running GUI Linux in a virtual machine on a Mac](https://developer.apple.com/documentation/virtualization/running-gui-linux-in-a-virtual-machine-on-a-mac) - Install from an architecture-matching ISO and run a GUI guest; the sample defaults to macOS 14.
 - [Installing macOS on a Virtual Machine](https://developer.apple.com/documentation/virtualization/installing-macos-on-a-virtual-machine) - Download a compatible restore image and install it into a stopped VM.
@@ -114,6 +114,6 @@ Configure devices appropriate to the guest and host, including their individual 
 
 ---
 
-*Source: [Apple Developer Documentation](https://developer.apple.com/documentation/Virtualization)*
+*Source: [Apple Developer Documentation](https://developer.apple.com/documentation/virtualization)*
 
-*Additional primary sources: [VZVirtualMachine](https://developer.apple.com/documentation/virtualization/vzvirtualmachine.md), [Intel Linux translation](https://developer.apple.com/documentation/virtualization/running-intel-binaries-in-linux-vms.md), [DiskImageKit](https://developer.apple.com/documentation/diskimagekit.md), and [macOS 27 release notes — Disk Images](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes.md).*
+*Additional primary sources: [VZVirtualMachine](https://developer.apple.com/documentation/virtualization/vzvirtualmachine.md), [Intel Linux translation](https://developer.apple.com/documentation/virtualization/running-intel-binaries-in-linux-vms.md), [DiskImageKit](https://developer.apple.com/documentation/diskimagekit.md), [macOS 27 release notes — Disk Images](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes.md), and [macOS VM sample requirements](https://developer.apple.com/documentation/virtualization/running-macos-in-a-virtual-machine-on-apple-silicon.md).*

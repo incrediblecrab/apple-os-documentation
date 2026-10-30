@@ -10,6 +10,16 @@ Xcode 27 (`27A266a`) requires **Apple silicon and macOS Tahoe 26.6 or later**, a
 
 Build the existing application with its existing shipping toolchain before changing settings. Then select Xcode 27 with a per-command `DEVELOPER_DIR`, retaining the old toolchain for comparison. Do not globally replace the machine's selected Xcode or change `SWIFT_VERSION = 6.0` to the compiler's point release.
 
+### Point releases through October 29, 2026
+
+Apple's [release feed](https://developer.apple.com/news/releases/) lists Xcode 27.1 (`27A9275`, October 15, 2026), Xcode 27.2 RC (`27B48`, October 19, 2026), and OS 27.2 releases on October 26, 2026. Apple's [security releases](https://support.apple.com/en-us/100100) list the final Xcode 27.2 on October 29, 2026; the feed did not yet show its build that day. [Xcode 27.1](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_1-release-notes) includes the iOS 27.1 SDK; [Xcode 27.2](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_2-release-notes) includes the 27.2 SDKs across the platforms.
+
+- **UIKit margins.** Recheck layouts that relied on default `UIView` margins: on iOS 27.1 and later they are zero, while a controller's view still receives context-dependent `systemMinimumLayoutMargins`. Subviews can inherit those margins with `preservesSuperviewLayoutMargins = true`. See the [UIKit notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27_2-release-notes).
+- **Tracking consent.** The [ATT update](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27_2-release-notes) supports an expanded prompt and annual reprompting for EU users; the expanded prompt is required in France, Germany, Italy, Poland, and Romania. Use the renamed Swift entry point `requestTrackingAuthorization(preferExpandedInterface:...)`; Objective-C uses `requestTrackingAuthorizationPreferringExpandedInterface:...`.
+- **Project format.** Xcode 27.2's [JSON `.xcproj` format](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_2-release-notes) is opt-in through the File inspector; these projects also open in earlier Xcode 27 releases.
+- **Catalyst and deployment targets.** Both [Xcode 27.1](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_1-release-notes) and [27.2](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_2-release-notes) report compile errors for iOS 27.1-specific APIs on Mac Catalyst; isolate affected code with `#if !targetEnvironment(macCatalyst)` in Swift or `#if !TARGET_OS_MACCATALYST` in Objective-C. Xcode 27.2 incorrectly offers 27.1 deployment targets for macOS, watchOS, tvOS, and visionOS; avoid those targets. Its notes also warn that Mac Catalyst deployment targets of 27.1 or 27.2 may prevent use of newly introduced APIs.
+- **Deprecations are not removals.** The [OS 27 notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes) direct new diagnostics integrations toward `MetricManager` and new read/write document implementations toward `Document`; `ReferenceFileDocument` is deprecated but remains available.
+
 ## Address launch and build blockers first
 
 1. **Check UIKit scene adoption.** Apps linked with the current UIKit SDK must use the scene-based lifecycle. Inspect scene configuration and restoration, not just the presence of an application delegate. For iOS/iPadOS SDK 27 builds, also declare a launch screen using one of `UILaunchStoryboardName`, `UILaunchStoryboards`, `UILaunchScreen`, or `UILaunchScreens`: the release notes say apps without one will be rejected when the App Store begins accepting that SDK. See [UIKit](../documentation/UIKit.md).
@@ -49,8 +59,14 @@ No OS 27 SDK submission deadline appeared in the checked requirements index. Rec
 ## Sources
 
 - [Xcode 27 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes)
+- [Xcode 27.1 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_1-release-notes)
+- [Xcode 27.2 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_2-release-notes)
 - [iOS and iPadOS 27 release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes)
+- [iOS and iPadOS 27.2 release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27_2-release-notes)
 - [macOS 27 release notes](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes)
+- [macOS 27.2 release notes](https://developer.apple.com/documentation/macos-release-notes/macos-27_2-release-notes)
+- [Safari 27 release notes](https://developer.apple.com/documentation/safari-release-notes/safari-27-release-notes)
 - [Design compatibility key](https://developer.apple.com/documentation/bundleresources/information-property-list/uidesignrequirescompatibility)
 - [Upcoming submission requirements](https://developer.apple.com/news/upcoming-requirements/)
 - [StoreKit verification](https://developer.apple.com/documentation/storekit/verificationresult)
+- [Apple developer release history](https://developer.apple.com/news/releases/)

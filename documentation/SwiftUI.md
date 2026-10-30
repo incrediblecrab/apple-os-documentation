@@ -60,11 +60,11 @@ Those additions require version 27 across the listed SwiftUI platforms. `AsyncIm
 
 ### URL-based documents
 
-On iOS, iPadOS, Mac Catalyst, macOS, and visionOS 27+, use [`ReadableDocument`](https://developer.apple.com/documentation/swiftui/readabledocument) for read-only documents or [`Document`](https://developer.apple.com/documentation/swiftui/document), which also adopts [`WritableDocument`](https://developer.apple.com/documentation/swiftui/writabledocument), for editing. These reference-type models support asynchronous URL-based I/O and progress. The current notes deprecate `FileDocument` and `ReferenceFileDocument`, not remove them. The latter's [per-platform metadata](https://developer.apple.com/documentation/swiftui/referencefiledocument) still lacks a visionOS deprecation version, unlike its iOS/iPadOS/Mac Catalyst/macOS entries; don't infer a removal or uniform warning across platforms.
+On iOS, iPadOS, Mac Catalyst, macOS, and visionOS 27+, use [`ReadableDocument`](https://developer.apple.com/documentation/swiftui/readabledocument) for read-only documents or [`Document`](https://developer.apple.com/documentation/swiftui/document), which also adopts [`WritableDocument`](https://developer.apple.com/documentation/swiftui/writabledocument), for editing. These reference-type models support asynchronous URL-based I/O and progress. [`FileDocument`](https://developer.apple.com/documentation/swiftui/filedocument) is deprecated in 27.2 on all five platforms. [`ReferenceFileDocument`](https://developer.apple.com/documentation/swiftui/referencefiledocument) is deprecated in 27.2 on iOS, iPadOS, Mac Catalyst, and macOS; its per-platform metadata still lacks a visionOS deprecation version. Both direct adopters to `Document`; deprecation does not mean removal or a uniform warning across platforms.
 
 - [`DocumentGroup`](https://developer.apple.com/documentation/swiftui/documentgroup) has new factories and launch/customization options, including editing-only flows.
 - [`DocumentReader`](https://developer.apple.com/documentation/swiftui/documentreader) and [`DocumentWriter`](https://developer.apple.com/documentation/swiftui/documentwriter) define asynchronous reading and writing operations. Match the `@concurrent` requirements for [`read(from:progress:)`](https://developer.apple.com/documentation/swiftui/documentreader/read(from:progress:)) and [`write(snapshot:to:previous:progress:)`](https://developer.apple.com/documentation/swiftui/documentwriter/write(snapshot:to:previous:progress:)), rather than earlier-beta `nonisolated` declarations. The writer's formal declaration uses `snapshot:` even though some current prose and examples still say `content:`.
-- [`URLDocumentConfiguration`](https://developer.apple.com/documentation/swiftui/urldocumentconfiguration) is an observable, main-actor-isolated reference, **not `Sendable`**. Document factories are also main-actor isolated; do not capture the configuration in unrelated sendable work.
+- The release notes describe [`URLDocumentConfiguration`](https://developer.apple.com/documentation/swiftui/urldocumentconfiguration) as an observable, main-actor-isolated reference that is **no longer `Sendable`**, but its symbol page still lists `Sendable` among its conformances. Document factories are also main-actor isolated; keep configuration access on the main actor.
 - Register undo actions for user edits so autosave can observe them. When migrating `FileWrapperDocumentWriter`, accept its second `previous` argument to reuse unchanged package content.
 
 Follow [Updating your document-based app](https://developer.apple.com/documentation/swiftui/updating-your-document-based-app). The beta notes still list document progress not appearing as a **known issue**, not a permanent API limitation.
@@ -87,14 +87,14 @@ Liquid Glass APIs belong to `SwiftUI`, not a separate import. [`glassEffect(_:in
 
 Use standard controls first and follow [Adopting Liquid Glass](https://developer.apple.com/documentation/technologyoverviews/adopting-liquid-glass). Test Reduce Transparency, Increase Contrast, text sizing, and different backgrounds rather than assuming a particular material rendering. See [Bundle Resources](BundleResources.md#ui-design-compatibility) for the exact build-target rules for `UIDesignRequiresCompatibility`.
 
-Sources: [SwiftUI updates](https://developer.apple.com/documentation/updates/swiftui), [iOS & iPadOS 27 release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes), and [macOS 27 release notes](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes). For testing tools, see [Xcode](Xcode.md) and [XCUIAutomation](XCUIAutomation.md).
+Sources: [SwiftUI updates](https://developer.apple.com/documentation/updates/swiftui), [iOS & iPadOS 27 release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes), and [macOS 27 release notes](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes). Document availability and deprecation metadata: [`FileDocument`](https://developer.apple.com/documentation/swiftui/filedocument), [`ReferenceFileDocument`](https://developer.apple.com/documentation/swiftui/referencefiledocument), [`Document`](https://developer.apple.com/documentation/swiftui/document), and [`ReadableDocument`](https://developer.apple.com/documentation/swiftui/readabledocument). For testing tools, see [Xcode](Xcode.md) and [XCUIAutomation](XCUIAutomation.md).
 
 ## Topics
 
 ### Essentials
 - [Adopting Liquid Glass](https://developer.apple.com/documentation/technologyoverviews/adopting-liquid-glass) - Find out how to bring the new material to your app
 - [Develop in Swift](https://developer.apple.com/tutorials/develop-in-swift) - Introductory Swift and Xcode app-development tutorials.
-- [Exploring SwiftUI Sample Apps](https://developer.apple.com/tutorials/sample-apps) - Sample projects covering user interfaces, interactions, and data flow.
+- [Exploring SwiftUI Sample Apps](https://developer.apple.com/tutorials/sample-apps) - Historical sample projects covering user interfaces, interactions, and data flow; use [Develop in Swift](https://developer.apple.com/tutorials/develop-in-swift) for current SwiftUI and Xcode practices.
 - [SwiftUI updates](https://developer.apple.com/documentation/updates/swiftui) - Learn about important changes to SwiftUI
 - [Landmarks: Building an app with Liquid Glass](https://developer.apple.com/documentation/swiftui/landmarks-building-an-app-with-liquid-glass) - Enhance your app experience with system-provided and custom Liquid Glass
 
@@ -183,4 +183,4 @@ Sources: [SwiftUI updates](https://developer.apple.com/documentation/updates/swi
 
 ---
 
-*Source: [Apple Developer Documentation](https://developer.apple.com/documentation/SwiftUI)*
+*Source: [Apple Developer Documentation](https://developer.apple.com/documentation/swiftui)*

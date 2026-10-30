@@ -18,7 +18,7 @@ An activated session can report accessory additions, removals, changes, and inva
 
 Pairing is only the first step for [Wi-Fi Infrastructure](WiFiInfrastructure.md), [Accessory Notifications](AccessoryNotifications.md), [Accessory Live Activities](AccessoryLiveActivities.md), and [AudioAccessoryKit](AudioAccessoryKit.md). Each feature has separate authorization, version, hardware, and regional requirements. Do not apply an EU restriction from one of those features to AccessorySetupKit itself, or treat pairing as consent to notification forwarding.
 
-**Configuration key, verified September 8, 2026:** Use the string-array key `NSAccessorySetupKitSupports`, as instructed by the discovery guide and used in the `ASKSample/ASKSample/Info.plist` file of Apple's published Bluetooth-accessory sample. Apple's [property-list catalog entry](https://developer.apple.com/documentation/bundleresources/information-property-list/nsaccessorysetupsupports) omits `Kit` in its name. That catalog-label discrepancy is not evidence that the two spellings are interchangeable.
+**Configuration key, verified October 29, 2026:** Use the string-array key [`NSAccessorySetupKitSupports`](https://developer.apple.com/documentation/bundleresources/information-property-list/nsaccessorysetupkitsupports). Apple's property-list catalog now uses the same spelling as the AccessorySetupKit index, discovery guide, and `ASKSample/ASKSample/Info.plist` in its published Bluetooth-accessory sample.
 
 ## Topics
 
@@ -41,7 +41,7 @@ Pairing is only the first step for [Wi-Fi Infrastructure](WiFiInfrastructure.md)
 - **ASMigrationDisplayItem** - A previously-discovered accessory as presented by the discovery picker, for use when migrating it to AccessorySetupKit.
 
 ### Information Property List Keys
-- **NSAccessorySetupKitSupports** - The setup-technologies string array used by the discovery guide and published sample; see the documented catalog-label discrepancy above.
+- **NSAccessorySetupKitSupports** - A string array selecting the wireless setup technologies the app uses: `Bluetooth`, `WiFi`, or both.
 - **NSAccessorySetupBluetoothCompanyIdentifiers** - An array of strings that represent the Bluetooth company identifiers for accessories that your app configures.
 - **NSAccessorySetupBluetoothNames** - An array of strings that represent the Bluetooth device names or substrings for accessories that your app configures.
 - **NSAccessorySetupBluetoothServices** - An array of strings that represent the hexadecimal values of Bluetooth SIG-defined services or custom services for accessories your app configures.
@@ -53,6 +53,6 @@ Pairing is only the first step for [Wi-Fi Infrastructure](WiFiInfrastructure.md)
 
 ---
 
-*Source: [Apple Developer Documentation](https://developer.apple.com/documentation/AccessorySetupKit)*
+*Source: [Apple Developer Documentation](https://developer.apple.com/documentation/accessorysetupkit)*
 
-*Changed-content sources: [discovery and session lifecycle](https://developer.apple.com/documentation/accessorysetupkit/discovering-and-configuring-accessories.md) and [property-list key metadata](https://developer.apple.com/tutorials/data/documentation/bundleresources/information-property-list/nsaccessorysetupsupports.json).*
+*Changed-content sources: [discovery and session lifecycle](https://developer.apple.com/documentation/accessorysetupkit/discovering-and-configuring-accessories.md) and [property-list key metadata](https://developer.apple.com/documentation/bundleresources/information-property-list/nsaccessorysetupkitsupports.md).*

@@ -23,9 +23,9 @@ Because the scaling effects take time to initialize, make an instance of either 
 
 ## Effect availability and integration
 
-The current reference also includes frame interpolation, temporal denoising/scaling, and Metal 4 variants. These effects do not all share the framework's minimum versions or platforms. For example, [MTLFXFrameInterpolatorDescriptor](https://developer.apple.com/documentation/metalfx/mtlfxframeinterpolatordescriptor) lists iOS, iPadOS, Mac Catalyst, macOS, and tvOS 26.0 availability; it does not list visionOS. It is not an OS 27 introduction.
+The current reference also includes frame interpolation, temporal denoising/scaling, and Metal 4 variants. These effects do not all share the framework's minimum versions or platforms. For example, [MTLFXFrameInterpolatorDescriptor](https://developer.apple.com/documentation/metalfx/mtlfxframeinterpolatordescriptor) lists iOS, iPadOS, Mac Catalyst, and macOS 26.0 availability, but tvOS 27.1; it does not list visionOS.
 
-Before creating an effect, check its own availability and GPU support. The temporal scaler's [supportsDevice(_:)](https://developer.apple.com/documentation/metalfx/mtlfxtemporalscalerdescriptor/supportsdevice(_:)) tests the selected Metal device, not merely the operating-system version. Handle effect-creation failure and keep native rendering or another supported scaling path available.
+Before creating an effect, check its own availability and GPU support. The temporal scaler's [supportsDevice(_:)](https://developer.apple.com/documentation/metalfx/mtlfxtemporalscalerdescriptor/supportsdevice(_:)) tests the selected Metal device, not merely the operating-system version. The method lists iOS, iPadOS, and Mac Catalyst 16.0, macOS 13.0, and tvOS 27.1 availability, with no visionOS entry. Handle effect-creation failure and keep native rendering or another supported scaling path available.
 
 Match the configured texture formats to the textures supplied each frame. Test camera cuts, resolution changes, depth and motion inputs, and temporal history behavior; a higher displayed frame rate does not by itself prove correct motion or lower input latency. Consult the individual effect's contract rather than mixing `MTL` and `MTL4` command objects interchangeably.
 
@@ -64,4 +64,4 @@ Match the configured texture formats to the textures supplied each frame. Test c
 
 ---
 
-*Source: [Apple Developer Documentation](https://developer.apple.com/documentation/MetalFX)*
+*Sources: [Apple Developer Documentation](https://developer.apple.com/documentation/metalfx), [MTLFXFrameInterpolatorDescriptor](https://developer.apple.com/documentation/metalfx/mtlfxframeinterpolatordescriptor), [MTLFXTemporalScalerDescriptor.supportsDevice(_:)](https://developer.apple.com/documentation/metalfx/mtlfxtemporalscalerdescriptor/supportsdevice(_:))*

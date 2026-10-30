@@ -6,6 +6,8 @@ Learn about changes to Xcode.
 
 As of **September 14, 2026**, [Xcode 27](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md) (`27A266a`) includes the Swift 6.4 compiler and OS 27 SDKs, and requires **Apple silicon and macOS Tahoe 26.6 or later**. The notes state the hardware restriction separately under Intel Deprecation (162138432). The macOS 27 SDK supports back deploying Universal apps to macOS 12 and later, and Intel development remains possible with Rosetta-supporting macOS such as macOS 27. Host hardware/OS, compiler, language mode, SDK, and test runtime versions should be recorded separately.
 
+**Checked October 29, 2026:** [Xcode 27.1](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_1-release-notes.md) (`27A9275`) shipped on October 15, 2026. Apple's [security-releases list](https://support.apple.com/en-us/100100) lists [Xcode 27.2](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_2-release-notes.md) as released on October 29, 2026, but the captured [developer release feed](https://developer.apple.com/news/releases/) still lists only its RC (`27B48`, October 19, 2026); the final 27.2 build number is unverified. Both point releases include Swift 6.4 and require macOS Tahoe 26.6 or later. Xcode 27.1's iOS 27.1 SDK matches iOS 27.1, which the security-releases list shows only for iPhone Duo, dated October 23, 2026; the captured developer feed has no iOS 27.1 item.
+
 The Xcode 27 notes include changes from earlier betas. Distinguish their resolved issues from the current known-issues sections; see [Xcode](Xcode.md) for the reviewed testing and profiling changes and [Swift](Swift.md) for compiler changes.
 
 Download release versions of Xcode from the Mac App Store and beta versions from the Apple Developer website. Check the selected version's release notes and host requirements before installing.
@@ -15,7 +17,11 @@ For information about Xcode Cloud releases, see Xcode Cloud release notes.
 ## Topics
 
 ### Xcode 27
+- [Xcode 27.2 Release Notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_2-release-notes.md) - Swift 6.4 compiler and SDKs for iOS/iPadOS/tvOS/watchOS/macOS/visionOS 27.2; macOS Tahoe 26.6+ host.
+- [Xcode 27.1 Release Notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_1-release-notes.md) - Swift 6.4 compiler; iOS 27.1 SDK and iPadOS/tvOS/watchOS/macOS/visionOS 27 SDKs; macOS Tahoe 26.6+ host.
 - [Xcode 27 Release Notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md) - Swift 6.4 compiler and OS 27 SDKs; **Apple silicon/macOS Tahoe 26.6+ host**.
+
+Both Xcode 27.1 and 27.2 list compilation failures for Mac Catalyst projects using iOS 27.1-specific APIs (185924957). Xcode 27.2 also incorrectly offers 27.1 as a deployment target for macOS, watchOS, tvOS, and visionOS; Mac Catalyst targets set to 27.1 or 27.2 may not expose newly introduced APIs (187160501).
 
 ### Xcode 26
 - [Xcode 26.6 Release Notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-26_6-release-notes.md) - Swift 6.3 compiler and OS 26.5 SDKs; macOS Tahoe 26.2+ host.
@@ -96,4 +102,4 @@ For information about Xcode Cloud releases, see Xcode Cloud release notes.
 
 ---
 
-*Source: [Apple Developer Documentation](https://developer.apple.com/documentation/Xcode-Release-Notes)*
+*Sources: [Apple Developer Documentation](https://developer.apple.com/documentation/xcode-release-notes); [Xcode 27.1 Release Notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_1-release-notes); [Xcode 27.2 Release Notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_2-release-notes); [Apple Developer Releases](https://developer.apple.com/news/releases/); [Apple security releases](https://support.apple.com/en-us/100100)*

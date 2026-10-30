@@ -1,127 +1,136 @@
 {
   "schema_version": 1,
-  "as_of": "2026-09-14",
+  "as_of": "2026-10-29",
   "releases": [
     {
       "product": "iOS",
-      "version": "27.0",
+      "version": "27.2",
       "status": "shipping",
-      "build": "24A437",
-      "released_on": "2026-09-14",
-      "checked_on": "2026-09-14",
-      "source": "https://developer.apple.com/news/releases/"
+      "build": "24B119",
+      "released_on": "2026-10-26",
+      "checked_on": "2026-10-29",
+      "source": "https://developer.apple.com/news/releases/",
+      "additional_build": "24B91020",
+      "source_locator": "Developer release list, October 26, 2026: items iOS 27.2 (24B119) and iOS 27.2 (24B91020); the feed does not state which devices the second build serves. iOS 27.1 shipped only for iPhone Duo on October 23, 2026 per Apple security releases, which give no build; the developer feed has no iOS 27.1 item.",
+      "additional_sources": [
+        "https://support.apple.com/en-us/100100"
+      ]
     },
     {
       "product": "iPadOS",
-      "version": "27.0",
+      "version": "27.2",
       "status": "shipping",
-      "build": "24A437",
-      "released_on": "2026-09-14",
-      "checked_on": "2026-09-14",
+      "build": "24B119",
+      "released_on": "2026-10-26",
+      "checked_on": "2026-10-29",
       "source": "https://developer.apple.com/news/releases/"
     },
     {
       "product": "macOS Golden Gate",
-      "version": "27.0",
+      "version": "27.2",
       "status": "shipping",
-      "build": "26A428",
-      "released_on": "2026-09-14",
-      "checked_on": "2026-09-14",
+      "build": "26B123",
+      "released_on": "2026-10-26",
+      "checked_on": "2026-10-29",
       "source": "https://developer.apple.com/news/releases/",
       "additional_sources": [
-        "https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes.md"
+        "https://developer.apple.com/documentation/macos-release-notes/macos-27_2-release-notes.md"
       ],
-      "source_locator": "Developer release list for build/date; macOS 27 release-note title and Overview for Golden Gate naming."
+      "source_locator": "Developer release list for build/date; macOS 27.2 release-note title for Golden Gate naming."
     },
     {
       "product": "tvOS",
-      "version": "27.0",
+      "version": "27.2",
       "status": "shipping",
-      "build": "24J361",
-      "released_on": "2026-09-14",
-      "checked_on": "2026-09-14",
+      "build": "24K122",
+      "released_on": "2026-10-26",
+      "checked_on": "2026-10-29",
       "source": "https://developer.apple.com/news/releases/"
     },
     {
       "product": "watchOS",
-      "version": "27.0",
+      "version": "27.2",
       "status": "shipping",
-      "build": "24R364",
-      "released_on": "2026-09-14",
-      "checked_on": "2026-09-14",
+      "build": "24S118",
+      "released_on": "2026-10-26",
+      "checked_on": "2026-10-29",
       "source": "https://developer.apple.com/news/releases/"
     },
     {
       "product": "visionOS",
-      "version": "27.0",
+      "version": "27.2",
       "status": "shipping",
-      "build": "24M362",
-      "released_on": "2026-09-14",
-      "checked_on": "2026-09-14",
+      "build": "24N120",
+      "released_on": "2026-10-26",
+      "checked_on": "2026-10-29",
       "source": "https://developer.apple.com/news/releases/"
     },
     {
       "product": "Xcode",
-      "version": "27",
+      "version": "27.2",
       "status": "shipping",
-      "build": "27A266a",
-      "released_on": "2026-09-14",
-      "checked_on": "2026-09-14",
-      "source": "https://developer.apple.com/news/releases/",
+      "build": null,
+      "released_on": "2026-10-29",
+      "checked_on": "2026-10-29",
+      "source": "https://support.apple.com/en-us/100100",
       "host_requirement": "macOS Tahoe 26.6 or later",
       "host_architecture": "Apple silicon",
-      "host_architecture_locator": "Intel Deprecation: Xcode 27 will only install and run on Apple silicon Macs.",
+      "host_architecture_locator": "Xcode 27 release notes, Intel Deprecation: Xcode 27 will only install and run on Apple silicon Macs. The Xcode 27.2 notes restate the macOS Tahoe 26.6 host minimum and Swift 6.4 but not the architecture.",
       "back_deployment": "macOS 27 SDK supports back deploying Universal (Intel and Apple Silicon) apps to macOS 12 and later.",
       "swift_compiler": "6.4",
-      "requirements_source": "https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md"
+      "requirements_source": "https://developer.apple.com/documentation/xcode-release-notes/xcode-27_2-release-notes.md",
+      "source_locator": "Apple security releases list Xcode 27.2 (macOS Tahoe 26.6 and later) on October 29, 2026. The developer release feed checked the same day still listed only Xcode 27.2 RC (27B48), so no final build is recorded. Xcode 27.1 (27A9275) shipped October 15, 2026."
     },
     {
       "product": "Safari",
-      "version": "27.0",
+      "version": "27.2",
       "status": "shipping",
-      "build": "20625.1.29",
-      "released_on": "2026-09-14",
-      "checked_on": "2026-09-14",
-      "source": "https://developer.apple.com/documentation/safari-release-notes/safari-27-release-notes",
-      "scope": "Standalone Safari release; availability spans iOS 27, iPadOS 27, visionOS 27, macOS 27, macOS 26 and macOS Sequoia.",
+      "build": "20625.2.8",
+      "released_on": "2026-10-26",
+      "checked_on": "2026-10-29",
+      "source": "https://developer.apple.com/documentation/safari-release-notes/safari-27_2-release-notes",
+      "scope": "Standalone Safari release; availability spans iOS 27.2, iPadOS 27.2, visionOS 27.2, macOS 27.2, macOS 26 and macOS Sequoia. Safari 27.1 (October 23, 2026) was available for iOS 27.1 only.",
       "source_locator": "Release-note header and Overview",
-      "source_snapshot_url": "https://developer.apple.com/documentation/safari-release-notes/safari-27-release-notes.md"
+      "source_snapshot_url": "https://developer.apple.com/documentation/safari-release-notes/safari-27_2-release-notes.md"
     },
     {
       "product": "iOS 26",
-      "version": "26.6.2",
+      "version": "26.7.2",
       "status": "shipping",
-      "build": "23G90",
-      "released_on": "2026-09-08",
-      "checked_on": "2026-09-14",
-      "source": "https://developer.apple.com/news/releases/"
+      "build": null,
+      "released_on": "2026-10-26",
+      "checked_on": "2026-10-29",
+      "source": "https://support.apple.com/en-us/100100",
+      "scope": "Apple security releases list iOS and iPadOS 26.7 (September 14), 26.7.1 (September 28) and 26.7.2 (October 26, 2026); the developer feed lists only the iPadOS 26.7.2 build (23H128), so no iOS build is recorded."
     },
     {
       "product": "iPadOS 26",
-      "version": "26.7",
+      "version": "26.7.2",
       "status": "shipping",
-      "build": "23H24",
-      "released_on": "2026-09-09",
-      "checked_on": "2026-09-14",
+      "build": "23H128",
+      "released_on": "2026-10-26",
+      "checked_on": "2026-10-29",
       "source": "https://developer.apple.com/news/releases/"
     },
     {
       "product": "macOS Tahoe",
-      "version": "26.6.2",
+      "version": "26.7.2",
       "status": "shipping",
-      "build": "25G83",
-      "released_on": "2026-08-17",
-      "checked_on": "2026-09-14",
-      "source": "https://developer.apple.com/news/releases/"
+      "build": null,
+      "released_on": "2026-10-26",
+      "checked_on": "2026-10-29",
+      "source": "https://support.apple.com/en-us/100100",
+      "scope": "Listed in Apple security releases (26.7 on September 14, 26.7.1 on September 28, 26.7.2 on October 26, 2026); not listed in the developer release feed, so no build is recorded."
     },
     {
       "product": "tvOS 26",
-      "version": "26.6",
+      "version": "26.6.1",
       "status": "shipping",
-      "build": "23L773",
-      "released_on": "2026-07-27",
-      "checked_on": "2026-09-14",
-      "source": "https://developer.apple.com/news/releases/"
+      "build": null,
+      "released_on": "2026-10-26",
+      "checked_on": "2026-10-29",
+      "source": "https://support.apple.com/en-us/100100",
+      "scope": "Listed in Apple security releases for Apple TV HD and Apple TV 4K (1st generation); not listed in the developer release feed, so no build is recorded."
     },
     {
       "product": "watchOS 26",
@@ -129,7 +138,7 @@
       "status": "shipping",
       "build": "23U67",
       "released_on": "2026-07-27",
-      "checked_on": "2026-09-14",
+      "checked_on": "2026-10-29",
       "source": "https://developer.apple.com/news/releases/"
     },
     {
@@ -138,7 +147,7 @@
       "status": "shipping",
       "build": "23O780",
       "released_on": "2026-08-17",
-      "checked_on": "2026-09-14",
+      "checked_on": "2026-10-29",
       "source": "https://developer.apple.com/news/releases/"
     },
     {
@@ -147,7 +156,7 @@
       "status": "shipping",
       "build": "17F113",
       "released_on": "2026-06-25",
-      "checked_on": "2026-09-14",
+      "checked_on": "2026-10-29",
       "source": "https://developer.apple.com/news/releases/"
     },
     {
@@ -156,9 +165,9 @@
       "status": "shipping",
       "build": null,
       "released_on": "2026-08-18",
-      "checked_on": "2026-09-08",
+      "checked_on": "2026-10-29",
       "source": "https://support.apple.com/en-us/100100",
-      "scope": "Standalone security update; not a statement about every OS-bundled WebKit build."
+      "scope": "Standalone security update; not a statement about every OS-bundled WebKit build. Later standalone Safari releases (27 and 27.2) list macOS Sequoia and macOS Tahoe, not Sonoma."
     }
   ]
 }

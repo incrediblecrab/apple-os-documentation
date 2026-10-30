@@ -26,7 +26,7 @@ Register domains with `MetricManager(enabledStateReportingDomains:)` and emit tr
 
 The state-domain initializer is documented for iOS/iPadOS, Mac Catalyst, and macOS 27. It is not the initializer for visionOS's diagnostic-only subscription; use the supported `MetricManager()` path there.
 
-New 27-generation diagnostics and metrics include `MemoryExceptionDiagnostic`, `MetalFrameRateMetric`, and `CrashDiagnostic.terminationCategory`. `MemoryExceptionDiagnostic` is specifically declared for iOS/iPadOS 27, not native macOS, Mac Catalyst, or visionOS. Treat optional or unavailable measurements as missing data rather than zero. Handle future metric and diagnostic cases when switching over results.
+New 27-generation diagnostics and metrics include `MemoryExceptionDiagnostic`, `MetalFrameRateMetric`, and `CrashDiagnostic.terminationCategory`. `MemoryExceptionDiagnostic` has iOS/iPadOS 27.0 availability metadata but no entries for native macOS, Mac Catalyst, or visionOS. Treat optional or unavailable measurements as missing data rather than zero. Handle future metric and diagnostic cases when switching over results.
 
 The 27 release notes also replace `ScrollHitchTimeMetric` and `MetricResult.scrollHitchTime(_:)` with `HitchTimeMetric` and `.hitchTime(_:)`. `HitchTimeRatio` expresses milliseconds of hitching per second of tracked duration. Recompile code using changed 27-generation symbols to avoid missing-symbol or type-change failures.
 
@@ -34,9 +34,9 @@ The 27 release notes also replace `ScrollHitchTimeMetric` and `MetricResult.scro
 
 ### Compatibility and testing
 
-The original `MXMetricManager`, `MXMetricManagerSubscriber`, `MXMetricPayload`, and `MXDiagnosticPayload` interfaces are **no longer recommended for new adoption** in the 27 release notes and carry 27.0 deprecation annotations. Deprecation is not removal. Retain the [MX API](https://developer.apple.com/documentation/metrickit/mxmetricmanager-api) where needed for older deployment targets; its presence below does not mean the new Swift APIs are available at the framework's historical minimum.
+The original `MXMetricManager`, `MXMetricManagerSubscriber`, `MXMetricPayload`, and `MXDiagnosticPayload` interfaces are **no longer recommended for new adoption** in the 27 release notes. These symbols, along with `MXAverage`, `MXDisplayMetric`, and `MXError`, carry 27.2 deprecation annotations for iOS/iPadOS and visionOS, and 27.0 for Mac Catalyst. The macOS annotations are also 27.2, except that `MXError` has no native macOS availability listed. Deprecation is not removal. Retain the [MX API](https://developer.apple.com/documentation/metrickit/mxmetricmanager-api) where needed for older deployment targets; its presence below does not mean the new Swift APIs are available at the framework's historical minimum.
 
-Use Xcode's **Debug > Simulate MetricKit Payloads** to exercise report handling. Simulated values are sample data, not measurements of the running app. Apple's state-reporting sample requires Xcode 27 and a physical iOS 27 device; MetricKit does not deliver its reports on simulated devices. Minimize personal data in state metadata and in any reports sent to a backend.
+Use Xcode's **Debug > MetricKit > Simulate MetricKit Payloads** to exercise report handling. Simulated values are sample data, not measurements of the running app. Apple's state-reporting sample requires Xcode 27 or later and a physical device running iOS 27 or later; MetricKit does not deliver its reports on simulated devices. Minimize personal data in state metadata and in any reports sent to a backend.
 
 ## Topics
 
@@ -60,7 +60,7 @@ Use Xcode's **Debug > Simulate MetricKit Payloads** to exercise report handling.
 ### Battery metrics
 - **MXCellularConditionMetric** - An object representing metrics about the condition of the cellular network.
 - **MXCPUMetric** - An object representing metrics about the use of the CPU.
-- **MXDisplayMetric** - Display metrics, including average pixel luminance, useful when analyzing screen-related energy use.
+- **MXDisplayMetric** - Display metrics, including average pixel luminance, useful when analyzing screen-related energy use. For Swift migration, read `PixelLuminanceMetric` through `MetricResult`.
 - **MXGPUMetric** - An object representing metrics about the use of the GPU.
 - **MXLocationActivityMetric** - An object representing metrics about the use of location-tracking features of a device.
 - **MXNetworkTransferMetric** - An object representing metrics about network transfers.
@@ -92,18 +92,20 @@ Use Xcode's **Debug > Simulate MetricKit Payloads** to exercise report handling.
 ### Data types
 - **MXCallStackTree** - An object representing the call stack for an exception.
 - **MXMetaData** - An object containing system-level information about the device.
-- **MXAverage** - A generic object containing an average measurement, parameterized by its unit type.
+- **MXAverage** - A generic object containing an average measurement, parameterized by its unit type. The replacement is `AverageStatistics`.
 - **MXHistogram** - An object representing a histogram of data values of the same type of unit.
 - **MXDiagnostic** - An abstract data class for a diagnostic.
 - **MXMetric** - An abstract data class for a metric.
 - **MXError.Code** - Error codes for error values from app metrics.
 - **MXErrorDomain** - Error domain for error values from app metrics.
-- **MXError** - A Swift error value for MetricKit failures, distinct from the domain string.
+- **MXError** - A Swift error value for MetricKit failures, distinct from the domain string. The replacement is `MetricManager.LaunchTaskError`.
 - **MXCrashDiagnosticObjectiveCExceptionReason** - An object that represents the exception reason for an uncaught ObjC exception.
 - **MXSignpostRecord** - An object representing the record for a signpost interval or event.
 
 ---
 
-*Source: [Apple Developer Documentation](https://developer.apple.com/documentation/MetricKit)*
+*Source: [Apple Developer Documentation](https://developer.apple.com/documentation/metrickit)*
 
-*Changed-content sources: [Swift reporting guide](https://developer.apple.com/documentation/metrickit/monitoring-app-performance-with-metrickit.md), [framework overview](https://developer.apple.com/documentation/metrickit.md), and [iOS/iPadOS 27 release notes — MetricKit](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes.md).*
+*Changed-content sources: [Swift reporting guide](https://developer.apple.com/documentation/metrickit/monitoring-app-performance-with-metrickit.md), [framework overview](https://developer.apple.com/documentation/metrickit.md), [iOS/iPadOS 27 release notes — MetricKit](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes.md), [MetricManager](https://developer.apple.com/documentation/metrickit/metricmanager.md), [MemoryExceptionDiagnostic](https://developer.apple.com/documentation/metrickit/memoryexceptiondiagnostic.md), and [state-reporting sample](https://developer.apple.com/documentation/metrickit/track-performance-by-app-state-using-metrickit.md).*
+
+*MX availability and replacement sources: [MXMetricManager](https://developer.apple.com/documentation/metrickit/mxmetricmanager.md), [MXMetricManagerSubscriber](https://developer.apple.com/documentation/metrickit/mxmetricmanagersubscriber.md), [MXMetricPayload](https://developer.apple.com/documentation/metrickit/mxmetricpayload.md), [MXDiagnosticPayload](https://developer.apple.com/documentation/metrickit/mxdiagnosticpayload.md), [MXAverage](https://developer.apple.com/documentation/metrickit/mxaverage.md), [MXDisplayMetric](https://developer.apple.com/documentation/metrickit/mxdisplaymetric.md), and [MXError](https://developer.apple.com/documentation/metrickit/mxerror.md).*

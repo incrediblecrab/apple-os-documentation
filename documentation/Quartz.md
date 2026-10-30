@@ -6,7 +6,7 @@ Allow users to browse, edit, and save images, using slideshows and Core Image fi
 
 ## Overview
 
-This collection of documents provides the API reference for the Quartz framework; in particular, for Quartz Composer, ImageKit, and PDFKit. The Quartz Composer API supports processing and rendering graphical data and allows developers to create custom patches for the Quartz Composer developer tool. ImageKit provides user interface support for browsing, editing, and saving images, showing slideshows, and browsing and previewing Core Image filters. PDFKit is a technology that allows applications to display and manipulate PDF documents.
+This collection of documents provides the API reference for the Quartz framework; in particular, for Quartz Composer, ImageKit, and PDFKit. Quartz Composer provides APIs for graphical processing, rendering, and custom patches for its developer tool; its API collection is deprecated in macOS 10.15, which is not a removal notice. ImageKit provides user interface support for browsing, editing, and saving images, showing slideshows, and browsing and previewing Core Image filters. PDFKit is a technology that allows applications to display and manipulate PDF documents.
 
 ## Topics
 
@@ -20,7 +20,7 @@ This collection of documents provides the API reference for the Quartz framework
 
 ### Quartz Composer
 
-- [Quartz Composer](https://developer.apple.com/documentation/quartz/quartz-composer)
+- [Quartz Composer](https://developer.apple.com/documentation/quartz/quartz-composer) (deprecated in macOS 10.15)
 
 ### Using Quick Look
 
@@ -50,4 +50,4 @@ These archived guides describe historical macOS APIs and tooling. The custom-pat
 
 ---
 
-*Source: [Apple Developer Documentation](https://developer.apple.com/documentation/Quartz)*
+*Sources: [Apple Developer Documentation](https://developer.apple.com/documentation/quartz), [Quartz Composer](https://developer.apple.com/documentation/quartz/quartz-composer)*

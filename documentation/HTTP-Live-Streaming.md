@@ -17,7 +17,7 @@ HLS supports the following:
 
 An HTTP Live Stream has three main parts: encoding and packaging, HTTP distribution, and client playback.
 
-An encoder produces compressed audio and video, and a packager creates compatible media segments and playlists. Codec and container choices are not interchangeable: Apple's [authoring specification](https://developer.apple.com/documentation/http-live-streaming/hls-authoring-specification-for-apple-devices) requires fragmented MP4 for HEVC video. The playlist and segments are published on a web server. A client reads the playlist, requests the media, and buffers and decodes it for continuous playback; network or device limitations can still cause stalls.
+An encoder produces compressed audio and video, and a packager creates compatible media segments and playlists. Codec and container choices are not interchangeable: Apple's [authoring specification](https://developer.apple.com/streaming/hls-authoring-specification-for-apple-devices.html) requires fragmented MP4 for HEVC video. The playlist and segments are published on a web server. A client reads the playlist, requests the media, and buffers and decodes it for continuous playback; network or device limitations can still cause stalls.
 
 ### Prepare media with the server component
 
@@ -57,7 +57,7 @@ However, if you do develop your own client software, begin by fetching the index
 - [Using Apple's HTTP Live Streaming (HLS) Tools](https://developer.apple.com/documentation/http-live-streaming/using-apple-s-http-live-streaming-hls-tools) - Segment your video stream and create media playlists for successful transmission with Apple's provided tools.
 
 ### Specifications and other documents
-- [HTTP Live Streaming (HLS) authoring specification for Apple devices](https://developer.apple.com/documentation/http-live-streaming/hls-authoring-specification-for-apple-devices) - Learn the requirements for live and on-demand audio and video content delivery using HLS.
+- [HTTP Live Streaming (HLS) authoring specification for Apple devices](https://developer.apple.com/streaming/hls-authoring-specification-for-apple-devices.html) - Learn the requirements for live and on-demand audio and video content delivery using HLS.
 - [Using content protection systems with HLS](https://developer.apple.com/documentation/http-live-streaming/using-content-protection-systems-with-hls) - Add encryption keys to media playlists.
 - [About the Common Media Application Format with HTTP Live Streaming (HLS)](https://developer.apple.com/documentation/http-live-streaming/about-the-common-media-application-format-with-http-live-streaming-hls) - Learn the Common Media Application Format as it applies to HLS.
 - [Enabling Low-Latency HTTP Live Streaming (HLS)](https://developer.apple.com/documentation/http-live-streaming/enabling-low-latency-http-live-streaming-hls) - Add Low-Latency HLS to your content streams to maintain scalability.
@@ -69,4 +69,4 @@ However, if you do develop your own client software, begin by fetching the index
 
 ---
 
-*Source: [Apple Developer Documentation](https://developer.apple.com/documentation/HTTP-Live-Streaming)*
+*Sources: [Apple Developer Documentation](https://developer.apple.com/documentation/http-live-streaming), [HLS authoring specification for Apple devices](https://developer.apple.com/streaming/hls-authoring-specification-for-apple-devices.html)*
