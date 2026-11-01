@@ -4,7 +4,7 @@ Manage standalone and layered disk images for virtual-machine storage.
 
 **Platforms:** macOS 27.0+
 
-**Status:** Beta APIs; reviewed September 8, 2026.
+**Status:** Introduced in macOS 27, now a released OS: Apple lists macOS 27.0.1 on September 28, 2026 and macOS 27.2 on October 26, 2026. Reviewed November 1, 2026.
 
 ## Overview
 
@@ -45,3 +45,4 @@ Disk-image management does not grant access to otherwise protected files. A VM a
 - [Apple framework reference](https://developer.apple.com/documentation/diskimagekit)
 - [Readable framework documentation and integration examples](https://developer.apple.com/documentation/diskimagekit.md)
 - [macOS 27 release notes — Disk Images](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes.md)
+- [Apple Developer releases](https://developer.apple.com/news/releases/)

@@ -2,9 +2,9 @@
 
 Separate accessory content processing, key exchange, and transport.
 
-**Platforms:** iOS/iPadOS 26.2+ SDK; individual features have narrower requirements
+**Platforms:** iOS 26.2+ in Apple's framework reference (the three entitlement references also list iPadOS); individual features have narrower requirements
 
-**Status:** Reviewed September 8, 2026. Calls are ignored for Mac Catalyst and for iOS apps running on visionOS or Apple silicon Macs. Developer testing is region-independent; customer use requires a device in the EU and an Apple Account with an EU country or region.
+**Status:** Reviewed November 1, 2026. Calls are ignored for Mac Catalyst and for iOS apps running on visionOS or Apple silicon Macs. Developer testing is region-independent; customer use requires a device in the EU and an Apple Account with an EU country or region.
 
 ## Overview
 
@@ -23,6 +23,8 @@ Importing the transport framework does not authorize all these features. Each fe
 For notification forwarding, configure the data provider with extension point `com.apple.accessory-data-provider` and capability `AccessoryNotifications.NotificationsForwarding` in the `EXCapabilities` string array. Its entitlement is `com.apple.developer.accessory-data-provider`. The security extension uses extension point `com.apple.accessory-transport-security` and entitlement `com.apple.developer.accessory-transport-security`.
 
 The transport target separately needs `com.apple.developer.accessory-transport-extension`. All three entitlements are Boolean and must be `true` in the corresponding extension's signature. The transport entitlement starts at 26.2; the data-provider and security entitlements start at 26.5. Follow Apple's integration article for the complete target configuration rather than reusing one extension's privileges across all targets.
+
+To resume an interrupted Bluetooth session after the system suspends the transport extension, give that extension the `bluetooth-central` background mode and the same AccessorySetupKit accessory declarations as the companion app. When the extension creates its `CBCentralManager`, pass the session's `transportStateRestoreIdentifier` (iOS 26.5+) as the restore identifier, so it can skip accessory scanning and the notification-forwarding subscription after a relaunch. The system grants background time and state restoration to only one central manager per identifier. The data-provider and security extensions don't need the background mode.
 
 ## Security and failure boundaries
 

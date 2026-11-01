@@ -2,15 +2,15 @@
 
 Integrate CarPlay in apps related to audio, communication, navigation, parking, EV charging, food ordering, and more.
 
-**Platforms:** CarPlay framework integration begins at iOS 12.0 on compatible iPhones and vehicles. Individual app categories and APIs require later releases.
+**Platforms:** CarPlay framework integration begins at iOS 12.0 on compatible iPhones and vehicles. Individual app categories and APIs require later releases. The SDK also lists iPadOS 12.0+ and Mac Catalyst 14.0+ for the framework; those are availability declarations, not CarPlay hosts, because the system uses an app's CarPlay features only on a device that supports CarPlay.
 
 ## Overview
 
 Use the CarPlay framework to create an in-car experience for your app. The framework provides templates for building a version of your app's interface suitable for presentation on a vehicle's displays. Add the templates you want to your app and customize them to suit your content. You control the content of the templates, but the framework controls certain aspects of the template interface elements, such as the touch target size, font size, font color, and highlights.
 
-CarPlay is an iPhone-and-vehicle experience; iPadOS and Mac Catalyst labels in the SDK catalog do not make those devices CarPlay hosts. CarPlay handles variations in vehicle systems, letting you focus on your content. When a person runs your app from their vehicle, the system generates and hosts its template interface.
+People use CarPlay apps on iPhone; when the iPhone connects to a CarPlay vehicle, the app's icon appears on the CarPlay home screen. Apple's current guide and [CarPlay developer overview](https://developer.apple.com/carplay/) add that CarPlay audio and video apps also work on Apple HomeView without changes to the app. CarPlay handles variations in vehicle systems, letting you focus on your content. When a person runs your app from their vehicle, the system generates and hosts its template interface.
 
-Request the entitlement for the app's category and include it in the provisioning profile. Apple's [June 2026 CarPlay Developer Guide](https://developer.apple.com/download/files/CarPlay-Developer-Guide.pdf), especially the entitlement and template tables on pages 13–14, is the current category matrix. An unsupported template can raise an exception; a template's presence in the SDK is not authorization to use it.
+Request the entitlement for the app's category and include it in the provisioning profile. Apple's [October 2026 CarPlay Developer Guide](https://developer.apple.com/download/files/CarPlay-Developer-Guide.pdf), especially the entitlement and template tables on printed pages 14–15, is the current category matrix. An unsupported template can raise an exception; a template's presence in the SDK is not authorization to use it.
 
 You can use other technologies to drive portions of your app's CarPlay interface. Messaging apps can include SiriKit support to allow someone to read or send messages. VoIP apps can use CallKit to manage incoming and outgoing calls, often in combination with SiriKit call support. Navigation apps can include MapKit support.
 
@@ -26,7 +26,7 @@ The [iOS 27 release notes](https://developer.apple.com/documentation/ios-ipados-
 
 The notes also identify potentially slower Siri responses under heat or poor connectivity. Keep navigation and communication interfaces usable when a voice request is delayed.
 
-The June 2026 developer guide explicitly lists the video-app entitlement, `com.apple.developer.carplay-video`, with an iOS 27 minimum, and requires AirPlay video streaming support. Apple's [CarPlay developer overview](https://developer.apple.com/carplay/) describes playback while parked in supported cars. This category still requires approval and a matching profile; it is not a promise of video playback in every vehicle or while driving.
+The October 2026 developer guide explicitly lists the video-app entitlement, `com.apple.developer.carplay-video`, with an iOS 27 minimum, and requires AirPlay video streaming support. Apple's [CarPlay developer overview](https://developer.apple.com/carplay/) describes playback while parked in supported cars. This category still requires approval and a matching profile; it is not a promise of video playback in every vehicle or while driving.
 
 The guide also expands search and voice-control template support for additional categories in iOS 27. Check the matrix's per-category footnotes rather than treating the historical topic groupings below as exclusive entitlement lists.
 
@@ -41,7 +41,7 @@ The guide also expands search and voice-control template support for additional 
 - **CPTemplateApplicationSceneDelegate** - The methods for responding to the life cycle events of your app's scene.
 - **CPSessionConfiguration** - An object that provides vehicle properties and configuration for the CarPlay environment.
 
-Retain the scene's interface controller and, for navigation, its map window during the connection. Put map content in that window and use CarPlay templates for controls and alerts, not arbitrary UIKit overlays. Test on an actual CarPlay connection as well as Simulator: Simulator does not fully reproduce locked-iPhone operation, Siri, or vehicle audio and input behavior.
+Retain the scene's interface controller and, for navigation, its map window during the connection. Put map content in that window and use CarPlay templates for controls and alerts, not arbitrary UIKit overlays. Test on an actual CarPlay connection as well as Simulator: Simulator does not reproduce locked-iPhone operation, Siri, or vehicle audio behavior. The separate CarPlay Simulator app, which Xcode 27 includes in Device Hub, connects to a USB-attached iPhone the way a car does.
 
 ### General Purpose Templates
 Display your app's content using a variety of templates that provide a consistent CarPlay layout and appearance.
@@ -134,4 +134,4 @@ The contact template supports communication, navigation, and public-safety apps 
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/CarPlay)*
 
-*Additional source: [CarPlay Developer Guide, June 2026](https://developer.apple.com/download/files/CarPlay-Developer-Guide.pdf), including category entitlements and template availability.*
+*Additional source: [CarPlay Developer Guide, October 2026](https://developer.apple.com/download/files/CarPlay-Developer-Guide.pdf), including category entitlements and template availability.*

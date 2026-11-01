@@ -8,7 +8,7 @@ Manage App Store and Apple Maps advertising through a server-side REST interface
 
 The API manages ad accounts, campaigns, ad groups, keywords, ads, creative assets, and reporting. App Store campaigns promote apps; Apple Maps campaigns promote businesses and use brand and location resources.
 
-This is distinct from the older [Apple Ads Campaign Management API](apple_ads.md). Apple's changelog explicitly says the Platform API supersedes that API and announces its sunset on **January 26, 2027**. As of the September 8, 2026 review cutoff, this is a future retirement, not an already completed removal.
+This is distinct from the older [Apple Ads Campaign Management API](apple_ads.md). Apple's changelog explicitly says the Platform API supersedes that API and announces its sunset on **January 26, 2027**. The older API's reference now also carries a formal deprecation notice with the same date. As of the November 1, 2026 review cutoff, this is a deprecation with a future retirement, not an already completed removal.
 
 Migration requires reviewing the new resources and contracts. Do not simply rename the old API or assume that its endpoint hierarchy, request bodies, and account identifiers are interchangeable.
 
@@ -17,7 +17,7 @@ Migration requires reviewing the new resources and contracts. Do not simply rena
 1. Have an account administrator invite a user with an API role.
 2. Generate the required key pair, register the public key, and keep the private key secure.
 3. Follow [Implementing OAuth](https://developer.apple.com/documentation/apple-ads-platform-api/implementing-oauth-for-the-apple-ads-platform-api) to sign the client secret and request an access token with `searchadsorg` scope. Renew using `expires_in`.
-4. Send the token as a bearer token. For ad-account-scoped operations, supply `X-AP-Context: adAccountId={adAccountId}`. Identity and account-discovery operations have documented exceptions.
+4. Send the token as a bearer token. For ad-account-scoped operations, supply `X-AP-Context: adAccountId={adAccountId}`. Identity and account-discovery operations have documented exceptions. Budget orders belong to the organization: omit the header when creating, updating, or deleting a budget order (sending it returns `403`), while users limited to specific ad accounts must send it to query or read budget orders.
 
 The documented API base is `https://api.ads.apple.com/v1/`. Follow [Managing Ad Accounts and API Access](https://developer.apple.com/documentation/apple-ads-platform-api/access-overview) to discover the caller's permitted accounts instead of guessing an account ID.
 
@@ -31,7 +31,7 @@ App Store ad accounts need the `APPSTORE_APP_MANUAL` product feature and a `CONT
 - [Keywords and negative keywords](https://developer.apple.com/documentation/apple-ads-platform-api/keywords-and-negative-keywords) — Manage search matching and exclusions.
 - [Creative endpoints](https://developer.apple.com/documentation/apple-ads-platform-api/creatives-endpoints) — Manage placement-specific creatives. [Asset endpoints](https://developer.apple.com/documentation/apple-ads-platform-api/assets-endpoints) upload and manage Apple Maps creative assets.
 - [Managing reports](https://developer.apple.com/documentation/apple-ads-platform-api/reports) — Use the appropriate App Store or business reporting model.
-- [Bulk operations](https://developer.apple.com/documentation/apple-ads-platform-api/bulk-operations-endpoints) — Match individual results to inputs using `correlationId`.
+- [Bulk operations](https://developer.apple.com/documentation/apple-ads-platform-api/bulk-operations-endpoints) — Create, update, and delete keywords and negative keywords in bulk. Match individual results to inputs using `correlationId`; bulk delete is a soft delete, and its results omit the deleted entity.
 - [Client libraries](https://developer.apple.com/documentation/apple-ads-platform-api/client-libraries) — Evaluate Apple's maintained clients rather than duplicating every schema.
 
 ## Request semantics and failure handling

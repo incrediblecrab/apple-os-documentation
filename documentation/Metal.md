@@ -32,7 +32,7 @@ Use edge-sampling images and the affected GPU families in regression tests. Thes
 ### Essentials
 Begin with the Metal fundamentals.
 - [Understanding the Metal 4 core API](https://developer.apple.com/documentation/metal/understanding-the-metal-4-core-api) - Discover the features and functionality in the Metal 4 foundational APIs.
-- [Drawing a triangle with Metal 4](https://developer.apple.com/documentation/metal/drawing-a-triangle-with-metal-4) - Follow the current sample's render-command and frame-lifetime workflow. This sample requires the Metal 4-era SDK and supported Apple silicon GPU, not merely Metal's original framework minimum.
+- [Drawing a triangle with Metal 4](https://developer.apple.com/documentation/metal/drawing-a-triangle-with-metal-4) - Follow the current sample's render-command and frame-lifetime workflow. The sample needs Xcode 26.3 or later and deploys to iOS, iPadOS, and tvOS 16 or later and macOS 13 or later. At launch it checks `supportsFamily(_:)` for `MTLGPUFamily.metal4` and uses its Metal 4 renderer only when the device supports that family; otherwise it uses a second renderer built on the earlier Metal API.
 - [Performing Calculations on a GPU](https://developer.apple.com/documentation/metal/performing-calculations-on-a-gpu) - Use Metal to find GPUs and perform calculations on them.
 - [Using Metal to Draw a View's Contents](https://developer.apple.com/documentation/metal/using-metal-to-draw-a-view's-contents) - Create a MetalKit view and a render pass to draw the view's contents.
 
@@ -76,6 +76,7 @@ Store data in buffers and textures, and optionally manage the underlying GPU mem
 
 ### Shader Compilation and Libraries
 Compile and organize shaders, the GPU functions that run on a Metal device's execution units.
+- [Writing reusable GPU functions with generic pointers](https://developer.apple.com/documentation/metal/writing-reusable-gpu-functions-with-generic-pointers) - Define utility functions once for multiple address spaces with Metal Shading Language 4.1 generic pointers, and share types with your app's main code.
 - [Using the Metal 4 compilation API](https://developer.apple.com/documentation/metal/using-the-metal-4-compilation-api) - Control when and how you compile an app's shaders.
 - [Shader Libraries](https://developer.apple.com/documentation/metal/shader-libraries) - Manage and load your app's Metal shaders.
 - [Using Function Specialization to Build Pipeline Variants](https://developer.apple.com/documentation/metal/using-function-specialization-to-build-pipeline-variants) - Create pipelines for different levels of detail from a common shader source.
@@ -83,6 +84,7 @@ Compile and organize shaders, the GPU functions that run on a Metal device's exe
 ### Presentation
 Display standard or high-dynamic-range content on a device's display with Core Animation or MetalKit, in standard or high dynamic range.
 - [Managing your game window for Metal in macOS](https://developer.apple.com/documentation/metal/managing-your-game-window-for-metal-in-macos) - Set up a window and view for optimally displaying your Metal content.
+- [Managing your Metal app window in iPadOS](https://developer.apple.com/documentation/metal/managing-your-metal-app-window-in-ipados) - Set up a window that handles dynamic resizing of your Metal content.
 - [Adapting your game interface for smaller screens](https://developer.apple.com/documentation/metal/adapting-your-game-interface-for-smaller-screens) - Make text legible on all devices the player chooses to run your game on.
 - [Onscreen Presentation](https://developer.apple.com/documentation/metal/onscreen-presentation) - Show the output from a GPU's rendering pass to the user in your app.
 - [HDR Content](https://developer.apple.com/documentation/metal/hdr-content) - Take advantage of high dynamic range to present more vibrant colors in your apps and games.

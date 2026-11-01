@@ -18,11 +18,11 @@ The system can cache range information and may not immediately move a person int
 
 ### Feature-specific availability
 
-**Reviewed September 8, 2026:** These are separate additions to the 26-generation API, not blanket new OS 27 requirements:
+**Reviewed November 1, 2026:** These are separate additions to the 26-generation API, not blanket new OS 27 requirements:
 
 - [`isEligibleForAgeFeatures`](https://developer.apple.com/documentation/declaredagerange/agerangeservice/iseligibleforagefeatures) starts at 26.2. It describes the current person's eligibility for the age-related system flow; it is not an age value. Apple's guide says it returns `false` on macOS, where apps can still request a declared range.
 - [`requiredRegulatoryFeatures`](https://developer.apple.com/documentation/declaredagerange/agerangeservice/requiredregulatoryfeatures) starts at 26.4. Inspect its returned feature set instead of hard-coding one region's behavior for everyone.
-- [`AgeRangeDeclaration.confirmed`](https://developer.apple.com/documentation/declaredagerange/agerangeservice/agerangedeclaration/confirmed) starts at 26.5. It indicates a scrutinized declaration method; it does not disclose which identity document or payment credential was used.
+- [`AgeRangeDeclaration.confirmed`](https://developer.apple.com/documentation/declaredagerange/agerangeservice/agerangedeclaration/confirmed) starts at 26.5. It reports that the person confirmed their declaration with a credit card or government ID, without saying which. Apple's enumeration page lists the six method-specific cases introduced at 26.2 (`paymentChecked`, `governmentIDChecked`, `checkedByOtherMethod`, and their `guardian` counterparts) as deprecated, and the request guide's example switches only on `selfDeclared`, `guardianDeclared`, and `confirmed` from 26.5.
 - [`SignificantUpdateAction`](https://developer.apple.com/documentation/declaredagerange/significantupdateaction) starts at 26.4 on iOS, iPadOS, and Mac Catalyst. Its declaration does not list native macOS, despite the framework's broader platform list.
 - [PermissionKit](PermissionKit.md) supplies permission questions and responses for significant app updates. Asking a parent is not the same as receiving approval.
 

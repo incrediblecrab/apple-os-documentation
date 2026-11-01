@@ -10,7 +10,9 @@ Use AdSupport to obtain an advertising UUID, subject to system settings and auth
 
 ### Get an Advertising Identifier
 
-Use [`requestTrackingAuthorization(completionHandler:)`](https://developer.apple.com/documentation/apptrackingtransparency/attrackingmanager/requesttrackingauthorization(completionhandler:)) when authorization is not determined. iOS prompts only while the app is active, with no other permission prompt pending; extension calls do not prompt. A call therefore does not guarantee that an alert appeared. The system remembers the person's decision, and they can change it in Settings. Inspect `trackingAuthorizationStatus` rather than repeatedly requesting a decided permission.
+Use [`requestTrackingAuthorization(completionHandler:)`](https://developer.apple.com/documentation/apptrackingtransparency/attrackingmanager/requesttrackingauthorization(completionhandler:)) when authorization is not determined. The system skips the prompt and calls the completion handler immediately when tracking is restricted on the device, when the person has turned off Allow Apps to Request to Track in Settings (named Allow Apps to Request to Link Your Activity Across Companies in the European Union), while another permission request is pending, when the call comes from an app extension, or when the app isn't active. A call therefore does not guarantee that a prompt appeared. In France, Germany, Italy, Poland, and Romania the request appears as a full-page sheet instead of an alert. If the system dismisses the prompt without an answer, the status stays `notDetermined` and the app needs to ask again.
+
+The person can change their decision in Settings at any time. Check `trackingAuthorizationStatus` before asking; its reference directs apps to request authorization when the status is `notDetermined`. In the European Union, the system doesn't show the prompt again for a year after the person answers; after that year the app can make another request, whichever way the person answered, unless they have turned off tracking requests in Settings.
 
 To get the advertising identifier, follow these steps:
 

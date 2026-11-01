@@ -2,7 +2,7 @@
 
 Automate organization device inventory, management assignments, and supported Apple Business administration.
 
-**Availability:** Server-to-server APIs for authorized Apple School Manager and Apple Business organizations, not an OS 27 framework. The service changelog includes releases from 2025. As of September 8, 2026, it lists Apple Business 2.4 and Apple School Manager 1.6.
+**Availability:** Server-to-server APIs for authorized Apple School Manager and Apple Business organizations, not an OS 27 framework. The service changelog includes releases from 2025. As of November 1, 2026, it lists Apple Business 2.7 and Apple School Manager 1.8, both released October 29, 2026.
 
 ## Overview
 
@@ -31,10 +31,13 @@ Use the authorization guide's current token endpoint and claim definitions; thes
 | Business administration | [Apple Business API](https://developer.apple.com/documentation/applebusinessapi) | Consult the specific users, user groups, Blueprints, and configurations operations before choosing a write workflow. |
 | Error and paging models | [School API resources](https://developer.apple.com/documentation/appleschoolmanagerapi) | Parse `ErrorResponse`, `PagedDocumentLinks`, and `PagingInformation` instead of discarding response bodies. |
 
-## Changes reviewed through September 8, 2026
+## Changes reviewed through November 1, 2026
 
 - The August 12 service releases add device management migration activities and the read-only device fields `isMdmMigrationCapable`, `mdmMigrationStatus`, and `mdmMigrationDeadlineDateTime`. Check device capability and activity status; an organization-level API release does not make every enrolled device migration-capable.
 - Apple Business 2.4, released August 26, adds device release through `Create an OrgDeviceActivity`. This addition is not documented as an equivalent Apple School Manager release.
+- Apple Business 2.5 and Apple School Manager 1.7, released September 15, add an endpoint in each service that returns a device's Activation Lock status. Apple notes that the request can fail with a server error if the device reports an internal-only lock state that is not valid for a managed device.
+- Apple Business 2.6, released September 24, adds audit event types for account activity, access management, and organization changes such as identity-provider and domain-federation events. The changelog lists this release for Apple Business only.
+- Apple Business 2.7 and Apple School Manager 1.8, released October 29, add filters to Get Org Devices: `serialNumber`, `orderNumber`, `productFamily`, `purchaseSourceType`, `status`, `addedToOrgDateTime`, and `orderDateTime`. Values match exactly with no wildcards, and an unsupported filter attribute, operator, or value fails with `400`. Set every filter on the first request, then follow `links.next` unchanged; changing filters mid-pagination requires a new request without a cursor.
 - The OS 27 release notes separately require stricter TLS for selected managed-device system processes, including Automated Device Enrollment. Audit the management infrastructure against those requirements; do not describe that client-network change as a new version of these REST APIs.
 
 ## Failure handling

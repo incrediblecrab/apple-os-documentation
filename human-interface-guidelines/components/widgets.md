@@ -8,7 +8,7 @@ A widget elevates and displays a small amount of timely, relevant information fr
 
 Widgets offer focused information and, in supported contexts, simple actions without opening the app. They aren't miniature replacements for the app's complete interface.
 
-Placement depends on the platform and widget family. iPhone and iPad offer Home Screen, Today View, and Lock Screen contexts; Mac offers the desktop and Notification Center. Apple Watch presents widgets in its Smart Stack. visionOS 26 adds spatially placed widgets, and CarPlay with iOS 26 supports small system widgets.
+Placement depends on the platform and widget family. iPhone and iPad offer Home Screen, Today View, and Lock Screen contexts; Mac offers the desktop and Notification Center. Apple Watch presents widgets in its Smart Stack. visionOS 26 adds spatially placed widgets, and CarPlay with iOS 26 supports small system widgets. Apple HomeView shows small system widgets on its Home Screen and Modular face.
 
 People choose widgets through the system's platform-specific gallery and editing interface. Configuration, such as selecting a Weather location, isn't necessarily performed in the gallery itself. Supported iPhone widgets can also appear on Mac through Continuity. On Apple Watch, people can add, remove, rearrange, and pin Smart Stack widgets; don't apply the iPhone stack limit to Watch.
 
@@ -20,7 +20,7 @@ System-family contexts include:
 
 | Widget family | iPhone | iPad | Mac | visionOS |
 | --- | --- | --- | --- | --- |
-| System small | Home Screen, Today View, StandBy; also CarPlay | Home Screen, Today View, Lock Screen | Desktop, Notification Center | Spatial placement |
+| System small | Home Screen, Today View, StandBy; also CarPlay and Apple HomeView | Home Screen, Today View, Lock Screen | Desktop, Notification Center | Spatial placement |
 | System medium | Home Screen, Today View | Home Screen, Today View | Desktop, Notification Center | Spatial placement |
 | System large | Home Screen, Today View | Home Screen, Today View | Desktop, Notification Center | Spatial placement |
 | System extra large | Not a regular iPhone placement | Home Screen, Today View | Desktop, Notification Center | Compatible iPhone/iPad widgets map to portrait; native apps use the portrait family |
@@ -132,9 +132,9 @@ For every appearance, a unique, beautiful widget not only provides useful inform
 
 For example, a small system widget appears as follows:
 
-- On the Home Screen of iPhone and iPad, widgets can use full-color light/dark appearances or an accented treatment for supported clear and tinted styles.
+- On the Home Screen of iPhone, iPad, and Apple HomeView, widgets can use full-color light/dark appearances or an accented treatment for supported clear and tinted styles.
 - On the Lock Screen of iPad, the widget takes on a vibrant appearance.
-- In StandBy, small widgets are enlarged and ordinarily use full color with the background removed. Low-light Night mode applies a red treatment; don't assume all StandBy presentations use the same rendering mode.
+- In StandBy, small widgets are enlarged and ordinarily use full color with the background removed. Low-light Night mode applies a red treatment; don't assume all StandBy presentations use the same rendering mode. The Modular face of Apple HomeView uses the same enlarged, background-removed presentation and the same red treatment in low light.
 - In Notification Center in macOS, widgets can use full-color light/dark appearances; account for the actual system presentation rather than assuming one permanent style.
 - On the desktop on Mac, the appearance can depend on context and the person's widget-style settings. Don't assume interacting with another app always forces every widget into a monochrome presentation.
 - In CarPlay, a small widget uses full color with its removable background omitted.
@@ -204,7 +204,14 @@ Prepare the small system family with a removable background, generous readable t
 
 In touchscreen vehicles, supported buttons and toggles can perform actions; a widget can open the corresponding CarPlay app when that integration exists. Without a touchscreen, widget controls and widget-to-app launching are inactive. Never design an interaction that requires handling the connected iPhone while driving.
 
-Mark an unsuitable context with `disfavoredLocations` rather than assuming this hides the widget completely. Apple's June 2026 CarPlay guide says people can still choose such a widget, but its interaction is disabled. See [Adding StandBy and CarPlay support](https://developer.apple.com/documentation/widgetkit/adding-standby-and-carplay-support-to-your-widget) and the [CarPlay Developer Guide](https://developer.apple.com/download/files/CarPlay-Developer-Guide.pdf).
+Mark an unsuitable context with `disfavoredLocations` rather than assuming this hides the widget completely. Apple's October 2026 CarPlay Developer Guide says people can still choose such a widget, but its interaction is disabled. See [Adding StandBy and CarPlay support](https://developer.apple.com/documentation/widgetkit/adding-standby-and-carplay-support-to-your-widget) and the [CarPlay Developer Guide](https://developer.apple.com/download/files/CarPlay-Developer-Guide.pdf).
+
+#### Apple HomeView
+
+Apple HomeView shows widgets from the small system family with the same appearance as iPhone widgets. People choose from widgets installed on HomeView, such as Weather or World Clock, or from widgets on their own connected iPhone or iPad.
+
+- **Modular face.** A household has one Modular face, which holds up to four widgets. The widgets can come from different household members' iPhones, and a widget shows the data of the person who placed it to everyone; a Calendar widget, for example, shows that person's calendar. In low light, the system renders these widgets with a red tint.
+- **Home Screen.** Each enrolled household member has a personalized Home Screen that combines HomeView's default widgets and apps with those the person adds from their connected device.
 
 #### macOS
 
@@ -284,9 +291,12 @@ These are selected published HIG design-reference entries, not an exhaustive cur
 | --- | --- |
 | 40mm | 152x69.5 |
 | 41mm | 165x72.5 |
+| 42mm | 176x72.5 |
 | 44mm | 173x76.5 |
 | 45mm | 184x80.5 |
-| 49mm | 191x81.5 |
+| 46mm | 194x80.5 |
+| 49mm (Ultra 3, Ultra 4) | 198x81.5 |
+| 49mm (Ultra 1, Ultra 2) | 191x81.5 |
 
 #### visionOS reference dimensions
 
@@ -313,11 +323,15 @@ The HIG also publishes landscape extra-large reference geometry. Follow the SDK'
 
 ### Videos
 
+- [WidgetKit foundations](https://developer.apple.com/videos/play/wwdc2026/277)
 - [What's new in widgets](https://developer.apple.com/videos/play/wwdc2025/278)
 - [Bring widgets to life](https://developer.apple.com/videos/play/wwdc2023/10028/)
 - [Design widgets for visionOS](https://developer.apple.com/videos/play/wwdc2025/255)
 
 ## Changelog
+
+### October 13, 2026
+- Apple added guidance for Apple HomeView and updated the watchOS specifications.
 
 ### December 16, 2025
 - Updated the HIG's platform guidance, including visionOS and CarPlay widgets.

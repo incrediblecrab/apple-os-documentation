@@ -1,6 +1,6 @@
 # App Store Readiness
 
-**Scope:** App Store submissions across Apple platforms. **Research cutoff:** October 29, 2026.
+**Scope:** App Store submissions across Apple platforms. **Research cutoff:** November 1, 2026.
 
 ## Overview
 
@@ -10,16 +10,17 @@ Use this policy checklist alongside platform migration testing. Compiling agains
 
 | Check | Required action |
 |---|---|
-| Build SDK | Since **April 28, 2026**, uploads for iOS, iPadOS, tvOS, visionOS, and watchOS must use Xcode 26 or later and the corresponding 26 SDK or later. The notice does not set a macOS SDK minimum. |
+| Build SDK | Since **April 28, 2026**, uploads for iOS, iPadOS, tvOS, visionOS, and watchOS must use Xcode 26 or later and the corresponding 26 SDK or later. The notice does not set a macOS SDK minimum. App Store Connect's [supported Xcode versions](https://developer.apple.com/help/app-store-connect/manage-builds/upload-builds) table separately lists macOS apps as built with Xcode 6 or later and requires uploads made from Xcode to use Xcode 14 or later (Xcode 15 for visionOS apps); Transporter and altool can upload every target type. |
 | Mac upload contents | Since **February 18, 2025**, macOS apps uploaded to App Store Connect for TestFlight or the Mac App Store must have the `com.apple.quarantine` **extended file attribute removed from all files within the app**. This is an artifact check, not an `Info.plist` key or entitlement. |
 | Deployment target | Since **September 9, 2026**, iOS and iPadOS apps need a deployment target of **iOS 13 or later** for App Store Connect uploads. This deployment-target minimum is separate from the build-SDK requirement. |
-| OS27 planning | The checked requirements page gives no OS27 SDK deadline. Beta availability also does not prove that App Store Connect accepts a particular beta-built submission. |
+| OS27 planning | The checked requirements page gives no OS27 SDK deadline. App Store Connect has accepted App Store and TestFlight uploads built with Xcode 27 RC since **September 9, 2026**, Xcode 27 since **September 14, 2026**, and Xcode 27.2 with the 27.2 SDKs since **October 30, 2026**. Beta-built uploads were announced for TestFlight internal and external testing only. Acceptance of a newer SDK is not a deadline to adopt it. |
+| iPhone Duo screenshots | Starting in **April 2027**, iPhone Duo screenshots will be required for any app using the iOS 27.1 SDK or later; Apple gives no exact day. Submitting iPhone Duo screenshots adds a product-page badge saying the app is optimized for iPhone Duo. |
 | Age questionnaire | Updated questions for **each app** were due **January 31, 2026** to avoid interruptions to update submissions. Confirm the responses in App Store Connect; automatic rating conversion did not remove this task. |
 | DSA trader status | Complete App Store Connect's trader/non-trader declaration, even if you do not distribute in the EU. Traders distributing on the EU App Store must complete the applicable contact-information verification. The **February 17, 2025** EU availability enforcement is already in effect; see [regional compliance guidance](regional-distribution.md). |
 
-Sources: [Upcoming Requirements](https://developer.apple.com/news/upcoming-requirements/) and [DSA compliance instructions](https://developer.apple.com/help/app-store-connect/manage-compliance-information/manage-european-union-digital-services-act-trader-requirements/). These are existing obligations, not new OS27 requirements. Older SDK-minimum notices retained in the index do not override the current SDK row above.
+Sources: [Upcoming Requirements](https://developer.apple.com/news/upcoming-requirements/), [App Store Connect release notes](https://developer.apple.com/help/app-store-connect/release-notes/), [screenshot specifications](https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications), and [DSA compliance instructions](https://developer.apple.com/help/app-store-connect/manage-compliance-information/manage-european-union-digital-services-act-trader-requirements/). Apart from the iPhone Duo screenshot rule, these are existing obligations, not new OS27 requirements. Older SDK-minimum notices retained in the index do not override the current SDK row above.
 
-For iOS/iPadOS apps built with SDK 27, the [release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes) also require a launch-screen declaration: `UILaunchStoryboardName`, `UILaunchStoryboards`, `UILaunchScreen`, or `UILaunchScreens`. Apps without one will be rejected when the App Store starts accepting SDK 27 builds. This conditional acceptance rule is not an announced SDK 27 upload deadline. See [UIKit](../documentation/UIKit.md) for scene-lifecycle launch requirements.
+For iOS/iPadOS apps built with SDK 27, the [release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes) also require a launch-screen declaration: `UILaunchStoryboardName`, `UILaunchStoryboards`, `UILaunchScreen`, or `UILaunchScreens`. The notes say apps without one are rejected once the App Store begins accepting 27.0-SDK builds, which App Store Connect did in September 2026 (see the OS27 planning row), so the rule applies to current SDK 27 submissions. It is not a deadline for adopting SDK 27. See [UIKit](../documentation/UIKit.md) for scene-lifecycle launch requirements.
 
 Before submitting, follow [guideline 2.1](https://developer.apple.com/app-store/review/guidelines/#app-completeness): remove temporary content, provide working metadata and URLs, test on-device, keep required services available, and supply reviewer access. If a demo account cannot be provided for legal/security reasons, a substitute demo mode needs Apple's prior approval. Make purchases reviewable and explain any unavailable items.
 
@@ -88,6 +89,7 @@ Record the tested OS/SDK builds, reviewer instructions, permission-denial result
 ## Sources
 
 - [Upcoming Requirements](https://developer.apple.com/news/upcoming-requirements/) and [iOS/iPadOS 27 release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes)
+- [App Store Connect release notes](https://developer.apple.com/help/app-store-connect/release-notes/), [Upload builds](https://developer.apple.com/help/app-store-connect/manage-builds/upload-builds), and [screenshot specifications](https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications)
 - [App Review Guidelines](https://developer.apple.com/app-store/review/guidelines/)
 - [Privacy manifest files](https://developer.apple.com/documentation/bundleresources/privacy-manifest-files), [third-party SDK requirements](https://developer.apple.com/support/third-party-SDK-requirements/), and [App privacy details](https://developer.apple.com/app-store/app-privacy-details/)
 - [Accessibility Nutrition Labels](https://developer.apple.com/help/app-store-connect/manage-app-accessibility/overview-of-accessibility-nutrition-labels/)

@@ -8,11 +8,13 @@ Play, record, and process audio; configure your app's system audio behavior.
 
 Treat route changes and interruptions as normal lifecycle events. Follow [Responding to audio route changes](https://developer.apple.com/documentation/avfaudio/responding-to-audio-route-changes) and [Handling audio interruptions](https://developer.apple.com/documentation/avfaudio/handling-audio-interruptions), keeping the UI synchronized with the actual player and session state.
 
+For deployment targets of iOS 27, tvOS 27, visionOS 27 or watchOS 27 and later, the interruptions guide recommends the audio session's life-cycle notifications for new code. Observe `didBecomeInactiveNotification` and read its deactivation context to learn whether your app or the system ended the session, then follow the recommendation that `resumptionRecommendationNotification` carries on whether to resume; `didBecomeActiveNotification` reports activation. Unlike the legacy notification, the resumption recommendation doesn't depend on an end-of-interruption signal from the interrupting app, so a missing signal can't leave your app stuck in an interrupted state. Each notification is available from 27.0, Mac Catalyst included. Keep observing `interruptionNotification` for targets of 26 and earlier. The guide says the system deprecates it in later releases; its current reference marks the deprecation only for visionOS 27.0.
+
 When headphones disconnect, avoid unexpectedly continuing private playback through speakers. Apple's route-change guide notes that `AVPlayer` handles this transition automatically; a custom engine needs equivalent behavior. Recording also requires microphone authorization — choosing a session category is not permission to record.
 
 For OS 27 adoption, distinguish the local audio session from [AVSystemRouting](AVSystemRouting.md) remote-device sessions and [Now Playing](NowPlaying.md) metadata publication. The latter does not replace audio-session setup.
 
-The [macOS 27 Beta 8 notes](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes#AVFAudio), checked September 8, 2026, mark the AudioDSP crash on device-property changes as **resolved** (163978549). Test connecting and removing audio devices, but do not document that crash as a current platform limitation.
+The [macOS 27 release notes](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes#AVFAudio), first checked at Beta 8 on September 8, 2026 and rechecked November 1, 2026, mark the AudioDSP crash on device-property changes as **resolved** (163978549). Test connecting and removing audio devices, but do not document that crash as a current platform limitation.
 
 ## Topics
 
@@ -73,7 +75,7 @@ The [macOS 27 Beta 8 notes](https://developer.apple.com/documentation/macos-rele
 ### Type Aliases
 
 - **AVAudioConverterInputBlock** - A block to get input data for conversion, as necessary.
-- **AVBeatRange**
+- **AVBeatRange** - A specific time range within a music track.
 - **AVMIDIPlayerCompletionHandler** - A callback the system invokes when MIDI playback completes.
 
 ### Enumerations

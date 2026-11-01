@@ -23,7 +23,7 @@ In addition to appearing at the top of the notification list on the Lock Screen,
 
 - **Offer a Live Activity for tasks and live events that have a defined beginning and end** - People use Live Activities to track activities or ongoing tasks of short and medium duration. Don't offer a Live Activity for a task that exceeds eight hours, and always end a Live Activity immediately after the task completes or the event ends.
 - **Consider each Live Activity presentation** - Your Live Activity must support all locations, devices, and their corresponding appearances. Because Live Activities are a system-wide feature, carefully consider the amount of information your Live Activity displays and create a layout that best supports each of the places in the system where it appears.
-- **Prioritize important information to make it easy to understand at a quick glance** - Your Live Activity doesn't need to display everything. Think about what information people find most useful and prioritize the size and scale of it relative to other content you display. When a person wants to access more information, they can a tap the Live Activity to view your app where you can display more information if necessary.
+- **Prioritize important information to make it easy to understand at a quick glance** - Your Live Activity doesn't need to display everything. Think about what information people find most useful and prioritize the size and scale of it relative to other content you display. When a person wants to access more information, they can tap the Live Activity to view your app where you can display more information if necessary.
 - **Don't use a Live Activity to display ads or promotions** - Live Activities help people stay informed about ongoing events and tasks, so it's important to display only information that's related to those events and tasks.
 - **Avoid displaying sensitive information in a Live Activity** - A Live Activity is visually prominent and could be viewed by casual observers. If people might consider the information in your Live Activity to be sensitive or private, display an innocuous summary and let people tap the Live Activity to access the sensitive information in your app.
 - **Don't add elements to your app that draw attention to the Dynamic Island** - Your Live Activity appears in the Dynamic Island while your app isn't in use, and other items can appear in the Dynamic Island when your app is open.
@@ -47,10 +47,11 @@ In addition to appearing at the top of the notification list on the Lock Screen,
 
 - **Don't replicate notification layouts** - Create a unique layout that's specific to the information that appears in the Live Activity.
 - **Make your layout as compact as possible** - Adjust the size and placement of elements in your Live Activity so they fit together. Create as compact of a layout as possible that only uses as much space as you need to clearly display its content.
-- **Dynamically change the height of your Live Activity** - When there is less information to show, reduce the height of the Live Activity to only use the space needed for the content. When more information becomes available, increase the height to display additional content. For example, a rideshare app might display a more compact Live Activity without additional details while it locates a driver. The app's height extends as more information is available to display the estimated pickup time, driver details, and so on. Similarly, a sports app could use a more compact layout during half time of a soccer match when the teams rest. When the second half of the match starts, the Live Activity could expand to display key moments like fouls, goals, and so on.
+- **Dynamically change the height of your Live Activity on the Lock Screen or in the expanded presentation** - When there is less information to show, reduce the height of the Live Activity to only use the space needed for the content. When more information becomes available, increase the height to display additional content. For example, a rideshare app might display a more compact Live Activity without additional details while it locates a driver. The app's height extends as more information is available to display the estimated pickup time, driver details, and so on. Similarly, a sports app could use a more compact layout during half time of a soccer match when the teams rest. When the second half of the match starts, the Live Activity could expand to display key moments like fouls, goals, and so on.
 - **Adapt to different screen sizes and Live Activity presentations** - A Live Activity scales to adapt to screen sizes of different devices. Ensure it looks great on every device by supplying content at appropriate sizes. As you create layouts and assets for various devices and scale factors, use the values listed in Specifications as guidance, but note that the actual size on screen may vary or change.
+- **Support limited width presentations** - Where the Dynamic Island has limited width, such as on iPhone in landscape, fit your compact and minimal content inside a circle 28 points in diameter, and replace a full text string with a short abbreviation or a graphic so nothing truncates. If limited-width versions of both the leading and trailing compact views don't suit your design, provide only the leading view and leave the trailing view empty; the system hides the empty trailing view. The ActivityKit guide also lists iPhone Duo and iPhone 18 Pro with two or more active Live Activities as limited-width contexts. For developer guidance, see [`isDynamicIslandLimitedInWidth`](https://developer.apple.com/documentation/swiftui/environmentvalues/isdynamicislandlimitedinwidth), available in iOS 27 and iPadOS 27.
 - **When separating a block of content, place it in an inset shape or use a thick line** - Don't draw content all the way to the edge of the Dynamic Island.
-- **Use consistent margins and concentric placement for your elements** - Use even, matching margins between rounded shapes and the edges of the Live Activity to ensure a harmonious fit. For example, when placing a rounded rectangle near the corner of your Live Activity, make sure to match the element's corner radius to the outer corner radius of the Live Activity by subtracting the margin. Use a SwiftUI container to apply the correct corner radius. For developer guidance, see ContainerRelativeShape.
+- **Use consistent margins and concentric placement for your elements** - Use even, matching margins between rounded shapes and the edges of the Live Activity to ensure a harmonious fit. When you place a rounded element near a corner of your Live Activity, use ContainerRelativeShape to match the Live Activity's corner radius instead of hard-coding a value.
 - **Avoid placing text and nonrounded shapes too close to the margins** - Don't place content in a way that intrudes into the rounded shape of the Live Activity. Try to keep content compact and snug within a margin that is concentric to the outer edge of the Live Activity.
 
 ### Adding Transitions and Animating Content Updates
@@ -111,7 +112,9 @@ In the Dynamic Island, the system uses the compact presentation when only one Li
 
 ### Minimal Presentation
 
-When multiple Live Activities are active, the system uses the minimal presentation to display two of them in the Dynamic Island. One Live Activity appears attached to the Dynamic Island while the other appears detached. Depending on its content size, the detached minimal Live Activity appears circular or oval. As with a compact Live Activity, people tap a minimal Live Activity to open the app to get more details about the event or task or touch and hold it to use essential controls and view additional content in the expanded presentation.
+When multiple Live Activities are active, the system uses the minimal presentation to display up to three of them in the Dynamic Island. One appears attached to the Dynamic Island, and a second (and a third, where supported) appear detached on one or both sides. Depending on its content size, a detached minimal Live Activity appears circular or oval. As with a compact Live Activity, people tap a minimal Live Activity to open the app to get more details about the event or task or touch and hold it to use essential controls and view additional content in the expanded presentation.
+
+The number of visible Live Activities and their presentation depend on the device. Apple's ActivityKit guide gives iPhone 18 Pro as an example: it shows two Live Activities from different apps in compact presentations with reduced width, while other devices show both in the minimal presentation. See [Displaying live data with Live Activities](https://developer.apple.com/documentation/activitykit/displaying-live-data-with-live-activities).
 
 - **Ensure that your Live Activity is recognizable in the minimal presentation** - If possible, display updated information instead of only presenting a logo, but ensure that people are able to quickly recognize your app. For example, the minimal presentation for a Live Activity of the Timer app displays the remaining time instead of using a static icon.
 
@@ -119,7 +122,7 @@ When multiple Live Activities are active, the system uses the minimal presentati
 
 When people touch and hold a Live Activity in a compact or minimal presentation, the system displays the content in the expanded presentation.
 
-- **Maintain the relative placement of elements to create a coherent layout between compact and expanded presentations** - The expanded presentation is an enlarged version of the compact presentation. Ensure that information and layouts expand predictably when the Live Activity transitions from compact to expanded presentation.
+- **Maintain the relative placement of elements to create a coherent layout between compact and expanded presentations** - The expanded presentation is an enlarged version of the compact or minimal presentation. Ensure that information and layouts expand predictably when the Live Activity transitions from compact to expanded presentation.
 - **Size the expanded presentation to its content** - Reduce its height when there is less information and expand it when additional details become useful. Keep the content within consistent margins that follow the presentation's rounded shape.
 - **Wrap content tightly around the TrueDepth camera** - Try to avoid leaving space on the leading and trailing sides and below the TrueDepth camera. Arranging content close to the TrueDepth camera uses space more efficiently, and helps diminish the visual presence of the TrueDepth camera.
 
@@ -167,37 +170,14 @@ As you design your Live Activities, use the following values for guidance. These
 
 ### iOS Live Activity Dimensions
 
-All values listed in the tables below are in points.
+All values listed in the table below are in points.
 
-| Screen dimensions (portrait) | Compact leading | Compact trailing | Minimal (width given as a range) | Expanded (height given as a range) | Lock Screen (height given as a range) |
+| Screen dimensions (portrait) | Compact (leading and trailing) | Minimal (width given as a range) | Expanded (height given as a range) | Lock Screen (height given as a range) | Limited width |
 |---|---|---|---|---|---|
-| 430x932 | 62.33x36.67 | 62.33x36.67 | 36.67–45x36.67 | 408x84–160 | 408x84–160 |
-| 393x852 | 52.33x36.67 | 52.33x36.67 | 36.67–45x36.67 | 371x84–160 | 371x84–160 |
+| 430x932 | 62.33x36.67 | 36.67–45x36.67 | 408x84–160 | 408x84–160 | 28x28 |
+| 393x852 | 52.33x36.67 | 36.67–45x36.67 | 371x84–160 | 371x84–160 | 28x28 |
 
-The Dynamic Island uses a corner radius of 44 points, and its rounded corner shape matches the TrueDepth camera.
-
-| Presentation type | Device | Dynamic Island width (points) |
-|---|---|---|
-| Compact or minimal | iPhone 16 Pro Max | 250 |
-| | iPhone 16 Pro | 230 |
-| | iPhone 16 Plus | 250 |
-| | iPhone 16 | 230 |
-| | iPhone 15 Pro Max | 250 |
-| | iPhone 15 Pro | 230 |
-| | iPhone 15 Plus | 250 |
-| | iPhone 15 | 230 |
-| | iPhone 14 Pro Max | 250 |
-| | iPhone 14 Pro | 230 |
-| Expanded | iPhone 16 Pro Max | 408 |
-| | iPhone 16 Pro | 371 |
-| | iPhone 16 Plus | 408 |
-| | iPhone 16 | 371 |
-| | iPhone 15 Pro Max | 408 |
-| | iPhone 15 Pro | 371 |
-| | iPhone 15 Plus | 408 |
-| | iPhone 15 | 371 |
-| | iPhone 14 Pro Max | 408 |
-| | iPhone 14 Pro | 371 |
+Apple's October 13, 2026 revision removed the per-device Dynamic Island width table and the 44-point corner radius that the December 16, 2025 revision listed, and added the limited-width size.
 
 ### iPadOS Live Activity Dimensions
 
@@ -211,9 +191,20 @@ All values listed in the table below are in points.
 | 1080x810 | 425x84–160 |
 | 1024x768 | 425x84–160 |
 
+### watchOS and macOS Live Activity Dimensions
+
+Live Activities in the Smart Stack on Apple Watch use the same sizes as watchOS widgets; see [watchOS widget dimensions](widgets.md#watchos-widget-dimensions). On Mac, use the iOS dimensions.
+
+### CarPlay Live Activity Dimensions
+
+The system may scale a Live Activity to fit the vehicle's screen size and resolution. Verify your design at 240x78, 240x100, and 170x78 points, and test in the CarPlay simulator with the Smart Display Zoom configurations: widescreen (1920x720 points), portrait (900x1200 points), and standard (800x480 points).
+
 ## Changelog
 
 The dated entries below are Apple's article history, not repository edit dates.
+
+### October 13, 2026
+- Apple added guidance for limited width layouts and updated supported platforms and specifications.
 
 ### December 16, 2025
 - Apple revised the cross-platform guidance and added macOS and CarPlay coverage.

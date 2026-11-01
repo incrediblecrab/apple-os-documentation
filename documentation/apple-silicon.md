@@ -14,11 +14,11 @@ Getting the best performance on Apple silicon sometimes requires making adjustme
 
 **Update October 29, 2026:** macOS Golden Gate 27.2 (`26B123`) shipped October 26, 2026, following 27.0.1 (`26A434`) on September 28, 2026. The Tahoe maintenance line reached 26.7.1 on September 28, 2026, then 26.7.2 on October 26, 2026. See the [release feed](https://developer.apple.com/news/releases/rss/releases.rss) and [macOS 27.2 notes](https://developer.apple.com/documentation/macos-release-notes/macos-27_2-release-notes).
 
-[Xcode 27.1](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_1-release-notes) (`27A9275`) shipped October 15, 2026. Apple's security list dates [Xcode 27.2](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_2-release-notes) to October 29, 2026, while the captured developer feed still lists only its October 19, 2026 RC (`27B48`); it does not establish a final 27.2 build number. Both versions include Swift 6.4 and require macOS Tahoe 26.6 or later; their macOS SDKs are 27 and 27.2, respectively.
+[Xcode 27.1](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_1-release-notes) (`27A9275`) shipped October 15, 2026. [Xcode 27.2](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_2-release-notes) (`27B52`) shipped October 29, 2026, the date given by both Apple's security list and the developer feed (checked November 1, 2026). Both versions include Swift 6.4 and require macOS Tahoe 26.6 or later; their macOS SDKs are 27 and 27.2, respectively.
 
 | Question | Verified distinction |
 |---|---|
-| Can this Mac host Xcode 27? | It must be an **Apple silicon Mac running macOS Tahoe 26.6 or later**. macOS 27 is not required; Intel Macs are not eligible hosts. |
+| Can this Mac host Xcode 27? | It must be an **Apple silicon Mac running macOS Tahoe 26.6 or later**. macOS 27 is not required; Intel Macs are not eligible hosts. For Xcode on an Intel-based Mac, Apple's [porting guide](https://developer.apple.com/documentation/apple-silicon/porting-your-macos-apps-to-apple-silicon) says to use Xcode 26 or earlier. |
 | Can Xcode 27 build for older Intel Macs? | Its macOS 27 SDK supports universal Intel/Apple-silicon apps that back-deploy to **macOS 12 or later**. Choose your deployment target and architectures independently. |
 | Can an Intel executable run on an Apple silicon Mac? | Rosetta is a translation environment, not a way to make Intel hardware satisfy Xcode's host requirement. Test each executable and its dependencies. |
 
