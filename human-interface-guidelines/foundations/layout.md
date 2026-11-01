@@ -1,108 +1,93 @@
 # Layout
 
-A consistent layout that adapts to various contexts makes your experience more approachable and helps people enjoy their favorite apps and games on all their devices.
+A consistent layout that adapts across display sizes, orientations, and multitasking configurations helps people understand and enjoy your app or game on all their devices.
 
 **Platforms:** iOS | iPadOS | macOS | tvOS | visionOS | watchOS
 
 ## Overview
 
-Your app's layout helps ground people in your content from the moment they open it. People expect familiar relationships between controls and content to help them use and discover your app's features, and designing the layout to take advantage of this makes your app feel at home on the platform.
+Your layout gives people the structure they use to understand your content from the moment they open your app. When controls and content keep familiar relationships, people can use and discover features right away, and your design feels at home on each platform.
 
-Apple provides templates, guides, and other resources that can help you integrate Apple technologies and design your apps and games to run on all Apple platforms. See Apple Design Resources.
+Apple provides templates and layout guides that can help you integrate Apple technologies and design your apps and games to run on all Apple platforms. See Apple Design Resources.
 
 ## Topics
 
-### Best practices
-
-**Group related items to help people find the information they want.** For example, you might use negative space, background shapes, colors, materials, or separator lines to show when elements are related and to separate information into distinct areas. When you do so, ensure that content and controls remain clearly distinct.
-
-**Make essential information easy to find by giving it sufficient space.** People want to view the most important information right away, so don't obscure it by crowding it with nonessential details. You can make secondary information available in other parts of the window, or include it in an additional view.
-
-**Extend content to fill the screen or window.** Make sure backgrounds and full-screen artwork extend to the edges of the display. Also ensure that scrollable layouts continue all the way to the bottom and the sides of the device screen. Controls and navigation components like sidebars and tab bars appear on top of content rather than on the same plane, so it's important for your layout to take this into account.
-
-When your content doesn't span the full window, use a background extension view to provide the appearance of content behind the control layer on either side of the screen, such as beneath the sidebar or inspector. For developer guidance, see backgroundExtensionEffect() and UIBackgroundExtensionView.
-
 ### Visual hierarchy
 
-**Differentiate controls from content.** Take advantage of the Liquid Glass material to provide a distinct appearance for controls that's consistent across iOS, iPadOS, and macOS. Instead of a background, use a scroll edge effect to provide a transition between content and the control area.
+**Place items to convey their relative importance.** People often start by viewing items in reading order — that is, from top to bottom and from the leading to trailing side — so it generally works well to place the most important items near the top and leading side of the window or display. Reading order varies by language; standard system components can adapt their arrangement to right-to-left languages automatically, so prefer them where you can. For guidance, see [Right to left](https://developer.apple.com/design/human-interface-guidelines/right-to-left).
+
+**Align elements to make them easier to scan, and use indentation to convey hierarchy.** Alignment makes an app look neat and organized and can help people track content while scrolling or moving their eyes. People read aligned items as related and indented items as subordinate to the item above them, so deliberate alignment and indentation help people understand your information hierarchy.
+
+**Group related items to show which information or functions belong together.** For example, you might use negative space, container shapes, or separator lines to show which elements are related and which are unrelated.
+
+**Use progressive disclosure to keep layouts clean and easy to use.** Too much content and too many choices make it harder to find information and to understand what's available. Reduce what you show at first with disclosure triangles, menus, or nested views, or use scrollable sections to present additional content, which works especially well in media apps for video, music, or books.
+
+**Differentiate controls from content.** On platforms that support Liquid Glass, use the material to give your controls a distinct appearance. Instead of placing a solid or semi-opaque background color beneath controls, use a scroll edge effect to lift the controls visually above the content. For guidance, see [Scroll views](https://developer.apple.com/design/human-interface-guidelines/scroll-views). For developer guidance, see ScrollEdgeEffectStyle, which offers two styles:
 
 - The [soft style](https://developer.apple.com/documentation/swiftui/scrolledgeeffectstyle/soft) creates a subtle, blurred boundary between pinned controls and scrolling content.
 - The [hard style](https://developer.apple.com/documentation/swiftui/scrolledgeeffectstyle/hard) creates a linear, nearly opaque boundary. Choose the effect for the content and controls involved rather than treating either style as exclusive to one platform.
 
-For guidance, see Materials. For developer guidance, see ScrollEdgeEffectStyle.
-
-**Place items to convey their relative importance.** People often start by viewing items in reading order — that is, from top to bottom and from the leading to trailing side — so it generally works well to place the most important items near the top and leading side of the window, display, or field of view. Be aware that reading order varies by language, and take right to left languages into account as you design.
-
-**Align components with one another to make them easier to scan and to communicate organization and hierarchy.** Alignment makes an app look neat and organized and can help people track content while scrolling or moving their eyes, making it easier to find information. Along with indentation, alignment can also help people understand an information hierarchy.
-
-**Take advantage of progressive disclosure to help people discover content that's currently hidden.** For example, if you can't display all the items in a large collection at once, you need to indicate that there are additional items that aren't currently visible. Depending on the platform, you might use a disclosure control, or display parts of items to hint that people can reveal additional content by interacting with the view, such as by scrolling.
-
-**Make controls easier to use by providing enough space around them and grouping them in logical sections.** If unrelated controls are too close together — or if other content crowds them — they can be difficult for people to tell apart or understand what they do, which can make your app or game hard to use. For guidance, see Toolbars.
+Extend full-screen background content beneath sidebars, toolbars, and tab bars so it fills the entire screen or window. If scaling a background image to the window edge would leave important parts of it covered by a sidebar or inspector, use a background extension effect, which mirrors and blurs the image beneath the adjacent components so the background appears to continue under them. For developer guidance, see backgroundExtensionEffect() and UIBackgroundExtensionView.
 
 ### Adaptability
 
-Every app and game needs to adapt when the device or system context changes. In iOS, iPadOS, tvOS, and visionOS, the system defines a collection of traits that characterize variations in the device environment that can affect the way your app or game looks. Using SwiftUI or Auto Layout can help you ensure that your interface adapts dynamically to these traits and other context changes; if you don't use these tools, you need to use alternative methods to do the work.
+Apps and games need to adapt to different display sizes, orientation changes, window sizes, and multitasking states. In iOS, iPadOS, tvOS, and visionOS, the system defines characteristics of the device environment that can affect the way your app or game looks. Use SwiftUI or Auto Layout so your interface adapts to them.
 
-Here are some of the most common device and system variations you need to handle:
+These are the most common device and system characteristics apps need to handle:
 
-- Different device screen sizes, resolutions, and color spaces
-- Different device orientations (portrait/landscape)
-- System features like Dynamic Island and camera controls
-- External display support, Display Zoom, and resizable windows on iPad
-- Dynamic Type text-size changes
+- Regular and compact horizontal and vertical size classes
+- Different device screen sizes
+- Different device orientations and aspect ratios
+- System features like the Dynamic Island
+- External display support, Display Zoom, and resizable windows on iPad and Mac
+- Text-size changes
 - Locale-based internationalization features like left-to-right/right-to-left layout direction, date/time/number formatting, font variation, and text length
 
-**Design a layout that adapts gracefully to context changes while remaining recognizably consistent.** People expect your experience to work well and remain familiar when they rotate their device, resize a window, add another display, or switch to a different device. You can help ensure an adaptable interface by respecting system-defined safe areas, margins, and guides (where available) and specifying layout modifiers to fine-tune the placement of views in your interface.
+**Design a layout that adapts gracefully and consistently.** People expect your experience to remain familiar when they rotate their device, resize a window, add another display, or switch to a different device. You can help ensure an adaptable interface by respecting system-defined safe areas, margins, and guides (where available) and specifying layout modifiers to fine-tune the placement of views in your interface.
 
-**Be prepared for text-size changes.** People appreciate apps and games that respond when they choose a different text size. When you support Dynamic Type — a feature that lets people choose the size of visible text in iOS, iPadOS, tvOS, visionOS, and watchOS — your app or game can respond appropriately when people adjust text size. To support Dynamic Type in your Unity-based game, use Apple's accessibility plug-in (for developer guidance, see Apple – Accessibility). For guidance on displaying text in your app, see Typography.
+An app locked to one orientation, such as a landscape-only game, still needs an interface that resizes well across devices and window sizes.
 
-**Preview your app on multiple devices, using different orientations, localizations, and text sizes.** Begin with the smallest and largest layouts, then check intermediate sizes. Use physical devices for features such as wide-gamut color. Apple's current guidance refers to simulated devices in Device Hub for checking clipping and layout; earlier Xcode workflows use Simulator. Check both landscape rotations when your app supports them.
+**Be prepared for text-size changes.** People use Dynamic Type to make text larger and easier to read, and the setting applies systemwide. An app that ignores it can be hard or impossible to use for people who rely on it. Adjust your layout to fit larger text: horizontally adjacent views may need to stack vertically, and table rows and other containers may need to grow taller so text isn't cropped and doesn't overlap other content, including rows that show a single line of text at the default size.
 
-**When necessary, scale artwork in response to display changes.** For example, viewing your app or game in a different context — such as on a screen with a different aspect ratio — might make your artwork appear cropped, letterboxed, or pillarboxed. If this happens, don't change the aspect ratio of the artwork; instead, scale it so that important visual content remains visible. In visionOS, the system automatically scales a window when it moves along the z-axis.
+To support Dynamic Type in your Unity-based game, use Apple's accessibility plug-in (for developer guidance, see Apple – Accessibility). For guidance on displaying text in your app, see Typography.
+
+**Preview your app on multiple devices, using different size classes, localizations, and text sizes.** Test the largest and smallest layouts first to streamline the process. You can use a simulated device in Device Hub to check for clipping and other layout problems, for example to confirm that your layout holds up when people resize your app on iPad or use it through iPhone Mirroring on Mac.
+
+**When necessary, scale background artwork in response to display changes.** For example, viewing your app or game in a different context — such as on a screen with a different aspect ratio — might make your artwork appear cropped, letterboxed, or pillarboxed. If this happens, don't change the aspect ratio of the artwork; instead, scale it so that it fills the screen. Windows can be very wide and short or tall and narrow, so background artwork often needs to extend beyond what a standard display aspect ratio would show.
+
+#### Size classes
+
+In iOS and iPadOS, size classes indicate how much horizontal and vertical space is available to an app's interface. Each dimension has one of two size classes, compact or regular: the horizontal size class says whether the app is narrow (compact) or wide (regular), and the vertical size class says whether it is short (compact) or tall (regular).
+
+The system sets size classes from the device type, the window configuration, and the multitasking state, such as whether an app is full screen, in Slide Over, or mirrored from iPhone to Mac. Depending on their environment, iOS and iPadOS apps can appear in every combination of size classes. For developer guidance, see UITraitChangeObservable and UserInterfaceSizeClass.
+
+**Base layout decisions on size classes, not on device type or orientation.** Size classes describe the space actually available, whether the app is in portrait or landscape. A device's orientation and its type (its idiom) don't tell your app how much space it has. Size classes also let your interface adapt to a wide range of window sizes; for example, people can freely resize the width and height of an iPhone app in iPhone Mirroring on Mac, and can resize an iPad app when multitasking in iPadOS or running it in macOS.
+
+**Consider every combination of size classes.** Your app can appear in many size-class combinations in both portrait and landscape aspect ratios. A layout designed only for landscape iPhone (regular width, compact height) might waste the vertical space available when someone resizes the window to regular height on iPad in landscape; a layout designed only for compact portrait could leave empty space when someone widens the window to regular width on iPad.
+
+**Keep functionality the same as size classes change, and keep layout changes recognizable and familiar to the platform.** Don't change what your app can do based on the space it occupies, though you can change how much of that functionality is visible. In larger spaces, consider switching from a tab bar to a sidebar or exposing functions that might otherwise sit in an overflow menu. An app's size classes can change when someone resizes it, but its idiom, the device type it's made for, stays the same, so keep the layout familiar to that platform while it resizes.
 
 ### Guides and safe areas
 
 A layout guide defines a rectangular region that helps you position, align, and space your content on the screen. The system includes predefined layout guides that make it easy to apply standard margins around content and restrict the width of text for optimal readability. You can also define custom layout guides. For developer guidance, see UILayoutGuide and NSLayoutGuide.
 
-A safe area defines the area within a view that isn't covered by a toolbar, tab bar, or other views a window might provide. Safe areas are essential for avoiding a device's interactive and display features, like Dynamic Island on iPhone or the camera housing on some Mac models. For developer guidance, see SafeAreaRegions and Positioning content relative to the safe area.
-
-**Respect key display and system features in each platform.** When an app or game doesn't accommodate such features, it doesn't feel at home in the platform and may be harder for people to use. In addition to helping you avoid display and system features, safe areas can also help you account for interactive components like bars, dynamically repositioning content when sizes change.
+A safe area defines the part of a window that isn't covered at its edges by a hardware feature or by another view in the window, like a toolbar, tab bar, or status bar. Respect the safe area so that system UI and hardware features like the Dynamic Island don't obstruct your content and controls. For developer guidance, see SafeAreaRegions and Positioning content relative to the safe area.
 
 For templates that include the guides and safe areas for each platform, see Apple Design Resources.
 
 ### Platform considerations
 
-**iOS**
-
-Aim to support both portrait and landscape orientations. People appreciate apps and games that work well in different device orientations, but sometimes your experience needs to run in only portrait or only landscape. When this is the case, you can rely on people trying both orientations before settling on the one you support — there's no need to tell people to rotate their device. If your app or game is landscape-only, make sure it runs equally well whether people rotate their device to the left or the right.
-
-**Prefer a full-bleed interface for your game.** Give players a beautiful interface that fills the screen while accommodating the corner radius, sensor housing, and features like Dynamic Island. If necessary, consider giving players the option to view your game using a letterboxed or pillarboxed appearance.
-
-**Avoid full-width buttons.** Buttons feel at home in iOS when they respect system-defined margins and are inset from the edges of the screen. If you need to include a full-width button, make sure it harmonizes with the curvature of the hardware and aligns with adjacent safe areas.
-
-**Hide the status bar only when it adds value or enhances your experience.** The status bar displays information people find useful and it occupies an area of the screen most apps don't fully use, so it's generally a good idea to keep it visible. The exception is if you offer an in-depth experience like playing a game or viewing media, where it might make sense to hide the status bar.
-
-**iPadOS**
-
-People can freely resize windows down to a minimum width and height, similar to window behavior in macOS. It's important to account for this resizing behavior and the full range of possible window sizes when designing your layout. For guidance, see Multitasking and Windows.
-
-**As someone resizes a window, defer switching to a compact view for as long as possible.** Design for a full-screen view first, and only switch to a compact view when a version of the full layout no longer fits. This helps the UI feel more stable and familiar in as many situations as possible. For more complex layouts such as split views, prefer hiding tertiary columns such as inspectors as the view narrows.
-
-**Test your layout at common system-provided sizes, and provide smooth transitions.** Window controls provide the option to arrange windows to fill halves, thirds, and quadrants of the screen, so it's important to check your layout at each of these sizes on a variety of devices. Be sure to minimize unexpected UI changes as people adjust down to the minimum and up to the maximum window size.
-
-**Consider a convertible tab bar for adaptive navigation.** For many apps, you don't need to choose between a tab bar or sidebar for navigation; instead, you can adopt a style of tab bar that provides both. The app first launches with your choice of a sidebar or a tab bar, and then people can tap to switch between them. As the view resizes, the presentation style changes to fit the width of the view. For guidance, see Tab bars. For developer guidance, see sidebarAdaptable.
+No additional considerations for iOS or iPadOS.
 
 **macOS**
 
 **Avoid placing controls or critical information at the bottom of a window.** People often move windows so that the bottom edge is below the bottom of the screen.
 
-**Avoid displaying content within the camera housing at the top edge of the window.** For developer guidance, see NSPrefersDisplaySafeAreaCompatibilityMode.
+**Avoid displaying content behind the camera housing at the top edge of the window.** For developer guidance, see NSPrefersDisplaySafeAreaCompatibilityMode.
 
 **tvOS**
 
-**Be prepared for a wide range of TV sizes.** On Apple TV, layouts don't automatically adapt to the size of the screen like they do on iPhone or iPad. Instead, apps and games show the same interface on every display. Take extra care in designing your layout so that it looks great in a variety of screen sizes.
-
-**Adhere to the screen's safe area.** Inset primary content 60 points from the top and bottom of the screen, and 80 points from the sides. It can be difficult for people to see content that close to the edges, and unintended cropping can occur due to overscanning on older TVs. Allow only partially displayed offscreen content and elements that deliberately flow offscreen to appear outside this zone.
+**Adhere to the screen's safe area.** Inset primary content 60 points from the top and bottom of the screen, and 80 points from the sides. These margins keep content visible regardless of the TV's compatibility settings or overscan cropping.
 
 **Include appropriate padding between focusable elements.** When you use UIKit and the focus APIs, an element gets bigger when it comes into focus. Consider how elements look when they're focused, and make sure you don't let them overlap important information. For developer guidance, see About focus interactions for Apple TV.
 
@@ -112,13 +97,16 @@ The following grid layouts provide an optimal viewing experience. Be sure to use
 
 If you use the UIKit collection view flow element, the number of columns in a grid is automatically determined based on the width and spacing of your content. For developer guidance, see UICollectionViewFlowLayout.
 
-**Two-column grid**
-
-| Attribute | Value |
-|-----------|-------|
-| Unfocused content width | 860 pt |
-| Horizontal spacing | 40 pt |
-| Minimum vertical spacing | 100 pt |
+| Columns | Unfocused content width | Horizontal spacing | Minimum vertical spacing |
+|---------|-------------------------|--------------------|--------------------------|
+| 2 | 860 pt | 40 pt | 100 pt |
+| 3 | 560 pt | 40 pt | 100 pt |
+| 4 | 410 pt | 40 pt | 100 pt |
+| 5 | 320 pt | 40 pt | 100 pt |
+| 6 | 260 pt | 40 pt | 100 pt |
+| 7 | 217 pt | 40 pt | 100 pt |
+| 8 | 184 pt | 40 pt | 100 pt |
+| 9 | 160 pt | 40 pt | 100 pt |
 
 **Include additional vertical spacing for titled rows.** If a row has a title, provide enough spacing between the bottom of the previous unfocused row and the center of the title to avoid crowding. Also provide spacing between the bottom of the title and the top of the unfocused items in the row.
 
@@ -128,27 +116,27 @@ If you use the UIKit collection view flow element, the number of columns in a gr
 
 **visionOS**
 
-The guidance below can help you lay out content within the windows of your visionOS app or game, making it feel familiar and easy to use. For guidance on displaying windows in space and best practices for using depth, scale, and field of view in your visionOS app, see Spatial layout. To learn more about visionOS window components, see Windows > visionOS.
+In visionOS, you can lay out content in a window, in a bounded 3D volume, or in an immersive space. The guidance below covers content in a window or volume. For guidance on displaying content spatially and on using depth, scale, and positioning, see Spatial layout. To learn more about windows and volumes in visionOS, see Windows > visionOS.
 
-**Note:** When you add depth to content in a standard window, the content extends beyond the window's bounds along the z-axis. If content extends too far along the z-axis, the system clips it.
+**In general, support resizing.** People expect to resize windows and volumes in visionOS, as they do in macOS and iPadOS. Make sure your layout adapts as the size changes, and at very large sizes keep content horizontally centered so people can view and interact with it easily.
 
-**Consider centering the most important content and controls in your app or game.** Often, people can more easily discover and interact with content when it's near the middle of a window, especially when the window is large.
+You can set minimum and maximum sizes for windows, volumes, and attached elements like ornaments to keep elements from overlapping at small sizes and to keep large layouts manageable, but don't use these limits to prevent resizing. For example, Safari lets people resize browser windows while its custom navigation bar ornament has a fixed maximum size, so its controls stay easy to reach. For developer guidance, see Positioning and sizing windows.
 
-**Keep a window's content within its bounds.** In visionOS, the system displays window controls just outside a window's bounds in the XY plane. For example, the Share menu appears above the window and the controls for resizing, moving, and closing the window appear below it. Letting 2D or 3D content encroach on these areas can make the system-provided controls, especially those below the window, difficult for people to use.
+**Use 3D content sparingly in windows.** A visionOS window can show 3D content at a fixed depth; reserve it for meaningful moments alongside 2D content, such as an inline 3D model of a rocket next to information about it in an educational app. Inset inline 3D content within the window so it doesn't collide with other content or controls or appear unpredictably past the window's edge. For larger models or views made mostly of 3D content, consider a volume or an immersive space.
 
-**If you need to display additional controls that don't belong within a window, use an ornament.** An ornament lets you offer app controls that remain visually associated with a window without interfering with the system-provided controls. For example, a window's toolbar and tab bar appear as ornaments. For guidance, see Ornaments.
+**Display supplemental content in an adjacent window, not in an ornament.** Ornaments are best for app-specific interactive controls, like toolbars and video playback controls, not for supplemental content. To show a supplemental view, open a new window next to the current one with defaultWindowPlacement(_:). For guidance, see Ornaments. For developer guidance, see Positioning and sizing windows.
 
-**Make a window's interactive components easy for people to look at.** You need to include enough space around an interactive component so that visually identifying it is easy and comfortable, and to prevent the system-provided hover effect from obscuring other content. For example, place buttons so their centers are at least 60 points apart. For guidance, see Eyes, Spatial layout, and Buttons > visionOS.
+**Include enough space around controls for them to be easy to interact with.** Space around a control makes it clearly identifiable and keeps the system-provided hover effect from obscuring other content. For example, place buttons so their centers are at least 60 points apart. For guidance, see Eyes, Spatial layout, and Buttons > visionOS.
 
 **watchOS**
-
-**Design your content to extend from one edge of the screen to the other.** The Apple Watch bezel provides a natural visual padding around your content. To avoid wasting valuable space, consider minimizing the padding between elements.
 
 **Avoid placing more than two or three controls side by side in your interface.** As a general rule, display no more than three buttons that contain glyphs — or two buttons that contain text — in a row. Although it's usually better to let text buttons span the full width of the screen, two side-by-side buttons with short text labels can also work well, as long as the screen doesn't scroll.
 
 **Support autorotation in views people might want to show others.** When people flip their wrist away, apps typically respond to the motion by sleeping the display, but in some cases it makes sense to autorotate the content. For example, a wearer might want to show an image to a friend or display a QR code to a reader. For developer guidance, see isAutorotating.
 
 ### Specifications
+
+Apple removed the device specification tables from the Layout article in its September 9, 2026 update, and the current article directs you to base layout on size classes rather than device type. The tables below are retained for reference. Each row matches the last version of the article that included them (change-log entry September 9, 2025); they list selected devices, not every model.
 
 #### iOS, iPadOS device screen dimensions
 
@@ -170,6 +158,10 @@ The guidance below can help you lay out content within the windows of your visio
 | iPad 9.7-inch | 768x1024 pt (1536x2048 px @2x) |
 | iPad mini 8.3-inch | 744x1133 pt (1488x2266 px @2x) |
 | iPad mini 7.9-inch | 768x1024 pt (1536x2048 px @2x) |
+| iPhone 17 Pro Max | 440x956 pt (1320x2868 px @3x) |
+| iPhone 17 Pro | 402x874 pt (1206x2622 px @3x) |
+| iPhone Air | 420x912 pt (1260x2736 px @3x) |
+| iPhone 17 | 402x874 pt (1206x2622 px @3x) |
 | iPhone 16 Pro Max | 440x956 pt (1320x2868 px @3x) |
 | iPhone 16 Pro | 402x874 pt (1206x2622 px @3x) |
 | iPhone 16 Plus | 430x932 pt (1290x2796 px @3x) |
@@ -184,9 +176,7 @@ The guidance below can help you lay out content within the windows of your visio
 
 #### iOS, iPadOS device size classes
 
-A size class is a value that's either regular or compact, where regular refers to a larger screen or a screen in landscape orientation and compact refers to a smaller screen or a screen in portrait orientation. For developer guidance, see UserInterfaceSizeClass.
-
-Different size class combinations apply to the full-screen experience on different devices, based on screen size.
+These are the size classes each device has when an app runs full screen. Windowed and multitasking configurations can produce other combinations, so check the current size classes at run time rather than inferring them from the model. For developer guidance, see UserInterfaceSizeClass.
 
 | Model | Portrait orientation | Landscape orientation |
 |-------|---------------------|----------------------|
@@ -198,6 +188,10 @@ Different size class combinations apply to the full-screen experience on differe
 | iPad 11-inch | Regular width, regular height | Regular width, regular height |
 | iPad 9.7-inch | Regular width, regular height | Regular width, regular height |
 | iPad mini 7.9-inch | Regular width, regular height | Regular width, regular height |
+| iPhone 17 Pro Max | Compact width, regular height | Regular width, compact height |
+| iPhone 17 Pro | Compact width, regular height | Compact width, compact height |
+| iPhone Air | Compact width, regular height | Regular width, compact height |
+| iPhone 17 | Compact width, regular height | Compact width, compact height |
 | iPhone 16 Pro Max | Compact width, regular height | Regular width, compact height |
 | iPhone 16 Pro | Compact width, regular height | Compact width, compact height |
 | iPhone 16 Plus | Compact width, regular height | Regular width, compact height |
@@ -208,14 +202,14 @@ Different size class combinations apply to the full-screen experience on differe
 
 | Series | Size | Width (pixels) | Height (pixels) |
 |--------|------|----------------|-----------------|
-| 10 | 42mm | 374 | 446 |
-| 10 | 46mm | 416 | 496 |
+| 10 and 11 | 42mm | 374 | 446 |
+| 10 and 11 | 46mm | 416 | 496 |
 | Apple Watch Ultra (3rd generation) | 49mm | 422 | 514 |
 | Apple Watch Ultra (1st and 2nd generations) | 49mm | 410 | 502 |
 | 7, 8, and 9 | 41mm | 352 | 430 |
 | 7, 8, and 9 | 45mm | 396 | 484 |
-| 4, 5, 6, and SE | 40mm | 324 | 394 |
-| 4, 5, 6, and SE | 44mm | 368 | 448 |
+| 4, 5, 6, and SE (all generations) | 40mm | 324 | 394 |
+| 4, 5, 6, and SE (all generations) | 44mm | 368 | 448 |
 | 1, 2, and 3 | 38mm | 272 | 340 |
 | 1, 2, and 3 | 42mm | 312 | 390 |
 
@@ -238,6 +232,12 @@ Different size class combinations apply to the full-screen experience on differe
 - [Essential Design Principles](https://developer.apple.com/videos/play/wwdc2017/802/)
 
 ## Changelog
+
+### September 9, 2026
+- Updated guidance to reflect current best practices.
+
+### September 9, 2025
+- Added specifications for iPhone 17, iPhone Air, iPhone 17 Pro, iPhone 17 Pro Max, Apple Watch SE 3, Apple Watch Series 11, and Apple Watch Ultra 3.
 
 ### June 9, 2025
 - Added guidance for Liquid Glass.

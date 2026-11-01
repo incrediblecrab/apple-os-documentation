@@ -10,9 +10,9 @@ As you begin designing your app or game for macOS, start by understanding the fu
 
 **Display.** A Mac typically has a large, high-resolution display, and people can extend their workspace by connecting additional displays, including their iPad.
 
-**Ergonomics.** People generally use a Mac while they're stationary, often placing the device on a desk or table. In the typical use case, the viewing distance can range from about 1 to 3 feet.
+**Ergonomics.** People generally use a Mac while they're stationary, often placing the device on a desk or table. On a Mac with a touch display, people have to reach forward to the screen, so they tend to use touch for brief, deliberate actions rather than sustained work.
 
-**Inputs.** Support combinations of [keyboards](../inputs/keyboards.md), [pointing devices](../inputs/pointing-devices.md), [game controls](../inputs/game-controls.md), and [Siri](../technologies/siri.md), rather than assuming a single input method.
+**Inputs.** People mainly use a [keyboard](../inputs/keyboards.md) and a [pointing device](../inputs/pointing-devices.md). They also use [gestures](../inputs/gestures.md) on a trackpad or on a Mac with a touch display, [Siri](../technologies/siri.md), Voice Control, and connected [game controllers](../inputs/game-controls.md). Support combinations of these rather than assuming a single input method.
 
 **App interactions.** Interactions can last anywhere from a few minutes of performing some quick tasks to several hours of deep concentration. People frequently have multiple apps open at the same time, and they expect smooth transitions between active and inactive states as they switch from one app to another.
 
@@ -41,6 +41,8 @@ Great Mac experiences integrate the platform and device capabilities that people
 
 - **Support keyboard shortcuts** - Handle keyboard shortcuts to help people accelerate actions and use keyboard-only work styles.
 
+- **Support standard gestures and touch** - Support standard [gestures](../inputs/gestures.md) on trackpads and on Macs with a touch display. Make touch easier with larger tap targets and controls that expand when touched, but keep control size and density unchanged so the interface stays optimized for keyboard and pointer input.
+
 - **Support personalization** - Support personalization, letting people customize toolbars, configure windows to display the views they use most, and choose the colors and fonts they want to see in the interface.
 
 ### Windows, menus, and precision
@@ -48,7 +50,7 @@ Great Mac experiences integrate the platform and device capabilities that people
 - Make [windows](../components/windows.md) useful at different sizes and on multiple displays. Preserve unsaved work and task context when people resize, hide, or return to a window.
 - Give documents and windows understandable titles. Keep document operations, selection, and [undo](../patterns/undo-and-redo.md) scoped to the appropriate task.
 - Put important commands in [the menu bar](../components/the-menu-bar.md), with conventional [keyboard shortcuts](../inputs/keyboards.md). Context menus and toolbar icons should not be the only routes to essential commands.
-- Support precise [pointer interactions](../inputs/pointing-devices.md) without requiring tiny targets. Offer keyboard alternatives to drag-only operations.
+- Support precise [pointer interactions](../inputs/pointing-devices.md) without requiring tiny targets. Offer keyboard alternatives to drag-only operations, and give controls that appear only on hover a way to appear with touch on a Mac with a touch display.
 - Separate navigation and tools from the content being edited. Use [materials](../foundations/materials.md) for hierarchy rather than covering document content with glass effects.
 
 ### Accessibility and validation

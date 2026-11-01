@@ -14,7 +14,7 @@ Your app icon is a crucial aspect of your app's or game's branding and user expe
 
 Use [Icon Composer](https://developer.apple.com/icon-composer/) to assemble and preview layered icons for iPhone, iPad, Mac, and Apple Watch. Test recognizable silhouettes and supported appearances at small sizes; follow the separate image-stack requirements for tvOS and visionOS.
 
-Although you can provide a flattened image for your icon, layers give you the most control over how your icon design is represented. A layered app icon comes together to produce a sense of depth and vitality. On each platform, the system applies visual effects that respond to the environment and people's interactions.
+Although you can provide a nonlayered image for your icon (see [Icon formats](#icon-formats)), layers give you the most control over how your icon design is represented. A layered app icon comes together to produce a sense of depth and vitality. On each platform, the system applies visual effects that respond to the environment and people's interactions.
 
 iOS, iPadOS, macOS, and watchOS app icons include a background layer and one or more foreground layers that coalesce to create dimensionality. Liquid Glass effects adapt to the icon's size and can render differently across system versions. In the current Icon Composer, refraction controls affect rendering on OS 27, but have no visible effect on earlier system versions.
 
@@ -24,7 +24,7 @@ A visionOS app icon includes a background layer and one or two layers on top, pr
 
 You use your favorite design tool to craft the individual foreground layers of your app icon. For iOS, iPadOS, macOS, and watchOS icons, you then import your icon layers into Icon Composer, a design tool included with Xcode and available from the Apple Developer website. In Icon Composer, you define the background layer, position foreground layers, and adjust material effects. Its current rendering modes are Default, Dark, and Mono; Mono provides previews for clear and tinted variants. watchOS doesn't offer separate appearance variants. Save the icon file for use in Xcode, and compare rendering across system versions. For additional guidance, see [Creating your app icon using Icon Composer](https://developer.apple.com/documentation/xcode/creating-your-app-icon-using-icon-composer).
 
-For tvOS and visionOS app icons, you add your icon layers directly to an image stack in Xcode to form your complete icon. For developer guidance, see [Configuring your app icon](https://developer.apple.com/documentation/xcode/configuring-your-app-icon).
+For tvOS and visionOS app icons, you add your icon layers directly to an image stack in Xcode to form your complete icon. To preview and test parallax effects, use the Parallax Previewer and Parallax Exporter plug-in from Apple Design Resources. For developer guidance, see [Configuring your app icon using an asset catalog](https://developer.apple.com/documentation/xcode/configuring-your-app-icon).
 
 **Prefer clearly defined edges in foreground layers.** To ensure system-drawn highlights and shadows look best, avoid soft and feathered edges on foreground layer shapes.
 
@@ -33,6 +33,12 @@ For tvOS and visionOS app icons, you add your icon layers directly to an image s
 **Design a background that both stands out and emphasizes foreground content.** If you choose a gradient, check that it responds well to system lighting effects. Icon Composer supports solid colors and gradients for background layers, making it unnecessary to import custom background images in most cases. If you do import a background layer, make sure it's full-bleed and opaque.
 
 **Prefer vector graphics when bringing layers into Icon Composer.** Unlike raster images, vector graphics (such as SVG or PDF) scale gracefully and appear crisp at any size. Outline artwork and convert text to outline in your design. For mesh gradients and raster artwork, prefer PNG format because it's a lossless image format.
+
+### Icon formats
+
+In iOS, iPadOS, macOS, and watchOS, you can supply an icon either as a nonlayered bitmap image, such as a PNG, or as a layered Icon Composer file. The Icon Composer format lets you decide how Liquid Glass applies to each element and how color applies across appearance variants.
+
+**Provide your icon in the Icon Composer format for more flexibility and control.** If you supply a bitmap instead, the system tries to separate the foreground from the background to make a two-layer icon that works with the dark and tinted appearances while keeping a consistent background. It applies Liquid Glass only to foreground elements with large, simple shapes, not to small or complex details such as text and thin lines. To choose exactly which elements get Liquid Glass, supply a layered Icon Composer file.
 
 ### Icon shape
 
@@ -58,7 +64,7 @@ An app icon's shape varies based on a platform's visual language. In iOS, iPadOS
 
 **Include text only when it's essential to your experience or brand.** Text in icons doesn't support accessibility or localization, is often too small to read easily, and can make an icon appear cluttered. In some contexts, your app name already appears nearby, making it redundant to display the name within the icon itself. Although displaying a mnemonic like the first letter of your app's name can help people recognize your app or game, avoid including nonessential words that tell people what to do with it — like "Watch" or "Play" — or context-specific terms like "New" or "For visionOS." If you include text in a tvOS app icon, make sure it's above other layers so it's not cropped by the parallax effect.
 
-**Prefer illustrations to photos and avoid replicating UI components.** Photos are full of details that don't work well when displayed in different appearances, viewed at small sizes, or split into layers. Instead of using photos, create a graphic representation of the content that emphasizes the features you want people to notice. Similarly, if your app has an interface that people recognize, don't just replicate standard UI components or use app screenshots in your icon.
+**Prefer illustrations to photos and avoid replicating UI components.** Photos are full of details that don't work well when displayed in different appearances, viewed at small sizes, or split into layers. Instead of using photos, create a graphic representation of the content that emphasizes the features you want people to notice. Avoid extremely thin line weights and sharp corners, which lose detail and crispness at small sizes and low resolutions. If your app has an interface that people recognize, don't just replicate standard UI components or use app screenshots in your icon.
 
 **Don't use replicas of Apple hardware products.** Apple products are copyrighted and can't be reproduced in your app icons.
 
@@ -66,7 +72,7 @@ An app icon's shape varies based on a platform's visual language. In iOS, iPadOS
 
 **Let the system handle blurring and other visual effects.** The system dynamically applies visual effects to your app icon layers, so there's no need to include specular highlights, drop shadows between layers, beveled edges, blurs, glows, and other effects. In addition to interfering with system-provided effects, custom effects are static, whereas the system supplies dynamic ones. If you do include custom visual effects on your icon layers, use them intentionally and test carefully in Icon Composer and on simulated or physical devices using Device Hub to make sure they appear as expected and don't conflict with system effects.
 
-**Create layer groupings to apply effects to multiple layers at once.** System effects typically occur on individual layers. If it makes sense for your design, however, you can group several layers together in Icon Composer or your design tool so effects occur at the group level.
+**Create layer groupings to apply effects to multiple layers at once.** System effects typically occur on individual layers. If it makes sense for your design, however, you can group several layers together in Icon Composer or your design tool so effects occur at the group level. For a group, Icon Composer offers extra Liquid Glass settings, such as specular highlights, refraction, and translucency.
 
 ### Appearances
 
@@ -132,6 +138,12 @@ App icons support the following color spaces:
 - [Create icons with Icon Composer](https://developer.apple.com/videos/play/wwdc2025/361)
 
 ## Changelog
+
+### October 28, 2026
+- Added guidance for app icon format options.
+
+### June 8, 2026
+- Refined guidance for Liquid Glass.
 
 ### June 9, 2025
 - Updated guidance to reflect layered icons, consistency across platforms, and best practices for Liquid Glass.

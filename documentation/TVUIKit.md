@@ -8,9 +8,9 @@ Show common user interface elements from Apple TV in your native app.
 
 When you build an app for tvOS with **UIKit**, you can use **TVUIKit** to refine the display of your content for a TV environment. Use the **TV Services** framework to provide deeper integration between your app and Apple TV.
 
-For platform planning, see [Planning your tvOS app](https://developer.apple.com/tvos/planning/).
+For platform planning, see [Get started with tvOS](https://developer.apple.com/tvos/get-started/).
 
-For UIKit-based TV apps, review the [UIKit scene-lifecycle requirement](UIKit.md#required-scene-life-cycle-and-launch-screen). The [iOS & iPadOS 27 release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes) make scene adoption a launch requirement for apps built with the latest SDK, but that entry does not explicitly name tvOS. TVUIKit controls do not replace the app life cycle. This framework is separate from the deprecated [TVMLKit](TVMLKit.md) client-server UI model.
+For UIKit-based TV apps, review the [UIKit scene-lifecycle requirement](UIKit.md#required-scene-life-cycle-and-launch-screen). The [tvOS 27 release notes](https://developer.apple.com/documentation/tvos-release-notes/tvos-27-release-notes) and the [iOS & iPadOS 27 release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes) carry the same UIKit deprecation: apps built with the latest SDK must adopt the scene-based life cycle or they fail to launch. Apple's [scene-transition guide](https://developer.apple.com/documentation/uikit/transitioning-to-the-uikit-scene-based-life-cycle) names tvOS 27 in that requirement. TVUIKit controls do not replace the app life cycle. This framework is separate from the deprecated [TVMLKit](TVMLKit.md) client-server UI model.
 
 ## Topics
 
@@ -44,4 +44,4 @@ For `TVMonogramView`, Apple's deprecation guidance points to [`TVMonogramContent
 
 ---
 
-*Sources: [Apple Developer Documentation](https://developer.apple.com/documentation/tvuikit), [TVMonogramView](https://developer.apple.com/documentation/tvuikit/tvmonogramview), [TVMonogramContentView](https://developer.apple.com/documentation/tvuikit/tvmonogramcontentview), [TVMonogramContentConfiguration](https://developer.apple.com/documentation/tvuikit/tvmonogramcontentconfiguration-swift.struct), [iOS & iPadOS 27 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes)*
+*Sources: [Apple Developer Documentation](https://developer.apple.com/documentation/tvuikit), [TVMonogramView](https://developer.apple.com/documentation/tvuikit/tvmonogramview), [TVMonogramContentView](https://developer.apple.com/documentation/tvuikit/tvmonogramcontentview), [TVMonogramContentConfiguration](https://developer.apple.com/documentation/tvuikit/tvmonogramcontentconfiguration-swift.struct), [iOS & iPadOS 27 Release Notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes), [tvOS 27 Release Notes](https://developer.apple.com/documentation/tvos-release-notes/tvos-27-release-notes), [Transitioning to the UIKit scene-based life cycle](https://developer.apple.com/documentation/uikit/transitioning-to-the-uikit-scene-based-life-cycle)*

@@ -58,6 +58,7 @@ However, if you do develop your own client software, begin by fetching the index
 
 ### Specifications and other documents
 - [HTTP Live Streaming (HLS) authoring specification for Apple devices](https://developer.apple.com/streaming/hls-authoring-specification-for-apple-devices.html) - Learn the requirements for live and on-demand audio and video content delivery using HLS.
+- [HLS for Apple Podcasts](https://developer.apple.com/documentation/http-live-streaming/hls-for-podcasts) - Meet Apple Podcasts requirements for HLS video-on-demand episodes, including interstitial advertising.
 - [Using content protection systems with HLS](https://developer.apple.com/documentation/http-live-streaming/using-content-protection-systems-with-hls) - Add encryption keys to media playlists.
 - [About the Common Media Application Format with HTTP Live Streaming (HLS)](https://developer.apple.com/documentation/http-live-streaming/about-the-common-media-application-format-with-http-live-streaming-hls) - Learn the Common Media Application Format as it applies to HLS.
 - [Enabling Low-Latency HTTP Live Streaming (HLS)](https://developer.apple.com/documentation/http-live-streaming/enabling-low-latency-http-live-streaming-hls) - Add Low-Latency HLS to your content streams to maintain scalability.

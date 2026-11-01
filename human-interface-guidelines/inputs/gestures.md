@@ -45,7 +45,14 @@ In addition to the standard gestures supported in all platforms, iOS and iPadOS 
 - **Consider allowing simultaneous recognition of multiple gestures if it enhances the experience** - Although simultaneous gestures are unlikely to be useful in nongame apps, a game might include multiple onscreen controls — such as a joystick and firing buttons — that people can operate at the same time.
 
 **macOS**  
-People primarily interact with macOS using a keyboard and mouse. In addition, they can make standard gestures on a Magic Trackpad, Magic Mouse, or a game controller that includes a touch surface.
+People primarily interact with macOS using a keyboard and a pointing device such as a mouse or trackpad. They can also make standard gestures on a Magic Trackpad, Magic Mouse, or a game controller with a touch surface. On a Mac with a touch display, or on an iPad connected with Sidecar, people can touch the interface directly; in macOS, touch is a secondary input mode. For developer guidance, see [Adopting gesture recognizers in your app](https://developer.apple.com/documentation/appkit/adopting-gesture-recognizers-in-your-app) and [Handling AppKit gestures](https://developer.apple.com/documentation/appkit/handling-appkit-gestures).
+
+- **Keep the layout and size of interface elements the same when you support touch** - People switch between touch, keyboard, and pointing device often, so the interface should stay stable whichever input they use.
+- **Make tap targets bigger, not the controls themselves** - Enlarge a small control's tap target beyond its visible bounds instead of enlarging the control. Standard framework controls get a suitable tap target size automatically.
+- **Consider providing expandable controls** - For small or densely packed controls, show a temporary touch-sized version when someone taps the control, keep it easy to see and operate while they touch and hold, and leave it in place briefly after they lift their finger. Standard steppers, sliders, and dials do this automatically.
+- **Don't use touch as the only way to access controls or features** - Every function must remain available with a keyboard and pointing device. In the other direction, aim to give touch an equivalent for actions that otherwise need a pointing device, such as Shift-dragging or a menu that appears when the pointer moves over an element. See the macOS section of [Pointing devices](pointing-devices.md).
+- **Where possible, align with gestures people already know** - Keep gestures your app already uses on iPhone, iPad, or a Mac trackpad or Magic Mouse, and test that they don't conflict with macOS system gestures.
+- **Make sure custom gestures work for both touch and trackpad** - Supporting both direct and indirect touch reaches the most people; use modifier keys where a gesture needs them to work with every touch input.
 
 **tvOS**  
 People expect to use standard gestures to navigate tvOS apps and games with a compatible remote, Siri Remote, or game controller that includes a touch surface.
@@ -106,10 +113,24 @@ The system provides APIs that support the familiar gestures people use with thei
 - **Tap** - Supported in: iOS, iPadOS, macOS, tvOS, visionOS, watchOS - Common action: Activate a control; select an item
 - **Swipe** - Supported in: iOS, iPadOS, macOS, tvOS, visionOS, watchOS - Common action: Reveal actions and controls; dismiss views; scroll
 - **Drag** - Supported in: iOS, iPadOS, macOS, tvOS, visionOS, watchOS - Common action: Move a UI element
-- **Touch (or pinch) and hold** - Supported in: iOS, iPadOS, tvOS, visionOS, watchOS - Common action: Reveal additional controls or functionality
-- **Double tap** - Supported in: iOS, iPadOS, macOS, tvOS, visionOS, watchOS - Common action: Zoom in; zoom out if already zoomed in; perform a primary action on Apple Watch Series 9 and Apple Watch Ultra 2
+- **Touch (or pinch) and hold** - Supported in: iOS, iPadOS, macOS, tvOS, visionOS, watchOS - Common action: Reveal additional controls or functionality
+- **Double tap** - Supported in: iOS, iPadOS, macOS, tvOS, visionOS, watchOS - Common action: Zoom in; zoom out if already zoomed in; open an item on a Mac with a touch display; perform a primary action on Apple Watch Series 9 and later and Apple Watch Ultra 2 and later
 - **Zoom** - Supported in: iOS, iPadOS, macOS, tvOS, visionOS - Common action: Zoom a view; magnify content
 - **Rotate** - Supported in: iOS, iPadOS, macOS, tvOS, visionOS - Common action: Rotate a selected item
+
+### macOS Trackpad and Touch Display Gestures
+
+Standard gestures perform the same common actions on a trackpad and on a Mac with a touch display.
+
+| Action | Trackpad | Touch display |
+|--------|----------|---------------|
+| Select | Primary click | Tap |
+| Open | Double click | Double tap |
+| Scroll | Slide two fingers up or down | Slide one finger up or down |
+| Zoom | Pinch | Pinch |
+| Rotate | Move two fingers around each other | Move two fingers around each other |
+| Open a context menu | Secondary click | Touch and hold |
+| Drag | Click and drag | Touch and hold, then drag |
 
 ### Related Components
 
@@ -126,6 +147,8 @@ The system provides APIs that support the familiar gestures people use with thei
 
 - [Gestures](https://developer.apple.com/documentation/swiftui/gestures) - SwiftUI
 - [UITouch](https://developer.apple.com/documentation/uikit/uitouch) - UIKit
+- [Adopting gesture recognizers in your app](https://developer.apple.com/documentation/appkit/adopting-gesture-recognizers-in-your-app) - AppKit
+- [Handling AppKit gestures](https://developer.apple.com/documentation/appkit/handling-appkit-gestures) - AppKit
 - [Setting up access to ARKit data](https://developer.apple.com/documentation/visionos/setting-up-access-to-arkit-data) - visionOS
 - [persistentSystemOverlays(_:)](https://developer.apple.com/documentation/swiftui/view/persistentsystemoverlays(_:)) - SwiftUI (visionOS)
 - [handGestureShortcut(_:isEnabled:)](https://developer.apple.com/documentation/swiftui/view/handgestureshortcut(_:isenabled:)) - SwiftUI (watchOS)
@@ -133,10 +156,14 @@ The system provides APIs that support the familiar gestures people use with thei
 
 ### Videos
 
+- [Design for touch on Mac](https://developer.apple.com/videos/play/tech-talks/111456/)
 - [Enhance your UI animations and transitions](https://developer.apple.com/videos/play/wwdc2024/10145/)
 - [Design for spatial input](https://developer.apple.com/videos/play/wwdc2023/10073/)
 
 ## Changelog
+
+### October 28, 2026
+- Added guidance for gestures and touch input in macOS.
 
 ### September 9, 2024
 - Added guidance for working with system overlays in visionOS and made organizational updates.

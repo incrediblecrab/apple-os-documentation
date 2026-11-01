@@ -38,6 +38,10 @@ Regardless of rendering mode, using system-provided colors ensures that symbols 
 
 **Confirm that a symbol's rendering mode works well in every context.** Depending on factors like the size of a symbol and its contrast with the current background color, different rendering modes can affect how well people can discern the symbol's details. You can use the automatic setting to get a symbol's preferred rendering mode, but it's still a good idea to check the results for places where a different rendering mode might improve a symbol's legibility.
 
+### Gradients
+
+In SF Symbols 7 and later, gradient rendering produces a smooth linear gradient from a single source color. Gradients work in every rendering mode, with system and custom colors, and on custom symbols. They render at any symbol size but look best at larger sizes.
+
 ### Variable color
 
 With variable color, you can represent a characteristic that can change over time — like capacity or strength — regardless of rendering mode. To visually communicate such a change, variable color applies color to different layers of a symbol as a value reaches different thresholds between zero and 100 percent.
@@ -116,6 +120,8 @@ Additionally, SF Symbols 6 and later support the following animations.
 
 **Rotate** — Rotates the symbol to act as a visual indicator or imitate an object's behavior in the real world. For example, when a task is in progress, rotation confirms that it's working as expected. The rotate animation causes some symbols to rotate entirely, while in others only certain parts of the symbol rotate. Symbols like the desk fan, for example, use the By Layer rotation option to spin only the fan blades.
 
+**Draw On / Draw Off** — In SF Symbols 7 and later, draws a symbol along a path through a set of guide points, either onto the screen (Draw On) or off it (Draw Off). You can draw all layers at once, stagger them, or draw one layer at a time. Draw animations can convey progress, as with a download, or reinforce a symbol's meaning, like the direction of an arrow.
+
 **Apply symbol animations judiciously.** While there's no limit to how many animations you can add to a view, too many animations can overwhelm an interface and distract people.
 
 **Make sure that animations serve a clear purpose in communicating a symbol's intent.** Each type of animation has a discrete movement that communicates a certain type of action or elicits a certain response. Consider how people might interpret an animated symbol and whether the animation, or combination of animations, might be confusing.
@@ -126,7 +132,7 @@ Additionally, SF Symbols 6 and later support the following animations.
 
 ### Custom symbols
 
-If you need a symbol that SF Symbols doesn't provide, you can create your own. To create a custom symbol, first export the template for a symbol that's similar to the design you want, then use a vector-editing tool to modify it. For developer guidance, see Creating custom symbol images for your app.
+If you need a symbol that SF Symbols doesn't provide, you can create your own. To create a custom symbol, first export the template for a symbol that's similar to the design you want, then use a vector-editing tool to modify it. For developer guidance, see [Creating custom symbols](https://developer.apple.com/documentation/technologyoverviews/custom-sf-symbols).
 
 > **Important:** SF Symbols includes copyrighted symbols that depict Apple products and features. You can display these symbols in your app, but you can't customize them. To help you identify a noncustomizable symbol, the SF Symbols app badges it with an Info icon; to help you use the symbol correctly, the inspector pane describes its usage restrictions.
 
@@ -167,13 +173,16 @@ No additional considerations for iOS, iPadOS, macOS, tvOS, visionOS, or watchOS.
 
 - [Symbols](https://developer.apple.com/documentation/symbols) - Symbols framework
 - [Configuring and displaying symbol images in your UI](https://developer.apple.com/documentation/uikit/configuring-and-displaying-symbol-images-in-your-ui) - UIKit
-- [Creating custom symbol images for your app](https://developer.apple.com/documentation/uikit/creating-custom-symbol-images-for-your-app) - UIKit
+- [Creating custom symbols](https://developer.apple.com/documentation/technologyoverviews/custom-sf-symbols) - Technology overview
 
 ### Videos
 
 - [What's new in SF Symbols 7](https://developer.apple.com/videos/play/wwdc2025/337)
 
 ## Changelog
+
+### July 28, 2025
+- Updated with guidance for Draw animations and gradient rendering in SF Symbols 7.
 
 ### June 10, 2024
 - Updated with guidance for new animations and features of SF Symbols 6.
