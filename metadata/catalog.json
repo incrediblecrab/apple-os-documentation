@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "as_of": "2026-10-29",
+  "as_of": "2026-11-01",
   "review_history_note": "Each document's review records the initial catalog/changed-content pass and its original limitations. Separate full-body outcomes, exact page hashes and evidence are recorded in metadata/accuracy.json; the initial scopes and dates are not silently upgraded.",
   "review_scopes": {
     "catalog-only": "Topic/source mapping checked; the body is not certified as fact-checked.",

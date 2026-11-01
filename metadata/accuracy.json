@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "as_of": "2026-10-29",
-  "recorded_at": "2026-11-01T21:50:44.223783+00:00",
+  "as_of": "2026-11-01",
+  "recorded_at": "2026-11-01T23:30:03.052702+00:00",
   "complete": true,
   "method": "AI-assisted, full-body primary-source review in disjoint page worklists, followed by editorial reconciliation of every reported outcome, exact body and capture hashes, heading and code-fence accounting, consequential primary-source spot checks, and bounded independently reproduced example checks. This record is a projection of completed reviews, not an automated factual certification.",
   "limitations": [
@@ -15,7 +15,7 @@
     "On September 23, 2026, hard-wrapped prose was joined onto single lines in 15 reviewed pages and in the generated-index paragraph template in scripts/docs.py, and those pages' content_sha256 values and 13 evidence hashes for scripts/docs.py and LICENSE were re-stamped without repeating the full-body review. The change is whitespace-only: for every re-stamped page the text with whitespace collapsed and the HTML rendered by markdown-it and by pandoc are identical before and after, and scripts/docs.py changed only by joining the seven string literals of that one paragraph with spaces. The previously reviewed bytes are at commit b5a7b58.",
     "On September 26, 2026, README.md's shared-layout edit (commit 3af78bb) received a targeted review of what it changed, recorded in that page's changes and qualifications, and the review restored the dropped limit on its MIT statement. The same day, the Catalog scope paragraph template in scripts/docs.py baseline_section was joined onto one line to match that edit, and the scripts/docs.py evidence hashes of the 11 other records citing it were re-stamped without repeating their reviews; no statement those records support with scripts/docs.py depends on the line breaks of that paragraph. The change is whitespace-only: the old and new baseline_section outputs differ only by two newlines becoming spaces inside that paragraph, and generated_indexes output is byte-identical. The previously reviewed bytes are at commit 08b6a70.",
     "On October 29, 2026, a re-fetch of all 5,969 retrieval URLs cited by reference-page reviews found raw bytes changed for 5,018 of them, largely because Apple's documentation JSON now carries availableLanguages metadata, so raw-hash drift was not used as the change signal. The worklist instead came from comparing current availability and deprecation metadata with the September 1, 2026 documentation set installed by Xcode, from the developer release feed, Apple's security-releases list, and the Xcode 27.1/27.2, OS 27.2 and Safari 27.1/27.2 release notes. 33 pages received a full-body review against captures taken that day, with editorial spot checks of the load-bearing claims; the other pages were not re-reviewed, and their source hashes still bind September captures. 13 records citing metadata/catalog.json, releases.json, claims.json or assets.json had those repository-evidence hashes refreshed and the change described in their own records; claims.json and assets.json changed only in as_of.",
-    "On November 1, 2026, the repository was compared offline with the Apple Developer Documentation set installed on macOS (MobileAsset build 10M13950, OS and Xcode 27.0, files dated September 1, 2026, the same set the October 29 pass used as its baseline), checking every documentation link, framework platform line, linked or listed symbol and top-level technology against its DocC render data; every mismatch was then checked against live DocC JSON. Seven pages (CarKey, CoreMIDI, DeviceDiscoveryExtension, MetalPerformanceShaders, MetricKit, QuartzCore, ReplayKit) presented deprecated APIs without a deprecation note, and received a full-body review against captures retrieved November 1, 2026 (UTC). Their records keep the October 29, 2026 catalog cutoff as as_of because a page cutoff may not exceed the catalog's, and each record states that its captures postdate that cutoff and cites the September 1 installed set for the pre-cutoff deprecation evidence. metadata/catalog.json, its review dates, and every other page record were not changed. Remaining low-impact Platforms-line omissions and post-cutoff catalog additions found by the same pass were not addressed."
+    "On November 1, 2026, the repository was compared offline with the Apple Developer Documentation set installed on macOS (MobileAsset build 10M13950, OS and Xcode 27.0, files dated September 1, 2026, the same set the October 29 pass used as its baseline), checking every documentation link, framework platform line, linked or listed symbol and top-level technology against its DocC render data, and every mismatch was checked against live DocC JSON. Seven pages (CarKey, CoreMIDI, DeviceDiscoveryExtension, MetalPerformanceShaders, MetricKit, QuartzCore, ReplayKit) presented deprecated APIs without a deprecation note and received a full-body review against captures retrieved that day. The catalog cutoff then moved to November 1, 2026: the release snapshot was rechecked against the developer release feed and Apple security releases list captured that day, the README and the generated indexes were re-reviewed for that change, and records citing metadata/catalog.json, releases.json, claims.json or assets.json had those repository-evidence hashes refreshed and the change described in their own records. Pages not re-reviewed keep their own earlier cutoff."
   ],
   "coordinate_conventions": {
     "lines": "One-based inclusive line ranges in the identified coordinate representation.",
@@ -176,10 +176,10 @@
     },
     {
       "path": "README.md",
-      "as_of": "2026-10-29",
+      "as_of": "2026-11-01",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "e9cce1e706cf8b130ef353fdf38ddab82e77f1efc409197057c89f013b40a11a",
+      "content_sha256": "d04a7ae9344052aae191f88f29d41c1f0650e668a106e93badb17e4d6bfb1623",
       "headings_reviewed": [
         "apple-os-documentation",
         "Start here",
@@ -274,7 +274,7 @@
             "https://developer.apple.com/news/upcoming-requirements/",
             "https://support.apple.com/en-us/118110"
           ],
-          "assessment": "Compared shipping and beta rows with the product-specific release/security records, full Xcode/macOS/Safari notes, and the exact baseline generator. Safari host/channel dates are not inherited from OS beta dates."
+          "assessment": "Compared shipping and beta rows with the product-specific release/security records, full Xcode/macOS/Safari notes, and the exact baseline generator. Safari host/channel dates are not inherited from OS beta dates. November 1, 2026: regenerated after the cutoff moved to November 1; rechecked every row against the developer release feed and Apple security releases list captured that day, which list no release after October 29, and added Xcode 27.2 build 27B52 from the feed."
         },
         {
           "heading": "Important adoption corrections",
@@ -361,7 +361,9 @@
         "Added the separate factual-audit record and explicitly non-semantic staleness gate; preserved old review-scope meanings.",
         "Stated that the root MIT License covers the original writing and code; the carve-outs for Apple material, the sample license and assets that follow it are unchanged.",
         "September 26, 2026: reviewed the shared-layout edit of commit 3af78bb (repository-name title; Objective, Inputs, Files and Try it header; License section; inline bold removed from Important adoption corrections and Coverage and confidence; Catalog scope paragraph joined onto one line, now also by the generator) and restored the limit that the MIT License covers the original writing and code in this repository, which the edit had dropped.",
-        "October 29, 2026: reviewed the regenerated baseline block against metadata/releases.json and metadata/catalog.json: the research-cutoff line, the 12 changed release rows (OS 27.2, Xcode 27.2 without a build, Safari 27.2, iOS 26 26.7.2, iPadOS 26 26.7.2, macOS Tahoe 26.7.2, tvOS 26 26.6.1) and unchanged catalog-scope counts. The hand-written prose outside the block was not changed or re-reviewed."
+        "October 29, 2026: reviewed the regenerated baseline block against metadata/releases.json and metadata/catalog.json: the research-cutoff line, the 12 changed release rows (OS 27.2, Xcode 27.2 without a build, Safari 27.2, iOS 26 26.7.2, iPadOS 26 26.7.2, macOS Tahoe 26.7.2, tvOS 26 26.6.1) and unchanged catalog-scope counts. The hand-written prose outside the block was not changed or re-reviewed.",
+        "November 1, 2026: refreshed the repository-evidence hash for metadata/catalog.json (its as_of moved from 2026-10-29 to 2026-11-01; no document mapping, owner, kind, review scope or source changed); metadata/releases.json (its as_of and every release checked_on moved to 2026-11-01 after the developer release feed and Apple security releases list were rechecked on November 1, 2026 with no release newer than October 29, and Xcode 27.2 gained build 27B52 from the feed); metadata/claims.json (only its as_of changed, to 2026-11-01); metadata/assets.json (only its as_of changed, to 2026-11-01).",
+        "November 1, 2026: reviewed the regenerated baseline block: the research-cutoff line now reads November 1, 2026, and the Xcode row shows build 27B52. No other row changed."
       ],
       "numerical_and_availability_checks": [
         "405/405 technology and 157/157 indexed HIG mappings; 406 reference pages, 158 HIG articles and 254 Figma-directory images at this snapshot.",
@@ -371,7 +373,8 @@
       ],
       "qualifications": [
         "No OS27 runtime, hosted CI, physical-device or comprehensive accessibility success is claimed.",
-        "The September 26, 2026 pass reviewed only what the shared-layout edit changed, against repository evidence; Apple-sourced statements whose wording it left unchanged were not re-checked against their primary sources."
+        "The September 26, 2026 pass reviewed only what the shared-layout edit changed, against repository evidence; Apple-sourced statements whose wording it left unchanged were not re-checked against their primary sources.",
+        "The November 1, 2026 pass rechecked the release snapshot and the upcoming-requirements statements against captures taken that day. The adoption corrections were re-read against metadata/claims.json, whose individual claims were not re-verified that day."
       ],
       "remaining_blockers": [],
       "sources": [
@@ -447,22 +450,22 @@
         },
         {
           "path": "metadata/catalog.json",
-          "sha256": "4bb562524698a988ab124bb6223c74f8446521abffaf0762094b5940be8ffdde",
+          "sha256": "ab4466ee6780e09d26be6f194e1923bf19c25e4371323d0da67a38dce0093b1b",
           "locator": "Coverage dispositions, document kinds and preserved review scopes."
         },
         {
           "path": "metadata/releases.json",
-          "sha256": "6872b7871acc32f3866e1007b30056ccffd5acc4a4501913d903cf62653c388c",
+          "sha256": "24b60c68fcbb4eee7f35dd98f464822107649f9ef97da6e11e7bbc17a1c9e7f3",
           "locator": "All sixteen independently versioned release rows, builds, dates and source routes."
         },
         {
           "path": "metadata/claims.json",
-          "sha256": "a72fbbc98b5ebd366d0075ba739ddad1d44ea57cca167240db25262d3fe9ae6f",
+          "sha256": "5c24f94b53f695326a22a291dda75fa96fd154f75de670a114246debd7cf6389",
           "locator": "Supported and unresolved high-impact claims."
         },
         {
           "path": "metadata/assets.json",
-          "sha256": "2ed454b3f8d23778c9c742986dfa43472cee864f632c651debe936d2a5d8a9ce",
+          "sha256": "b3f917030b9b30cebf64a2cb3fa6e60236820186f777e29fdc62575eb8bd2423",
           "locator": "254 Figma-directory images and explicit rights states."
         },
         {
@@ -489,6 +492,36 @@
           "path": "requirements-dev.txt",
           "sha256": "c3a75e999eb351a6333e73d415a379d71840809a6b9ec0c9d310251841aa8d87",
           "locator": "The pinned maintenance dependencies installed by the Try it and Maintain the collection commands."
+        },
+        {
+          "url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "retrieval_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "final_url": "https://developer.apple.com/news/releases/rss/releases.rss",
+          "sha256": "7fae261e1529b9ca01bd0e9aacd209bb06c06819ce6810c16bc894cf95dcc631",
+          "retrieved_at": "2026-11-01T23:28:57.796796+00:00",
+          "source_published_on": null,
+          "content_type": "application/rss+xml; charset=UTF-8",
+          "locator": "November 1, 2026 capture: newest entries App Store Connect Update (October 30, 2026), Xcode 27.2 (27B52) (October 29, 2026) and the October 26, 2026 OS 27.2 entries; no OS, Xcode or Safari release after October 29."
+        },
+        {
+          "url": "https://support.apple.com/en-us/100100",
+          "retrieval_url": "https://support.apple.com/en-us/100100",
+          "final_url": "https://support.apple.com/en-us/100100",
+          "sha256": "57f0b6e42ebe7be255a3092216a0a8f9a1c1dd8c5caf73d78f6ca268fdd52ae5",
+          "retrieved_at": "2026-11-01T23:28:57.883358+00:00",
+          "source_published_on": null,
+          "content_type": "text/html;charset=utf-8",
+          "locator": "November 1, 2026 capture: newest rows Xcode 27.2 (October 29, 2026) and the October 26, 2026 OS 27.2, 26.7.2, 18.7.11, Sequoia 15.8.2, tvOS 26.6.1 and Safari 27.2 entries; nothing later."
+        },
+        {
+          "url": "https://developer.apple.com/news/upcoming-requirements/",
+          "retrieval_url": "https://developer.apple.com/news/upcoming-requirements/",
+          "final_url": "https://developer.apple.com/news/upcoming-requirements/",
+          "sha256": "15455cece0fccc10199f8590e301f1bcd46c2d3acf1fe226a6463c70485da7b5",
+          "retrieved_at": "2026-11-01T23:28:57.729148+00:00",
+          "source_published_on": null,
+          "content_type": "text/html; charset=UTF-8",
+          "locator": "November 1, 2026 capture: iOS/iPadOS deployment-target minimum iOS 13 since September 9, 2026; SDK 26 upload minimum since April 28, 2026; age-rating questionnaire January 31, 2026; no SDK 27 upload deadline listed."
         }
       ]
     },
@@ -615,7 +648,8 @@
         "Resolved multi-hop aliases and cycles and returned the loaded canonical body's sources/review rather than alias metadata.",
         "Narrowed LiquidGlass-import advice to the documented examples.",
         "Explained the separate hash-locked, per-page-cutoff audit without relabeling catalog scopes.",
-        "October 29, 2026: repository-evidence hash refreshed without repeating the full-body review; claims.json changed only in its as_of cutoff, which this page's cited statements do not depend on."
+        "October 29, 2026: repository-evidence hash refreshed without repeating the full-body review; claims.json changed only in its as_of cutoff, which this page's cited statements do not depend on.",
+        "November 1, 2026: refreshed the repository-evidence hash for metadata/claims.json (only its as_of changed, to 2026-11-01). The statements this record supports with that evidence do not depend on the changed fields."
       ],
       "numerical_and_availability_checks": [
         "weak let belongs to Swift 6.3, not 6.4.",
@@ -695,7 +729,7 @@
         },
         {
           "path": "metadata/claims.json",
-          "sha256": "a72fbbc98b5ebd366d0075ba739ddad1d44ea57cca167240db25262d3fe9ae6f",
+          "sha256": "5c24f94b53f695326a22a291dda75fa96fd154f75de670a114246debd7cf6389",
           "locator": "Dated corrections and explicitly unresolved assertions."
         },
         {
@@ -31191,7 +31225,7 @@
     },
     {
       "path": "documentation/CarKey.md",
-      "as_of": "2026-10-29",
+      "as_of": "2026-11-01",
       "full_body_reviewed": true,
       "status": "corrected",
       "content_sha256": "d0ff90c1666d44dd1b592954f606fca5bf3a347159fcf455b23bc5da44751d93",
@@ -31301,7 +31335,7 @@
         "Root Note: com.apple.developer.carkey.session entitlement; automaker enrolled in the MFi Program; https://developer.apple.com/mfi/."
       ],
       "qualifications": [
-        "Live captures were retrieved on November 1, 2026 (UTC), after the October 29, 2026 research cutoff, and cannot establish exact cutoff bytes; the deprecation annotations relied on are also present in the September 1, 2026 installed documentation set (asset build 10M13950), so they predate the cutoff.",
+        "Live captures were retrieved on November 1, 2026 (UTC), the research cutoff of this review; the deprecation annotations relied on are also present in the September 1, 2026 installed documentation set (asset build 10M13950).",
         "Root collection and operational declarations differ in listed macOS/watchOS coverage. Header expressly uses session API annotations, not a universal hardware or entitlement promise.",
         "Apple's deprecation message names perform(enduringAction:continuationStrategy:), which matches no declaration; the page follows the deprecation summary's link and the declaration, perform(_:continuationStrategy:).",
         "Apple's RemoteKeylessEntryConfigurableEnduringAction Overview still tells readers to call the deprecated perform(_:)-7mpsy overload; that inconsistency is upstream and the page does not repeat it.",
@@ -45125,7 +45159,7 @@
     },
     {
       "path": "documentation/CoreMIDI.md",
-      "as_of": "2026-10-29",
+      "as_of": "2026-11-01",
       "full_body_reviewed": true,
       "status": "corrected",
       "content_sha256": "26fbfcfe7ff9b49873fdab63fab6d78c76439ca266e6a5ea0c87a53aea70c7f5",
@@ -45283,7 +45317,7 @@
         "kMIDIObjectType_ExternalMask: var, all seven platforms, no versions, not deprecated."
       ],
       "qualifications": [
-        "Live captures were retrieved on November 1, 2026 (UTC), after the October 29, 2026 research cutoff, and cannot establish exact cutoff bytes; the deprecation annotations relied on are also present in the September 1, 2026 installed documentation set (asset build 10M13950), so they predate the cutoff.",
+        "Live captures were retrieved on November 1, 2026 (UTC), the research cutoff of this review; the deprecation annotations relied on are also present in the September 1, 2026 installed documentation set (asset build 10M13950).",
         "Apple names no replacement for MIDICIDiscoveredNode on its symbol page; the page does not claim one. MIDICIDevice and MIDICIDeviceManager arrived in the same 18.0/15.0 releases, but no captured source calls them replacements.",
         "For the four kMIDINoteAttribute variables, the deprecation rests on the live reference flag (deprecated true) and the installed landing page's reference entries; the symbol pages give no deprecation version or message, and the installed symbol pages' own deprecationSummary is empty.",
         "kMIDIObjectType_ExternalMask is not in the live landing page's topic sections; it is kept because its symbol page places it under CoreMIDI as a Global Variable.",
@@ -53136,7 +53170,7 @@
     },
     {
       "path": "documentation/DeviceDiscoveryExtension.md",
-      "as_of": "2026-10-29",
+      "as_of": "2026-11-01",
       "full_body_reviewed": true,
       "status": "corrected",
       "content_sha256": "3d7036e785399052ca3984b93f40ed79d3825e1af66ac3b5b5559aee5d6a54f9",
@@ -53310,7 +53344,7 @@
         "All 21 symbol items under Extension, Life Cycle, Device Information and Errors, plus the sample and the enumerations group, returned 200 with no deprecationSummary; only the entitlement item is deprecated."
       ],
       "qualifications": [
-        "Live captures were retrieved on November 1, 2026 (UTC), after the October 29, 2026 research cutoff, and cannot establish exact cutoff bytes; the deprecation annotations relied on are also present in the September 1, 2026 installed documentation set (asset build 10M13950), so they predate the cutoff.",
+        "Live captures were retrieved on November 1, 2026 (UTC), the research cutoff of this review; the deprecation annotations relied on are also present in the September 1, 2026 installed documentation set (asset build 10M13950).",
         "Apple's entitlement page lists no macOS entry; the page states only that and makes no claim about whether macOS DeviceDiscoveryExtension extensions need this or another entitlement.",
         "The replacement entitlement is documented for iOS and iPadOS 27.0 only; no visionOS replacement is documented in the captured sources, and the page does not imply one.",
         "The DDDiscoveryExtensionConfigurationProtocol overview still names a DDDiscoveryExtensionConfiguration class, but that route returned 404 on November 1, 2026 and the installed macOS 27.0 Swift interface exposes only the protocol and a default opaque configuration property. A 404 is absence at that route, not proof of removal.",
@@ -86269,7 +86303,7 @@
     },
     {
       "path": "documentation/MetalPerformanceShaders.md",
-      "as_of": "2026-10-29",
+      "as_of": "2026-11-01",
       "full_body_reviewed": true,
       "status": "corrected",
       "content_sha256": "09f0a8b0600b62a63a136f6f9a6e921e04b570a07a56ed163d4536eb01ffefce",
@@ -86435,7 +86469,7 @@
         "MPSSupportsMTLDevice(_:) iOS 9.0 / macOS 10.13, MPSImage and MPSTemporaryImage iOS 10.0 / macOS 10.13, MPSKernel iOS 9.0 / macOS 10.13, MPSKeyedUnarchiver iOS 11.3 / macOS 10.13.4: none carries deprecatedAt."
       ],
       "qualifications": [
-        "Live captures were retrieved on November 1, 2026 (UTC), after the October 29, 2026 research cutoff, and cannot establish exact cutoff bytes; the deprecation annotations relied on are also present in the September 1, 2026 installed documentation set (asset build 10M13950), so they predate the cutoff.",
+        "Live captures were retrieved on November 1, 2026 (UTC), the research cutoff of this review; the deprecation annotations relied on are also present in the September 1, 2026 installed documentation set (asset build 10M13950).",
         "Apple gives no deprecation message or replacement for MPSRayIntersector or the acceleration-structure classes, so the page names none. The Metal ray-tracing sample and the MTLAccelerationStructure page were captured, but neither states that Metal's ray-tracing API replaces these MPS classes, so no replacement claim was added.",
         "Device Support is Apple's topic-section title, shown on this page as a bold item under Fundamentals; it is navigation, not a separate SDK type.",
         "The page's Deprecated heading is its own grouping; Apple lists those four classes in the Ray Tracing topic section with MPSRayIntersector. The grouping was kept to keep the edit minimal.",
@@ -87170,7 +87204,7 @@
     },
     {
       "path": "documentation/MetricKit.md",
-      "as_of": "2026-10-29",
+      "as_of": "2026-11-01",
       "full_body_reviewed": true,
       "status": "corrected",
       "content_sha256": "8aa8ccaa60a0b5762b44f5dda2aa2fe852916df522822dc487fb44379ad766c7",
@@ -87500,7 +87534,7 @@
         "Source inventory: the 20 sources from the October 29 review were re-captured November 1, 2026 with byte-identical sha256 values; 32 further captures added (28 MX symbol pages, MetricReport, DiagnosticReport, and CrashReportExtension JSON and Markdown). All 52 cited captures returned 200."
       ],
       "qualifications": [
-        "Live captures were retrieved on November 1, 2026 (UTC), after the October 29, 2026 research cutoff, and cannot establish exact cutoff bytes; the deprecation annotations relied on are also present in the September 1, 2026 installed documentation set (asset build 10M13950), so they predate the cutoff.",
+        "Live captures were retrieved on November 1, 2026 (UTC), the research cutoff of this review; the deprecation annotations relied on are also present in the September 1, 2026 installed documentation set (asset build 10M13950).",
         "All 35 listed MX symbols retain deprecatedAt 27.0 on Mac Catalyst while iOS/iPadOS/visionOS (and macOS where listed) are 27.2. MXError, MXError.Code, MXErrorDomain, and MXAppLaunchDiagnostic have no native macOS availability entry.",
         "MemoryExceptionDiagnostic's availability metadata lists only iOS/iPadOS 27.0, but its declaration platform list includes Mac Catalyst. The page now describes the metadata rather than claiming that the declaration excludes Catalyst; actual Catalyst usability was not established.",
         "The framework landing page lists Catalyst 13.0, while the concrete MX manager/subscriber list 13.1. Several listed MX types give macOS 10.15 (for example MXMetricPayload, MXDisplayMetric, MXCPUMetric, MXMetric), 11.0 (MXAppExitMetric, MXAnimationMetric), or 26.0 (MXDiskSpaceUsageMetric) as type availability, while the framework minimum and manager diagnostics are macOS 12 and manager metric delivery is macOS 26. These distinct availability scopes were not collapsed.",
@@ -99475,7 +99509,7 @@
     },
     {
       "path": "documentation/QuartzCore.md",
-      "as_of": "2026-10-29",
+      "as_of": "2026-11-01",
       "full_body_reviewed": true,
       "status": "corrected",
       "content_sha256": "28d12228c5b53cc5a7e0ed3e182c6b021d747c202364f7eac52fc4b906d84062",
@@ -99706,7 +99740,7 @@
         "Installed WatchOS 27.0 SDK: CALayer.h line 116 \"API_AVAILABLE(macos(10.5), ios(2.0), tvos(9.0)) API_UNAVAILABLE(watchos)\" on @interface CALayer; CABase.h lines 127-128 mark CACurrentMediaTime API_UNAVAILABLE(watchos)."
       ],
       "qualifications": [
-        "Live captures were retrieved on November 1, 2026 (UTC), after the October 29, 2026 research cutoff, and cannot establish exact cutoff bytes; the deprecation annotations relied on are also present in the September 1, 2026 installed documentation set (asset build 10M13950), so they predate the cutoff.",
+        "Live captures were retrieved on November 1, 2026 (UTC), the research cutoff of this review; the deprecation annotations relied on are also present in the September 1, 2026 installed documentation set (asset build 10M13950).",
         "The header paragraph cites a WatchOS 26.5 SDK from the September review; that SDK is no longer installed and was not re-read. The installed WatchOS 27.0 SDK shows the same unavailability attributes, so the sentence was left unchanged.",
         "Apple's CAEAGLLayer note does not name a replacement; the pointer to CAMetalLayer rests on Apple listing both in the same Metal and OpenGL group, not on an Apple migration statement.",
         "Most topic descriptions are Apple's one-line abstracts carried over from earlier revisions; this review checked them for accuracy and did not rewrite them.",
@@ -101986,10 +102020,10 @@
     },
     {
       "path": "documentation/README.md",
-      "as_of": "2026-10-29",
+      "as_of": "2026-11-01",
       "full_body_reviewed": true,
       "status": "verified",
-      "content_sha256": "93e34c3c93569cec2c0e964dff212146157615652a325dfbc85855e6234c0db8",
+      "content_sha256": "b00a71f0ef79b549ef74cf995e8d79873ce80bf0a02c1d80e25ef7f95206fddf",
       "headings_reviewed": [
         "Reference index",
         "Platforms and release baselines",
@@ -102215,7 +102249,9 @@
         "verification": "No code fences."
       },
       "changes": [
-        "October 29, 2026: reviewed the regenerated index against metadata/catalog.json: the catalog-snapshot date and any review-scope cells that moved from catalog-only to changed-content for pages re-reviewed that day. No other rows changed."
+        "October 29, 2026: reviewed the regenerated index against metadata/catalog.json: the catalog-snapshot date and any review-scope cells that moved from catalog-only to changed-content for pages re-reviewed that day. No other rows changed.",
+        "November 1, 2026: refreshed the repository-evidence hash for metadata/catalog.json (its as_of moved from 2026-10-29 to 2026-11-01; no document mapping, owner, kind, review scope or source changed).",
+        "November 1, 2026: reviewed the regenerated index against metadata/catalog.json after the catalog cutoff moved to November 1, 2026: only the catalog-snapshot date line changed. No row changed."
       ],
       "numerical_and_availability_checks": [
         "The index labels platform tags as navigation hints rather than symbol availability.",
@@ -102229,7 +102265,7 @@
       "sources": [
         {
           "path": "metadata/catalog.json",
-          "sha256": "4bb562524698a988ab124bb6223c74f8446521abffaf0762094b5940be8ffdde",
+          "sha256": "ab4466ee6780e09d26be6f194e1923bf19c25e4371323d0da67a38dce0093b1b",
           "locator": "All selected topic rows, owners, kinds, aliases and intentionally non-authoritative platform/release tags."
         },
         {
@@ -104448,7 +104484,7 @@
     },
     {
       "path": "documentation/ReplayKit.md",
-      "as_of": "2026-10-29",
+      "as_of": "2026-11-01",
       "full_body_reviewed": true,
       "status": "corrected",
       "content_sha256": "8aaf3ed1b480cb6c287b6311c0700427201ffe041768eee35cddb4c90d64ce6a",
@@ -104652,7 +104688,7 @@
         "Recording and Streaming Your macOS App: sample code, macOS 12.0, Xcode 13.0, not deprecated."
       ],
       "qualifications": [
-        "Live captures were retrieved on November 1, 2026 (UTC), after the October 29, 2026 research cutoff, and cannot establish exact cutoff bytes; the deprecation annotations relied on are also present in the September 1, 2026 installed documentation set (asset build 10M13950), so they predate the cutoff.",
+        "Live captures were retrieved on November 1, 2026 (UTC), the research cutoff of this review; the deprecation annotations relied on are also present in the September 1, 2026 installed documentation set (asset build 10M13950).",
         "Deprecation markers report Apple's documentation annotations; this review did not inspect SDK headers or Swift interfaces, nor test runtime behavior of the deprecated APIs.",
         "'No longer supported' is quoted as Apple's deprecation message; it is not read here as a statement that the APIs were removed or stopped working.",
         "'ReplayKit Constants' (Reference) is absent from the current live and installed framework topic sections and from the installed asset index, and two guessed routes returned 404. That shows absence at those routes and in the current topic list, not that the constants were removed; the entry is retained as an inventory category from the earlier review and its deprecation status was not determined.",
@@ -108573,7 +108609,8 @@
       "changes": [
         "Matched the actual Music Understanding and MetricKit project titles.",
         "Added the source-stated physical-device requirements for the PencilKit and MetricKit examples.",
-        "October 29, 2026: repository-evidence hash refreshed without repeating the full-body review; assets.json changed only in its as_of cutoff, which this page's cited statements do not depend on."
+        "October 29, 2026: repository-evidence hash refreshed without repeating the full-body review; assets.json changed only in its as_of cutoff, which this page's cited statements do not depend on.",
+        "November 1, 2026: refreshed the repository-evidence hash for metadata/assets.json (only its as_of changed, to 2026-11-01). The statements this record supports with that evidence do not depend on the changed fields."
       ],
       "numerical_and_availability_checks": [
         "Ten curated external projects were checked individually, not certified by the library homepage alone.",
@@ -108681,7 +108718,7 @@
         },
         {
           "path": "metadata/assets.json",
-          "sha256": "2ed454b3f8d23778c9c742986dfa43472cee864f632c651debe936d2a5d8a9ce",
+          "sha256": "b3f917030b9b30cebf64a2cb3fa6e60236820186f777e29fdc62575eb8bd2423",
           "locator": "Separate asset provenance/rights record."
         }
       ]
@@ -157271,7 +157308,8 @@
       },
       "changes": [
         "Clarified the actual SF Symbols app-icon/logo/trademark prohibition and linked its primary HIG statement.",
-        "October 29, 2026: repository-evidence hash refreshed without repeating the full-body review; assets.json changed only in its as_of cutoff, which this page's cited statements do not depend on."
+        "October 29, 2026: repository-evidence hash refreshed without repeating the full-body review; assets.json changed only in its as_of cutoff, which this page's cited statements do not depend on.",
+        "November 1, 2026: refreshed the repository-evidence hash for metadata/assets.json (only its as_of changed, to 2026-11-01). The statements this record supports with that evidence do not depend on the changed fields."
       ],
       "numerical_and_availability_checks": [
         "254 actual PNG files; 254 manifest records; all 254 SHA-256 values match.",
@@ -157590,17 +157628,17 @@
         },
         {
           "path": "metadata/assets.json",
-          "sha256": "2ed454b3f8d23778c9c742986dfa43472cee864f632c651debe936d2a5d8a9ce",
+          "sha256": "b3f917030b9b30cebf64a2cb3fa6e60236820186f777e29fdc62575eb8bd2423",
           "locator": "Repository JSON /assets/0 through /assets/253 (the 254 figma/ records, not the entire 301-record array): each /path, /sha256, /origin, /source, /kit_version, /platform, /appearance, /synchronized_on, /rights_status and /rights_note. JSON /schema_version and /as_of identify inventory format/cutoff; this is repository evidence, not an HTTP source."
         }
       ]
     },
     {
       "path": "guides/README.md",
-      "as_of": "2026-10-29",
+      "as_of": "2026-11-01",
       "full_body_reviewed": true,
       "status": "verified",
-      "content_sha256": "5e728a434cf4196d1f69d473922ae1fec0857bddf0a96501e0524027b4f2e3e7",
+      "content_sha256": "0ef0c30fea53c19f8f36c83ddab2df3eb1967864976eafa56636169fa460ca16",
       "headings_reviewed": [
         "Migration and readiness guides"
       ],
@@ -157628,7 +157666,9 @@
         "verification": "No code fences."
       },
       "changes": [
-        "October 29, 2026: reviewed the regenerated index against metadata/catalog.json: the catalog-snapshot date and any review-scope cells that moved from catalog-only to changed-content for pages re-reviewed that day. No other rows changed."
+        "October 29, 2026: reviewed the regenerated index against metadata/catalog.json: the catalog-snapshot date and any review-scope cells that moved from catalog-only to changed-content for pages re-reviewed that day. No other rows changed.",
+        "November 1, 2026: refreshed the repository-evidence hash for metadata/catalog.json (its as_of moved from 2026-10-29 to 2026-11-01; no document mapping, owner, kind, review scope or source changed).",
+        "November 1, 2026: reviewed the regenerated index against metadata/catalog.json after the catalog cutoff moved to November 1, 2026: only the catalog-snapshot date line changed. No row changed."
       ],
       "numerical_and_availability_checks": [
         "The index labels platform tags as navigation hints rather than symbol availability.",
@@ -157642,7 +157682,7 @@
       "sources": [
         {
           "path": "metadata/catalog.json",
-          "sha256": "4bb562524698a988ab124bb6223c74f8446521abffaf0762094b5940be8ffdde",
+          "sha256": "ab4466ee6780e09d26be6f194e1923bf19c25e4371323d0da67a38dce0093b1b",
           "locator": "All selected topic rows, owners, kinds, aliases and intentionally non-authoritative platform/release tags."
         },
         {
@@ -161451,10 +161491,10 @@
     },
     {
       "path": "human-interface-guidelines/README.md",
-      "as_of": "2026-10-29",
+      "as_of": "2026-11-01",
       "full_body_reviewed": true,
       "status": "verified",
-      "content_sha256": "3e3607329f0f1f31bb9afac1f978806ff5c2b3c2fe83308440383fd2f2124d27",
+      "content_sha256": "18aa5302f21425679519de07cd7656f58d951a8222b5cb674e7806a5dc4ffd6c",
       "headings_reviewed": [
         "Human Interface Guidelines index"
       ],
@@ -161482,7 +161522,9 @@
         "verification": "No code fences."
       },
       "changes": [
-        "October 29, 2026: reviewed the regenerated index against metadata/catalog.json: the catalog-snapshot date and any review-scope cells that moved from catalog-only to changed-content for pages re-reviewed that day. No other rows changed."
+        "October 29, 2026: reviewed the regenerated index against metadata/catalog.json: the catalog-snapshot date and any review-scope cells that moved from catalog-only to changed-content for pages re-reviewed that day. No other rows changed.",
+        "November 1, 2026: refreshed the repository-evidence hash for metadata/catalog.json (its as_of moved from 2026-10-29 to 2026-11-01; no document mapping, owner, kind, review scope or source changed).",
+        "November 1, 2026: reviewed the regenerated index against metadata/catalog.json after the catalog cutoff moved to November 1, 2026: only the catalog-snapshot date line changed. No row changed."
       ],
       "numerical_and_availability_checks": [
         "The index labels platform tags as navigation hints rather than symbol availability.",
@@ -161496,7 +161538,7 @@
       "sources": [
         {
           "path": "metadata/catalog.json",
-          "sha256": "4bb562524698a988ab124bb6223c74f8446521abffaf0762094b5940be8ffdde",
+          "sha256": "ab4466ee6780e09d26be6f194e1923bf19c25e4371323d0da67a38dce0093b1b",
           "locator": "All selected topic rows, owners, kinds, aliases and intentionally non-authoritative platform/release tags."
         },
         {
@@ -161515,10 +161557,10 @@
     },
     {
       "path": "human-interface-guidelines/components/README.md",
-      "as_of": "2026-10-29",
+      "as_of": "2026-11-01",
       "full_body_reviewed": true,
       "status": "verified",
-      "content_sha256": "065d7f456d1a1433cb067847f407fe413d6dee017fe691d890feb3ca0391554d",
+      "content_sha256": "8c94b9505607793bfa9ffe87bfb56da978186bffabe80089a2d7aae310e5594a",
       "headings_reviewed": [
         "Components"
       ],
@@ -161546,7 +161588,9 @@
         "verification": "No code fences."
       },
       "changes": [
-        "October 29, 2026: reviewed the regenerated index against metadata/catalog.json: the catalog-snapshot date and any review-scope cells that moved from catalog-only to changed-content for pages re-reviewed that day. No other rows changed."
+        "October 29, 2026: reviewed the regenerated index against metadata/catalog.json: the catalog-snapshot date and any review-scope cells that moved from catalog-only to changed-content for pages re-reviewed that day. No other rows changed.",
+        "November 1, 2026: refreshed the repository-evidence hash for metadata/catalog.json (its as_of moved from 2026-10-29 to 2026-11-01; no document mapping, owner, kind, review scope or source changed).",
+        "November 1, 2026: reviewed the regenerated index against metadata/catalog.json after the catalog cutoff moved to November 1, 2026: only the catalog-snapshot date line changed. No row changed."
       ],
       "numerical_and_availability_checks": [
         "The index labels platform tags as navigation hints rather than symbol availability.",
@@ -161560,7 +161604,7 @@
       "sources": [
         {
           "path": "metadata/catalog.json",
-          "sha256": "4bb562524698a988ab124bb6223c74f8446521abffaf0762094b5940be8ffdde",
+          "sha256": "ab4466ee6780e09d26be6f194e1923bf19c25e4371323d0da67a38dce0093b1b",
           "locator": "All selected topic rows, owners, kinds, aliases and intentionally non-authoritative platform/release tags."
         },
         {
@@ -209491,10 +209535,10 @@
     },
     {
       "path": "human-interface-guidelines/foundations/README.md",
-      "as_of": "2026-10-29",
+      "as_of": "2026-11-01",
       "full_body_reviewed": true,
       "status": "verified",
-      "content_sha256": "3b72c1cd830518fd283b85b88ef6ed578b8e604bf66d15c4a7d6bff90c81a296",
+      "content_sha256": "21999d45f48234b3ff4474b2b8c04856fcbe4f5121303197c660872a3382b45b",
       "headings_reviewed": [
         "Foundations"
       ],
@@ -209522,7 +209566,9 @@
         "verification": "No code fences."
       },
       "changes": [
-        "October 29, 2026: reviewed the regenerated index against metadata/catalog.json: the catalog-snapshot date and any review-scope cells that moved from catalog-only to changed-content for pages re-reviewed that day. No other rows changed."
+        "October 29, 2026: reviewed the regenerated index against metadata/catalog.json: the catalog-snapshot date and any review-scope cells that moved from catalog-only to changed-content for pages re-reviewed that day. No other rows changed.",
+        "November 1, 2026: refreshed the repository-evidence hash for metadata/catalog.json (its as_of moved from 2026-10-29 to 2026-11-01; no document mapping, owner, kind, review scope or source changed).",
+        "November 1, 2026: reviewed the regenerated index against metadata/catalog.json after the catalog cutoff moved to November 1, 2026: only the catalog-snapshot date line changed. No row changed."
       ],
       "numerical_and_availability_checks": [
         "The index labels platform tags as navigation hints rather than symbol availability.",
@@ -209536,7 +209582,7 @@
       "sources": [
         {
           "path": "metadata/catalog.json",
-          "sha256": "4bb562524698a988ab124bb6223c74f8446521abffaf0762094b5940be8ffdde",
+          "sha256": "ab4466ee6780e09d26be6f194e1923bf19c25e4371323d0da67a38dce0093b1b",
           "locator": "All selected topic rows, owners, kinds, aliases and intentionally non-authoritative platform/release tags."
         },
         {
@@ -230083,10 +230129,10 @@
     },
     {
       "path": "human-interface-guidelines/getting-started/README.md",
-      "as_of": "2026-10-29",
+      "as_of": "2026-11-01",
       "full_body_reviewed": true,
       "status": "verified",
-      "content_sha256": "df90b9882412218a12ab5eba14f0d90f42d6baa52a91a13b25a2db56f2f74676",
+      "content_sha256": "136d5a06db43c1acc23a43277039c18debd325f13246296905013e499a207b7d",
       "headings_reviewed": [
         "Getting started"
       ],
@@ -230114,7 +230160,9 @@
         "verification": "No code fences."
       },
       "changes": [
-        "October 29, 2026: reviewed the regenerated index against metadata/catalog.json: the catalog-snapshot date and any review-scope cells that moved from catalog-only to changed-content for pages re-reviewed that day. No other rows changed."
+        "October 29, 2026: reviewed the regenerated index against metadata/catalog.json: the catalog-snapshot date and any review-scope cells that moved from catalog-only to changed-content for pages re-reviewed that day. No other rows changed.",
+        "November 1, 2026: refreshed the repository-evidence hash for metadata/catalog.json (its as_of moved from 2026-10-29 to 2026-11-01; no document mapping, owner, kind, review scope or source changed).",
+        "November 1, 2026: reviewed the regenerated index against metadata/catalog.json after the catalog cutoff moved to November 1, 2026: only the catalog-snapshot date line changed. No row changed."
       ],
       "numerical_and_availability_checks": [
         "The index labels platform tags as navigation hints rather than symbol availability.",
@@ -230128,7 +230176,7 @@
       "sources": [
         {
           "path": "metadata/catalog.json",
-          "sha256": "4bb562524698a988ab124bb6223c74f8446521abffaf0762094b5940be8ffdde",
+          "sha256": "ab4466ee6780e09d26be6f194e1923bf19c25e4371323d0da67a38dce0093b1b",
           "locator": "All selected topic rows, owners, kinds, aliases and intentionally non-authoritative platform/release tags."
         },
         {
@@ -245002,10 +245050,10 @@
     },
     {
       "path": "human-interface-guidelines/inputs/README.md",
-      "as_of": "2026-10-29",
+      "as_of": "2026-11-01",
       "full_body_reviewed": true,
       "status": "verified",
-      "content_sha256": "453eccfdc7cf17498d3e373875072d857d942dd82dc2766b298637e03922b380",
+      "content_sha256": "c235b8ab055ac53d87401620246b0039fab146fc10950fdf2f4bc5ce02a43645",
       "headings_reviewed": [
         "Inputs"
       ],
@@ -245033,7 +245081,9 @@
         "verification": "No code fences."
       },
       "changes": [
-        "October 29, 2026: reviewed the regenerated index against metadata/catalog.json: the catalog-snapshot date and any review-scope cells that moved from catalog-only to changed-content for pages re-reviewed that day. No other rows changed."
+        "October 29, 2026: reviewed the regenerated index against metadata/catalog.json: the catalog-snapshot date and any review-scope cells that moved from catalog-only to changed-content for pages re-reviewed that day. No other rows changed.",
+        "November 1, 2026: refreshed the repository-evidence hash for metadata/catalog.json (its as_of moved from 2026-10-29 to 2026-11-01; no document mapping, owner, kind, review scope or source changed).",
+        "November 1, 2026: reviewed the regenerated index against metadata/catalog.json after the catalog cutoff moved to November 1, 2026: only the catalog-snapshot date line changed. No row changed."
       ],
       "numerical_and_availability_checks": [
         "The index labels platform tags as navigation hints rather than symbol availability.",
@@ -245047,7 +245097,7 @@
       "sources": [
         {
           "path": "metadata/catalog.json",
-          "sha256": "4bb562524698a988ab124bb6223c74f8446521abffaf0762094b5940be8ffdde",
+          "sha256": "ab4466ee6780e09d26be6f194e1923bf19c25e4371323d0da67a38dce0093b1b",
           "locator": "All selected topic rows, owners, kinds, aliases and intentionally non-authoritative platform/release tags."
         },
         {
@@ -254253,10 +254303,10 @@
     },
     {
       "path": "human-interface-guidelines/patterns/README.md",
-      "as_of": "2026-10-29",
+      "as_of": "2026-11-01",
       "full_body_reviewed": true,
       "status": "verified",
-      "content_sha256": "1bd15ace3d735b6c456e2b5372bd81b6b7d650f5c12e2099c96f2c10a7e6cc07",
+      "content_sha256": "acbf381d3d344eef0b9851ee356b516ac137ae180809ecaa72d38edbe5c9e630",
       "headings_reviewed": [
         "Patterns"
       ],
@@ -254284,7 +254334,9 @@
         "verification": "No code fences."
       },
       "changes": [
-        "October 29, 2026: reviewed the regenerated index against metadata/catalog.json: the catalog-snapshot date and any review-scope cells that moved from catalog-only to changed-content for pages re-reviewed that day. No other rows changed."
+        "October 29, 2026: reviewed the regenerated index against metadata/catalog.json: the catalog-snapshot date and any review-scope cells that moved from catalog-only to changed-content for pages re-reviewed that day. No other rows changed.",
+        "November 1, 2026: refreshed the repository-evidence hash for metadata/catalog.json (its as_of moved from 2026-10-29 to 2026-11-01; no document mapping, owner, kind, review scope or source changed).",
+        "November 1, 2026: reviewed the regenerated index against metadata/catalog.json after the catalog cutoff moved to November 1, 2026: only the catalog-snapshot date line changed. No row changed."
       ],
       "numerical_and_availability_checks": [
         "The index labels platform tags as navigation hints rather than symbol availability.",
@@ -254298,7 +254350,7 @@
       "sources": [
         {
           "path": "metadata/catalog.json",
-          "sha256": "4bb562524698a988ab124bb6223c74f8446521abffaf0762094b5940be8ffdde",
+          "sha256": "ab4466ee6780e09d26be6f194e1923bf19c25e4371323d0da67a38dce0093b1b",
           "locator": "All selected topic rows, owners, kinds, aliases and intentionally non-authoritative platform/release tags."
         },
         {
@@ -273614,10 +273666,10 @@
     },
     {
       "path": "human-interface-guidelines/technologies/README.md",
-      "as_of": "2026-10-29",
+      "as_of": "2026-11-01",
       "full_body_reviewed": true,
       "status": "verified",
-      "content_sha256": "3f74fd05ee9f0948d875b40754ac83fd3859ea4de78e64e1461a48cb697453a1",
+      "content_sha256": "3f643ae36ccb61b1234a3a0702a7c3884e20dd32c8158c148a5d8560123fae57",
       "headings_reviewed": [
         "Technologies"
       ],
@@ -273645,7 +273697,9 @@
         "verification": "No code fences."
       },
       "changes": [
-        "October 29, 2026: reviewed the regenerated index against metadata/catalog.json: the catalog-snapshot date and any review-scope cells that moved from catalog-only to changed-content for pages re-reviewed that day. No other rows changed."
+        "October 29, 2026: reviewed the regenerated index against metadata/catalog.json: the catalog-snapshot date and any review-scope cells that moved from catalog-only to changed-content for pages re-reviewed that day. No other rows changed.",
+        "November 1, 2026: refreshed the repository-evidence hash for metadata/catalog.json (its as_of moved from 2026-10-29 to 2026-11-01; no document mapping, owner, kind, review scope or source changed).",
+        "November 1, 2026: reviewed the regenerated index against metadata/catalog.json after the catalog cutoff moved to November 1, 2026: only the catalog-snapshot date line changed. No row changed."
       ],
       "numerical_and_availability_checks": [
         "The index labels platform tags as navigation hints rather than symbol availability.",
@@ -273659,7 +273713,7 @@
       "sources": [
         {
           "path": "metadata/catalog.json",
-          "sha256": "4bb562524698a988ab124bb6223c74f8446521abffaf0762094b5940be8ffdde",
+          "sha256": "ab4466ee6780e09d26be6f194e1923bf19c25e4371323d0da67a38dce0093b1b",
           "locator": "All selected topic rows, owners, kinds, aliases and intentionally non-authoritative platform/release tags."
         },
         {

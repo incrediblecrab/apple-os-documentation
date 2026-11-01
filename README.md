@@ -41,7 +41,7 @@ Unofficial, community-maintained Apple platform references, design guidance, and
 
 <!-- BEGIN GENERATED BASELINE -->
 
-**Research cutoff: October 29, 2026.** This is a dated snapshot, not a live latest-version service.
+**Research cutoff: November 1, 2026.** This is a dated snapshot, not a live latest-version service.
 
 | Product | Version | Status | Release date |
 |---|---|---|---|
@@ -51,7 +51,7 @@ Unofficial, community-maintained Apple platform references, design guidance, and
 | tvOS | 27.2 (`24K122`) | shipping | [October 26, 2026](https://developer.apple.com/news/releases/) |
 | watchOS | 27.2 (`24S118`) | shipping | [October 26, 2026](https://developer.apple.com/news/releases/) |
 | visionOS | 27.2 (`24N120`) | shipping | [October 26, 2026](https://developer.apple.com/news/releases/) |
-| Xcode | 27.2 | shipping | [October 29, 2026](https://support.apple.com/en-us/100100) |
+| Xcode | 27.2 (`27B52`) | shipping | [October 29, 2026](https://support.apple.com/en-us/100100) |
 | Safari | 27.2 (`20625.2.8`) | shipping | [October 26, 2026](https://developer.apple.com/documentation/safari-release-notes/safari-27_2-release-notes) |
 | iOS 26 | 26.7.2 | shipping | [October 26, 2026](https://support.apple.com/en-us/100100) |
 | iPadOS 26 | 26.7.2 (`23H128`) | shipping | [October 26, 2026](https://developer.apple.com/news/releases/) |
