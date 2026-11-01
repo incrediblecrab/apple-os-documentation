@@ -6,6 +6,8 @@ Prepare spatial apps for visionOS 27 by reviewing scene life cycles, asset deliv
 
 > **Status checked September 14, 2026:** visionOS 27.0 (`24M362`) shipped September 14. The previous 26-generation release is **visionOS 26.6.1** (`23O780`), released August 17. The [release listings](https://developer.apple.com/news/releases/) do not establish a public-beta program.
 
+> **Update checked November 1, 2026:** visionOS 27.0.1 (`24M372`) shipped September 28, 2026, and visionOS 27.2 (`24N120`) on October 26, 2026.
+
 ## Overview
 
 Windows, volumes, immersive spaces, RealityKit, and Compositor Services remain the foundation of spatial apps. The [visionOS 27 release notes](https://developer.apple.com/documentation/visionos-release-notes/visionos-27-release-notes) add specific migration work; they should not be replaced by assumptions that every iOS design or Siri feature has identical visionOS availability.
@@ -37,11 +39,11 @@ Windows, volumes, immersive spaces, RealityKit, and Compositor Services remain t
 1. Run your shipping binary and a 27-SDK rebuild separately, including any compatible iPad/iPhone app path you distribute.
 2. Test windows, ornaments, and text against varied real surroundings. Verify accessibility and comfort on hardware, not only in Simulator.
 3. Keep pre-release workarounds scoped to the affected build. A resolved ARKit, RealityKit, or streaming issue is a regression-test case, not a reason to document an API as unsupported.
-4. In **Xcode 27** (`27A266a`), Device Hub does not support viewing video from or sending input to a physical Vision Pro; other Device Hub features remain available. Apple suggests AirPlay for remote viewing. This is a tool-version limitation, not a visionOS app capability limit.
+4. In **Xcode 27** (`27A266a`), Device Hub does not support viewing video from or sending input to a physical Vision Pro; other Device Hub features remain available. Apple suggests AirPlay for remote viewing. This is a tool-version limitation, not a visionOS app capability limit. Apple's [Device Hub guide for visionOS](https://developer.apple.com/documentation/xcode/interacting-with-your-visionos-app-in-device-hub) still says you can't interact with an app on a physical device there and suggests Mac Virtual Display; the Xcode 27.2 notes list no fix.
 
 ## Devices and Toolchain
 
-**Exact visionOS 27 Vision Pro model list: not verified by the reviewed release sources.** Do not extrapolate the visionOS 26 model list or assume every sensor, streaming, or intelligence feature is available to every app.
+**visionOS 27 devices:** Apple's [security release list](https://support.apple.com/en-us/100100) gives visionOS 27, 27.0.1, and 27.2 as available for Apple Vision Pro (all models). Do not assume every sensor, streaming, or intelligence feature is available to every app.
 
 **Xcode 27** (`27A266a`), released September 14, requires **an Apple silicon Mac running macOS Tahoe 26.6 or later**, not macOS 27. Intel Macs cannot host it, regardless of Rosetta support for running Intel apps on Apple silicon. The [Xcode notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) cover both host requirements and Device Hub limitations.
 
@@ -56,7 +58,7 @@ Check out the [visionOS Pathway](https://developer.apple.com/visionos/get-starte
 
 ### Development Tools
 - [Xcode](https://developer.apple.com/xcode/) - See the version-specific host requirements above
-- [Reality Composer Pro](https://developer.apple.com/augmented-reality/tools/) - Author 3D content
+- [Reality Composer Pro](https://developer.apple.com/reality-composer-pro/) - Author 3D content
 - [TestFlight](https://developer.apple.com/testflight/) - Beta testing platform
 
 ### Documentation
@@ -80,4 +82,4 @@ Check out the [visionOS Pathway](https://developer.apple.com/visionos/get-starte
 
 ## Sources
 
-[Apple Developer releases](https://developer.apple.com/news/releases/), [visionOS 27 notes](https://developer.apple.com/documentation/visionos-release-notes/visionos-27-release-notes), and [Xcode 27 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes), with additional scoped citations above. Reviewed September 8, 2026; hardware eligibility, permissions, and version-specific behavior must be checked separately.
+[Apple Developer releases](https://developer.apple.com/news/releases/), [visionOS 27 notes](https://developer.apple.com/documentation/visionos-release-notes/visionos-27-release-notes), and [Xcode 27 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes), with additional scoped citations above. Reviewed September 8, 2026; full-body review updated November 1, 2026 against the [security release list](https://support.apple.com/en-us/100100), [release feed](https://developer.apple.com/news/releases/rss/releases.rss), [visionOS 27.2 notes](https://developer.apple.com/documentation/visionos-release-notes/visionos-27_2-release-notes), and [Xcode 27.2 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_2-release-notes). Hardware eligibility, permissions, and version-specific behavior must be checked separately.

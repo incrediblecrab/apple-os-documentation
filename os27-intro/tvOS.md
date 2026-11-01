@@ -6,6 +6,8 @@ Prepare Apple TV apps for tvOS 27 by migrating UIKit life-cycle handling, updati
 
 > **Status checked September 14, 2026:** tvOS 27.0 (`24J361`) shipped September 14. The previous 26-generation release is **tvOS 26.6** (`23L773`), released July 27.
 
+> **Update checked November 1, 2026:** tvOS 27.2 (`24K122`) shipped October 26, 2026. The same day, Apple TV HD and Apple TV 4K (1st generation) received tvOS 26.6.1; Apple's security list gives no build number for it.
+
 ## Overview
 
 The [tvOS 27 release notes](https://developer.apple.com/documentation/tvos-release-notes/tvos-27-release-notes) contain concrete migration work even for an app that adds no new features. Keep the existing living-room priorities—readable content, predictable focus, playback continuity, and multiple viewers—while validating linked-SDK changes.
@@ -36,9 +38,11 @@ UIKit apps built with the latest SDK must adopt the scene-based life cycle or fa
 
 ## Devices and Toolchain
 
-**Exact tvOS 27 model list: not verified by the reviewed release sources.** The [security release list](https://support.apple.com/en-us/100100) names Apple TV HD and Apple TV 4K for tvOS 26.6; that is not proof of tvOS 27 eligibility.
+**tvOS 27 devices:** Apple's [security release list](https://support.apple.com/en-us/100100) gives tvOS 27 (September 14, 2026) and tvOS 27.2 (October 26, 2026) as available for Apple TV 4K (2nd generation) and later. Apple TV HD and Apple TV 4K (1st generation) are not in those rows; their October 26, 2026 update was tvOS 26.6.1.
 
 **Xcode 27** (`27A266a`), released September 14, requires **an Apple silicon Mac running macOS Tahoe 26.6 or later**, not macOS 27. Intel Macs cannot host it; Rosetta execution of Intel apps on Apple silicon is a separate issue. See the [Xcode release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes).
+
+[Xcode 27.2](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_2-release-notes) (`27B52`, October 29, 2026) includes the tvOS 27.2 SDK and keeps the macOS Tahoe 26.6 host minimum. Its tvOS SDK wrongly reports 27.1 as a valid deployment target, and Apple warns that builds using it may behave unexpectedly (187160501).
 
 Since April 28, 2026, tvOS uploads require Xcode 26 or later and the tvOS 26 SDK or later. The checked [requirements page](https://developer.apple.com/news/upcoming-requirements/) gives no OS 27 SDK deadline. See [App Store readiness](../guides/app-store-readiness.md).
 
@@ -74,4 +78,4 @@ Check out the [tvOS Pathway](https://developer.apple.com/tvos/get-started/) for 
 
 ## Sources
 
-[Apple Developer releases](https://developer.apple.com/news/releases/), [tvOS 27 notes](https://developer.apple.com/documentation/tvos-release-notes/tvos-27-release-notes), and [Xcode 27 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes), with additional scoped citations above. Reviewed September 8, 2026; feature and hardware eligibility remain separate checks.
+[Apple Developer releases](https://developer.apple.com/news/releases/), [tvOS 27 notes](https://developer.apple.com/documentation/tvos-release-notes/tvos-27-release-notes), and [Xcode 27 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes), with additional scoped citations above. Reviewed September 8, 2026; full-body review updated November 1, 2026 against the [security release list](https://support.apple.com/en-us/100100), [release feed](https://developer.apple.com/news/releases/rss/releases.rss), [tvOS 27.2 notes](https://developer.apple.com/documentation/tvos-release-notes/tvos-27_2-release-notes), and [Xcode 27.2 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_2-release-notes). Feature and hardware eligibility remain separate checks.

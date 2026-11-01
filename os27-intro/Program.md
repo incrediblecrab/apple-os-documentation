@@ -1,12 +1,12 @@
 # Apple Developer Program — OS 27 Generation
 
-Use this overview to plan OS27 testing and distribution without confusing SDK availability with submission deadlines, entitlement approval, or regional eligibility. Policy statements were checked through **September 8, 2026**; dated **October 29, 2026** updates are included below.
+Use this overview to plan OS27 testing and distribution without confusing SDK availability with submission deadlines, entitlement approval, or regional eligibility. Policy statements were checked through **September 8, 2026**; dated **October 29, 2026** and **November 1, 2026** updates are included below.
 
 **Platforms:** iOS | iPadOS | macOS | tvOS | visionOS | watchOS
 
 ## Overview
 
-Apple lists annual membership fees of **$99 USD** for the Developer Program and **$299 USD** for the Enterprise Program, with local pricing where available. Enterprise membership is for eligible proprietary in-house distribution, not a general substitute for App Store distribution. Membership fees are not a universal App Store commission schedule. See [enrollment](https://developer.apple.com/support/enrollment/) and [Enterprise eligibility](https://developer.apple.com/programs/enterprise/).
+Apple lists annual membership fees of **$99 USD** for the Developer Program and **$299 USD** for the Enterprise Program, with local pricing where available. Enterprise membership is for eligible proprietary in-house distribution, not a general substitute for App Store distribution. Membership fees are not a universal App Store commission schedule. See [enrollment](https://developer.apple.com/help/account/membership/program-enrollment/) and [Enterprise eligibility](https://developer.apple.com/programs/enterprise/).
 
 Eligible nonprofit, accredited educational, and government organizations may request a [Developer Program membership fee waiver](https://developer.apple.com/help/account/membership/fee-waivers/); qualifying and continuing conditions apply.
 
@@ -22,7 +22,7 @@ An [Apple developer account](https://developer.apple.com/programs/) provides dev
 
 ### Current Shipping Releases
 
-**Checked October 29, 2026:** the point releases below follow the September general-availability releases recorded above.
+**Checked November 1, 2026:** the point releases below follow the September general-availability releases recorded above.
 
 | Platform | Version | Released |
 |----------|---------|----------|
@@ -32,10 +32,10 @@ An [Apple developer account](https://developer.apple.com/programs/) provides dev
 | tvOS | 27.2 (`24K122`) | October 26, 2026 |
 | visionOS | 27.2 (`24N120`) | October 26, 2026 |
 | watchOS | 27.2 (`24S118`) | October 26, 2026 |
-| Xcode | 27.2 (final build not listed) | October 29, 2026 |
+| Xcode | 27.2 (`27B52`) | October 29, 2026 |
 | Safari | 27.2 (`20625.2.8`) | October 26, 2026 |
 
-The release feed does not identify the device scope of the two iOS 27.2 builds. It still lists Xcode 27.2 only as RC `27B48` (October 19, 2026); the October 29, 2026 final-release date comes from Apple's security list, which gives no final build number. Xcode 27.1 (`27A9275`) was released October 15, 2026.
+The release feed does not identify the device scope of the two iOS 27.2 builds. The feed checked November 1, 2026 lists the final Xcode 27.2 build `27B52`, dated October 29, 2026, the date Apple's security list also gives; the October 19, 2026 RC (`27B48`) recorded in the October 29 check no longer appears in the feed. Xcode 27.1 (`27A9275`) was released October 15, 2026.
 
 The feed lists September 28, 2026 updates to 27.0.1 for iOS and iPadOS (`24A446`), macOS (`26A434`), watchOS (`24R365`), and visionOS (`24M372`).
 
@@ -51,7 +51,7 @@ Sources: [Apple Developer releases](https://developer.apple.com/news/releases/),
 
 **October 29, 2026 update:** a separate entry in that notice requires iOS and iPadOS uploads to target iOS 13 or later, effective **September 9, 2026**.
 
-**No OS27 SDK deadline appears in the notice checked October 29, 2026.** Do not infer one from past annual schedules. Separately, responses to the updated age-rating questionnaire for **each app** were due **January 31, 2026** to avoid interruptions when submitting updates.
+**No OS27 SDK deadline appears in the notice checked November 1, 2026.** Do not infer one from past annual schedules. Separately, responses to the updated age-rating questionnaire for **each app** were due **January 31, 2026** to avoid interruptions when submitting updates.
 
 > **Xcode 27 requires an Apple silicon Mac running macOS Tahoe 26.6 or later—not macOS 27.** Intel Macs cannot host Xcode 27. Its macOS SDK can still build universal apps for macOS 12 or later, and Rosetta can run Intel apps on eligible Apple silicon systems; neither makes Intel hardware an eligible Xcode 27 host. Source: [Xcode 27 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes).
 
@@ -135,10 +135,12 @@ For eligible organizations distributing proprietary in-house apps securely to em
 
 ## Sources
 
-[Apple Developer Program](https://developer.apple.com/programs/), [enrollment](https://developer.apple.com/support/enrollment/), [release listings](https://developer.apple.com/news/releases/), [submission requirements](https://developer.apple.com/news/upcoming-requirements/), and [App Review Guidelines](https://developer.apple.com/app-store/review/guidelines/) support the corresponding sections; the inline sources cover narrower eligibility and regional questions.
+[Apple Developer Program](https://developer.apple.com/programs/), [enrollment](https://developer.apple.com/help/account/membership/program-enrollment/), [release listings](https://developer.apple.com/news/releases/), [submission requirements](https://developer.apple.com/news/upcoming-requirements/), and [App Review Guidelines](https://developer.apple.com/app-store/review/guidelines/) support the corresponding sections; the inline sources cover narrower eligibility and regional questions.
 
 Point-release details were checked against the [release feed](https://developer.apple.com/news/releases/rss/releases.rss), [Xcode 27.1 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_1-release-notes), [Xcode 27.2 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_2-release-notes), [iOS and iPadOS 27.2 notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27_2-release-notes), [macOS 27.2 notes](https://developer.apple.com/documentation/macos-release-notes/macos-27_2-release-notes), [Safari 27.1 notes](https://developer.apple.com/documentation/safari-release-notes/safari-27_1-release-notes), and [Safari 27.2 notes](https://developer.apple.com/documentation/safari-release-notes/safari-27_2-release-notes).
 
 *Reviewed September 8, 2026 against the linked primary sources. Account-specific approval, pricing, taxes, and legal obligations require verification in the applicable current terms.*
 
 *Reviewed again October 29, 2026 against the captured primary sources.*
+
+*Reviewed again November 1, 2026: Xcode 27.2 final build, enrollment link, and the captured requirements, guidelines, and release sources.*

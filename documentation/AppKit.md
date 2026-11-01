@@ -23,6 +23,7 @@ AppKit also works with SwiftUI, so you can implement parts of your AppKit app in
 - [`NSRefreshController`](https://developer.apple.com/documentation/appkit/nsrefreshcontroller) adds pull-to-refresh to `NSScrollView` on macOS 27. Set `refreshController`, handle the target/action, and call `endRefreshing` when the work completes.
 - [`NSTextSelectionManager`](https://developer.apple.com/documentation/appkit/nstextselectionmanager) coordinates selection gestures in custom text views on macOS 27. `NSTextView` now uses gesture recognizers while retaining a compatibility path for existing `mouseDown:` overrides.
 - [`NSControl.Events`](https://developer.apple.com/documentation/appkit/nscontrol/events) is highlighted in the June 2026 update, but its current type declaration lists macOS 11+. [`NSView.beginDraggingSession(items:gesture:source:)`](https://developer.apple.com/documentation/appkit/nsview/begindraggingsession(items:gesture:source:)) requires macOS 27. Adopt recognizers for [Sidecar touch input](https://developer.apple.com/documentation/technotes/tn3212-adopting-gesture-recognizers-for-sidecar-touch-support) from an iPad running iPadOS 27 rather than assuming every interaction originates as a mouse event.
+- The [Gestures](https://developer.apple.com/documentation/appkit/gestures) collection states that, starting in macOS 27, gesture recognizers are the only way to receive direct touch input on a Mac with a touch display. AppKit still turns a single-finger tap or drag into emulated mouse events, so existing `mouseDown(with:)` overrides and tracking loops keep working, but multi-finger gestures and individual touches reach an app only through gesture recognizers; see [Adopting gesture recognizers in your app](https://developer.apple.com/documentation/appkit/adopting-gesture-recognizers-in-your-app). A custom `NSGestureRecognizer` subclass must override `location(in:)`: when you build with the macOS 27 SDK, the base implementation returns `NSZeroPoint` and logs an error.
 - Review [automatic Observation tracking in AppKit](https://developer.apple.com/documentation/appkit/updating-views-automatically-with-observation-tracking-in-appkit) so observable-model changes invalidate the appropriate view work. This integration predates 27: macOS 15 requires opting in with `NSObservationTrackingEnabled`; supported drawing/layout/constraint hooks, not arbitrary closures, perform the tracking.
 - `NSToolbarItemGroup.role` and `NSSegmentedControl.role` distinguish navigation tabs from value selection. The tab role changes VoiceOver semantics as well as appearance.
 
@@ -38,16 +39,17 @@ SwiftUI controls are not guaranteed to retain an AppKit implementation detail: t
 
 ### Build host and design
 
-[Xcode 27](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) requires an **Apple silicon Mac running macOS Tahoe 26.6 or later**, not macOS 27. Its host restriction does not prohibit building Universal output for supported older deployment targets. The build host, output architecture, SDK, and deployment target are separate choices; see [Xcode](Xcode.md) for the toolchain matrix.
+[Xcode 27](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) requires an **Apple silicon Mac running macOS Tahoe 26.6 or later**, not macOS 27; to run Xcode on an Intel-based Mac, use Xcode 26 or earlier. The host restriction does not prohibit Intel output: the macOS 27 SDK supports back-deploying Universal apps to macOS 12 and later. When a target's deployment target is macOS 27 or DriverKit 27, though, `ARCHS_STANDARD` no longer includes `x86_64`, so Xcode 27 doesn't build it Universal by default. If you still need Intel code for such a target, add `x86_64` to the Architectures (`ARCHS`) build setting, as [Porting your macOS apps to Apple silicon](https://developer.apple.com/documentation/apple-silicon/porting-your-macos-apps-to-apple-silicon) describes. The build host, output architecture, SDK, and deployment target are separate choices; see [Xcode](Xcode.md) for the toolchain matrix.
 
 `NSGlassEffectView`, `NSGlassEffectContainerView`, and `NSBackgroundExtensionView` arrived in macOS 26. Follow [Adopting Liquid Glass](https://developer.apple.com/documentation/technologyoverviews/adopting-liquid-glass), test Reduce Transparency and Increase Contrast, and review custom window chrome without relying on a fixed blur or highlight recipe. [Bundle Resources](BundleResources.md#ui-design-compatibility) documents the compatibility key's build-target limits.
 
-Sources: [AppKit updates](https://developer.apple.com/documentation/updates/appkit) and [macOS 27 release notes](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes), reviewed for the September 2026 releases. New symbols have their own availability; AppKit's minimum remains unchanged.
+Sources: [AppKit updates](https://developer.apple.com/documentation/updates/appkit), [macOS 27 release notes](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes), and [Xcode 27 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes), reviewed for the September 2026 releases and rechecked on November 1, 2026. New symbols have their own availability; AppKit's minimum remains unchanged.
 
 ## Topics
 
 ### Essentials
 - [Adopting Liquid Glass](https://developer.apple.com/documentation/technologyoverviews/adopting-liquid-glass) - Find out how to bring the new material to your app.
+- [Adopting gesture recognizers in your app](https://developer.apple.com/documentation/appkit/adopting-gesture-recognizers-in-your-app) - Replace mouse-event overrides and tracking loops with gesture recognizers that handle both mouse input and touch input on a Mac with a touch display.
 - [AppKit updates](https://developer.apple.com/documentation/updates/appkit) - Learn about important changes to AppKit.
 - [Protecting the User's Privacy](https://developer.apple.com/documentation/uikit/protecting-the-user-s-privacy) - Secure personal data, and respect user preferences for how data is used.
 - [Porting your macOS apps to Apple silicon](https://developer.apple.com/documentation/apple-silicon/porting-your-macos-apps-to-apple-silicon) - Create a version of your macOS app that runs on both Apple silicon and Intel-based Mac computers.
@@ -90,7 +92,7 @@ Sources: [AppKit updates](https://developer.apple.com/documentation/updates/appk
 - [Writing Tools](https://developer.apple.com/documentation/appkit/writing-tools) - Add support for Writing Tools to your app's text views.
 
 ### Deprecated
-- [Deprecated Symbols](https://developer.apple.com/documentation/appkit/deprecated-symbols) - Review discouraged APIs and recommended replacements; deprecation is not itself removal.
+- [Deprecated symbols](https://developer.apple.com/documentation/appkit/deprecated-symbols) - Review symbols Apple no longer actively develops and their recommended replacements; they remain available, and deprecation is not itself removal.
 
 ### Reference
 - [Enumerations](https://developer.apple.com/documentation/appkit/enumerations) - Enumerations for use with multiple classes.

@@ -27,7 +27,11 @@ The API provides resources to automate these areas of App Store Connect:
 
 The App Store Connect API returns responses from resources that are consistent JSON data and contain links to additional related resources. Use these relationships to navigate to the related resources—for example, to find beta testers within specific beta groups in TestFlight. Apply filtering to requests on specific resources to refine the response.
 
-## Service changes reviewed September 8, 2026
+## Service changes reviewed through November 1, 2026
+
+The [4.5.1 release notes](https://developer.apple.com/documentation/appstoreconnectapi/app-store-connect-api-4-5-1-release-notes), published October 6, 2026, add the [App Asset Library](https://developer.apple.com/documentation/appstoreconnectapi/app-asset-library). You upload an image or video once into the app's library, then create [placements](https://developer.apple.com/documentation/appstoreconnectapi/app-asset-library-placements) that show it on App Store version, custom product page, in-app event, and version-experiment treatment localizations. The same release deprecates the App Screenshot Sets, App Screenshots, App Preview Sets, App Previews, App Event Screenshots, and App Event Video Clips resources in favor of library images, videos, and placements; it does not announce their removal. Read placement types, dimensions, and limits from the library's reference data rather than hard-coding display types, and follow [Migrating to the App Asset Library](https://developer.apple.com/documentation/appstoreconnectapi/migrating-to-the-app-asset-library) when converting an existing integration.
+
+The [4.5 release notes](https://developer.apple.com/documentation/appstoreconnectapi/app-store-connect-api-4-5-release-notes), published September 22, 2026, add an app performance-overview endpoint, `marketSettings` and `multiSeatStatus` subscription attributes for organization sales, Game Center score and player moderation, and the `ALL` and `TWELVE_PLUS` values for `koreaAgeRatingOverride`. They deprecate the app tag `territories` relationship and its two endpoints.
 
 The [4.4.1 release notes](https://developer.apple.com/documentation/appstoreconnectapi/app-store-connect-api-4-4-1-release-notes) add discrete metadata versions for in-app purchases, subscriptions, and subscription groups. Localizations are version-scoped; in-app purchase review images and subscription promotional images attach to their respective versions. Subscription group versions have localizations, not an image relationship. Review submission items can refer to `inAppPurchaseVersion`, `subscriptionVersion`, or `subscriptionGroupVersion`.
 
@@ -45,7 +49,7 @@ Sign JWTs with ES256 and use the `appstoreconnect-v1` audience. Team tokens use 
 
 Read the returned `X-Rate-Limit` values; limits vary and use a rolling hour per API key. Handle HTTP 429 separately from authentication, permission, and validation errors. Follow pagination links and retain structured error codes and locations. Because writes affect production data, read and reconcile the relevant metadata version before retrying a timed-out mutation or submission.
 
-Asset uploads require reservation, uploading all specified byte ranges, committing the upload, and checking processing completion. Use the returned upload URLs and headers rather than forwarding the API JWT to an asset URL. `UPLOAD_COMPLETE` is not final success: processing must reach `COMPLETE`; a terminal `FAILED` asset requires a new reservation after correcting the cause.
+Asset uploads require reservation, uploading all specified byte ranges, committing the upload, and checking processing completion. Use the returned upload URLs and headers rather than forwarding the API JWT to an asset URL. In the classic flow, `UPLOAD_COMPLETE` is not final success: processing must reach `COMPLETE`; a terminal `FAILED` asset requires a new reservation after correcting the cause. App Asset Library images follow the same reserve, upload, and commit pattern, but the commit sends `uploaded` alone with no `sourceFileChecksum`, and a successfully processed image reaches `PREPARE_FOR_SUBMISSION` rather than `COMPLETE`.
 
 ## Topics
 
@@ -54,7 +58,7 @@ Asset uploads require reservation, uploading all specified byte ranges, committi
 - [Generating Tokens for API Requests](https://developer.apple.com/documentation/appstoreconnectapi/generating-tokens-for-api-requests) - Create JWTs signed with your private key.
 - [Revoking API Keys](https://developer.apple.com/documentation/appstoreconnectapi/revoking-api-keys) - Revoke unused, lost, or compromised private keys.
 - [Identifying Rate Limits](https://developer.apple.com/documentation/appstoreconnectapi/identifying-rate-limits) - Recognize and handle REST API rate limits.
-- [Uploading Assets to App Store Connect](https://developer.apple.com/documentation/appstoreconnectapi/uploading-assets-to-app-store-connect) - Upload screenshots, previews, review attachments, and routing coverage files.
+- [Uploading Assets to App Store Connect](https://developer.apple.com/documentation/appstoreconnectapi/uploading-assets-to-app-store-connect) - Reserve, upload, commit, and verify assets such as review attachments and routing coverage files; the screenshot, preview, and in-app event screenshot resources it lists are deprecated in favor of the App Asset Library.
 - [App Store Connect API Release Notes](https://developer.apple.com/documentation/appstoreconnectapi/app-store-connect-api-release-notes) - Review the service's versions independently of OS SDK releases.
 
 ### App Store
@@ -101,7 +105,7 @@ Asset uploads require reservation, uploading all specified byte ranges, committi
 - **Alternative Marketplaces and Web Distribution** - Manage keys, packages, and search for alternative app distribution.
 
 ### Endpoints
-These selected relationship endpoints return resource linkage, not full related objects. The 4.4.1 OpenAPI specification marks five as deprecated; their presence there is not a removal announcement.
+These selected relationship endpoints return resource linkage, not full related objects. The 4.4.1 OpenAPI specification marked five as deprecated, and the 4.5.1 specification still does; their presence there is not a removal announcement.
 - `GET /v1/appEncryptionDeclarations/{id}/relationships/app` — deprecated.
 - `GET /v1/appStoreVersions/{id}/relationships/appStoreVersionExperiments` — deprecated.
 - `GET /v1/apps/{id}/relationships/inAppPurchases` — deprecated.

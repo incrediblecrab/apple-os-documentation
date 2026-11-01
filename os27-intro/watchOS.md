@@ -6,6 +6,8 @@ Prepare Apple Watch apps for watchOS 27 by reviewing HealthKit zones, SwiftUI st
 
 > **Status checked September 14, 2026:** watchOS 27.0 (`24R364`) shipped September 14. The previous 26-generation release is **watchOS 26.6** (`23U67`), released July 27.
 
+> **Update checked November 1, 2026:** watchOS **27.2** (`24S118`) shipped October 26, 2026, following watchOS 27.0.1 (`24R365`, September 28, 2026). Apple's security list also records a watchOS 27.0.1 for Apple Watch Series 12 and Apple Watch Ultra 4 on September 23, 2026, without a build number. Neither the security list nor the developer feed shows a watchOS 26 release after watchOS 26.6.
+
 ## Overview
 
 The [watchOS 27 release notes](https://developer.apple.com/documentation/watchos-release-notes/watchos-27-release-notes) distinguish new API behavior from fixes to complications, connectivity, and workouts. Keep your watchOS 26 deployment and device testing decisions separate from rebuilding with the new SDK.
@@ -40,11 +42,11 @@ The 27 notes also contain resolved workout and Workout Buddy issues. Those fixes
 
 ## Devices and Toolchain
 
-**Exact watchOS 27 Watch model and companion-iPhone requirements: not verified by the reviewed sources.** Do not infer them from the watchOS 26 list or assume that each health or intelligence feature works on every eligible device.
+**Device scope checked November 1, 2026:** Apple's [security-release entries](https://support.apple.com/en-us/100100) for watchOS 27, 27.0.1 (September 28), and 27.2 list **Apple Watch Series 9 and later**; the watchOS 26.6 entry lists Series 6 and later. These entries give a range and don't name Apple Watch SE or Ultra models, so they are not a complete model list. The companion-iPhone requirement is not stated in the reviewed sources. Don't infer it from the watchOS 26 requirements or assume that each health or intelligence feature works on every eligible device.
 
 **Xcode 27** (`27A266a`), released September 14, requires **an Apple silicon Mac running macOS Tahoe 26.6 or later**. macOS 27 is not required, and Rosetta does not make Intel Macs eligible hosts. See the [Xcode notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes).
 
-Since April 28, 2026, watchOS uploads require Xcode 26 or later and the watchOS 26 SDK or later. The checked [requirements page](https://developer.apple.com/news/upcoming-requirements/) gives no OS 27 SDK deadline. See [App Store readiness](../guides/app-store-readiness.md).
+Since April 28, 2026, watchOS uploads require Xcode 26 or later and the watchOS 26 SDK or later. The [requirements page](https://developer.apple.com/news/upcoming-requirements/) checked November 1, 2026 gives no OS 27 SDK deadline. See [App Store readiness](../guides/app-store-readiness.md).
 
 ## Getting Started
 
@@ -79,4 +81,4 @@ Check out the [watchOS Pathway](https://developer.apple.com/watchos/get-started/
 
 ## Sources
 
-[Apple Developer releases](https://developer.apple.com/news/releases/), [watchOS 27 notes](https://developer.apple.com/documentation/watchos-release-notes/watchos-27-release-notes), and [Xcode 27 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes), with additional scoped citations above. Reviewed September 8, 2026; health permissions, hardware eligibility, and version-specific behavior require separate validation.
+[Apple Developer releases](https://developer.apple.com/news/releases/), [developer release feed](https://developer.apple.com/news/releases/rss/releases.rss), [Apple security releases](https://support.apple.com/en-us/100100), [watchOS 27 notes](https://developer.apple.com/documentation/watchos-release-notes/watchos-27-release-notes), and [Xcode 27 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes), with additional scoped citations above. Reviewed September 8, 2026; updated and fully reviewed November 1, 2026; health permissions, hardware eligibility, and version-specific behavior require separate validation.

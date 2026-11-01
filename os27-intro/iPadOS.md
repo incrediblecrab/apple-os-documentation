@@ -6,6 +6,8 @@ Prepare document, drawing, and productivity apps for iPadOS 27 by testing scene 
 
 > **Status checked September 14, 2026:** iPadOS 27.0 (`24A437`) shipped September 14. The previous 26-generation release is **iPadOS 26.7** (`23H24`), released September 9.
 
+> **Update checked November 1, 2026:** iPadOS **27.2** (`24B119`) shipped October 26, 2026, following iPadOS 27.0.1 (`24A446`, September 28, 2026). The latest 26-generation release is **iPadOS 26.7.2** (`23H128`, October 26, 2026), following iPadOS 26.7.1 (September 28, 2026). The developer feed dates iPadOS 26.7 (`23H24`) to September 9, 2026, while Apple's security list dates iOS and iPadOS 26.7 to September 14, 2026.
+
 ## Overview
 
 iPadOS 26's windowing and Liquid Glass work remains relevant. The 27 SDK adds concrete changes to how apps restore scenes, supply external-display content, read and write documents, and present menus. Use the [iOS & iPadOS 27 release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes) to distinguish new behavior from resolved pre-release regressions.
@@ -42,15 +44,15 @@ See [UIKit scene migration](https://developer.apple.com/documentation/uikit/tran
 2. Remove dependence on [`UIDesignRequiresCompatibility`](https://developer.apple.com/documentation/bundleresources/information-property-list/uidesignrequirescompatibility): the system ignores it for builds targeting the iPadOS 27 SDK or later. Test toolbars, sidebars, keyboard focus, and accessibility settings.
 3. Test document read/write failures, conflicting changes, cancellation, and restoration after termination; asynchronous I/O does not remove these responsibilities.
 4. Audit system-managed installation and enrollment servers for the [stricter TLS requirements](https://support.apple.com/en-us/126655). Their scope is selected system processes, not every app connection.
-5. Keep your shipping iPadOS 26 test matrix while adding iPadOS 27.0 tests. Do not raise deployment targets based on an unverified device list.
+5. Keep your shipping iPadOS 26 test matrix while adding iPadOS 27.0 tests. Do not raise deployment targets based on the iPadOS 27 device range alone: older iPads still receive iPadOS 26.7.x updates.
 
 ## Devices and Toolchain
 
-**Exact iPadOS 27 device list: not verified by the sources reviewed here.** This page does not claim that all A12-class iPads are dropped or that any particular iPad has reached its final OS release. Hardware requirements for Apple Intelligence, Pencil features, and external displays must be checked separately.
+**Device scope checked November 1, 2026:** Apple's [security-release entries](https://support.apple.com/en-us/100100) for iPadOS 27, 27.0.1, and 27.2 list iPad Pro 12.9-inch (4th generation) and later, iPad Pro 11-inch (2nd generation) and later, iPad Air (4th generation) and later, iPad (9th generation) and later, and iPad mini (6th generation) and later. The iPadOS 26.7.x entries in the same list start at iPad Pro 12.9-inch (3rd generation), iPad Pro 11-inch (1st generation), iPad Air (3rd generation), iPad (8th generation), and iPad mini (5th generation). Both are ranges, not model-by-model compatibility lists, and they don't show that any particular iPad has reached its final OS release. Hardware requirements for Apple Intelligence, Pencil features, and external displays must be checked separately.
 
 **Xcode 27** (`27A266a`), released September 14, requires **an Apple silicon Mac running macOS Tahoe 26.6 or later**, not macOS 27. It includes Swift 6.4 and the 27 SDKs. Intel-host eligibility is separate from Rosetta's ability to run Intel apps on Apple silicon. See the [Xcode release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes).
 
-Since April 28, 2026, uploads require Xcode 26 or later and the iPadOS 26 SDK or later; deployment targets can be older. The checked [Upcoming Requirements](https://developer.apple.com/news/upcoming-requirements/) page gives no OS 27 SDK deadline. See [App Store readiness](../guides/app-store-readiness.md).
+Since April 28, 2026, uploads require Xcode 26 or later and the iPadOS 26 SDK or later; deployment targets can be older than iPadOS 26. Since September 9, 2026, however, iOS and iPadOS uploads must target iOS 13 or later. The [Upcoming Requirements](https://developer.apple.com/news/upcoming-requirements/) page checked November 1, 2026 gives no OS 27 SDK deadline. See [App Store readiness](../guides/app-store-readiness.md).
 
 ## Getting Started
 
@@ -84,4 +86,4 @@ Check out the [iPadOS Pathway](https://developer.apple.com/ipados/get-started/) 
 
 ## Sources
 
-[Apple Developer releases](https://developer.apple.com/news/releases/), [iOS/iPadOS 27 notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes), and [Xcode 27 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes), with additional scoped citations above. Reviewed September 8, 2026; version-specific changes and hardware/feature eligibility must be rechecked before release.
+[Apple Developer releases](https://developer.apple.com/news/releases/), [developer release feed](https://developer.apple.com/news/releases/rss/releases.rss), [Apple security releases](https://support.apple.com/en-us/100100), [iOS/iPadOS 27 notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes), and [Xcode 27 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes), with additional scoped citations above. Reviewed September 8, 2026; updated and fully reviewed November 1, 2026; version-specific changes and hardware/feature eligibility must be rechecked before release.
