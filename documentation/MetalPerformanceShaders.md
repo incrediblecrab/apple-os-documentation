@@ -15,7 +15,7 @@ The Metal Performance Shaders framework supports the following functionality:
 - Apply high-performance filters to, and extract statistical and histogram data from images.
 - Implement and run neural networks for machine learning training and inference.
 - Solve systems of equations, factorize matrices and multiply matrices and vectors.
-- Accelerate ray tracing with high-performance ray-geometry intersection testing.
+- Accelerate ray tracing with high-performance ray-geometry intersection testing. Apple marks the MPSRayIntersector and acceleration-structure classes listed below as deprecated as of iOS, iPadOS, Mac Catalyst and tvOS 17.0, macOS 14.0 and visionOS 1.0.
 
 ## Topics
 
@@ -50,7 +50,7 @@ Implement and run deep learning using previously obtained training data.
 
 ### Ray Tracing
 - [Accelerating ray tracing and motion blur using Metal](https://developer.apple.com/documentation/metal/accelerating-ray-tracing-and-motion-blur-using-metal) - Generate ray-traced images with motion blur using GPU-based parallel processing.
-- **MPSRayIntersector** - A kernel that performs intersection tests between rays and geometry.
+- **MPSRayIntersector** (Deprecated) - A kernel that performs intersection tests between rays and geometry.
 
 ### Deprecated
 - **MPSAccelerationStructureGroup** (Deprecated) - A group of acceleration structures.

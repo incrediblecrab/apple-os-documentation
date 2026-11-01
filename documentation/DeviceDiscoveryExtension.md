@@ -22,6 +22,8 @@ Because DDE runs in a system sandbox, the extension doesn't need to ask the user
 
 That permission behavior applies to discovery inside the extension; it is not a general exemption for unrelated networking or Bluetooth calls in the containing app. Add the Boolean [`com.apple.developer.media-device-discovery-extension`](https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.media-device-discovery-extension) entitlement to the extension using Xcode's Media Device Discovery capability. Handle discovery errors and device-state changes rather than assuming a selected receiver remains reachable.
 
+**Entitlement deprecation:** Apple marks the Media Device Discovery Extension entitlement deprecated in iOS 27.0, iPadOS 27.0 and visionOS 27.0. It was introduced in iOS and iPadOS 16.0 and visionOS 1.0, and its reference page lists no macOS entry. For Media Sharing Extensions, Apple points to [`com.apple.developer.media-device-extension`](https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.media-device-extension), an iOS and iPadOS 27.0 entitlement that the [Media Device](MediaDevice.md) page describes; playback apps on that path use [AVSystemRouting](AVSystemRouting.md). Apple does not mark the DeviceDiscoveryExtension framework or the types listed below deprecated, but three `DDDevice` properties, `mediaContentTitle`, `mediaContentSubtitle` and `mediaPlaybackState`, are deprecated in iOS, iPadOS, Mac Catalyst and visionOS 27.0 with a pointer to `MediaDeviceExtension`. Deprecation is not removal.
+
 **Note:** To stream to a third-party device that you don't manufacture, bundle your app with the device discovery extension that the manufacturer provides as part of its SDK.
 
 The platform line follows the framework catalog. Some individual declarations have earlier annotations, including macOS 13 for `DDDiscoveryExtensionConfigurationProtocol`; the sample's macOS server target is not evidence of the discovery client's minimum OS.
@@ -30,7 +32,7 @@ The platform line follows the framework catalog. Some individual declarations ha
 
 ### Essentials
 - [Discovering a third-party media-streaming device](https://developer.apple.com/documentation/devicediscoveryextension/discovering-a-third-party-media-streaming-device) - Run an iOS 16 discovery client against a receiver emulated by an iOS or macOS server target.
-- **Media Device Discovery Extension** - An entitlement for an app extension that adds a specific third-party media receiver to a system device-picker UI.
+- [Media Device Discovery Extension](https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.media-device-discovery-extension) - An entitlement for an app extension that adds a specific third-party media receiver to a system device-picker UI. *(Deprecated in iOS, iPadOS and visionOS 27.0)*
 
 ### Extension
 - **DDDiscoveryExtension** - A specification that enables the framework to start and stop the extension's discovery process.

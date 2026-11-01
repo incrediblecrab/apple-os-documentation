@@ -30,7 +30,7 @@ The Wallet app maintains a list of vehicles that match your company's make, and 
 
 ### Vehicle Actions
 - **RemoteKeylessEntryAction** - An automatically ending action that you want to perform on a vehicle.
-- **RemoteKeylessEntryEnduringAction** - An action with an optional stopping point that you want to perform on a vehicle.
+- **RemoteKeylessEntryEnduringAction** - An action with an optional stopping point that you want to perform on a vehicle. Deprecated in iOS, iPadOS and Mac Catalyst 18.0, macOS 15.0 and watchOS 11.0; Apple points to [`perform(_:continuationStrategy:)`](https://developer.apple.com/documentation/carkey/carkeyremotecontrolsession/perform(_:continuationstrategy:)), which takes a `RemoteKeylessEntryConfigurableEnduringAction`.
 
 - [`FunctionIdentifier`](https://developer.apple.com/documentation/carkey/functionidentifier) - A vehicle-specific feature code.
 - [`ActionIdentifier`](https://developer.apple.com/documentation/carkey/actionidentifier) - A code for an action supported by that feature.

@@ -69,13 +69,10 @@ Core Animation manages much of the frame rendering for layer-based animations an
 
 - **CAMetalLayer** - A Core Animation layer that Metal can render into, typically displayed onscreen.
 - **CAMetalDrawable** - A Metal drawable associated with a Core Animation layer.
-- **CAEAGLLayer** - A layer that supports drawing OpenGL content in iOS and tvOS applications.
+- **CAEAGLLayer** (Deprecated) - A layer that supports drawing OpenGL content in iOS and tvOS applications. Deprecated in iOS, iPadOS, and tvOS 12.0, with Apple's note that OpenGL ES is deprecated. For Metal rendering, use CAMetalLayer, listed above.
+- **CAEDRMetadata** - Metadata describing how extended dynamic range (EDR) values should be tone mapped. Not deprecated: it is available in iOS and iPadOS 16.0+, Mac Catalyst 16.0+, macOS 10.15+, and visionOS 1.0+.
+- **CAOpenGLLayer** (Deprecated) - A layer that provides a layer suitable for rendering OpenGL content. Deprecated in macOS 10.14 and Mac Catalyst 13.1, with Apple's note that OpenGL is deprecated.
 - [CARenderer](https://developer.apple.com/documentation/quartzcore/carenderer) - Renders a layer tree into a destination such as a Metal texture. The class is not deprecated as a whole; do not infer its status from the legacy OpenGL path.
-
-### Deprecated
-
-- **CAEDRMetadata** - Metadata describing how extended dynamic range (EDR) values should be tone mapped.
-- **CAOpenGLLayer** - A layer that provides a layer suitable for rendering OpenGL content.
 
 ### ProMotion
 

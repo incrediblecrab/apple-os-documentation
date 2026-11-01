@@ -35,7 +35,7 @@ The Core MIDI framework provides APIs to communicate with MIDI (Musical Instrume
 - **MIDI2DeviceInfo**
 - **MIDICIDevice**
 - **MIDICIDeviceManager**
-- **MIDICIDiscoveredNode** - A discovered MIDI-CI node that represents a MIDI source and destination that respond to capability inquiries.
+- **MIDICIDiscoveredNode** (Deprecated) - A discovered MIDI-CI node that represents a MIDI source and destination that respond to capability inquiries.
 - **MIDIUMPCIProfile**
 - **MIDIUMPEndpoint**
 - **MIDIUMPEndpointManager**
