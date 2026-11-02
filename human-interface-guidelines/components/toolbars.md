@@ -32,6 +32,8 @@ Note: The system automatically adds an overflow menu in macOS or iPadOS when ite
 
 - **Reduce the use of toolbar backgrounds and tinted controls** - Any custom backgrounds and appearances you use might overlay or interfere with background effects that the system provides. Instead, use the content layer to inform the color and appearance of the toolbar, and use a ScrollEdgeEffectStyle when necessary to distinguish the toolbar area from the content area. This approach helps your app express its unique personality without distracting from content.
 
+- **Avoid applying a similar color to toolbar item labels and content layer backgrounds** - If the content layer already has bright, colorful content, keep the toolbar's default monochromatic appearance. For more guidance, see [Liquid Glass color](../foundations/color.md#liquid-glass-color).
+
 - **Prefer using standard components in a toolbar** - By default, standard buttons, text fields, headers, and footers have corner radii that are concentric with bar corners. If you need to create a custom component, ensure that its corner radius is also concentric with the bar's corners.
 
 - **Keep navigation and actions clearly grouped** - Separate controls that change context from actions on the current content, so each group's purpose is clear.
@@ -159,6 +161,9 @@ Use a scrolling toolbar button for an important action that isn't a primary app 
 - [Get to know the new design system](https://developer.apple.com/videos/play/wwdc2025/356)
 
 ## Changelog
+
+### December 16, 2025
+- Updated guidance for Liquid Glass.
 
 ### June 9, 2025
 - Added guidance for grouping bar items, updated guidance for using symbols, and incorporated navigation bar guidance.

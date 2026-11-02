@@ -58,6 +58,13 @@ Cellular history access requires both the Default Dialer App entitlement and the
 - [`CellularService`](https://developer.apple.com/documentation/livecommunicationkit/cellularservice) - A cellular service account used when starting or joining a conversation.
 - [`StartCellularConversationAction`](https://developer.apple.com/documentation/livecommunicationkit/startcellularconversationaction) - A request to start a cellular conversation using the default calling app.
 
+### Conversation assistance
+
+The live assistance APIs begin at iOS, iPadOS, macOS, and visionOS 27.2; the framework catalog above still lists no macOS release. A provider of interpreter, captioning, or other services for FaceTime calls ships a container app and an app extension. Each extension invocation runs in a fresh process, so keep state that must survive between calls in the keychain or App Group defaults.
+
+- [`LiveAssistanceExtension`](https://developer.apple.com/documentation/livecommunicationkit/liveassistanceextension) - The app-extension protocol whose `prepareAssistanceRequest(_:)` and `resumeRequest(_:)` methods handle a person's assistance request for a call.
+- [`LiveAssistance`](https://developer.apple.com/documentation/livecommunicationkit/liveassistance) - Container-app APIs: the user activity the framework uses to launch the app when the extension needs sign-in or other input, and `returnToCall(requestID:)` to resume the request.
+
 ---
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/LiveCommunicationKit)*

@@ -2,7 +2,7 @@
 
 Include your app's content in search results that visual intelligence provides.
 
-**Platforms:** iOS 26.0+ | iPadOS 26.0+ | Mac Catalyst 26.0+ | macOS 27.0+ (beta)
+**Platforms:** iOS 26.0+ | iPadOS 26.0+ | Mac Catalyst 26.0+ | macOS 27.0+
 
 ## Overview
 

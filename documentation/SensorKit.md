@@ -4,6 +4,8 @@ Retrieve data and derived metrics from sensors on an iPhone, or paired Apple Wat
 
 **Platforms:** iOS 14.0+ | iPadOS 14.0+
 
+**Platform qualification:** Apple's framework catalog and SensorKit's type declarations also list Mac Catalyst (14.0 for the framework; 13.1 for `SRSensorReader`), but the framework ignores calls from Mac Catalyst apps, as the note below states. This page therefore omits Mac Catalyst as a runtime platform.
+
 ## Overview
 
 As the system gathers information using various sensors on a device, SensorKit enables an app to access select raw data, or metrics that the system processes from a sensor, such as:

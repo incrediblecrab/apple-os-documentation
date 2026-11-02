@@ -26,7 +26,7 @@ To support racing wheel devices in your macOS app, see Racing wheel device suppo
 
 ## OS 27 controller testing
 
-The [iOS and iPadOS](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes#Game-Controller) and [macOS](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes#Game-Controller) Beta 8 notes checked September 8, 2026 add support for the **PlayStation Access controller** on those three platforms, including device-local custom input profiles (168071382). Do not extend that announcement to tvOS or visionOS without separate support evidence.
+The [iOS and iPadOS](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes#Game-Controller) and [macOS](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes#Game-Controller) 27 release notes, rechecked November 1, 2026, add support for the **PlayStation Access controller** on those three platforms, including device-local custom input profiles (168071382). Do not extend that announcement to tvOS or visionOS without separate support evidence.
 
 The macOS notes mark lightbar changes persisting after focus loss (163514369) and incorrect `supportsHIDDevice:` results shortly after connection (176985783) as **resolved**. Keep focus changes, device connection, and profile remapping in the regression suite rather than describing these defects as ongoing limitations.
 
@@ -36,7 +36,7 @@ For spatial controllers and styli, follow [Apple's discovery and tracking guide]
 - Obtain input through Game Controller and spatial tracking through ARKit or RealityKit. Accessory transforms require the documented `NSAccessoryTrackingUsageDescription` and tracking authorization.
 - Use the accessory's supported locations and inputs rather than assuming every controller has the same buttons, haptics, or tracking points.
 
-The [visionOS 27 Bluetooth notes](https://developer.apple.com/documentation/visionos-release-notes/visionos-27-release-notes#Bluetooth) still list initial spatial-accessory tracking failure after pairing as a **known issue** (181827411), with an accessory or Bluetooth off/on cycle as the workaround. This is separate from the resolved macOS controller issues.
+The [visionOS 27 Bluetooth notes](https://developer.apple.com/documentation/visionos-release-notes/visionos-27-release-notes#Bluetooth) still list initial spatial-accessory tracking failure after pairing as a **known issue** (181827411), with an accessory or Bluetooth off/on cycle as the workaround. The same notes mark a different issue as **resolved**: spatial accessories such as the Logitech Muse stylus or PSVR2 controllers could stop registering input or being tracked during use (177983488). Both are separate from the resolved macOS controller issues.
 
 ## Topics
 

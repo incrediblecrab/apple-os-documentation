@@ -48,6 +48,10 @@ It also describes [`UITextAttachmentViewProviderReusePolicy`](https://developer.
 
 Compositional-layout section-provider closures now participate in automatic Observation tracking. `UIRefreshControl` and `UIStepper` gain full support in the Mac Catalyst Mac idiom. For SwiftUI-hosted scenes, use [`UIHostingSceneDelegate`](https://developer.apple.com/documentation/swiftui/uihostingscenedelegate), available since iOS/iPadOS/Mac Catalyst/visionOS 26 and newly available on tvOS 27.
 
+### 27.1 additions
+
+The [September 2026 UIKit update](https://developer.apple.com/documentation/updates/uikit) adds APIs whose symbol pages list iOS, iPadOS, Mac Catalyst, tvOS, and visionOS 27.1+, not 27.0. [`UIArrangementViewController`](https://developer.apple.com/documentation/uikit/uiarrangementviewcontroller) places primary and secondary view controllers in split or overlay arrangements. [`UIView.ReservedRegion`](https://developer.apple.com/documentation/uikit/uiview/reservedregion) and [`reservedRegions(kind:options:)`](https://developer.apple.com/documentation/uikit/uiview/reservedregions(kind:options:)) identify parts of a view that hardware, such as a camera or hinge, occupies or divides. [`UIHingeInteraction`](https://developer.apple.com/documentation/uikit/uihingeinteraction) delivers [`UIHinge`](https://developer.apple.com/documentation/uikit/uihinge) angle and state updates. Bar content on the vertical axis is controlled with [`preferredVerticalBarBehavior`](https://developer.apple.com/documentation/uikit/uiviewcontroller/preferredverticalbarbehavior), [`verticalBarEdge`](https://developer.apple.com/documentation/uikit/uitraitcollection/verticalbaredge), [`UIBarButtonItem.axisBehavior`](https://developer.apple.com/documentation/uikit/uibarbuttonitem/axisbehavior-swift.property), and [`UINavigationItem.verticalBarCompressionBehavior`](https://developer.apple.com/documentation/uikit/uinavigationitem/verticalbarcompressionbehavior). The camera-capture scene accessory, [`cameraCapture(sceneConfiguration:)`](https://developer.apple.com/documentation/uikit/uisceneaccessory/cameracapture(sceneconfiguration:)), lists only iOS, iPadOS, and Mac Catalyst 27.1+. Check availability before calling these APIs from code whose deployment target is below 27.1.
+
 ### Liquid Glass and validation
 
 [`UIGlassEffect`](https://developer.apple.com/documentation/uikit/uiglasseffect) and [`UIGlassContainerEffect`](https://developer.apple.com/documentation/uikit/uiglasscontainereffect) list iOS/iPadOS/Mac Catalyst/tvOS 26+. [`UIBackgroundExtensionView`](https://developer.apple.com/documentation/uikit/uibackgroundextensionview) also lists visionOS 26+. These are UIKit APIs, not an independent Liquid Glass module or a blanket watchOS/visionOS glass API surface.
@@ -56,7 +60,7 @@ Prefer system controls; use custom effects only where the [Liquid Glass adoption
 
 Test scene connection and reconnection, deep links, restoration, background/foreground transitions, window resizing, text selection, and legibility with Reduce Transparency and Increase Contrast. See [XCUIAutomation](XCUIAutomation.md) for test tooling.
 
-Sources: [iOS & iPadOS 27 release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes) and [UIKit updates](https://developer.apple.com/documentation/updates/uikit). These are September 2026 beta changes, not a new minimum version for UIKit.
+Sources: [iOS & iPadOS 27 release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes) and [UIKit updates](https://developer.apple.com/documentation/updates/uikit). These are OS 27 SDK changes, not a new minimum version for UIKit.
 
 ## Topics
 

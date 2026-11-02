@@ -153,203 +153,205 @@ SF Compact is the system font in watchOS, and apps can also use NY. In complicat
 
 ## Specifications
 
+You can display an emphasized variant of a system text style through symbolic traits: in SwiftUI, use the bold() modifier; in UIKit, use traitBold with the UIFontDescriptor API. Emphasized weights can be medium, semibold, bold, or heavy. The iOS, iPadOS, macOS, and tvOS tables below list the emphasized weight for each text style.
+
 ### iOS, iPadOS Dynamic Type sizes
 
 #### xSmall
 
-| Style | Weight | Size (points) | Leading (points) |
-|-------|--------|---------------|------------------|
-| Large Title | Regular | 31 | 38 |
-| Title 1 | Regular | 25 | 31 |
-| Title 2 | Regular | 19 | 24 |
-| Title 3 | Regular | 17 | 22 |
-| Headline | Semibold | 14 | 19 |
-| Body | Regular | 14 | 19 |
-| Callout | Regular | 13 | 18 |
-| Subhead | Regular | 12 | 16 |
-| Footnote | Regular | 12 | 16 |
-| Caption 1 | Regular | 11 | 13 |
-| Caption 2 | Regular | 11 | 13 |
+| Style | Weight | Size (points) | Leading (points) | Emphasized weight |
+|-------|--------|---------------|------------------|-------------------|
+| Large Title | Regular | 31 | 38 | Bold |
+| Title 1 | Regular | 25 | 31 | Bold |
+| Title 2 | Regular | 19 | 24 | Bold |
+| Title 3 | Regular | 17 | 22 | Semibold |
+| Headline | Semibold | 14 | 19 | Semibold |
+| Body | Regular | 14 | 19 | Semibold |
+| Callout | Regular | 13 | 18 | Semibold |
+| Subhead | Regular | 12 | 16 | Semibold |
+| Footnote | Regular | 12 | 16 | Semibold |
+| Caption 1 | Regular | 11 | 13 | Semibold |
+| Caption 2 | Regular | 11 | 13 | Semibold |
 
 Point size based on image resolution of 144 ppi for @2x and 216 ppi for @3x designs.
 
 #### Small
 
-| Style | Weight | Size (points) | Leading (points) |
-|-------|--------|---------------|------------------|
-| Large Title | Regular | 32 | 39 |
-| Title 1 | Regular | 26 | 32 |
-| Title 2 | Regular | 20 | 25 |
-| Title 3 | Regular | 18 | 23 |
-| Headline | Semibold | 15 | 20 |
-| Body | Regular | 15 | 20 |
-| Callout | Regular | 14 | 19 |
-| Subhead | Regular | 13 | 18 |
-| Footnote | Regular | 12 | 16 |
-| Caption 1 | Regular | 11 | 13 |
-| Caption 2 | Regular | 11 | 13 |
+| Style | Weight | Size (points) | Leading (points) | Emphasized weight |
+|-------|--------|---------------|------------------|-------------------|
+| Large Title | Regular | 32 | 39 | Bold |
+| Title 1 | Regular | 26 | 32 | Bold |
+| Title 2 | Regular | 20 | 25 | Bold |
+| Title 3 | Regular | 18 | 23 | Semibold |
+| Headline | Semibold | 15 | 20 | Semibold |
+| Body | Regular | 15 | 20 | Semibold |
+| Callout | Regular | 14 | 19 | Semibold |
+| Subhead | Regular | 13 | 18 | Semibold |
+| Footnote | Regular | 12 | 16 | Semibold |
+| Caption 1 | Regular | 11 | 13 | Semibold |
+| Caption 2 | Regular | 11 | 13 | Semibold |
 
 #### Medium
 
-| Style | Weight | Size (points) | Leading (points) |
-|-------|--------|---------------|------------------|
-| Large Title | Regular | 33 | 40 |
-| Title 1 | Regular | 27 | 33 |
-| Title 2 | Regular | 21 | 26 |
-| Title 3 | Regular | 19 | 24 |
-| Headline | Semibold | 16 | 21 |
-| Body | Regular | 16 | 21 |
-| Callout | Regular | 15 | 20 |
-| Subhead | Regular | 14 | 19 |
-| Footnote | Regular | 12 | 16 |
-| Caption 1 | Regular | 11 | 13 |
-| Caption 2 | Regular | 11 | 13 |
+| Style | Weight | Size (points) | Leading (points) | Emphasized weight |
+|-------|--------|---------------|------------------|-------------------|
+| Large Title | Regular | 33 | 40 | Bold |
+| Title 1 | Regular | 27 | 33 | Bold |
+| Title 2 | Regular | 21 | 26 | Bold |
+| Title 3 | Regular | 19 | 24 | Semibold |
+| Headline | Semibold | 16 | 21 | Semibold |
+| Body | Regular | 16 | 21 | Semibold |
+| Callout | Regular | 15 | 20 | Semibold |
+| Subhead | Regular | 14 | 19 | Semibold |
+| Footnote | Regular | 12 | 16 | Semibold |
+| Caption 1 | Regular | 11 | 13 | Semibold |
+| Caption 2 | Regular | 11 | 13 | Semibold |
 
 #### Large (default)
 
-| Style | Weight | Size (points) | Leading (points) |
-|-------|--------|---------------|------------------|
-| Large Title | Regular | 34 | 41 |
-| Title 1 | Regular | 28 | 34 |
-| Title 2 | Regular | 22 | 28 |
-| Title 3 | Regular | 20 | 25 |
-| Headline | Semibold | 17 | 22 |
-| Body | Regular | 17 | 22 |
-| Callout | Regular | 16 | 21 |
-| Subhead | Regular | 15 | 20 |
-| Footnote | Regular | 13 | 18 |
-| Caption 1 | Regular | 12 | 16 |
-| Caption 2 | Regular | 11 | 13 |
+| Style | Weight | Size (points) | Leading (points) | Emphasized weight |
+|-------|--------|---------------|------------------|-------------------|
+| Large Title | Regular | 34 | 41 | Bold |
+| Title 1 | Regular | 28 | 34 | Bold |
+| Title 2 | Regular | 22 | 28 | Bold |
+| Title 3 | Regular | 20 | 25 | Semibold |
+| Headline | Semibold | 17 | 22 | Semibold |
+| Body | Regular | 17 | 22 | Semibold |
+| Callout | Regular | 16 | 21 | Semibold |
+| Subhead | Regular | 15 | 20 | Semibold |
+| Footnote | Regular | 13 | 18 | Semibold |
+| Caption 1 | Regular | 12 | 16 | Semibold |
+| Caption 2 | Regular | 11 | 13 | Semibold |
 
 #### xLarge
 
-| Style | Weight | Size (points) | Leading (points) |
-|-------|--------|---------------|------------------|
-| Large Title | Regular | 36 | 43 |
-| Title 1 | Regular | 30 | 37 |
-| Title 2 | Regular | 24 | 30 |
-| Title 3 | Regular | 22 | 28 |
-| Headline | Semibold | 19 | 24 |
-| Body | Regular | 19 | 24 |
-| Callout | Regular | 18 | 23 |
-| Subhead | Regular | 17 | 22 |
-| Footnote | Regular | 15 | 20 |
-| Caption 1 | Regular | 14 | 19 |
-| Caption 2 | Regular | 13 | 18 |
+| Style | Weight | Size (points) | Leading (points) | Emphasized weight |
+|-------|--------|---------------|------------------|-------------------|
+| Large Title | Regular | 36 | 43 | Bold |
+| Title 1 | Regular | 30 | 37 | Bold |
+| Title 2 | Regular | 24 | 30 | Bold |
+| Title 3 | Regular | 22 | 28 | Semibold |
+| Headline | Semibold | 19 | 24 | Semibold |
+| Body | Regular | 19 | 24 | Semibold |
+| Callout | Regular | 18 | 23 | Semibold |
+| Subhead | Regular | 17 | 22 | Semibold |
+| Footnote | Regular | 15 | 20 | Semibold |
+| Caption 1 | Regular | 14 | 19 | Semibold |
+| Caption 2 | Regular | 13 | 18 | Semibold |
 
 #### xxLarge
 
-| Style | Weight | Size (points) | Leading (points) |
-|-------|--------|---------------|------------------|
-| Large Title | Regular | 38 | 46 |
-| Title 1 | Regular | 32 | 39 |
-| Title 2 | Regular | 26 | 32 |
-| Title 3 | Regular | 24 | 30 |
-| Headline | Semibold | 21 | 26 |
-| Body | Regular | 21 | 26 |
-| Callout | Regular | 20 | 25 |
-| Subhead | Regular | 19 | 24 |
-| Footnote | Regular | 17 | 22 |
-| Caption 1 | Regular | 16 | 21 |
-| Caption 2 | Regular | 15 | 20 |
+| Style | Weight | Size (points) | Leading (points) | Emphasized weight |
+|-------|--------|---------------|------------------|-------------------|
+| Large Title | Regular | 38 | 46 | Bold |
+| Title 1 | Regular | 32 | 39 | Bold |
+| Title 2 | Regular | 26 | 32 | Bold |
+| Title 3 | Regular | 24 | 30 | Semibold |
+| Headline | Semibold | 21 | 26 | Semibold |
+| Body | Regular | 21 | 26 | Semibold |
+| Callout | Regular | 20 | 25 | Semibold |
+| Subhead | Regular | 19 | 24 | Semibold |
+| Footnote | Regular | 17 | 22 | Semibold |
+| Caption 1 | Regular | 16 | 21 | Semibold |
+| Caption 2 | Regular | 15 | 20 | Semibold |
 
 #### xxxLarge
 
-| Style | Weight | Size (points) | Leading (points) |
-|-------|--------|---------------|------------------|
-| Large Title | Regular | 40 | 48 |
-| Title 1 | Regular | 34 | 41 |
-| Title 2 | Regular | 28 | 34 |
-| Title 3 | Regular | 26 | 32 |
-| Headline | Semibold | 23 | 29 |
-| Body | Regular | 23 | 29 |
-| Callout | Regular | 22 | 28 |
-| Subhead | Regular | 21 | 28 |
-| Footnote | Regular | 19 | 24 |
-| Caption 1 | Regular | 18 | 23 |
-| Caption 2 | Regular | 17 | 22 |
+| Style | Weight | Size (points) | Leading (points) | Emphasized weight |
+|-------|--------|---------------|------------------|-------------------|
+| Large Title | Regular | 40 | 48 | Bold |
+| Title 1 | Regular | 34 | 41 | Bold |
+| Title 2 | Regular | 28 | 34 | Bold |
+| Title 3 | Regular | 26 | 32 | Semibold |
+| Headline | Semibold | 23 | 29 | Semibold |
+| Body | Regular | 23 | 29 | Semibold |
+| Callout | Regular | 22 | 28 | Semibold |
+| Subhead | Regular | 21 | 28 | Semibold |
+| Footnote | Regular | 19 | 24 | Semibold |
+| Caption 1 | Regular | 18 | 23 | Semibold |
+| Caption 2 | Regular | 17 | 22 | Semibold |
 
 ### iOS, iPadOS larger accessibility type sizes
 
 #### AX1
 
-| Style | Weight | Size (points) | Leading (points) |
-|-------|--------|---------------|------------------|
-| Large Title | Regular | 44 | 52 |
-| Title 1 | Regular | 38 | 46 |
-| Title 2 | Regular | 34 | 41 |
-| Title 3 | Regular | 31 | 38 |
-| Headline | Semibold | 28 | 34 |
-| Body | Regular | 28 | 34 |
-| Callout | Regular | 26 | 32 |
-| Subhead | Regular | 25 | 31 |
-| Footnote | Regular | 23 | 29 |
-| Caption 1 | Regular | 22 | 28 |
-| Caption 2 | Regular | 20 | 25 |
+| Style | Weight | Size (points) | Leading (points) | Emphasized weight |
+|-------|--------|---------------|------------------|-------------------|
+| Large Title | Regular | 44 | 52 | Bold |
+| Title 1 | Regular | 38 | 46 | Bold |
+| Title 2 | Regular | 34 | 41 | Bold |
+| Title 3 | Regular | 31 | 38 | Semibold |
+| Headline | Semibold | 28 | 34 | Semibold |
+| Body | Regular | 28 | 34 | Semibold |
+| Callout | Regular | 26 | 32 | Semibold |
+| Subhead | Regular | 25 | 31 | Semibold |
+| Footnote | Regular | 23 | 29 | Semibold |
+| Caption 1 | Regular | 22 | 28 | Semibold |
+| Caption 2 | Regular | 20 | 25 | Semibold |
 
 #### AX2
 
-| Style | Weight | Size (points) | Leading (points) |
-|-------|--------|---------------|------------------|
-| Large Title | Regular | 48 | 57 |
-| Title 1 | Regular | 43 | 51 |
-| Title 2 | Regular | 39 | 47 |
-| Title 3 | Regular | 37 | 44 |
-| Headline | Semibold | 33 | 40 |
-| Body | Regular | 33 | 40 |
-| Callout | Regular | 32 | 39 |
-| Subhead | Regular | 30 | 37 |
-| Footnote | Regular | 27 | 33 |
-| Caption 1 | Regular | 26 | 32 |
-| Caption 2 | Regular | 24 | 30 |
+| Style | Weight | Size (points) | Leading (points) | Emphasized weight |
+|-------|--------|---------------|------------------|-------------------|
+| Large Title | Regular | 48 | 57 | Bold |
+| Title 1 | Regular | 43 | 51 | Bold |
+| Title 2 | Regular | 39 | 47 | Bold |
+| Title 3 | Regular | 37 | 44 | Semibold |
+| Headline | Semibold | 33 | 40 | Semibold |
+| Body | Regular | 33 | 40 | Semibold |
+| Callout | Regular | 32 | 39 | Semibold |
+| Subhead | Regular | 30 | 37 | Semibold |
+| Footnote | Regular | 27 | 33 | Semibold |
+| Caption 1 | Regular | 26 | 32 | Semibold |
+| Caption 2 | Regular | 24 | 30 | Semibold |
 
 #### AX3
 
-| Style | Weight | Size (points) | Leading (points) |
-|-------|--------|---------------|------------------|
-| Large Title | Regular | 52 | 61 |
-| Title 1 | Regular | 48 | 57 |
-| Title 2 | Regular | 44 | 52 |
-| Title 3 | Regular | 43 | 51 |
-| Headline | Semibold | 40 | 48 |
-| Body | Regular | 40 | 48 |
-| Callout | Regular | 38 | 46 |
-| Subhead | Regular | 36 | 43 |
-| Footnote | Regular | 33 | 40 |
-| Caption 1 | Regular | 32 | 39 |
-| Caption 2 | Regular | 29 | 35 |
+| Style | Weight | Size (points) | Leading (points) | Emphasized weight |
+|-------|--------|---------------|------------------|-------------------|
+| Large Title | Regular | 52 | 61 | Bold |
+| Title 1 | Regular | 48 | 57 | Bold |
+| Title 2 | Regular | 44 | 52 | Bold |
+| Title 3 | Regular | 43 | 51 | Semibold |
+| Headline | Semibold | 40 | 48 | Semibold |
+| Body | Regular | 40 | 48 | Semibold |
+| Callout | Regular | 38 | 46 | Semibold |
+| Subhead | Regular | 36 | 43 | Semibold |
+| Footnote | Regular | 33 | 40 | Semibold |
+| Caption 1 | Regular | 32 | 39 | Semibold |
+| Caption 2 | Regular | 29 | 35 | Semibold |
 
 #### AX4
 
-| Style | Weight | Size (points) | Leading (points) |
-|-------|--------|---------------|------------------|
-| Large Title | Regular | 56 | 66 |
-| Title 1 | Regular | 53 | 62 |
-| Title 2 | Regular | 50 | 59 |
-| Title 3 | Regular | 49 | 58 |
-| Headline | Semibold | 47 | 56 |
-| Body | Regular | 47 | 56 |
-| Callout | Regular | 44 | 52 |
-| Subhead | Regular | 42 | 50 |
-| Footnote | Regular | 38 | 46 |
-| Caption 1 | Regular | 37 | 44 |
-| Caption 2 | Regular | 34 | 41 |
+| Style | Weight | Size (points) | Leading (points) | Emphasized weight |
+|-------|--------|---------------|------------------|-------------------|
+| Large Title | Regular | 56 | 66 | Bold |
+| Title 1 | Regular | 53 | 62 | Bold |
+| Title 2 | Regular | 50 | 59 | Bold |
+| Title 3 | Regular | 49 | 58 | Semibold |
+| Headline | Semibold | 47 | 56 | Semibold |
+| Body | Regular | 47 | 56 | Semibold |
+| Callout | Regular | 44 | 52 | Semibold |
+| Subhead | Regular | 42 | 50 | Semibold |
+| Footnote | Regular | 38 | 46 | Semibold |
+| Caption 1 | Regular | 37 | 44 | Semibold |
+| Caption 2 | Regular | 34 | 41 | Semibold |
 
 #### AX5
 
-| Style | Weight | Size (points) | Leading (points) |
-|-------|--------|---------------|------------------|
-| Large Title | Regular | 60 | 70 |
-| Title 1 | Regular | 58 | 68 |
-| Title 2 | Regular | 56 | 66 |
-| Title 3 | Regular | 55 | 65 |
-| Headline | Semibold | 53 | 62 |
-| Body | Regular | 53 | 62 |
-| Callout | Regular | 51 | 60 |
-| Subhead | Regular | 49 | 58 |
-| Footnote | Regular | 44 | 52 |
-| Caption 1 | Regular | 43 | 51 |
-| Caption 2 | Regular | 40 | 48 |
+| Style | Weight | Size (points) | Leading (points) | Emphasized weight |
+|-------|--------|---------------|------------------|-------------------|
+| Large Title | Regular | 60 | 70 | Bold |
+| Title 1 | Regular | 58 | 68 | Bold |
+| Title 2 | Regular | 56 | 66 | Bold |
+| Title 3 | Regular | 55 | 65 | Semibold |
+| Headline | Semibold | 53 | 62 | Semibold |
+| Body | Regular | 53 | 62 | Semibold |
+| Callout | Regular | 51 | 60 | Semibold |
+| Subhead | Regular | 49 | 58 | Semibold |
+| Footnote | Regular | 44 | 52 | Semibold |
+| Caption 1 | Regular | 43 | 51 | Semibold |
+| Caption 2 | Regular | 40 | 48 | Semibold |
 
 Point size based on image resolution of 144 ppi for @2x and 216 ppi for @3x designs.
 
@@ -389,7 +391,7 @@ Point size based on image resolution of 72 ppi for @1x and 144 ppi for @2x desig
 
 ### watchOS Dynamic Type sizes
 
-Tables available in the original document contain detailed watchOS text style specifications for xSmall through xxxLarge sizes, and AX1 through AX3 accessibility sizes.
+Tables available in the original document contain detailed watchOS text style specifications for xSmall through xxxLarge sizes, and AX1 through AX3 accessibility sizes, including the emphasized weight for each style.
 
 ### Tracking values
 
@@ -402,6 +404,9 @@ Detailed tracking value tables are available in the original document for:
 Not all apps express tracking values as 1/1000 em. Point size based on image resolution specifications vary by platform.
 
 ## Changelog
+
+### December 16, 2025
+- Added emphasized weights to the Dynamic Type style specifications for each platform.
 
 ### March 7, 2025
 - Expanded guidance for Dynamic Type.

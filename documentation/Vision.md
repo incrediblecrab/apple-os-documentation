@@ -24,7 +24,7 @@ To begin using the Swift API, create a request for the type of analysis you want
 
 [`OCRTool`](https://developer.apple.com/documentation/vision/ocrtool.md) and [`BarcodeReaderTool`](https://developer.apple.com/documentation/vision/barcodereadertool.md) conform to Foundation Models' `Tool` protocol. Add the appropriate tool to a model session and supply image attachments as described in [multimodal prompting](https://developer.apple.com/documentation/foundationmodels/analyzing-images-with-multimodal-prompting.md).
 
-The OCR tool lists iOS, iPadOS, macOS, and visionOS 27.0+; the barcode tool additionally lists watchOS 27.0+. These symbol lists do not enumerate tvOS or Mac Catalyst. Do not extend the framework's older minimums to these new tools or assume that every model supports image input.
+The OCR tool lists iOS, iPadOS, Mac Catalyst, macOS, and visionOS 27.0+; the barcode tool additionally lists watchOS 27.0+. Neither symbol lists tvOS. Do not extend the framework's older minimums to these new tools or assume that every model supports image input.
 
 Neither `OCRTool` nor `BarcodeReaderTool` is available in Simulator. Validate these model-tool integrations on a supported physical device and handle unavailable models or unsupported image input.
 

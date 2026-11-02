@@ -44,13 +44,17 @@ iOS, iPadOS, macOS, and visionOS also define sets of dynamic system colors that 
 
 ### Liquid Glass Color
 
-For smaller elements like toolbars and tab bars, the system can adapt Liquid Glass between a light and dark appearance in response to the underlying content. Symbols and text on these elements follow a monochromatic color scheme, becoming darker when the underlying content is light, and lighter when it's dark.
+By default, [Liquid Glass](https://developer.apple.com/design/human-interface-guidelines/materials#Liquid-Glass) has no color of its own and takes on the colors of the content behind it. You can tint some Liquid Glass elements, like stained glass, to draw attention to a specific control such as a primary call to action; the system styles prominent buttons this way. Symbols and text labels on Liquid Glass controls can also have color.
+
+For smaller elements like toolbars and tab bars, the system can adapt Liquid Glass between a light and dark appearance in response to the underlying content. By default, symbols and text on these elements follow a monochromatic color scheme, becoming darker when the underlying content is light, and lighter when it's dark.
 
 Liquid Glass appears more opaque in larger elements like sidebars to preserve legibility over complex backgrounds and accommodate richer content on the material's surface.
 
-**Use color sparingly in Liquid Glass.** To reduce visual noise, limit the amount of color you apply to the material, and to symbols or text on the material. If you apply color, reserve it for elements that truly benefit from emphasis, such as status indicators or key actions. For example, the system applies tint color to the material backing in prominent buttons — such as the Done button — to draw attention and elevate their visual prominence.
+**Apply color sparingly to Liquid Glass and to the symbols or text on it.** Reserve color for elements that benefit from emphasis, such as status indicators or primary actions. To emphasize a primary action, color its background rather than its symbol or text; for example, the system applies the app accent color to the background of prominent buttons such as Done. Don't add color to the backgrounds of multiple controls.
 
-**Consider using color in the content layer to evoke your brand.** If your app feels visually muted or lacks sufficient brand emphasis, consider adjusting the color palette in your content layer, such as adding a colorful header to the scrollable content. This approach allows your app to continue expressing its unique personality without distracting from content. Refrain from adding color throughout Liquid Glass solely to evoke your brand.
+**Avoid using similar colors in control labels if your app has a colorful background.** Too much color can make control labels harder to read. If your app has colorful backgrounds or visually rich content, prefer a monochromatic appearance for toolbars and tab bars, or choose an accent color that is clearly distinct from the content. In an app whose content or backgrounds are mostly monochromatic, using your brand color as the app accent color can be an effective way to reflect your identity.
+
+**Be aware of where color sits in the content layer.** Where you can, avoid placing content colors under controls of a similar color. Colorful content may scroll underneath controls from time to time, but the resting state, such as the top of a scrollable screen, should keep controls clearly legible.
 
 ### Color Management
 
@@ -207,6 +211,9 @@ In SwiftUI, the equivalent of systemGray is gray.
 - [Meet Liquid Glass](https://developer.apple.com/videos/play/wwdc2025/219)
 
 ## Changelog
+
+### December 16, 2025
+- Updated guidance for Liquid Glass.
 
 ### June 9, 2025
 - Updated system color values, and added guidance for Liquid Glass.
