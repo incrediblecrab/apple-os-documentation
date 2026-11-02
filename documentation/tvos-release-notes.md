@@ -6,7 +6,7 @@ Learn about changes to the tvOS SDK.
 
 ## Overview
 
-> **Checked September 8, 2026:** tvOS **26.6** (`23L773`, July 27) was the shipping 26-generation release. **Update September 14, 2026:** tvOS **27.0** (`24J361`) is shipping. [Release listings](https://developer.apple.com/news/releases/) do not establish an OS27 device list.
+> **Checked September 8, 2026:** tvOS **26.6** (`23L773`, July 27) was the shipping 26-generation release. **Update September 14, 2026:** tvOS **27.0** (`24J361`) is shipping. **Update November 1, 2026:** the current release is tvOS **27.2** (`24K122`, October 26). [Release listings](https://developer.apple.com/news/releases/) do not establish an OS27 device list.
 
 Use these notes for SDK changes, deprecations, and known/resolved issues. For distribution and testing membership, see the [Apple Developer Program](../os27-intro/Program.md).
 
@@ -28,6 +28,7 @@ For issues not mentioned in release notes, file bugs through [Feedback Assistant
 ## Topics
 
 ### tvOS 27
+- [tvOS 27.2 Release Notes](https://developer.apple.com/documentation/tvos-release-notes/tvos-27_2-release-notes) - Shipping release dated October 26, 2026.
 - [tvOS 27 Release Notes](https://developer.apple.com/documentation/tvos-release-notes/tvos-27-release-notes) - Shipping release dated September 14, 2026.
 
 ### tvOS 26

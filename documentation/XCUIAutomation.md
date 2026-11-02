@@ -16,6 +16,8 @@ UI testing isn't available to apps you build using the visionOS SDK. You can sti
 
 Continue to host UI automation in [XCTest](XCTest.md), not Swift Testing. The [Xcode 27 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md) add a test-plan setting for the severity of target-app crashes during UI testing: off, warning, failure (the default), or fatal failure. Choose it explicitly so a crash is not mistaken for a successful flow.
 
+The same notes list [`XCUIVoiceOverService`](https://developer.apple.com/documentation/xcuiautomation/xcuivoiceoverservice.md) as a new UI-testing API. A test reaches it through `XCUIDevice`'s `voiceOverService` property and uses it to turn VoiceOver on or off, move VoiceOver focus, and read the speech for the focused element. Its symbol pages list iOS, iPadOS, Mac Catalyst, macOS, tvOS, visionOS, and watchOS **27+**.
+
 [App Intents Testing](AppIntentsTesting.md) also uses a UI testing bundle and a live app, but invokes intent infrastructure rather than replaying taps. Pair its intent/query assertions with UI checks for visible results, denied access, and failed actions.
 
 The framework's [current overview](https://developer.apple.com/documentation/xcuiautomation.md) still states the native visionOS UI-testing limitation above. Framework availability for an OS 27 API does not guarantee that every UI-test destination or Device Hub interaction is supported.
@@ -54,6 +56,12 @@ The framework's [current overview](https://developer.apple.com/documentation/xcu
 
 ### UI testing availability
 - **XCUI_UI_TESTING_AVAILABLE** - Indicates whether the current environment supports UI testing.
+
+### Classes
+- **XCUIVoiceOverService** - Controls VoiceOver from a UI test: enable or disable it, move focus, and return the current speech output.
+
+### Variables
+- **XCUIVoiceOverServiceErrorDomain** - The error domain for `XCUIVoiceOverService` errors.
 
 ---
 

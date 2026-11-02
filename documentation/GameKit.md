@@ -26,13 +26,13 @@ For designing Game Center features in your app, see Human Interface Guidelines >
 
 ## OS 27 game integration
 
-The [iOS and iPadOS](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes#Game-Center) and [macOS](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes#Game-Center) Beta 8 notes checked September 8, 2026 mark the Game Center access-point completion-handler failure as **resolved** (172683368). Test dashboard presentation and completion while preserving the existing authentication and account-restriction handling.
+The [iOS and iPadOS 27](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes#Game-Center) and [macOS 27](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes#Game-Center) release notes list the Game Center access-point failure, in which the completion handler was never invoked, as **resolved** (172683368). Test dashboard presentation and completion while preserving the existing authentication and account-restriction handling.
 
 ### Delivering game assets
 
 For new additional-content delivery, use [Background Assets](https://developer.apple.com/documentation/backgroundassets), not GameKit as a download service. Apple's OS 27 notes introduce localized asset packs selected for the person's preferred languages. Start with [Creating managed asset packs](https://developer.apple.com/documentation/backgroundassets/creating-managed-asset-packs) and [Testing asset packs locally](https://developer.apple.com/documentation/backgroundassets/testing-asset-packs-locally).
 
-The iOS/iPadOS and visionOS 27 notes deprecate On Demand Resources and `NSBundleResourceRequest` in favor of Background Assets (170066290). The older large-download guide below remains useful historical context, but its on-demand-resource discussion is not current OS 27 adoption guidance.
+The iOS/iPadOS and visionOS 27 notes deprecate On Demand Resources and `NSBundleResourceRequest` in favor of Background Assets (170066290). The older large-download guide below remains useful historical context, but its on-demand-resource discussion is not current OS 27 adoption guidance. To move off On Demand Resources, follow [Migrate from On-Demand Resources](https://developer.apple.com/documentation/backgroundassets#Migrate-from-On-Demand-Resources) in the Background Assets overview: set the Enable On-Demand Resources build setting to No at the project level and in any target that overrides it, remove the On-Demand Resources tags, remove `NSBundleResourceRequest` from your code, and then adopt Background Assets.
 
 Keep the base experience usable while optional assets download, handle unavailable packs, and test language changes and interrupted downloads. Asset delivery is distinct from player save synchronization; see [GameSave](GameSave.md), which has its own OS 26+ and iCloud requirements.
 
@@ -95,12 +95,14 @@ Sources: [iOS and iPadOS 27 — Background Assets and On Demand Resources](https
 - **GKGameActivity** - An object that represents a single instance of a game activity for the current game.
 - **GKGameActivityDefinition** - An object that represents the static metadata you define for the activity.
 - **GKGameActivityListener** - An object that responds to activity events.
+
 ### Real-time Games
 
 - [Creating real-time games](https://developer.apple.com/documentation/gamekit/creating-real-time-games) - Develop games where multiple players interact in real time.
 - [Finding multiple players for a game](https://developer.apple.com/documentation/gamekit/finding-multiple-players-for-a-game) - Discover and invite other players to participate in a real-time game.
 - [Exchanging data between players in real-time games](https://developer.apple.com/documentation/gamekit/exchanging-data-between-players-in-real-time-games) - Send data between players in a real-time multiplayer game.
 - [Adding voice chat to multiplayer games](https://developer.apple.com/documentation/gamekit/adding-voice-chat-to-multiplayer-games) - Enable players to voice chat with all, or groups of, players in a multiplayer game.
+- [Finding players for custom server-based games](https://developer.apple.com/documentation/gamekit/finding-players-for-custom-server-based-games) - Connect players to your custom server-hosted games by creating game sessions with hosted matches.
 - [Matchmaking rules](https://developer.apple.com/documentation/gamekit/matchmaking-rules) - Game Center applies different type of rules you create in a particular order to find the best matches.
 - **GKMatchRequest** - An object that encapsulates the parameters to create a real-time or turn-based match.
 - **GKMatchmaker** - An object that creates matches with other players without presenting an interface to the players.

@@ -4,7 +4,7 @@ Learn about changes to the watchOS SDK and new features for Apple Watch app deve
 
 ## Overview
 
-> **Checked September 8, 2026:** watchOS **26.6** (`23U67`, July 27) was the shipping 26-generation release. **Update September 14, 2026:** watchOS **27.0** (`24R364`) is shipping. [Release listings](https://developer.apple.com/news/releases/) do not establish complete Watch/iPhone pairing requirements.
+> **Checked September 8, 2026:** watchOS **26.6** (`23U67`, July 27) was the shipping 26-generation release. **Update September 14, 2026:** watchOS **27.0** (`24R364`) is shipping. **Update November 1, 2026:** the current release is watchOS **27.2** (`24S118`, October 26). [Release listings](https://developer.apple.com/news/releases/) do not establish complete Watch/iPhone pairing requirements.
 
 Use these notes for watch-specific SDK changes, deprecations, and known/resolved issues. See the [Apple Developer Program](../os27-intro/Program.md) for testing and distribution requirements.
 
@@ -24,6 +24,7 @@ Source: [watchOS 27 release notes](https://developer.apple.com/documentation/wat
 ## Topics
 
 ### watchOS 27
+- [watchOS 27.2 Release Notes](https://developer.apple.com/documentation/watchos-release-notes/watchos-27_2-release-notes) - Shipping release dated October 26, 2026.
 - [watchOS 27 Release Notes](https://developer.apple.com/documentation/watchos-release-notes/watchos-27-release-notes) - Shipping release dated September 14, 2026.
 
 ### watchOS 26

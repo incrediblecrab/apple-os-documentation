@@ -2,11 +2,11 @@
 
 Drive app discovery by creating and managing campaigns with the Apple Ads Campaign Management API.
 
-**Availability:** Server-side Apple Ads Campaign Management API. This reference covers the older API, including version 5; it is not an OS 27 framework.
+**Availability:** Server-side Apple Ads Campaign Management API, which Apple now marks as deprecated. This reference covers the older API, including version 5; it is not an OS 27 framework.
 
 ## Overview
 
-**Migration status, September 8, 2026:** Apple explicitly states that the [Apple Ads Platform API](AppleAdsPlatformAPI.md) supersedes the Campaign Management API, with sunset scheduled for **January 26, 2027**. This is a future retirement, not a claim that version 5 has already been removed. The new service adds Apple Maps advertising and has its own resources, account scoping, and version 1.0 contract; do not treat the names as interchangeable.
+**Migration status, November 1, 2026:** Apple's documentation now marks the Campaign Management API as deprecated, with sunset scheduled for **January 26, 2027**, and directs developers to the [Apple Ads Platform API](AppleAdsPlatformAPI.md), which its changelog says supersedes the older API. Deprecation is not removal: version 5 is still documented, and the sunset date is still in the future. The new service adds Apple Maps advertising and has its own resources, account scoping, and version 1.0 contract; do not treat the names as interchangeable.
 
 Campaign Management API 5 manages App Store campaigns, budgets, ad groups, keyword bidding, audience criteria, and scheduling. Search Match can match ads to relevant searches without individually specifying every keyword.
 
@@ -59,7 +59,7 @@ Maintain the existing API's authorization and error handling until migration is 
 
 The [legacy calling guide](https://developer.apple.com/documentation/apple_ads/calling-the-apple-search-ads-api) uses `https://api.searchads.apple.com/api/v5/` and `X-AP-Context: orgId={orgId}` for scoped requests. Those are not the Platform API's base URL or `adAccountId` context. Correct an invalid token (`401`) or insufficient privileges (`403`) before retrying; use bounded backoff for transient failures.
 
-The [Platform API changelog](https://developer.apple.com/documentation/apple-ads-platform-api/changelog-apple-ads-platform-api) is the source for the August 2026 replacement and January 2027 sunset, not a platform release note.
+The [Platform API changelog](https://developer.apple.com/documentation/apple-ads-platform-api/changelog-apple-ads-platform-api) dates the replacement to August 2026, and the deprecation notice on the root page, its guide and resource pages, and the version 5 changelog gives the January 26, 2027 sunset; neither is a platform release note.
 
 ---
 

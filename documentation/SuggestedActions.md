@@ -2,9 +2,9 @@
 
 Show contextual quick actions alongside messages in a messaging app.
 
-**Platforms:** iOS 27.0+ | iPadOS 27.0+ | macOS 27.0+ | visionOS 27.0+
+**Platforms:** iOS 27.0+ | iPadOS 27.0+ | Mac Catalyst 27.0+ | macOS 27.0+ | visionOS 27.0+
 
-**Mac Catalyst:** `SuggestedActionsView` and `SuggestedActionsMessage` explicitly list 27.0+. The framework landing page does not enumerate Catalyst.
+**Mac Catalyst:** The framework's DocC metadata and every framework symbol linked below list Mac Catalyst 27.0; only the Markdown export of the landing page leaves it out. Apple documents no Catalyst-specific behavior, and the entitlement reference lists only iOS and iPadOS (see the provisioning qualification under Validation).
 
 ## Overview
 

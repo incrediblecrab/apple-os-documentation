@@ -38,7 +38,7 @@ For App Store distribution policy and country-specific rules, use the separate [
 
 The requirements for using Apple Pay on your website are:
 
-- Follow the [Apple Pay acceptable-use guidelines](https://developer.apple.com/apple-pay/acceptable-use-guidelines-for-websites/).
+- Follow the [Apple Pay acceptable-use guidelines](https://developer.apple.com/support/terms/apple-pay-acceptable-use-guidelines-for-websites).
 - For direct integration, [configure a merchant ID, certificates, and verified domains](https://developer.apple.com/documentation/applepayontheweb/configuring-your-environment) in your Apple Developer account. An approved platform can instead onboard merchants through the [Web Merchant Registration API](ApplePayWebMerchantRegistrationAPI.md); those merchants do not each need their own developer account.
 - Serve all Apple Pay pages over HTTPS. Follow [Setting Up Your Server](https://developer.apple.com/documentation/applepayontheweb/setting-up-your-server), including TLS 1.2 or later, SNI, and the appropriate allow lists.
 - Keep payment processing certificates separate from the merchant identity certificate used to authenticate server communication, and maintain certificate/domain validity.

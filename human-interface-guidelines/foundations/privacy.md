@@ -53,7 +53,7 @@ Ideally, the current context helps people understand why you're requesting their
 
 **Include only one button and make it clear that it opens the system alert.** People can feel manipulated when a custom screen or window also includes a button that doesn't open the alert because the experience diverts them from making their choice. Another type of manipulation is using a term like "Allow" to title the custom screen's button. If the custom button seems similar in meaning and visual weight to the allow button in the alert, people can be more likely to choose the alert's allow button without meaning to. Use a term like "Continue" or "Next" to title the single button in your custom screen or window, clarifying that its action is to open the system alert.
 
-**Don't include additional actions in your custom screen or window.** For example, don't provide a way for people to leave the screen or window without viewing the system alert — like offering an option to close or cancel.
+**Don't include additional actions in your custom screen or window, unless they're needed to obtain a legal consent.** For example, don't provide a way for people to leave the screen or window without viewing the system alert — like offering an option to close or cancel.
 
 ### Tracking requests
 
@@ -61,7 +61,7 @@ App tracking is a sensitive issue. In some cases, it might make sense to display
 
 **Never precede the system-provided alert with a custom screen or window that could confuse or mislead people.** People sometimes tap quickly to dismiss alerts without reading them. A custom messaging screen, window, or view that takes advantage of such behaviors to influence choices will lead to rejection by App Store review.
 
-There are several prohibited custom-screen designs that will cause rejection. Some examples are offering incentives, displaying a screen or window that looks like a request, displaying an image of the alert, and annotating the screen behind the alert. To learn more, see App Review Guidelines: 5.1.1 (iv).
+There are several prohibited custom-screen designs that will cause rejection. Some examples are offering incentives, displaying a screen or window that looks like a request, displaying an image of the alert, and annotating the screen behind the alert. A consent screen or window that you show before or after the App Tracking Transparency alert to comply with local privacy laws is allowed. To learn more, see App Review Guidelines: 5.1.1 (iv).
 
 **Don't offer incentives for granting the request.** You can't offer people compensation for granting their permission, and you can't withhold functionality or content or make your app unusable until people allow you to track them.
 
@@ -136,6 +136,7 @@ For an iOS or iPadOS app running in compatibility mode on visionOS, camera behav
 
 ### Videos
 
+- [Meet Trust Insights](https://developer.apple.com/videos/play/wwdc2026/379)
 - [Integrate privacy into your development process](https://developer.apple.com/videos/play/wwdc2025/246)
 - [What's new in passkeys](https://developer.apple.com/videos/play/wwdc2025/279)
 - [Meet the Contact Access Button](https://developer.apple.com/videos/play/wwdc2024/10121)

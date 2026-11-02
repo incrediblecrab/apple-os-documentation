@@ -19,7 +19,7 @@ The [token reference](https://developer.apple.com/documentation/adservices/aaatt
 
 ### Failure handling
 
-HTTP `200` can contain `attribution=false`; it does not establish that a paid conversion matched. `400` indicates an invalid token. `404` can occur for an expired token or shortly after issuing a valid one; for a valid token, Apple's guidance is **5-second retry intervals, at most three attempts**. A `500` indicates a temporary service problem.
+HTTP `200` can contain `attribution=false`; it does not establish that a paid conversion matched. Apple returns `attribution=false` when it finds no matching record and, since a September 2026 change, for campaigns whose ad group uses age or gender targeting, so a `false` result does not by itself show that no Apple Ads campaign drove the download. `400` indicates an invalid token. `404` can occur for an expired token or shortly after issuing a valid one; for a valid token, Apple's guidance is **5-second retry intervals, at most three attempts**. A `500` indicates a temporary service problem.
 
 Developer Mode produces test payloads. Keep those separate from production measurements, and do not infer a campaign match from a token, missing record, or failed request.
 

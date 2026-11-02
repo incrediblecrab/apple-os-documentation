@@ -10,7 +10,7 @@ Core AI provides Swift APIs for loading model assets, specializing them for a de
 
 Start with an `.aimodel` asset. An `AIModelAsset` represents the unspecialized source, while `AIModel` represents a specialization for inference. The framework handles default compute selection and caching, with controls for applications that need to tune preparation time, storage, or execution.
 
-Use [Foundation Models](FoundationModels.md) for its session, structured-generation, and tool-calling abstractions. A custom language-model provider can bridge a Core AI model into those sessions. [Core ML](CoreML.md) remains appropriate for non-neural model types, including decision trees and tabular feature engineering.
+Use [Foundation Models](FoundationModels.md) for its session, structured-generation, and tool-calling abstractions. For a Core AI language model, `CoreAILanguageModel` in Apple's open-source `coreai-models` package conforms to Foundation Models' `LanguageModel` protocol, so a `LanguageModelSession` can run the exported model; see [Running a Core AI model in a Foundation Models session](https://developer.apple.com/documentation/foundationmodels/running-a-core-ai-model-in-a-foundation-models-session.md), which states macOS 27, iOS 27, and Xcode 27 or later. [Core ML](CoreML.md) remains appropriate for non-neural model types, including decision trees and tabular feature engineering.
 
 ## Topics
 
@@ -39,7 +39,7 @@ Supply mutable views for every required state; omitting one causes an error. The
 - [`ComputeUnitKind.availableKinds`](https://developer.apple.com/documentation/coreai/computeunitkind/availablekinds.md) — Discover the compute units actually available on the device.
 - [Ahead-of-time compilation](https://developer.apple.com/documentation/coreai/compiling-core-ai-models-ahead-of-time.md) — Use `coreai-build` to generate architecture-specific `.aimodelc` assets. This reduces, but does not eliminate, on-device specialization.
 
-OS updates invalidate cached specializations regardless of cache policy. Source-model changes can also invalidate entries, and storage pressure can remove purgeable entries. A persistent cache is not a substitute for a recoverable source-model deployment. Ahead-of-time compilation has a narrower documented hardware scope—devices supporting Apple Intelligence—than the framework's platform list.
+OS updates invalidate cached specializations regardless of cache policy. Source-model changes can also invalidate entries, and storage pressure can remove purgeable entries. On tvOS the `.persistent` cache policy is unavailable and cache entries must stay purgeable under storage pressure, so use the default policy there. A persistent cache is not a substitute for a recoverable source-model deployment. Ahead-of-time compilation has a narrower documented hardware scope—devices supporting Apple Intelligence—than the framework's platform list, and it is not supported on tvOS or watchOS.
 
 ### Preparation and debugging tools
 
@@ -50,8 +50,8 @@ OS updates invalidate cached specializations regardless of cache policy. Source-
 
 ## Validation and release-note limitations
 
-Test cold and warm loads, missing assets/functions, incompatible shapes, offline downloads, and cache invalidation on representative hardware. Keep a non-AI or previously supported model path when preparation or inference fails. Use [Evaluations](Evaluations.md) for language-feature quality and [XCTest](XCTest.md) for deterministic behavior and performance.
+Test cold and warm loads, missing assets/functions, incompatible shapes, offline downloads, and cache invalidation on representative hardware. Keep a non-AI or previously supported model path when preparation or inference fails. Use [Evaluations](Evaluations.md) to measure model quality on your own data, including comparing candidate models before you bundle one, and [XCTest](XCTest.md) for deterministic behavior and performance. Apple's [Evaluating a Core AI model](https://developer.apple.com/documentation/evaluations/evaluating-a-core-ai-model.md) sample (macOS 27, Xcode 27) runs one evaluation against a Core AI model and the system on-device model. A Core AI Debugger comparison against a reference run shows whether conversion or optimization changed outputs, not whether the model does your task well.
 
-The [Xcode 27 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md) still list unreliable extraction of inputs from prediction events in the Core AI gauge (172502576). Do not treat a missing diagnostic capture as proof that inference had no input.
+The [Xcode 27 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md) now list three Core AI issues as resolved: unreliable extraction of inputs from prediction events in the Core AI gauge (172502576), inaccurate parameter counts in the Xcode model view for multi-function models that share parameters (177784390), and models that might fail to execute with Metal API Validation enabled (177991751). The notes don't name the build that fixed them, and the Xcode 27.1 and 27.2 notes have no Core AI section. Earlier Xcode 27 beta notes listed 172502576 as a known issue, so on a pre-release build a missing gauge capture still isn't proof that inference had no input.
 
 *Source: [Core AI](https://developer.apple.com/documentation/coreai.md).*

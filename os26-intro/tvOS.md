@@ -5,6 +5,8 @@ Maintain Apple TV apps with predictable focus navigation, readable media catalog
 **Platform:** tvOS 26.0+
 
 > **Status checked September 14, 2026:** the shipping release is **tvOS 26.6** (`23L773`), released July 27. tvOS 27.0 (`24J361`) shipped September 14; see the [tvOS 27 introduction](../os27-intro/tvOS.md).
+>
+> **Status checked November 1, 2026:** the latest 26-generation release is **tvOS 26.6.1**, released October 26, 2026, for Apple TV HD and Apple TV 4K (1st generation). [Apple's security release list](https://support.apple.com/en-us/100100) shows no published CVE entries for it and lists tvOS 27.0 and 27.2 for Apple TV 4K (2nd generation) and later.
 
 ## Overview
 
@@ -128,4 +130,4 @@ Join the [Apple Developer Program](Program.md) for TestFlight, App Store distrib
 
 ## Sources
 
-[Apple's tvOS overview](https://developer.apple.com/tvos/), [Designing for tvOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-tvos), and [Liquid Glass adoption](https://developer.apple.com/documentation/technologyoverviews/adopting-liquid-glass) support the platform guidance. [Apple Developer releases](https://developer.apple.com/news/releases/), [tvOS 27 notes](https://developer.apple.com/documentation/tvos-release-notes/tvos-27-release-notes), and [Xcode 27 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) support the status and migration guidance checked September 8, 2026. Earlier platform capabilities remain context, not universal hardware guarantees.
+[Apple's tvOS overview](https://developer.apple.com/tvos/), [Designing for tvOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-tvos), and [Liquid Glass adoption](https://developer.apple.com/documentation/technologyoverviews/adopting-liquid-glass) support the platform guidance. [Apple Developer releases](https://developer.apple.com/news/releases/), [Apple's security release list](https://support.apple.com/en-us/100100), [tvOS 27 notes](https://developer.apple.com/documentation/tvos-release-notes/tvos-27-release-notes), and [Xcode 27 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) support the status and migration guidance checked November 1, 2026. Earlier platform capabilities remain context, not universal hardware guarantees.

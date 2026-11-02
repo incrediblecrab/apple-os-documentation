@@ -1,10 +1,10 @@
 # Private Cloud Compute Security Guide
 
-**Scope:** an original developer summary of PCC's privacy boundary and approved app access. **Research cutoff:** September 8, 2026.
+**Scope:** an original developer summary of PCC's privacy boundary and approved app access. **Research cutoff:** November 1, 2026.
 
 ## Overview
 
-Private Cloud Compute (PCC) is Apple's infrastructure for server-side Apple Intelligence processing. It is not ordinary on-device inference, an arbitrary cloud endpoint for your server, or a promise that every AI feature in your app uses PCC.
+Private Cloud Compute (PCC) is Apple's service for server-side Apple Intelligence processing. Apple's security guide says it serves requests from two node platforms, Apple silicon and Google Cloud, and holds both to the same requirements: a node must present attested measurements that match a release in the public transparency log before it receives user data. PCC is not ordinary on-device inference, an arbitrary cloud endpoint for your server, or a promise that every AI feature in your app uses PCC.
 
 The [OS27 Foundation Models API](https://developer.apple.com/documentation/foundationmodels/privatecloudcomputelanguagemodel) exposes `PrivateCloudComputeLanguageModel` for iOS, iPadOS, Mac Catalyst, macOS, visionOS, and watchOS 27 or later; tvOS is not listed. API availability does not establish device, region, account, or developer eligibility.
 
@@ -12,8 +12,9 @@ The [OS27 Foundation Models API](https://developer.apple.com/documentation/found
 
 Apple's [PCC Security Guide](https://security.apple.com/documentation/private-cloud-compute/) describes a narrower trust boundary than a conventional application server:
 
-- **Request-limited processing:** personal data is used to fulfill the request, with statelessness and restrictions on retention. The guide also discusses possible encrypted caches controlled by keys from the user's device; avoid an overbroad claim about every future storage mechanism. See [core requirements](https://security.apple.com/documentation/private-cloud-compute/corerequirements).
+- **Request-limited processing:** personal data is used to fulfill the request, with statelessness and restrictions on retention. When PCC caches state, such as during a multi-turn interaction, the guide says it encrypts that state with a key the user's device provides and doesn't keep that key between turns. See [core requirements](https://security.apple.com/documentation/private-cloud-compute/corerequirements).
 - **No privileged bypass:** the design excludes privileged runtime access that would let an operator bypass the stated privacy protections. This is a PCC design property, not a security assessment of your own code or dependencies.
+- **Recorded outbound calls:** some requests need information that PCC can't host, such as current world knowledge, so PCC makes outbound calls that send query-derived data outside PCC. The guide requires those calls to carry no user-identifying metadata and requires a record of every outbound call to return to the user's device. See [core requirements](https://security.apple.com/documentation/private-cloud-compute/corerequirements).
 - **Client validation:** the device validates node attestations before making request-decryption keys available to trusted PCC nodes. Requests pass through privacy-preserving transport rather than giving an ordinary application proxy plaintext access. See [request flow](https://security.apple.com/documentation/private-cloud-compute/requestflow).
 - **Inspectable releases:** clients check software measurements against an append-only transparency log, and researchers can inspect published builds. See [release transparency](https://security.apple.com/documentation/private-cloud-compute/releasetransparency).
 
@@ -27,7 +28,7 @@ The checked [Accessing Private Cloud Compute](https://developer.apple.com/privat
 2. Fewer than **two million first-time App Store downloads for any of the developer's apps**, as defined by Apple.
 3. The managed **PCC entitlement assigned to the developer account**.
 
-Approved access is for App Store apps where Apple Intelligence is available, with TestFlight or ad hoc distribution for testing. Testing installs do not count toward first-time downloads. Apple's no-cloud-API-cost offer is conditional on these eligibility rules, not a free service available to every developer.
+Approved access is for App Store apps where Apple Intelligence is available, with TestFlight or ad hoc distribution for testing. Testing installs do not count toward first-time downloads. Apple's no-cloud-API-cost offer is conditional on these eligibility rules, not a free service available to every developer. A footnote on the same page says developer apps using Apple Foundation Models on PCC are subject to daily usage limits that can vary with request complexity, system demand, and system policies, and that expanded access will be available for a fee in the future.
 
 If an app exceeds the threshold or Small Business Program enrollment ends, Apple says the developer will be notified and must migrate to an alternative within **six months**. Plan that transition without silently changing who receives personal data. [Request the entitlement](https://developer.apple.com/contact/request/private-cloud-compute/) and verify approval before advertising availability.
 
@@ -55,4 +56,4 @@ Test absent entitlement, unavailable model, quota exhaustion, interrupted reques
 
 ## Sources
 
-[PCC Security Guide](https://security.apple.com/documentation/private-cloud-compute/), [PCC access requirements](https://developer.apple.com/private-cloud-compute/), [Foundation Models API](https://developer.apple.com/documentation/foundationmodels/privatecloudcomputelanguagemodel), and [App Review Guidelines](https://developer.apple.com/app-store/review/guidelines/). Checked September 8, 2026; chapter-level and error references are linked above.
+[PCC Security Guide](https://security.apple.com/documentation/private-cloud-compute/), [PCC access requirements](https://developer.apple.com/private-cloud-compute/), [Foundation Models API](https://developer.apple.com/documentation/foundationmodels/privatecloudcomputelanguagemodel), and [App Review Guidelines](https://developer.apple.com/app-store/review/guidelines/). Checked November 1, 2026; chapter-level and error references are linked above.

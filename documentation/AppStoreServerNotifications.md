@@ -24,7 +24,7 @@ Use the notification type, along with the transaction and subscription renewal i
 
 A notificationType of EXTERNAL_PURCHASE_TOKEN with an UNREPORTED subtype indicates that Apple generated an external purchase token for your app but hasn't received a report for the token. The notification includes the token in the externalPurchaseToken field of the responseBodyV2DecodedPayload. Use the token information to report it to Apple, including if you don't recognize the token in your system. To report tokens, with or without associated transactions, call the External Purchase Server API's Send External Purchase Report endpoint.
 
-For regional reporting and distribution requirements, see [Regional distribution](../guides/regional-distribution.md) and the applicable [External Purchase Server API](ExternalPurchaseServerAPI.md) documentation.
+Apple publishes token-reporting requirements separately for the [EU](https://developer.apple.com/support/apps-using-alternative-payment-providers-in-the-eu/), [Brazil](https://developer.apple.com/support/payment-options-on-the-app-store-in-brazil/), and [Japan](https://developer.apple.com/support/payment-options-on-the-app-store-in-japan/). For regional distribution requirements, see [Regional distribution](../guides/regional-distribution.md) and the applicable [External Purchase Server API](ExternalPurchaseServerAPI.md) documentation.
 
 ### Test your server setup
 
@@ -34,11 +34,13 @@ The App Store server sends the TEST notification in the version 2 notification f
 
 ## Current service changes and reliable processing
 
-Reviewed September 8, 2026 against the service's own changelog:
+Reviewed November 1, 2026 against the service's own changelog:
 
+- The September 28, 2026 update adds multiseat purchases, in which organizations and groups buy subscriptions in bulk: the `ASSIGNED` value of `inAppOwnershipType`, the `ASSIGNMENT_REVOKE` value of `revocationType`, and seat counts in `quantity`. There is no new notification type. When an organization removes a subscription it assigned, the App Store sends a `REVOKE` notification whose transaction has a `revocationType` of `ASSIGNMENT_REVOKE`; revoke that customer's access. The two values launched in the sandbox only, and the October 23, 2026 update made them available in production.
+- The October 1, 2026 update adds the `CORE_TECHNOLOGY` value of `tokenType`, for tokens an app receives from MarketplaceKit's transaction-reporting API.
 - The April 27, 2026 update adds transaction and renewal commitment information and billing-plan fields for monthly subscriptions with a 12-month commitment.
 - Earlier updates add `revocationType`/`revocationPercentage`, `RESCIND_CONSENT` with `appData`, and additional external-purchase-token subtypes. Preserve support for these documented payload variants; not every notification contains the same transaction data.
-- OS 27 StoreKit volume assignments and subscription Bundles/Suites are separate SDK changes. Do not invent matching notification names or assume the REST service shares the SDK's version number.
+- OS 27 StoreKit subscription Bundles and Suites are SDK changes; the changelog lists no matching notification fields for them. Do not invent notification names or values, or assume the REST service shares the SDK's version number.
 
 Verify the outer `signedPayload` and any nested signed transaction/renewal data before updating entitlements. Make processing idempotent and reconcile current state with [App Store Server API](AppStoreServerAPI.md), especially after delayed or repeated delivery.
 

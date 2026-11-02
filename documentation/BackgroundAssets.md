@@ -24,7 +24,9 @@ The original `BADownloadManager`, `BADownloaderExtension`, and `BAURLDownload` i
 
 ### OS 27: ODR migration and localized asset packs
 
-**Reviewed September 8, 2026:** The iOS/iPadOS, tvOS, and visionOS 27 release notes deprecate **On Demand Resources and `NSBundleResourceRequest`** and direct developers to Background Assets. This is migration guidance, not a claim that existing ODR content stops working immediately. See the [migration guide](../guides/background-assets-migration.md) for deployment fallbacks and the distinction between downloads and background computation.
+**Reviewed November 1, 2026:** The iOS/iPadOS, tvOS, and visionOS 27 release notes deprecate **On Demand Resources and `NSBundleResourceRequest`** and direct developers to Background Assets. This is migration guidance, not a claim that existing ODR content stops working immediately. See the [migration guide](../guides/background-assets-migration.md) for deployment fallbacks and the distinction between downloads and background computation.
+
+Apple's framework overview now lists the project-side migration steps: set the **Enable On-Demand Resources** build setting to No at the project level and in every target that overrides it, remove the project's ODR tags, remove code that uses `NSBundleResourceRequest`, and then replace those uses with Background Assets.
 
 Localized asset packs are new in the 27 generation for iOS/iPadOS, Mac Catalyst, macOS, tvOS, and visionOS. Xcode 27's `ba-package` manifest template adds a `language` key. It accepts an ISO-639 language identifier with optional region and script; variant subtags and other BCP-47 extensions are not supported.
 

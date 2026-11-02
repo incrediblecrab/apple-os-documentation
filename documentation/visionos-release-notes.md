@@ -4,7 +4,7 @@ Learn about changes to the visionOS SDK.
 
 ## Overview
 
-> **Checked September 8, 2026:** visionOS **26.6.1** (`23O780`, August 17) was the shipping 26-generation release. **Update September 14, 2026:** visionOS **27.0** (`24M362`) is shipping. [Release listings](https://developer.apple.com/news/releases/) establish neither a public-beta program nor a complete OS27 model list.
+> **Checked September 8, 2026:** visionOS **26.6.1** (`23O780`, August 17) was the shipping 26-generation release. **Update September 14, 2026:** visionOS **27.0** (`24M362`) is shipping. **Update November 1, 2026:** the current release is visionOS **27.2** (`24N120`, October 26). [Release listings](https://developer.apple.com/news/releases/) establish neither a public-beta program nor a complete OS27 model list.
 
 Use these notes for spatial and shared-framework SDK changes. See the [Apple Developer Program](../os27-intro/Program.md) for testing and distribution requirements.
 
@@ -27,6 +27,7 @@ For issues not mentioned in release notes, file bugs through [Feedback Assistant
 ## Topics
 
 ### visionOS 27
+- [visionOS 27.2 Release Notes](https://developer.apple.com/documentation/visionos-release-notes/visionos-27_2-release-notes) - Shipping release dated October 26, 2026.
 - [visionOS 27 Release Notes](https://developer.apple.com/documentation/visionos-release-notes/visionos-27-release-notes) - Shipping release dated September 14, 2026.
 
 ### visionOS 26

@@ -10,7 +10,7 @@ Delivering a great overall experience is the best way to encourage positive rati
 
 People can also rate and review your app directly in the App Store.
 
-> **Separate creator-content policy:** [App Review Guideline 1.2.1(a)](https://developer.apple.com/app-store/review/guidelines/#creator-content) requires creator apps to let people identify content above the app's age rating and restrict underage access using verified or declared age. This provision is scoped to creator apps, not a general condition for requesting an App Store review. See also [program guidance](../../os27-intro/Program.md).
+> **Separate creator-content policy:** [App Review Guideline 1.2.1(a)](https://developer.apple.com/app-store/review/guidelines/#1.2.1) requires creator apps to let people identify content above the app's age rating and restrict underage access using verified or declared age. This provision is scoped to creator apps, not a general condition for requesting an App Store review. See also [program guidance](../../os27-intro/Program.md).
 
 ## Topics
 
@@ -22,7 +22,7 @@ People can also rate and review your app directly in the App Store.
 
 - **Avoid pestering people** - Repeated rating requests can be irritating, and may even negatively influence people's opinion of your app. Consider allowing at least a week or two between requests, prompting again after people demonstrate additional engagement with your experience.
 
-- **Prefer the system-provided prompt** - In SwiftUI, use StoreKit's [RequestReviewAction](https://developer.apple.com/documentation/storekit/requestreviewaction) where available. StoreKit decides whether a request actually displays, and people can opt out of these prompts. If a person hasn't rated or reviewed the app on that device, the limit is three presentations within 365 days. If they have, StoreKit requires a new app version and more than 365 days since their previous review.
+- **Prefer the system-provided prompt** - In SwiftUI, use StoreKit's [RequestReviewAction](https://developer.apple.com/documentation/storekit/requestreviewaction) where available. StoreKit decides whether a request actually displays, and people can opt out of these prompts. If a person hasn't rated or reviewed the app on that device, the limit is three presentations within 365 days. If they have, StoreKit requires a new app version and more than 365 days since their previous review. [App Review Guideline 5.6.1](https://developer.apple.com/app-store/review/guidelines/#5.6.1) requires Apple's provided API for review prompts and disallows custom review prompts.
 
 - **Don't make a button depend on the prompt appearing** - A request isn't guaranteed to show an alert. For an explicit “Write a review” action, use a persistent App Store product-page link with `action=write-review`. Development builds display the test prompt, but this review-request API has no effect in TestFlight builds.
 

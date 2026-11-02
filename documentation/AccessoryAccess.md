@@ -4,7 +4,7 @@ Discover connected USB accessories and coordinate access to them on Mac.
 
 **Platforms:** macOS 27.0+
 
-**Status:** OS 27 APIs; reviewed September 8, 2026.
+**Status:** OS 27 APIs; reviewed November 1, 2026.
 
 ## Overview
 
@@ -18,7 +18,7 @@ Enable the Boolean [`com.apple.developer.accessory-access.usb`](https://develope
 
 Obtain the manager through its shared property instead of constructing one directly. Register an [`AAUSBAccessoryListener`](https://developer.apple.com/documentation/accessoryaccess/aausbaccessorylistener) with [`AAUSBAccessoryMatchingCriteria`](https://developer.apple.com/documentation/accessoryaccess/aausbaccessorymatchingcriteria). Notifications arrive on the manager's internal serial queue while the listener remains registered. Move UI updates to the appropriate UI execution context.
 
-An accessory can be opened exclusively for transfers. Discovery is not a guarantee of access: another client may already be using it, it may disconnect, or its state may change before the operation completes.
+An accessory can be opened exclusively for transfers. It may not be in a configured state when the app receives it: open it with [`open(serviceQueue:completionHandler:)`](https://developer.apple.com/documentation/accessoryaccess/aausbaccessory/open(servicequeue:completionhandler:)), which returns its `IOUSBHostDevice`, then select a configuration with that device's [`configureWithValue:error:`](https://developer.apple.com/documentation/iousbhost/iousbhostdevice/configurewithvalue:error:). Discovery is not a guarantee of access: another client may already be using it, it may disconnect, or its state may change before the operation completes.
 
 ## Failure handling and release notes
 

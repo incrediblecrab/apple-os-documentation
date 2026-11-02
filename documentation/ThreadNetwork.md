@@ -2,9 +2,9 @@
 
 Create robust, smart device networks using Thread Border Routers.
 
-**Core API declarations:** iOS 15.0+ | iPadOS 15.0+ | Mac Catalyst 15.0+ | macOS 13.0+ | visionOS 1.0+
+**Core API declarations:** iOS 15.0+ | iPadOS 15.0+ | Mac Catalyst 15.0+ | macOS 13.0+ | visionOS 1.0+ | watchOS 8.0+
 
-The framework catalog lists later Catalyst 16.1 and macOS 14 baselines; `THClient` and `THCredentials` declare the versions above. Individual methods still need their own availability checks.
+The framework catalog lists later Catalyst 16.1 and macOS 14 baselines and no watchOS; `THClient` and `THCredentials` declare the versions above. Individual methods still need their own availability checks.
 
 ## Overview
 
@@ -22,7 +22,7 @@ The Boolean `com.apple.developer.networking.manage-thread-network-credentials` e
 
 Preferred-network credentials require the person's consent. Retrieving credentials owned by your developer team does not require that same prompt and does not expose every other team's stored credentials. Treat denial, missing credentials, and stale cached data as recoverable outcomes. These secrets allow devices to join the network; do not expose them in logs.
 
-Keep iCloud Keychain records synchronized when your Border Router's credentials change, and delete its stored record when it leaves the network. Before reusing cached preferred credentials, compare them with the current preferred network and request updated credentials when needed. The comparison method starts at iOS/iPadOS/Catalyst 15.5; preferred-network availability and active-credential queries start at 16.4. Their macOS and visionOS declarations are 13.0 and 1.0 respectively.
+Keep iCloud Keychain records synchronized when your Border Router's credentials change, and delete its stored record when it leaves the network. Before reusing cached preferred credentials, compare them with the current preferred network and request updated credentials when needed. The comparison method starts at iOS/iPadOS/Catalyst 15.5; preferred-network availability and active-credential queries start at 16.4. Their macOS and visionOS declarations are 13.0 and 1.0 respectively; on watchOS the comparison method declares 8.0 and the other two declare 9.4.
 
 ### Learn About Thread Network Device Roles
 
@@ -40,7 +40,7 @@ A device attached to a parent routing device. It exchanges its own messages but 
 **Sleepy End Device**  
 A low-power end device whose radio normally sleeps and wakes to poll its parent and exchange messages. Battery-powered temperature and air-quality sensors are examples.
 
-For routing roles and partitions, see [OpenThread's Node Roles and Types](https://openthread.io/guides/thread-primer/node-roles-and-types). For the protocol overview, see [What is Thread?](https://www.threadgroup.org/What-is-Thread/Overview).
+For routing roles and partitions, see [OpenThread's Node Roles and Types](https://openthread.io/guides/thread-primer/node-roles-and-types). For the protocol overview, see [What is Thread?](https://threadgroup.org/What-is-Thread/Overview).
 
 **Note:** Thread standard is developed by the Thread Group, and that use of "Thread" to describe Border Routers is subject to Thread Group's Trademark and Certification Policies.
 

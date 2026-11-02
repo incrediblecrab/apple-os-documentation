@@ -135,13 +135,13 @@ A Player will emit error events, if and when errors occur while attempting to lo
 
 The error states can be seen here LivePhotosKit.Errors.
 
-This handler uses the `player` created in the previous example.
+This handler uses the `player` created in the previous example. Apple's overview sample tests `IMAGE_FAILED_TO_LOAD`, but the [`LivePhotosKit.Errors`](https://developer.apple.com/documentation/livephotoskitjs/livephotoskit.errors) reference and the hosted 1.5.8 script define `PHOTO_FAILED_TO_LOAD` and `VIDEO_FAILED_TO_LOAD`, so the example below uses `PHOTO_FAILED_TO_LOAD`.
 
 ```javascript
 player.addEventListener('error', (ev) => {
     if (typeof ev.detail.errorCode === 'number') {
         switch (ev.detail.errorCode) {
-        case LivePhotosKit.Errors.IMAGE_FAILED_TO_LOAD:
+        case LivePhotosKit.Errors.PHOTO_FAILED_TO_LOAD:
             // Do something
             break;
         case LivePhotosKit.Errors.VIDEO_FAILED_TO_LOAD:
@@ -168,7 +168,7 @@ Apple's version-1 reference publishes the following compatibility matrix. It inc
 
 ## How to obtain Live Photo assets
 
-Live Photos consist of a still image and a paired video of the moments around capture. Preserve both components when exporting. [Photos exports unmodified originals in their original formats](https://support.apple.com/guide/photos/export-photos-videos-and-slideshows-pht6e157c5f/mac), so the still image is not guaranteed to be JPEG; it may be HEIC. Prepare a browser-compatible still image and video for web playback rather than assuming the original files will decode on every target browser.
+Live Photos consist of a still image and a paired video of the moments around capture. Preserve both components when exporting. [Photos exports unmodified originals in their original formats](https://support.apple.com/guide/photos/export-photos-videos-slideshows-and-memories-pht6e157c5f/mac), so the still image is not guaranteed to be JPEG; it may be HEIC. Prepare a browser-compatible still image and video for web playback rather than assuming the original files will decode on every target browser.
 
 Important
 
