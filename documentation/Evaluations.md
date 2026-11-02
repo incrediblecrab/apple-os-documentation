@@ -48,7 +48,7 @@ Use separate metrics for output correctness, refusal handling, tool selection, a
 - [`ModelJudgeEvaluator`](https://developer.apple.com/documentation/evaluations/modeljudgeevaluator.md) — Score subjective qualities with pointwise ratings or pairwise comparisons.
 - [`ScoreDimension`](https://developer.apple.com/documentation/evaluations/scoredimension.md) — Define separately measurable dimensions and scoring criteria.
 - [`ModelJudgePrompt`](https://developer.apple.com/documentation/evaluations/modeljudgeprompt.md) — Configure the judge's instructions, targets, and reference material.
-- [Scoring with model-judge evaluators](https://developer.apple.com/documentation/evaluations/scoring-with-model-as-judge-evaluators.md) — Configure scoring and compare results with human review.
+- [Scoring with model-judge evaluators](https://developer.apple.com/documentation/evaluations/scoring-with-model-as-judge-evaluators.md) — Configure pointwise or pairwise scoring, reference data, and rationales. [Designing effective model-judge evaluators](https://developer.apple.com/documentation/evaluations/designing-effective-model-judges.md) covers calibration against human judgment.
 
 Record the judge model and configuration as well as the model under test. A judge is another fallible model, not an authority on correctness; calibrate it against reviewed examples.
 
@@ -75,6 +75,6 @@ An evaluation can finish despite individual inference or evaluator failures. Ins
 
 Version the dataset, prompts, tools, model configuration, and acceptance thresholds. Include unavailable-model, offline, denied-access, quota, cancellation, and unsupported-input cases. Report infrastructure failures separately from quality scores; never count an unavailable model as a passing evaluation.
 
-These are beta APIs at the September 8, 2026 cutoff. Validate the suite on each intended runtime, with the actual model access it needs. See [Swift Testing](Testing.md), [App Intents Testing](AppIntentsTesting.md), [Xcode profiling](Xcode.md#profiling), and the [intelligence integration recipe](../guides/intelligence-integration.md).
+Apple's framework metadata does not mark these APIs as beta, in either the September 1, 2026 documentation set or the November 1, 2026 framework page. Validate the suite on each intended runtime, with the actual model access it needs. See [Swift Testing](Testing.md), [App Intents Testing](AppIntentsTesting.md), [Xcode profiling](Xcode.md#profiling), and the [intelligence integration recipe](../guides/intelligence-integration.md).
 
 *Source: [Evaluations](https://developer.apple.com/documentation/evaluations.md).*

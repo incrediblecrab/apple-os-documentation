@@ -8,13 +8,13 @@ Apple Pay is a secure, easy way to make payments for physical goods and services
 
 People authorize payments and provide shipping and contact information, using credentials that are securely stored on the device.
 
-**Note:** It's important to understand the difference between Apple Pay and In-app purchase. Use Apple Pay in your app to sell physical goods like groceries, clothing, and appliances; for services such as club memberships, hotel reservations, and tickets for events; and for donations. Use [In-App Purchase](https://developer.apple.com/design/human-interface-guidelines/in-app-purchase) in your app to sell virtual goods, such as premium content for your app, and subscriptions for digital content.
+**Note:** It's important to understand the difference between Apple Pay and Apple In-App Purchase. Use Apple Pay in your app to sell physical goods like groceries, clothing, and appliances; for services such as club memberships, hotel reservations, and tickets for events; and for donations. Use [Apple In-App Purchase](https://developer.apple.com/design/human-interface-guidelines/apple-in-app-purchase) in your app to sell virtual goods, such as premium content for your app, and subscriptions for digital content.
 
 Apps that accept Apple Pay display an Apple Pay mark wherever available payment options are shown and an Apple Pay button that people tap to bring up a payment sheet. During checkout, the payment sheet can show the credit or debit card linked to Apple Pay, purchase amount (including tax and fees), shipping options, and contact information. People make any necessary adjustments and then authorize payment and complete the purchase.
 
 Websites that accept Apple Pay incorporate it into the purchasing flow. The Apple Pay mark identifies acceptance, while the payment button opens a sheet showing the purchase amount, payment method, shipping choices, and requested contact details. Authorization depends on the device and browser: people can use supported biometric authentication, Apple Watch, a nearby device, or a code scanned with iPhone or iPad. Check Apple Pay availability rather than assuming every Mac or browser uses the same handoff flow.
 
-All websites that offer Apple Pay must include a privacy statement and adhere to the [Acceptable use guidelines for Apple Pay on the web](https://developer.apple.com/apple-pay/acceptable-use-guidelines-for-websites/). For a hands-on demo of Apple Pay on the web, see [Apple Pay on the web interactive demo](https://applepaydemo.apple.com/).
+All websites that offer Apple Pay must include a privacy statement and adhere to the [Acceptable use guidelines for Apple Pay on the web](https://developer.apple.com/support/terms/apple-pay-acceptable-use-guidelines-for-websites). For a hands-on demo of Apple Pay on the web, see [Apple Pay on the web interactive demo](https://applepaydemo.apple.com/).
 
 ## Topics
 
@@ -22,9 +22,9 @@ All websites that offer Apple Pay must include a privacy statement and adhere to
 
 - **Offer Apple Pay on all supported devices** - If the device doesn't support Apple Pay, don't present Apple Pay as a payment option.
 
-- **Make Apple Pay the primary payment option when possible** - If you use Apple Pay APIs to find out whether someone has an active card in Wallet, you must make Apple Pay the primary — but not necessarily sole — payment option everywhere you use the APIs.
+- **Make Apple Pay the primary payment option when possible** - If you use Apple Pay APIs to find out whether someone has an active card in Wallet, you must make Apple Pay the primary — but not necessarily sole — payment option everywhere you use the APIs. Don't separate Apple Pay into a different step or flow; for example, you might preselect it when you show it alongside other options.
 
-- **Feature Apple Pay prominently** - If you also offer other payment methods, offer Apple Pay at the same time and feature it at least as prominently as other options on every page or screen that offers or accepts payment methods.
+- **Feature Apple Pay prominently** - On websites, Apple's acceptable use guidelines require any webpage that accepts other third-party payment methods to offer Apple Pay as well, with at least the same prominence. In apps and on websites, make the Apple Pay button no smaller than other payment buttons.
 
 - **Use Apple-provided APIs for buttons** - If you use an Apple Pay button to start the Apple Pay payment process, you must use the Apple-provided API to display it. Unlike a button graphic, the buttons produced by the API always have the correct appearance and are localized automatically.
 
@@ -82,9 +82,11 @@ All websites that offer Apple Pay must include a privacy statement and adhere to
 
 - **Handle errors gracefully** - If an error occurs during checkout, help people resolve it quickly so they can complete their transaction.
 
+- **Defer to the payment sheet for progress** - The payment sheet already shows loading and progress states. Extra spinners or progress indicators can make the state of the transaction unclear.
+
 ### Website Icons
 
-Websites that support Apple Pay can display an icon in the payment sheet of the connected device that's used to authorize payment. The icon provides visual reassurance that payment is going to the right place.
+Websites that support Apple Pay can display an icon in the payment sheet of the connected device that's used to authorize payment. The icon provides visual reassurance that payment is going to the right place. In subscription payment flows, the icon can also appear in Wallet.
 
 If your website supports Apple Pay, provide an icon in the following sizes:
 - **@2x:** 60x60 pt (120x120 px @2x)
@@ -104,7 +106,7 @@ When data is invalid, system-provided error messaging calls attention to relevan
 
 - **Provide accurate status reporting** - When a problem occurs, it's essential that your app or website accurately indicate the type of problem so the system can show the most relevant error message on the payment sheet.
 
-- **Use specific error messages** - Succinctly and specifically describe the problem when data is invalid or incorrectly formatted. Reference the relevant field and indicate exactly what's expected. For example, instead of showing "Address is invalid," show "Zip code doesn't match city."
+- **Use specific error messages** - Succinctly and specifically describe the problem when data is invalid or incorrectly formatted. Reference the relevant field and indicate exactly what's expected. For example, instead of showing "Address is invalid," show "Zip code doesn't match city." Write messages as noun phrases with sentence-style capitalization and no ending punctuation, and keep them to about 128 characters or fewer to avoid truncation.
 
 **Payment Processing**
 
@@ -116,11 +118,15 @@ Your app or website can use Apple Pay to request authorization for recurring fee
 
 - **Clarify subscription details beforehand** - Before asking people to authorize a recurring payment, make sure they fully understand the billing frequency and any other terms of service. You can reiterate the billing frequency on the payment sheet.
 
-- **Include detailed line items** - Include line items that reiterate billing frequency, discounts, and additional upfront fees. Use these line items to remind people what they're authorizing.
+- **Include detailed line items** - Include line items that reiterate billing frequency, discounts, and additional upfront fees. Use these line items to remind people what they're authorizing. If no payment is due at authorization, state clearly when billing will occur.
+
+- **Communicate trial period terms** - For a subscription with a trial, use line items to show the trial amount (including $0 for a free trial), the regular amount after the trial, and the date regular billing begins.
 
 - **Clarify current payment amounts** - Make sure people know the amount they're being billed at the time of authorization.
 
 - **Only request authorization when necessary** - Only show the payment sheet when a subscription change results in additional fees. When someone changes a subscription, authorization isn't necessary if the cost decreases or remains the same.
+
+**Note:** If you use the billing agreement field, keep it to a short plain-language summary that doesn't repeat information shown elsewhere; it doesn't replace your formal terms. When in doubt, leave it blank.
 
 ### Donations
 
@@ -165,8 +171,10 @@ Use the Apple-provided APIs to create Apple Pay buttons. When you use the system
 - **Support with Apple Pay** - An app or website that uses the term "support" to help people give money to projects, causes, or organizations.
 - **Contribute with Apple Pay** - An app or website that uses the term "contribute" to help people give money to projects, causes, or organizations.
 - **Tip with Apple Pay** - An app or website that lets people tip for goods or services.
-- **Apple Pay** - An app or website that has stylistic reasons to use a button that can have a smaller minimum width or that doesn't specify a call to action.
-- **Set up Apple Pay** - When a device supports Apple Pay, but it hasn't been set up yet, you can use this button to show that Apple Pay is accepted and give people an explicit opportunity to set it up.
+- **Apple Pay** - An app or website that has stylistic reasons to use a button that can have a smaller minimum width or that doesn't specify a call to action. The system may also show this button in place of a type that the running OS version doesn't support.
+- **Set up Apple Pay** - When a device supports Apple Pay, but it hasn't been set up yet, you can use this button to show that Apple Pay is accepted and give people an explicit opportunity to set it up. Place it in Settings, a user profile, or an interstitial page.
+
+In some contexts, the system shows an image of the default card on payment buttons to indicate that Apple Pay is set up and ready to use.
 
 **Button Styles**
 
@@ -202,9 +210,11 @@ Use the Apple Pay mark graphic to show that Apple Pay is an available payment op
 As with all Apple product names, use Apple Pay exactly as shown in [Apple Trademark List](https://www.apple.com/legal/intellectual-property/trademark/appletmlist.html) — never make it plural or possessive — and adhere to [Guidelines for Using Apple Trademarks](https://www.apple.com/legal/intellectual-property/guidelinesfor3rdparties.html).
 
 - **Use proper capitalization** - Use two words with an uppercase A, an uppercase P, and lowercase for all other letters. Display Apple Pay entirely in uppercase only when necessary for conforming to an established typographic interface style.
+- **Never use the Apple logo in place of the word Apple** - Write the name in text.
 - **Include trademark symbol when appropriate** - In the United States, use the registered trademark symbol (®) the first time Apple Pay appears in body text. Don't include it when Apple Pay appears as a selection option during checkout.
 - **Coordinate with your app's typography** - Don't mimic Apple typography. Instead, use text attributes that are consistent with the rest of your app or website.
 - **Don't translate the trademark** - Always use Apple trademarks in English, even when they appear within non-English text.
+- **Use a text-only description only when every option is text-only** - In a payment selection context, describe Apple Pay in plain text only if all payment options use plain text. If any option shows an icon or logo, use the Apple Pay mark.
 - **Follow App Store guidelines** - When promoting your app's use of Apple Pay, refer to the [App Store marketing guidelines](https://developer.apple.com/app-store/marketing/guidelines/).
 
 ## Platform Considerations
@@ -213,7 +223,7 @@ No additional considerations for iOS, iPadOS, macOS, visionOS, or watchOS. Not s
 
 ### Related Components
 
-- [In-App Purchase](https://developer.apple.com/design/human-interface-guidelines/in-app-purchase) - For selling virtual goods and digital content
+- [Apple In-App Purchase](https://developer.apple.com/design/human-interface-guidelines/apple-in-app-purchase) - For selling virtual goods and digital content
 
 ### Developer Documentation
 
@@ -222,6 +232,12 @@ No additional considerations for iOS, iPadOS, macOS, visionOS, or watchOS. Not s
 - [WKInterfacePaymentButton — WatchKit](https://developer.apple.com/documentation/watchkit/wkinterfacepaymentbutton) - WatchKit
 
 ## Changelog
+
+### June 8, 2026
+- Refined guidance to reflect the latest Apple Pay appearance and capabilities.
+
+### December 16, 2025
+- Clarified supported platforms, including web browsers and Apple Vision Pro.
 
 ### June 10, 2024
 - Updated links to developer guidance for offering Apple Pay on the web.

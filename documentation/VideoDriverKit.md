@@ -4,7 +4,7 @@ Build user-space drivers for video capture and playback hardware.
 
 **Platforms:** macOS; DriverKit 27.0+ SDK
 
-**Status:** Beta APIs as of September 8, 2026. Apple publishes DriverKit-version availability and explicitly identifies macOS as the supported platform.
+**Status:** Introduced in DriverKit 27.0; Apple's documentation flags none of these APIs as beta, and Apple lists macOS 27.2 as released on October 26, 2026. Reviewed November 1, 2026. Apple publishes DriverKit-version availability and explicitly identifies macOS as the supported platform.
 
 ## Overview
 
@@ -40,3 +40,4 @@ Do not infer iPadOS support from other DriverKit families. Likewise, legacy Inte
 - [Apple framework reference](https://developer.apple.com/documentation/videodriverkit)
 - [Readable framework documentation](https://developer.apple.com/documentation/videodriverkit.md)
 - [SDK availability metadata](https://developer.apple.com/tutorials/data/documentation/videodriverkit.json)
+- [Apple Developer releases](https://developer.apple.com/news/releases/)

@@ -16,6 +16,8 @@ Supply your server's notification base URL through `tokenNotificationURL` on the
 
 When a life-cycle event affects the token, Apple appends `/notification/merchantToken/{eventId}` to that base URL and sends a **GET** request. Retrieve the full event with [Get Details of a Merchant Token Event](https://developer.apple.com/documentation/merchanttokennotificationservices/merchant-token-event-retrieval); the notification is not a transaction payload.
 
+The event response's optional [`MerchantTokenMetadata`](https://developer.apple.com/documentation/merchanttokennotificationservices/merchanttokenmetadata) can carry card art, card metadata, and an [`EncryptedTokenMetadata`](https://developer.apple.com/documentation/merchanttokennotificationservices/encryptedtokenmetadata) object. Its decrypted `data` is a [`TokenMetadata`](https://developer.apple.com/documentation/merchanttokennotificationservices/tokenmetadata) object holding the token's MPAN, its expiration date in `YYMMDD` form, and an `mpanId` that appears only when the MPAN identifier changed. The envelope also carries `publicKeyHash` and a detached PKCS #7 `signature`, plus `ephemeralPublicKey` when your merchant public key uses `EC_v1` or `wrappedKey` when it uses `RSA_v1`.
+
 ## Authorization and reliable delivery
 
 Apple uses a notify-then-retrieve model: retrieve an event using its `eventId` while details remain available, which the service documents as **seven days**. Persist incoming work promptly and avoid treating a notification alone as the full event.
@@ -36,9 +38,11 @@ The related [Usage Information API](ApplePayMerchantTokenUsageInformationAPI.md)
 - [MerchantToken Usage Data Availability Notification](https://developer.apple.com/documentation/merchanttokennotificationservices/merchanttoken-usage-data-availability-notification)
 - [Get MerchantToken Usage Information Package](https://developer.apple.com/documentation/merchanttokennotificationservices/get-merchanttoken-usage-information-package)
 
+Build the package as [Adding merchant token usage information](https://developer.apple.com/documentation/applepaymerchanttokenmanagementapi/adding-merchant-token-usage-information) describes: a `usageInformation.json` file, images, and optional `.lproj` localizations, at most 5 MB in total, compressed into a zip file.
+
 Usage information describes payment activity; it does not itself authorize a charge or invalidate a token.
 
-A public-key request can return `202` while the owner's device has not supplied the key; wait for the corresponding notification rather than parsing this as a completed key response. A `409` reports conflicting metadata and calls for updating `tokenNotificationURL`. The event model includes `UPDATED_MERCHANT_TOKEN_PUBLIC_KEY` alongside unlink, card-metadata, and card-art events.
+A public-key request can return `202` while the owner's device has not supplied the key; wait for the corresponding notification rather than parsing this as a completed key response. A `409` reports conflicting metadata and calls for updating `tokenNotificationURL`. The event model's `eventType` values are `UNLINK`, `UPDATED_METADATA`, `UPDATED_CARD_ART`, `UPDATED_MERCHANT_TOKEN_PUBLIC_KEY`, and `UPDATED_MERCHANT_TOKEN`.
 
 ## Topics
 
@@ -53,6 +57,8 @@ A public-key request can return `202` while the owner's device has not supplied 
 - [`MerchantTokenMetadata`](https://developer.apple.com/documentation/merchanttokennotificationservices/merchanttokenmetadata) - The card information related to a merchant token, including its card art and metadata.
 - [`CardArt`](https://developer.apple.com/documentation/merchanttokennotificationservices/cardart) - Data for displaying art to represent a card.
 - [`CardMetadata`](https://developer.apple.com/documentation/merchanttokennotificationservices/cardmetadata) - Data about the card, including its expiration date and suffix.
+- [`EncryptedTokenMetadata`](https://developer.apple.com/documentation/merchanttokennotificationservices/encryptedtokenmetadata) - Encrypted data about the merchant token, including its MPAN and expiration date.
+- [`TokenMetadata`](https://developer.apple.com/documentation/merchanttokennotificationservices/tokenmetadata) - The decrypted form of that data: MPAN, expiration date, and a changed MPAN identifier when there is one.
 
 ### Merchant token invalidation
 - [Invalidate a Merchant Token](https://developer.apple.com/documentation/merchanttokennotificationservices/unlinking-merchanttoken) - Invalidate a merchant token associated with your merchant identifier, making it invalid for future transaction authorizations.

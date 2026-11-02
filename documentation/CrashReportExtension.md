@@ -4,7 +4,7 @@ Inspect a crashed app from a separate extension process.
 
 **Platforms:** iOS 27.0+ | iPadOS 27.0+ | macOS 27.0+
 
-**Status:** Beta APIs as of September 8, 2026. Not available to Mac Catalyst apps or iOS apps running on Apple silicon Macs.
+**Status:** Introduced in iOS, iPadOS, and macOS 27.0, now released: Apple's documentation flags none of these APIs as beta, and Apple lists iOS, iPadOS, and macOS 27.2 as released on October 26, 2026. Reviewed November 1, 2026. Not available to Mac Catalyst apps or iOS apps running on Apple silicon Macs.
 
 ## Overview
 
@@ -38,3 +38,4 @@ The documented platform exclusions still apply even when an app can import relat
 - [Apple framework reference](https://developer.apple.com/documentation/crashreportextension)
 - [Readable framework documentation](https://developer.apple.com/documentation/crashreportextension.md)
 - [Platform metadata](https://developer.apple.com/tutorials/data/documentation/crashreportextension.json)
+- [Apple Developer releases](https://developer.apple.com/news/releases/)

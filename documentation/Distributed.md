@@ -10,7 +10,7 @@ Distributed actors share many characteristics with Swift actors, and include add
 
 You use three main parts when writing code with distributed actors:
 
-- Swift language support for actors and distributed actors. For more information, see [Concurrency in The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/concurrency).
+- Swift language support for actors and distributed actors. For more information, see [Concurrency in The Swift Programming Language](https://docs.swift.org/latest/documentation/the-swift-programming-language/concurrency/).
 
 - The Distributed module, which includes the types and protocols you need to declare and use distributed actors. For example, it has protocols to which distributed actors and distributed actor systems conform, and structures that encapsulate information about calls to a distributed actor.
 

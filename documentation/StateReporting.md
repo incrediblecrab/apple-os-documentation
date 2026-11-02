@@ -4,7 +4,7 @@ Attach application-defined state to performance measurements and diagnostics.
 
 **Platforms:** iOS 27.0+ | iPadOS 27.0+ | Mac Catalyst 27.0+ | macOS 27.0+ | tvOS 27.0+ | visionOS 27.0+ | watchOS 27.0+
 
-**Status:** Beta APIs; availability checked in Apple's documentation JSON on September 8, 2026.
+**Status:** Introduced in the OS 27.0 releases, now shipping: Apple's documentation JSON flags none of these APIs as beta, and Apple lists the 27.2 releases of iOS, iPadOS, macOS, tvOS, visionOS, and watchOS on October 26, 2026. Reviewed November 1, 2026.
 
 ## Overview
 
@@ -43,3 +43,4 @@ Check the receiving API separately: `MetricManager`'s state-domain initializer i
 - [Apple framework reference](https://developer.apple.com/documentation/statereporting)
 - [Getting-started documentation](https://developer.apple.com/documentation/statereporting/getting-started-with-statereporting.md)
 - [Platform metadata](https://developer.apple.com/tutorials/data/documentation/statereporting.json)
+- [Apple Developer releases](https://developer.apple.com/news/releases/)

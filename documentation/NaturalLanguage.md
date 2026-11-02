@@ -15,6 +15,8 @@ Use this framework to perform tasks like:
 - **Parts-of-speech tagging** - marking up individual words with their part of speech
 - **Lemmatization** - deducing a word's stem based on its morphological analysis
 - **Named entity recognition** - identifying tokens as names of people, places, or organizations
+- **Sentiment classification** - scoring a piece of text from negative to positive
+- **Text embedding** - representing words and sentences as vectors so you can measure how similar two pieces of text are, with word and sentence embeddings or with transformer-based contextual embeddings
 
 You can also use this framework with Create ML to train and deploy custom natural language models. For more information, see Creating a text classifier model and Creating a word tagger model.
 

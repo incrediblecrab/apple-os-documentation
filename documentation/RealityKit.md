@@ -21,27 +21,29 @@ Use RealityKit's rich functionality to create compelling augmented reality (AR) 
 
 [USDKit](USDKit.md) adds Swift USD composition and stage rendering on its OS 27 platforms. [Spatial Preview](SpatialPreview.md) connects Mac authoring to Apple Vision Pro. These additions do not change RealityKit's earlier deployment requirements or imply that every USD feature is supported by every import path; consult [USD feature validation](https://developer.apple.com/documentation/usd/validating-usd-files).
 
-### Gaussian splats: platform and beta status
+### Gaussian splats: platform and release-note status
 
-The [GaussianSplatComponent reference](https://developer.apple.com/documentation/realitykit/gaussiansplatcomponent) lists iOS, iPadOS, Mac Catalyst, macOS, and visionOS 27.0 availability and requires **Apple7 GPU-family support**. The beta notes are not identical across those platforms:
+The [GaussianSplatComponent reference](https://developer.apple.com/documentation/realitykit/gaussiansplatcomponent) lists iOS, iPadOS, Mac Catalyst, macOS, and visionOS 27.0 availability, with no beta marking, and requires **Apple7 GPU-family support**. The 27 release notes are not identical across those platforms:
 
-| Target | Status in the sources checked September 8, 2026 |
+| Target | Status in the sources checked November 1, 2026 |
 | --- | --- |
-| visionOS 27 | The API reference includes visionOS, and the Beta 8 notes list the offscreen/re-entry splat-rendering defect as resolved (183538823). Do not classify this platform as unavailable merely because another platform's notes say “upcoming.” |
-| iOS, iPadOS, macOS 27 | Their Beta 8 RealityKit sections still say the API will arrive in an upcoming release (178061856), while their Gaussian Splats sections also list the offscreen/re-entry defect as resolved (183538823). Preserve this internal contradiction alongside the reference's 27.0 annotations; verify the actual target SDK and beta before enabling it. |
-| Mac Catalyst 27 | Listed by the API reference; inspect the Catalyst SDK and runtime rather than inferring its beta status from a different platform. |
+| visionOS 27 | The API reference includes visionOS, and the visionOS 27 release notes list the offscreen/re-entry splat-rendering defect as resolved (183538823) with no “upcoming release” entry. Do not classify this platform as unavailable merely because another platform's notes say “upcoming.” |
+| iOS, iPadOS, macOS 27 | The RealityKit sections of their 27 release notes still say the API will arrive in an upcoming release (178061856), while their Gaussian Splats sections list the offscreen/re-entry defect as resolved (183538823). The 27.2 release notes mention neither RealityKit nor Gaussian splats. Preserve this internal contradiction alongside the reference's 27.0 annotations; confirm the API in the SDK you build with before enabling it. |
+| Mac Catalyst 27 | Listed by the API reference; inspect the Catalyst SDK and runtime rather than inferring its status from a different platform. |
 
 The component uses application-populated `GaussianSplatResource` buffers; it does not load PLY, USD, or other source files itself. Captured lighting is baked into the splat colors and does not respond to scene lights. Budget for splat count and overdraw, and handle resource-construction failures rather than assuming an unlimited point count. No tvOS or watchOS availability is listed for this component.
 
+The renderer can throttle expensive splat content to hold frame rate, and publishes [`GaussianSplatEvents.RenderingChanged`](https://developer.apple.com/documentation/realitykit/gaussiansplatevents/renderingchanged) on the entity that owns the component when it does; respond by switching to a lower-count asset or removing other splat components. It does not limit splat rendering in response to thermal state. Apple's [rendering guidelines](https://developer.apple.com/documentation/realitykit/gaussian-splat-rendering-guidelines) leave that to the app: watch `ProcessInfo.thermalState` and reduce splat complexity when it reaches serious or critical.
+
 ### Regression checks, not current restrictions
 
-The Beta 8 notes mark missing MaterialX 1.39 nodes, loading failures for `ComputeGraphComponents` in Reality files, and incorrect opaque-material behavior under `OpacityComponent` as **resolved**. The earlier visionOS Simulator soft-shadow restriction is also listed as resolved.
+The iOS, iPadOS, macOS, and visionOS 27 release notes mark missing MaterialX 1.39 nodes, loading failures for `ComputeGraphComponents` in Reality files, and incorrect opaque-material behavior under `OpacityComponent` as **resolved**. The earlier visionOS Simulator soft-shadow restriction is also listed as resolved.
 
 On visionOS, rebuilding with the 27.0 SDK makes `RealityRenderer.isToneMappingEnabled` control tone mapping; apps built with earlier SDKs keep their prior behavior (177283932). For primitive restart with triangle or line strips, the notes require `LowLevelMesh.Descriptor.allowsPrimitiveRestart = true` (180878999). Include both cases in render regression tests.
 
 For surrounding interface controls, follow the verified [HIG materials guidance](https://developer.apple.com/design/human-interface-guidelines/materials): Liquid Glass belongs to the functional control/navigation layer, not as a blanket material treatment for 3D content.
 
-Sources for these beta-specific checks: [iOS and iPadOS 27](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes#RealityKit), [macOS 27](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes#RealityKit), and [visionOS 27](https://developer.apple.com/documentation/visionos-release-notes/visionos-27-release-notes#RealityKit).
+Sources for these release-note checks: [iOS and iPadOS 27](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes#RealityKit), [macOS 27](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes#RealityKit), and [visionOS 27](https://developer.apple.com/documentation/visionos-release-notes/visionos-27-release-notes#RealityKit).
 
 ## Topics
 
@@ -119,6 +121,7 @@ Control your app's content and how people can interact with it.
 ### Articles
 
 - [Responding to gestures on an entity](https://developer.apple.com/documentation/realitykit/responding-to-gestures-on-an-entity) - Respond to gestures performed on RealityKit entities using input target and collision components.
+- [Gaussian splat rendering guidelines](https://developer.apple.com/documentation/realitykit/gaussian-splat-rendering-guidelines) - Respond to render throttling and device thermal state, and reduce splat complexity by truncating, decimating, downsampling, or culling splats.
 - [AnchoringComponent](https://developer.apple.com/documentation/realitykit/anchoringcomponent) - Choose a real-world target and tracking behavior for an entity. The entity remains inactive until the system finds a matching anchor; handle anchor-state changes rather than assuming immediate placement.
 
 ---

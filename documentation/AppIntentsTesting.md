@@ -33,11 +33,11 @@ Use an **XCTest UI testing bundle**, not a unit test target. The app must be run
 - [`AppEntityDefinition.viewAnnotations()`](https://developer.apple.com/documentation/appintentstesting/appentitydefinition/viewannotations().md) — Inspect annotations after navigating to the relevant screen.
 - [`ViewAnnotation`](https://developer.apple.com/documentation/appintentstesting/viewannotation.md) — Check the returned entity and `isSelected` state.
 
-## Validation and beta limitations
+## Validation and limitations
 
 Seed deterministic data, test success and failure, then reset it between cases. Cover stale identifiers, missing entities, denied authorization, offline services, and renamed intent definitions. Keep setup-only intents behind a debug compilation condition; `isDiscoverable = false` alone is not access control.
 
-The beta adoption article uses singular `intent` in one example, while the symbol reference documents **`IntentDefinitions.intents`**. The `makeReference(identifier:)` page also has an example that incorrectly says `reference(identifier:)`; follow the declaration and the adoption article's `makeReference` spelling. Compile tests with the selected SDK. Framework tests verify the integration code path, not every possible Siri utterance or deployment-region configuration.
+The adoption article still uses singular `intent` in one example (checked November 1, 2026), while the symbol reference documents **`IntentDefinitions.intents`**. The `makeReference(identifier:)` page also has an example that incorrectly says `reference(identifier:)`; follow the declaration and the adoption article's `makeReference` spelling. Compile tests with the selected SDK. Framework tests verify the integration code path, not every possible Siri utterance or deployment-region configuration.
 
 See the [App Intents migration recipe](../guides/app-intents-migration.md), [XCTest](XCTest.md), [Core Spotlight](CoreSpotlight.md), and [Evaluations](Evaluations.md) for adjacent validation.
 

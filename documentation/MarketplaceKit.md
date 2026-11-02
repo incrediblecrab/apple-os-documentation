@@ -19,6 +19,8 @@ In addition to alternative app marketplaces, this framework also serves:
 
 [`MarketplaceAppExtension`](https://developer.apple.com/documentation/marketplacekit/marketplaceappextension), available from iOS/iPadOS 26.0, supports marketplace authentication, installation, and launching. [`MarketplaceExtension`](https://developer.apple.com/documentation/marketplacekit/marketplaceextension) and [`MarketplaceExtensionConfiguration`](https://developer.apple.com/documentation/marketplacekit/marketplaceextensionconfiguration) are formally deprecated from 26.0 on those platforms; their declarations do not announce removal.
 
+In iOS and iPadOS 27.2 and later, [`requestInlineAppInstallation(_:subjectToken:)`](https://developer.apple.com/documentation/marketplacekit/applibrary/requestinlineappinstallation(_:subjecttoken:)) on `AppLibrary` lets an app ask the system to install another of your web-distributed apps, in addition to the Download button on your website. Apple limits the method to the European Union and to apps that you own or control: the app to install must come from the same developer account and be approved for web distribution. The system asks the person to approve the installation in a sheet, and the method throws `MarketplaceKitError` if the app doesn't qualify, the person declines, or the installation request fails. `AppLibrary` states this method's requirement as same-account ownership, whereas `requestAppInstallation(_:)` requires the marketplace entitlement and `requestAppInstallationFromBrowser(for:referrer:)` requires the browser entitlement.
+
 Review [age-rating restrictions](https://developer.apple.com/documentation/marketplacekit/providing-age-rating-appropriate-content) and the documented [`TransactionReporting`](https://developer.apple.com/documentation/marketplacekit/transactionreporting) API where applicable. Eligibility, fees, and reporting obligations are policy questions, not features that can be inferred from the device's OS version.
 
 Handle installation cancellation, unmet requirements, expired authorization, and [`MarketplaceKitError`](https://developer.apple.com/documentation/marketplacekit/marketplacekiterror). Use the supported [reauthentication workflow](https://developer.apple.com/documentation/marketplacekit/reauthenticating-a-person-to-manage-apps), and distinguish download progress from a completed installation. Check individual API availability rather than applying one minimum SDK version to marketplaces, browsers, and web distribution.
@@ -39,6 +41,7 @@ Handle installation cancellation, unmet requirements, expired authorization, and
 
 ### Authorization
 - [Reauthenticating a person to manage apps](https://developer.apple.com/documentation/marketplacekit/reauthenticating-a-person-to-manage-apps) - Renew your app's authorization when an app needs updating or when a device restores from backup.
+- [Providing age-rating appropriate content](https://developer.apple.com/documentation/marketplacekit/providing-age-rating-appropriate-content) - Check for age-rating restrictions and let people request approval for apps rated above the device's maximum.
 - **com.apple.developer.marketplace.app-installation** - The entitlement that enables an app to vend other apps as an alternative app marketplace.
 - **com.apple.developer.browser.app-installation** - The entitlement that enables a browser to install alternative-distribution apps from a website.
 - [App License Delivery SDK](AppLicenseDeliverySDK.md) - Secure the installation of alternative distribution apps on iOS or iPadOS devices by vending licenses from your web server.
@@ -54,6 +57,7 @@ Handle installation cancellation, unmet requirements, expired authorization, and
 - **AppleItemID** - An identifier that represents an app.
 - **AppleVersionID** - An identifier that represents a single app version.
 - **MarketplaceKitURIScheme** - A URI scheme that defines an alternative distribution app installation link.
+- [`RequestAppDeletionAction`](https://developer.apple.com/documentation/marketplacekit/requestappdeletionaction) - A SwiftUI environment action that requests the deletion of an app (iOS/iPadOS 26.4+).
 
 ### Background services
 - [`MarketplaceAppExtension`](https://developer.apple.com/documentation/marketplacekit/marketplaceappextension) - An extension that facilitates authentication, installation, and launching a marketplace with deep links.
@@ -74,6 +78,10 @@ Handle installation cancellation, unmet requirements, expired authorization, and
 
 ### Installation sources
 - **AppDistributor** - Options that describe the marketplace from which the app installs.
+
+### Token and transaction reporting
+- [Reporting transactions for the Core Technology Commission](https://developer.apple.com/documentation/marketplacekit/reporting-transactions-for-core-technology-commission) - Track eligible purchases related to your app and report them to Apple using a token.
+- [`TransactionReporting`](https://developer.apple.com/documentation/marketplacekit/transactionreporting) - Token services for transaction reporting.
 
 ### Errors
 - **MarketplaceKitError** - Errors that can occur in the marketplace workflow.

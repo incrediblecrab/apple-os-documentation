@@ -6,12 +6,13 @@ Send and manage reports you send to Apple for tokens you receive when your app p
 
 ## Overview
 
-Call this REST API from your server to report external purchase tokens and your customers' transactions related to the tokens. Use this API if your app uses External Purchase API and provides alternative payment options for digital goods and services, using any of the following:
+Call this REST API from your server to report external purchase tokens and your customers' transactions related to the tokens. Use this API if your app uses the StoreKit External Purchase API or [MarketplaceKit](MarketplaceKit.md) and receives external purchase tokens. [Receiving and decoding external purchase tokens](https://developer.apple.com/documentation/storekit/receiving-and-decoding-external-purchase-tokens) lists the sources by region:
 
-- **Payment service providers:** Process an eligible external purchase within the app.
-- **Linking out:** Direct the customer to an eligible external purchase destination.
+- **External purchase notice and links:** A token in the app after the notice sheet in the EEA and South Korea, or appended to the destination URL of an external purchase link in the EEA and Russia.
+- **Custom link tokens:** `ACQUISITION` and `SERVICES` tokens in the EU (and in the EEA for music streaming apps), and `IN_APP` or `LINK_OUT` tokens, requested before each potential transaction, for apps with the StoreKit External Custom Purchase Link Regions entitlement (iOS 26.4 and later in Brazil and Japan, iOS 27.2 and later in the EU).
+- **Alternative distribution:** `CORE_TECHNOLOGY` tokens for alternatively distributed apps in the EU, Brazil, and Japan, used to report Core Technology Commissions.
 
-Report all applicable tokens, including those without transactions, and report associated purchases. The API is a reporting mechanism, not authorization to offer a payment flow in every storefront. Use [Regional distribution](../guides/regional-distribution.md) and [App Store readiness](../guides/app-store-readiness.md) for eligibility, policy sources, fees, and reporting obligations.
+Report every token, including those without transactions, and report associated purchases. The API is a reporting mechanism, not authorization to offer a payment flow in every storefront. Use [Regional distribution](../guides/regional-distribution.md) and [App Store readiness](../guides/app-store-readiness.md) for eligibility, policy sources, fees, and reporting obligations.
 
 ### Authorize your API calls
 

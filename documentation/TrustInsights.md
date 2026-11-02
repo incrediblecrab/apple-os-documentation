@@ -4,7 +4,7 @@ Use privacy-preserving signals to help recognize potentially coerced transaction
 
 **Evaluation API declarations:** iOS 27.0+ | iPadOS 27.0+. The framework catalog additionally lists Mac Catalyst 27; see the declaration/provisioning distinction below.
 
-**Status:** Beta APIs; reviewed against Apple documentation available September 8, 2026.
+**Status:** Introduced in iOS and iPadOS 27.0, now released: Apple's documentation flags none of these APIs as beta, and Apple lists iOS and iPadOS 27.2 as released on October 26, 2026. Reviewed November 1, 2026.
 
 ## Overview
 
@@ -42,3 +42,4 @@ Before releasing an evaluation, report how it affected the interaction through [
 - [Apple framework reference](https://developer.apple.com/documentation/trustinsights)
 - [Readable framework documentation](https://developer.apple.com/documentation/trustinsights.md)
 - [Entitlement reference](https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.trustinsights.base.md)
+- [Apple Developer releases](https://developer.apple.com/news/releases/)

@@ -11,6 +11,7 @@ MediaExtension format readers encapsulate media assets that the system doesn't n
 ## Topics
 
 ### Format readers
+- [Supporting custom media formats and decoders](https://developer.apple.com/documentation/mediaextension/supporting-custom-media-formats-and-decoders) - Sample code for a Mac app (macOS 15+) that embeds a format reader and a video decoder extension. macOS installs the extensions disabled; the person turns them on in System Settings before the system uses them.
 - **MEFormatReader** - A protocol that defines the requirements for a format reader, which represents a single media asset.
 - **MEFormatReaderExtension** - A protocol that defines a factory to create a new format reader with a byte source.
 - **MEFormatReaderInstantiationOptions** - An object that contains options to pass to a format reader extension.
@@ -33,6 +34,7 @@ MediaExtension format readers encapsulate media assets that the system doesn't n
 - **MEByteSource** - Provides read access to the data in a media asset file.
 
 ### Video decoders
+- [Supporting custom media formats and decoders](https://developer.apple.com/documentation/mediaextension/supporting-custom-media-formats-and-decoders) - The same sample's `RLEVideoDecoder` extension, which decodes the `XRLE` codec.
 - **MEVideoDecoder** - A protocol that defines the requirements for a video decoder.
 - **MEVideoDecoderExtension** - A protocol that defines a factory to create new video decoders for a codec type that the extension implements.
 - **MEDecodeFrameOptions** - An object that guides the video decoder operation on a per-frame basis.
@@ -55,6 +57,7 @@ MediaExtension format readers encapsulate media assets that the system doesn't n
 - **Code** - An enumeration that models media extension error codes.
 
 ### Variables
+- **kMEFormatReaderSidecarFileNameExtensionArrayKey**
 - **kMERAWProcessorClassImplementationIDKey**
 - **kMERAWProcessorCodecNameKey**
 - **kMERAWProcessorCodecTypeKey**

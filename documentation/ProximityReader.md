@@ -34,7 +34,7 @@ Display requests show information for visual inspection; data requests return va
 
 ## OS 27: Tap to Share
 
-[`CustomerEngagementSession`](https://developer.apple.com/documentation/proximityreader/customerengagementsession) is a 27.0 beta API in the reviewed SDK. [Tap to Share](https://developer.apple.com/documentation/proximityreader/adding-support-for-tap-to-share-to-your-app) exchanges customer information, shopping-cart state, and supported payment/pass interactions. Its merchant-device requirement is **iPhone 12 or later**, with the Tap to Share capability plus the Tap to Pay entitlement.
+[`CustomerEngagementSession`](https://developer.apple.com/documentation/proximityreader/customerengagementsession) is an iOS, iPadOS, and Mac Catalyst 27.0 API; Apple's documentation showed no beta flag for it on November 1, 2026. [Tap to Share](https://developer.apple.com/documentation/proximityreader/adding-support-for-tap-to-share-to-your-app) exchanges customer information, shopping-cart state, and supported payment/pass interactions. Its merchant-device requirement is **iPhone 12 or later**, with the Tap to Share capability plus the Tap to Pay entitlement.
 
 The concrete [`open(using:)`](https://developer.apple.com/documentation/proximityreader/customerengagementsession/open(using:)) parameter is `CustomerEngagement.Token?`. Create that token from a provider's `PaymentCardReader.Token` using [`CustomerEngagement.Token.init(using:)`](https://developer.apple.com/documentation/proximityreader/customerengagement/token/init(using:)). Omitting it requires an already valid `PaymentCardReaderSession`; it does not open an unauthenticated session.
 
@@ -84,7 +84,7 @@ These types are annotated iOS 18.4+, iPadOS 18.4+, and Mac Catalyst 18.4+. Resol
 - [Checking IDs](https://developer.apple.com/documentation/proximityreader/checking-ids-with-the-verifier-api) - Read and verify supported identity documents.
 - [`MobileDocumentReader`](https://developer.apple.com/documentation/proximityreader/mobiledocumentreader) - An object for configuring mobile document reading on the current device.
 - [`MobileDocumentReaderSession`](https://developer.apple.com/documentation/proximityreader/mobiledocumentreadersession) - The object you use to start reading a mobile document.
-- [`MobileDocumentHolderName`](https://developer.apple.com/documentation/proximityreader/mobiledocumentholdername) - A holder's name as text and structured components; this type is a 27.0 beta addition.
+- [`MobileDocumentHolderName`](https://developer.apple.com/documentation/proximityreader/mobiledocumentholdername) - A holder's name as text and structured components; this type is new in 27.0.
 
 ### Mobile document requests
 

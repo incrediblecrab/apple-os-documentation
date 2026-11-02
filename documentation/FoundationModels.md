@@ -17,6 +17,7 @@ The OS 26 on-device APIs remain useful. The OS 27 additions extend the framework
 | `LanguageModel`, `LanguageModelExecutor`, `LanguageModelCapabilities` | iOS/iPadOS/Mac Catalyst/macOS/visionOS/watchOS 27.0+ |
 | `PrivateCloudComputeLanguageModel` | iOS/iPadOS/Mac Catalyst/macOS/visionOS/watchOS 27.0+ |
 | `LanguageModelSession.DynamicProfile`, `ImageAttachmentContent`, `LanguageModelError` | iOS/iPadOS/Mac Catalyst/macOS/visionOS/watchOS 27.0+ |
+| `DataAttachmentRepresentable`, `DataEntryRepresentable`, `Attachment.init(_:)`, `LanguageModel.supportsDataAttachmentType(_:)` and `supportsDataEntryType(_:)` | iOS/iPadOS/Mac Catalyst/macOS/visionOS/watchOS 27.2+ |
 
 These declarations do not list tvOS. A session or protocol available on watchOS does not imply an on-device `SystemLanguageModel` there. Check each symbol and the chosen model rather than applying one platform list to the whole framework.
 
@@ -46,6 +47,8 @@ Apple's [iOS overview](https://developer.apple.com/ios/whats-new/) names cloud m
 - [Vision](Vision.md) provides [`OCRTool`](https://developer.apple.com/documentation/vision/ocrtool.md) and [`BarcodeReaderTool`](https://developer.apple.com/documentation/vision/barcodereadertool.md) for a session's image-analysis toolset.
 
 Supported image inputs include `CGImage`, `CIImage`, `CVPixelBuffer`, and image URLs. Create them through `Attachment` initializers, not by constructing `ImageAttachmentContent` directly. Model support is still required; an attachment type's availability does not promise that any custom provider can consume it.
+
+Starting in 27.2, [`Attachment.init(_:)`](https://developer.apple.com/documentation/foundationmodels/attachment/init(_:).md) creates an attachment from any content type that conforms to [`DataAttachmentRepresentable`](https://developer.apple.com/documentation/foundationmodels/dataattachmentrepresentable.md); the value is stored in the transcript as a [`Transcript.DataAttachment`](https://developer.apple.com/documentation/foundationmodels/transcript/dataattachment.md) with a `UTType` content type. A `LanguageModel` declares the content types it accepts in [`supportsDataAttachmentType(_:)`](https://developer.apple.com/documentation/foundationmodels/languagemodel/supportsdataattachmenttype(_:).md), and the framework checks each data attachment against it before calling the executor. [`DataEntryRepresentable`](https://developer.apple.com/documentation/foundationmodels/dataentryrepresentable.md) and `supportsDataEntryType(_:)` do the same for output that a model records as a top-level [`Transcript.DataEntry`](https://developer.apple.com/documentation/foundationmodels/transcript/dataentry.md).
 
 ### Dynamic Profiles
 

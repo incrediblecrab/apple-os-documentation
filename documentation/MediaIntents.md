@@ -25,12 +25,14 @@ This is not an audio-analysis API; see [Music Understanding](MusicUnderstanding.
 3. Resolve explicit queries against your catalog, validate media URLs, and supply appropriate recommendations for unspecified requests. Do not treat a URL or natural-language match as authorization.
 4. Implement an app intent matching [`AppSchema.AudioIntent.playAudio`](https://developer.apple.com/documentation/appintents/appschema/audiointent/playaudio.md) to perform playback for the selected content.
 
+The [audio domain](https://developer.apple.com/documentation/appintents/app-schema-domain-audio.md) treats steps 2 and 4 as one playback use-case group: Xcode reports a build warning when an app adopts the `playAudio` intent or the matching `IntentValueQuery` without the other, and Apple Intelligence and Siri integration requires both. The `playAudio` intent's `audioEntity` parameter takes a `@UnionValue` enumeration; Xcode's template lists cases for songs, albums, artists, playlists, radio, podcasts, audiobooks and other audio entities, and you keep only the cases your app supports.
+
 ## Failure handling and validation
 
 Keep normal in-app search and playback available when Siri, the region, or an OS 27 API is unavailable. Distinguish no matches from offline catalog access, unavailable subscriptions, and denied playback. Preserve existing supported SiriKit paths while verifying migration.
 
 Use [App Intents Testing](AppIntentsTesting.md) for query results and entity transfer, and [XCTest](XCTest.md)/[XCUIAutomation](XCUIAutomation.md) for the resulting app behavior. Test ambiguous queries, stale identifiers, invalid URLs, unspecified requests, and unavailable content—not only one successful song request.
 
-**Availability:** `AudioSearch`'s [versioned DocC metadata](https://developer.apple.com/tutorials/data/documentation/mediaintents/audiosearch.json) confirms Mac Catalyst 27.0+, despite the unversioned entry in its Markdown export. Framework availability does not guarantee Siri support for every runtime or region.
+**Availability:** `AudioSearch`'s [versioned DocC metadata](https://developer.apple.com/tutorials/data/documentation/mediaintents/audiosearch.json) confirms Mac Catalyst 27.0+, despite the unversioned entry in its Markdown export. The [`playAudio`](https://developer.apple.com/tutorials/data/documentation/appintents/appschema/audiointent/playaudio.json) schema's versioned metadata lists iOS, iPadOS, Mac Catalyst, macOS and visionOS 27.0, but not tvOS or watchOS. Framework availability does not guarantee Siri support for every runtime or region.
 
 *Source: [Media Intents](https://developer.apple.com/documentation/mediaintents.md).*

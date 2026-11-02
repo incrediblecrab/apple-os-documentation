@@ -36,15 +36,17 @@ The [27 Channel Sounding sample](https://developer.apple.com/documentation/coreb
 
 ### Using Nearby Interaction in the Background
 
-While your app is in the foreground, it can freely use Nearby Interaction to perform ranging between UWB devices. When the app moves to the background, it can perform UWB ranging only with devices that are Bluetooth Low Energy (LE)-paired and connected.
+While your app is in the foreground, it can use Nearby Interaction to range with a peer device or third-party accessory. When the app moves to the background, it can continue ranging only if the peer or accessory is Bluetooth Low Energy (LE)-paired and connected.
 
 For the Bluetooth-accessory background path on iOS 16 and later, use `NINearbyAccessoryConfiguration.init(accessoryData:bluetoothPeerIdentifier:)` with the accessory's Bluetooth identifier.
 
-In iOS 18.4 and later, your app can continue ranging in the background with any supported device if the app starts a Live Activity as it goes to the background. For more information about creating Live Activities, see ActivityKit.
+In iOS 18.4 and later, your app can continue ranging in the background with any supported peer or accessory if the app starts a Live Activity as it goes to the background. For more information about creating Live Activities, see ActivityKit.
 
-**Note:** Both these forms of background activity require that you enable the appropriate capability in Xcode. In your target's Signing & Capabilities tab, add the "Background Modes" capability, then select "Uses Nearby Interaction".
+In iOS 27.2 and later, a DL-TDOA session can start when the system relaunches your app in the background, for example from an iBeacon region-entry callback. That session runs for at most 30 seconds and needs Always location authorization; see DL-TDOA Features below.
 
-Handle suspension and loss of the required connection or Live Activity; these paths do not promise continuous execution for every session.
+**Note:** Each of these background paths requires a capability in Xcode. In your target's Signing & Capabilities tab, add the "Background Modes" capability, then select "Uses Nearby Interaction".
+
+Handle suspension, loss of the required connection or Live Activity, and the end of the DL-TDOA background window; these paths do not promise continuous execution for every session.
 
 ## Topics
 
@@ -87,7 +89,7 @@ Handle suspension and loss of the required connection or Live Activity; these pa
 
 ### DL-TDOA Features
 
-The DL-TDOA configuration types begin at 26. The [DL-TDOA guide](https://developer.apple.com/documentation/nearbyinteraction/dl-tdoa-ranging) states that 27 removes the DL-TDOA entitlement requirement, but **not** location authorization. Supply `NSLocationWhenInUseUsageDescription` for a when-in-use request or `NSLocationAlwaysAndWhenInUseUsageDescription` for an always-authorization request; denial ends the session with an error. Check `supportsDLTDOAMeasurement` before configuring a session. Measurements from multiple deployed anchors are inputs for the app's location calculation, not an automatically available universal positioning service.
+The DL-TDOA configuration types begin at 26. The [DL-TDOA guide](https://developer.apple.com/documentation/nearbyinteraction/dl-tdoa-ranging) states that 27 removes the DL-TDOA entitlement requirement, but **not** location authorization. Supply `NSLocationWhenInUseUsageDescription` for a when-in-use request or `NSLocationAlwaysAndWhenInUseUsageDescription` for an always-authorization request; denial ends the session with an error. In iOS 27.2 and later, a session started after a background relaunch requires Always authorization and the "Uses Nearby Interaction" background mode. If no anchor appears within its 30-second window, the framework invalidates the session with `resourceUsageTimeout`; if the person brings the app to the foreground within that window, invalidate the background session and start a new one to range without the time limit. Check `supportsDLTDOAMeasurement` before configuring a session. Measurements from multiple deployed anchors are inputs for the app's location calculation, not an automatically available universal positioning service.
 
 - **NIDLTDOAConfiguration** - A session configuration that enables UWB Down Link Time Difference of Arrival(DL-TDoA) ranging with nearby anchors
 - **NIDLTDOAMeasurement** - Information from an anchor used to derive a range estimate.
