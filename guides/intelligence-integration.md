@@ -14,7 +14,7 @@ Build one text-and-optional-image feature that can use an appropriate model with
 
 Use [Translation](../documentation/Translation.md), [Speech](../documentation/Speech.md), [Vision](../documentation/Vision.md), [Media Intelligence](../documentation/MediaIntelligence.md), or [Music Understanding](../documentation/MusicUnderstanding.md) when a documented domain API directly solves the task.
 
-For your own neural model, [Core AI](../documentation/CoreAI.md) provides `AIModelAsset`, `AIModel`, `InferenceFunction`, and `NDArray`, plus specialization and caching. Install Xcode's Metal Toolchain for `.aimodel` builds. Keep [Core ML](../documentation/CoreML.md) for supported non-neural models such as decision trees; Core AI is not a blanket replacement.
+For your own neural model, [Core AI](../documentation/CoreAI.md) provides `AIModelAsset`, `AIModel`, `InferenceFunction`, and `NDArray`, plus specialization and caching. Install Xcode's Metal Toolchain for `.aimodel` builds. Keep [Core ML](../documentation/CoreML.md) for supported non-neural models such as decision trees; Core AI is not a blanket replacement. Apple's Core AI overview points to [Evaluations](../documentation/Evaluations.md) for measuring model quality; see [Evaluating a Core AI model](https://developer.apple.com/documentation/evaluations/evaluating-a-core-ai-model.md).
 
 For a language-model workflow, begin with a session and a representative task dataset. Evaluate before adding a remote model merely because it has a larger context window.
 
@@ -68,7 +68,7 @@ Use OS 27 [`LanguageModelError`](https://developer.apple.com/documentation/found
 6. Test denied access, unavailable assets, offline operation, unsupported locales, cancellation, and provider changes. In Xcode's Run scheme options, use **Simulated Apple Foundation Models Availability** to test approaching/exhausted PCC quota as documented by Apple.
 7. Keep [Swift Testing](../documentation/Testing.md) or [XCTest](../documentation/XCTest.md) coverage for deterministic logic. Use [Xcode profiling](../documentation/Xcode.md#profiling) to compare latency, token usage, and resource costs on representative devices.
 
-An unavailable evaluation environment is a reported limitation, not a passing quality score. These OS 27 APIs remain beta at the September 8, 2026 cutoff; record actual test destinations and unresolved SDK or entitlement limits.
+An unavailable evaluation environment is a reported limitation, not a passing quality score. As of November 1, 2026, Apple's documentation no longer marks these OS 27 APIs as beta. Record actual test destinations and unresolved SDK or entitlement limits.
 
 ## Sources
 

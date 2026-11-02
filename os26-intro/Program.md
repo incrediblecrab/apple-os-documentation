@@ -4,7 +4,7 @@ Use the Apple Developer Program for supported app services, testing, analytics, 
 
 **Standard annual membership:** $99 USD, with local pricing where available and conditional fee waivers.
 
-> **Status checked September 8, 2026:** this page retains OS26 Program context. Shipping 26-generation releases are iOS **26.6.2** (September 8), iPadOS **26.7** (September 9), macOS **26.6.2** and visionOS **26.6.1** (August 17), and tvOS/watchOS **26.6** (July 27). All six OS 27 platforms shipped September 14, 2026. See the [OS27 Program overview](../os27-intro/Program.md) for the separate Xcode baseline and current policy scope.
+> **Status checked November 1, 2026:** this page retains OS26 Program context. The latest 26-generation releases are iOS and iPadOS **26.7.2** and macOS Tahoe **26.7.2** (October 26), tvOS **26.6.1** (October 26, for Apple TV HD and Apple TV 4K (1st generation)), visionOS **26.6.1** (August 17), and watchOS **26.6** (July 27). All six OS 27 platforms shipped September 14, 2026, and their 27.2 updates shipped October 26. See the [OS27 Program overview](../os27-intro/Program.md) for the separate Xcode baseline and current policy scope.
 
 ## Overview
 
@@ -12,9 +12,10 @@ Choose the enrollment and distribution route that fits your app and legal entity
 
 ## Current Submission Requirements
 
-- **Since April 28, 2026:** uploads for iOS, iPadOS, tvOS, visionOS, and watchOS require Xcode 26 or later and the corresponding 26 SDK or later. Deployment targets may remain older; this notice does not set a macOS SDK minimum.
+- **Since September 9, 2026:** iOS and iPadOS app uploads must target iOS 13 or later. This deployment-target minimum is separate from the SDK requirement.
+- **Since April 28, 2026:** uploads for iOS, iPadOS, tvOS, visionOS, and watchOS require Xcode 26 or later and the corresponding 26 SDK or later. Deployment targets may be older than 26; this notice does not set a macOS SDK minimum.
 - **Since January 31, 2026:** complete the updated age-rating questionnaire for each app to avoid interruptions when submitting updates. Automatic conversion to new ratings did not remove the questionnaire requirement.
-- The checked [Upcoming Requirements](https://developer.apple.com/news/upcoming-requirements/) page announces no OS27 SDK deadline. Release listings do not establish production upload acceptance.
+- The [Upcoming Requirements](https://developer.apple.com/news/upcoming-requirements/) page, checked November 1, 2026, announces no OS27 SDK deadline. Since October 30, 2026, [App Store Connect](https://developer.apple.com/app-store-connect/release-notes/) accepts App Store and TestFlight uploads built with Xcode 27.2 and the 27.2 SDKs. A release listing alone does not establish upload acceptance.
 - **AI and privacy:** [5.1.2(i)](https://developer.apple.com/app-store/review/guidelines/#data-use-and-sharing) requires clear disclosure and explicit permission before third-party personal-data sharing, including third-party AI.
 - **Content scope:** general UGC moderation is governed by 1.2; the exceed-rating identification and age restriction rule in **1.2.1(a) applies to creator apps**. Software offered under **4.7** has additional host, permission, index, and age requirements.
 
@@ -35,7 +36,7 @@ Apple customers adopt new software rapidly, so you can keep innovating. Integrat
 
 An Apple developer account provides access to developer beta software without paid Program enrollment. Distribution, managed capabilities, and particular testing services have separate membership or approval requirements; check the account's available downloads.
 
-> **Toolchain planning:** Xcode 27 (`27A266a`) shipped September 14, 2026, and needs **an Apple silicon Mac running macOS Tahoe 26.6 or later**, not macOS 27. Intel Macs cannot host it; support for running Intel apps through Rosetta on Apple silicon is a separate question. See the [Xcode notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes).
+> **Toolchain planning:** Xcode 27 (`27A266a`) shipped September 14, 2026, and needs **an Apple silicon Mac running macOS Tahoe 26.6 or later**, not macOS 27. Intel Macs cannot host it; support for running Intel apps through Rosetta on Apple silicon is a separate question. The current release, Xcode 27.2 (`27B52`, October 29, 2026), keeps the macOS Tahoe 26.6 minimum. See the [Xcode notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes).
 
 ### Access Comprehensive Services and Capabilities
 
@@ -144,7 +145,7 @@ Check [Meet with Apple](https://developer.apple.com/events/) for scheduled in-pe
 Access Apple Developer Forums to:
 - Discuss technical questions with developers and participating Apple engineers
 - Share knowledge with the developer community
-- Discuss beta behavior; submit formal bug reports through [Feedback Assistant](https://developer.apple.com/bug-reporting/)
+- Discuss beta behavior; submit formal bug reports through [Feedback Assistant](https://developer.apple.com/feedback-assistant/)
 - Discuss best practices and implementation strategies
 
 ## Platform Coverage
@@ -163,4 +164,4 @@ Build apps for all Apple platforms with a single membership:
 
 ## Sources
 
-[Apple Developer Program](https://developer.apple.com/programs/), [Apple Developer releases](https://developer.apple.com/news/releases/), [enrollment and fees](https://developer.apple.com/support/enrollment/), [Enterprise eligibility](https://developer.apple.com/programs/enterprise/), [TestFlight](https://developer.apple.com/testflight/), [requirements](https://developer.apple.com/news/upcoming-requirements/), and [App Review Guidelines](https://developer.apple.com/app-store/review/guidelines/) support the checked Program and policy guidance as of September 8, 2026. The inline Analytics, fee-waiver, events, and feedback sources provide their specific qualifications. Regional fees, taxes, and account-specific terms need their own verification.
+[Apple Developer Program](https://developer.apple.com/programs/), [Apple Developer releases](https://developer.apple.com/news/releases/), [security releases](https://support.apple.com/en-us/100100), [enrollment and fees](https://developer.apple.com/help/account/membership/program-enrollment/), [Enterprise eligibility](https://developer.apple.com/programs/enterprise/), [TestFlight](https://developer.apple.com/testflight/), [requirements](https://developer.apple.com/news/upcoming-requirements/), and [App Review Guidelines](https://developer.apple.com/app-store/review/guidelines/) support the checked Program and policy guidance as of November 1, 2026. The inline Analytics, fee-waiver, events, and feedback sources provide their specific qualifications. Regional fees, taxes, and account-specific terms need their own verification.

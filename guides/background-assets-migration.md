@@ -1,6 +1,6 @@
 # Migrating On Demand Resources to Background Assets
 
-**Review cutoff:** September 14, 2026; OS 27 release documentation and Xcode 27.
+**Review cutoff:** November 1, 2026; OS 27 release documentation and Xcode 27 release notes, after the October 2026 27.2 releases.
 
 ## Overview
 
@@ -23,7 +23,7 @@ Choose an asset-delivery design independently from your background-computation d
 - Original download types such as `BADownloadManager` and `BAURLDownload` start at iOS/iPadOS/Mac Catalyst **16.1**, macOS 13, tvOS 18.4, and native visionOS 2.4. The umbrella framework's 16.0 catalog entry is not a valid availability guard for those classes.
 - Managed asset-pack APIs start at version **26.0** on their supported iOS, iPadOS, Mac Catalyst, macOS, tvOS, and visionOS targets.
 - Localized asset packs are a **27 SDK** addition. Guard their APIs separately from basic managed packs.
-- Continued-processing APIs start at iOS/iPadOS 26.0, not BackgroundTasks' older framework minimum. The DocC Catalyst listing conflicts with explicit Catalyst exclusions in the public macOS 26.5 SDK; do not plan a Catalyst processing path from that catalog entry alone. See [BackgroundTasks](../documentation/BackgroundTasks.md).
+- Continued-processing APIs start at iOS/iPadOS 26.0, not BackgroundTasks' older framework minimum. The DocC Catalyst listing conflicts with explicit Catalyst exclusions in the public macOS 26.5 and 27.0 SDK headers; do not plan a Catalyst processing path from that catalog entry alone. See [BackgroundTasks](../documentation/BackgroundTasks.md).
 - WatchOS is not an Apple-hosted managed Background Assets target. The `NSBundleResourceRequest` metadata also records watchOS deprecation, but this does not make the proposed pack replacement available there.
 - Keep an availability-gated legacy delivery path when supporting operating systems that cannot use the replacement you choose. Do not raise every deployment target to 27 merely because a deprecation appears in that SDK.
 - Do not assume ODR is that fallback on Mac Catalyst: Foundation explicitly documents that `NSBundleResourceRequest` ignores calls made by Catalyst apps, despite its Catalyst availability metadata.
@@ -39,6 +39,8 @@ Xcode 27 requires an **Apple silicon Mac running macOS Tahoe 26.6 or later**, no
 5. **Replace access and readiness checks.** Use `AssetPackManager` to obtain packs, ensure local availability, observe progress, and locate content. A previously requested download is not a substitute for a successful availability check.
 6. **Plan updates and removal.** Test app/pack version combinations. Managed packs are not automatically removed simply because they become unused; remove unneeded packs explicitly. Do not translate ODR retention behavior into an assumed identical eviction policy.
 7. **Keep failure recoverable.** Account for offline launch, interrupted downloads, cancelled progress, unavailable files, storage failures, and partial batch success. Preserve enough state for a retry without presenting missing content as ready.
+
+The [Background Assets overview](https://developer.apple.com/documentation/backgroundassets) lists Apple's steps for removing ODR from a project: set the **Enable On-Demand Resources** build setting to No at the project level and in every target that overrides it, delete the ODR tags, remove code that uses `NSBundleResourceRequest`, and then adopt Background Assets. These steps take ODR out of the build for every OS version it supports, so complete them only after each supported version has a working replacement delivery path.
 
 Follow Apple's [pack creation](https://developer.apple.com/documentation/backgroundassets/creating-managed-asset-packs) and [download integration](https://developer.apple.com/documentation/backgroundassets/downloading-apple-hosted-asset-packs) guides for the packaging commands and exact API signatures.
 

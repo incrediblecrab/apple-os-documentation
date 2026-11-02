@@ -24,9 +24,12 @@ In addition to indexing content, iOS provides additional strategies for making y
 
 On supported OS 27 test destinations, [App Intents Testing](AppIntentsTesting.md) provides `AppEntityDefinition.spotlightQuery(_:)` to verify the entities actually returned by Spotlight. The member declares iOS, iPadOS, Mac Catalyst, macOS, and visionOS 27.0+, not tvOS or watchOS. Test missing, stale, and deleted records rather than inferring success from a system-search announcement.
 
+On the 27 releases, [`SpotlightSearchTool`](https://developer.apple.com/documentation/corespotlight/spotlightsearchtool) gives a Foundation Models `LanguageModelSession` a tool that queries your app's Spotlight index or indexed files and passes the results to the model as context for a prompt. It declares iOS, iPadOS, Mac Catalyst, macOS, and visionOS 27.0+. It needs indexed content to search, so index your app's content first. Apple advises configuring it to fit the model's context window to avoid token-overflow errors, and says its default `complete` option works best with Private Cloud Compute models.
+
 ## Topics
 
 ### Essentials
+- [Core Spotlight updates](https://developer.apple.com/documentation/updates/corespotlight) - Learn about important changes to Core Spotlight.
 - [Adding your app's content to Spotlight indexes](https://developer.apple.com/documentation/corespotlight/adding-your-app-s-content-to-spotlight-indexes.md) - Create a description for your app's content and add it to a Spotlight index to make it searchable.
 - [Generating summary and priority data for indexed items](https://developer.apple.com/documentation/corespotlight/generating-summary-and-priority-data-for-indexed-items.md) - Generate summaries for supported mail, message, and audio-transcript items; consult the article for priority-classification requirements.
 
@@ -40,6 +43,12 @@ On supported OS 27 test destinations, [App Intents Testing](AppIntentsTesting.md
 ### Indexes
 - **CSSearchableIndex** - An on-device index for your app's searchable content.
 - **CSSearchableIndexDelegate** - A protocol that defines methods a delegate object or app extension uses to handle communication from the on-device index.
+- [`CSSearchableIndexDescription`](https://developer.apple.com/documentation/corespotlight/cssearchableindexdescription) - Describes a Spotlight index, including its file-protection class; iOS, iPadOS, Mac Catalyst, macOS, and visionOS 27.0+.
+
+### Foundation Models Support
+- [Spotlight search tool](https://developer.apple.com/documentation/corespotlight/spotlight-search-tool) - Make your app's indexed content available to Foundation Models as context for answering prompts.
+- [Making your indexed content available to Foundation Models](https://developer.apple.com/documentation/corespotlight/making-your-indexed-content-available-to-foundation-models) - Index content first, then add the search tool to a Foundation Models session.
+- [Searching indexed content with natural language](https://developer.apple.com/documentation/corespotlight/searching-indexed-content-with-natural-language) - A sample that answers natural-language questions over a Core Spotlight index; it requires an Apple Intelligence device running iOS 27 or later.
 
 ### Spotlight App Extensions
 - [Regenerating your app's indexes on demand](https://developer.apple.com/documentation/corespotlight/regenerating-your-app-s-indexes-on-demand.md) - Create an app extension to maintain your app's indexes and regenerate them as needed.
@@ -63,6 +72,9 @@ On supported OS 27 test destinations, [App Intents Testing](AppIntentsTesting.md
 
 ### Version
 - **CoreSpotlightAPIVersion** - The API version number for Core Spotlight.
+
+### Structures
+- [`SearchableItem`](https://developer.apple.com/documentation/corespotlight/searchableitem) - A Swift value type for a Spotlight search result that wraps a `CSSearchableItem`; 27.0+ on the same platforms as `SpotlightSearchTool`.
 
 ---
 

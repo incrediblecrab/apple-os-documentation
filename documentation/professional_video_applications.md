@@ -24,14 +24,8 @@ For information about Final Cut Pro concepts, see What are libraries and Intro t
 ### XML Data Exchange
 
 - [Content and Metadata Exchanges with Final Cut Pro](https://developer.apple.com/documentation/professional-video-applications/content-and-metadata-exchanges-with-final-cut-pro) - Send media assets and timeline sequences to Final Cut Pro for editing, and receive rendered media and editing decisions in your app.
-
-### Workflow Extensions
-
-- Integrate your app's workflow within the Final Cut Pro interface to streamline data exchange.
-
-### FCPXML Reference
-
-- Create documents that describe the data your app or workflow extension exchanges with Final Cut Pro.
+- [Workflow Extensions](https://developer.apple.com/documentation/professional-video-applications/workflow-extensions) - Integrate your app's workflow within the Final Cut Pro interface to streamline data exchange.
+- [FCPXML Reference](https://developer.apple.com/documentation/professional-video-applications/fcpxml-reference) - Create documents that describe the data your app or workflow extension exchanges with Final Cut Pro.
 
 ### Compressor Encoder Extensions
 

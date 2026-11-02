@@ -72,7 +72,7 @@ Not supported in iOS, iPadOS, macOS, visionOS, or watchOS.
 
 ### Related Resources
 
-- [Use your Siri Remote or Apple TV Remote with Apple TV](https://support.apple.com/en-us/HT205305) - Apple Support
+- [Use your Siri Remote or Apple TV Remote with Apple TV](https://support.apple.com/en-us/102337) - Apple Support
 - [EPG experience](https://developer.apple.com/design/human-interface-guidelines/live-viewing-apps#EPG-experience) - Design guidance
 
 ---

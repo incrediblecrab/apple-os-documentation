@@ -19,7 +19,7 @@ Your app supplies its browsing controls; an embedded web view is not Safari's fu
 
 The [WebKit announcement](https://webkit.org/blog/17967/news-from-wwdc26-webkit-in-safari-27-beta/) and [Safari 27 release notes](https://developer.apple.com/documentation/safari-release-notes/safari-27-release-notes) describe developer-facing changes:
 
-- **Customizable select:** `appearance: base-select`, `::picker(select)`, `::picker-icon`, `::checkmark`, and `<selectedcontent>` extend native form controls without replacing their semantics.
+- **Customizable select:** `appearance: base-select`, `::picker(select)`, `::picker-icon`, `::checkmark`, and `<selectedcontent>` extend native form controls without replacing their semantics. The [WWDC26 select session](https://developer.apple.com/videos/play/wwdc2026/315/) and [WebKit's session summary](https://webkit.org/blog/17974/web-technology-sessions-at-wwdc26/) name `::picker(select)` as the drop-down's styling target; the announcement and release notes do not list it.
 - **Scroll anchoring:** the browser adjusts scrolling when content changes above the viewport. `overflow-anchor: auto` is the default; opt out selectively with `none` where application-controlled scrolling requires it.
 - **Anchor positioning:** transformed anchors are tracked, `position-anchor: normal` becomes the default, and `position-visibility` uses singular `anchor-valid`/`anchor-visible` names while retaining the older plural aliases.
 - **JavaScript and Wasm:** module-loader fixes address top-level-await execution ordering; JavaScript Promise Integration (JSPI) lets Wasm suspend for asynchronous JavaScript work.

@@ -12,13 +12,13 @@ Developing for visionOS requires a Mac with Apple silicon. Create new apps using
 
 ### OS26 and OS27 planning
 
-**Checked September 8, 2026:** visionOS **26.6.1** (`23O780`, August 17) was the shipping 26-generation release. **Update September 14, 2026:** visionOS **27.0** (`24M362`) is shipping. The [release listings](https://developer.apple.com/news/releases/) do not establish a public-beta program.
+**Checked September 8, 2026:** visionOS **26.6.1** (`23O780`, August 17) was the shipping 26-generation release. **Update September 14, 2026:** visionOS **27.0** (`24M362`) is shipping. **Update November 1, 2026:** visionOS **27.2** (`24N120`, October 26, 2026) is the latest shipping release, and Xcode **27.2** (`27B52`, October 29, 2026) bundles its SDK. The [release listings](https://developer.apple.com/news/releases/) do not establish a public-beta program.
 
 - Keep the [OS26 introduction](../os26-intro/visionOS.md) and earlier spatial samples below for supported older targets; this collection is not an OS27-only API catalog.
 - For a 27-SDK rebuild, UIKit-based apps must adopt [scenes](https://developer.apple.com/documentation/uikit/transitioning-to-the-uikit-scene-based-life-cycle) or fail to launch. Audit ODR-to-Background-Assets migration, localized packs, and SwiftUI's asynchronous document APIs.
 - Test native and compatible-app paths, authorization denial, tracking loss, asset unavailability, and recovery after immersive or streaming sessions end.
 - The [visionOS 27 release notes](https://developer.apple.com/documentation/visionos-release-notes/visionos-27-release-notes) mark earlier `RemoteImmersiveSpace` discovery failures as resolved. Do not recast a fixed earlier-beta bug as an enduring framework restriction.
-- Xcode 27 requires **Apple silicon and macOS Tahoe 26.6 or later**, not macOS 27. Its Device Hub limitation on direct video/input for a physical Vision Pro is tool-version-specific; see [Xcode notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes).
+- Xcode 27 requires **Apple silicon and macOS Tahoe 26.6 or later**, not macOS 27. Its [release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) say Device Hub 27 can't show video from, or send input to, a physical Vision Pro, while its other Device Hub features work; the Xcode 27.1 and 27.2 notes don't say this has changed.
 
 The exact OS27 Vision Pro model list is not verified here. Check per-feature hardware, region, authorization, and entitlement requirements separately. See the [OS27 introduction](../os27-intro/visionOS.md), [App Store readiness](../guides/app-store-readiness.md), and [PCC guide](../guides/private-cloud-compute.md).
 
@@ -76,7 +76,7 @@ Explore the core concepts for all visionOS apps with Hello World. Understand how
 - [Combining 2D and 3D views in an immersive app](https://developer.apple.com/documentation/realitykit/combining-2d-and-3d-views-in-an-immersive-app) - Use attachments to place 2D content relative to 3D content in your visionOS app.
 - [Understanding the modular architecture of RealityKit](https://developer.apple.com/documentation/visionOS/understanding-the-realitykit-modular-architecture) - Learn how everything fits together in RealityKit.
 - [Using transforms to move, scale, and rotate entities](https://developer.apple.com/documentation/visionOS/understanding-transforms) - Learn how to use Transforms to move, scale, and rotate entities in RealityKit.
-- [Reality Composer Pro](https://developer.apple.com/augmented-reality/tools/) - Author scenes, materials, and lighting for RealityKit content.
+- [Reality Composer Pro](https://developer.apple.com/reality-composer-pro/) - Author scenes, materials, and lighting for RealityKit content.
 - [Capturing screenshots and video from Apple Vision Pro for 2D viewing](https://developer.apple.com/documentation/visionOS/capturing-screenshots-and-video-from-your-apple-vision-pro-for-2d-viewing) - Create screenshots and record high-quality video of your visionOS app and its surroundings for app previews.
 - [Implementing object tracking in your app](https://developer.apple.com/documentation/visionos/implementing-object-tracking-in-your-app) - Create engaging interactions by training models to recognize and track real-world objects in your app.
 - [Placing entities using head and device transform](https://developer.apple.com/documentation/visionos/placing-entities-using-head-and-device-transform) - Query and react to changes in the position and rotation of Apple Vision Pro.
@@ -108,6 +108,7 @@ Explore the core concepts for all visionOS apps with Hello World. Understand how
 - [Diagnosing and resolving bugs in your running app](https://developer.apple.com/documentation/xcode/diagnosing-and-resolving-bugs-in-your-running-app) - Inspect your app to isolate bugs, locate crashes, identify excess system-resource usage, visualize memory bugs, and investigate problems in its appearance.
 - [Diagnosing issues in the appearance of a running app](https://developer.apple.com/documentation/xcode/diagnosing-issues-in-the-appearance-of-your-running-app) - Inspect your running app to investigate issues in the appearance and placement of the content it displays.
 - [Running your app on simulated or physical devices](https://developer.apple.com/documentation/xcode/running-your-app-on-simulated-or-physical-devices) - Launch your app in an appropriate Simulator runtime or on a connected supported device.
+- [Interacting with your visionOS app in Device Hub](https://developer.apple.com/documentation/xcode/interacting-with-your-visionos-app-in-device-hub) - Simulate gestures and move the viewpoint for an app running on a simulated visionOS device. Device Hub can't interact with an app on a physical Vision Pro; Apple points to Mac Virtual Display for that.
 - [Xcode 27 Device Hub notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) - Check the current simulated-device and physical-device interaction limits; visionOS Simulator and a physical Vision Pro do not expose identical controls.
 
 ### Performance

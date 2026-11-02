@@ -8,7 +8,7 @@ Nearby interactions support on-device experiences that integrate the presence of
 
 A great nearby interaction feels intuitive and natural to people, because it builds on their innate awareness of the world around them. For example, a person playing music on their iPhone can continue listening on their HomePod mini when they bring the devices close together, simply by transferring the audio output from their iPhone to the HomePod mini.
 
-Nearby interactions rely on the Nearby Interaction framework and compatible Ultra Wideband hardware. Check [`NISession.deviceCapabilities`](https://developer.apple.com/documentation/nearbyinteraction/nisession/devicecapabilities) for the features your app needs; API availability alone doesn't establish hardware or regional support. See [Ultra Wideband availability](https://support.apple.com/en-us/HT212274). Before participating, people grant permission for your app to interact. The APIs help preserve privacy by using randomly generated device identifiers that last only as long as the interaction session.
+Nearby interactions rely on the Nearby Interaction framework and compatible Ultra Wideband hardware. Check [`NISession.deviceCapabilities`](https://developer.apple.com/documentation/nearbyinteraction/nisession/devicecapabilities) for the features your app needs; API availability alone doesn't establish hardware or regional support. See [Ultra Wideband availability](https://support.apple.com/en-us/109512). Before participating, people grant permission for your app to interact. The APIs help preserve privacy by using randomly generated device identifiers that last only as long as the interaction session.
 
 ## Topics
 
@@ -47,7 +47,7 @@ Not supported in macOS, tvOS, or visionOS.
 ### Developer Documentation
 
 - [Nearby Interaction](https://developer.apple.com/documentation/nearbyinteraction) - Framework
-- [Ultra Wideband availability](https://support.apple.com/en-us/HT212274) - Hardware and regional support
+- [Ultra Wideband availability](https://support.apple.com/en-us/109512) - Hardware and regional support
 
 ### Videos
 

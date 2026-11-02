@@ -7,7 +7,7 @@ Extend the reach of your app by creating widgets, watch complications, Live Acti
 ## Overview
 WidgetKit uses SwiftUI to present focused app content outside the main app. Choose the appropriate experience rather than treating every surface as the same kind of widget:
 
-- **Widgets:** Show selected information on supported Home Screens, Lock Screens, desktops, Notification Center, and other system surfaces. iPhone widgets can also appear in supported Mac and CarPlay contexts. On visionOS 26, spatial widgets can attach to horizontal or vertical surfaces.
+- **Widgets:** Show selected information on supported Home Screens, Lock Screens, desktops, Notification Center, and other system surfaces. iPhone widgets can also appear in supported Mac and CarPlay contexts. [Apple HomeView](https://developer.apple.com/design/human-interface-guidelines/widgets#Apple-HomeView) shows small system family widgets, including ones from a person's connected iPhone or iPad, on its Modular face and Home Screen. On visionOS 26, spatial widgets can attach to horizontal or vertical surfaces.
 - **Smart Stacks:** The system considers context and relevance when promoting widgets; people can configure or pin them. Donating relevance information doesn't guarantee prominence or a particular display time.
 - **Watch complications:** Present glanceable content on the watch face. The watch Smart Stack also reserves space for up to three complications.
 - **Live Activities:** Use WidgetKit for presentation and [ActivityKit](ActivityKit.md) for the activity lifecycle and updates. The Dynamic Island is only one supported presentation, not a requirement on every device.

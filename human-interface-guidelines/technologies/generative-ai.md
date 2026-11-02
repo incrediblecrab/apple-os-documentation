@@ -40,14 +40,16 @@ Explain when AI is involved, what information it processes, and whether a third 
 
 - **Guide people on how to use your generative feature** - Consider how to steer and educate people toward producing great results. One technique is to offer diverse, predefined example inputs that hint at what's possible for a feature.
 - **Raise awareness about and minimize the chance of hallucinations** - When a generative model is unsure how to respond to a request, it may produce content that seems plausible but is made up. These hallucinations can misinform people because the model may convincingly present the information as factual, even when it's not. You can minimize the chance of hallucinations and limit their impact by carefully scoping what you ask a model to generate.
-- **Consider consequences and get permission before performing destructive or potentially problematic tasks** - Before performing a task, consider whether a mistake or the inability to reverse the action might cause more work or stress for people. Avoid automating destructive actions, like deleting photos, and actions that are hard to undo, like making a purchase on a person's behalf.
+- **Consider consequences and get permission before performing irreversible or potentially problematic tasks** - Before performing a task, consider whether a mistake or the inability to reverse the action might cause more work or stress for people. Avoid automating destructive actions, like deleting photos, and actions that are hard to undo, like making a purchase on a person's behalf.
 
 ### Outputs
 
+- **Make it easy for people to refine or revert generated results** - Place controls such as Edit, Undo, Retry, or Adjust near generated content so people can correct the result without giving up the automation. When someone adjusts or personalizes output, show a clear sign that the change took effect.
 - **Help people improve requests when blocked or undesirable results occur** - Minimize scoped or blocked output by coaching people how to be more successful next time. For example, if prompted to generate harmful content, Image Playground says that it's "Unable to use that description." When possible, consider offering example requests that might lead to better results.
 - **Reduce unexpected and harmful outcomes with thoughtful design and thorough testing** - People generally use apps with good intentions, but harmful outcomes can still arise from both accidental and purposeful misuse, and when responding to potentially sensitive topics. Consider ways people might interact with your feature and test those scenarios.
 - **Strive to avoid replicating copyrighted content** - Large AI models are trained using vast datasets from the internet and other sources. This means most generative models are familiar with and can unintentionally produce content similar to published work, including copyrighted content. You can reduce the likelihood of copyright infringement by building upon existing models that already protect against this, and by carefully curating inputs.
 - **Factor processing time into your design** - Latency is how much time it takes for a model to produce an output. Generative models typically take longer to produce a result, so design a loading experience or generate in the background while a person uses another part of the app.
+- **Consider giving specific, reassuring feedback during generation** - Describe the work in progress, such as "Summarizing key themes from your notes," rather than a vague "Processing…" message. If generation fails, say what went wrong in plain language and offer a clear next step.
 - **Consider offering alternate versions of results** - Depending on the design of your feature, it might work best to present a single result or multiple meaningfully different results from which people can choose. Offering people a choice can give them a greater sense of control and help bridge the gap between the model's interpretation and what someone actually wants.
 
 ### Continuous Improvement
@@ -72,9 +74,13 @@ No additional considerations for iOS, iPadOS, macOS, tvOS, visionOS, or watchOS.
 
 - [Apple Intelligence and machine learning](https://developer.apple.com/documentation/technologyoverviews/ai-machine-learning) - Apple Intelligence
 - [Foundation Models](https://developer.apple.com/documentation/foundationmodels) - Foundation Models
-- [Acceptable Use Requirements for the Foundation Models Framework](https://developer.apple.com/apple-intelligence/acceptable-use-requirements-for-the-foundation-models-framework)
+- [Core AI](https://developer.apple.com/documentation/coreai) - Run AI models in your app on Apple silicon
+- [Acceptable Use Requirements for the Foundation Models Framework](https://developer.apple.com/support/terms/acceptable-use-requirements-for-the-foundation-models-framework)
 
 ## Changelog
+
+### June 8, 2026
+- Added guidance on refining generated results and on feedback during generation, and updated guidance on choosing a model type.
 
 ### June 9, 2025
 - New page.

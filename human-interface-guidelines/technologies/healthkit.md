@@ -62,7 +62,7 @@ The HealthKit HIG focuses on iOS, iPadOS, and watchOS. This scope is narrower th
 
 ### Related Components
 
-- [Works with Apple Health](https://developer.apple.com/health-fitness/works-with-apple-health/)
+- [Works with Apple Health](https://developer.apple.com/licensing-trademarks/works-with-apple-health/)
 - [Activity rings](https://developer.apple.com/design/human-interface-guidelines/activity-rings)
 
 ### Developer Documentation

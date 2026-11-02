@@ -4,7 +4,7 @@ Maintain spatial apps with SwiftUI windows and volumes, RealityKit content, and 
 
 **Platform:** visionOS 26.0+
 
-> **Status checked September 14, 2026:** the shipping release is **visionOS 26.6.1** (`23O780`), released August 17. visionOS 27.0 (`24M362`) shipped September 14; see the [visionOS 27 introduction](../os27-intro/visionOS.md). Release listings do not establish a public-beta program.
+> **Status checked November 1, 2026:** the latest 26-generation release is still **visionOS 26.6.1** (`23O780`), released August 17. visionOS 27.0 (`24M362`) shipped September 14 and visionOS 27.2 (`24N120`) on October 26; see the [visionOS 27 introduction](../os27-intro/visionOS.md). Release listings do not establish a public-beta program.
 
 ## Overview
 
@@ -129,7 +129,7 @@ Bring existing Unity projects to visionOS or create new spatial experiences usin
 
 ### Development Tools
 - [Xcode](https://developer.apple.com/xcode/) - Complete development environment with visionOS simulators
-- [Reality Composer Pro](https://developer.apple.com/augmented-reality/tools/) - 3D content creation and scene design
+- [Reality Composer Pro](https://developer.apple.com/reality-composer-pro/) - 3D content creation and scene design
 - [TestFlight](https://developer.apple.com/testflight/) - Beta testing platform for visionOS apps
 
 ### Documentation
@@ -165,4 +165,4 @@ Join the [Apple Developer Program](Program.md) for TestFlight, App Store distrib
 
 ## Sources
 
-[Apple's visionOS overview](https://developer.apple.com/visionos/), [Designing for visionOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-visionos), [persistent UI](https://developer.apple.com/documentation/visionos/adopting-best-practices-for-scene-restoration), [privacy](https://developer.apple.com/documentation/visionos/adopting-best-practices-for-privacy), and [main-camera access](https://developer.apple.com/documentation/visionos/accessing-the-main-camera) support the platform guidance. [Apple Developer releases](https://developer.apple.com/news/releases/), [visionOS 27 notes](https://developer.apple.com/documentation/visionos-release-notes/visionos-27-release-notes), and [Xcode 27 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) support the status and migration guidance checked September 8, 2026. Inline story sources describe historical examples.
+[Apple's visionOS overview](https://developer.apple.com/visionos/), [Designing for visionOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-visionos), [persistent UI](https://developer.apple.com/documentation/visionos/adopting-best-practices-for-scene-restoration), [privacy](https://developer.apple.com/documentation/visionos/adopting-best-practices-for-privacy), and [main-camera access](https://developer.apple.com/documentation/visionos/accessing-the-main-camera) support the platform guidance. [Apple Developer releases](https://developer.apple.com/news/releases/), [visionOS 27 notes](https://developer.apple.com/documentation/visionos-release-notes/visionos-27-release-notes), and [Xcode 27 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) support the status and migration guidance checked November 1, 2026. Inline story sources describe historical examples.

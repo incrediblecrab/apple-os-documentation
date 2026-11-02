@@ -82,7 +82,7 @@ The outcome is a passing, checked module with explicit ownership and tested canc
 ## Sources
 
 - [Adopting strict concurrency in Swift 6 apps](https://developer.apple.com/documentation/swift/adoptingswift6.md)
-- [Swift language guide: Concurrency](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/concurrency/) ([DocC source](https://docs.swift.org/swift-book/data/documentation/the-swift-programming-language/concurrency.json))
+- [Swift language guide: Concurrency](https://docs.swift.org/latest/documentation/the-swift-programming-language/concurrency/) ([DocC source](https://docs.swift.org/latest/data/documentation/the-swift-programming-language/concurrency.json))
 - [Swift 6.4 branch changelog](https://raw.githubusercontent.com/swiftlang/swift/release/6.4.x/CHANGELOG.md)
 - [SE-0481: weak let, implemented in Swift 6.3](https://raw.githubusercontent.com/swiftlang/swift-evolution/main/proposals/0481-weak-let.md)
 - [Xcode 27 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md)

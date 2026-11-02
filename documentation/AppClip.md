@@ -2,7 +2,9 @@
 
 Offer focused app functionality or a demo without requiring installation of the full app.
 
-**Platforms:** iOS 14.0+ | iPadOS 14.0+
+**Platforms:** iOS 14.0+ | iPadOS 14.0+ | Mac Catalyst 14.0+
+
+The Mac Catalyst 14.0 entry comes from Apple's declarations for the framework, `APActivationPayload`, and its error types. It doesn't make App Clips a Mac feature: the App Clip entitlements and the `NSAppClip` key declare only iOS and iPadOS, and Xcode's App Clip target supports the full app's devices except macOS.
 
 ## Overview
 

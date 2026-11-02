@@ -48,7 +48,7 @@ The HIG describes three main regions:
 - A background image that appears behind the title card and additional images — called accessories — that can appear around it
 - A sheet that contains a file browser and optional app-specific controls
 
-You can customize the title, actions, background, accessories, and supported browser controls. Without a custom title or actions builder, `DocumentGroupLaunchScene` uses the app name and a default Create Document action. The HIG's primary-and-secondary-button composition is guidance, not a requirement to supply exactly two buttons.
+You can customize the title, actions, background, accessories, and supported browser controls. Without a custom title or actions builder, `DocumentGroupLaunchScene` uses the app name and a default Create Document action. The HIG's primary-and-secondary-button composition is guidance, not a requirement to supply exactly two buttons. One or two actions each appear as a button; with more than two, only the first appears as a button and SwiftUI puts the rest in a More menu. People can't create a document from that menu, so make `NewDocumentButton` the first action, or the second only when there are exactly two.
 
 - **Assign the title card's buttons to your app's most important functions** - A primary action can create a document, with a secondary action offering options such as choosing a template. Use labels that accurately describe your own app's behavior.
 

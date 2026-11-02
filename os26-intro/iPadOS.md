@@ -4,7 +4,7 @@ Maintain iPad apps that adapt to windows, keyboard and pointer input, Apple Penc
 
 **Platform:** iPadOS 26.0+
 
-> **Status checked September 8, 2026:** the last 26-generation release is **iPadOS 26.7** (`23H24`), released September 9. iPadOS 27.0 (`24A437`) shipped September 14, 2026; see the [iPadOS 27 introduction](../os27-intro/iPadOS.md). Its exact device list is not verified here; do not infer that A12-class hardware has reached its final release.
+> **Status checked November 1, 2026:** the latest 26-generation release is **iPadOS 26.7.2** (`23H128`), released October 26, 2026, after iPadOS 26.7 (`23H24`, September 9) and 26.7.1 (September 28). iPadOS 27.0 (`24A437`) shipped September 14, 2026, and iPadOS 27.2 (`24B119`) shipped October 26; see the [iPadOS 27 introduction](../os27-intro/iPadOS.md). Apple's [security-release list](https://support.apple.com/en-us/100100) gives the 26.7.x entries a wider device range than the iPadOS 27 entries, starting at iPad Air (3rd generation), iPad (8th generation), and iPad mini (5th generation). Those ranges are not a model-by-model compatibility list; do not infer that a particular iPad has reached its final release.
 
 ## Overview
 
@@ -75,9 +75,9 @@ Dive into the latest key technologies and capabilities:
 - **SwiftUI fix**: `.userActivity` now correctly surfaces as the current user activity
 - **Networking fix**: Resolves `CFRunLoopSource` leaks when PAC or Auto proxy discovery is configured
 
-### iPadOS 26.5 through 26.6.2
+### iPadOS 26.5 through 26.7.2
 - Keep the [26.5](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-26_5-release-notes) and [26.6](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-26_6-release-notes) notes for version-specific diagnosis
-- **iPadOS 26.7 (September 9, 2026)** is the last 26-generation maintenance baseline
+- **iPadOS 26.7.2 (October 26, 2026)** is the latest 26-generation maintenance release; Apple's release-notes index has no separate 26.7 notes
 - [Apple's security release list](https://support.apple.com/en-us/100100) describes patch scope separately from SDK changes
 
 ### Preparing an OS26 App for OS27
@@ -138,4 +138,4 @@ Join the [Apple Developer Program](Program.md) for TestFlight, App Store distrib
 
 ## Sources
 
-[Designing for iPadOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-ipados), [Liquid Glass adoption](https://developer.apple.com/documentation/technologyoverviews/adopting-liquid-glass), and [SystemLanguageModel](https://developer.apple.com/documentation/foundationmodels/systemlanguagemodel) support the platform guidance. [Apple Developer releases](https://developer.apple.com/news/releases/), [26.2 notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-26_2-release-notes), [26.4 notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-26_4-release-notes), [iOS/iPadOS 27 notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes), [SiriKit](https://developer.apple.com/documentation/sirikit), and [Xcode 27 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) support the status and migration guidance checked September 8, 2026. Inline story sources describe historical examples.
+[Designing for iPadOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-ipados), [Liquid Glass adoption](https://developer.apple.com/documentation/technologyoverviews/adopting-liquid-glass), and [SystemLanguageModel](https://developer.apple.com/documentation/foundationmodels/systemlanguagemodel) support the platform guidance. [Apple Developer releases](https://developer.apple.com/news/releases/), [26.2 notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-26_2-release-notes), [26.4 notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-26_4-release-notes), [iOS/iPadOS 27 notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes), [SiriKit](https://developer.apple.com/documentation/sirikit), and [Xcode 27 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) support the status and migration guidance checked November 1, 2026. [Apple's security releases](https://support.apple.com/en-us/100100) support the 26.7.1 date and the device ranges. Inline story sources describe historical examples.

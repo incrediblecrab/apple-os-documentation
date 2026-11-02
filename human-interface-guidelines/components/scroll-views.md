@@ -46,10 +46,18 @@ When people begin swiping content in the direction they want it to scroll, the s
 
 - **If necessary, account for the size of the scroll indicator** - Although the indicator's overall size is small, it's a little thicker than the same component in iOS. If your content uses tight margins, consider increasing them to prevent the scroll indicator from overlapping the content.
 
+With Look to Scroll, people can scroll by looking near a scroll view's edge: the top or bottom of a vertical scroll view, or its sides for a horizontal one. It works alongside gestures, so people can use either. For developer guidance, see [`look`](https://developer.apple.com/documentation/swiftui/scrollinputkind/look) (SwiftUI, visionOS 26 and later).
+
+- **Support Look to Scroll in reading and browsing views** - It's off by default, so you add it to each scroll view that should offer it. See [ScrollInputKind](https://developer.apple.com/documentation/swiftui/scrollinputkind).
+- **Avoid Look to Scroll for secondary content** - Views with controls or dense information that people scroll quickly and precisely work better with standard gestures alone. For example, Notes supports Look to Scroll in a note's main view but not in its list of notes.
+- **Support it consistently** - If one view offers Look to Scroll, offer it in all similar views, such as every collection of videos in your app.
+- **Give scroll areas clear edges** - Prefer a scroll view that spans the window's full width or height. If you inset it from the window, make its boundaries clear so people know where to look.
+- **Remove custom scroll effects first** - Effects driven by scroll position, such as parallax or other animations, can make Look to Scroll behave unexpectedly.
+
 **watchOS**  
 - **Prefer vertically scrolling content** - People are accustomed to using the Digital Crown to navigate to and within apps on Apple Watch. If your app contains a single list or content view, rotating the Digital Crown scrolls vertically when your app's content is taller than the height of the display.
 - **Use tab views to provide page-by-page scrolling** - watchOS displays tab views as pages. If you place tab views in a vertical stack, people can rotate the Digital Crown to move vertically through full-screen pages of content. In this scenario, the system displays a page indicator next to the Digital Crown that shows people where they are in the content.
-- **When displaying paged content, consider limiting the content of an individual page to a single screen height** - Embracing this constraint clarifies the purpose of each page, helping you create a more glanceable design. However, if your app has long pages, people can still use the Digital Crown both to navigate between shorter pages and to scroll content in a longer page because the page indicator expands into a scroll indicator when necessary.
+- **When displaying paged content, consider limiting the content of an individual page to a single screen height** - Embracing this constraint clarifies the purpose of each page, helping you create a more glanceable design. However, if your app has long pages, people can still use the Digital Crown both to navigate between shorter pages and to scroll content in a longer page because the page indicator expands into a scroll indicator when necessary. Use variable-height pages sparingly, and place them after fixed-height pages when possible.
 
 ### Related Components
 
@@ -64,8 +72,20 @@ When people begin swiping content in the direction they want it to scroll, the s
 - [NSScrollView](https://developer.apple.com/documentation/appkit/nsscrollview) - AppKit
 - [WKPageOrientation](https://developer.apple.com/documentation/watchkit/wkpageorientation) - WatchKit
 - [PagingScrollTargetBehavior](https://developer.apple.com/documentation/swiftui/pagingscrolltargetbehavior) - SwiftUI
+- [look](https://developer.apple.com/documentation/swiftui/scrollinputkind/look) - SwiftUI
 
 ## Changelog
+
+These dates describe changes to Apple's HIG article, not edits to this repository.
+
+### June 8, 2026
+- Updated guidance for scroll edge effects.
+
+### March 24, 2026
+- Added guidance for Look to Scroll in visionOS.
+
+### July 28, 2025
+- Added guidance for scroll edge effects.
 
 ### February 2, 2024
 - Added artwork showing the behavior of the visionOS scroll indicator.
