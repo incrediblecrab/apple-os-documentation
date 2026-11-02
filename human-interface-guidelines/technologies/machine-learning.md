@@ -8,7 +8,7 @@ Machine learning enables apps and games to learn from data and usage patterns, l
 
 In addition to providing familiar features like image recognition and content recommendations, your app can use machine learning to forge deep connections with people and help them accomplish more with less effort.
 
-For related guidance on how to use machine learning models to enable intelligent content creation experiences, see [Generative AI](https://developer.apple.com/design/human-interface-guidelines/generative-ai).
+For related guidance on how to use machine learning models to enable intelligent experiences, see [Generative AI](https://developer.apple.com/design/human-interface-guidelines/generative-ai).
 
 For generated text or other model-created content, also follow [Generative AI](generative-ai.md): explain capabilities and limitations, disclose personal-data use, obtain permission, and provide recovery when a result is unsuitable.
 
@@ -16,7 +16,7 @@ For generated text or other model-created content, also follow [Generative AI](g
 
 ### Planning Your Design
 
-Machine learning apps use models to perform tasks like recognizing images or finding relationships among numerical data. A great machine learning app depends on well-designed models as much as it depends on a well-designed UI and user experience.
+Features powered by machine learning use models to tailor people's experiences, such as curated feeds, customized trip itineraries, and personalized search suggestions. These features depend on well-designed models as much as on a well-designed UI and user experience. For insight into the process of designing models, see [Create ML](https://developer.apple.com/documentation/createml).
 
 As you design your models, keep the intended experience of your app in mind. It can take a long time to adjust the behavior of models, so be prepared to change the way you use data and metrics if the app experience needs to change.
 
@@ -47,7 +47,7 @@ Machine learning results depend on data. The more sensitive the data, the more s
 
 #### Visible or Invisible
 
-- **Visible** - People are usually aware of visible app features because such features tend to offer suggestions or choices that people view and interact with.
+- **Visible** - People are usually aware of visible app features because such features tend to offer suggestions or choices that people view and interact with. For example, Image Playground lets people describe an image, adjust it visually, or remix results with quick edits.
 - **Invisible** - An invisible feature improves the experience without requiring an explicit choice. Apple's current example is News suggesting topics and channels based on previous engagement.
 
 #### Dynamic or Static
@@ -169,7 +169,7 @@ Every feature has certain limitations to what it can deliver. When there's a mis
 
 ### Related Technologies
 
-- [Generative AI](https://developer.apple.com/design/human-interface-guidelines/generative-ai) - Intelligent content creation experiences
+- [Generative AI](https://developer.apple.com/design/human-interface-guidelines/generative-ai) - Intelligent experiences
 - [Privacy](https://developer.apple.com/design/human-interface-guidelines/privacy) - Protecting user information
 
 ### Developer Documentation
@@ -179,6 +179,9 @@ Every feature has certain limitations to what it can deliver. When there's a mis
 - [Core ML](https://developer.apple.com/documentation/coreml) - Core ML
 
 ## Changelog
+
+### June 8, 2026
+- Made minor updates for clarity.
 
 ### October 24, 2023
 - Added art to Corrections section.

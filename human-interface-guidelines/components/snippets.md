@@ -20,7 +20,7 @@ The HIG describes two types. An intent that presents a snippet always provides a
 | Result | Explain the outcome or show requested information without requiring another action. | Done dismisses the snippet. |
 
 - Use a confirmation when people need to check consequential details before an action runs. Make the object, recipient, amount, or other relevant consequence clear.
-- Label the primary action with a meaningful verb, such as **Order**, rather than **OK**. Do not duplicate the system's confirmation buttons inside the custom view.
+- Label the primary action with a meaningful verb, such as **Order**, rather than **OK**. Pick one of the [ConfirmationActionName](https://developer.apple.com/documentation/appintents/confirmationactionname) labels or supply your own; if you set none, the system labels the button **Continue**. Do not duplicate the system's confirmation buttons inside the custom view.
 - Describe the actual result, including a failure or incomplete outcome. Do not make a confirmation preview look like a completed transaction.
 - Keep follow-up actions focused. For a detailed result, link to the relevant content in your app instead of expanding the snippet into a full workflow.
 - Keep presentation separate from performing the action. The system may run a `SnippetIntent` repeatedly to refresh its view; rebuilding that view must not repeat a purchase, deletion, or other side effect.
@@ -43,7 +43,7 @@ The HIG describes two types. An intent that presents a snippet always provides a
 
 The current HIG supports snippets in iOS, iPadOS, and macOS, not tvOS, visionOS, or watchOS. This is the availability of this presentation pattern, not the availability of the App Intents framework as a whole. Check individual APIs for deployment requirements.
 
-The developer guide also specifies that intents invoked from a Control Center control cannot display snippets. Design an appropriate result path for the entrypoint rather than assuming every App Intents invocation can present one.
+The [ShowsSnippetView](https://developer.apple.com/documentation/appintents/showssnippetview) reference notes that when someone runs your intent through Siri AI, the system might not display the snippet view the intent returns. Make sure the dialogue still communicates the outcome without the custom view, rather than assuming every App Intents invocation presents a snippet.
 
 ## Related guidance
 

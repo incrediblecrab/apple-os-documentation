@@ -12,6 +12,8 @@ Because App Shortcuts are part of your app, they are available immediately when 
 
 App Shortcuts use App Intents to define actions within your app to make available to the system. Each App Shortcut includes one or more actions that represent a set of steps people might want to perform to accomplish a task. For example, a home security app might combine the two common actions of turning off the lights and locking exterior doors when a person goes to sleep at night into a single App Shortcut. Each app can include up to 10 App Shortcuts.
 
+For developer guidance, see [App Shortcuts](https://developer.apple.com/documentation/appintents/app-shortcuts).
+
 Note: When you use App Intents to make your app's actions available to the system, in addition to the App Shortcuts that your app provides, people can also make their own custom shortcuts by combining actions in the Shortcuts app. Custom shortcuts give people flexibility to configure the behavior of actions, and enable workflows that perform tasks across multiple apps. For additional guidance, see the Shortcuts User Guide.
 
 ## Topics
@@ -20,6 +22,7 @@ Note: When you use App Intents to make your app's actions available to the syste
 
 Use [App Intents](https://developer.apple.com/documentation/appintents) to describe your app's actions and relevant data. When an action needs a compact confirmation or visual result, follow the [Snippets](snippets.md) guidance, including its platform and accessibility considerations.
 
+- **Consider app schemas for common types of app functionality** - If your app's actions and content fall within one of the [App schema domains](https://developer.apple.com/documentation/appintents/app-schema-domains), adopting those schemas makes them available to Apple Intelligence. On supported devices, Siri and other system experiences can then surface those features in context without an individual App Shortcut for each one. Use App Shortcuts for distinctive features or custom content that the schemas don't cover. For design guidance, see [Siri](https://developer.apple.com/design/human-interface-guidelines/siri); for developer guidance, see [Apple Intelligence and Siri AI](https://developer.apple.com/documentation/appintents/apple-intelligence-and-siri-ai) and [Making actions and content discoverable by Apple Intelligence](https://developer.apple.com/documentation/appintents/making-actions-and-content-discoverable-by-apple-intelligence).
 - **Offer App Shortcuts for your app's most common and important tasks** - Straightforward tasks that people can complete without leaving their current context work best, but you can also open your app if it helps people complete multistep tasks more easily.
 - **Add flexibility by letting people choose from a set of options** - An App Shortcut can include a single optional value, or parameter, if it makes sense. For example, a meditation app could offer an App Shortcut that lets someone begin a specific type of meditation: "Start [morning, daily, sleep] meditation." Include predictable and familiar values as options, because people won't have the list in front of them for reference. For developer guidance, see Adding parameters to an app intent.
 - **Ask for clarification in response to a request that's missing optional information** - For example, someone might say "Start meditation" without specifying the type (morning, daily, or sleep); you could follow up by suggesting the one they used most recently, or one based on the current time of day. If one option is most likely, consider presenting it as the default, and provide a short list of alternatives to choose from if a person doesn't want the default choice.
@@ -69,14 +72,19 @@ Live Activities offer continuous access to information that's likely to remain r
 - [SiriKit](https://developer.apple.com/documentation/SiriKit) - SiriKit
 - [Getting started with the App Intents framework](https://developer.apple.com/documentation/appintents/getting-started-with-the-app-intents-framework) - App Intents
 - [App entities](https://developer.apple.com/documentation/appintents/app-entities) - App Intents
+- [Defining app entities for your custom data types](https://developer.apple.com/documentation/appintents/defining-app-entities-for-your-custom-data-types) - App Intents
 
 ### Videos
 
+- [What's new in Shortcuts](https://developer.apple.com/videos/play/wwdc2026/310)
 - [Design interactive snippets](https://developer.apple.com/videos/play/wwdc2025/281)
 - [Get to know App Intents](https://developer.apple.com/videos/play/wwdc2025/244)
 - [Spotlight your app with App Shortcuts](https://developer.apple.com/videos/play/wwdc2023/10102/)
 
 ## Changelog
+
+### June 8, 2026
+- Added guidance for adopting app schemas.
 
 ### January 17, 2025
 - Updated and streamlined guidance.
