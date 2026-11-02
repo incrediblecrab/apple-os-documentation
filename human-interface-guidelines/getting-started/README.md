@@ -12,6 +12,7 @@ The review column preserves the initial catalog/changed-content pass. `metadata/
 | [Designing for Games](designing-for-games.md) | design | iOS, iPadOS, macOS, tvOS, visionOS, watchOS | independent | changed-content |
 | [Designing for iOS](iOS.md) | design | iOS | independent | changed-content |
 | [Designing for iPadOS](iPadOS.md) | design | iPadOS | independent | changed-content |
+| [Designing for iPhone Duo](iPhone-Duo.md) | design | iOS | independent | changed-content |
 | [Designing for macOS](macOS.md) | design | macOS | independent | changed-content |
 | [Designing for tvOS](tvOS.md) | design | tvOS | independent | changed-content |
 | [Designing for visionOS](visionOS.md) | design | visionOS | independent | changed-content |

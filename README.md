@@ -62,7 +62,7 @@ Unofficial, community-maintained Apple platform references, design guidance, and
 | Xcode 26 | 26.6 (`17F113`) | shipping | [June 25, 2026](https://developer.apple.com/news/releases/) |
 | Safari (Sonoma and Sequoia security update) | 26.6.1 | shipping | [August 18, 2026](https://support.apple.com/en-us/100100) |
 
-**Catalog scope:** 405/405 technology entries and 157/157 indexed HIG articles have an explicit local disposition. The repository has 406 reference pages (including aliases), 158 HIG articles (including retained legacy material), and 254 cataloged Figma-directory images. Generated indexes are excluded from page counts. Coverage is not a certification of every API symbol or every sentence.
+**Catalog scope:** 407/407 technology entries and 158/158 indexed HIG articles have an explicit local disposition. The repository has 408 reference pages (including aliases), 159 HIG articles (including retained legacy material), and 254 cataloged Figma-directory images. Generated indexes are excluded from page counts. Coverage is not a certification of every API symbol or every sentence.
 
 <!-- END GENERATED BASELINE -->
 

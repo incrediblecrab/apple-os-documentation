@@ -8,12 +8,12 @@ The review column preserves the initial catalog/changed-content pass. `metadata/
 
 | Topic | Kind | Platforms tagged in page | Release status | Initial review scope |
 |---|---|---|---|---|
-| [Add an evaluated, fallback-safe intelligence feature](intelligence-integration.md) | guide | Not indexed | mixed | changed-content |
+| [Add an evaluated, fallback-safe intelligence feature](intelligence-integration.md) | guide | Not indexed | shipping | changed-content |
 | [App Store Readiness](app-store-readiness.md) | policy | Not indexed | independent | changed-content |
-| [Migrate a custom SiriKit shortcut without breaking existing users](app-intents-migration.md) | guide | Not indexed | mixed | changed-content |
-| [Migrate one asynchronous feature to Swift 6 checking](swift-concurrency-migration.md) | guide | Not indexed | mixed | changed-content |
-| [Migrating On Demand Resources to Background Assets](background-assets-migration.md) | guide | Not indexed | mixed | changed-content |
-| [Preparing an existing app for OS 27](os27-migration.md) | guide | Not indexed | mixed | changed-content |
+| [Migrate a custom SiriKit shortcut without breaking existing users](app-intents-migration.md) | guide | Not indexed | shipping | changed-content |
+| [Migrate one asynchronous feature to Swift 6 checking](swift-concurrency-migration.md) | guide | Not indexed | shipping | changed-content |
+| [Migrating On Demand Resources to Background Assets](background-assets-migration.md) | guide | Not indexed | shipping | changed-content |
+| [Preparing an existing app for OS 27](os27-migration.md) | guide | Not indexed | shipping | changed-content |
 | [Private Cloud Compute Security Guide](private-cloud-compute.md) | policy | Not indexed | independent | changed-content |
 | [Regional App Distribution](regional-distribution.md) | policy | Not indexed | independent | changed-content |
-| [Safari 27 migration](safari27-migration.md) | guide | Not indexed | mixed | changed-content |
+| [Safari 27 migration](safari27-migration.md) | guide | Not indexed | shipping | changed-content |

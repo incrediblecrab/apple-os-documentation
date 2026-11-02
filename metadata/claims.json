@@ -163,9 +163,9 @@
       "id": "os27-hardware",
       "status": "unverified",
       "claim": "Exact OS 27 device eligibility must be verified independently of OS 26 support and Rosetta application compatibility.",
-      "source": "https://developer.apple.com/news/releases/",
-      "locator": "Verification backlog",
-      "checked_on": "2026-09-08",
+      "source": "https://support.apple.com/en-us/100100",
+      "locator": "Available for column of the OS 27, 27.0.1 and 27.2 rows",
+      "checked_on": "2026-11-01",
       "source_published_on": null,
       "affected_paths": [
         "os27-intro/iOS.md",
@@ -175,9 +175,9 @@
         "os27-intro/visionOS.md",
         "os27-intro/watchOS.md"
       ],
-      "release_qualifier": "Published source checked on September 8, 2026",
-      "unresolved_question": "Exact OS 27 device eligibility must be verified independently of OS 26 support and Rosetta application compatibility.",
-      "action": "Keep out of affirmative adoption guidance until an exact primary source resolves the question."
+      "release_qualifier": "Security releases list checked November 1, 2026",
+      "unresolved_question": "Apple has not published a dedicated OS 27 compatibility list in the checked sources. As of November 1, 2026, Apple's security releases list gives the device scope of each OS 27 update (for example iPhone 11 and later; the listed iPad models; Apple TV 4K (2nd generation) and later; Apple Watch Series 9 and later; Apple Vision Pro, all models; the listed Mac models). Those scopes describe where each update is offered, which the OS 27 introductions now state as such; they are not presented as a complete eligibility list.",
+      "action": "State the security-list device scopes with their source and date; do not present them as a full compatibility list until Apple publishes one."
     },
     {
       "id": "unannounced-dates",
@@ -565,14 +565,14 @@
     {
       "id": "eu-web-unified-terms-transition",
       "status": "verified",
-      "claim": "The checked EU Web Distribution page schedules the unified-terms transition for October 1, 2026. For the described agreement switch, unified terms apply on that date or the acceptance date, whichever is later; previously accrued obligations remain.",
+      "claim": "The unified EU terms (Attachment 14 of the Apple Developer Program License Agreement, which replaced the Alternative Terms Addendum) have applied since October 1, 2026 for the described agreement switch, or from the acceptance date if later; obligations accrued under the earlier terms remain.",
       "source": "https://developer.apple.com/support/web-distribution-eu/",
       "locator": "Transition to the unified EU terms",
-      "release_qualifier": "Announced future transition at the September 8, 2026 cutoff; not already-effective universal terms",
+      "release_qualifier": "In effect; checked November 1, 2026 against the current EU Web Distribution page",
       "affected_paths": [
         "guides/regional-distribution.md"
       ],
-      "checked_on": "2026-09-08",
+      "checked_on": "2026-11-01",
       "source_published_on": null,
       "source_snapshot_url": "https://developer.apple.com/support/web-distribution-eu/"
     }

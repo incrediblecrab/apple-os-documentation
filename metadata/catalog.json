@@ -82,10 +82,10 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": "Removed unsupported appearance claim; added platform-specific authorization, spatial-accessory integration, resolved room-anchor identifiers, and exact non-ARC completion-handler ownership behavior."
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -130,10 +130,10 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": "Audio interruptions, headphone-route privacy, separation from routing/metadata services, macOS AudioDSP resolved issue; repaired joined lists."
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -183,7 +183,7 @@
         "checked_on": "2026-09-08",
         "scope_note": "Replaced unsupported Apple Music/CarPlay claims with capture authorization, spatial-capture support checks, playback/UI separation and OS 27 screen/routing integration; repaired joined lists. June 2024 updates are not labeled new in 27."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -233,7 +233,7 @@
         "checked_on": "2026-09-08",
         "scope_note": "Removed unsupported Apple Music/CarPlay claims; added platform-specific presentation and routing/Now Playing integration guidance; repaired capture-event list."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -267,7 +267,7 @@
         "checked_on": "2026-09-08",
         "scope_note": "Distinguished legacy custom routing from the new app/provider architecture and entitlement; explicitly flagged conflicting Catalyst guidance; separated playback-arbitration items."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -307,7 +307,7 @@
         "checked_on": "2026-09-14",
         "scope_note": "Curated app-side routing workflow, protocol declarations, launch modes, optional controls/data channels, failure cleanup and provider boundary. iOS/iPadOS 27 guidance; Catalyst annotation conflict is explicit."
       },
-      "release_status": "beta",
+      "release_status": "shipping",
       "platforms": [
         "iOS",
         "iPadOS"
@@ -363,7 +363,7 @@
           "Individual AccessibilitySettings members have different availability. Assistive-technology behavior was not runtime tested."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -388,10 +388,10 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-14",
-        "scope_note": "macOS 27 USB discovery, UI-app requirement, exclusive access, entitlement and busy/disconnected failures; beta 8 resolved sandbox/VM issues are not current blanket prohibitions."
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14."
       },
-      "release_status": "beta",
+      "release_status": "shipping",
       "platforms": [
         "macOS"
       ]
@@ -472,8 +472,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": "26.2 declarations versus ignored compatibility runtimes, EU restrictions, provider/security/transport separation, verified extension points and XWing requirement."
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08."
       },
       "release_status": "shipping",
       "platforms": [
@@ -567,7 +567,7 @@
           "Existing topic inventory retained. Scheduling and presentation were not device tested."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "iOS",
         "iPadOS"
@@ -604,9 +604,9 @@
         "https://developer.apple.com/documentation/adservices"
       ],
       "review": {
-        "scope": "catalog-only",
-        "checked_on": "2026-09-08",
-        "scope_note": "Topic mapping retained; body not substantively reverified."
+        "scope": "changed-content",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: catalog-only on 2026-09-08."
       },
       "release_status": "not-assessed",
       "platforms": [
@@ -627,9 +627,9 @@
         "https://developer.apple.com/documentation/adsupport"
       ],
       "review": {
-        "scope": "catalog-only",
-        "checked_on": "2026-09-08",
-        "scope_note": "Topic mapping retained; body not substantively reverified."
+        "scope": "changed-content",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: catalog-only on 2026-09-08."
       },
       "release_status": "not-assessed",
       "platforms": [
@@ -658,7 +658,7 @@
           "Not an exhaustive audit of every C, macOS, or iOS legacy symbol; no contact database accessed."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -684,7 +684,7 @@
           "Per-symbol verification focused on the picker; no legacy or replacement UI exercised."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -709,7 +709,7 @@
           "No partner approval, signed purchase request, SKU workflow, or complete endpoint-schema audit performed."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": []
     },
     {
@@ -754,16 +754,15 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": [
-          "Repaired selected essential creation/configuration/invocation/testing links to canonical AppClip routes; connected Live Activities to their separate availability and update rules."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "No new OS 27-only App Clip feature claimed; remaining legacy topic links were not exhaustively modernized."
         ]
       },
       "release_status": "shipping",
       "platforms": [
+        "Mac Catalyst",
         "iOS",
         "iPadOS"
       ]
@@ -815,7 +814,7 @@
           "Retained topic inventory is not exhaustively reviewed; per-symbol and system-feature availability still differs."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -842,15 +841,15 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": "New reference covering the XCTest UI testing bundle, live app, IntentDefinitions, out-of-process execution, typed results, entity/query transfer, Spotlight, and view annotations.",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "Native visionOS UI-test destination limitation remains.",
           "The adoption article's singular intent example conflicts with the documented intents property.",
           "No local OS27 execution."
         ]
       },
-      "release_status": "beta",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -879,15 +878,13 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-14",
-        "scope_note": [
-          "Added source-backed macOS 27 refresh, text-selection, control-event, gesture, Observation, tab-role, menu, panel, and titlebar changes; distinguished linked-SDK/runtime behavior and resolved issues; removed speculative rendering/Rosetta/host claims; corrected Xcode host to Tahoe 26.4+."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14.",
         "limitations": [
           "No UI runtime tests; old topic inventory is not exhaustively link-certified. SwiftUI implementation changes are not promises about private view hierarchies."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "macOS"
@@ -911,7 +908,7 @@
           "No SDK download/build, license generation, installation, renewal, or revocation. The documented old minimum toolchain is not claimed to establish current Xcode host compatibility; deeper cryptographic code was not reproduced."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": []
     },
     {
@@ -942,7 +939,7 @@
           "Framework/entitlement availability is 26.1 but several protocol pages say 26.0; SDK declaration verification remains necessary. No device migration or extension build."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "iOS",
         "iPadOS"
@@ -961,8 +958,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": "4.4.1 versioned IAP/subscription metadata and submission relationships, explicit deprecated resource distinctions, age-rating fields, corrected topics, and removal of unsupported dates/policy assertions.",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "Targeted release-note review, not a complete App Store Connect schema/OpenAPI audit. No metadata mutation or submission performed."
         ]
@@ -984,8 +981,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": "Authorization, JWS verification, transaction/subscription history, finishing, notification recovery, sandbox/environment selection, error handling, and dated service changes distinct from StoreKit OS 27.",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "No authenticated requests or entitlement reconciliation performed. Topic links are verified references, not tested endpoint implementations; no invented volume-assignment REST endpoints."
         ]
@@ -1007,8 +1004,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": "V2 verification/receiver behavior, V1 deprecation versus removal, accepted success codes, production retry intervals and sandbox single delivery, history recovery, and dated notification-schema changes.",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "No receiver or notification delivery test executed; no notification names inferred from OS 27 Swift symbols."
         ]
@@ -1028,8 +1025,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": "Purpose string, active-app and prompt constraints, no implied approval from absent prompts, and current/revoked authorization handling."
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08."
       },
       "release_status": "shipping",
       "platforms": [
@@ -1058,8 +1055,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": "August 2026 service introduction, explicit supersession and future legacy sunset, App Store versus Maps advertising, OAuth/account roles/delegations, actual base URL, request semantics, bulk outcomes, and rate limits.",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "No campaign, budget, account, token, or reporting operation executed. January 26, 2027 remains future at the cutoff; migration was not inferred from similar names."
         ]
@@ -1112,7 +1109,7 @@
           "No token or Maps service request made. Existing response-object topics were not exhaustively revalidated."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": []
     },
     {
@@ -1222,9 +1219,9 @@
         "https://developer.apple.com/documentation/applepayontheweb"
       ],
       "review": {
-        "scope": "catalog-only",
-        "checked_on": "2026-09-08",
-        "scope_note": "Topic mapping retained; body not substantively reverified."
+        "scope": "changed-content",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: catalog-only on 2026-09-08."
       },
       "release_status": "not-assessed",
       "platforms": []
@@ -1265,8 +1262,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": "Organization-service purpose, current Apple Business naming, independent service cadence, administrator-created OAuth accounts/scopes, token renewal, inventory/activity workflows, August 2026 migration/release changes, and administrative failure handling.",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "No organization account, token exchange, migration, release, or device operation exercised. Individual resource schemas are linked, not exhaustively audited. Token endpoint variants were not hardcoded."
         ]
@@ -1353,7 +1350,7 @@
         "checked_on": "2026-09-14",
         "scope_note": "Existing audio-switching versus new fixed spatial audio, iOS 26.4 metadata, unspecified iPad minimum, developer-only 27-beta testing and later EU customer availability."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "iOS",
         "iPadOS"
@@ -1495,7 +1492,7 @@
           "No assessment session or restricted-system configuration exercised; macOS-specific changes are not generalized to all devices."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -1556,10 +1553,10 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-14",
-        "scope_note": "ODR deprecation, original versus managed/localized pack availability, configuration, localization reconciliation, availability errors, storage/removal and migration links."
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -1584,7 +1581,7 @@
         "checked_on": "2026-09-14",
         "scope_note": "Continued-processing 26 availability, scheduling/cancellation/expiration limits, GPU distinction and Boolean 27 background-inference entitlement beyond continued-processing tasks."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -1688,7 +1685,7 @@
           "Older eligibility availability and newer data-transfer availability remain separate. No transfer or browser eligibility flow was run."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "iOS",
         "iPadOS"
@@ -1716,7 +1713,7 @@
           "Did not add visionOS/watchOS to the explicit list or claim runtime irrelevance. No built-app compatibility-mode experiment."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -1806,9 +1803,9 @@
         "https://developer.apple.com/documentation/carkey"
       ],
       "review": {
-        "scope": "catalog-only",
-        "checked_on": "2026-09-08",
-        "scope_note": "Topic mapping retained; body not substantively reverified."
+        "scope": "changed-content",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: catalog-only on 2026-09-08."
       },
       "release_status": "not-assessed",
       "platforms": [
@@ -1830,13 +1827,13 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-14",
-        "scope_note": "Sourced beta behavior/test considerations, removal of unverified parked-video claims, current references, and accurate continuing legacy SiriKit support.",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14.",
         "limitations": [
           "No vehicle/head-unit, CarPlay entitlement, or Siri interaction tested. App Intents recommendation is not presented as SiriKit removal."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -1886,7 +1883,7 @@
           "No chart rendering or audio-graph interaction testing; retained older chart inventory."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -1938,7 +1935,7 @@
           "No Schoolwork/progress synchronization tested. Existing activity-item details remain a reference index, not a full metrics audit."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -1964,7 +1961,7 @@
           "No catalog publication or token exchange performed; auth algorithms and endpoint schemas were not reimplemented."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": []
     },
     {
@@ -1989,7 +1986,7 @@
           "No Schoolwork assignment, entitlement, native control, or submission was exercised. This is an older omission, not a claimed OS 27 framework introduction."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -2044,7 +2041,7 @@
           "Issue 177621316 is a beta regression-test target, not an enduring prohibition. No CloudKit account or sharing operations."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -2168,10 +2165,10 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": "Removed unsupported appearance claim; distinguished local compositor rendering, macOS 26 remote scenes, Spatial Preview and Foveated Streaming. Added verified macOS 26 CompositorLayer availability while preserving visionOS 1.0; remote-discovery defect is resolved."
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "macOS",
         "visionOS"
@@ -2224,7 +2221,7 @@
         "checked_on": "2026-10-29",
         "scope_note": "October 29, 2026 targeted primary-source review of point-release changes since the September cutoff; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": []
     },
     {
@@ -2267,7 +2264,7 @@
           "No contacts accessed or modified. Existing code examples were retained rather than freshly compiled across every platform."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -2329,7 +2326,7 @@
         "checked_on": "2026-09-14",
         "scope_note": "Replaced fabricated package/API examples with cutoff-pinned Apple repositories; separated library, cctl example and container CLI; verified Mac architecture, Swift tools and Xcode host requirements."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "source_access_note": "The Apple catalog's DocC destination did not resolve in the checked Markdown/JSON forms; the reference uses official Apple repositories pinned to source commits.",
       "platforms": [
         "macOS"
@@ -2352,15 +2349,15 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-14",
-        "scope_note": "Replaced announcement-only stub with documented AIModel/AIModelAsset, InferenceFunction, NDArray, compute selection, specialization/cache lifecycle, AOT, preparation and profiling tools, and CoreML non-neural guidance.",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14.",
         "limitations": [
           "CoreAI gauge input extraction issue 172502576 remains documented.",
           "AOT has narrower hardware scope than the framework platform list.",
           "No local OS27 inference or model-build execution."
         ]
       },
-      "release_status": "beta",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -2490,7 +2487,7 @@
           "No actual store migration, relationship, or CloudKit compatibility tests; existing reference links are not comprehensively certified."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -2522,7 +2519,7 @@
           "Core Foundation's legacy type/topic inventory retained; no blanket inheritance of Foundation-specific behavior asserted."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -2641,7 +2638,7 @@
         "checked_on": "2026-10-29",
         "scope_note": "October 29, 2026 targeted primary-source review of point-release changes since the September cutoff; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -2687,9 +2684,9 @@
         "https://developer.apple.com/documentation/coremidi"
       ],
       "review": {
-        "scope": "catalog-only",
-        "checked_on": "2026-09-08",
-        "scope_note": "Canonical source/topic mapping only."
+        "scope": "changed-content",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: catalog-only on 2026-09-08."
       },
       "release_status": "not-assessed",
       "platforms": [
@@ -2722,7 +2719,7 @@
           "Retained CoreML API inventory is not exhaustively reviewed."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -2837,13 +2834,13 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": "Removed unsourced OS27 Spotlight marketing claims; separated schema adoption from entity indexing and linked real Spotlight-query testing.",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "System-search rollout is not inferred from framework availability."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -2924,7 +2921,7 @@
           "The Swift sample was source-reviewed, not compiled with Xcode 27. No drag/drop or file-transfer runtime test."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -2957,7 +2954,7 @@
         "checked_on": "2026-09-08",
         "scope_note": "Buffer/format/timing integration and asynchronous reuse checks; CVMutablePixelBuffer remains an OS 26 wrapper, not an OS 27 introduction; repaired joined type/protocol lists."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -3000,10 +2997,10 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": "iOS/iPadOS/macOS 27 beta, Catalyst and iOS-on-Mac exclusion, verified extension point, CrashedProcess and read-only crash inspection boundaries."
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08."
       },
-      "release_status": "beta",
+      "release_status": "shipping",
       "platforms": [
         "iOS",
         "iPadOS",
@@ -3186,10 +3183,10 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": "Actual service platforms, Boolean entitlement, declined/unknown results, cached ranges, feature-specific 26.2/26.4/26.5 minima; removed misplaced App Review/legal assertions."
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -3284,8 +3281,9 @@
         "https://developer.apple.com/documentation/devicediscoveryextension.md"
       ],
       "review": {
-        "scope": "catalog-only",
-        "checked_on": "2026-09-08"
+        "scope": "changed-content",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: catalog-only on 2026-09-08."
       },
       "release_status": "not-assessed",
       "platforms": [
@@ -3372,10 +3370,10 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": "macOS 27 ASIF/raw/layer restrictions, writable-top and UUID compatibility, resize boundaries and actual Virtualization disk attachment initializer."
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08."
       },
-      "release_status": "beta",
+      "release_status": "shipping",
       "platforms": [
         "macOS"
       ]
@@ -3419,9 +3417,9 @@
         "https://developer.apple.com/documentation/distributed.md"
       ],
       "review": {
-        "scope": "catalog-only",
-        "checked_on": "2026-09-08",
-        "scope_note": "Retained distributed-actor reference; no new compiler feature inferred.",
+        "scope": "changed-content",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: catalog-only on 2026-09-08.",
         "limitations": [
           "Body not exhaustively API-reviewed."
         ]
@@ -3472,7 +3470,7 @@
         "checked_on": "2026-09-14",
         "scope_note": "Verified driver adoption/entitlement boundaries and new macOS VideoDriverKit relationship without inferring family-wide iPad support."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "DriverKit",
         "iOS",
@@ -3560,15 +3558,15 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": "Expanded Evaluation, Loader and concrete loaders, ModelSample/ModelSubject, Metric/Evaluator/MetricsAggregator, results, EvaluationTrait/Context, model-judge and tool-trajectory APIs. Exact OS27 availability excludes tvOS.",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "No tvOS declaration.",
           "Model access is independent of evaluation API availability.",
           "No local OS27 evaluation execution or judge calibration."
         ]
       },
-      "release_status": "beta",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -3597,7 +3595,7 @@
           "No calendar/reminder access or writes. Existing permission changes are explicitly older than OS 27; topic coverage is not a full API audit."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -3716,7 +3714,7 @@
           "No host/extension build or XPC test. The programmatic generation workflow is not presented as newly OS 27-only."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -3797,13 +3795,13 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": "Dated service cadence, token/report cases and notification subtypes, request-identifier reconciliation/corrections, authorization and real topic routes, sandbox separation, and policy-guide crosslinks.",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "No external purchase report sent. Country eligibility, fee rules, and legal/reporting obligations were not independently restated."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": []
     },
     {
@@ -3919,7 +3917,7 @@
           "No financial data or account accessed. No universal institution/country support or OS 27 introduction inferred from the current index."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -4018,7 +4016,7 @@
           "Capacity truncation applies to the documented block-count path, not every volume capacity API or platform. Typed notifications are 26-generation APIs. No runtime URL/capacity/concurrency test."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -4051,15 +4049,15 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": "Replaced speculative account with symbol-specific availability, LanguageModel/executors, multimodal attachments and Vision tools, Dynamic Profiles, PCC eligibility/quota, provider-package caveat, and explicit unavailable/offline/denial paths.",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "Hardware, model, runtime, language/region, entitlement and quota remain conditional.",
           "watchOS session/provider availability is not on-device SystemLanguageModel availability.",
           "No provider package or service access was inferred or executed."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": []
     },
     {
@@ -4085,7 +4083,7 @@
         "checked_on": "2026-09-14",
         "scope_note": "Physical Apple Vision Pro and visionOS 26.4 core client/session requirements, entitlement, pairing and viewing-region consent, configured cloud endpoints, performance/failure handling. Provider context/endpoint types separately require visionOS 27. Microphone defect is resolved."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "visionOS"
       ]
@@ -4152,10 +4150,10 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": "PlayStation Access support limited to the announced iOS/iPadOS/macOS platforms; resolved macOS lightbar/HID cases; asynchronous spatial discovery and tracking permission; separate still-known visionOS pairing issue."
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -4184,10 +4182,10 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": "Resolved access-point callback, localized Background Assets, iOS/iPadOS/visionOS ODR migration, and save-data/download separation; retained older large-download guide as historical context; repaired joined lists."
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -4217,7 +4215,7 @@
         "checked_on": "2026-09-08",
         "scope_note": "Preserved OS 26 baseline; iCloud/local-only, offline and conflict-resolution checks; not tvOS/watchOS or a game-asset delivery service."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -4333,8 +4331,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-10-29",
-        "scope_note": "October 29, 2026 targeted primary-source review of point-release changes since the September cutoff; full-body outcome in metadata/accuracy.json. Earlier: catalog-only on 2026-09-08."
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-10-29."
       },
       "release_status": "not-assessed",
       "platforms": []
@@ -4365,7 +4363,7 @@
           "No health data accessed, saved, or clinically interpreted. Existing framework platform labels are symbol baselines, not guarantees of runtime data availability. No fixed recent-history duration invented."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -4373,6 +4371,30 @@
         "macOS",
         "visionOS",
         "watchOS"
+      ]
+    },
+    {
+      "id": "documentation/HomeExtensions",
+      "path": "documentation/HomeExtensions.md",
+      "title": "HomeExtensions",
+      "kind": "framework",
+      "owner": "C6",
+      "release_status": "shipping",
+      "sources": [
+        "https://developer.apple.com/documentation/homeextensions",
+        "https://developer.apple.com/documentation/homeextensions.md",
+        "https://developer.apple.com/documentation/homeextensions/homeaccessorysettingsprovider.md",
+        "https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.home"
+      ],
+      "review": {
+        "scope": "changed-content",
+        "checked_on": "2026-11-01",
+        "scope_note": "New page written November 1, 2026 from primary sources captured that day; full-body outcome in metadata/accuracy.json."
+      },
+      "platforms": [
+        "Mac Catalyst",
+        "iOS",
+        "iPadOS"
       ]
     },
     {
@@ -4390,7 +4412,7 @@
         "checked_on": "2026-09-14",
         "scope_note": "Removed unsupported 4K/on-device-only/transcription claims; documented actual Home Intelligence, Private Cloud Compute and iCloud+ 2 TB requirements from release notes."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -4415,7 +4437,7 @@
         "checked_on": "2026-09-08",
         "scope_note": "Surgical joined-reference repair and preserved existing hardware/API distinctions and minimum availability."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "macOS"
       ]
@@ -4497,7 +4519,7 @@
         "checked_on": "2026-09-14",
         "scope_note": "macOS 27 AccessoryAccess relationship, entitlement and exclusive-access failure boundaries; no blanket IOUSBHost deprecation or raised legacy minimum."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "macOS"
@@ -4560,8 +4582,9 @@
         "https://developer.apple.com/documentation/identitylookup.md"
       ],
       "review": {
-        "scope": "catalog-only",
-        "checked_on": "2026-09-08"
+        "scope": "changed-content",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: catalog-only on 2026-09-08."
       },
       "release_status": "not-assessed",
       "platforms": [
@@ -4731,7 +4754,7 @@
           "Safari feature announcements do not automatically establish every JavaScriptCore embedding's API set. No embedded JSContext or Wasm runtime test."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -4758,7 +4781,7 @@
           "Targeted formatting/topic review, not a complete picker/content/privacy API audit; no suggestions accessed."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "iOS",
         "iPadOS"
@@ -4847,9 +4870,9 @@
         "https://developer.apple.com/documentation/livecommunicationkit"
       ],
       "review": {
-        "scope": "catalog-only",
-        "checked_on": "2026-09-08",
-        "scope_note": "Topic mapping retained; body not substantively reverified."
+        "scope": "changed-content",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: catalog-only on 2026-09-08."
       },
       "release_status": "not-assessed",
       "platforms": [
@@ -4870,9 +4893,9 @@
         "https://developer.apple.com/documentation/livephotoskitjs"
       ],
       "review": {
-        "scope": "catalog-only",
-        "checked_on": "2026-09-08",
-        "scope_note": "Canonical source/topic mapping only."
+        "scope": "changed-content",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: catalog-only on 2026-09-08."
       },
       "release_status": "not-assessed",
       "platforms": []
@@ -5114,7 +5137,7 @@
           "No map/search/geocoding runtime test; longstanding features are not relabeled as OS 27 introductions."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -5157,8 +5180,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": "Current extension/installation guidance, authorization and deprecation distinctions, service/program prerequisites, policy-guide crosslinks, and removal of unsourced country expansion claims.",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "No alternative marketplace, entitlement, installation, or licensing workflow exercised. Country/fee policy remains owner E's responsibility."
         ]
@@ -5265,7 +5288,7 @@
         "checked_on": "2026-09-14",
         "scope_note": "Dedicated provider app, entitlement and matching protocol IDs; discovery privacy, activation/pairing, cached devices and connection lifetime; real-time audio/video and prompt audio-driver publication requirements; explicit Catalyst source conflict."
       },
-      "release_status": "beta",
+      "release_status": "shipping",
       "platforms": [
         "iOS",
         "iPadOS"
@@ -5281,9 +5304,9 @@
         "https://developer.apple.com/documentation/mediaextension"
       ],
       "review": {
-        "scope": "catalog-only",
-        "checked_on": "2026-09-08",
-        "scope_note": "Canonical source/topic mapping only; not conflated with Media Device."
+        "scope": "changed-content",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: catalog-only on 2026-09-08."
       },
       "release_status": "not-assessed",
       "platforms": [
@@ -5312,7 +5335,7 @@
           "No local OS27 quality or performance runs."
         ]
       },
-      "release_status": "beta",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -5336,15 +5359,15 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": "New AudioSearch criteria, IntentValueQuery, audio entity schemas, playAudio integration, failure handling, and testing reference.",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "AudioSearch Catalyst introduction version is not specified in symbol metadata.",
           "Siri feature availability and actual playback authorization are independent of framework availability.",
           "No local OS27 execution."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": []
     },
     {
@@ -5389,7 +5412,7 @@
         "checked_on": "2026-09-08",
         "scope_note": "Added opt-in OS 27 metadata migration and prohibition on mixing new/legacy local publishers; retained media-library authorization and legacy playback; repaired artwork list."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -5458,8 +5481,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": "Merchant-token management versus usage-information responsibilities, authorization/service-version labeling, event-retrieval lifecycle, and crosslinks to the new package reference.",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "No merchant token, event retrieval, mTLS exchange, or invalidation performed. Misleading App Store Connect-style availability labeling was not retained as an OS baseline."
         ]
@@ -5535,10 +5558,10 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": "Runtime GPU-family checks plus API availability; Metal 4 is OS 26-era; command-resource lifetime and allocator completion; OS 27 clamp-to-edge defects, including Apple 10, labeled resolved."
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -5570,7 +5593,7 @@
         "checked_on": "2026-10-29",
         "scope_note": "October 29, 2026 targeted primary-source review of point-release changes since the September cutoff; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -5613,9 +5636,9 @@
         "https://developer.apple.com/documentation/metalperformanceshaders"
       ],
       "review": {
-        "scope": "catalog-only",
-        "checked_on": "2026-09-08",
-        "scope_note": "Canonical source/topic mapping only."
+        "scope": "changed-content",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: catalog-only on 2026-09-08."
       },
       "release_status": "not-assessed",
       "platforms": [
@@ -5663,10 +5686,10 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-10-29",
-        "scope_note": "October 29, 2026 targeted primary-source review of point-release changes since the September cutoff; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14."
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-10-29."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -5698,7 +5721,7 @@
         "checked_on": "2026-09-08",
         "scope_note": "Separated existing asset processing from USDKit composition and renderer selection; linked USD validation and SceneKit migration without changing Model I/O minimums."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -5796,7 +5819,7 @@
           "No local OS27 analysis/performance execution."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": []
     },
     {
@@ -5810,9 +5833,9 @@
         "https://developer.apple.com/documentation/naturallanguage.md"
       ],
       "review": {
-        "scope": "catalog-only",
-        "checked_on": "2026-09-08",
-        "scope_note": "Retained existing task-specific natural-language API reference.",
+        "scope": "changed-content",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: catalog-only on 2026-09-08.",
         "limitations": [
           "Body not exhaustively API-reviewed."
         ]
@@ -5839,8 +5862,9 @@
         "https://developer.apple.com/documentation/nearbyinteraction.md"
       ],
       "review": {
-        "scope": "catalog-only",
-        "checked_on": "2026-09-08"
+        "scope": "changed-content",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: catalog-only on 2026-09-08."
       },
       "release_status": "not-assessed",
       "platforms": [
@@ -5866,7 +5890,7 @@
         "checked_on": "2026-09-14",
         "scope_note": "Joined-list and decoder-description corrections; selected system TLS policy versus ordinary app connections and low-level APIs not automatically receiving ATS enforcement."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -5892,7 +5916,7 @@
         "checked_on": "2026-09-14",
         "scope_note": "Actual resolved wired-CarPlay VPN exclusion issue and scoped management-system TLS cross-reference, not an invented new blanket flow policy."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -5989,7 +6013,7 @@
         "checked_on": "2026-09-14",
         "scope_note": "Distinct local and remote platform lists, observable models, audio setup, timestamped playback, foreground system-primary requests, extension/APNs lifecycle and no mixed legacy/new local publishers."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": []
     },
     {
@@ -6004,10 +6028,10 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": "27 archive format requires macOS 26.2+ readers, distinct from original OSLog deployment minimum and Xcode 27 beta 6's 26.4+ host."
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -6070,7 +6094,7 @@
           "No runtime invalidation/sequence test; original Observation availability preserved."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -6240,7 +6264,7 @@
           "No markup editor build or device test. Framework and new symbol availability remain distinct."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "iOS",
         "iPadOS",
@@ -6259,8 +6283,9 @@
         "https://developer.apple.com/documentation/paravirtualizedgraphics.md"
       ],
       "review": {
-        "scope": "catalog-only",
-        "checked_on": "2026-09-08"
+        "scope": "changed-content",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: catalog-only on 2026-09-08."
       },
       "release_status": "not-assessed",
       "platforms": [
@@ -6318,7 +6343,7 @@
           "No recognition quality, language availability, or Pencil hardware test."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -6342,7 +6367,7 @@
         "checked_on": "2026-09-08",
         "scope_note": "26 versus 26.2 API minima, iMessage question flow, matching topics/responses, cancellation yielding no response, and retained deprecated-button distinction."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -6366,10 +6391,10 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": "Removed unsupported Extend percentage, blanket SynthID, editing and sharing assertions. Added nullable OS 27 PHAssetResource.filename migration and resolved PHAsset.addedDate issue; retained authorization boundaries."
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -6421,13 +6446,13 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": "Tap to Pay hardware/provider/entitlement checks, session lifecycle and read-versus-settlement distinction, OS 27 Tap to Share declarations, iPhone 12 runtime requirement, customer/cart/payment failure handling, and current topics.",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "No NFC, customer data, identity, or payment operation tested. Compilation platforms are not represented as contactless-reader hardware support."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -6508,9 +6533,9 @@
         "https://developer.apple.com/documentation/quartzcore"
       ],
       "review": {
-        "scope": "catalog-only",
-        "checked_on": "2026-09-08",
-        "scope_note": "Canonical source/topic mapping only."
+        "scope": "changed-content",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: catalog-only on 2026-09-08."
       },
       "release_status": "not-assessed",
       "platforms": [
@@ -6620,7 +6645,6 @@
       "sources": [
         "https://developer.apple.com/documentation/realitycomposerpro",
         "https://developer.apple.com/documentation/realitycomposerpro.md",
-        "https://developer.apple.com/documentation/realitycomposerpro/reality-composer-pro-beta-5-release-notes.md",
         "https://developer.apple.com/documentation/realitycomposerpro/introducing-compute-graph.md"
       ],
       "review": {
@@ -6628,7 +6652,7 @@
         "checked_on": "2026-10-29",
         "scope_note": "October 29, 2026 targeted primary-source review of point-release changes since the September cutoff; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14."
       },
-      "release_status": "beta",
+      "release_status": "shipping",
       "platforms": []
     },
     {
@@ -6658,10 +6682,10 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": "USDKit/Spatial Preview integration; platform-specific Gaussian splat beta matrix, Apple7 hardware requirement, buffer import and captured-lighting limits; resolved rendering issues and visionOS SDK-gated tone mapping/primitive restart; verified HIG material boundary; repaired joined samples."
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -6745,10 +6769,10 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": "Screen-streaming/mirroring migration to ScreenCaptureKit with older-OS compatibility retained; no entire-framework removal or AVPlayer capture claim."
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -6796,7 +6820,7 @@
           "No access enrollment, upload, endpoint registration, or performance test. Customer cancellation remains a system/user choice, not server-controlled prevention."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "iOS",
         "iPadOS",
@@ -6826,7 +6850,7 @@
         "checked_on": "2026-09-08",
         "scope_note": "USD export integration and parametric-data preservation; retained sensor-dependent iOS/iPadOS capture versus Catalyst postprocessing; new USD workflows do not add Mac scanning or a visionOS RoomPlan API."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -6861,8 +6885,9 @@
         "https://developer.apple.com/documentation/scsicontrollerdriverkit.md"
       ],
       "review": {
-        "scope": "catalog-only",
-        "checked_on": "2026-09-08"
+        "scope": "changed-content",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: catalog-only on 2026-09-08."
       },
       "release_status": "not-assessed",
       "platforms": [
@@ -6880,8 +6905,9 @@
         "https://developer.apple.com/documentation/scsiperipheralsdriverkit.md"
       ],
       "review": {
-        "scope": "catalog-only",
-        "checked_on": "2026-09-08"
+        "scope": "changed-content",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: catalog-only on 2026-09-08."
       },
       "release_status": "not-assessed",
       "platforms": [
@@ -6975,7 +7001,7 @@
         "scope": "changed-content",
         "checked_on": "2026-09-08"
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": []
     },
     {
@@ -7001,7 +7027,7 @@
         "checked_on": "2026-09-08",
         "scope_note": "Anchored soft deprecation to OS 26/WWDC25, not 27. Added ECS, original-asset/USD conversion, animation and visual-validation migration steps; preserved maintenance reference and no published removal date."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -7033,7 +7059,7 @@
         "checked_on": "2026-09-08",
         "scope_note": "Verified iOS/iPadOS/tvOS/visionOS 27 expansion with older Mac/Catalyst minimums retained; picker/permission/background modes, recording finalization, clip output and in-app-only camera overlay; no all-ReplayKit removal claim."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -7141,7 +7167,7 @@
         "checked_on": "2026-09-14",
         "scope_note": "Selected system-process TLS 1.2+ and ATS cipher/certificate scope, SCEP/content-caching exceptions, NIAP opt-in key values and no all-app policy claim."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -7206,7 +7232,7 @@
         "checked_on": "2026-09-14",
         "scope_note": "Client entitlement, current analysis policy, privacy restrictions, 27 detectedTypes ContentType set and guarded isSensitive fallback."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -7225,8 +7251,9 @@
         "https://developer.apple.com/documentation/sensorkit.md"
       ],
       "review": {
-        "scope": "catalog-only",
-        "checked_on": "2026-09-14"
+        "scope": "changed-content",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: catalog-only on 2026-09-14."
       },
       "release_status": "not-assessed",
       "platforms": [
@@ -7293,7 +7320,7 @@
           "Partner-specific credentials and token schemas are not public universal contracts and were not invented. No registration was attempted."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -7322,10 +7349,10 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": "Retained source's MaterialX 1.38 interoperability description; separately documented resolved OS 27 MaterialX 1.39, dark-material and shader-name loading cases; added renderer/import-path validation."
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -7354,7 +7381,7 @@
           "No Messages data or collaboration session accessed. Individual collaboration/UI APIs require their own availability checks; the topic index is not a complete symbol audit."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -7454,7 +7481,7 @@
           "Retained legacy topic inventory is not exhaustively reviewed."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -7601,7 +7628,7 @@
         "checked_on": "2026-09-14",
         "scope_note": "Mac authoring to compatible Apple Vision Pro, endpoint/session choice, connection-state recovery, external USD bridge and edit-loop prevention; large-asset/discovery beta defects treated as resolved rather than hard limits."
       },
-      "release_status": "beta",
+      "release_status": "shipping",
       "platforms": [
         "macOS",
         "visionOS"
@@ -7676,10 +7703,10 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": "27 platform metadata, one active state per domain, metadata type consistency, fatal empty labels, rate limiting, stable/volatile distinction and MetricKit platform limits."
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08."
       },
-      "release_status": "beta",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -7714,7 +7741,7 @@
           "Beta documentation, not SDK compilation or sandbox fulfillment. Autogenerated topics required JSON; the release-note naming mismatch is explicitly recorded above. Existing broad topic listings were retained where not implicated."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -7769,15 +7796,16 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": "New messaging-specific entitlement, SuggestedActionsMessage/Participant, stable IDs, previousMessagesLimit, view and generation/cache reference.",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "Catalyst is specified by view/message symbols, not the landing-page list.",
           "Suggestions are conditional; no local entitlement/runtime test."
         ]
       },
-      "release_status": "beta",
+      "release_status": "shipping",
       "platforms": [
+        "Mac Catalyst",
         "iOS",
         "iPadOS",
         "macOS",
@@ -7810,7 +7838,7 @@
           "Beta init-accessor source break 180969028 remains documented."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -7849,7 +7877,7 @@
           "No store migration, concurrency stress, or observer runtime test. Issue 178113288 is not presented as a permanent restriction."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -7889,10 +7917,10 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-10-29",
-        "scope_note": "October 29, 2026 targeted primary-source review of point-release changes since the September cutoff; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08."
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-10-29."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -7950,7 +7978,7 @@
           "No concurrency stress or performance testing; guidance does not make arbitrary model transfer safe."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -8025,7 +8053,7 @@
         "checked_on": "2026-09-14",
         "scope_note": "Removed absolute user-space safety claim; verified activation/pending approval/failure/deactivation and family-specific entitlement boundaries."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "macOS"
       ]
@@ -8106,8 +8134,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-10-29",
-        "scope_note": "October 29, 2026 targeted primary-source review of point-release changes since the September cutoff; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08."
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-10-29."
       },
       "release_status": "shipping",
       "platforms": [
@@ -8184,10 +8212,10 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-10-29",
-        "scope_note": "October 29, 2026 targeted primary-source review of point-release changes since the September cutoff; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14."
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-10-29."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": []
     },
     {
@@ -8253,7 +8281,7 @@
           "No local OS27 framework test runs; new-framework availability is separate from Swift Testing's introduction."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": []
     },
     {
@@ -8267,8 +8295,9 @@
         "https://developer.apple.com/documentation/threadnetwork.md"
       ],
       "review": {
-        "scope": "catalog-only",
-        "checked_on": "2026-09-08"
+        "scope": "changed-content",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: catalog-only on 2026-09-08."
       },
       "release_status": "not-assessed",
       "platforms": [
@@ -8325,7 +8354,7 @@
         "checked_on": "2026-09-08",
         "scope_note": "Current TCTouchController/TCControlContents/TCControlImage APIs and iOS/iPadOS 26 scope; replaced unverified old visual names with current documented types, added switch/layout links and input/render lifecycle checks."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -8396,10 +8425,10 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": "27 beta evaluator/insight flow, string-valued entitlement, authorization states, unavailability and no proof-of-fraud/safety from probabilistic or absent results."
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08."
       },
-      "release_status": "beta",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -8422,15 +8451,13 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": [
-          "Made mandatory scene adoption/failure-to-launch explicit for the exact five platform families; documented launch-screen requirements, restoration/traits/external displays, minimization renames, menus, Siri-triggered drag behavior, canOpenURL deprecation, text/Observation/hosting integration, and design-compatibility/testing boundaries."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "No rebuilt app launch/scene test. The framework header remains its minimum availability, not a claim that every UIKit symbol exists on every listed platform."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -8506,7 +8533,7 @@
         "checked_on": "2026-09-08",
         "scope_note": "Format versus OS-specific APIs, composition and renderer/import validation, USDA/USDC/USDZ, macOS 27 viewer/backend changes, physics/behavior import limitations and explicit non-automatic Gaussian-splat file loading."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": []
     },
     {
@@ -8535,7 +8562,7 @@
         "checked_on": "2026-09-14",
         "scope_note": "OS 27 Swift authoring platforms, layer/stage/prim model, render modes/hit-testing, main-actor preview edits, import/render failure checks, resolved value-authoring bugs and early-beta compressed-asset incompatibility."
       },
-      "release_status": "beta",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -8593,10 +8620,10 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-10-29",
-        "scope_note": "October 29, 2026 targeted primary-source review of point-release changes since the September cutoff; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14."
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-10-29."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": []
     },
     {
@@ -8622,7 +8649,7 @@
           "No notification permission, delivery, critical-alert entitlement, or web-push runtime test."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -8671,10 +8698,10 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": "DriverKit 27 SDK versus macOS runtime, actual driver/object/stream/control topics, SystemExtensions/provisioning constraints and no guessed video-family entitlement."
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "DriverKit",
         "macOS"
@@ -8725,10 +8752,10 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": "OS 27 1.5x scaler and up-to-1080p arbitrary interpolation dimensions; per-configuration support/format/dimension queries and nonblocking model-load setup; preserved framework and processor introduction minima."
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -8753,7 +8780,7 @@
         "checked_on": "2026-10-29",
         "scope_note": "October 29, 2026 targeted primary-source review of point-release changes since the September cutoff; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "macOS"
       ]
@@ -8773,20 +8800,42 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": "Replaced unsourced OS27 system-feature claims with OCRTool/BarcodeReaderTool and exact differing availability; linked media/model integrations and repaired joined bullets.",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "OCRTool and BarcodeReaderTool have different watchOS declarations and do not enumerate Catalyst/tvOS.",
           "Retained Vision inventory is not exhaustively reviewed."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
         "iPadOS",
         "macOS",
         "tvOS",
+        "visionOS"
+      ]
+    },
+    {
+      "id": "documentation/VisionEntitlementServices",
+      "path": "documentation/VisionEntitlementServices.md",
+      "title": "VisionEntitlementServices",
+      "kind": "framework",
+      "owner": "C5",
+      "release_status": "shipping",
+      "sources": [
+        "https://developer.apple.com/documentation/visionentitlementservices",
+        "https://developer.apple.com/documentation/visionos/building-spatial-experiences-for-business-apps-with-enterprise-apis",
+        "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails",
+        "https://developer.apple.com/documentation/visionentitlementservices/appcomputecategory"
+      ],
+      "review": {
+        "scope": "changed-content",
+        "checked_on": "2026-11-01",
+        "scope_note": "New page written November 1, 2026 from primary sources captured that day; full-body outcome in metadata/accuracy.json."
+      },
+      "platforms": [
         "visionOS"
       ]
     },
@@ -8828,9 +8877,9 @@
         "https://developer.apple.com/documentation/visualintelligence.md"
       ],
       "review": {
-        "scope": "catalog-only",
-        "checked_on": "2026-09-08",
-        "scope_note": "Retained visual-intelligence integration reference; did not equate system experiences with arbitrary Vision APIs.",
+        "scope": "changed-content",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: catalog-only on 2026-09-08.",
         "limitations": [
           "Body not exhaustively API-reviewed."
         ]
@@ -8839,7 +8888,8 @@
       "platforms": [
         "Mac Catalyst",
         "iOS",
-        "iPadOS"
+        "iPadOS",
+        "macOS"
       ]
     },
     {
@@ -8877,7 +8927,7 @@
         "checked_on": "2026-10-29",
         "scope_note": "October 29, 2026 targeted primary-source review of point-release changes since the September cutoff; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": []
     },
     {
@@ -8992,15 +9042,13 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-14",
-        "scope_note": [
-          "Replaced consumer AI/browser marketing with real Safari standards and native embedding APIs; separated browser/host/API versions and 26-generation SwiftUI WebKit types; added verified handles/content-world/navigation/form APIs and current extension/testing cross-links."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14.",
         "limitations": [
           "Announcement-only symbol paths that failed Markdown/JSON lookup were omitted, not declared absent. No WKWebView/SwiftUI embedding build, rendering, or isolation test."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -9065,15 +9113,13 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-14",
-        "scope_note": [
-          "Removed invented material rendering recipes; documented actual 26-generation widget push behavior, opportunistic reload budgets, lack of broadcast support, and the resolved @UnionValue rendering issue."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14.",
         "limitations": [
           "Issue 177493357 is resolved, not a permanent intent restriction. No push-token registration, delivery-budget, or timeline rendering tests."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -9121,7 +9167,7 @@
           "No plan scheduled or watch synchronization exercised. Existing plan-authoring APIs are not reclassified as OS 27-only."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -9150,7 +9196,7 @@
           "No new UI/performance suite executed."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": []
     },
     {
@@ -9168,14 +9214,14 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-14",
-        "scope_note": "Preserved native-visionOS limitation, corrected tool label, added crash-severity test-plan behavior and AppIntentsTesting relationship.",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14.",
         "limitations": [
           "Native visionOS-SDK UI testing remains excluded by the current overview.",
           "Device Hub visualization/input capability is not inferred from API availability."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": []
     },
     {
@@ -9220,7 +9266,7 @@
           "No CI workflow was edited or run."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": []
     },
     {
@@ -9238,10 +9284,10 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-10-29",
-        "scope_note": "October 29, 2026 targeted primary-source review of point-release changes since the September cutoff; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-10-29."
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-10-29."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": []
     },
     {
@@ -9259,10 +9305,10 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-10-29",
-        "scope_note": "October 29, 2026 targeted primary-source review of point-release changes since the September cutoff; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14."
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-10-29."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": []
     },
     {
@@ -9319,10 +9365,10 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-10-29",
-        "scope_note": "October 29, 2026 targeted primary-source review of point-release changes since the September cutoff; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-10-29."
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-10-29."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": []
     },
     {
@@ -9337,8 +9383,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": "Distinguished legacy Campaign Management API from Apple Ads Platform API, documented sourced migration/sunset status, and retained legacy reference value without claiming completed retirement.",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "Existing campaign topic references were not a complete v5 schema or migration audit; no advertising operations performed."
         ]
@@ -9385,7 +9431,7 @@
           "No receipt decoded or verified. Formal deprecation is not represented as invalidation of existing receipts or an OS 27 removal."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": []
     },
     {
@@ -9502,7 +9548,7 @@
           "No attribution request performed. No new formal deprecation date invented from empty ADClient availability metadata."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "Mac Catalyst",
         "iOS",
@@ -9548,7 +9594,7 @@
           "No file uploaded or converted and no JWT generated. JSON was used to resolve the endpoint omitted from the root Markdown."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": []
     },
     {
@@ -9617,10 +9663,10 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-10-29",
-        "scope_note": "October 29, 2026 targeted primary-source review of point-release changes since the September cutoff; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14."
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-10-29."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "iOS",
         "iPadOS"
@@ -9684,10 +9730,10 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-10-29",
-        "scope_note": "October 29, 2026 targeted primary-source review of point-release changes since the September cutoff; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14."
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-10-29."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": []
     },
     {
@@ -9707,10 +9753,10 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-10-29",
-        "scope_note": "October 29, 2026 targeted primary-source review of point-release changes since the September cutoff; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14."
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-10-29."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": []
     },
     {
@@ -9794,9 +9840,9 @@
         "https://developer.apple.com/documentation/professional_video_applications"
       ],
       "review": {
-        "scope": "catalog-only",
-        "checked_on": "2026-09-08",
-        "scope_note": "Canonical source/topic mapping only."
+        "scope": "changed-content",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: catalog-only on 2026-09-08."
       },
       "release_status": "not-assessed",
       "platforms": []
@@ -9883,7 +9929,7 @@
         "checked_on": "2026-10-29",
         "scope_note": "October 29, 2026 targeted primary-source review of point-release changes since the September cutoff; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14."
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": []
     },
     {
@@ -9970,7 +10016,7 @@
           "Swift6.4-specific repetition flags were source-verified, not executed with installed Swift6.3.3."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": []
     },
     {
@@ -10036,15 +10082,13 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-14",
-        "scope_note": [
-          "Updated 26.6/beta 8 status, UIKit scenes, design opt-out, ODR/Background Assets and capability-tested media guidance."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14.",
         "limitations": [
           "Retained, not exhaustively reverified: Earlier tvOS release-generation summaries."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "tvOS"
       ]
@@ -10066,15 +10110,13 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-14",
-        "scope_note": [
-          "Added platform-specific OS27 scene, asset, spatial/media and resolved-regression planning with explicit compatibility uncertainty."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14.",
         "limitations": [
           "Retained, not exhaustively reverified: Earlier spatial-computing topics and existing overview resource descriptions."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": [
         "visionOS"
       ]
@@ -10097,15 +10139,13 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-14",
-        "scope_note": [
-          "Updated 26.6.1/beta 8 status, spatial/media/asset migration and correctly marked beta 8 resolved issues."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14.",
         "limitations": [
           "Retained, not exhaustively reverified: Earlier visionOS release generations and existing canonical links."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": []
     },
     {
@@ -10144,15 +10184,13 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-14",
-        "scope_note": [
-          "Added scoped WatchKit lifecycle, HealthKit, SwiftUI and networking migration; corrected SiriKit legacy support wording."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14.",
         "limitations": [
           "Retained, not exhaustively reverified: Existing watch app topic summaries and earlier development-resource descriptions."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": []
     },
     {
@@ -10172,15 +10210,13 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-14",
-        "scope_note": [
-          "Updated 26.6/beta 8 status, deployment-target-qualified WatchKit deprecations, HealthKit zones and networking guidance."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14.",
         "limitations": [
           "Retained, not exhaustively reverified: Earlier watchOS release-generation summaries."
         ]
       },
-      "release_status": "mixed",
+      "release_status": "shipping",
       "platforms": []
     },
     {
@@ -10286,11 +10322,11 @@
         "https://developer.apple.com/documentation/appintents/customintentmigratedappintent/intentclassname.md",
         "https://developer.apple.com/documentation/swiftui/view/appentityuielements(_:).md"
       ],
-      "release_status": "mixed",
+      "release_status": "shipping",
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-14",
-        "scope_note": "New custom-SiriKit migration recipe preserving intentClassName, shared actions, saved shortcuts, entity identity and legacy support; exact onscreen API minimums and out-of-process validation steps.",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14.",
         "limitations": [
           "Custom-intent migration protocol does not establish a universal migration for every SiriKit domain.",
           "Unversioned Catalyst/visionOS migration metadata and native visionOS UI-testing limitation remain explicit.",
@@ -10332,8 +10368,8 @@
       "release_status": "independent",
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-10-29",
-        "scope_note": "October 29, 2026 targeted primary-source review of point-release changes since the September cutoff; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08."
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-10-29."
       },
       "platforms": []
     },
@@ -10355,11 +10391,11 @@
         "https://developer.apple.com/tutorials/data/documentation/foundation/nsbundleresourcerequest.json",
         "https://developer.apple.com/documentation/backgroundtasks/choosing-background-strategies-for-your-app.md"
       ],
-      "release_status": "mixed",
+      "release_status": "shipping",
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-14",
-        "scope_note": "ODR/NSBundleResourceRequest deprecation migration, minimum-version distinctions, managed/localized assets versus downloads/continued work, missing and partial assets, cancellation, inference entitlement, Xcode host and testing without runtime guarantees."
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14."
       },
       "platforms": []
     },
@@ -10381,11 +10417,11 @@
         "https://developer.apple.com/documentation/foundationmodels/languagemodelexecutor.md",
         "https://developer.apple.com/private-cloud-compute/"
       ],
-      "release_status": "mixed",
+      "release_status": "shipping",
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": "New task-focused provider/model selection recipe with exact framework availability, runtime availability, conditional PCC access, typed outputs/tools, dynamic profiles, error/offline paths and evaluator/trajectory validation.",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "Model hardware/region/runtime/entitlement/quota conditions remain runtime requirements.",
           "No remote-provider package, PCC entitlement, or on-device model was provisioned or executed."
@@ -10406,11 +10442,11 @@
         "https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes",
         "https://developer.apple.com/news/upcoming-requirements/"
       ],
-      "release_status": "mixed",
+      "release_status": "shipping",
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-10-29",
-        "scope_note": "October 29, 2026 targeted primary-source review of point-release changes since the September cutoff; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14."
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-10-29."
       },
       "platforms": []
     },
@@ -10435,10 +10471,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-14",
-        "scope_note": [
-          "Original security and compliance guide: attestation/transparency/privacy boundary, actual API scope, managed eligibility, availability/quota/network/service failures and consent-safe fallback."
-        ]
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14."
       },
       "release_status": "independent",
       "platforms": []
@@ -10460,10 +10494,8 @@
       "release_status": "independent",
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": [
-          "Original country/device/channel matrix, distinct EU minima, eligibility/refusal/travel/failure handling, notarization boundary, future EU terms and scoped US storefront purchase-link policy."
-        ]
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08."
       },
       "platforms": []
     },
@@ -10486,7 +10518,7 @@
         "https://github.com/WebAssembly/js-promise-integration/blob/main/proposals/js-promise-integration/Overview.md",
         "https://w3c.github.io/aria/#ARIANotifyMixin"
       ],
-      "release_status": "mixed",
+      "release_status": "shipping",
       "review": {
         "scope": "changed-content",
         "checked_on": "2026-10-29",
@@ -10508,11 +10540,11 @@
         "https://raw.githubusercontent.com/swiftlang/swift-evolution/main/proposals/0481-weak-let.md",
         "https://raw.githubusercontent.com/swiftlang/swift/release/6.4.x/CHANGELOG.md"
       ],
-      "release_status": "mixed",
+      "release_status": "shipping",
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-14",
-        "scope_note": "New task-focused migration recipe with compiler/mode prerequisites, staged strict checking, actor/Sendable cache example, cancellation/errors, rollback and targeted test/profiling instructions.",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14.",
         "limitations": [
           "The original actor example type-checked in Swift6 mode with Swift6.3.3.",
           "No application's runtime migration or Swift6.4-only compilation was performed."
@@ -10672,11 +10704,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": [
-          "Removed or replaced the unsupported release-specific callout; retained applicable general guidance without treating repetition in repository text as corroboration.",
-          "Refreshed 3 canonical references from the primary DocC reference map; these are link-target checks, not independent audits of every linked body."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "Retained prose, numeric specifications and API examples outside the listed changes were not exhaustively fact-checked. No app/device accessibility or rendering tests were run."
         ]
@@ -11194,9 +11223,9 @@
         "https://developer.apple.com/design/human-interface-guidelines/live-activities"
       ],
       "review": {
-        "scope": "catalog-only",
-        "checked_on": "2026-09-08",
-        "scope_note": "Source/topic mapping checked; existing body retained."
+        "scope": "changed-content",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: catalog-only on 2026-09-08."
       },
       "release_status": "independent",
       "platforms": [
@@ -11567,10 +11596,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": [
-          "Removed or replaced the unsupported release-specific callout; retained applicable general guidance without treating repetition in repository text as corroboration."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "Retained prose, numeric specifications and API examples outside the listed changes were not exhaustively fact-checked. No app/device accessibility or rendering tests were run."
         ]
@@ -11597,10 +11624,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": [
-          "Removed or replaced the unsupported release-specific callout; retained applicable general guidance without treating repetition in repository text as corroboration."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "Retained prose, numeric specifications and API examples outside the listed changes were not exhaustively fact-checked. No app/device accessibility or rendering tests were run."
         ]
@@ -11749,10 +11774,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": [
-          "Added original confirmation/result guidance, system button anatomy, the 400-point height constraint, spoken/visual accessibility, App Intents links, repeatable presentation without side effects, and the Control Center invocation limitation."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "API availability and presentation behavior require testing for the chosen supported entrypoint. This documentation task did not run an app on a device."
         ]
@@ -12030,11 +12053,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": [
-          "Removed or replaced the unsupported release-specific callout; retained applicable general guidance without treating repetition in repository text as corroboration.",
-          "Refreshed 1 canonical references from the primary DocC reference map; these are link-target checks, not independent audits of every linked body."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "Retained prose, numeric specifications and API examples outside the listed changes were not exhaustively fact-checked. No app/device accessibility or rendering tests were run."
         ]
@@ -12158,10 +12178,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-14",
-        "scope_note": [
-          "Refreshed 2 canonical references from the primary DocC reference map; these are link-target checks, not independent audits of every linked body."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14.",
         "limitations": [
           "Retained prose, numeric specifications and API examples outside the listed changes were not exhaustively fact-checked. No app/device accessibility or rendering tests were run."
         ]
@@ -12259,12 +12277,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": [
-          "Removed or replaced the unsupported release-specific callout; retained applicable general guidance without treating repetition in repository text as corroboration.",
-          "Linked the official unversioned Icon Composer page and clarified supported authoring platforms versus separate tvOS/visionOS image stacks.",
-          "Refreshed 2 canonical references from the primary DocC reference map; these are link-target checks, not independent audits of every linked body."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "Retained prose, numeric specifications and API examples outside the listed changes were not exhaustively fact-checked. No app/device accessibility or rendering tests were run."
         ]
@@ -12291,10 +12305,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": [
-          "Removed or replaced the unsupported release-specific callout; retained applicable general guidance without treating repetition in repository text as corroboration."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "Retained prose, numeric specifications and API examples outside the listed changes were not exhaustively fact-checked. No app/device accessibility or rendering tests were run."
         ]
@@ -12321,11 +12333,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": [
-          "Removed or replaced the unsupported release-specific callout; retained applicable general guidance without treating repetition in repository text as corroboration.",
-          "Refreshed 2 canonical references from the primary DocC reference map; these are link-target checks, not independent audits of every linked body."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "Retained prose, numeric specifications and API examples outside the listed changes were not exhaustively fact-checked. No app/device accessibility or rendering tests were run."
         ]
@@ -12413,10 +12422,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": [
-          "Removed or replaced the unsupported release-specific callout; retained applicable general guidance without treating repetition in repository text as corroboration."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "Retained prose, numeric specifications and API examples outside the listed changes were not exhaustively fact-checked. No app/device accessibility or rendering tests were run."
         ]
@@ -12496,11 +12503,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": [
-          "Removed or replaced the unsupported release-specific callout; retained applicable general guidance without treating repetition in repository text as corroboration.",
-          "Refreshed 1 canonical references from the primary DocC reference map; these are link-target checks, not independent audits of every linked body."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "Retained prose, numeric specifications and API examples outside the listed changes were not exhaustively fact-checked. No app/device accessibility or rendering tests were run."
         ]
@@ -12562,10 +12566,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": [
-          "Refreshed 3 canonical references from the primary DocC reference map; these are link-target checks, not independent audits of every linked body."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "Retained prose, numeric specifications and API examples outside the listed changes were not exhaustively fact-checked. No app/device accessibility or rendering tests were run."
         ]
@@ -12591,10 +12593,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": [
-          "Refreshed 4 canonical references from the primary DocC reference map; these are link-target checks, not independent audits of every linked body."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "Retained prose, numeric specifications and API examples outside the listed changes were not exhaustively fact-checked. No app/device accessibility or rendering tests were run."
         ]
@@ -12651,12 +12651,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": [
-          "Removed or replaced the unsupported release-specific callout; retained applicable general guidance without treating repetition in repository text as corroboration.",
-          "Used official unversioned SF Symbols resources, retained per-symbol availability and usage restrictions, and corrected developer/video references.",
-          "Refreshed 3 canonical references from the primary DocC reference map; these are link-target checks, not independent audits of every linked body."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "Retained prose, numeric specifications and API examples outside the listed changes were not exhaustively fact-checked. No app/device accessibility or rendering tests were run."
         ]
@@ -12708,10 +12704,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": [
-          "Refreshed 2 canonical references from the primary DocC reference map; these are link-target checks, not independent audits of every linked body."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "Retained prose, numeric specifications and API examples outside the listed changes were not exhaustively fact-checked. No app/device accessibility or rendering tests were run."
         ]
@@ -12737,10 +12731,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": [
-          "Refreshed 1 canonical references from the primary DocC reference map; these are link-target checks, not independent audits of every linked body."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "Retained prose, numeric specifications and API examples outside the listed changes were not exhaustively fact-checked. No app/device accessibility or rendering tests were run."
         ]
@@ -12892,6 +12884,26 @@
       ]
     },
     {
+      "id": "human-interface-guidelines/getting-started/iPhone-Duo",
+      "path": "human-interface-guidelines/getting-started/iPhone-Duo.md",
+      "title": "Designing for iPhone Duo",
+      "kind": "design",
+      "owner": "D",
+      "release_status": "independent",
+      "sources": [
+        "https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo",
+        "https://developer.apple.com/documentation/technologyoverviews/preparing-your-app-for-iphone-duo"
+      ],
+      "review": {
+        "scope": "changed-content",
+        "checked_on": "2026-11-01",
+        "scope_note": "New page written November 1, 2026 from primary sources captured that day; full-body outcome in metadata/accuracy.json."
+      },
+      "platforms": [
+        "iOS"
+      ]
+    },
+    {
       "id": "human-interface-guidelines/getting-started/macOS",
       "path": "human-interface-guidelines/getting-started/macOS.md",
       "title": "Designing for macOS",
@@ -12905,13 +12917,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": [
-          "Removed or replaced the unsupported release-specific callout; retained applicable general guidance without treating repetition in repository text as corroboration.",
-          "Sustained document work across windows, menus, keyboard commands, precise pointer input, enlargable text, VoiceOver, RTL and display preferences.",
-          "Linked Design principles and topic-specific HIG articles; did not invent a platform OS 27 delta.",
-          "Refreshed 4 canonical references from the primary DocC reference map; these are link-target checks, not independent audits of every linked body."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "Retained prose, numeric specifications and API examples outside the listed changes were not exhaustively fact-checked. No app/device accessibility or rendering tests were run."
         ]
@@ -13227,11 +13234,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": [
-          "Removed or replaced the unsupported release-specific callout; retained applicable general guidance without treating repetition in repository text as corroboration.",
-          "Refreshed 2 canonical references from the primary DocC reference map; these are link-target checks, not independent audits of every linked body."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "Retained prose, numeric specifications and API examples outside the listed changes were not exhaustively fact-checked. No app/device accessibility or rendering tests were run."
         ]
@@ -13317,11 +13321,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": [
-          "Removed or replaced the unsupported release-specific callout; retained applicable general guidance without treating repetition in repository text as corroboration.",
-          "Refreshed 1 canonical references from the primary DocC reference map; these are link-target checks, not independent audits of every linked body."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "Retained prose, numeric specifications and API examples outside the listed changes were not exhaustively fact-checked. No app/device accessibility or rendering tests were run."
         ]
@@ -13345,11 +13346,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": [
-          "Removed or replaced the unsupported release-specific callout; retained applicable general guidance without treating repetition in repository text as corroboration.",
-          "Refreshed 1 canonical references from the primary DocC reference map; these are link-target checks, not independent audits of every linked body."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "Retained prose, numeric specifications and API examples outside the listed changes were not exhaustively fact-checked. No app/device accessibility or rendering tests were run."
         ]
@@ -13374,11 +13372,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": [
-          "Removed or replaced the unsupported release-specific callout; retained applicable general guidance without treating repetition in repository text as corroboration.",
-          "Refreshed 2 canonical references from the primary DocC reference map; these are link-target checks, not independent audits of every linked body."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "Retained prose, numeric specifications and API examples outside the listed changes were not exhaustively fact-checked. No app/device accessibility or rendering tests were run."
         ]
@@ -13557,11 +13552,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": [
-          "Removed or replaced the unsupported release-specific callout; retained applicable general guidance without treating repetition in repository text as corroboration.",
-          "Refreshed 1 canonical references from the primary DocC reference map; these are link-target checks, not independent audits of every linked body."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "Retained prose, numeric specifications and API examples outside the listed changes were not exhaustively fact-checked. No app/device accessibility or rendering tests were run."
         ]
@@ -13700,11 +13692,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": [
-          "Removed or replaced the unsupported release-specific callout; retained applicable general guidance without treating repetition in repository text as corroboration.",
-          "Refreshed 3 canonical references from the primary DocC reference map; these are link-target checks, not independent audits of every linked body."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "Retained prose, numeric specifications and API examples outside the listed changes were not exhaustively fact-checked. No app/device accessibility or rendering tests were run."
         ]
@@ -13955,10 +13944,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": [
-          "Refreshed 1 canonical references from the primary DocC reference map; these are link-target checks, not independent audits of every linked body."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "Retained prose, numeric specifications and API examples outside the listed changes were not exhaustively fact-checked. No app/device accessibility or rendering tests were run."
         ]
@@ -13986,11 +13973,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": [
-          "Removed or replaced the unsupported release-specific callout; retained applicable general guidance without treating repetition in repository text as corroboration.",
-          "Refreshed 1 canonical references from the primary DocC reference map; these are link-target checks, not independent audits of every linked body."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "Retained prose, numeric specifications and API examples outside the listed changes were not exhaustively fact-checked. No app/device accessibility or rendering tests were run."
         ]
@@ -14195,11 +14179,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": [
-          "Removed or replaced the unsupported release-specific callout; retained applicable general guidance without treating repetition in repository text as corroboration.",
-          "Refreshed 1 canonical references from the primary DocC reference map; these are link-target checks, not independent audits of every linked body."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "Retained prose, numeric specifications and API examples outside the listed changes were not exhaustively fact-checked. No app/device accessibility or rendering tests were run."
         ]
@@ -14336,11 +14317,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": [
-          "Removed or replaced the unsupported release-specific callout; retained applicable general guidance without treating repetition in repository text as corroboration.",
-          "Refreshed 3 canonical references from the primary DocC reference map; these are link-target checks, not independent audits of every linked body."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "Retained prose, numeric specifications and API examples outside the listed changes were not exhaustively fact-checked. No app/device accessibility or rendering tests were run."
         ]
@@ -14367,11 +14345,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": [
-          "Removed or replaced the unsupported release-specific callout; retained applicable general guidance without treating repetition in repository text as corroboration.",
-          "Refreshed 1 canonical references from the primary DocC reference map; these are link-target checks, not independent audits of every linked body."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "Retained prose, numeric specifications and API examples outside the listed changes were not exhaustively fact-checked. No app/device accessibility or rendering tests were run."
         ]
@@ -14497,18 +14472,16 @@
     {
       "id": "human-interface-guidelines/technologies/in-app-purchase",
       "path": "human-interface-guidelines/technologies/in-app-purchase.md",
-      "title": "In-app purchase",
+      "title": "Apple In-App Purchase",
       "kind": "design",
       "owner": "D",
       "sources": [
-        "https://developer.apple.com/design/human-interface-guidelines/in-app-purchase"
+        "https://developer.apple.com/design/human-interface-guidelines/apple-in-app-purchase"
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": [
-          "Refreshed 3 canonical references from the primary DocC reference map; these are link-target checks, not independent audits of every linked body."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "Retained prose, numeric specifications and API examples outside the listed changes were not exhaustively fact-checked. No app/device accessibility or rendering tests were run."
         ]
@@ -14594,11 +14567,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": [
-          "Removed or replaced the unsupported release-specific callout; retained applicable general guidance without treating repetition in repository text as corroboration.",
-          "Refreshed 1 canonical references from the primary DocC reference map; these are link-target checks, not independent audits of every linked body."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "Retained prose, numeric specifications and API examples outside the listed changes were not exhaustively fact-checked. No app/device accessibility or rendering tests were run."
         ]
@@ -14767,11 +14737,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": [
-          "Removed or replaced the unsupported release-specific callout; retained applicable general guidance without treating repetition in repository text as corroboration.",
-          "Refreshed 1 canonical references from the primary DocC reference map; these are link-target checks, not independent audits of every linked body."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08.",
         "limitations": [
           "Retained prose, numeric specifications and API examples outside the listed changes were not exhaustively fact-checked. No app/device accessibility or rendering tests were run."
         ]
@@ -15111,10 +15078,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-14",
-        "scope_note": [
-          "Updated current SDK/age requirements, review-policy and regional boundaries; verified membership/testing basics and corrected enrollment order and D-U-N-S exceptions."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14.",
         "limitations": [
           "Retained, not exhaustively reverified: General Program benefits, analytics/community summaries and longstanding resource listings."
         ]
@@ -15174,10 +15139,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-14",
-        "scope_note": [
-          "Refreshed shipping and selected OS26 point-release context, window/external-display migration, toolchain requirements and explicit device uncertainty."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14.",
         "limitations": [
           "Retained, not exhaustively reverified: General OS26 iPad design, productivity and earlier developer-example/resource context."
         ]
@@ -15237,10 +15200,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-14",
-        "scope_note": [
-          "Refreshed shipping status and focused scene/design/asset/media migration; confirmed the focus-navigation resource destination."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14.",
         "limitations": [
           "Retained, not exhaustively reverified: OS26 living-room design, focus/input guidance and earlier resource context."
         ]
@@ -15273,10 +15234,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-14",
-        "scope_note": [
-          "Refreshed shipping and selected 26.4 rendering context, scoped 27 spatial/scene/asset migration and resolved-issue guidance."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14.",
         "limitations": [
           "Retained, not exhaustively reverified: OS26 spatial design, system-mediated interaction and earlier developer-resource context."
         ]
@@ -15362,8 +15321,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-10-29",
-        "scope_note": "October 29, 2026 targeted primary-source review of point-release changes since the September cutoff; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14."
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-10-29."
       },
       "release_status": "independent",
       "platforms": [
@@ -15393,10 +15352,10 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-10-29",
-        "scope_note": "October 29, 2026 targeted primary-source review of point-release changes since the September cutoff; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14."
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-10-29."
       },
-      "release_status": "beta",
+      "release_status": "shipping",
       "platforms": [
         "iOS"
       ]
@@ -15419,15 +15378,13 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-14",
-        "scope_note": [
-          "Rebuilt beta status and actionable iPad lifecycle/window/display, document, asset and toolchain planning; removed inferred hardware support."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14.",
         "limitations": [
           "Retained, not exhaustively reverified: General iPad development and resource-directory context."
         ]
       },
-      "release_status": "beta",
+      "release_status": "shipping",
       "platforms": [
         "iPadOS"
       ]
@@ -15449,10 +15406,10 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-10-29",
-        "scope_note": "October 29, 2026 targeted primary-source review of point-release changes since the September cutoff; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14."
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-10-29."
       },
-      "release_status": "beta",
+      "release_status": "shipping",
       "platforms": [
         "macOS"
       ]
@@ -15474,15 +15431,13 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-14",
-        "scope_note": [
-          "Replaced speculative features with beta 8 scene/design, assets, SwiftUI and capability-gated media changes; explicit unknown device support."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14.",
         "limitations": [
           "Retained, not exhaustively reverified: Useful living-room input/design and development-resource context."
         ]
       },
-      "release_status": "beta",
+      "release_status": "shipping",
       "platforms": [
         "tvOS"
       ]
@@ -15505,15 +15460,13 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-14",
-        "scope_note": [
-          "Replaced speculative changes with scoped scene, asset, spatial/media and beta 8 resolved-regression guidance; no inferred public-beta or hardware program."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14.",
         "limitations": [
           "Retained, not exhaustively reverified: Useful spatial development and resource-directory context."
         ]
       },
-      "release_status": "beta",
+      "release_status": "shipping",
       "platforms": [
         "visionOS"
       ]
@@ -15535,15 +15488,13 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-14",
-        "scope_note": [
-          "Replaced unsupported feature/device claims with qualified WatchKit lifecycle, HealthKit zones, SwiftUI and networking guidance."
-        ],
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review of upstream changes since the earlier review, from an offline comparison with the September 1, 2026 installed documentation set, live DocC JSON, HIG change logs and the repository source report; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-14.",
         "limitations": [
           "Retained, not exhaustively reverified: General watch app design/resource context; no guessed Watch/iPhone pairing matrix."
         ]
       },
-      "release_status": "beta",
+      "release_status": "shipping",
       "platforms": [
         "watchOS"
       ]
@@ -16155,8 +16106,8 @@
     },
     {
       "scope": "hig",
-      "title": "In-app purchase",
-      "source": "https://developer.apple.com/design/human-interface-guidelines/in-app-purchase",
+      "title": "Apple In-App Purchase",
+      "source": "https://developer.apple.com/design/human-interface-guidelines/apple-in-app-purchase",
       "paths": [
         "human-interface-guidelines/technologies/in-app-purchase.md"
       ],
@@ -20608,30 +20559,57 @@
         "documentation/xcselect.md"
       ],
       "disposition": "existing"
+    },
+    {
+      "scope": "technology",
+      "title": "HomeExtensions",
+      "source": "https://developer.apple.com/documentation/homeextensions",
+      "paths": [
+        "documentation/HomeExtensions.md"
+      ],
+      "disposition": "existing"
+    },
+    {
+      "scope": "technology",
+      "title": "VisionEntitlementServices",
+      "source": "https://developer.apple.com/documentation/visionentitlementservices",
+      "paths": [
+        "documentation/VisionEntitlementServices.md"
+      ],
+      "disposition": "existing"
+    },
+    {
+      "scope": "hig",
+      "title": "Designing for iPhone Duo",
+      "source": "https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo",
+      "paths": [
+        "human-interface-guidelines/getting-started/iPhone-Duo.md"
+      ],
+      "disposition": "existing"
     }
   ],
   "source_snapshots": [
     {
       "url": "https://developer.apple.com/private-cloud-compute/",
-      "retrieved_on": "2026-09-09",
+      "retrieved_on": "2026-11-01",
       "retrieval_date_timezone": "UTC",
-      "sha256": "062a14d16d05648d888ec48d8649624261d7eceacb521e47658a4e416b0c01ce",
-      "comparison_sha256": "4ef1ad2809717249391d3af5f1033bb9c04cd499c54ed41ba5b84438d2762616",
+      "sha256": "97eb13e6d340650f7c8d320366d529dd6e74fc2b7c2755849e25ed1ce0ea809a",
+      "comparison_sha256": "1e33948a0b92c0b0052f7ab0b0fcdc37ec05330d90255b8c41abfa0fd8ae2a36",
       "comparison_method": "apple-symbol-script-cache-buster-v1",
       "source_published_on": null,
       "human_verified_on": null,
-      "purpose": "PCC eligibility and migration-window evidence reviewed September 8 local time; not account-specific approval."
+      "purpose": "PCC eligibility and migration-window evidence reviewed September 8 local time; not account-specific approval. Re-captured November 1, 2026 (US local; 2026-11-01 UTC) by scripts/docs.py sources; the dependent pages were re-checked against the current text in the November 1 drift pass."
     },
     {
       "url": "https://developer.apple.com/support/web-distribution-eu/",
-      "retrieved_on": "2026-09-09",
+      "retrieved_on": "2026-11-01",
       "retrieval_date_timezone": "UTC",
-      "sha256": "1cb55af82f69eb0bb7de304bff8b3f7e9bc118e93a36e30dd7bc5fcb16a7bf38",
-      "comparison_sha256": "2b1289abfde52d095aca19ccd86294bf86654619213bd1f085bab63c6e2c6eea",
+      "sha256": "877c62077082d41a3e6a5b266d9e84cf7fd350c12b2817581ff12ed7ca2ba8cc",
+      "comparison_sha256": "654f33b74993f56aaf65ef3c2ed0d470bfe2a5ea5f567fe99f40be498d836ac0",
       "comparison_method": "apple-symbol-script-cache-buster-v1",
       "source_published_on": null,
       "human_verified_on": null,
-      "purpose": "EU Web Distribution effective-date evidence reviewed September 8 local time; not account-specific terms certification."
+      "purpose": "EU Web Distribution effective-date evidence reviewed September 8 local time; not account-specific terms certification. Re-captured November 1, 2026 (US local; 2026-11-01 UTC) by scripts/docs.py sources; the dependent pages were re-checked against the current text in the November 1 drift pass."
     },
     {
       "url": "https://developer.apple.com/tutorials/data/design/human-interface-guidelines/components.json",
@@ -20659,19 +20637,21 @@
     },
     {
       "url": "https://developer.apple.com/tutorials/data/design/human-interface-guidelines/foundations.json",
-      "retrieved_on": "2026-09-08",
-      "sha256": "21b43bce320a8bf23076fd99f3795c578e849c361f086633f2d20cb0c42ffa8d",
+      "retrieved_on": "2026-11-01",
+      "sha256": "e6d79a5fcd10ed55ab0a737cfd2131ce769bf5a582ce4143c491c756b2726568",
       "source_published_on": null,
       "human_verified_on": null,
-      "purpose": "coverage and design source snapshot"
+      "purpose": "coverage and design source snapshot. Re-captured November 1, 2026 (US local; 2026-11-01 UTC) by scripts/docs.py sources; the dependent pages were re-checked against the current text in the November 1 drift pass.",
+      "retrieval_date_timezone": "UTC"
     },
     {
       "url": "https://developer.apple.com/tutorials/data/design/human-interface-guidelines/getting-started.json",
-      "retrieved_on": "2026-09-08",
-      "sha256": "e0d0f7d9e2cbf0b5aed0729deb78c39278e5e047997c5a5e632e4672f4a050f8",
+      "retrieved_on": "2026-11-01",
+      "sha256": "e6371c440aaee6457bc78cb85fe35fb38e42640f5b1bedd67e778faa14c29136",
       "source_published_on": null,
       "human_verified_on": null,
-      "purpose": "coverage and design source snapshot"
+      "purpose": "coverage and design source snapshot. Re-captured November 1, 2026 (US local; 2026-11-01 UTC) by scripts/docs.py sources; the dependent pages were re-checked against the current text in the November 1 drift pass.",
+      "retrieval_date_timezone": "UTC"
     },
     {
       "url": "https://developer.apple.com/tutorials/data/design/human-interface-guidelines/inputs.json",
@@ -20763,27 +20743,30 @@
     },
     {
       "url": "https://developer.apple.com/tutorials/data/design/human-interface-guidelines/technologies.json",
-      "retrieved_on": "2026-09-08",
-      "sha256": "c373cbfdd15ecae395dc7bc904a71437081696cacc339ac4e32153b8368be5c1",
+      "retrieved_on": "2026-11-01",
+      "sha256": "5dabec78c0d4b2a34d669fd5f5c42871e47f4ec634369a591ca412dc3fc98c38",
       "source_published_on": null,
       "human_verified_on": null,
-      "purpose": "coverage and design source snapshot"
+      "purpose": "coverage and design source snapshot. Re-captured November 1, 2026 (US local; 2026-11-01 UTC) by scripts/docs.py sources; the dependent pages were re-checked against the current text in the November 1 drift pass.",
+      "retrieval_date_timezone": "UTC"
     },
     {
       "url": "https://developer.apple.com/tutorials/data/design/human-interface-guidelines.json",
-      "retrieved_on": "2026-09-08",
-      "sha256": "efd452fac07ed50889b36f94f5f662dfb1a7384298157129bffa9a300f0fb046",
+      "retrieved_on": "2026-11-01",
+      "sha256": "de6a53d6efc377425f26af1f5e8d1cac00cc4133e4df1e9c1faba03a737a1bd9",
       "source_published_on": null,
       "human_verified_on": null,
-      "purpose": "coverage and design source snapshot"
+      "purpose": "coverage and design source snapshot. Re-captured November 1, 2026 (US local; 2026-11-01 UTC) by scripts/docs.py sources; the dependent pages were re-checked against the current text in the November 1 drift pass.",
+      "retrieval_date_timezone": "UTC"
     },
     {
       "url": "https://developer.apple.com/tutorials/data/documentation/technologies.json",
-      "retrieved_on": "2026-09-08",
-      "sha256": "15cae41cec2085a2051677d43ff2d1075711e8ae7b1bbfc0c0e6aa31b402891c",
+      "retrieved_on": "2026-11-01",
+      "sha256": "92259ab23febdb458dfadf8369d9ae1c85fef1f67d76b047e9e1ee4325984651",
       "source_published_on": null,
       "human_verified_on": null,
-      "purpose": "technology coverage boundary"
+      "purpose": "technology coverage boundary. Re-captured November 1, 2026 (US local; 2026-11-01 UTC) by scripts/docs.py sources; the dependent pages were re-checked against the current text in the November 1 drift pass.",
+      "retrieval_date_timezone": "UTC"
     },
     {
       "url": "https://raw.githubusercontent.com/swiftlang/swift/release/6.4.x/CHANGELOG.md",
@@ -20795,55 +20778,61 @@
     },
     {
       "url": "https://developer.apple.com/app-store/review/guidelines/",
-      "retrieved_on": "2026-09-08",
-      "sha256": "dd805d0b90504f0559cced5e44f5bf2ce8cbc3280752587efc4adb0a3e561ccd",
+      "retrieved_on": "2026-11-01",
+      "sha256": "99bea4de7dc0b0bca264ebcef4be887eeaaaedad6e67602bc76b8958f20ddb0d",
       "source_published_on": null,
       "human_verified_on": null,
-      "purpose": "policy source snapshot",
-      "comparison_sha256": "537e70f2634c875525cc077f619cfa0e509e361649a671592ae988b7ceac787c",
-      "comparison_method": "apple-symbol-script-cache-buster-v1"
+      "purpose": "policy source snapshot. Re-captured November 1, 2026 (US local; 2026-11-01 UTC) by scripts/docs.py sources; the dependent pages were re-checked against the current text in the November 1 drift pass.",
+      "comparison_sha256": "63829d2aa6dda06c53e87cc484c8082d3e9431f1d77d001ab27cea07eba72568",
+      "comparison_method": "apple-symbol-script-cache-buster-v1",
+      "retrieval_date_timezone": "UTC"
     },
     {
       "url": "https://developer.apple.com/news/upcoming-requirements/",
-      "retrieved_on": "2026-09-08",
-      "sha256": "1de062cec012e28706891c6efdf694bebb0dfe01fd01a596c13113b31f535eb6",
+      "retrieved_on": "2026-11-01",
+      "sha256": "f9c9a4d5d445b04ca7555818b0a85d5368bc0620243882e4e4b19b61651037a3",
       "source_published_on": null,
       "human_verified_on": null,
-      "purpose": "submission requirements snapshot",
-      "comparison_sha256": "a86e9f7f5b368d0c008ccf33ece049a04a13217bb90480eaaa899fe502b3e013",
-      "comparison_method": "apple-symbol-script-cache-buster-v1"
+      "purpose": "submission requirements snapshot. Re-captured November 1, 2026 (US local; 2026-11-01 UTC) by scripts/docs.py sources; the dependent pages were re-checked against the current text in the November 1 drift pass.",
+      "comparison_sha256": "e2b2227abbf56997d8b97284441c49acc55ec99edc3b1e150c1f5baebb1b1cc9",
+      "comparison_method": "apple-symbol-script-cache-buster-v1",
+      "retrieval_date_timezone": "UTC"
     },
     {
       "url": "https://developer.apple.com/tutorials/data/documentation/tvos-release-notes/tvos-27-release-notes.json",
-      "retrieved_on": "2026-09-08",
-      "sha256": "b6731a75e6112fe6b1cdcd73fb6ad80d7a45bd23def7a316aa392f0a7b2a4906",
+      "retrieved_on": "2026-11-01",
+      "sha256": "b4edf4841aefd50d87ed6c11c54d5bb73a516783a7bb068cbb21d4d4a0cc9d86",
       "source_published_on": null,
       "human_verified_on": null,
-      "purpose": "beta release-note snapshot; features, known and resolved issues remain distinct"
+      "purpose": "beta release-note snapshot; features, known and resolved issues remain distinct. Re-captured November 1, 2026 (US local; 2026-11-01 UTC) by scripts/docs.py sources; the dependent pages were re-checked against the current text in the November 1 drift pass.",
+      "retrieval_date_timezone": "UTC"
     },
     {
       "url": "https://developer.apple.com/tutorials/data/documentation/watchos-release-notes/watchos-27-release-notes.json",
-      "retrieved_on": "2026-09-08",
-      "sha256": "79550eb8e7a1d60728d42b4d4d762d6d62770e7d0fc250ab27524af448d823c8",
+      "retrieved_on": "2026-11-01",
+      "sha256": "539a97ca0cdaea4ab74f101c46be430af926e14ffe8c67fea6837067c8c96564",
       "source_published_on": null,
       "human_verified_on": null,
-      "purpose": "beta release-note snapshot; features, known and resolved issues remain distinct"
+      "purpose": "beta release-note snapshot; features, known and resolved issues remain distinct. Re-captured November 1, 2026 (US local; 2026-11-01 UTC) by scripts/docs.py sources; the dependent pages were re-checked against the current text in the November 1 drift pass.",
+      "retrieval_date_timezone": "UTC"
     },
     {
       "url": "https://developer.apple.com/tutorials/data/documentation/visionos-release-notes/visionos-27-release-notes.json",
-      "retrieved_on": "2026-09-08",
-      "sha256": "a8ba81d284d58276126559f46946cbeba429921fdff6a9abecee90eebf0bd489",
+      "retrieved_on": "2026-11-01",
+      "sha256": "1cc1292baa887963fec3cda01a5bee25d24d69fbef701c44818327b4109c52ea",
       "source_published_on": null,
       "human_verified_on": null,
-      "purpose": "beta release-note snapshot; features, known and resolved issues remain distinct"
+      "purpose": "beta release-note snapshot; features, known and resolved issues remain distinct. Re-captured November 1, 2026 (US local; 2026-11-01 UTC) by scripts/docs.py sources; the dependent pages were re-checked against the current text in the November 1 drift pass.",
+      "retrieval_date_timezone": "UTC"
     },
     {
       "url": "https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes.md",
-      "retrieved_on": "2026-09-08",
-      "sha256": "01c133567e93855f49a6f3966f8b906606ced0487efc49f721abf6b7fb0f99f2",
+      "retrieved_on": "2026-11-01",
+      "sha256": "318463d4d177c63b21d3d101e1b6b0e3d3b0e317d83520162dc645ab3771d8f2",
       "source_published_on": null,
       "human_verified_on": null,
-      "purpose": "Specific high-impact claim evidence; not an exhaustive source review."
+      "purpose": "Specific high-impact claim evidence; not an exhaustive source review. Re-captured November 1, 2026 (US local; 2026-11-01 UTC) by scripts/docs.py sources; the dependent pages were re-checked against the current text in the November 1 drift pass.",
+      "retrieval_date_timezone": "UTC"
     },
     {
       "url": "https://developer.apple.com/documentation/sirikit.md",
@@ -20855,43 +20844,48 @@
     },
     {
       "url": "https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes.md",
-      "retrieved_on": "2026-09-08",
-      "sha256": "904d8568e226764c9ce9606ba6666e456d4081d97e364a27f68516359633d72f",
+      "retrieved_on": "2026-11-01",
+      "sha256": "c544e3d8fee60d339135a0f53a4910d43e5255a62bb2ef066c73d9b36f5f05f3",
       "source_published_on": null,
       "human_verified_on": null,
-      "purpose": "Specific high-impact claim evidence; not an exhaustive source review."
+      "purpose": "Specific high-impact claim evidence; not an exhaustive source review. Re-captured November 1, 2026 (US local; 2026-11-01 UTC) by scripts/docs.py sources; the dependent pages were re-checked against the current text in the November 1 drift pass.",
+      "retrieval_date_timezone": "UTC"
     },
     {
       "url": "https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes.md",
-      "retrieved_on": "2026-09-08",
-      "sha256": "a03f30f53f8f4ebb6b0bd3c6a304158b1eac4ed2ea20324c32368910d4825b4d",
+      "retrieved_on": "2026-11-01",
+      "sha256": "0616186e80cae8071deee10b3010c97b1a07f128b68f340d3497d01f424c118a",
       "source_published_on": null,
       "human_verified_on": null,
-      "purpose": "Specific high-impact claim evidence; not an exhaustive source review."
+      "purpose": "Specific high-impact claim evidence; not an exhaustive source review. Re-captured November 1, 2026 (US local; 2026-11-01 UTC) by scripts/docs.py sources; the dependent pages were re-checked against the current text in the November 1 drift pass.",
+      "retrieval_date_timezone": "UTC"
     },
     {
       "url": "https://developer.apple.com/documentation/coreai.md",
-      "retrieved_on": "2026-09-08",
-      "sha256": "0a179ef5c93549843983636809f4242895d93c8f3ac614b1335d30e4628fc301",
+      "retrieved_on": "2026-11-01",
+      "sha256": "dfcf27aa78cd66e59e28d1b2ce04d8187bdd5731a02d631be1f747914db0b235",
       "source_published_on": null,
       "human_verified_on": null,
-      "purpose": "Specific high-impact claim evidence; not an exhaustive source review."
+      "purpose": "Specific high-impact claim evidence; not an exhaustive source review. Re-captured November 1, 2026 (US local; 2026-11-01 UTC) by scripts/docs.py sources; the dependent pages were re-checked against the current text in the November 1 drift pass.",
+      "retrieval_date_timezone": "UTC"
     },
     {
       "url": "https://developer.apple.com/documentation/evaluations.md",
-      "retrieved_on": "2026-09-08",
-      "sha256": "ee4782db5f81751acd5ca15c7b9f41f43084230d5b5d736f7444e2b114c6f1de",
+      "retrieved_on": "2026-11-01",
+      "sha256": "f1962ab0a72e5a64fe440495b638ca8187e98507b9c1275abc81bf19126214ae",
       "source_published_on": null,
       "human_verified_on": null,
-      "purpose": "Specific high-impact claim evidence; not an exhaustive source review."
+      "purpose": "Specific high-impact claim evidence; not an exhaustive source review. Re-captured November 1, 2026 (US local; 2026-11-01 UTC) by scripts/docs.py sources; the dependent pages were re-checked against the current text in the November 1 drift pass.",
+      "retrieval_date_timezone": "UTC"
     },
     {
       "url": "https://developer.apple.com/documentation/foundationmodels/languagemodel.md",
-      "retrieved_on": "2026-09-08",
-      "sha256": "0fcf77857c7f82998a528aa619b5568129d860cfb053486303fc3a9e6b031685",
+      "retrieved_on": "2026-11-01",
+      "sha256": "8d2d5d4a29d5e9b67b0c59ab59a7ecbfbfae1cc825f68081f21ccc5b26bd7ea6",
       "source_published_on": null,
       "human_verified_on": null,
-      "purpose": "Specific high-impact claim evidence; not an exhaustive source review."
+      "purpose": "Specific high-impact claim evidence; not an exhaustive source review. Re-captured November 1, 2026 (US local; 2026-11-01 UTC) by scripts/docs.py sources; the dependent pages were re-checked against the current text in the November 1 drift pass.",
+      "retrieval_date_timezone": "UTC"
     },
     {
       "url": "https://developer.apple.com/documentation/bundleresources/information-property-list/uidesignrequirescompatibility.md",
@@ -20903,11 +20897,12 @@
     },
     {
       "url": "https://developer.apple.com/documentation/safari-release-notes/safari-27-release-notes.md",
-      "retrieved_on": "2026-09-08",
-      "sha256": "9bdf18d09bcd8e006eba8c18bd91c836663957ff3b5db793e1dd68693b737105",
+      "retrieved_on": "2026-11-01",
+      "sha256": "7762b476ff0f2a477ae6f4dd84a60b90955a6b19aee9add1b7aab9cd8f5ea844",
       "source_published_on": null,
       "human_verified_on": null,
-      "purpose": "Specific high-impact claim evidence; not an exhaustive source review."
+      "purpose": "Specific high-impact claim evidence; not an exhaustive source review. Re-captured November 1, 2026 (US local; 2026-11-01 UTC) by scripts/docs.py sources; the dependent pages were re-checked against the current text in the November 1 drift pass.",
+      "retrieval_date_timezone": "UTC"
     },
     {
       "url": "https://developer.apple.com/documentation/realitycomposerpro/reality-composer-pro-beta-5-release-notes.md",

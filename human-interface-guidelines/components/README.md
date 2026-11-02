@@ -33,7 +33,7 @@ The review column preserves the initial catalog/changed-content pass. `metadata/
 | [Image Wells](image-wells.md) | design | macOS | independent | catalog-only |
 | [Labels](labels.md) | design | iOS, iPadOS, macOS, tvOS, visionOS, watchOS | independent | changed-content |
 | [Lists and Tables](lists-and-tables.md) | design | iOS, iPadOS, macOS, tvOS, visionOS, watchOS | independent | changed-content |
-| [Live Activities](live-activities.md) | design | iOS, iPadOS, watchOS | independent | catalog-only |
+| [Live Activities](live-activities.md) | design | iOS, iPadOS, watchOS | independent | changed-content |
 | [Lockups](lockups.md) | design | tvOS | independent | catalog-only |
 | [Menus](menus.md) | design | iOS, iPadOS, macOS, tvOS, visionOS, watchOS | independent | changed-content |
 | [Notifications](notifications.md) | design | iOS, iPadOS, macOS, tvOS, visionOS, watchOS | independent | changed-content |

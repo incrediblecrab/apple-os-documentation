@@ -26,6 +26,7 @@ The review column preserves the initial catalog/changed-content pass. `metadata/
 | [App Clips](technologies/app-clips.md) | design | iOS, iPadOS | independent | changed-content |
 | [App icons](foundations/app-icons.md) | design | iOS, iPadOS, macOS, tvOS, visionOS, watchOS | independent | changed-content |
 | [App Shortcuts](components/app-shortcuts.md) | design | iOS, iPadOS, visionOS, watchOS | independent | changed-content |
+| [Apple In-App Purchase](technologies/in-app-purchase.md) | design | iOS, iPadOS, macOS, tvOS, visionOS, watchOS | independent | changed-content |
 | [Apple Pay](technologies/apple-pay.md) | design | iOS, iPadOS, macOS, watchOS | independent | changed-content |
 | [Apple Pencil and Scribble](inputs/apple-pencil-and-scribble.md) | design | iPadOS | independent | changed-content |
 | [Augmented Reality](technologies/augmented-reality.md) | design | iOS, iPadOS, visionOS | independent | changed-content |
@@ -51,6 +52,7 @@ The review column preserves the initial catalog/changed-content pass. `metadata/
 | [Designing for Games](getting-started/designing-for-games.md) | design | iOS, iPadOS, macOS, tvOS, visionOS, watchOS | independent | changed-content |
 | [Designing for iOS](getting-started/iOS.md) | design | iOS | independent | changed-content |
 | [Designing for iPadOS](getting-started/iPadOS.md) | design | iPadOS | independent | changed-content |
+| [Designing for iPhone Duo](getting-started/iPhone-Duo.md) | design | iOS | independent | changed-content |
 | [Designing for macOS](getting-started/macOS.md) | design | macOS | independent | changed-content |
 | [Designing for tvOS](getting-started/tvOS.md) | design | tvOS | independent | changed-content |
 | [Designing for visionOS](getting-started/visionOS.md) | design | visionOS | independent | changed-content |
@@ -84,14 +86,13 @@ The review column preserves the initial catalog/changed-content pass. `metadata/
 | [Images](foundations/images.md) | design | iOS, iPadOS, macOS, tvOS, visionOS, watchOS | independent | changed-content |
 | [iMessage apps and stickers](technologies/imessage-apps-and-stickers.md) | design | iOS, iPadOS | independent | changed-content |
 | [Immersive experiences](foundations/immersive-experiences.md) | design | visionOS | independent | changed-content |
-| [In-app purchase](technologies/in-app-purchase.md) | design | iOS, iPadOS, macOS, tvOS, visionOS, watchOS | independent | changed-content |
 | [Inclusion](foundations/inclusion.md) | design | iOS, iPadOS, macOS, tvOS, visionOS, watchOS | independent | changed-content |
 | [Keyboards](inputs/keyboards.md) | design | iOS, iPadOS, macOS, tvOS, visionOS | independent | changed-content |
 | [Labels](components/labels.md) | design | iOS, iPadOS, macOS, tvOS, visionOS, watchOS | independent | changed-content |
 | [Launching](patterns/launching.md) | design | iOS, iPadOS, macOS, tvOS, visionOS, watchOS | independent | changed-content |
 | [Layout](foundations/layout.md) | design | iOS, iPadOS, macOS, tvOS, visionOS, watchOS | independent | changed-content |
 | [Lists and Tables](components/lists-and-tables.md) | design | iOS, iPadOS, macOS, tvOS, visionOS, watchOS | independent | changed-content |
-| [Live Activities](components/live-activities.md) | design | iOS, iPadOS, watchOS | independent | catalog-only |
+| [Live Activities](components/live-activities.md) | design | iOS, iPadOS, watchOS | independent | changed-content |
 | [Live Photos](technologies/live-photos.md) | design | iOS, iPadOS, macOS, tvOS, visionOS | independent | changed-content |
 | [Live-viewing apps](patterns/live-viewing-apps.md) | design | iOS, iPadOS, macOS, tvOS, visionOS, watchOS | independent | catalog-only |
 | [Loading](patterns/loading.md) | design | iOS, iPadOS, macOS, tvOS, visionOS, watchOS | independent | changed-content |

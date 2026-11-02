@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "as_of": "2026-11-01",
-  "recorded_at": "2026-11-02T00:41:55.144760+00:00",
+  "recorded_at": "2026-11-02T00:44:02.058442+00:00",
   "complete": true,
   "method": "AI-assisted, full-body primary-source review in disjoint page worklists, followed by editorial reconciliation of every reported outcome, exact body and capture hashes, heading and code-fence accounting, consequential primary-source spot checks, and bounded independently reproduced example checks. This record is a projection of completed reviews, not an automated factual certification.",
   "limitations": [
@@ -15,7 +15,7 @@
     "On September 23, 2026, hard-wrapped prose was joined onto single lines in 15 reviewed pages and in the generated-index paragraph template in scripts/docs.py, and those pages' content_sha256 values and 13 evidence hashes for scripts/docs.py and LICENSE were re-stamped without repeating the full-body review. The change is whitespace-only: for every re-stamped page the text with whitespace collapsed and the HTML rendered by markdown-it and by pandoc are identical before and after, and scripts/docs.py changed only by joining the seven string literals of that one paragraph with spaces. The previously reviewed bytes are at commit b5a7b58.",
     "On September 26, 2026, README.md's shared-layout edit (commit 3af78bb) received a targeted review of what it changed, recorded in that page's changes and qualifications, and the review restored the dropped limit on its MIT statement. The same day, the Catalog scope paragraph template in scripts/docs.py baseline_section was joined onto one line to match that edit, and the scripts/docs.py evidence hashes of the 11 other records citing it were re-stamped without repeating their reviews; no statement those records support with scripts/docs.py depends on the line breaks of that paragraph. The change is whitespace-only: the old and new baseline_section outputs differ only by two newlines becoming spaces inside that paragraph, and generated_indexes output is byte-identical. The previously reviewed bytes are at commit 08b6a70.",
     "On October 29, 2026, a re-fetch of all 5,969 retrieval URLs cited by reference-page reviews found raw bytes changed for 5,018 of them, largely because Apple's documentation JSON now carries availableLanguages metadata, so raw-hash drift was not used as the change signal. The worklist instead came from comparing current availability and deprecation metadata with the September 1, 2026 documentation set installed by Xcode, from the developer release feed, Apple's security-releases list, and the Xcode 27.1/27.2, OS 27.2 and Safari 27.1/27.2 release notes. 33 pages received a full-body review against captures taken that day, with editorial spot checks of the load-bearing claims; the other pages were not re-reviewed, and their source hashes still bind September captures. 13 records citing metadata/catalog.json, releases.json, claims.json or assets.json had those repository-evidence hashes refreshed and the change described in their own records; claims.json and assets.json changed only in as_of.",
-    "On November 1, 2026, the repository was compared offline with the Apple Developer Documentation set installed on macOS (MobileAsset build 10M13950, OS and Xcode 27.0, files dated September 1, 2026, the same set the October 29 pass used as its baseline), checking every documentation link, framework platform line, linked or listed symbol and top-level technology against its DocC render data, and every mismatch was checked against live DocC JSON. Seven pages (CarKey, CoreMIDI, DeviceDiscoveryExtension, MetalPerformanceShaders, MetricKit, QuartzCore, ReplayKit) presented deprecated APIs without a deprecation note and received a full-body review against captures retrieved that day. The catalog cutoff then moved to November 1, 2026: the release snapshot was rechecked against the developer release feed and Apple security releases list captured that day, the README and the generated indexes were re-reviewed for that change, and records citing metadata/catalog.json, releases.json, claims.json or assets.json had those repository-evidence hashes refreshed and the change described in their own records. Pages not re-reviewed keep their own earlier cutoff."
+    "On November 1, 2026, the repository was compared offline with the Apple Developer Documentation set installed on macOS (MobileAsset build 10M13950, OS and Xcode 27.0, files dated September 1, 2026, the same set the October 29 pass used as its baseline), and the catalog cutoff moved to November 1, 2026 after the release feed and security releases list were rechecked that day. The upstream drift pass then compared every Apple documentation path cited or linked by a page (5,201 paths) between that set and live DocC JSON, field by field (title, abstract, platforms, deprecation, Swift declarations, topics and body text), read every HIG article's change log, and ran scripts/docs.py sources over all 6,381 sources and body links. Each of 262 flagged pages and three new pages went to a reviewer, who either left the page unchanged with a stated reason or edited it with a full-body review against captures taken that day; records of unchanged pages keep their earlier cutoff. Limits: API coverage rests on the paths pages cite, so a changed symbol no page cites would not surface; HIG coverage rests on Apple's change logs and full re-reads of the flagged pages, and Apple can edit an article without a change-log entry; body-text drift was judged by AI reviewers, not by a human; captures were taken on the evening of November 1, 2026 US time, and some carry November 2 UTC timestamps. Records written in this pass use locators against the November 1 captures and do not carry over the earlier per-position coordinate records bound to September captures. The catalog pass changed release_status from beta or mixed to shipping for 154 pages after Apple's landing metadata flagged none of their frameworks beta and no page still presented beta material as current; that tag is editorial scope, not a guarantee about every linked symbol."
   ],
   "coordinate_conventions": {
     "lines": "One-based inclusive line ranges in the identified coordinate representation.",
@@ -179,7 +179,7 @@
       "as_of": "2026-11-01",
       "full_body_reviewed": true,
       "status": "corrected",
-      "content_sha256": "d04a7ae9344052aae191f88f29d41c1f0650e668a106e93badb17e4d6bfb1623",
+      "content_sha256": "a657ce94b1698ae84fa2fb6158c3fd364ea60aac633da795a175fc89bc9be8b6",
       "headings_reviewed": [
         "apple-os-documentation",
         "Start here",
@@ -363,7 +363,9 @@
         "September 26, 2026: reviewed the shared-layout edit of commit 3af78bb (repository-name title; Objective, Inputs, Files and Try it header; License section; inline bold removed from Important adoption corrections and Coverage and confidence; Catalog scope paragraph joined onto one line, now also by the generator) and restored the limit that the MIT License covers the original writing and code in this repository, which the edit had dropped.",
         "October 29, 2026: reviewed the regenerated baseline block against metadata/releases.json and metadata/catalog.json: the research-cutoff line, the 12 changed release rows (OS 27.2, Xcode 27.2 without a build, Safari 27.2, iOS 26 26.7.2, iPadOS 26 26.7.2, macOS Tahoe 26.7.2, tvOS 26 26.6.1) and unchanged catalog-scope counts. The hand-written prose outside the block was not changed or re-reviewed.",
         "November 1, 2026: refreshed the repository-evidence hash for metadata/catalog.json (its as_of moved from 2026-10-29 to 2026-11-01; no document mapping, owner, kind, review scope or source changed); metadata/releases.json (its as_of and every release checked_on moved to 2026-11-01 after the developer release feed and Apple security releases list were rechecked on November 1, 2026 with no release newer than October 29, and Xcode 27.2 gained build 27B52 from the feed); metadata/claims.json (only its as_of changed, to 2026-11-01); metadata/assets.json (only its as_of changed, to 2026-11-01).",
-        "November 1, 2026: reviewed the regenerated baseline block: the research-cutoff line now reads November 1, 2026, and the Xcode row shows build 27B52. No other row changed."
+        "November 1, 2026: reviewed the regenerated baseline block: the research-cutoff line now reads November 1, 2026, and the Xcode row shows build 27B52. No other row changed.",
+        "November 1, 2026 (catalog pass): refreshed the repository-evidence hash for metadata/catalog.json (the catalog pass of November 1, 2026: three new pages registered with coverage entries; the HIG In-App Purchase entry renamed Apple In-App Purchase with its new URL; review entries for the 137 pages re-reviewed that day; release_status beta or mixed changed to shipping for 154 pages after Apple flagged none of their frameworks beta; Mac Catalyst or macOS added to three platform lists; one dead source removed; and 19 source snapshots re-captured); metadata/claims.json (two claims updated on November 1, 2026: eu-web-unified-terms-transition now describes terms in effect since October 1, 2026, and os27-hardware records the security-list device scopes while staying unverified).",
+        "November 1, 2026 (catalog pass): reviewed the regenerated baseline block: catalog-scope counts now 407/407 technology entries and 158/158 HIG articles, with 408 reference pages and 159 HIG articles, reflecting the three new pages. No release row changed."
       ],
       "numerical_and_availability_checks": [
         "405/405 technology and 157/157 indexed HIG mappings; 406 reference pages, 158 HIG articles and 254 Figma-directory images at this snapshot.",
@@ -450,7 +452,7 @@
         },
         {
           "path": "metadata/catalog.json",
-          "sha256": "ab4466ee6780e09d26be6f194e1923bf19c25e4371323d0da67a38dce0093b1b",
+          "sha256": "a01d07d70e1cfe826d97c034d531641fc7807a9ba3f24560898af1ae9653c678",
           "locator": "Coverage dispositions, document kinds and preserved review scopes."
         },
         {
@@ -460,7 +462,7 @@
         },
         {
           "path": "metadata/claims.json",
-          "sha256": "5c24f94b53f695326a22a291dda75fa96fd154f75de670a114246debd7cf6389",
+          "sha256": "05fc306a21aa60ffb7c5c065d63b825d5adbccb6077ec3b05f7c9eeb1606a817",
           "locator": "Supported and unresolved high-impact claims."
         },
         {
@@ -649,7 +651,8 @@
         "Narrowed LiquidGlass-import advice to the documented examples.",
         "Explained the separate hash-locked, per-page-cutoff audit without relabeling catalog scopes.",
         "October 29, 2026: repository-evidence hash refreshed without repeating the full-body review; claims.json changed only in its as_of cutoff, which this page's cited statements do not depend on.",
-        "November 1, 2026: refreshed the repository-evidence hash for metadata/claims.json (only its as_of changed, to 2026-11-01). The statements this record supports with that evidence do not depend on the changed fields."
+        "November 1, 2026: refreshed the repository-evidence hash for metadata/claims.json (only its as_of changed, to 2026-11-01). The statements this record supports with that evidence do not depend on the changed fields.",
+        "November 1, 2026 (catalog pass): refreshed the repository-evidence hash for metadata/claims.json (two claims updated on November 1, 2026: eu-web-unified-terms-transition now describes terms in effect since October 1, 2026, and os27-hardware records the security-list device scopes while staying unverified). The statements this record supports with that evidence do not depend on the changed fields."
       ],
       "numerical_and_availability_checks": [
         "weak let belongs to Swift 6.3, not 6.4.",
@@ -729,7 +732,7 @@
         },
         {
           "path": "metadata/claims.json",
-          "sha256": "5c24f94b53f695326a22a291dda75fa96fd154f75de670a114246debd7cf6389",
+          "sha256": "05fc306a21aa60ffb7c5c065d63b825d5adbccb6077ec3b05f7c9eeb1606a817",
           "locator": "Dated corrections and explicitly unresolved assertions."
         },
         {
@@ -104912,7 +104915,7 @@
       "as_of": "2026-11-01",
       "full_body_reviewed": true,
       "status": "verified",
-      "content_sha256": "b00a71f0ef79b549ef74cf995e8d79873ce80bf0a02c1d80e25ef7f95206fddf",
+      "content_sha256": "cec11605175b68bac10f62d67ba6c72bfebce4261fc4c427aea930f3827fb435",
       "headings_reviewed": [
         "Reference index",
         "Platforms and release baselines",
@@ -105140,7 +105143,9 @@
       "changes": [
         "October 29, 2026: reviewed the regenerated index against metadata/catalog.json: the catalog-snapshot date and any review-scope cells that moved from catalog-only to changed-content for pages re-reviewed that day. No other rows changed.",
         "November 1, 2026: refreshed the repository-evidence hash for metadata/catalog.json (its as_of moved from 2026-10-29 to 2026-11-01; no document mapping, owner, kind, review scope or source changed).",
-        "November 1, 2026: reviewed the regenerated index against metadata/catalog.json after the catalog cutoff moved to November 1, 2026: only the catalog-snapshot date line changed. No row changed."
+        "November 1, 2026: reviewed the regenerated index against metadata/catalog.json after the catalog cutoff moved to November 1, 2026: only the catalog-snapshot date line changed. No row changed.",
+        "November 1, 2026 (catalog pass): refreshed the repository-evidence hash for metadata/catalog.json (the catalog pass of November 1, 2026: three new pages registered with coverage entries; the HIG In-App Purchase entry renamed Apple In-App Purchase with its new URL; review entries for the 137 pages re-reviewed that day; release_status beta or mixed changed to shipping for 154 pages after Apple flagged none of their frameworks beta; Mac Catalyst or macOS added to three platform lists; one dead source removed; and 19 source snapshots re-captured).",
+        "November 1, 2026 (catalog pass): reviewed the regenerated index against metadata/catalog.json: new rows for pages registered that day, the renamed Apple In-App Purchase row, and release-status and review-scope cells updated by the catalog pass."
       ],
       "numerical_and_availability_checks": [
         "The index labels platform tags as navigation hints rather than symbol availability.",
@@ -105154,7 +105159,7 @@
       "sources": [
         {
           "path": "metadata/catalog.json",
-          "sha256": "ab4466ee6780e09d26be6f194e1923bf19c25e4371323d0da67a38dce0093b1b",
+          "sha256": "a01d07d70e1cfe826d97c034d531641fc7807a9ba3f24560898af1ae9653c678",
           "locator": "All selected topic rows, owners, kinds, aliases and intentionally non-authoritative platform/release tags."
         },
         {
@@ -163083,7 +163088,7 @@
       "as_of": "2026-11-01",
       "full_body_reviewed": true,
       "status": "verified",
-      "content_sha256": "0ef0c30fea53c19f8f36c83ddab2df3eb1967864976eafa56636169fa460ca16",
+      "content_sha256": "23946345ed22dc531cb654d5f9bbd81cc917b9ab625f83c0e48953338477a69f",
       "headings_reviewed": [
         "Migration and readiness guides"
       ],
@@ -163113,7 +163118,9 @@
       "changes": [
         "October 29, 2026: reviewed the regenerated index against metadata/catalog.json: the catalog-snapshot date and any review-scope cells that moved from catalog-only to changed-content for pages re-reviewed that day. No other rows changed.",
         "November 1, 2026: refreshed the repository-evidence hash for metadata/catalog.json (its as_of moved from 2026-10-29 to 2026-11-01; no document mapping, owner, kind, review scope or source changed).",
-        "November 1, 2026: reviewed the regenerated index against metadata/catalog.json after the catalog cutoff moved to November 1, 2026: only the catalog-snapshot date line changed. No row changed."
+        "November 1, 2026: reviewed the regenerated index against metadata/catalog.json after the catalog cutoff moved to November 1, 2026: only the catalog-snapshot date line changed. No row changed.",
+        "November 1, 2026 (catalog pass): refreshed the repository-evidence hash for metadata/catalog.json (the catalog pass of November 1, 2026: three new pages registered with coverage entries; the HIG In-App Purchase entry renamed Apple In-App Purchase with its new URL; review entries for the 137 pages re-reviewed that day; release_status beta or mixed changed to shipping for 154 pages after Apple flagged none of their frameworks beta; Mac Catalyst or macOS added to three platform lists; one dead source removed; and 19 source snapshots re-captured).",
+        "November 1, 2026 (catalog pass): reviewed the regenerated index against metadata/catalog.json: new rows for pages registered that day, the renamed Apple In-App Purchase row, and release-status and review-scope cells updated by the catalog pass."
       ],
       "numerical_and_availability_checks": [
         "The index labels platform tags as navigation hints rather than symbol availability.",
@@ -163127,7 +163134,7 @@
       "sources": [
         {
           "path": "metadata/catalog.json",
-          "sha256": "ab4466ee6780e09d26be6f194e1923bf19c25e4371323d0da67a38dce0093b1b",
+          "sha256": "a01d07d70e1cfe826d97c034d531641fc7807a9ba3f24560898af1ae9653c678",
           "locator": "All selected topic rows, owners, kinds, aliases and intentionally non-authoritative platform/release tags."
         },
         {
@@ -166976,7 +166983,7 @@
       "as_of": "2026-11-01",
       "full_body_reviewed": true,
       "status": "verified",
-      "content_sha256": "18aa5302f21425679519de07cd7656f58d951a8222b5cb674e7806a5dc4ffd6c",
+      "content_sha256": "57c29d5523bbf7d62b85fdae3c81586f790949f406777b272a63503db39acd93",
       "headings_reviewed": [
         "Human Interface Guidelines index"
       ],
@@ -167006,7 +167013,9 @@
       "changes": [
         "October 29, 2026: reviewed the regenerated index against metadata/catalog.json: the catalog-snapshot date and any review-scope cells that moved from catalog-only to changed-content for pages re-reviewed that day. No other rows changed.",
         "November 1, 2026: refreshed the repository-evidence hash for metadata/catalog.json (its as_of moved from 2026-10-29 to 2026-11-01; no document mapping, owner, kind, review scope or source changed).",
-        "November 1, 2026: reviewed the regenerated index against metadata/catalog.json after the catalog cutoff moved to November 1, 2026: only the catalog-snapshot date line changed. No row changed."
+        "November 1, 2026: reviewed the regenerated index against metadata/catalog.json after the catalog cutoff moved to November 1, 2026: only the catalog-snapshot date line changed. No row changed.",
+        "November 1, 2026 (catalog pass): refreshed the repository-evidence hash for metadata/catalog.json (the catalog pass of November 1, 2026: three new pages registered with coverage entries; the HIG In-App Purchase entry renamed Apple In-App Purchase with its new URL; review entries for the 137 pages re-reviewed that day; release_status beta or mixed changed to shipping for 154 pages after Apple flagged none of their frameworks beta; Mac Catalyst or macOS added to three platform lists; one dead source removed; and 19 source snapshots re-captured).",
+        "November 1, 2026 (catalog pass): reviewed the regenerated index against metadata/catalog.json: new rows for pages registered that day, the renamed Apple In-App Purchase row, and release-status and review-scope cells updated by the catalog pass."
       ],
       "numerical_and_availability_checks": [
         "The index labels platform tags as navigation hints rather than symbol availability.",
@@ -167020,7 +167029,7 @@
       "sources": [
         {
           "path": "metadata/catalog.json",
-          "sha256": "ab4466ee6780e09d26be6f194e1923bf19c25e4371323d0da67a38dce0093b1b",
+          "sha256": "a01d07d70e1cfe826d97c034d531641fc7807a9ba3f24560898af1ae9653c678",
           "locator": "All selected topic rows, owners, kinds, aliases and intentionally non-authoritative platform/release tags."
         },
         {
@@ -167042,7 +167051,7 @@
       "as_of": "2026-11-01",
       "full_body_reviewed": true,
       "status": "verified",
-      "content_sha256": "8c94b9505607793bfa9ffe87bfb56da978186bffabe80089a2d7aae310e5594a",
+      "content_sha256": "42b1ec1abb455e77bc0ace63137ab4028e5013b2110af121fe3fec2eada0f138",
       "headings_reviewed": [
         "Components"
       ],
@@ -167072,7 +167081,9 @@
       "changes": [
         "October 29, 2026: reviewed the regenerated index against metadata/catalog.json: the catalog-snapshot date and any review-scope cells that moved from catalog-only to changed-content for pages re-reviewed that day. No other rows changed.",
         "November 1, 2026: refreshed the repository-evidence hash for metadata/catalog.json (its as_of moved from 2026-10-29 to 2026-11-01; no document mapping, owner, kind, review scope or source changed).",
-        "November 1, 2026: reviewed the regenerated index against metadata/catalog.json after the catalog cutoff moved to November 1, 2026: only the catalog-snapshot date line changed. No row changed."
+        "November 1, 2026: reviewed the regenerated index against metadata/catalog.json after the catalog cutoff moved to November 1, 2026: only the catalog-snapshot date line changed. No row changed.",
+        "November 1, 2026 (catalog pass): refreshed the repository-evidence hash for metadata/catalog.json (the catalog pass of November 1, 2026: three new pages registered with coverage entries; the HIG In-App Purchase entry renamed Apple In-App Purchase with its new URL; review entries for the 137 pages re-reviewed that day; release_status beta or mixed changed to shipping for 154 pages after Apple flagged none of their frameworks beta; Mac Catalyst or macOS added to three platform lists; one dead source removed; and 19 source snapshots re-captured).",
+        "November 1, 2026 (catalog pass): reviewed the regenerated index against metadata/catalog.json: new rows for pages registered that day, the renamed Apple In-App Purchase row, and release-status and review-scope cells updated by the catalog pass."
       ],
       "numerical_and_availability_checks": [
         "The index labels platform tags as navigation hints rather than symbol availability.",
@@ -167086,7 +167097,7 @@
       "sources": [
         {
           "path": "metadata/catalog.json",
-          "sha256": "ab4466ee6780e09d26be6f194e1923bf19c25e4371323d0da67a38dce0093b1b",
+          "sha256": "a01d07d70e1cfe826d97c034d531641fc7807a9ba3f24560898af1ae9653c678",
           "locator": "All selected topic rows, owners, kinds, aliases and intentionally non-authoritative platform/release tags."
         },
         {
@@ -206256,7 +206267,8 @@
       "changes": [
         "October 29, 2026: reviewed the regenerated index against metadata/catalog.json: the catalog-snapshot date and any review-scope cells that moved from catalog-only to changed-content for pages re-reviewed that day. No other rows changed.",
         "November 1, 2026: refreshed the repository-evidence hash for metadata/catalog.json (its as_of moved from 2026-10-29 to 2026-11-01; no document mapping, owner, kind, review scope or source changed).",
-        "November 1, 2026: reviewed the regenerated index against metadata/catalog.json after the catalog cutoff moved to November 1, 2026: only the catalog-snapshot date line changed. No row changed."
+        "November 1, 2026: reviewed the regenerated index against metadata/catalog.json after the catalog cutoff moved to November 1, 2026: only the catalog-snapshot date line changed. No row changed.",
+        "November 1, 2026 (catalog pass): refreshed the repository-evidence hash for metadata/catalog.json (the catalog pass of November 1, 2026: three new pages registered with coverage entries; the HIG In-App Purchase entry renamed Apple In-App Purchase with its new URL; review entries for the 137 pages re-reviewed that day; release_status beta or mixed changed to shipping for 154 pages after Apple flagged none of their frameworks beta; Mac Catalyst or macOS added to three platform lists; one dead source removed; and 19 source snapshots re-captured)."
       ],
       "numerical_and_availability_checks": [
         "The index labels platform tags as navigation hints rather than symbol availability.",
@@ -206270,7 +206282,7 @@
       "sources": [
         {
           "path": "metadata/catalog.json",
-          "sha256": "ab4466ee6780e09d26be6f194e1923bf19c25e4371323d0da67a38dce0093b1b",
+          "sha256": "a01d07d70e1cfe826d97c034d531641fc7807a9ba3f24560898af1ae9653c678",
           "locator": "All selected topic rows, owners, kinds, aliases and intentionally non-authoritative platform/release tags."
         },
         {
@@ -220985,7 +220997,7 @@
       "as_of": "2026-11-01",
       "full_body_reviewed": true,
       "status": "verified",
-      "content_sha256": "136d5a06db43c1acc23a43277039c18debd325f13246296905013e499a207b7d",
+      "content_sha256": "202d376f0840153ffc4dd0fa93327d1f8c90db58eec1c64b85d9499e33c72db7",
       "headings_reviewed": [
         "Getting started"
       ],
@@ -221015,7 +221027,9 @@
       "changes": [
         "October 29, 2026: reviewed the regenerated index against metadata/catalog.json: the catalog-snapshot date and any review-scope cells that moved from catalog-only to changed-content for pages re-reviewed that day. No other rows changed.",
         "November 1, 2026: refreshed the repository-evidence hash for metadata/catalog.json (its as_of moved from 2026-10-29 to 2026-11-01; no document mapping, owner, kind, review scope or source changed).",
-        "November 1, 2026: reviewed the regenerated index against metadata/catalog.json after the catalog cutoff moved to November 1, 2026: only the catalog-snapshot date line changed. No row changed."
+        "November 1, 2026: reviewed the regenerated index against metadata/catalog.json after the catalog cutoff moved to November 1, 2026: only the catalog-snapshot date line changed. No row changed.",
+        "November 1, 2026 (catalog pass): refreshed the repository-evidence hash for metadata/catalog.json (the catalog pass of November 1, 2026: three new pages registered with coverage entries; the HIG In-App Purchase entry renamed Apple In-App Purchase with its new URL; review entries for the 137 pages re-reviewed that day; release_status beta or mixed changed to shipping for 154 pages after Apple flagged none of their frameworks beta; Mac Catalyst or macOS added to three platform lists; one dead source removed; and 19 source snapshots re-captured).",
+        "November 1, 2026 (catalog pass): reviewed the regenerated index against metadata/catalog.json: new rows for pages registered that day, the renamed Apple In-App Purchase row, and release-status and review-scope cells updated by the catalog pass."
       ],
       "numerical_and_availability_checks": [
         "The index labels platform tags as navigation hints rather than symbol availability.",
@@ -221029,7 +221043,7 @@
       "sources": [
         {
           "path": "metadata/catalog.json",
-          "sha256": "ab4466ee6780e09d26be6f194e1923bf19c25e4371323d0da67a38dce0093b1b",
+          "sha256": "a01d07d70e1cfe826d97c034d531641fc7807a9ba3f24560898af1ae9653c678",
           "locator": "All selected topic rows, owners, kinds, aliases and intentionally non-authoritative platform/release tags."
         },
         {
@@ -231552,7 +231566,8 @@
       "changes": [
         "October 29, 2026: reviewed the regenerated index against metadata/catalog.json: the catalog-snapshot date and any review-scope cells that moved from catalog-only to changed-content for pages re-reviewed that day. No other rows changed.",
         "November 1, 2026: refreshed the repository-evidence hash for metadata/catalog.json (its as_of moved from 2026-10-29 to 2026-11-01; no document mapping, owner, kind, review scope or source changed).",
-        "November 1, 2026: reviewed the regenerated index against metadata/catalog.json after the catalog cutoff moved to November 1, 2026: only the catalog-snapshot date line changed. No row changed."
+        "November 1, 2026: reviewed the regenerated index against metadata/catalog.json after the catalog cutoff moved to November 1, 2026: only the catalog-snapshot date line changed. No row changed.",
+        "November 1, 2026 (catalog pass): refreshed the repository-evidence hash for metadata/catalog.json (the catalog pass of November 1, 2026: three new pages registered with coverage entries; the HIG In-App Purchase entry renamed Apple In-App Purchase with its new URL; review entries for the 137 pages re-reviewed that day; release_status beta or mixed changed to shipping for 154 pages after Apple flagged none of their frameworks beta; Mac Catalyst or macOS added to three platform lists; one dead source removed; and 19 source snapshots re-captured)."
       ],
       "numerical_and_availability_checks": [
         "The index labels platform tags as navigation hints rather than symbol availability.",
@@ -231566,7 +231581,7 @@
       "sources": [
         {
           "path": "metadata/catalog.json",
-          "sha256": "ab4466ee6780e09d26be6f194e1923bf19c25e4371323d0da67a38dce0093b1b",
+          "sha256": "a01d07d70e1cfe826d97c034d531641fc7807a9ba3f24560898af1ae9653c678",
           "locator": "All selected topic rows, owners, kinds, aliases and intentionally non-authoritative platform/release tags."
         },
         {
@@ -239616,7 +239631,8 @@
       "changes": [
         "October 29, 2026: reviewed the regenerated index against metadata/catalog.json: the catalog-snapshot date and any review-scope cells that moved from catalog-only to changed-content for pages re-reviewed that day. No other rows changed.",
         "November 1, 2026: refreshed the repository-evidence hash for metadata/catalog.json (its as_of moved from 2026-10-29 to 2026-11-01; no document mapping, owner, kind, review scope or source changed).",
-        "November 1, 2026: reviewed the regenerated index against metadata/catalog.json after the catalog cutoff moved to November 1, 2026: only the catalog-snapshot date line changed. No row changed."
+        "November 1, 2026: reviewed the regenerated index against metadata/catalog.json after the catalog cutoff moved to November 1, 2026: only the catalog-snapshot date line changed. No row changed.",
+        "November 1, 2026 (catalog pass): refreshed the repository-evidence hash for metadata/catalog.json (the catalog pass of November 1, 2026: three new pages registered with coverage entries; the HIG In-App Purchase entry renamed Apple In-App Purchase with its new URL; review entries for the 137 pages re-reviewed that day; release_status beta or mixed changed to shipping for 154 pages after Apple flagged none of their frameworks beta; Mac Catalyst or macOS added to three platform lists; one dead source removed; and 19 source snapshots re-captured)."
       ],
       "numerical_and_availability_checks": [
         "The index labels platform tags as navigation hints rather than symbol availability.",
@@ -239630,7 +239646,7 @@
       "sources": [
         {
           "path": "metadata/catalog.json",
-          "sha256": "ab4466ee6780e09d26be6f194e1923bf19c25e4371323d0da67a38dce0093b1b",
+          "sha256": "a01d07d70e1cfe826d97c034d531641fc7807a9ba3f24560898af1ae9653c678",
           "locator": "All selected topic rows, owners, kinds, aliases and intentionally non-authoritative platform/release tags."
         },
         {
@@ -256469,7 +256485,7 @@
       "as_of": "2026-11-01",
       "full_body_reviewed": true,
       "status": "verified",
-      "content_sha256": "3f643ae36ccb61b1234a3a0702a7c3884e20dd32c8158c148a5d8560123fae57",
+      "content_sha256": "f77d5ebca03aa0c9d8311bbc1a9e818cc882ca9cb9b13946d427f5986dcb346b",
       "headings_reviewed": [
         "Technologies"
       ],
@@ -256499,7 +256515,9 @@
       "changes": [
         "October 29, 2026: reviewed the regenerated index against metadata/catalog.json: the catalog-snapshot date and any review-scope cells that moved from catalog-only to changed-content for pages re-reviewed that day. No other rows changed.",
         "November 1, 2026: refreshed the repository-evidence hash for metadata/catalog.json (its as_of moved from 2026-10-29 to 2026-11-01; no document mapping, owner, kind, review scope or source changed).",
-        "November 1, 2026: reviewed the regenerated index against metadata/catalog.json after the catalog cutoff moved to November 1, 2026: only the catalog-snapshot date line changed. No row changed."
+        "November 1, 2026: reviewed the regenerated index against metadata/catalog.json after the catalog cutoff moved to November 1, 2026: only the catalog-snapshot date line changed. No row changed.",
+        "November 1, 2026 (catalog pass): refreshed the repository-evidence hash for metadata/catalog.json (the catalog pass of November 1, 2026: three new pages registered with coverage entries; the HIG In-App Purchase entry renamed Apple In-App Purchase with its new URL; review entries for the 137 pages re-reviewed that day; release_status beta or mixed changed to shipping for 154 pages after Apple flagged none of their frameworks beta; Mac Catalyst or macOS added to three platform lists; one dead source removed; and 19 source snapshots re-captured).",
+        "November 1, 2026 (catalog pass): reviewed the regenerated index against metadata/catalog.json: new rows for pages registered that day, the renamed Apple In-App Purchase row, and release-status and review-scope cells updated by the catalog pass."
       ],
       "numerical_and_availability_checks": [
         "The index labels platform tags as navigation hints rather than symbol availability.",
@@ -256513,7 +256531,7 @@
       "sources": [
         {
           "path": "metadata/catalog.json",
-          "sha256": "ab4466ee6780e09d26be6f194e1923bf19c25e4371323d0da67a38dce0093b1b",
+          "sha256": "a01d07d70e1cfe826d97c034d531641fc7807a9ba3f24560898af1ae9653c678",
           "locator": "All selected topic rows, owners, kinds, aliases and intentionally non-authoritative platform/release tags."
         },
         {
@@ -301471,6 +301489,1823 @@
           "source_published_on": null,
           "content_type": "text/markdown; charset=utf-8",
           "locator": "Important note: the scene-based life cycle requirement covers iOS 27, iPadOS 27, Mac Catalyst 27, tvOS 27, and visionOS 27; watchOS is not listed."
+        }
+      ]
+    },
+    {
+      "path": "documentation/HomeExtensions.md",
+      "as_of": "2026-11-01",
+      "full_body_reviewed": true,
+      "status": "verified-qualified",
+      "content_sha256": "4f44343be5cb4d0897e31e91f19615d6676ff26ac89349d9a27fd11892ac99ee",
+      "headings_reviewed": [
+        "HomeExtensions",
+        "Overview",
+        "Project setup",
+        "Accessory settings",
+        "Configuration and support content",
+        "Topics",
+        "Essentials",
+        "Displaying accessory configuration",
+        "Defining accessory settings",
+        "Guides and troubleshooting content",
+        "Configuration keys",
+        "Sources"
+      ],
+      "sections_reviewed": [
+        {
+          "heading": "HomeExtensions",
+          "line": 1,
+          "source_urls": [
+            "https://developer.apple.com/documentation/homeextensions",
+            "https://developer.apple.com/documentation/homeextensions/homeextension",
+            "https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.home",
+            "https://developer.apple.com/documentation/bundleresources/information-property-list/nshomeextensionmanufacturer",
+            "https://developer.apple.com/documentation/bundleresources/information-property-list/exappextensionattributes",
+            "https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27_2-release-notes"
+          ],
+          "assessment": "Title matches Apple's module name; lead is an original summary of the root abstract and overview. Platforms line separates the 27.0 iOS/iPadOS/Mac Catalyst annotations on all 22 annotated symbol pages from the 27.2 iOS/iPadOS annotations on the entitlement and both keys (no Mac Catalyst entry). Status line paraphrases the root's compile-time-only Important aside (no date given), notes the root's empty availability, and cites the 27.2 release note's statement that the 27.2 SDK ships with Xcode 27.2."
+        },
+        {
+          "heading": "Overview",
+          "line": 9,
+          "source_urls": [
+            "https://developer.apple.com/documentation/homeextensions",
+            "https://developer.apple.com/documentation/homeextensions/homeextension",
+            "https://developer.apple.com/documentation/homeextensions/homecontent",
+            "https://developer.apple.com/documentation/homeextensions/homecontext",
+            "https://developer.apple.com/documentation/homeextensions/homenavigator"
+          ],
+          "assessment": "Each claim checked: maker's app hosts the extension (root overview); content kinds (root overview, HomeContent); @main entry point and body (HomeExtension); no custom HomeContent conformances (HomeContent overview); HomeContext environment access, optional HMHome/HMAccessory types, navigator, metadata, dismiss(), reportConfigurationComplete() (HomeContext topics); push(_:title:) (HomeNavigator)."
+        },
+        {
+          "heading": "Project setup",
+          "line": 17,
+          "source_urls": [
+            "https://developer.apple.com/documentation/homeextensions",
+            "https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.home",
+            "https://developer.apple.com/documentation/bundleresources/information-property-list/exappextensionattributes",
+            "https://developer.apple.com/documentation/bundleresources/information-property-list/nshomeextensionmanufacturer",
+            "https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.homekit",
+            "https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.matter.allow-setup-payload"
+          ],
+          "assessment": "Template path, Boolean entitlement on the extension, EXAppExtensionAttributes with EXExtensionPointIdentifier = com.apple.Home.HomeExtension and NSHomeExtensionManufacturer string all match the root overview and key pages. The app-versus-extension placement conflict for NSHomeExtensionManufacturer is stated, not resolved. HomeKit and Matter entitlement identifiers match their own pages and the Home entitlement's discussion."
+        },
+        {
+          "heading": "Accessory settings",
+          "line": 27,
+          "source_urls": [
+            "https://developer.apple.com/documentation/homeextensions/homeaccessorysettingscontainer",
+            "https://developer.apple.com/documentation/homeextensions/homeaccessorysettingsprovider",
+            "https://developer.apple.com/documentation/homeextensions/homeaccessorysettingscontext",
+            "https://developer.apple.com/documentation/homeextensions/homeaccessorysettings",
+            "https://developer.apple.com/documentation/homeextensions/homeaccessorysetting"
+          ],
+          "assessment": "Container/provider/context split, five wrapper kinds, availableSettings ordering, provider rules and value casts compared item by item with the container, provider and context overviews; HomeAccessorySettings init signature carries a filter parameter. Apple's Swift examples were summarized, not copied."
+        },
+        {
+          "heading": "Configuration and support content",
+          "line": 44,
+          "source_urls": [
+            "https://developer.apple.com/documentation/homeextensions/homeaccessoryconfiguration",
+            "https://developer.apple.com/documentation/homeextensions/homeaccessoryhelpguide",
+            "https://developer.apple.com/documentation/homeextensions/homeaccessorytroubleshooting",
+            "https://developer.apple.com/documentation/homeextensions/homecontentid"
+          ],
+          "assessment": "Initializer shapes checked: configuration and help guide take id/content/filter; troubleshooting takes content/filter only; contactAccessoryManufacturerLink() on both help guide and troubleshooting; hidesNavigationTitleInLandscape(_:) on configuration."
+        },
+        {
+          "heading": "Topics",
+          "line": 48,
+          "source_urls": [
+            "https://developer.apple.com/documentation/homeextensions",
+            "https://developer.apple.com/documentation/homeextensions/homeextension",
+            "https://developer.apple.com/documentation/homeextensions/homecontext",
+            "https://developer.apple.com/documentation/homeextensions/homenavigator",
+            "https://developer.apple.com/documentation/homeextensions/homeaccessorysettingsprovider",
+            "https://developer.apple.com/documentation/homeextensions/homeaccessorysettingscontainer",
+            "https://developer.apple.com/documentation/homeextensions/anyhomeaccessorysettingscontainer",
+            "https://developer.apple.com/documentation/homeextensions/homeaccessorysettingscontext",
+            "https://developer.apple.com/documentation/homeextensions/homeaccessorysettings",
+            "https://developer.apple.com/documentation/homeextensions/homeaccessoryconfiguration",
+            "https://developer.apple.com/documentation/homeextensions/homeaccessorysetting",
+            "https://developer.apple.com/documentation/homeextensions/homeaccessorysettinglabel",
+            "https://developer.apple.com/documentation/homeextensions/homeaccessoryenumsetting",
+            "https://developer.apple.com/documentation/homeextensions/homeaccessoryenumsettingconstant",
+            "https://developer.apple.com/documentation/homeextensions/homeaccessoryinformationsetting",
+            "https://developer.apple.com/documentation/homeextensions/homeaccessoryrangesetting",
+            "https://developer.apple.com/documentation/homeextensions/homeaccessoryrangesettingdescriptor",
+            "https://developer.apple.com/documentation/homeextensions/homeaccessorytextfieldsetting",
+            "https://developer.apple.com/documentation/homeextensions/homeaccessorytogglesetting",
+            "https://developer.apple.com/documentation/homeextensions/homecontent",
+            "https://developer.apple.com/documentation/homeextensions/homecontentid",
+            "https://developer.apple.com/documentation/homeextensions/homeaccessoryhelpguide",
+            "https://developer.apple.com/documentation/homeextensions/homeaccessorytroubleshooting",
+            "https://developer.apple.com/documentation/homeextensions/guidestephostviewcontroller"
+          ],
+          "assessment": "Group names and membership match the root /topicSections exactly (3, 6, 9, 5 symbols); each description checked against that symbol's own page."
+        },
+        {
+          "heading": "Essentials",
+          "line": 50,
+          "source_urls": [
+            "https://developer.apple.com/documentation/homeextensions/homeextension",
+            "https://developer.apple.com/documentation/homeextensions/homecontext",
+            "https://developer.apple.com/documentation/homeextensions/homenavigator"
+          ],
+          "assessment": "Descriptions checked against each symbol's abstract and topics."
+        },
+        {
+          "heading": "Displaying accessory configuration",
+          "line": 55,
+          "source_urls": [
+            "https://developer.apple.com/documentation/homeextensions/homeaccessorysettingsprovider",
+            "https://developer.apple.com/documentation/homeextensions/homeaccessorysettingscontainer",
+            "https://developer.apple.com/documentation/homeextensions/anyhomeaccessorysettingscontainer",
+            "https://developer.apple.com/documentation/homeextensions/homeaccessorysettingscontext",
+            "https://developer.apple.com/documentation/homeextensions/homeaccessorysettings",
+            "https://developer.apple.com/documentation/homeextensions/homeaccessoryconfiguration"
+          ],
+          "assessment": "Descriptions checked against each symbol page; AnyHomeAccessorySettingsContainer has no abstract, described from its init(erasing:) and flagged as such."
+        },
+        {
+          "heading": "Defining accessory settings",
+          "line": 63,
+          "source_urls": [
+            "https://developer.apple.com/documentation/homeextensions/homeaccessorysetting",
+            "https://developer.apple.com/documentation/homeextensions/homeaccessorysettinglabel",
+            "https://developer.apple.com/documentation/homeextensions/homeaccessoryenumsetting",
+            "https://developer.apple.com/documentation/homeextensions/homeaccessoryenumsettingconstant",
+            "https://developer.apple.com/documentation/homeextensions/homeaccessoryinformationsetting",
+            "https://developer.apple.com/documentation/homeextensions/homeaccessoryrangesetting",
+            "https://developer.apple.com/documentation/homeextensions/homeaccessoryrangesettingdescriptor",
+            "https://developer.apple.com/documentation/homeextensions/homeaccessorytextfieldsetting",
+            "https://developer.apple.com/documentation/homeextensions/homeaccessorytogglesetting"
+          ],
+          "assessment": "Descriptions checked against each symbol's abstract; HomeAccessorySetting 'don't adopt directly' from its overview."
+        },
+        {
+          "heading": "Guides and troubleshooting content",
+          "line": 74,
+          "source_urls": [
+            "https://developer.apple.com/documentation/homeextensions/homecontent",
+            "https://developer.apple.com/documentation/homeextensions/homecontentid",
+            "https://developer.apple.com/documentation/homeextensions/homeaccessoryhelpguide",
+            "https://developer.apple.com/documentation/homeextensions/homeaccessorytroubleshooting",
+            "https://developer.apple.com/documentation/homeextensions/guidestephostviewcontroller"
+          ],
+          "assessment": "Descriptions checked against each symbol page; GuideStepHostViewController's UIViewController superclass from relationshipsSections, and the absence of abstract and availability from its JSON."
+        },
+        {
+          "heading": "Configuration keys",
+          "line": 81,
+          "source_urls": [
+            "https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.home",
+            "https://developer.apple.com/documentation/bundleresources/information-property-list/exappextensionattributes",
+            "https://developer.apple.com/documentation/bundleresources/information-property-list/nshomeextensionmanufacturer"
+          ],
+          "assessment": "Types (boolean, dictionary, string), optional status of NSHomeExtensionManufacturer, required EXExtensionPointIdentifier, and iOS/iPadOS 27.2 platforms checked against each key's JSON. These keys are not in the root topic groups; the group is the page's own."
+        },
+        {
+          "heading": "Sources",
+          "line": 86,
+          "source_urls": [
+            "https://developer.apple.com/documentation/homeextensions",
+            "https://developer.apple.com/documentation/homeextensions/homeaccessorysettingsprovider",
+            "https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.home",
+            "https://developer.apple.com/documentation/bundleresources/information-property-list/nshomeextensionmanufacturer",
+            "https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27_2-release-notes",
+            "https://developer.apple.com/documentation/xcode-release-notes/xcode-27_2-release-notes"
+          ],
+          "assessment": "not-factual: source attribution/navigation; every listed URL returned 200 in this review's captures. The Xcode 27.2 release notes are recorded only for the negative search noted in qualifications."
+        }
+      ],
+      "code_examples": {
+        "fences_reviewed": 0,
+        "verification": "No fenced code. Inline identifiers, initializer and method names, the extension point identifier and key/entitlement types were checked against the live DocC JSON and Markdown captures. Nothing was compiled: the installed iOS 27.1 SDK (Xcode 27.1) does not contain the framework, and the Xcode 27.2 SDK was not available on this machine."
+      },
+      "changes": [
+        "November 1, 2026: New page for the HomeExtensions framework, which Apple published after the September 1, 2026 documentation set: compile-time-only status, split symbol (27.0) versus configuration-key (27.2) availability, project setup with the documented NSHomeExtensionManufacturer placement conflict, settings container/provider/context model and Apple's provider rules, configuration/help/troubleshooting content, the root's four topic groups and a configuration-keys group.",
+        "November 1, 2026: new page; no earlier text was corrected."
+      ],
+      "numerical_and_availability_checks": [
+        "Framework root: /metadata has no platforms array; Markdown availability list is empty.",
+        "All 22 annotated symbols (HomeExtension through HomeAccessoryTroubleshooting): iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0; no beta or deprecated flags.",
+        "GuideStepHostViewController: no platforms and no abstract; inherits from UIViewController.",
+        "com.apple.developer.home: iOS 27.2, iPadOS 27.2, Boolean; no Mac Catalyst entry.",
+        "EXAppExtensionAttributes: iOS 27.2, iPadOS 27.2, dictionary; requires EXExtensionPointIdentifier. NSHomeExtensionManufacturer: iOS 27.2, iPadOS 27.2, string, optional.",
+        "Extension point identifier com.apple.Home.HomeExtension (root overview).",
+        "iOS & iPadOS 27.2 SDK ships with Xcode 27.2 (27.2 release notes Overview).",
+        "Root topic groups: Essentials 3, Displaying accessory configuration 6, Defining accessory settings 9, Guides and troubleshooting content 5 (23 symbols)."
+      ],
+      "qualifications": [
+        "No September 1, 2026 baseline exists: the installed documentation set returns NOT IN ASSET for /documentation/homeextensions, /documentation/homeextensions/homeextension and /documentation/bundleresources/entitlements/com.apple.developer.home, so no drift comparison was possible.",
+        "Captures were taken on November 1, 2026 (UTC), the research cutoff; Apple may change a framework it describes as compile-time only without notice.",
+        "Apple gives no date for runtime functionality; the page claims none.",
+        "Symbol pages say 27.0 while the entitlement and keys say 27.2, and the installed iOS 27.1 SDK in Xcode 27.1 contains no HomeExtensions framework (local find and grep, not a citable capture). The page states both annotations and does not claim the framework can be built with any SDK before 27.2; the 27.2 SDK itself was not inspected.",
+        "The entitlement and keys list no Mac Catalyst entry although the symbols annotate Mac Catalyst 27.0; whether Mac Catalyst Home extensions are supported is unverified.",
+        "Apple's root page says to add NSHomeExtensionManufacturer to the app; the key's page says the Home app extension's information property list and calls it optional. The page reports both and does not choose.",
+        "The iOS & iPadOS 27.2 and Xcode 27.2 release notes contain no Home Extensions entry (text search for 'home'); absence there is not evidence about the framework's status.",
+        "Whether the filter parameters have default values is not shown in the captured declarations; the page calls only HomeAccessoryConfiguration's filter optional, as its overview does.",
+        "Member-level pages (individual initializers, properties, MetadataKey cases) were not captured; claims about them rest on the parent pages' topic listings and overviews.",
+        "Nothing was compiled or run, and no Home app hosting was observed."
+      ],
+      "remaining_blockers": [],
+      "sources": [
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions.json",
+          "sha256": "1c08ecc07beeb8a5018ec28bf3731b686a9c558af53f4fc978466b17df3e7859",
+          "retrieved_at": "2026-11-01T23:34:29.425404+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "JSON /metadata (roleHeading Framework, no platforms array) and /topicSections/0-3 (four groups, 23 symbols); Markdown availability comment (empty) and Overview: Important aside 'available at compile time only ... functionality will be available at a later date', File > New > Target > Home Extension, entitlement, EXAppExtensionAttributes with EXExtensionPointIdentifier = com.apple.Home.HomeExtension, NSHomeExtensionManufacturer 'for your app' with manufacturer-name string value."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions",
+          "retrieval_url": "https://developer.apple.com/documentation/homeextensions.md",
+          "final_url": "https://developer.apple.com/documentation/homeextensions.md",
+          "sha256": "4bcd916db9071ed9607f72c0f43caffc9a25415e3853190c4057ac162b7a1531",
+          "retrieved_at": "2026-11-01T23:34:29.557180+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "JSON /metadata (roleHeading Framework, no platforms array) and /topicSections/0-3 (four groups, 23 symbols); Markdown availability comment (empty) and Overview: Important aside 'available at compile time only ... functionality will be available at a later date', File > New > Target > Home Extension, entitlement, EXAppExtensionAttributes with EXExtensionPointIdentifier = com.apple.Home.HomeExtension, NSHomeExtensionManufacturer 'for your app' with manufacturer-name string value."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.home",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/bundleresources/entitlements/com.apple.developer.home.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/bundleresources/entitlements/com.apple.developer.home.json",
+          "sha256": "4982f9edfd3e5335798b5c7a94825c1daf3b802047b44ab0231caa9f031bab00",
+          "retrieved_at": "2026-11-01T23:34:41.274641+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "JSON /metadata/platforms (iOS 27.2, iPadOS 27.2; no Mac Catalyst) and /primaryContentSections/0/details/value/0/baseType boolean; Markdown Discussion: for a Home app extension using Home Extensions, Xcode adds it with the target, HomeKit and Matter accessories need their own entitlements (com.apple.developer.homekit, com.apple.developer.matter.allow-setup-payload)."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.home",
+          "retrieval_url": "https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.home.md",
+          "final_url": "https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.home.md",
+          "sha256": "518304a347cfb4bd9f42d79e5218899aad3d25e96a1a7fbd6f0b299864b58904",
+          "retrieved_at": "2026-11-01T23:34:41.403093+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "JSON /metadata/platforms (iOS 27.2, iPadOS 27.2; no Mac Catalyst) and /primaryContentSections/0/details/value/0/baseType boolean; Markdown Discussion: for a Home app extension using Home Extensions, Xcode adds it with the target, HomeKit and Matter accessories need their own entitlements (com.apple.developer.homekit, com.apple.developer.matter.allow-setup-payload)."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homeextension",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homeextension.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homeextension.json",
+          "sha256": "acdd2e13a282f5cd928c9e2963e65a17b608185b91181f155a355beeab8af607",
+          "retrieved_at": "2026-11-01T23:34:48.051174+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Declaration '@MainActor protocol HomeExtension'; Overview: adopt, mark @main, return content from body; topics body/Content/init()/main()."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homeextension",
+          "retrieval_url": "https://developer.apple.com/documentation/homeextensions/homeextension.md",
+          "final_url": "https://developer.apple.com/documentation/homeextensions/homeextension.md",
+          "sha256": "a363444d73d4137ea2e8aa075c7182822fbcd465183783dfecd109bbfbafa3c0",
+          "retrieved_at": "2026-11-01T23:34:48.219454+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Declaration '@MainActor protocol HomeExtension'; Overview: adopt, mark @main, return content from body; topics body/Content/init()/main()."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homecontext",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homecontext.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homecontext.json",
+          "sha256": "1bda880f433d79a078d37dc2d5ad56ea844525595466df4b119584b3537b6fa3",
+          "retrieved_at": "2026-11-01T23:34:48.370191+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Overview: @Environment(\\.homeContext), available while the extension runs; topics accessory: HMAccessory?, home: HMHome?, navigator, dismiss(), metadata, MetadataKey, reportConfigurationComplete()."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homecontext",
+          "retrieval_url": "https://developer.apple.com/documentation/homeextensions/homecontext.md",
+          "final_url": "https://developer.apple.com/documentation/homeextensions/homecontext.md",
+          "sha256": "e8e0b63650896fa2492cda81ac3ec69feaa806ead2a3029426b564d9c7023a9a",
+          "retrieved_at": "2026-11-01T23:34:48.498492+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Overview: @Environment(\\.homeContext), available while the extension runs; topics accessory: HMAccessory?, home: HMHome?, navigator, dismiss(), metadata, MetadataKey, reportConfigurationComplete()."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homenavigator",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homenavigator.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homenavigator.json",
+          "sha256": "bc9f8c7438e9b1acbe866d213070a0af9f633ff479d5adc56b68a5976269ce93",
+          "retrieved_at": "2026-11-01T23:34:48.634434+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Overview: accessed through HomeContext.navigator; topic push(_:title:) pushes a page onto the Home app's navigation stack."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homenavigator",
+          "retrieval_url": "https://developer.apple.com/documentation/homeextensions/homenavigator.md",
+          "final_url": "https://developer.apple.com/documentation/homeextensions/homenavigator.md",
+          "sha256": "c999883c1fc520c8476cb84d23d85e94998af8a699ece0fc2164d5041e9b92af",
+          "retrieved_at": "2026-11-01T23:34:48.853067+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Overview: accessed through HomeContext.navigator; topic push(_:title:) pushes a page onto the Home app's navigation stack."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homeaccessorysettingsprovider",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homeaccessorysettingsprovider.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homeaccessorysettingsprovider.json",
+          "sha256": "92ba94f58bb34cf3f6cb0c1e7a2f48cada483bfc4d1247c3955cd67c2e79f403",
+          "retrieved_at": "2026-11-01T23:34:49.020593+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Overview: settings(context:for:) returns a fresh snapshot, settingsDidChange(changes:context:for:) applies changes, provider stores no values; value casts Bool/NSNumber/String, information settings never in the dictionary; bulleted rules (fast, called on appear and after every change; write only received settings; await write; return nil; per-snapshot label/isEnabled/isHidden; string label clears detailedLabel; unique identifiers across providers)."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homeaccessorysettingsprovider",
+          "retrieval_url": "https://developer.apple.com/documentation/homeextensions/homeaccessorysettingsprovider.md",
+          "final_url": "https://developer.apple.com/documentation/homeextensions/homeaccessorysettingsprovider.md",
+          "sha256": "510e5fb4769b130200f396334f48ed23ace22094d3bea727681a6233bfc73c58",
+          "retrieved_at": "2026-11-01T23:34:49.157854+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Overview: settings(context:for:) returns a fresh snapshot, settingsDidChange(changes:context:for:) applies changes, provider stores no values; value casts Bool/NSNumber/String, information settings never in the dictionary; bulleted rules (fast, called on appear and after every change; write only received settings; await write; return nil; per-snapshot label/isEnabled/isHidden; string label clears detailedLabel; unique identifiers across providers)."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homeaccessorysettingscontainer",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homeaccessorysettingscontainer.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homeaccessorysettingscontainer.json",
+          "sha256": "6d0fee6ec0db91d2473140bf78762e4d92d27e02acb161c42a8639699ffecf29",
+          "retrieved_at": "2026-11-01T23:34:49.455051+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Overview: one property per setting with the five property wrappers; projected values in availableSettings in display order; create a new container on each settings(context:for:) call."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homeaccessorysettingscontainer",
+          "retrieval_url": "https://developer.apple.com/documentation/homeextensions/homeaccessorysettingscontainer.md",
+          "final_url": "https://developer.apple.com/documentation/homeextensions/homeaccessorysettingscontainer.md",
+          "sha256": "3f3f368895b87bd5ecc7e8d801bff8881805f296397fb7689cbbad628a297fb5",
+          "retrieved_at": "2026-11-01T23:34:49.581435+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Overview: one property per setting with the five property wrappers; projected values in availableSettings in display order; create a new container on each settings(context:for:) call."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/anyhomeaccessorysettingscontainer",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/anyhomeaccessorysettingscontainer.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/anyhomeaccessorysettingscontainer.json",
+          "sha256": "8b47ddc448ac17cf3a76d297b05501dd958c3e806e54e4d1fb0c479f90c4ed86",
+          "retrieved_at": "2026-11-01T23:34:49.791667+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. No abstract; topic init(erasing: some HomeAccessorySettingsContainer)."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/anyhomeaccessorysettingscontainer",
+          "retrieval_url": "https://developer.apple.com/documentation/homeextensions/anyhomeaccessorysettingscontainer.md",
+          "final_url": "https://developer.apple.com/documentation/homeextensions/anyhomeaccessorysettingscontainer.md",
+          "sha256": "7a1d32f69a349043078c766269a76746d9f0f4d7814267a7d6d5daf7d8460a0a",
+          "retrieved_at": "2026-11-01T23:34:49.884158+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. No abstract; topic init(erasing: some HomeAccessorySettingsContainer)."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homeaccessorysettingscontext",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homeaccessorysettingscontext.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homeaccessorysettingscontext.json",
+          "sha256": "76c40948f1edd4ed45faca3f0cad1d97a30317ac36c7657eacd76c3ff7f10ba0",
+          "retrieved_at": "2026-11-01T23:34:50.026381+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Overview: holds resources such as a web service client, Matter handle or cached identifiers, passed on every call; empty context type when none is needed."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homeaccessorysettingscontext",
+          "retrieval_url": "https://developer.apple.com/documentation/homeextensions/homeaccessorysettingscontext.md",
+          "final_url": "https://developer.apple.com/documentation/homeextensions/homeaccessorysettingscontext.md",
+          "sha256": "ae0adf65b9a0f8d27bba1a611048859951104e8a25befca951ed550f5da4f266",
+          "retrieved_at": "2026-11-01T23:34:50.160835+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Overview: holds resources such as a web service client, Matter handle or cached identifiers, passed on every call; empty context type when none is needed."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homeaccessorysettings",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homeaccessorysettings.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homeaccessorysettings.json",
+          "sha256": "f8e14568d65a54e9e2d92cd05929082d3573dd8f73e67ac2d9f9ead0ef0a3c22",
+          "retrieved_at": "2026-11-01T23:34:50.316153+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Overview: provide a provider and a context; /references init(context:provider:filter:) fragments include filter: HomeAccessoryConfiguration.SupportsAccessory."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homeaccessorysettings",
+          "retrieval_url": "https://developer.apple.com/documentation/homeextensions/homeaccessorysettings.md",
+          "final_url": "https://developer.apple.com/documentation/homeextensions/homeaccessorysettings.md",
+          "sha256": "a9e596afc78b3f9ea502cc645c15311eeaef30399d9caf1b193d5690ef84b1a6",
+          "retrieved_at": "2026-11-01T23:34:50.455104+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Overview: provide a provider and a context; /references init(context:provider:filter:) fragments include filter: HomeAccessoryConfiguration.SupportsAccessory."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homeaccessoryconfiguration",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homeaccessoryconfiguration.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homeaccessoryconfiguration.json",
+          "sha256": "d8ba2b0744139a39f1b3fd419fbe502687a9cfdff871e8c32410d82171113bd0",
+          "retrieved_at": "2026-11-01T23:34:50.616573+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Overview: configuration view and optionally a filter; topics init(id:content:filter:), SupportsAccessory, hidesNavigationTitleInLandscape(_:) (navigation title and app icon in landscape)."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homeaccessoryconfiguration",
+          "retrieval_url": "https://developer.apple.com/documentation/homeextensions/homeaccessoryconfiguration.md",
+          "final_url": "https://developer.apple.com/documentation/homeextensions/homeaccessoryconfiguration.md",
+          "sha256": "7b59a75e9d76347773fca8dedde856b4ec13bc9f23a71d149ee898ce9e07cb90",
+          "retrieved_at": "2026-11-01T23:34:50.746823+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Overview: configuration view and optionally a filter; topics init(id:content:filter:), SupportsAccessory, hidesNavigationTitleInLandscape(_:) (navigation title and app icon in landscape)."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homeaccessorysetting",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homeaccessorysetting.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homeaccessorysetting.json",
+          "sha256": "324431299c5274d5b861d187748a30eb308bc0a8e88f7a9c5348f28bc19fa897",
+          "retrieved_at": "2026-11-01T23:34:50.974019+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Overview: don't adopt directly; use the setting property wrappers; id: String."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homeaccessorysetting",
+          "retrieval_url": "https://developer.apple.com/documentation/homeextensions/homeaccessorysetting.md",
+          "final_url": "https://developer.apple.com/documentation/homeextensions/homeaccessorysetting.md",
+          "sha256": "bb2e219fe04be46bfd3933b5d304115e5221cc2978bf1629358a0a18c816486b",
+          "retrieved_at": "2026-11-01T23:34:51.118686+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Overview: don't adopt directly; use the setting property wrappers; id: String."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homeaccessorysettinglabel",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homeaccessorysettinglabel.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homeaccessorysettinglabel.json",
+          "sha256": "c242303e21fc2ba783df0d7847108c1424d54f65a50335a24f89681fa68daf5b",
+          "retrieved_at": "2026-11-01T23:34:51.272985+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Abstract and declaration support the Topics description."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homeaccessorysettinglabel",
+          "retrieval_url": "https://developer.apple.com/documentation/homeextensions/homeaccessorysettinglabel.md",
+          "final_url": "https://developer.apple.com/documentation/homeextensions/homeaccessorysettinglabel.md",
+          "sha256": "420f5a20e99e3777b824a932c4a1c37c5dc41d1b485762efeeb50e24d4c15d3f",
+          "retrieved_at": "2026-11-01T23:34:51.516996+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Abstract and declaration support the Topics description."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homeaccessoryenumsetting",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homeaccessoryenumsetting.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homeaccessoryenumsetting.json",
+          "sha256": "30122c2bdc4281102e650f464b8d5744fa3fdce72f8fb344152e0f1cba692589",
+          "retrieved_at": "2026-11-01T23:34:51.904283+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Abstract and declaration support the Topics description."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homeaccessoryenumsetting",
+          "retrieval_url": "https://developer.apple.com/documentation/homeextensions/homeaccessoryenumsetting.md",
+          "final_url": "https://developer.apple.com/documentation/homeextensions/homeaccessoryenumsetting.md",
+          "sha256": "6bd06229ffd6ea29e0fc9217287c37800694806ae5bdb381b866ef1bbc32411b",
+          "retrieved_at": "2026-11-01T23:34:52.029629+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Abstract and declaration support the Topics description."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homeaccessoryenumsettingconstant",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homeaccessoryenumsettingconstant.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homeaccessoryenumsettingconstant.json",
+          "sha256": "e46fc831b2b7955298c0e07a781f047d00a78b8eb02a1e76e64d86398cd97ac8",
+          "retrieved_at": "2026-11-01T23:34:52.181594+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Abstract and declaration support the Topics description."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homeaccessoryenumsettingconstant",
+          "retrieval_url": "https://developer.apple.com/documentation/homeextensions/homeaccessoryenumsettingconstant.md",
+          "final_url": "https://developer.apple.com/documentation/homeextensions/homeaccessoryenumsettingconstant.md",
+          "sha256": "0f5c7cb5a4a686a00d92a506a1bf984d018544fb454e7e1f588df05b43351802",
+          "retrieved_at": "2026-11-01T23:34:52.413489+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Abstract and declaration support the Topics description."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homeaccessoryinformationsetting",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homeaccessoryinformationsetting.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homeaccessoryinformationsetting.json",
+          "sha256": "b5cb1efdb54b6605d839c8e6bc9b95927112b5743d59530073f30208a319a9da",
+          "retrieved_at": "2026-11-01T23:34:52.558676+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Abstract and declaration support the Topics description."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homeaccessoryinformationsetting",
+          "retrieval_url": "https://developer.apple.com/documentation/homeextensions/homeaccessoryinformationsetting.md",
+          "final_url": "https://developer.apple.com/documentation/homeextensions/homeaccessoryinformationsetting.md",
+          "sha256": "9c9b0bf4d6297afafd660fad62b18f707b37aaa3dd984f3e02af78ecabb9a336",
+          "retrieved_at": "2026-11-01T23:34:52.690286+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Abstract and declaration support the Topics description."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homeaccessoryrangesetting",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homeaccessoryrangesetting.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homeaccessoryrangesetting.json",
+          "sha256": "db8bf44d16a4d27f23b521ba6a6a32c4940376422725abe40816db5fa9a5201b",
+          "retrieved_at": "2026-11-01T23:34:53.022944+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Abstract and declaration support the Topics description."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homeaccessoryrangesetting",
+          "retrieval_url": "https://developer.apple.com/documentation/homeextensions/homeaccessoryrangesetting.md",
+          "final_url": "https://developer.apple.com/documentation/homeextensions/homeaccessoryrangesetting.md",
+          "sha256": "7abc0d04529be5e813df1bf3d6b412241e57b3a193ff4ee2a532d9d72b843522",
+          "retrieved_at": "2026-11-01T23:34:53.157093+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Abstract and declaration support the Topics description."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homeaccessoryrangesettingdescriptor",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homeaccessoryrangesettingdescriptor.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homeaccessoryrangesettingdescriptor.json",
+          "sha256": "2f98379803173130dffca78eab7d63d28b231e6066c217d9f0e97a3fbc046150",
+          "retrieved_at": "2026-11-01T23:34:53.462103+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Abstract and declaration support the Topics description."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homeaccessoryrangesettingdescriptor",
+          "retrieval_url": "https://developer.apple.com/documentation/homeextensions/homeaccessoryrangesettingdescriptor.md",
+          "final_url": "https://developer.apple.com/documentation/homeextensions/homeaccessoryrangesettingdescriptor.md",
+          "sha256": "13ea23f69f943afc353f5dffc907b89c3178424b08a34a44e60231d0e5ec3eb4",
+          "retrieved_at": "2026-11-01T23:34:53.593511+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Abstract and declaration support the Topics description."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homeaccessorytextfieldsetting",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homeaccessorytextfieldsetting.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homeaccessorytextfieldsetting.json",
+          "sha256": "739b8797205040c25d32e691aa897c7b7d71470e186e4b6c14a27828f901c9de",
+          "retrieved_at": "2026-11-01T23:34:53.753935+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Abstract and declaration support the Topics description."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homeaccessorytextfieldsetting",
+          "retrieval_url": "https://developer.apple.com/documentation/homeextensions/homeaccessorytextfieldsetting.md",
+          "final_url": "https://developer.apple.com/documentation/homeextensions/homeaccessorytextfieldsetting.md",
+          "sha256": "74f99a359063016b24e72819fac12c98119d023fc00f91906bff1f6fbef80cc6",
+          "retrieved_at": "2026-11-01T23:34:53.887793+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Abstract and declaration support the Topics description."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homeaccessorytogglesetting",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homeaccessorytogglesetting.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homeaccessorytogglesetting.json",
+          "sha256": "a6978067982c8508efb8a151302c872b3c12e2867d19b3018e7c8db69492a1f5",
+          "retrieved_at": "2026-11-01T23:34:54.136511+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Abstract and declaration support the Topics description."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homeaccessorytogglesetting",
+          "retrieval_url": "https://developer.apple.com/documentation/homeextensions/homeaccessorytogglesetting.md",
+          "final_url": "https://developer.apple.com/documentation/homeextensions/homeaccessorytogglesetting.md",
+          "sha256": "427baea5db903fd35b6f4fd65a67206a0e1ff08487d4eb33ab4397c7b3fd5916",
+          "retrieved_at": "2026-11-01T23:34:54.386244+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Abstract and declaration support the Topics description."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homecontent",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homecontent.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homecontent.json",
+          "sha256": "a3dc49178aa75d4372f0aaa42f8d0680181ad6eb3c4b09a129c4ff573432848f",
+          "retrieved_at": "2026-11-01T23:34:54.603074+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Overview: don't add new conforming types; use HomeAccessoryConfiguration, HomeAccessorySettings, HomeAccessoryHelpGuide, HomeAccessoryTroubleshooting in body."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homecontent",
+          "retrieval_url": "https://developer.apple.com/documentation/homeextensions/homecontent.md",
+          "final_url": "https://developer.apple.com/documentation/homeextensions/homecontent.md",
+          "sha256": "48ce7bf3431101557a11d4c92db9f294773c06560335ffdba26ea2abe7b434eb",
+          "retrieved_at": "2026-11-01T23:34:54.743992+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Overview: don't add new conforming types; use HomeAccessoryConfiguration, HomeAccessorySettings, HomeAccessoryHelpGuide, HomeAccessoryTroubleshooting in body."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homecontentid",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homecontentid.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homecontentid.json",
+          "sha256": "275ae91263823f99fcc41828ee39ec0fac0ceee9bc3c4edbe7470d93c0b13722",
+          "retrieved_at": "2026-11-01T23:34:54.847272+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Abstract and declaration support the Topics description."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homecontentid",
+          "retrieval_url": "https://developer.apple.com/documentation/homeextensions/homecontentid.md",
+          "final_url": "https://developer.apple.com/documentation/homeextensions/homecontentid.md",
+          "sha256": "c901e2859063d7290f46670f252ac9404d5f0c6b53d1d043eb16e0e3f08c5317",
+          "retrieved_at": "2026-11-01T23:34:55.034661+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Abstract and declaration support the Topics description."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homeaccessoryhelpguide",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homeaccessoryhelpguide.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homeaccessoryhelpguide.json",
+          "sha256": "31391437910725f5fffe3ed8dc0ac9b8bde30de86bfafcb2ab7aedd26874e507",
+          "retrieved_at": "2026-11-01T23:34:55.183786+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Topics init(id:content:filter:), SupportsAccessory, contactAccessoryManufacturerLink()."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homeaccessoryhelpguide",
+          "retrieval_url": "https://developer.apple.com/documentation/homeextensions/homeaccessoryhelpguide.md",
+          "final_url": "https://developer.apple.com/documentation/homeextensions/homeaccessoryhelpguide.md",
+          "sha256": "b3a4b005c2a9b8a09354765a04b6f1323f27c01811d4c3ec6eae73d37d2036b0",
+          "retrieved_at": "2026-11-01T23:34:55.328140+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Topics init(id:content:filter:), SupportsAccessory, contactAccessoryManufacturerLink()."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homeaccessorytroubleshooting",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homeaccessorytroubleshooting.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/homeaccessorytroubleshooting.json",
+          "sha256": "20410aea76d4ece98ee68efa10f7154b88a2fec46ab6ee2b18f044e93dc2acb8",
+          "retrieved_at": "2026-11-01T23:34:55.559718+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Topics init(content:filter:) (no HomeContentID), SupportsAccessory, contactAccessoryManufacturerLink()."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/homeaccessorytroubleshooting",
+          "retrieval_url": "https://developer.apple.com/documentation/homeextensions/homeaccessorytroubleshooting.md",
+          "final_url": "https://developer.apple.com/documentation/homeextensions/homeaccessorytroubleshooting.md",
+          "sha256": "009cdae1edeb5bcb66cb7bce8a2c8a7de208b1037d958e2fea3f3cf2aad315d0",
+          "retrieved_at": "2026-11-01T23:34:55.665233+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "JSON /metadata/platforms (iOS 27.0, iPadOS 27.0, Mac Catalyst 27.0) and /abstract. Topics init(content:filter:) (no HomeContentID), SupportsAccessory, contactAccessoryManufacturerLink()."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/guidestephostviewcontroller",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/guidestephostviewcontroller.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/homeextensions/guidestephostviewcontroller.json",
+          "sha256": "97e536e4c26a69df9213b1f309c2a79cc0daa548e0d990214b6c40f95d43fc2d",
+          "retrieved_at": "2026-11-01T23:34:55.825604+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "No abstract and no /metadata/platforms; /relationshipsSections inheritsFrom UIKit/UIViewController; declaration '@MainActor @objc @preconcurrency class'."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/homeextensions/guidestephostviewcontroller",
+          "retrieval_url": "https://developer.apple.com/documentation/homeextensions/guidestephostviewcontroller.md",
+          "final_url": "https://developer.apple.com/documentation/homeextensions/guidestephostviewcontroller.md",
+          "sha256": "ff8a557171007f03b2dacc7359982268d1ee10e5300579ddd8d57c70e006a722",
+          "retrieved_at": "2026-11-01T23:34:55.947547+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "No abstract and no /metadata/platforms; /relationshipsSections inheritsFrom UIKit/UIViewController; declaration '@MainActor @objc @preconcurrency class'."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/bundleresources/information-property-list/nshomeextensionmanufacturer",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/bundleresources/information-property-list/nshomeextensionmanufacturer.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/bundleresources/information-property-list/nshomeextensionmanufacturer.json",
+          "sha256": "8e0be542f10e6dcd81a97926dc648fd7862dc0627797d38e32faef60b3414975",
+          "retrieved_at": "2026-11-01T23:36:04.578756+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "JSON /metadata/platforms (iOS 27.2, iPadOS 27.2) and /primaryContentSections/0/details/value/0/baseType string; Markdown Discussion: include in a Home app extension's information property list; optional."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/bundleresources/information-property-list/nshomeextensionmanufacturer",
+          "retrieval_url": "https://developer.apple.com/documentation/bundleresources/information-property-list/nshomeextensionmanufacturer.md",
+          "final_url": "https://developer.apple.com/documentation/bundleresources/information-property-list/nshomeextensionmanufacturer.md",
+          "sha256": "c6ec127319d525896dc5d00d94fb71edcb9e486de1ca443feb77504fe38e9319",
+          "retrieved_at": "2026-11-01T23:36:04.765108+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "JSON /metadata/platforms (iOS 27.2, iPadOS 27.2) and /primaryContentSections/0/details/value/0/baseType string; Markdown Discussion: include in a Home app extension's information property list; optional."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/bundleresources/information-property-list/exappextensionattributes",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/bundleresources/information-property-list/exappextensionattributes.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/bundleresources/information-property-list/exappextensionattributes.json",
+          "sha256": "3ee4801f573fc4233a98b22723c0b7ca7562d195c765bbc8a9801373ed4809b3",
+          "retrieved_at": "2026-11-01T23:36:05.012095+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "JSON /metadata/platforms (iOS 27.2, iPadOS 27.2), /primaryContentSections/0/details/value/0/baseType dictionary; Markdown Discussion: Home app extension Info.plist, Xcode adds it, requires EXExtensionPointIdentifier."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/bundleresources/information-property-list/exappextensionattributes",
+          "retrieval_url": "https://developer.apple.com/documentation/bundleresources/information-property-list/exappextensionattributes.md",
+          "final_url": "https://developer.apple.com/documentation/bundleresources/information-property-list/exappextensionattributes.md",
+          "sha256": "27c7fcb63b58497d3a626e0bd712b49c427a6b3b056faacb3c2232c9868659ec",
+          "retrieved_at": "2026-11-01T23:36:05.292679+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "JSON /metadata/platforms (iOS 27.2, iPadOS 27.2), /primaryContentSections/0/details/value/0/baseType dictionary; Markdown Discussion: Home app extension Info.plist, Xcode adds it, requires EXExtensionPointIdentifier."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.homekit",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/bundleresources/entitlements/com.apple.developer.homekit.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/bundleresources/entitlements/com.apple.developer.homekit.json",
+          "sha256": "d5cc5f895b94eefffff5a83559374d3616aab5ae7a32e63d8216e0a6cd8b59b1",
+          "retrieved_at": "2026-11-01T23:36:05.431106+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "JSON /metadata/title 'HomeKit Entitlement', /primaryContentSections/0/details/value/0/baseType boolean; confirms the identifier the page names."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.homekit",
+          "retrieval_url": "https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.homekit.md",
+          "final_url": "https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.homekit.md",
+          "sha256": "59729e6f356b5b11b04189622b6f707e21395e9cc5c04e0a57e437b7512b7ec0",
+          "retrieved_at": "2026-11-01T23:36:05.683284+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "JSON /metadata/title 'HomeKit Entitlement', /primaryContentSections/0/details/value/0/baseType boolean; confirms the identifier the page names."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.matter.allow-setup-payload",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/bundleresources/entitlements/com.apple.developer.matter.allow-setup-payload.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/bundleresources/entitlements/com.apple.developer.matter.allow-setup-payload.json",
+          "sha256": "00533482c1ac9f15f35144845a3841a621a45023f84f687bef49778abc8703fe",
+          "retrieved_at": "2026-11-01T23:36:06.023613+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "JSON /metadata/title 'Matter Allow Setup Payload', /primaryContentSections/0/details/name com.apple.developer.matter.allow-setup-payload; confirms the identifier the page names."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.matter.allow-setup-payload",
+          "retrieval_url": "https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.matter.allow-setup-payload.md",
+          "final_url": "https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.developer.matter.allow-setup-payload.md",
+          "sha256": "5ef4ff248d549a09cf1a1b2c232ca9ebf9a7e12b7e172941f6f2bad53f15f3ed",
+          "retrieved_at": "2026-11-01T23:36:06.337685+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "JSON /metadata/title 'Matter Allow Setup Payload', /primaryContentSections/0/details/name com.apple.developer.matter.allow-setup-payload; confirms the identifier the page names."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27_2-release-notes",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/ios-ipados-release-notes/ios-ipados-27_2-release-notes.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/ios-ipados-release-notes/ios-ipados-27_2-release-notes.json",
+          "sha256": "974138315613782a87824cea95504392fcfd49a963b30e7b2a60d270be9909f0",
+          "retrieved_at": "2026-11-01T23:36:37.539726+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "Markdown Overview: the iOS & iPadOS 27.2 SDK comes bundled with Xcode 27.2. Searched the full note for 'home' and 'accessor': no Home Extensions entry."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27_2-release-notes",
+          "retrieval_url": "https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27_2-release-notes.md",
+          "final_url": "https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27_2-release-notes.md",
+          "sha256": "7a9757f67c75e62434b8868de53d598ba757b8742ae4dd5200626f77048c2a11",
+          "retrieved_at": "2026-11-01T23:36:37.598841+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "Markdown Overview: the iOS & iPadOS 27.2 SDK comes bundled with Xcode 27.2. Searched the full note for 'home' and 'accessor': no Home Extensions entry."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/xcode-release-notes/xcode-27_2-release-notes",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/xcode-release-notes/xcode-27_2-release-notes.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/xcode-release-notes/xcode-27_2-release-notes.json",
+          "sha256": "b3112f92f710a579e1bed564e3b24e5985d389778bd321414d6b320626fb0ff2",
+          "retrieved_at": "2026-11-01T23:36:37.678874+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "Searched the full note for 'home': no Home Extensions entry; supports only the negative finding in qualifications."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/xcode-release-notes/xcode-27_2-release-notes",
+          "retrieval_url": "https://developer.apple.com/documentation/xcode-release-notes/xcode-27_2-release-notes.md",
+          "final_url": "https://developer.apple.com/documentation/xcode-release-notes/xcode-27_2-release-notes.md",
+          "sha256": "dfca14a3f276af6a6380c36bd47ad94e8ffe862bfcf4ca1761c5a4b3a15e1c57",
+          "retrieved_at": "2026-11-01T23:36:37.827336+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "Searched the full note for 'home': no Home Extensions entry; supports only the negative finding in qualifications."
+        }
+      ]
+    },
+    {
+      "path": "documentation/VisionEntitlementServices.md",
+      "as_of": "2026-11-01",
+      "full_body_reviewed": true,
+      "status": "verified-qualified",
+      "content_sha256": "ac9697c5a2953b02aef17086a23b4384585e086e66facf0508ac06301fab6bbd",
+      "headings_reviewed": [
+        "VisionEntitlementServices",
+        "Overview",
+        "License requirements",
+        "Checking the license",
+        "Compute category status",
+        "Entitlement cases",
+        "Topics",
+        "Reading license state",
+        "App Compute Category",
+        "Sources"
+      ],
+      "sections_reviewed": [
+        {
+          "heading": "VisionEntitlementServices",
+          "line": 1,
+          "source_urls": [
+            "https://developer.apple.com/documentation/visionentitlementservices",
+            "https://developer.apple.com/documentation/visionos/building-spatial-experiences-for-business-apps-with-enterprise-apis"
+          ],
+          "assessment": "New page. Lead is an original summary of the root abstract and the article's verification section. Platforms line visionOS 26.0+ matches root /metadata/platforms and every captured symbol (all visionOS 26.0 except the visualFidelity case, which the Entitlement cases section qualifies). No other platform is listed; the SDK interface marks iOS, macOS, tvOS and watchOS unavailable."
+        },
+        {
+          "heading": "Overview",
+          "line": 7,
+          "source_urls": [
+            "https://developer.apple.com/documentation/visionentitlementservices",
+            "https://developer.apple.com/documentation/visionos/building-spatial-experiences-for-business-apps-with-enterprise-apis"
+          ],
+          "assessment": "Managed entitlements unlocked by a signed license (root Overview); entitlement file plus license file (article, Configure your app's Xcode project); main camera access, barcode detection and App Compute Category examples (root Overview). Read-only access is attributed to Apple (root Overview). The statement that the framework has no API to request, install or renew a license is checked against the full public declaration set in the root topics and the XROS27.0 SDK swiftinterface. Local link visionOS.md exists and its Enterprise APIs for visionOS section links the article."
+        },
+        {
+          "heading": "License requirements",
+          "line": 13,
+          "source_urls": [
+            "https://developer.apple.com/documentation/visionos/building-spatial-experiences-for-business-apps-with-enterprise-apis"
+          ],
+          "assessment": "Every fact traced to the article's Request the entitlements and Configure your app's Xcode project sections: Account Holder of Apple Developer Program or Apple Developer Enterprise Program; individuals cannot request; business setting only and per-API criteria; private distribution as proprietary in-house or custom apps through Apple Business Manager; Development Only license at team level on registered test devices versus distribution license per App ID; download from the Services tab of Certificates, Identifiers & Profiles; license expiration and renewal. Paraphrased, not copied."
+        },
+        {
+          "heading": "Checking the license",
+          "line": 19,
+          "source_urls": [
+            "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails",
+            "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/shared",
+            "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/licensestatus",
+            "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/expirationtimestamp",
+            "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/approvedentitlements",
+            "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/isapproved(for:)",
+            "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/status",
+            "https://developer.apple.com/documentation/visionos/building-spatial-experiences-for-business-apps-with-enterprise-apis"
+          ],
+          "assessment": "shared, licenseStatus, expirationTimestamp (Date) and approvedEntitlements declarations match each symbol page. Status cases valid, notFound, invalidFormat, expired, notAuthorized match the Status page. isApproved(for:) requires both licensing and being built with the entitlement, per its abstract; the sentence about an entitlement missing from the .entitlements file restates that conjunction. One Swift fence, type-checked (see code_examples)."
+        },
+        {
+          "heading": "Compute category status",
+          "line": 39,
+          "source_urls": [
+            "https://developer.apple.com/documentation/visionentitlementservices/appcomputecategory",
+            "https://developer.apple.com/documentation/visionentitlementservices/appcomputecategory/shared",
+            "https://developer.apple.com/documentation/visionentitlementservices/appcomputecategory/status-swift.property",
+            "https://developer.apple.com/documentation/visionentitlementservices/appcomputecategory/status-swift.enum",
+            "https://developer.apple.com/documentation/visionos/building-spatial-experiences-for-business-apps-with-enterprise-apis"
+          ],
+          "assessment": "CPU/GPU versus thermal and battery tradeoff from the article's platform-control list. Enabling while a properly licensed app with the entitlement is open, and the high/normal/notAuthorized meanings, paraphrase the AppComputeCategory and status-swift.property abstracts. Status cases match the Status-swift.enum page."
+        },
+        {
+          "heading": "Entitlement cases",
+          "line": 43,
+          "source_urls": [
+            "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement",
+            "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/allcases",
+            "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/appcomputecategory",
+            "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/appprotectedcontent",
+            "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/barcodedetection",
+            "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/cameraregion",
+            "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/maincameraaccess",
+            "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/neuralengineaccess",
+            "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/objecttrackingadjustment",
+            "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/screencapturepassthrough",
+            "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/sharedcoordinatespace",
+            "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/uvcdeviceaccess",
+            "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/visualfidelity",
+            "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/windowbodyfollow"
+          ],
+          "assessment": "Twelve cases and their spelling match the EnterpriseEntitlement topicSections and the SDK interface; listed in DocC's alphabetical order. allCases wording follows its abstract. Per-case pages: visualFidelity introducedAt visionOS 27.0, the other eleven 26.0. The XROS27.0 SDK interface declares visualFidelity with no case-level @available, and a -target arm64-apple-xros26.0 type check of a file using it exited 0, which supports the compiler sentence. No entitlement key string is mapped to any case."
+        },
+        {
+          "heading": "Topics",
+          "line": 49,
+          "source_urls": [
+            "https://developer.apple.com/documentation/visionentitlementservices"
+          ],
+          "assessment": "Group names and order (Reading license state, App Compute Category) match the root topicSections. Navigation heading."
+        },
+        {
+          "heading": "Reading license state",
+          "line": 51,
+          "source_urls": [
+            "https://developer.apple.com/documentation/visionentitlementservices",
+            "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails",
+            "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement",
+            "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/status"
+          ],
+          "assessment": "Three members match the root group; descriptions paraphrase the EnterpriseLicenseDetails abstract and the enum contents (the two enums have no abstract). Links use the lowercase canonical routes captured with status 200."
+        },
+        {
+          "heading": "App Compute Category",
+          "line": 56,
+          "source_urls": [
+            "https://developer.apple.com/documentation/visionentitlementservices",
+            "https://developer.apple.com/documentation/visionentitlementservices/appcomputecategory",
+            "https://developer.apple.com/documentation/visionentitlementservices/appcomputecategory/status-swift.enum"
+          ],
+          "assessment": "Two members match the root group; descriptions paraphrase the AppComputeCategory abstract and list the Status cases. Links captured with status 200."
+        },
+        {
+          "heading": "Sources",
+          "line": 60,
+          "source_urls": [
+            "https://developer.apple.com/documentation/visionentitlementservices",
+            "https://developer.apple.com/documentation/visionos/building-spatial-experiences-for-business-apps-with-enterprise-apis",
+            "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails",
+            "https://developer.apple.com/documentation/visionentitlementservices/appcomputecategory"
+          ],
+          "assessment": "Four URLs, each captured with status 200 on November 1, 2026."
+        }
+      ],
+      "code_examples": {
+        "fences_reviewed": 1,
+        "verification": "The single swift fence (lines 25-37) was type-checked with `xcrun --sdk xros swiftc -typecheck -target arm64-apple-xros26.0` against XROS27.0.sdk (SDK build 24M361), Xcode 27.1 (27A9275), Apple Swift 6.4 (swiftlang-6.4.0.34.1): exit 0. Gate checked by planting a type error (assigning licenseStatus to Int), which exited 1. Not run on a device; no license or entitlement state was read at runtime."
+      },
+      "changes": [
+        "November 1, 2026: New page. Lead, Platforms line (visionOS 26.0+), Overview, License requirements, Checking the license with a type-checked Swift example, Compute category status, Entitlement cases with the visualFidelity visionOS 27.0 annotation and SDK discrepancy, Topics mirroring Apple's two groups, and Sources."
+      ],
+      "numerical_and_availability_checks": [
+        "Framework root /metadata/platforms: visionOS introducedAt 26.0 only; no beta or deprecation flags.",
+        "EnterpriseLicenseDetails, shared, licenseStatus, expirationTimestamp, approvedEntitlements, isApproved(for:), Status, EnterpriseEntitlement, allCases, AppComputeCategory, AppComputeCategory/shared, status-swift.property and Status-swift.enum: each visionOS introducedAt 26.0, no deprecatedAt.",
+        "EnterpriseEntitlement cases: eleven introducedAt visionOS 26.0; visualFidelity introducedAt visionOS 27.0 (per-case JSON, November 1, 2026).",
+        "XROS27.0.sdk VisionEntitlementServices.swiftinterface (sha256 34cc290c3bc813895a281cc4662ee7af06dc39495096245258bfcb8789190363): classes @available(visionOS 26.0, *) with iOS, macOS, tvOS and watchOS unavailable; EnterpriseEntitlement declares all twelve cases with no per-case availability, so visualFidelity inherits 26.0 in the interface. A type check of `EnterpriseLicenseDetails.EnterpriseEntitlement.visualFidelity` at -target arm64-apple-xros26.0 exited 0.",
+        "Status cases: valid, notFound, invalidFormat, expired, notAuthorized (five). AppComputeCategory.Status cases: normal, high, notAuthorized (three). EnterpriseEntitlement: twelve cases. Counts match DocC topicSections and the SDK interface.",
+        "visionOS 27 shipping status: metadata/releases.json records visionOS 27.2 shipping, released October 26, 2026 (read only, not re-verified here), so the 27.0 annotation describes a shipping release.",
+        "Technologies catalog: VisionEntitlementServices is item 45 of 51 in the App Frameworks group."
+      ],
+      "qualifications": [
+        "Live captures were retrieved on November 1, 2026 (UTC), the research cutoff of this review.",
+        "Apple's per-case reference (visualFidelity: visionOS 27.0) and the visionOS 27.0 SDK interface (no case-level annotation; compiler accepts the case when deploying to visionOS 26) disagree. The page reports both and points readers to allCases; how the case behaves on a visionOS 26 device was not tested.",
+        "The September 1, 2026 installed documentation set (asset build 10M13950) has no VisionEntitlementServices framework or EnterpriseLicenseDetails page, although the enterprise-APIs article in that set already names the framework. The API itself is annotated visionOS 26.0; the documentation pages are what is new, not the framework's availability.",
+        "The article's entitlement lists name ten entitlement keys; the enum has twelve cases. neuralEngineAccess and uvcDeviceAccess have no corresponding key in the captured article, and the page does not map any case to an entitlement key string.",
+        "The sentence that an entitlement listed in approvedEntitlements but absent from the app's .entitlements file fails isApproved(for:) is an inference from that method's abstract (licensed and built with the entitlement), not a separately documented statement.",
+        "The SDK interface prints licenseStatus, expirationTimestamp and approvedEntitlements as stored public var properties without { get }; the page follows Apple's statement that access is read-only and makes no claim about settability.",
+        "Licensing, eligibility and distribution facts come from one Apple article; no license request, license file or Apple Business Manager distribution was exercised.",
+        "Status \"verified-qualified\" is used because this is a new page with no prior text to correct; the brief's template default is \"corrected\"."
+      ],
+      "remaining_blockers": [],
+      "sources": [
+        {
+          "url": "https://developer.apple.com/documentation/visionentitlementservices",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices.json",
+          "sha256": "85ea8c66a3b187f6a2f943da89d5230f2bca39bc8795414c06c1a8493c7fcdf4",
+          "retrieved_at": "2026-11-01T23:34:25.850066+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/metadata/platforms/0 (visionOS introducedAt 26.0; only platform); /abstract (inspect visionOS Enterprise license state and approved managed entitlements); /primaryContentSections Overview (signed license on the device; main camera access, barcode detection, App Compute Category examples; read-only access; EnterpriseLicenseDetails/shared and AppComputeCategory/shared); /topicSections/0 \"Reading license state\" (EnterpriseLicenseDetails, EnterpriseEntitlement, Status) and /topicSections/1 \"App Compute Category\" (AppComputeCategory, Status-swift.enum)."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/visionentitlementservices",
+          "retrieval_url": "https://developer.apple.com/documentation/visionentitlementservices.md",
+          "final_url": "https://developer.apple.com/documentation/visionentitlementservices.md",
+          "sha256": "1b19327ec4ffebb9f0d4eed9c642594e7f8f02ab10da9e226271dcda686368b9",
+          "retrieved_at": "2026-11-01T23:34:25.983851+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "DocC Markdown alternative of the root: availability header visionOS 26.0, Overview paragraphs (read-only access, shared singletons), Topics groups and member order."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails.json",
+          "sha256": "408878047eb857fdf1dfb869349f9099b4755245d25dc64f7e27dcae2139ce67",
+          "retrieved_at": "2026-11-01T23:34:35.113357+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/metadata (Class, visionOS 26.0); /abstract (retrieve and inspect visionOS Enterprise License and Managed Entitlement status and validity); /topicSections: approvedEntitlements, expirationTimestamp, licenseStatus, isApproved(for:), shared, EnterpriseEntitlement, Status."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/shared",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails/shared.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails/shared.json",
+          "sha256": "abd9ed4217c7f3d42b76cb8e64cf309660a91c4ae83d87cee657ada15a91fb1a",
+          "retrieved_at": "2026-11-01T23:34:35.392853+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/metadata/platforms visionOS 26.0; declaration static let shared: EnterpriseLicenseDetails."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement.json",
+          "sha256": "9447abd9ad60fdc1bb5c06c14d85247c03673756e8b8b5c550b7d4a59cb972e7",
+          "retrieved_at": "2026-11-01T23:34:35.771876+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/metadata/platforms visionOS 26.0; /topicSections Enumeration Cases: twelve cases (appComputeCategory through windowBodyFollow, alphabetical) and Type Properties allCases; relationships Hashable, Equatable, RawRepresentable, CaseIterable."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/status",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails/status.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails/status.json",
+          "sha256": "483276795b0c354d5cd9589d9bfc19d011e7b2d7606c6b8ea29e0f4f6b92903d",
+          "retrieved_at": "2026-11-01T23:34:36.048622+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/metadata/platforms visionOS 26.0; /topicSections cases expired, invalidFormat, notAuthorized, notFound, valid; conforms to Equatable, Hashable."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/visionentitlementservices/appcomputecategory",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/appcomputecategory.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/appcomputecategory.json",
+          "sha256": "91b539147a6d9273d543eb97e07af0cb95e64d4898fc69380b7bdbcf81c89c78",
+          "retrieved_at": "2026-11-01T23:34:36.391425+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/metadata (Class, visionOS 26.0); /abstract (track App Compute Category settings and whether the system has finished enabling configurations triggered by a properly licensed app with the AppComputeCategory Enterprise entitlement being open); /topicSections status, shared, Status."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/visionentitlementservices/appcomputecategory/shared",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/appcomputecategory/shared.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/appcomputecategory/shared.json",
+          "sha256": "339e82c3b52f49de603e122d82c559933f6b51c9f20ffc7de02b403b2d436009",
+          "retrieved_at": "2026-11-01T23:34:36.780085+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/metadata/platforms visionOS 26.0; declaration static let shared: AppComputeCategory."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/visionentitlementservices/appcomputecategory/status-swift.enum",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/appcomputecategory/status-swift.enum.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/appcomputecategory/status-swift.enum.json",
+          "sha256": "f1f99993b595066100bfe43bfaa9907203f37208d769c64336adb7c835738eaf",
+          "retrieved_at": "2026-11-01T23:34:37.073703+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/metadata/platforms visionOS 26.0; /topicSections cases high, normal, notAuthorized."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/approvedentitlements",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails/approvedentitlements.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails/approvedentitlements.json",
+          "sha256": "961d274dd1a216793ce60da20253ae6dd89b1cd235cd550cdd74a8ccf3412d37",
+          "retrieved_at": "2026-11-01T23:34:48.344170+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/metadata/platforms visionOS 26.0; declaration var approvedEntitlements: [EnterpriseLicenseDetails.EnterpriseEntitlement]."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/expirationtimestamp",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails/expirationtimestamp.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails/expirationtimestamp.json",
+          "sha256": "294de20cf260c3e39888c9aa049b5d1cfc594e60da1924d317baa3bbf0bf1d39",
+          "retrieved_at": "2026-11-01T23:34:48.612245+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/metadata/platforms visionOS 26.0; declaration var expirationTimestamp: Date."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/licensestatus",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails/licensestatus.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails/licensestatus.json",
+          "sha256": "5a32eaf358b9f462bb7b0352f99f61f9a5a76bedfb20a51572b36d45b3be86d1",
+          "retrieved_at": "2026-11-01T23:34:48.984508+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/metadata/platforms visionOS 26.0; declaration var licenseStatus: EnterpriseLicenseDetails.Status."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/isapproved(for:)",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails/isapproved%28for%3A%29.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails/isapproved%28for%3A%29.json",
+          "sha256": "33e72d6423923c57165aef9baaa7bff8d5ffd6f7364418c48231d61a3a7748d5",
+          "retrieved_at": "2026-11-01T23:34:49.267770+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/metadata/platforms visionOS 26.0; /abstract (true when the app is licensed to use the EnterpriseEntitlement and was built with it); declaration func isApproved(for entitlement: EnterpriseLicenseDetails.EnterpriseEntitlement) -> Bool."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/visionentitlementservices/appcomputecategory/status-swift.property",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/appcomputecategory/status-swift.property.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/appcomputecategory/status-swift.property.json",
+          "sha256": "7494f319c21c9ab0c46ca4fe8c3a9ad04dae160f6561eb8838c3149938c843fa",
+          "retrieved_at": "2026-11-01T23:34:49.549105+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/metadata/platforms visionOS 26.0; /abstract (.high once the system has finished enabling the entitlement\\u2019s settings and they are in force, otherwise .normal; .notAuthorized without the appropriate license); declaration var status: AppComputeCategory.Status { get }."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/allcases",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/allcases.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/allcases.json",
+          "sha256": "e9706fd0347c8110bb7df6cfad511eda353aed02e6cd41373e67bd443694d933",
+          "retrieved_at": "2026-11-01T23:34:49.908966+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/abstract \"A collection of every entitlement case available on the current OS.\"; /metadata/platforms visionOS 26.0; declaration nonisolated static var allCases { get }."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/appcomputecategory",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/appcomputecategory.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/appcomputecategory.json",
+          "sha256": "f039e83482daa35e06eda454d60724411923c66238b7a69b5f177ff4d965f052",
+          "retrieved_at": "2026-11-01T23:35:03.423324+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/metadata/platforms/0: visionOS introducedAt 26.0; enumeration case declaration."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/appprotectedcontent",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/appprotectedcontent.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/appprotectedcontent.json",
+          "sha256": "a757476bea27b486c29444e1f312541352066d0ed04a2cf628c416769fca2716",
+          "retrieved_at": "2026-11-01T23:35:03.715746+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/metadata/platforms/0: visionOS introducedAt 26.0; enumeration case declaration."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/barcodedetection",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/barcodedetection.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/barcodedetection.json",
+          "sha256": "5feb4bbb6101dd3bc90202c6459e25c4b2bff7ca5b659f72dd96f7c3bd2b5cda",
+          "retrieved_at": "2026-11-01T23:35:04.069763+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/metadata/platforms/0: visionOS introducedAt 26.0; enumeration case declaration."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/cameraregion",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/cameraregion.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/cameraregion.json",
+          "sha256": "200e6a02da0748047972f898e3a01af56b8533148c81b31aa3641c95d7a38dfc",
+          "retrieved_at": "2026-11-01T23:35:04.360284+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/metadata/platforms/0: visionOS introducedAt 26.0; enumeration case declaration."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/maincameraaccess",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/maincameraaccess.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/maincameraaccess.json",
+          "sha256": "1abf019a6880e11cf76ca13295e6f8bb91d7c482d93b50870c8de4aa7470f1c4",
+          "retrieved_at": "2026-11-01T23:35:04.680656+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/metadata/platforms/0: visionOS introducedAt 26.0; enumeration case declaration."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/neuralengineaccess",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/neuralengineaccess.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/neuralengineaccess.json",
+          "sha256": "862c8d78980893659f9219595b7eebd082ffe7dfdfcf78d95f092c0cdbbbbd8a",
+          "retrieved_at": "2026-11-01T23:35:05.064133+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/metadata/platforms/0: visionOS introducedAt 26.0; enumeration case declaration."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/objecttrackingadjustment",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/objecttrackingadjustment.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/objecttrackingadjustment.json",
+          "sha256": "7cb96c5eb873b67d4311573a8e3e280ac311be8b063d300566818a4be6359da1",
+          "retrieved_at": "2026-11-01T23:35:05.316122+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/metadata/platforms/0: visionOS introducedAt 26.0; enumeration case declaration."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/screencapturepassthrough",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/screencapturepassthrough.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/screencapturepassthrough.json",
+          "sha256": "6709059dd75e41a8ad188e43c99678e0c3339473fa3341d1dddcf35ba21389cb",
+          "retrieved_at": "2026-11-01T23:35:05.623214+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/metadata/platforms/0: visionOS introducedAt 26.0; enumeration case declaration."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/sharedcoordinatespace",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/sharedcoordinatespace.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/sharedcoordinatespace.json",
+          "sha256": "aedec881159418b5d12739fb490dd06c3d7bcbb6320c3e2df141cab599ee3afb",
+          "retrieved_at": "2026-11-01T23:35:05.881178+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/metadata/platforms/0: visionOS introducedAt 26.0; enumeration case declaration."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/uvcdeviceaccess",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/uvcdeviceaccess.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/uvcdeviceaccess.json",
+          "sha256": "88a295878f293f91a030a2103927388ad62375262a50799a266b806ad95564a0",
+          "retrieved_at": "2026-11-01T23:35:06.185757+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/metadata/platforms/0: visionOS introducedAt 26.0; enumeration case declaration."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/visualfidelity",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/visualfidelity.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/visualfidelity.json",
+          "sha256": "e523822c39e791bf32f51aa712fb4b127e05083bb5d2b65582636ee9314f9210",
+          "retrieved_at": "2026-11-01T23:35:06.456992+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/metadata/platforms/0: visionOS introducedAt 27.0; enumeration case declaration."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/windowbodyfollow",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/windowbodyfollow.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/visionentitlementservices/enterpriselicensedetails/enterpriseentitlement/windowbodyfollow.json",
+          "sha256": "a7a81f2029b72bafc7e136c9a267767389cecd926be3f856bb6a3d2b98a2c9b9",
+          "retrieved_at": "2026-11-01T23:35:06.814544+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/metadata/platforms/0: visionOS introducedAt 26.0; enumeration case declaration."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/visionos/building-spatial-experiences-for-business-apps-with-enterprise-apis",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/visionos/building-spatial-experiences-for-business-apps-with-enterprise-apis.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/visionos/building-spatial-experiences-for-business-apps-with-enterprise-apis.json",
+          "sha256": "371f17558370cf64114bd93d612b44a0d027fd4ff84d39dcb9bf3ec4f5d698ce",
+          "retrieved_at": "2026-11-01T23:35:41.716307+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/primaryContentSections/0/content: Overview lists of sensor-access and platform-control entitlements (App Compute Category: increased CPU/GPU power, tradeoff of increased thermal usage and reduced battery life); \"Request the entitlements\" (Account Holder of Apple Developer Program or Apple Developer Enterprise Program; individuals cannot request; business setting only; per-API criteria; private distribution as proprietary in-house apps or custom apps through Apple Business Manager; Development Only license team-level across apps on registered test devices, distribution license per App ID); \"Configure your app\\u2019s Xcode project\" (entitlement file plus license file; download from Services tab of Certificates, Identifiers & Profiles; license expiration and renewal); \"Verify your app\\u2019s license and entitlements\" (VisionEntitlementServices licenseStatus and isApproved(for: .mainCameraAccess) check)."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/visionos/building-spatial-experiences-for-business-apps-with-enterprise-apis",
+          "retrieval_url": "https://developer.apple.com/documentation/visionos/building-spatial-experiences-for-business-apps-with-enterprise-apis.md",
+          "final_url": "https://developer.apple.com/documentation/visionos/building-spatial-experiences-for-business-apps-with-enterprise-apis.md",
+          "sha256": "fe2ad11e050543ff88f398b6aaa1980b82bd6ff77a67cfea2a4cb2eabd02a76c",
+          "retrieved_at": "2026-11-01T23:35:41.971220+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "DocC Markdown alternative of the article; same four sections as the JSON, read in full."
+        },
+        {
+          "url": "https://developer.apple.com/documentation/technologies",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/technologies.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/technologies.json",
+          "sha256": "92259ab23febdb458dfadf8369d9ae1c85fef1f67d76b047e9e1ee4325984651",
+          "retrieved_at": "2026-11-01T23:36:46.613475+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/sections/0/groups/0 (name \"App Frameworks\")/technologies/45: title VisionEntitlementServices, tags App Frameworks, visionOS, Entitlements, Enterprise, License; destination doc://com.apple.documentation/documentation/VisionEntitlementServices. Supports catalog placement only."
+        }
+      ],
+      "validation_artifacts": [
+        {
+          "id": "local-1",
+          "name": "installed-visionos27.0-VisionEntitlementServices.swiftinterface",
+          "kind": "installed-sdk",
+          "sha256": "34cc290c3bc813895a281cc4662ee7af06dc39495096245258bfcb8789190363",
+          "access": "Read from the locally installed Xcode 27.1 visionOS SDK; raw contents not redistributed.",
+          "scope": "Full public Swift interface: twelve EnterpriseEntitlement cases with no per-case availability, Status and AppComputeCategory.Status cases, class-level @available(visionOS 26.0, *) with iOS, macOS, tvOS and watchOS unavailable; basis for the compiler sentence and the code-fence type check. captured_at is approximate (time of reading, not separately logged).",
+          "provenance": {
+            "sdk_name": "visionOS",
+            "sdk_version": "27.0",
+            "sdk_build": "24M361",
+            "xcode_version": "27.1",
+            "xcode_build": "27A9275",
+            "sdk_relative_path": "System/Library/Frameworks/VisionEntitlementServices.framework/Modules/VisionEntitlementServices.swiftmodule/arm64e-apple-xros.swiftinterface"
+          },
+          "captured_at": "2026-11-01T23:37:00+00:00"
+        },
+        {
+          "id": "local-2",
+          "name": "installed-docset-10M13950-building-spatial-experiences-for-business-apps-with-enterprise-apis.json",
+          "kind": "installed-documentation-asset",
+          "sha256": "d0ef5f756a9b29536c50372a4aa7c886169ea5e0e8202d4778098f60c96268bf",
+          "access": "Extracted from the macOS-installed com.apple.MobileAsset.AppleDeveloperDocumentation asset; raw contents not redistributed.",
+          "scope": "Shows the enterprise-APIs article already named VisionEntitlementServices on September 1, 2026, while /documentation/visionentitlementservices and /documentation/visionentitlementservices/enterpriselicensedetails were absent from the index (NOT IN ASSET).",
+          "provenance": {
+            "asset_build": "10M13950",
+            "os_version": "27.0",
+            "xcode_version": "27.0",
+            "asset_id": "9fdbc6a2ba5e0388d3b6775794ebb1939f527020",
+            "cache_ref": "lsiUyQtXM3",
+            "doc_path": "/documentation/visionos/building-spatial-experiences-for-business-apps-with-enterprise-apis"
+          },
+          "captured_at": "2026-11-01T23:35:57+00:00"
+        }
+      ]
+    },
+    {
+      "path": "human-interface-guidelines/getting-started/iPhone-Duo.md",
+      "as_of": "2026-11-01",
+      "full_body_reviewed": true,
+      "status": "verified-qualified",
+      "content_sha256": "5f8a2d81929f129940da019285c6d2e9d00db63ea86dcbfc20e12d26e0b67113",
+      "headings_reviewed": [
+        "Designing for iPhone Duo",
+        "Overview",
+        "Topics",
+        "Best Practices",
+        "Dynamic layouts",
+        "Split views and arrangement views",
+        "Vertical controls",
+        "Validation",
+        "Resources",
+        "Developer Documentation",
+        "Videos"
+      ],
+      "sections_reviewed": [
+        {
+          "heading": "Designing for iPhone Duo",
+          "line": 1,
+          "source_urls": [
+            "https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo",
+            "https://developer.apple.com/design/human-interface-guidelines/getting-started"
+          ],
+          "assessment": "Title matches /metadata/title. Lead is an original paraphrase of /abstract (adapts to both displays, continuous experience as the device opens and closes). Platforms line 'iOS' is derived from the body (/content/3: still designing for iPhone; designing-for-ios patterns apply); the article carries no supported-platforms metadata. Getting started lists designing-for-iphone-duo."
+        },
+        {
+          "heading": "Overview",
+          "line": 7,
+          "source_urls": [
+            "https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo",
+            "https://developer.apple.com/documentation/technologyoverviews/preparing-your-app-for-iphone-duo",
+            "https://developer.apple.com/documentation/xcode/device-hub"
+          ],
+          "assessment": "Checked each claim against /content/1, /3, /5..7 (outer display used when closed; system puts toolbars and tab bars on the side; bars stay on the side when opened in landscape; hinge reduces space as it folds; outer camera in a corner, always visible, vertically aligned with side controls; inner camera behind the display, hidden until active), /content/10..13 (book, surface and edge poses; no per-pose layouts; compact width outer, regular width inner; expand rather than reinvent; Device Hub preview) and /content/19 ('wider and shorter than the display on other iPhone devices'). The September 9, 2026 date is the change-log entry at /content/84 and /metadata/customMetadata/alert-date. No display dimensions, ship date or hardware specifications are stated because no capture gives them."
+        },
+        {
+          "heading": "Topics",
+          "line": 21,
+          "source_urls": [
+            "https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo"
+          ],
+          "assessment": "Organizational heading; each child section assessed separately."
+        },
+        {
+          "heading": "Best Practices",
+          "line": 23,
+          "source_urls": [
+            "https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo"
+          ],
+          "assessment": "Five items checked against /content/15..20: resize with size classes, layout margins and safe area insets, no fixed widths or display-specific dependencies; same functionality and state across displays, optional extra hierarchy level on the inner display, Mail list versus list-and-message example; same controls and content in every pose with overflow allowed; system side placement for bars, outer display and inner landscape, standard components get it automatically; games may lock orientation but must fill the screen, consistent text and control sizes, prefer aspect-ratio change over letterbox or pillarbox, artwork in padding otherwise. Lead sentences reworded, not copied."
+        },
+        {
+          "heading": "Dynamic layouts",
+          "line": 35,
+          "source_urls": [
+            "https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo",
+            "https://developer.apple.com/documentation/technologyoverviews/preparing-your-app-for-iphone-duo",
+            "https://developer.apple.com/documentation/swiftui/reservedregion",
+            "https://developer.apple.com/documentation/uikit/uiview/reservedregion"
+          ],
+          "assessment": "Checked against /content/22 (margins, safe area insets, no fixed widths), /content/25..27 (reserved regions defined; comparison to iPad window controls; outer camera always present and expands into the Dynamic Island for Live Activities; inner camera present only when active and the UI moves aside; folding region present when partially open, dividing the inner display and excluding the center), /content/29 (alerts, context menus, sheets move for the fold; split views adjust column widths and margins; ReservedRegion and UIView.ReservedRegion for custom components), /content/30 (Notes split view, even grid columns, ReservedRegion to keep elements off center) and /content/32 (small adjustments). The Preparing article note confirms the fold region is active when partially open and inactive when fully open. Symbol pages exist under the names used."
+        },
+        {
+          "heading": "Split views and arrangement views",
+          "line": 49,
+          "source_urls": [
+            "https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo",
+            "https://developer.apple.com/documentation/technologyoverviews/preparing-your-app-for-iphone-duo",
+            "https://developer.apple.com/documentation/swiftui/arrangementview",
+            "https://developer.apple.com/documentation/uikit/uiarrangementviewcontroller"
+          ],
+          "assessment": "Checked against /content/34 (split view expands on the inner display, collapses to one pane on the outer display, as between regular and compact on other iPhones; adapts to reserved regions automatically), /content/37..39 (arrangement view definition; split horizontal when wider than tall, vertical when taller than wide; overlay stacks views and moves them to each side when partially folded), /content/41 (limit split axes; collapse overlay secondary), /content/43 (HStack/VStack to split, ZStack to overlay) and /content/44 (navigation containers outside). UIArrangementViewController overview and the Preparing article's 'Arrange views in different poses' agree."
+        },
+        {
+          "heading": "Vertical controls",
+          "line": 59,
+          "source_urls": [
+            "https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo",
+            "https://developer.apple.com/documentation/technologyoverviews/preparing-your-app-for-iphone-duo",
+            "https://developer.apple.com/documentation/swiftui/toolbaritemvisibilitypriority",
+            "https://developer.apple.com/documentation/uikit/uibarbuttonitemvisibilitypriority",
+            "https://developer.apple.com/documentation/swiftui/toolbarverticalcompressionbehavior",
+            "https://developer.apple.com/documentation/uikit/uiverticalbarcompressionbehavior",
+            "https://developer.apple.com/documentation/swiftui/toolbaroverflowmenu",
+            "https://developer.apple.com/documentation/uikit/uinavigationitem/additionaloverflowitems"
+          ],
+          "assessment": "Checked every item against /content/46..68: bars move to the side except inner display in portrait; side column holds Dynamic Island, status bar, toolbar with navigation buttons, and tab bar; Split View multitasking puts each app's controls on its outer edge; same position relative to the outer camera and same side in right-to-left languages; asymmetric content area and safe areas; consistent relative positions across poses; Back or Close at the top then Done, original groupings kept, system gap between top-bar and bottom-bar items; overflow from bottom to top by default, visibility priority for groups then items, Compose and New Note and badged items kept visible; default placement not overridden; full-width immersive non-scrolling layouts, Calculator, combined approach; ToolbarItemGroup and UIBarButtonItemGroup instead of fixed spacing; controls stay with their pane, Mail list controls above the leading pane; title and symbol for each non-text-only item, title used in overflow and expanded forms; text labels stay in a horizontal bar (the Preparing article adds that a title-only item is not presented vertically); navigation-focused views compress the toolbar into overflow by default, task-oriented views minimize the tab bar; system overflow menu, ellipsis reserved for overflow."
+        },
+        {
+          "heading": "Validation",
+          "line": 89,
+          "source_urls": [
+            "https://developer.apple.com/documentation/technologyoverviews/preparing-your-app-for-iphone-duo",
+            "https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo"
+          ],
+          "assessment": "Original checklist. Xcode 26 statement (linked inline to the article) is from the Preparing article overview ('When you build with Xcode 26 and earlier, your app doesn't extend under the status bar and camera'). Testing closed, open, partially folded and rotated, and checking views, sheets, popovers, side bar presentation and fold placement, follow 'Address common layout and resizing considerations'. The right-to-left item follows HIG /content/51. These are recommended checks, not reported test results."
+        },
+        {
+          "heading": "Resources",
+          "line": 97,
+          "source_urls": [
+            "https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo",
+            "https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications"
+          ],
+          "assessment": "Links follow the article's Related list (/content/70..74 and /references): Designing for iOS, Layout, Apple Design Resources (#ios-apps) and Screenshot specifications; Split views, Toolbars and Designing for games are HIG articles the body links (/content/20, /35, /60). Local relative targets exist in this repository. Screenshot specifications captured with status 200. Apple Design Resources could not be captured with the review tool (its JSON route returned 404); the link is taken from the HIG reference catalog only."
+        },
+        {
+          "heading": "Developer Documentation",
+          "line": 107,
+          "source_urls": [
+            "https://developer.apple.com/documentation/technologyoverviews/preparing-your-app-for-iphone-duo",
+            "https://developer.apple.com/documentation/xcode/device-hub",
+            "https://developer.apple.com/documentation/swiftui/reservedregion",
+            "https://developer.apple.com/documentation/uikit/uiview/reservedregion",
+            "https://developer.apple.com/documentation/swiftui/arrangementview",
+            "https://developer.apple.com/documentation/uikit/uiarrangementviewcontroller",
+            "https://developer.apple.com/documentation/swiftui/toolbaritemvisibilitypriority",
+            "https://developer.apple.com/documentation/uikit/uibarbuttonitemvisibilitypriority",
+            "https://developer.apple.com/documentation/swiftui/toolbarverticalcompressionbehavior",
+            "https://developer.apple.com/documentation/uikit/uiverticalbarcompressionbehavior",
+            "https://developer.apple.com/documentation/swiftui/toolbaroverflowmenu",
+            "https://developer.apple.com/documentation/uikit/uinavigationitem/additionaloverflowitems"
+          ],
+          "assessment": "Each link captured with status 200 under the name shown. iOS minimums from each symbol's /metadata/platforms and Markdown availability list: ReservedRegion, UIView.ReservedRegion, ArrangementView, UIArrangementViewController, ToolbarVerticalCompressionBehavior, UIVerticalBarCompressionBehavior 27.1; ToolbarItemVisibilityPriority, UIBarButtonItemVisibilityPriority, ToolbarOverflowMenu 27.0; UINavigationItem.additionalOverflowItems 16.0. The HIG article itself states no OS versions."
+        },
+        {
+          "heading": "Videos",
+          "line": 119,
+          "source_urls": [
+            "https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo",
+            "https://developer.apple.com/videos/play/tech-talks/111466",
+            "https://developer.apple.com/videos/play/tech-talks/111462",
+            "https://developer.apple.com/videos/play/tech-talks/111463"
+          ],
+          "assessment": "Three tech talks listed at HIG /content/82; titles match each captured page's HTML <title>. Video content was not reviewed."
+        }
+      ],
+      "code_examples": {
+        "fences_reviewed": 0,
+        "verification": "No code fences. Inline API names (ReservedRegion, UIView.ReservedRegion, HStack, VStack, ZStack, ToolbarItemGroup, UIBarButtonItemGroup, ToolbarOverflowMenu) match the HIG reference catalog; the linked symbol pages were captured with status 200."
+      },
+      "changes": [
+        "November 1, 2026: Created the page as an original summary of Apple's HIG article 'Designing for iPhone Duo' (added to the HIG on September 9, 2026) in the style of the sibling Getting started pages: overview of displays, hinge, cameras and poses; best practices; dynamic layouts and reserved regions; split and arrangement views; vertical controls; a validation checklist drawn from Apple's 'Preparing your app for iPhone Duo'; resources, developer documentation with captured iOS minimums, and the three tech talks.",
+        "November 1, 2026: new page; no earlier text was corrected."
+      ],
+      "numerical_and_availability_checks": [
+        "HIG change log (/primaryContentSections/0/content/84) and /metadata/customMetadata/alert-date: new page on September 9, 2026 (2026-09-09).",
+        "Getting started collection /topicSections/0/identifiers includes designing-for-iphone-duo.",
+        "HIG article has no supported-platforms metadata; page states 'Platforms: iOS' from /content/3 ('you're still designing for iPhone').",
+        "SwiftUI ReservedRegion: iOS 27.1.0; UIKit UIView.ReservedRegion: iOS 27.1.0.",
+        "SwiftUI ArrangementView: iOS 27.1.0; UIKit UIArrangementViewController: iOS 27.1.0.",
+        "SwiftUI ToolbarVerticalCompressionBehavior: iOS 27.1.0; UIKit UIVerticalBarCompressionBehavior: iOS 27.1.0.",
+        "SwiftUI ToolbarItemVisibilityPriority: iOS 27.0.0 (macOS 26.1.0); UIKit UIBarButtonItemVisibilityPriority: iOS 27.0.0.",
+        "SwiftUI ToolbarOverflowMenu: iOS 27.0.0; UIKit UINavigationItem.additionalOverflowItems: iOS 16.0.0.",
+        "Preparing your app for iPhone Duo: apps built with Xcode 26 and earlier don't extend under the status bar and camera.",
+        "Video titles: 111466 'Design for iPhone Duo', 111462 'Raise the bar with iPhone Duo', 111463 'Strike a pose with adaptive layouts on iPhone Duo'."
+      ],
+      "qualifications": [
+        "Research cutoff November 1, 2026. New page; there is no earlier record or September 1, 2026 installed doc-set baseline for this article to compare against.",
+        "Status 'corrected' follows the review brief's record template for new pages; no earlier text was corrected.",
+        "The Platforms line is derived from the article body, not from platform metadata, which the article lacks.",
+        "Whether iOS 27.1 is generally released, and iPhone Duo's ship date, display sizes and hardware specifications, were not verified and are not stated.",
+        "Tech-talk captures are HTML title and description only; video content and transcripts were not reviewed. Images in the HIG article (tab navigators of outer and inner displays, poses, Notes, Mail, Calculator) were not inspected; the summary relies on their surrounding text.",
+        "Apple Design Resources (https://developer.apple.com/design/resources/#ios-apps) was not captured with status 200 (the capture tool's JSON route returned 404); the link comes from the HIG article's reference catalog.",
+        "No simulator, Device Hub or device testing was performed; the Validation section is recommended checks.",
+        "The Getting started README index, metadata/catalog.json and the README baseline were not updated (outside this review's allowed files); a catalog entry is proposed separately."
+      ],
+      "remaining_blockers": [],
+      "sources": [
+        {
+          "url": "https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/design/human-interface-guidelines/designing-for-iphone-duo.json",
+          "final_url": "https://developer.apple.com/tutorials/data/design/human-interface-guidelines/designing-for-iphone-duo.json",
+          "sha256": "1153299e056e4b60feba35be04ac0487d382d269c45b1e45508dfa3087baa076",
+          "retrieved_at": "2026-11-01T23:34:30.151925+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/metadata/title and /abstract (title, lead); /metadata/customMetadata (alert-date 2026-09-09, alert-text; no supported-platforms key); /primaryContentSections/0/content/1 and /3 (two displays with front cameras, hinge, standard components adapt, iOS guidance still applies); /content/4..8 Anatomy; /content/9..13 Device poses, size classes, Device Hub; /content/14..20 Best practices; /content/21..32 Dynamic layouts and Reserved regions; /content/33..35 Split views; /content/36..44 Arrangement views; /content/45..68 Vertical controls; /content/69..82 Resources, Related, Developer documentation, Videos; /content/83..84 Change log (September 9, 2026 new page); /references (titles and URLs of linked HIG articles, symbols, tech talks, Apple Design Resources #ios-apps, Screenshot specifications)"
+        },
+        {
+          "url": "https://developer.apple.com/design/human-interface-guidelines/getting-started",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/design/human-interface-guidelines/getting-started.json",
+          "final_url": "https://developer.apple.com/tutorials/data/design/human-interface-guidelines/getting-started.json",
+          "sha256": "e6371c440aaee6457bc78cb85fe35fb38e42640f5b1bedd67e778faa14c29136",
+          "retrieved_at": "2026-11-01T23:35:31.480406+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/topicSections/0/identifiers (designing-for-iphone-duo listed after designing-for-games in Getting started); /metadata/title"
+        },
+        {
+          "url": "https://developer.apple.com/documentation/technologyoverviews/preparing-your-app-for-iphone-duo",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/technologyoverviews/preparing-your-app-for-iphone-duo.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/technologyoverviews/preparing-your-app-for-iphone-duo.json",
+          "sha256": "5615c5fb4b1cac95e3b0d0d93700645c9afc16e315f185acd25591267d9ec8a4",
+          "retrieved_at": "2026-11-01T23:35:27.788044+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/metadata/title; /abstract; overview and 'Address common layout and resizing considerations' (test both displays closed, open, partially folded, rotated; check views, sheets, popovers and elements in the fold); overview paragraph on Xcode 26 and earlier builds not extending under status bar and camera; 'Organize items in your bars' (title-only and custom-view items not presented vertically); 'Adapt to reserved regions' note (fold region active when partially open, inactive when fully open)"
+        },
+        {
+          "url": "https://developer.apple.com/documentation/technologyoverviews/preparing-your-app-for-iphone-duo",
+          "retrieval_url": "https://developer.apple.com/documentation/technologyoverviews/preparing-your-app-for-iphone-duo.md",
+          "final_url": "https://developer.apple.com/documentation/technologyoverviews/preparing-your-app-for-iphone-duo.md",
+          "sha256": "ed5b2998b11a6cce81bd6443239ea108efa3700bc811c8b4e9c7a4ce32ed2d3e",
+          "retrieved_at": "2026-11-01T23:35:27.931117+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "Same article as Markdown; '## Overview' Xcode 26 paragraph, '### Address common layout and resizing considerations', '### Optimize bars for vertical presentation', '### Organize items in your bars' icon/title bullet list, '### Arrange views in different poses', '### Adapt to reserved regions in your views'"
+        },
+        {
+          "url": "https://developer.apple.com/documentation/swiftui/reservedregion",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/swiftui/reservedregion.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/swiftui/reservedregion.json",
+          "sha256": "6839bd1de26301a7f34b5ca02e7d079aeb37659c2e9992b38c4245b1917ebe9b",
+          "retrieved_at": "2026-11-01T23:35:28.090731+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/metadata/title and /metadata/platforms (iOS entry: iOS 27.1)"
+        },
+        {
+          "url": "https://developer.apple.com/documentation/swiftui/reservedregion",
+          "retrieval_url": "https://developer.apple.com/documentation/swiftui/reservedregion.md",
+          "final_url": "https://developer.apple.com/documentation/swiftui/reservedregion.md",
+          "sha256": "bd1333945d1f214a057cfcc5d0d0447306c9b956eaa53ac801b693c0845b270c",
+          "retrieved_at": "2026-11-01T23:35:28.225037+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "Front-matter availability list (iOS: 27.1.0 -) and title"
+        },
+        {
+          "url": "https://developer.apple.com/documentation/uikit/uiview/reservedregion",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/uikit/uiview/reservedregion.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/uikit/uiview/reservedregion.json",
+          "sha256": "e193854d1a85f62767f6450a606785fe64cbb1bc2b0a402b5fad1bf7e8637946",
+          "retrieved_at": "2026-11-01T23:35:28.382198+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/metadata/title and /metadata/platforms (iOS entry: iOS 27.1 (macCatalyst entry has no introduced version))"
+        },
+        {
+          "url": "https://developer.apple.com/documentation/uikit/uiview/reservedregion",
+          "retrieval_url": "https://developer.apple.com/documentation/uikit/uiview/reservedregion.md",
+          "final_url": "https://developer.apple.com/documentation/uikit/uiview/reservedregion.md",
+          "sha256": "73e2ae10808a168073010898adcac14e788972f47ded6fb3a2c9164a8113de47",
+          "retrieved_at": "2026-11-01T23:35:28.589333+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "Front-matter availability list (iOS: 27.1.0 -) and title"
+        },
+        {
+          "url": "https://developer.apple.com/documentation/swiftui/arrangementview",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/swiftui/arrangementview.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/swiftui/arrangementview.json",
+          "sha256": "0839e303074fa3782b32d32708f6a2b1ba85c8003011ba3bd27b3da50a35151d",
+          "retrieved_at": "2026-11-01T23:35:28.747472+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/metadata/title and /metadata/platforms (iOS entry: iOS 27.1)"
+        },
+        {
+          "url": "https://developer.apple.com/documentation/swiftui/arrangementview",
+          "retrieval_url": "https://developer.apple.com/documentation/swiftui/arrangementview.md",
+          "final_url": "https://developer.apple.com/documentation/swiftui/arrangementview.md",
+          "sha256": "8ae2e426819d1c234a0eb4e24d0e91e4d85991e8f81a1b6c02df6e8b617c8eb4",
+          "retrieved_at": "2026-11-01T23:35:28.997166+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "Front-matter availability list (iOS: 27.1.0 -) and title"
+        },
+        {
+          "url": "https://developer.apple.com/documentation/uikit/uiarrangementviewcontroller",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/uikit/uiarrangementviewcontroller.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/uikit/uiarrangementviewcontroller.json",
+          "sha256": "a7e5b291c737095669589954dc07263c5040d862d573c08840c6791de4d9279c",
+          "retrieved_at": "2026-11-01T23:35:29.266707+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/metadata/title and /metadata/platforms (iOS entry: iOS 27.1; overview describes split and overlay arrangements and the fold)"
+        },
+        {
+          "url": "https://developer.apple.com/documentation/uikit/uiarrangementviewcontroller",
+          "retrieval_url": "https://developer.apple.com/documentation/uikit/uiarrangementviewcontroller.md",
+          "final_url": "https://developer.apple.com/documentation/uikit/uiarrangementviewcontroller.md",
+          "sha256": "64f726575c37d32620522fd0fa684fe10e633a81d5dd752d57aa85e62593ef31",
+          "retrieved_at": "2026-11-01T23:35:29.375894+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "Front-matter availability list (iOS: 27.1.0 -) and title"
+        },
+        {
+          "url": "https://developer.apple.com/documentation/swiftui/toolbaritemvisibilitypriority",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/swiftui/toolbaritemvisibilitypriority.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/swiftui/toolbaritemvisibilitypriority.json",
+          "sha256": "e6f5ed5fd162c5d6aea522fad3e28cbc463b68a7283f3dd2438a78ce1aded634",
+          "retrieved_at": "2026-11-01T23:35:29.529797+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/metadata/title and /metadata/platforms (iOS entry: iOS 27.0)"
+        },
+        {
+          "url": "https://developer.apple.com/documentation/swiftui/toolbaritemvisibilitypriority",
+          "retrieval_url": "https://developer.apple.com/documentation/swiftui/toolbaritemvisibilitypriority.md",
+          "final_url": "https://developer.apple.com/documentation/swiftui/toolbaritemvisibilitypriority.md",
+          "sha256": "ed5f231fd92b30896022865b5cee8834f768be6d5b163595b11185f52683dcdf",
+          "retrieved_at": "2026-11-01T23:35:29.752236+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "Front-matter availability list (iOS: 27.0.0 -) and title"
+        },
+        {
+          "url": "https://developer.apple.com/documentation/uikit/uibarbuttonitemvisibilitypriority",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/uikit/uibarbuttonitemvisibilitypriority.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/uikit/uibarbuttonitemvisibilitypriority.json",
+          "sha256": "5d490a8a361d490b54fbe548f245de97e8c3754726a52bf1a95d6ff694bff255",
+          "retrieved_at": "2026-11-01T23:35:29.905430+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/metadata/title and /metadata/platforms (iOS entry: iOS 27.0)"
+        },
+        {
+          "url": "https://developer.apple.com/documentation/uikit/uibarbuttonitemvisibilitypriority",
+          "retrieval_url": "https://developer.apple.com/documentation/uikit/uibarbuttonitemvisibilitypriority.md",
+          "final_url": "https://developer.apple.com/documentation/uikit/uibarbuttonitemvisibilitypriority.md",
+          "sha256": "746bfdc7d16848a8e02ce36df91365ed7814a7519fa737a3acc3109829ad556f",
+          "retrieved_at": "2026-11-01T23:35:29.996401+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "Front-matter availability list (iOS: 27.0.0 -) and title"
+        },
+        {
+          "url": "https://developer.apple.com/documentation/swiftui/toolbarverticalcompressionbehavior",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/swiftui/toolbarverticalcompressionbehavior.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/swiftui/toolbarverticalcompressionbehavior.json",
+          "sha256": "62779d3ad727f0f962696a5e0f49b4db58cda05384a289311f5ab3bdd8a9186c",
+          "retrieved_at": "2026-11-01T23:35:30.162668+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/metadata/title and /metadata/platforms (iOS entry: iOS 27.1)"
+        },
+        {
+          "url": "https://developer.apple.com/documentation/swiftui/toolbarverticalcompressionbehavior",
+          "retrieval_url": "https://developer.apple.com/documentation/swiftui/toolbarverticalcompressionbehavior.md",
+          "final_url": "https://developer.apple.com/documentation/swiftui/toolbarverticalcompressionbehavior.md",
+          "sha256": "a8bf4bfbec057f4c08e3690a5ca24d9aaba4355859e50f90d73c539facc19eea",
+          "retrieved_at": "2026-11-01T23:35:30.254383+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "Front-matter availability list (iOS: 27.1.0 -) and title"
+        },
+        {
+          "url": "https://developer.apple.com/documentation/uikit/uiverticalbarcompressionbehavior",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/uikit/uiverticalbarcompressionbehavior.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/uikit/uiverticalbarcompressionbehavior.json",
+          "sha256": "de74fb6825d2f85190f14e154f674b4a30cd017b46ef3d2feb4836e90327d3fc",
+          "retrieved_at": "2026-11-01T23:35:30.404842+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/metadata/title and /metadata/platforms (iOS entry: iOS 27.1)"
+        },
+        {
+          "url": "https://developer.apple.com/documentation/uikit/uiverticalbarcompressionbehavior",
+          "retrieval_url": "https://developer.apple.com/documentation/uikit/uiverticalbarcompressionbehavior.md",
+          "final_url": "https://developer.apple.com/documentation/uikit/uiverticalbarcompressionbehavior.md",
+          "sha256": "f2c57bf2b5c58a4169512fc65a7c68f244054e174cbe01e36936de3694b54410",
+          "retrieved_at": "2026-11-01T23:35:30.533654+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "Front-matter availability list (iOS: 27.1.0 -) and title"
+        },
+        {
+          "url": "https://developer.apple.com/documentation/swiftui/toolbaroverflowmenu",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/swiftui/toolbaroverflowmenu.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/swiftui/toolbaroverflowmenu.json",
+          "sha256": "6cda3a8cc646d2a83c71e583e3144972ea66e8ca6514c2be65c914832640880f",
+          "retrieved_at": "2026-11-01T23:35:30.686070+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/metadata/title and /metadata/platforms (iOS entry: iOS 27.0)"
+        },
+        {
+          "url": "https://developer.apple.com/documentation/swiftui/toolbaroverflowmenu",
+          "retrieval_url": "https://developer.apple.com/documentation/swiftui/toolbaroverflowmenu.md",
+          "final_url": "https://developer.apple.com/documentation/swiftui/toolbaroverflowmenu.md",
+          "sha256": "00033dd4206aae6272770612c7735ba3befefc8d4373ef6d35a38821b635d77e",
+          "retrieved_at": "2026-11-01T23:35:30.783300+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "Front-matter availability list (iOS: 27.0.0 -) and title"
+        },
+        {
+          "url": "https://developer.apple.com/documentation/uikit/uinavigationitem/additionaloverflowitems",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/uikit/uinavigationitem/additionaloverflowitems.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/uikit/uinavigationitem/additionaloverflowitems.json",
+          "sha256": "313fb001486171bffa008e9044f5f3b7b0527423df8474092f407bfb899546b1",
+          "retrieved_at": "2026-11-01T23:35:30.917338+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/metadata/title and /metadata/platforms (iOS entry: iOS 16.0)"
+        },
+        {
+          "url": "https://developer.apple.com/documentation/uikit/uinavigationitem/additionaloverflowitems",
+          "retrieval_url": "https://developer.apple.com/documentation/uikit/uinavigationitem/additionaloverflowitems.md",
+          "final_url": "https://developer.apple.com/documentation/uikit/uinavigationitem/additionaloverflowitems.md",
+          "sha256": "3f9fb00599e8f4adc18a0151b9685fb29bb160d2185316cb7c2a390061c70cee",
+          "retrieved_at": "2026-11-01T23:35:31.046986+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "Front-matter availability list (iOS: 16.0.0 -) and title"
+        },
+        {
+          "url": "https://developer.apple.com/documentation/xcode/device-hub",
+          "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/xcode/device-hub.json",
+          "final_url": "https://developer.apple.com/tutorials/data/documentation/xcode/device-hub.json",
+          "sha256": "0f7214e9801bd8ecb53a78116d58d61e6110a4bf1c16bfb29fe56b70387b4465",
+          "retrieved_at": "2026-11-01T23:35:31.210762+00:00",
+          "source_published_on": null,
+          "content_type": "application/json",
+          "locator": "/metadata/title (Device Hub); /abstract (manage simulated and physical devices used for testing)"
+        },
+        {
+          "url": "https://developer.apple.com/documentation/xcode/device-hub",
+          "retrieval_url": "https://developer.apple.com/documentation/xcode/device-hub.md",
+          "final_url": "https://developer.apple.com/documentation/xcode/device-hub.md",
+          "sha256": "536af8444ceca04246a8c343f54b1b8d9664264386553ab083560aca27f76cab",
+          "retrieved_at": "2026-11-01T23:35:31.345563+00:00",
+          "source_published_on": null,
+          "content_type": "text/markdown; charset=utf-8",
+          "locator": "Title, abstract and '## Overview' (run apps on simulated and physical devices)"
+        },
+        {
+          "url": "https://developer.apple.com/videos/play/tech-talks/111466",
+          "retrieval_url": "https://developer.apple.com/videos/play/tech-talks/111466",
+          "final_url": "https://developer.apple.com/videos/play/tech-talks/111466/",
+          "sha256": "bb58b70315cfb999a4ab78cac3da0ba39a11c7f108c3fc0ee9c9a7ea62333ad1",
+          "retrieved_at": "2026-11-01T23:35:32.273089+00:00",
+          "source_published_on": null,
+          "content_type": "text/html; charset=UTF-8",
+          "locator": "HTML <title> 'Design for iPhone Duo - Tech Talks - Videos - Apple Developer' and meta description; no transcript reviewed"
+        },
+        {
+          "url": "https://developer.apple.com/videos/play/tech-talks/111462",
+          "retrieval_url": "https://developer.apple.com/videos/play/tech-talks/111462",
+          "final_url": "https://developer.apple.com/videos/play/tech-talks/111462/",
+          "sha256": "43ec5e855b19b9cc3bdad0ad626f97a27b3483882eb08f913d1bfe56ebb148b7",
+          "retrieved_at": "2026-11-01T23:35:33.035481+00:00",
+          "source_published_on": null,
+          "content_type": "text/html; charset=UTF-8",
+          "locator": "HTML <title> 'Raise the bar with iPhone Duo - Tech Talks - Videos - Apple Developer' and meta description; no transcript reviewed"
+        },
+        {
+          "url": "https://developer.apple.com/videos/play/tech-talks/111463",
+          "retrieval_url": "https://developer.apple.com/videos/play/tech-talks/111463",
+          "final_url": "https://developer.apple.com/videos/play/tech-talks/111463/",
+          "sha256": "e9a232f460fa0d8e17f80a100cfe616c9a16728bd594723789a5ed1070a4ff48",
+          "retrieved_at": "2026-11-01T23:35:33.556496+00:00",
+          "source_published_on": null,
+          "content_type": "text/html; charset=UTF-8",
+          "locator": "HTML <title> 'Strike a pose with adaptive layouts on iPhone Duo - Tech Talks - Videos - Apple Developer' and meta description; no transcript reviewed"
+        },
+        {
+          "url": "https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications",
+          "retrieval_url": "https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications",
+          "final_url": "https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications",
+          "sha256": "f5cad8a221f7ab883de54bd3c07494053bdac0e8eccddeb618fa0843eefc7885",
+          "retrieved_at": "2026-11-01T23:38:12.973497+00:00",
+          "source_published_on": null,
+          "content_type": "text/html; charset=UTF-8",
+          "locator": "HTML <title> 'Screenshot specifications - App information - Reference - App Store Connect - Help - Apple Developer'; link-target check only; the captured page does not mention iPhone Duo"
         }
       ]
     }

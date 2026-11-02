@@ -11,6 +11,7 @@ The review column preserves the initial catalog/changed-content pass. `metadata/
 | [AirPlay](airplay.md) | design | iOS, iPadOS, macOS, tvOS, visionOS | independent | changed-content |
 | [Always On](always-on.md) | design | iOS, watchOS | independent | changed-content |
 | [App Clips](app-clips.md) | design | iOS, iPadOS | independent | changed-content |
+| [Apple In-App Purchase](in-app-purchase.md) | design | iOS, iPadOS, macOS, tvOS, visionOS, watchOS | independent | changed-content |
 | [Apple Pay](apple-pay.md) | design | iOS, iPadOS, macOS, watchOS | independent | changed-content |
 | [Augmented Reality](augmented-reality.md) | design | iOS, iPadOS, visionOS | independent | changed-content |
 | [CareKit](carekit.md) | design | iOS, iPadOS | independent | changed-content |
@@ -22,7 +23,6 @@ The review column preserves the initial catalog/changed-content pass. `metadata/
 | [iCloud](icloud.md) | design | iOS, iPadOS, macOS, tvOS, visionOS, watchOS | independent | changed-content |
 | [ID Verifier](id-verifier.md) | design | iOS | independent | changed-content |
 | [iMessage apps and stickers](imessage-apps-and-stickers.md) | design | iOS, iPadOS | independent | changed-content |
-| [In-app purchase](in-app-purchase.md) | design | iOS, iPadOS, macOS, tvOS, visionOS, watchOS | independent | changed-content |
 | [Live Photos](live-photos.md) | design | iOS, iPadOS, macOS, tvOS, visionOS | independent | changed-content |
 | [Mac Catalyst](mac-catalyst.md) | design | iPadOS, macOS | independent | changed-content |
 | [Machine Learning](machine-learning.md) | design | iOS, iPadOS, macOS, tvOS, visionOS, watchOS | independent | changed-content |

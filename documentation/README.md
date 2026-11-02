@@ -10,69 +10,69 @@ The review column preserves the initial catalog/changed-content pass. `metadata/
 
 | Topic | Kind | Platforms tagged in page | Release status | Initial review scope |
 |---|---|---|---|---|
-| [Apple silicon](apple-silicon.md) | overview | Not indexed | mixed | changed-content |
-| [iOS & iPadOS Release Notes](ios-ipados-release-notes.md) | release-notes | iOS, iPadOS | mixed | changed-content |
-| [Mac Catalyst](mac-catalyst.md) | overview | Not indexed | mixed | changed-content |
-| [macOS Release Notes](macos-release-notes.md) | release-notes | Not indexed | mixed | changed-content |
-| [Safari Release Notes](safari-release-notes.md) | release-notes | Not indexed | mixed | changed-content |
-| [Technology Overviews](TechnologyOverviews.md) | overview | Not indexed | mixed | changed-content |
-| [tvOS Release Notes](tvos-release-notes.md) | release-notes | tvOS | mixed | changed-content |
-| [Updates](Updates.md) | overview | Not indexed | mixed | changed-content |
-| [visionOS](visionOS.md) | overview | visionOS | mixed | changed-content |
-| [visionOS Release Notes](visionos-release-notes.md) | release-notes | Not indexed | mixed | changed-content |
-| [watchOS apps](watchOS-Apps.md) | overview | Not indexed | mixed | changed-content |
-| [watchOS Release Notes](watchos-release-notes.md) | release-notes | Not indexed | mixed | changed-content |
+| [Apple silicon](apple-silicon.md) | overview | Not indexed | shipping | changed-content |
+| [iOS & iPadOS Release Notes](ios-ipados-release-notes.md) | release-notes | iOS, iPadOS | shipping | changed-content |
+| [Mac Catalyst](mac-catalyst.md) | overview | Not indexed | shipping | changed-content |
+| [macOS Release Notes](macos-release-notes.md) | release-notes | Not indexed | shipping | changed-content |
+| [Safari Release Notes](safari-release-notes.md) | release-notes | Not indexed | shipping | changed-content |
+| [Technology Overviews](TechnologyOverviews.md) | overview | Not indexed | shipping | changed-content |
+| [tvOS Release Notes](tvos-release-notes.md) | release-notes | tvOS | shipping | changed-content |
+| [Updates](Updates.md) | overview | Not indexed | shipping | changed-content |
+| [visionOS](visionOS.md) | overview | visionOS | shipping | changed-content |
+| [visionOS Release Notes](visionos-release-notes.md) | release-notes | Not indexed | shipping | changed-content |
+| [watchOS apps](watchOS-Apps.md) | overview | Not indexed | shipping | changed-content |
+| [watchOS Release Notes](watchos-release-notes.md) | release-notes | Not indexed | shipping | changed-content |
 
 ## Languages and developer tools
 
 | Topic | Kind | Platforms tagged in page | Release status | Initial review scope |
 |---|---|---|---|---|
-| [App Intents Testing](AppIntentsTesting.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | beta | changed-content |
+| [App Intents Testing](AppIntentsTesting.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
 | [Automator](Automator.md) | tool | Mac Catalyst, macOS | not-assessed | catalog-only |
 | [DeveloperToolsSupport](DeveloperToolsSupport.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | not-assessed | catalog-only |
-| [Distributed](Distributed.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, watchOS | not-assessed | catalog-only |
+| [Distributed](Distributed.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, watchOS | not-assessed | changed-content |
 | [DocC](docc.md) | tool | Not indexed | independent | changed-content |
 | [DocC — compatibility reference](swift-docc.md) | tool | Not indexed | not-assessed | Alias of `documentation/docc.md` |
-| [Evaluations](Evaluations.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS, watchOS | beta | changed-content |
+| [Evaluations](Evaluations.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS, watchOS | shipping | changed-content |
 | [Installer JS](installer_js.md) | tool | macOS | not-assessed | catalog-only |
 | [Objective-C Runtime](ObjectiveC.md) | language | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | not-assessed | catalog-only |
 | [PackageDescription](PackageDescription.md) | framework | Not indexed | not-assessed | changed-content |
 | [Playground Bluetooth](playgroundbluetooth.md) | tool | Not indexed | not-assessed | catalog-only |
 | [Playground Support](playgroundsupport.md) | tool | macOS | not-assessed | catalog-only |
-| [Reality Composer Pro](RealityComposerPro.md) | tool | Not indexed | beta | changed-content |
+| [Reality Composer Pro](RealityComposerPro.md) | tool | Not indexed | shipping | changed-content |
 | [RegexBuilder](RegexBuilder.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, watchOS | not-assessed | catalog-only |
 | [Safari Developer Features](safari-developer-tools.md) | tool | Not indexed | not-assessed | catalog-only |
 | [Scripting Bridge](ScriptingBridge.md) | tool | Mac Catalyst, macOS | not-assessed | catalog-only |
 | [StoreKit Test](StoreKitTest.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | not-assessed | catalog-only |
-| [Swift](Swift.md) | language | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | mixed | changed-content |
-| [Swift packages](swift-packages.md) | tool | Not indexed | mixed | changed-content |
+| [Swift](Swift.md) | language | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
+| [Swift packages](swift-packages.md) | tool | Not indexed | shipping | changed-content |
 | [Swift Playgrounds](swift-playgrounds.md) | tool | Not indexed | not-assessed | catalog-only |
-| [Swift Testing](Testing.md) | framework | Not indexed | mixed | changed-content |
+| [Swift Testing](Testing.md) | framework | Not indexed | shipping | changed-content |
 | [Technotes](Technotes.md) | tool | Not indexed | not-assessed | catalog-only |
-| [Xcode](Xcode.md) | tool | Not indexed | mixed | changed-content |
-| [Xcode Cloud](Xcode-Cloud.md) | tool | Not indexed | mixed | changed-content |
-| [Xcode Release Notes](Xcode-Release-Notes.md) | release-notes | Not indexed | mixed | changed-content |
+| [Xcode](Xcode.md) | tool | Not indexed | shipping | changed-content |
+| [Xcode Cloud](Xcode-Cloud.md) | tool | Not indexed | shipping | changed-content |
+| [Xcode Release Notes](Xcode-Release-Notes.md) | release-notes | Not indexed | shipping | changed-content |
 | [XcodeKit](XcodeKit.md) | framework | macOS | not-assessed | catalog-only |
 | [xcselect](xcselect.md) | tool | Mac Catalyst, macOS | not-assessed | catalog-only |
-| [XCTest](XCTest.md) | framework | Not indexed | mixed | changed-content |
-| [XCUIAutomation](XCUIAutomation.md) | framework | Not indexed | mixed | changed-content |
+| [XCTest](XCTest.md) | framework | Not indexed | shipping | changed-content |
+| [XCUIAutomation](XCUIAutomation.md) | framework | Not indexed | shipping | changed-content |
 
 ## UI and app integration
 
 | Topic | Kind | Platforms tagged in page | Release status | Initial review scope |
 |---|---|---|---|---|
-| [Accessibility](Accessibility.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | mixed | changed-content |
-| [ActivityKit](ActivityKit.md) | framework | iOS, iPadOS | mixed | changed-content |
+| [Accessibility](Accessibility.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
+| [ActivityKit](ActivityKit.md) | framework | iOS, iPadOS | shipping | changed-content |
 | [AlarmKit](AlarmKit.md) | framework | Mac Catalyst, iOS, iPadOS | shipping | changed-content |
-| [App Clips](AppClip.md) | framework | iOS, iPadOS | shipping | changed-content |
-| [AppKit](AppKit.md) | framework | Mac Catalyst, macOS | mixed | changed-content |
+| [App Clips](AppClip.md) | framework | Mac Catalyst, iOS, iPadOS | shipping | changed-content |
+| [AppKit](AppKit.md) | framework | Mac Catalyst, macOS | shipping | changed-content |
 | [Apple Pencil](ApplePencil.md) | framework | Not indexed | not-assessed | catalog-only |
-| [Bundle Resources](BundleResources.md) | reference | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | mixed | changed-content |
+| [Bundle Resources](BundleResources.md) | reference | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
 | [ClockKit](ClockKit.md) | framework | Mac Catalyst, iOS, iPadOS, watchOS | shipping | changed-content |
 | [Contacts UI](ContactsUI.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS | shipping | changed-content |
 | [CoreLocationUI](CoreLocationUI.md) | framework | Mac Catalyst, iOS, iPadOS, watchOS | not-assessed | catalog-only |
 | [EventKit UI](EventKitUI.md) | framework | Mac Catalyst, iOS, iPadOS, visionOS | not-assessed | catalog-only |
-| [ExtensionFoundation](ExtensionFoundation.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | mixed | changed-content |
+| [ExtensionFoundation](ExtensionFoundation.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
 | [ExtensionKit](ExtensionKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
 | [File Provider UI](FileProviderUI.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS | not-assessed | catalog-only |
 | [FinanceKitUI](FinanceKitUI.md) | framework | Mac Catalyst, iOS, iPadOS | shipping | changed-content |
@@ -82,52 +82,52 @@ The review column preserves the initial catalog/changed-content pass. `metadata/
 | [ManagedSettingsUI](ManagedSettingsUI.md) | framework | Mac Catalyst, iOS, iPadOS | not-assessed | catalog-only |
 | [Message UI](MessageUI.md) | framework | Mac Catalyst, iOS, iPadOS, visionOS | not-assessed | catalog-only |
 | [Notification Center](NotificationCenter.md) | framework | Mac Catalyst, iOS, iPadOS, macOS | shipping | changed-content |
-| [PaperKit](PaperKit.md) | framework | iOS, iPadOS, macOS, visionOS | mixed | changed-content |
+| [PaperKit](PaperKit.md) | framework | iOS, iPadOS, macOS, visionOS | shipping | changed-content |
 | [PDFKit](PDFKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS | not-assessed | catalog-only |
-| [PencilKit](PencilKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS | mixed | changed-content |
+| [PencilKit](PencilKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS | shipping | changed-content |
 | [Preference Panes](PreferencePanes.md) | framework | Mac Catalyst, macOS | shipping | changed-content |
 | [Quick Look](QuickLook.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS | not-assessed | catalog-only |
 | [Quick Look UI](QuickLookUI.md) | framework | macOS | shipping | changed-content |
 | [RelevanceKit](RelevanceKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS, watchOS | not-assessed | catalog-only |
-| [Swift Charts](Charts.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | mixed | changed-content |
-| [SwiftUI](SwiftUI.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | mixed | changed-content |
+| [Swift Charts](Charts.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
+| [SwiftUI](SwiftUI.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
 | [Symbols](Symbols.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | not-assessed | changed-content |
 | [TipKit](TipKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | not-assessed | catalog-only |
 | [TVUIKit](TVUIKit.md) | framework | tvOS | shipping | changed-content |
-| [UIKit](UIKit.md) | framework | Mac Catalyst, iOS, iPadOS, tvOS, visionOS, watchOS | mixed | changed-content |
-| [User Notifications](UserNotifications.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | mixed | changed-content |
+| [UIKit](UIKit.md) | framework | Mac Catalyst, iOS, iPadOS, tvOS, visionOS, watchOS | shipping | changed-content |
+| [User Notifications](UserNotifications.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
 | [User Notifications UI](UserNotificationsUI.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS | not-assessed | catalog-only |
 | [WatchKit](WatchKit.md) | framework | watchOS | shipping | changed-content |
-| [WidgetKit](WidgetKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS, watchOS | mixed | changed-content |
+| [WidgetKit](WidgetKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS, watchOS | shipping | changed-content |
 
 ## Intelligence and system actions
 
 | Topic | Kind | Platforms tagged in page | Release status | Initial review scope |
 |---|---|---|---|---|
-| [App Intents](AppIntents.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | mixed | changed-content |
-| [Core AI](CoreAI.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | beta | changed-content |
-| [Core ML](CoreML.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | mixed | changed-content |
-| [Core Spotlight](CoreSpotlight.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS | mixed | changed-content |
+| [App Intents](AppIntents.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
+| [Core AI](CoreAI.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
+| [Core ML](CoreML.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
+| [Core Spotlight](CoreSpotlight.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS | shipping | changed-content |
 | [Create ML](CreateML.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | shipping | changed-content |
 | [Create ML Components](CreateMLComponents.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | not-assessed | catalog-only |
-| [Foundation Models](FoundationModels.md) | framework | Not indexed | mixed | changed-content |
+| [Foundation Models](FoundationModels.md) | framework | Not indexed | shipping | changed-content |
 | [Image Playground](ImagePlayground.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS | not-assessed | catalog-only |
 | [Latent Semantic Mapping](LatentSemanticMapping.md) | framework | Mac Catalyst, macOS | not-assessed | catalog-only |
-| [Media Intelligence](MediaIntelligence.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | beta | changed-content |
-| [Media Intents](MediaIntents.md) | framework | Not indexed | mixed | changed-content |
+| [Media Intelligence](MediaIntelligence.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | shipping | changed-content |
+| [Media Intents](MediaIntents.md) | framework | Not indexed | shipping | changed-content |
 | [ML Compute](MLCompute.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS | not-assessed | retained-legacy |
-| [Music Understanding](MusicUnderstanding.md) | framework | Not indexed | mixed | changed-content |
-| [Natural Language](NaturalLanguage.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | not-assessed | catalog-only |
-| [SiriKit](SiriKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | mixed | changed-content |
+| [Music Understanding](MusicUnderstanding.md) | framework | Not indexed | shipping | changed-content |
+| [Natural Language](NaturalLanguage.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | not-assessed | changed-content |
+| [SiriKit](SiriKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
 | [SiriKit Cloud Media](SiriKitCloudMedia.md) | service | Not indexed | not-assessed | catalog-only |
 | [Sound Analysis](SoundAnalysis.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | not-assessed | catalog-only |
 | [Speech](Speech.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS | shipping | changed-content |
-| [Suggested Actions](SuggestedActions.md) | framework | iOS, iPadOS, macOS, visionOS | beta | changed-content |
+| [Suggested Actions](SuggestedActions.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS | shipping | changed-content |
 | [Translation](Translation.md) | framework | iOS, iPadOS, macOS | shipping | changed-content |
 | [TranslationUIProvider](TranslationUIProvider.md) | framework | iOS, iPadOS | not-assessed | catalog-only |
-| [Vision](Vision.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | mixed | changed-content |
+| [Vision](Vision.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | shipping | changed-content |
 | [VisionKit](VisionKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS | not-assessed | catalog-only |
-| [Visual Intelligence](VisualIntelligence.md) | framework | Mac Catalyst, iOS, iPadOS | not-assessed | catalog-only |
+| [Visual Intelligence](VisualIntelligence.md) | framework | Mac Catalyst, iOS, iPadOS, macOS | not-assessed | changed-content |
 
 ## Foundation and persistence
 
@@ -136,23 +136,23 @@ The review column preserves the initial catalog/changed-content pass. `metadata/
 | [Account Data Transfer](AccountDataTransfer.md) | service | Not indexed | independent | changed-content |
 | [App Data Transfer](AppDataTransfer.md) | service | Not indexed | independent | changed-content |
 | [Apple Archive](AppleArchive.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | not-assessed | catalog-only |
-| [AppMigrationKit](AppMigrationKit.md) | framework | iOS, iPadOS | mixed | changed-content |
+| [AppMigrationKit](AppMigrationKit.md) | framework | iOS, iPadOS | shipping | changed-content |
 | [CKTool JS](CKToolJS.md) | web | Not indexed | not-assessed | catalog-only |
-| [CloudKit](CloudKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | mixed | changed-content |
+| [CloudKit](CloudKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
 | [CloudKit JS](CloudKitJS.md) | web | Not indexed | independent | changed-content |
 | [Combine](Combine.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | not-assessed | catalog-only |
 | [Compression](Compression.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | not-assessed | catalog-only |
-| [Core Data](CoreData.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | mixed | changed-content |
-| [Core Foundation](CoreFoundation.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | mixed | changed-content |
+| [Core Data](CoreData.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
+| [Core Foundation](CoreFoundation.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
 | [Core Text](CoreText.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | not-assessed | catalog-only |
-| [Core Transferable](CoreTransferable.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | mixed | changed-content |
+| [Core Transferable](CoreTransferable.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
 | [DataDetection](DataDetection.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | not-assessed | catalog-only |
 | [Dispatch](Dispatch.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | not-assessed | catalog-only |
 | [File Provider](FileProvider.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS | not-assessed | catalog-only |
-| [Foundation](Foundation.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | mixed | changed-content |
-| [Observation](Observation.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | mixed | changed-content |
-| [SwiftData](SwiftData.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | mixed | changed-content |
-| [Synchronization](Synchronization.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | mixed | changed-content |
+| [Foundation](Foundation.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
+| [Observation](Observation.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
+| [SwiftData](SwiftData.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
+| [Synchronization](Synchronization.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
 | [TabularData](TabularData.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | not-assessed | catalog-only |
 | [Uniform Type Identifiers](UniformTypeIdentifiers.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | not-assessed | catalog-only |
 
@@ -165,20 +165,20 @@ The review column preserves the initial catalog/changed-content pass. `metadata/
 | [Apple Music Feed](AppleMusicFeed.md) | service | Not indexed | independent | changed-content |
 | [Apple News](AppleNews.md) | service | Not indexed | not-assessed | catalog-only |
 | [Apple TV Feed](AppleTVFeed.md) | service | Not indexed | independent | changed-content |
-| [ARKit](ARKit.md) | framework | Mac Catalyst, iOS, iPadOS, visionOS | mixed | changed-content |
+| [ARKit](ARKit.md) | framework | Mac Catalyst, iOS, iPadOS, visionOS | shipping | changed-content |
 | [Assets Library](AssetsLibrary.md) | framework | Mac Catalyst, iOS, iPadOS | not-assessed | retained-legacy |
 | [Audio Toolbox](AudioToolbox.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | not-assessed | catalog-only |
 | [Audio Unit](AudioUnit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | not-assessed | retained-legacy |
-| [AVFAudio](AVFAudio.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | mixed | changed-content |
-| [AVFoundation](AVFoundation.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | mixed | changed-content |
-| [AVKit](AVKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | mixed | changed-content |
-| [AVRouting](AVRouting.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS | mixed | changed-content |
-| [AVSystemRouting](AVSystemRouting.md) | framework | iOS, iPadOS | beta | changed-content |
+| [AVFAudio](AVFAudio.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
+| [AVFoundation](AVFoundation.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
+| [AVKit](AVKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
+| [AVRouting](AVRouting.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS | shipping | changed-content |
+| [AVSystemRouting](AVSystemRouting.md) | framework | iOS, iPadOS | shipping | changed-content |
 | [Cinematic](Cinematic.md) | framework | iOS, iPadOS, macOS, tvOS | not-assessed | catalog-only |
 | [ColorSync](ColorSync.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | not-assessed | catalog-only |
-| [Compositor Services](CompositorServices.md) | framework | macOS, visionOS | mixed | changed-content |
-| [Compute Graph](ComputeGraph.md) | framework | Not indexed | mixed | changed-content |
-| [Core Animation](QuartzCore.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | not-assessed | catalog-only |
+| [Compositor Services](CompositorServices.md) | framework | macOS, visionOS | shipping | changed-content |
+| [Compute Graph](ComputeGraph.md) | framework | Not indexed | shipping | changed-content |
+| [Core Animation](QuartzCore.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | not-assessed | changed-content |
 | [Core Audio](CoreAudio.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | not-assessed | catalog-only |
 | [Core Audio Types](CoreAudioTypes.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | not-assessed | catalog-only |
 | [Core Graphics](CoreGraphics.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | not-assessed | catalog-only |
@@ -186,14 +186,14 @@ The review column preserves the initial catalog/changed-content pass. `metadata/
 | [Core Image](CoreImage.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | not-assessed | catalog-only |
 | [Core Media](CoreMedia.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | not-assessed | catalog-only |
 | [Core Media I/O](CoreMediaIO.md) | framework | Mac Catalyst, macOS | not-assessed | catalog-only |
-| [Core MIDI](CoreMIDI.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | not-assessed | catalog-only |
-| [Core Video](CoreVideo.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | mixed | changed-content |
+| [Core MIDI](CoreMIDI.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | not-assessed | changed-content |
+| [Core Video](CoreVideo.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
 | [CoreAudioKit](CoreAudioKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS | not-assessed | catalog-only |
-| [Foveated Streaming](FoveatedStreaming.md) | framework | visionOS | mixed | changed-content |
-| [Game Controller](GameController.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | mixed | changed-content |
-| [GameKit](GameKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | mixed | changed-content |
+| [Foveated Streaming](FoveatedStreaming.md) | framework | visionOS | shipping | changed-content |
+| [Game Controller](GameController.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | shipping | changed-content |
+| [GameKit](GameKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
 | [GameplayKit](GameplayKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | not-assessed | catalog-only |
-| [GameSave](GameSave.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS | mixed | changed-content |
+| [GameSave](GameSave.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS | shipping | changed-content |
 | [GLKit](GLKit.md) | framework | iOS, iPadOS, macOS, tvOS | not-assessed | retained-legacy |
 | [Group Activities](GroupActivities.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | not-assessed | catalog-only |
 | [HTTP Live Streaming](HTTP-Live-Streaming.md) | framework | Not indexed | not-assessed | changed-content |
@@ -202,49 +202,49 @@ The review column preserves the initial catalog/changed-content pass. `metadata/
 | [Immersive Media Support](ImmersiveMediaSupport.md) | framework | macOS, visionOS | shipping | changed-content |
 | [IOSurface](IOSurface.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | not-assessed | catalog-only |
 | [iTunes Library](iTunesLibrary.md) | framework | Mac Catalyst, macOS | not-assessed | catalog-only |
-| [LivePhotosKit JS](LivePhotosKitJS.md) | web | Not indexed | not-assessed | catalog-only |
+| [LivePhotosKit JS](LivePhotosKitJS.md) | web | Not indexed | not-assessed | changed-content |
 | [LockedCameraCapture](LockedCameraCapture.md) | framework | Mac Catalyst, iOS, iPadOS | not-assessed | catalog-only |
 | [Media Accessibility](MediaAccessibility.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | not-assessed | catalog-only |
-| [Media Device](MediaDevice.md) | framework | iOS, iPadOS | beta | changed-content |
+| [Media Device](MediaDevice.md) | framework | iOS, iPadOS | shipping | changed-content |
 | [Media Library](MediaLibrary.md) | framework | Mac Catalyst, macOS | not-assessed | retained-legacy |
-| [Media Player](MediaPlayer.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | mixed | changed-content |
+| [Media Player](MediaPlayer.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
 | [Media Setup](MediaSetup.md) | framework | Mac Catalyst, iOS, iPadOS, visionOS | not-assessed | catalog-only |
 | [Media Toolbox](MediaToolbox.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | not-assessed | catalog-only |
-| [MediaExtension](MediaExtension.md) | framework | Mac Catalyst, macOS | not-assessed | catalog-only |
-| [Metal](Metal.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | mixed | changed-content |
-| [Metal Performance Shaders](MetalPerformanceShaders.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | not-assessed | catalog-only |
+| [MediaExtension](MediaExtension.md) | framework | Mac Catalyst, macOS | not-assessed | changed-content |
+| [Metal](Metal.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | shipping | changed-content |
+| [Metal Performance Shaders](MetalPerformanceShaders.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | not-assessed | changed-content |
 | [Metal Performance Shaders Graph](MetalPerformanceShadersGraph.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | not-assessed | catalog-only |
-| [MetalFX](MetalFX.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS | mixed | changed-content |
+| [MetalFX](MetalFX.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS | shipping | changed-content |
 | [MetalKit](MetalKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | not-assessed | catalog-only |
-| [Model I/O](ModelIO.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | mixed | changed-content |
+| [Model I/O](ModelIO.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | shipping | changed-content |
 | [MusicKit](MusicKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | not-assessed | catalog-only |
 | [MusicKit for Web](MusicKitWeb.md) | web | Not indexed | not-assessed | catalog-only |
-| [Now Playing](NowPlaying.md) | framework | Not indexed | mixed | changed-content |
+| [Now Playing](NowPlaying.md) | framework | Not indexed | shipping | changed-content |
 | [OpenGL ES](OpenGLES.md) | framework | iOS, iPadOS, tvOS, visionOS | not-assessed | retained-legacy |
 | [PHASE](PHASE.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | not-assessed | catalog-only |
-| [PhotoKit](PhotoKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | mixed | changed-content |
-| [Professional Video Applications](professional_video_applications.md) | framework | Not indexed | not-assessed | catalog-only |
+| [PhotoKit](PhotoKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
+| [Professional Video Applications](professional_video_applications.md) | framework | Not indexed | not-assessed | changed-content |
 | [Quartz](Quartz.md) | framework | macOS | not-assessed | changed-content |
 | [Quick Look Thumbnailing](QuickLookThumbnailing.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS | not-assessed | catalog-only |
 | [QuickTime File Format](quicktime-file-format.md) | framework | Not indexed | not-assessed | catalog-only |
-| [RealityKit](RealityKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | mixed | changed-content |
-| [ReplayKit](ReplayKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | mixed | changed-content |
-| [RoomPlan](RoomPlan.md) | framework | Mac Catalyst, iOS, iPadOS | mixed | changed-content |
-| [SceneKit](SceneKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | mixed | changed-content |
+| [RealityKit](RealityKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | shipping | changed-content |
+| [ReplayKit](ReplayKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | shipping | changed-content |
+| [RoomPlan](RoomPlan.md) | framework | Mac Catalyst, iOS, iPadOS | shipping | changed-content |
+| [SceneKit](SceneKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
 | [Screen Saver](ScreenSaver.md) | framework | macOS | not-assessed | catalog-only |
-| [ScreenCaptureKit](ScreenCaptureKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | mixed | changed-content |
-| [ShaderGraph](ShaderGraph.md) | reference | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | mixed | changed-content |
+| [ScreenCaptureKit](ScreenCaptureKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | shipping | changed-content |
+| [ShaderGraph](ShaderGraph.md) | reference | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | shipping | changed-content |
 | [ShazamKit](ShazamKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | not-assessed | catalog-only |
 | [simd](simd-library.md) | framework | Not indexed | not-assessed | catalog-only |
 | [Spatial](Spatial.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
-| [Spatial Preview](SpatialPreview.md) | framework | macOS, visionOS | beta | changed-content |
+| [Spatial Preview](SpatialPreview.md) | framework | macOS, visionOS | shipping | changed-content |
 | [SpriteKit](SpriteKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | not-assessed | catalog-only |
 | [TabletopKit](TabletopKit.md) | framework | visionOS | shipping | changed-content |
-| [Touch Controller](TouchController.md) | framework | Mac Catalyst, iOS, iPadOS, visionOS | mixed | changed-content |
-| [USD](USD.md) | reference | Not indexed | mixed | changed-content |
-| [USDKit](USDKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | beta | changed-content |
+| [Touch Controller](TouchController.md) | framework | Mac Catalyst, iOS, iPadOS, visionOS | shipping | changed-content |
+| [USD](USD.md) | reference | Not indexed | shipping | changed-content |
+| [USDKit](USDKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | shipping | changed-content |
 | [Video Subscriber Account](VideoSubscriberAccount.md) | framework | iOS, iPadOS, macOS, tvOS, visionOS | not-assessed | catalog-only |
-| [Video Toolbox](VideoToolbox.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | mixed | changed-content |
+| [Video Toolbox](VideoToolbox.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | shipping | changed-content |
 
 ## Trust, identity and permissions
 
@@ -255,7 +255,7 @@ The review column preserves the initial catalog/changed-content pass. `metadata/
 | [Apple CryptoKit](CryptoKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
 | [Authentication Services](AuthenticationServices.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
 | [CryptoTokenKit](CryptoTokenKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
-| [Declared Age Range](DeclaredAgeRange.md) | framework | Mac Catalyst, iOS, iPadOS, macOS | mixed | changed-content |
+| [Declared Age Range](DeclaredAgeRange.md) | framework | Mac Catalyst, iOS, iPadOS, macOS | shipping | changed-content |
 | [DeviceActivity](DeviceActivity.md) | framework | Mac Catalyst, iOS, iPadOS | shipping | changed-content |
 | [DeviceCheck](DeviceCheck.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | not-assessed | catalog-only |
 | [Endpoint Security](EndpointSecurity.md) | framework | macOS | shipping | changed-content |
@@ -267,38 +267,39 @@ The review column preserves the initial catalog/changed-content pass. `metadata/
 | [Local Authentication](LocalAuthentication.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS, watchOS | shipping | changed-content |
 | [Local Authentication Embedded UI](LocalAuthenticationEmbeddedUI.md) | framework | macOS | not-assessed | catalog-only |
 | [ManagedSettings](ManagedSettings.md) | framework | Mac Catalyst, iOS, iPadOS | shipping | changed-content |
-| [PermissionKit](PermissionKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS | mixed | changed-content |
+| [PermissionKit](PermissionKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS | shipping | changed-content |
 | [SafetyKit](SafetyKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, watchOS | shipping | changed-content |
 | [Screen Time](ScreenTime.md) | framework | Mac Catalyst, iOS, iPadOS, macOS | not-assessed | catalog-only |
 | [SecureElementCredential](SecureElementCredential.md) | framework | Not indexed | not-assessed | changed-content |
-| [Security](Security.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | mixed | changed-content |
+| [Security](Security.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
 | [Security Foundation](SecurityFoundation.md) | framework | Mac Catalyst, macOS | not-assessed | catalog-only |
 | [Security Interface](SecurityInterface.md) | framework | macOS | not-assessed | catalog-only |
-| [SensitiveContentAnalysis](SensitiveContentAnalysis.md) | framework | Mac Catalyst, iOS, iPadOS, macOS | mixed | changed-content |
+| [SensitiveContentAnalysis](SensitiveContentAnalysis.md) | framework | Mac Catalyst, iOS, iPadOS, macOS | shipping | changed-content |
 | [Sign in with Apple](SigninwithApple.md) | framework | Not indexed | not-assessed | changed-content |
-| [SMS and Call Reporting](IdentityLookup.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS | not-assessed | catalog-only |
-| [Trust Insights](TrustInsights.md) | framework | Mac Catalyst, iOS, iPadOS | beta | changed-content |
+| [SMS and Call Reporting](IdentityLookup.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS | not-assessed | changed-content |
+| [Trust Insights](TrustInsights.md) | framework | Mac Catalyst, iOS, iPadOS | shipping | changed-content |
+| [VisionEntitlementServices](VisionEntitlementServices.md) | framework | visionOS | shipping | changed-content |
 
 ## Systems, devices and execution
 
 | Topic | Kind | Platforms tagged in page | Release status | Initial review scope |
 |---|---|---|---|---|
-| [Accessory Access](AccessoryAccess.md) | framework | macOS | beta | changed-content |
+| [Accessory Access](AccessoryAccess.md) | framework | macOS | shipping | changed-content |
 | [Accessory Live Activities](AccessoryLiveActivities.md) | framework | iOS | shipping | changed-content |
 | [Accessory Notifications](AccessoryNotifications.md) | framework | iOS | shipping | changed-content |
 | [Accessory Transport Extension](AccessoryTransportExtension.md) | framework | iOS, iPadOS | shipping | changed-content |
 | [AccessorySetupKit](AccessorySetupKit.md) | framework | iOS, iPadOS | shipping | changed-content |
 | [Account & Organizational Data Sharing](AccountOrganizationalDataSharing.md) | service | Not indexed | not-assessed | catalog-only |
-| [AudioAccessoryKit](AudioAccessoryKit.md) | framework | iOS, iPadOS | mixed | changed-content |
+| [AudioAccessoryKit](AudioAccessoryKit.md) | framework | iOS, iPadOS | shipping | changed-content |
 | [AudioDriverKit](AudioDriverKit.md) | framework | DriverKit | not-assessed | catalog-only |
 | [Automated Device Enrollment](AutomatedDeviceEnrollment.md) | service | Mac Catalyst, iOS, iPadOS | independent | changed-content |
-| [Background Assets](BackgroundAssets.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | mixed | changed-content |
-| [Background Tasks](BackgroundTasks.md) | framework | Mac Catalyst, iOS, iPadOS, tvOS, visionOS | mixed | changed-content |
+| [Background Assets](BackgroundAssets.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | shipping | changed-content |
+| [Background Tasks](BackgroundTasks.md) | framework | Mac Catalyst, iOS, iPadOS, tvOS, visionOS | shipping | changed-content |
 | [BlockStorageDeviceDriverKit](BlockStorageDeviceDriverKit.md) | framework | DriverKit | not-assessed | catalog-only |
 | [CFNetwork](CFNetwork.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | not-assessed | changed-content |
 | [Collaboration](Collaboration.md) | framework | macOS | not-assessed | catalog-only |
 | [ContactProvider](ContactProvider.md) | framework | iOS, iPadOS | not-assessed | catalog-only |
-| [Containerization](Containerization.md) | reference | macOS | mixed | changed-content |
+| [Containerization](Containerization.md) | reference | macOS | shipping | changed-content |
 | [Core Bluetooth](CoreBluetooth.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | not-assessed | catalog-only |
 | [Core HID](CoreHID.md) | framework | macOS | not-assessed | catalog-only |
 | [Core Motion](CoreMotion.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS, watchOS | not-assessed | catalog-only |
@@ -306,16 +307,16 @@ The review column preserves the initial catalog/changed-content pass. `metadata/
 | [Core Services](coreservices.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | not-assessed | catalog-only |
 | [Core Telephony](CoreTelephony.md) | framework | Mac Catalyst, iOS, iPadOS, macOS | shipping | changed-content |
 | [Core WLAN](CoreWLAN.md) | framework | macOS | not-assessed | catalog-only |
-| [CrashReportExtension](CrashReportExtension.md) | framework | iOS, iPadOS, macOS | beta | changed-content |
+| [CrashReportExtension](CrashReportExtension.md) | framework | iOS, iPadOS, macOS | shipping | changed-content |
 | [Darwin Notify](DarwinNotify.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | not-assessed | catalog-only |
 | [Device Management](DeviceManagement.md) | service | iOS, iPadOS, macOS, tvOS, visionOS, watchOS | independent | changed-content |
-| [DeviceDiscoveryExtension](DeviceDiscoveryExtension.md) | framework | iOS, iPadOS, macOS, visionOS | not-assessed | catalog-only |
+| [DeviceDiscoveryExtension](DeviceDiscoveryExtension.md) | framework | iOS, iPadOS, macOS, visionOS | not-assessed | changed-content |
 | [DeviceDiscoveryUI](DeviceDiscoveryUI.md) | framework | tvOS | not-assessed | catalog-only |
 | [Disk Arbitration](DiskArbitration.md) | framework | Mac Catalyst, macOS | not-assessed | catalog-only |
-| [DiskImageKit](DiskImageKit.md) | framework | macOS | beta | changed-content |
+| [DiskImageKit](DiskImageKit.md) | framework | macOS | shipping | changed-content |
 | [dnssd](dnssd.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | not-assessed | changed-content |
 | [DockKit](DockKit.md) | framework | Mac Catalyst, iOS, iPadOS | not-assessed | catalog-only |
-| [DriverKit](DriverKit.md) | framework | DriverKit, iOS, iPadOS, macOS | mixed | changed-content |
+| [DriverKit](DriverKit.md) | framework | DriverKit, iOS, iPadOS, macOS | shipping | changed-content |
 | [EnergyKit](EnergyKit.md) | framework | iOS, iPadOS | not-assessed | catalog-only |
 | [Exception Handling](ExceptionHandling.md) | framework | Mac Catalyst, macOS | not-assessed | catalog-only |
 | [Exposure Notification](ExposureNotification.md) | framework | Mac Catalyst, iOS, iPadOS | not-assessed | catalog-only |
@@ -324,47 +325,48 @@ The review column preserves the initial catalog/changed-content pass. `metadata/
 | [Force Feedback](ForceFeedback.md) | framework | Mac Catalyst, macOS | not-assessed | catalog-only |
 | [FSKit](FSKit.md) | framework | macOS | shipping | changed-content |
 | [HIDDriverKit](HIDDriverKit.md) | framework | DriverKit, macOS | not-assessed | catalog-only |
-| [HomeKit](HomeKit.md) | framework | Mac Catalyst, iOS, iPadOS, tvOS, visionOS, watchOS | mixed | changed-content |
+| [HomeExtensions](HomeExtensions.md) | framework | Mac Catalyst, iOS, iPadOS | shipping | changed-content |
+| [HomeKit](HomeKit.md) | framework | Mac Catalyst, iOS, iPadOS, tvOS, visionOS, watchOS | shipping | changed-content |
 | [hvf](hvf.md) | framework | iOS, iPadOS, macOS, tvOS, visionOS, watchOS | not-assessed | catalog-only |
-| [Hypervisor](Hypervisor.md) | framework | macOS | mixed | changed-content |
+| [Hypervisor](Hypervisor.md) | framework | macOS | shipping | changed-content |
 | [IOBluetooth](IOBluetooth.md) | framework | macOS | not-assessed | catalog-only |
 | [IOBluetooth UI](IOBluetoothUI.md) | framework | macOS | not-assessed | catalog-only |
 | [IOKit](iokit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS | not-assessed | catalog-only |
-| [IOUSBHost](IOUSBHost.md) | framework | Mac Catalyst, macOS | mixed | changed-content |
+| [IOUSBHost](IOUSBHost.md) | framework | Mac Catalyst, macOS | shipping | changed-content |
 | [Kernel](kernel.md) | framework | macOS | not-assessed | catalog-only |
 | [Kernel Management](kernelmanagement.md) | framework | Mac Catalyst, macOS | not-assessed | retained-legacy |
 | [ManagedApp](ManagedApp.md) | framework | iOS, iPadOS, visionOS | not-assessed | catalog-only |
 | [ManagedAppDistribution](ManagedAppDistribution.md) | framework | iOS, iPadOS | not-assessed | catalog-only |
 | [Matter](Matter.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | not-assessed | catalog-only |
 | [MatterSupport](MatterSupport.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS | not-assessed | catalog-only |
-| [MetricKit](MetricKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS | mixed | changed-content |
+| [MetricKit](MetricKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS | shipping | changed-content |
 | [MIDIDriverKit](MIDIDriverKit.md) | framework | DriverKit | not-assessed | catalog-only |
 | [Multipeer Connectivity](MultipeerConnectivity.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | not-assessed | catalog-only |
-| [Nearby Interaction](NearbyInteraction.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, watchOS | not-assessed | catalog-only |
-| [Network](Network.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | mixed | changed-content |
-| [Network Extension](NetworkExtension.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | mixed | changed-content |
+| [Nearby Interaction](NearbyInteraction.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, watchOS | not-assessed | changed-content |
+| [Network](Network.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
+| [Network Extension](NetworkExtension.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
 | [NetworkingDriverKit](NetworkingDriverKit.md) | framework | DriverKit | not-assessed | catalog-only |
 | [Notary API](NotaryAPI.md) | service | Not indexed | not-assessed | catalog-only |
 | [Open Directory](OpenDirectory.md) | framework | Mac Catalyst, macOS | not-assessed | catalog-only |
 | [os](os.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | not-assessed | catalog-only |
-| [OSLog](OSLog.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | mixed | changed-content |
-| [Paravirtualized Graphics](ParavirtualizedGraphics.md) | framework | macOS | not-assessed | catalog-only |
+| [OSLog](OSLog.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
+| [Paravirtualized Graphics](ParavirtualizedGraphics.md) | framework | macOS | not-assessed | changed-content |
 | [PCIDriverKit](PCIDriverKit.md) | framework | DriverKit, macOS | not-assessed | catalog-only |
-| [SCSIControllerDriverKit](SCSIControllerDriverKit.md) | framework | DriverKit | not-assessed | catalog-only |
-| [SCSIPeripheralsDriverKit](SCSIPeripheralsDriverKit.md) | framework | DriverKit | not-assessed | catalog-only |
-| [SensorKit](SensorKit.md) | framework | iOS, iPadOS | not-assessed | catalog-only |
+| [SCSIControllerDriverKit](SCSIControllerDriverKit.md) | framework | DriverKit | not-assessed | changed-content |
+| [SCSIPeripheralsDriverKit](SCSIPeripheralsDriverKit.md) | framework | DriverKit | not-assessed | changed-content |
+| [SensorKit](SensorKit.md) | framework | iOS, iPadOS | not-assessed | changed-content |
 | [SerialDriverKit](SerialDriverKit.md) | framework | DriverKit | not-assessed | catalog-only |
 | [Service Management](ServiceManagement.md) | framework | Mac Catalyst, macOS | not-assessed | catalog-only |
-| [StateReporting](StateReporting.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | beta | changed-content |
+| [StateReporting](StateReporting.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
 | [System](System.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | not-assessed | catalog-only |
 | [System Configuration](SystemConfiguration.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | not-assessed | catalog-only |
-| [System Extensions](SystemExtensions.md) | framework | macOS | mixed | changed-content |
+| [System Extensions](SystemExtensions.md) | framework | macOS | shipping | changed-content |
 | [TelephonyMessagingKit](TelephonyMessagingKit.md) | framework | iOS, iPadOS | not-assessed | catalog-only |
-| [ThreadNetwork](ThreadNetwork.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS | not-assessed | catalog-only |
+| [ThreadNetwork](ThreadNetwork.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS | not-assessed | changed-content |
 | [USBDriverKit](USBDriverKit.md) | framework | DriverKit | not-assessed | catalog-only |
 | [USBSerialDriverKit](USBSerialDriverKit.md) | framework | DriverKit | not-assessed | catalog-only |
-| [VideoDriverKit](VideoDriverKit.md) | framework | DriverKit, macOS | mixed | changed-content |
-| [Virtualization](Virtualization.md) | framework | macOS | mixed | changed-content |
+| [VideoDriverKit](VideoDriverKit.md) | framework | DriverKit, macOS | shipping | changed-content |
+| [Virtualization](Virtualization.md) | framework | macOS | shipping | changed-content |
 | [vmnet](vmnet.md) | framework | macOS | not-assessed | catalog-only |
 | [Watch Connectivity](WatchConnectivity.md) | framework | Mac Catalyst, iOS, iPadOS, visionOS, watchOS | not-assessed | catalog-only |
 | [Wi-Fi Aware](WiFiAware.md) | framework | iOS, iPadOS | not-assessed | catalog-only |
@@ -377,71 +379,71 @@ The review column preserves the initial catalog/changed-content pass. `metadata/
 | Topic | Kind | Platforms tagged in page | Release status | Initial review scope |
 |---|---|---|---|---|
 | [AdAttributionKit](AdAttributionKit.md) | framework | Mac Catalyst, iOS, iPadOS | not-assessed | catalog-only |
-| [Address Book](AddressBook.md) | framework | Mac Catalyst, iOS, iPadOS, macOS | mixed | changed-content |
-| [Address Book UI](AddressBookUI.md) | framework | Mac Catalyst, iOS, iPadOS | mixed | changed-content |
-| [AdServices](AdServices.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS | not-assessed | catalog-only |
-| [AdSupport](AdSupport.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS | not-assessed | catalog-only |
-| [Advanced Commerce API](AdvancedCommerceAPI.md) | framework | Not indexed | mixed | changed-content |
+| [Address Book](AddressBook.md) | framework | Mac Catalyst, iOS, iPadOS, macOS | shipping | changed-content |
+| [Address Book UI](AddressBookUI.md) | framework | Mac Catalyst, iOS, iPadOS | shipping | changed-content |
+| [AdServices](AdServices.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS | not-assessed | changed-content |
+| [AdSupport](AdSupport.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS | not-assessed | changed-content |
+| [Advanced Commerce API](AdvancedCommerceAPI.md) | framework | Not indexed | shipping | changed-content |
 | [Analytics Reports](analytics-reports.md) | service | Not indexed | not-assessed | catalog-only |
-| [App License Delivery SDK](AppLicenseDeliverySDK.md) | framework | Not indexed | mixed | changed-content |
+| [App License Delivery SDK](AppLicenseDeliverySDK.md) | framework | Not indexed | shipping | changed-content |
 | [App Store Connect API](AppStoreConnectAPI.md) | service | Not indexed | independent | changed-content |
-| [App Store Receipts](appstorereceipts.md) | framework | Not indexed | mixed | changed-content |
+| [App Store Receipts](appstorereceipts.md) | framework | Not indexed | shipping | changed-content |
 | [App Store Server API](AppStoreServerAPI.md) | service | Not indexed | independent | changed-content |
 | [App Store Server Notifications](AppStoreServerNotifications.md) | service | Not indexed | independent | changed-content |
 | [Apple Ads](apple_ads.md) | service | Not indexed | independent | changed-content |
 | [Apple Ads Platform API](AppleAdsPlatformAPI.md) | service | Not indexed | independent | changed-content |
-| [Apple Maps Server API](AppleMapsServerAPI.md) | framework | Not indexed | mixed | changed-content |
+| [Apple Maps Server API](AppleMapsServerAPI.md) | framework | Not indexed | shipping | changed-content |
 | [Apple Pay Merchant Token Management API](MerchantTokenNotificationServices.md) | service | Not indexed | independent | changed-content |
 | [Apple Pay Merchant Token Usage Information API](ApplePayMerchantTokenUsageInformationAPI.md) | service | Not indexed | independent | changed-content |
-| [Apple Pay on the Web](ApplePayontheWeb.md) | web | Not indexed | not-assessed | catalog-only |
+| [Apple Pay on the Web](ApplePayontheWeb.md) | web | Not indexed | not-assessed | changed-content |
 | [Apple Pay Web Merchant Registration API](ApplePayWebMerchantRegistrationAPI.md) | service | Not indexed | not-assessed | catalog-only |
 | [Apple School Manager and Apple Business APIs](AppleSchoolAndBusinessManagerAPI.md) | service | Not indexed | independent | changed-content |
 | [Application Services](applicationservices.md) | framework | Mac Catalyst, macOS | not-assessed | catalog-only |
 | [Assignables](Assignables.md) | framework | Mac Catalyst, iOS, iPadOS | not-assessed | catalog-only |
-| [Automatic Assessment Configuration](AutomaticAssessmentConfiguration.md) | framework | Mac Catalyst, iOS, iPadOS, macOS | mixed | changed-content |
+| [Automatic Assessment Configuration](AutomaticAssessmentConfiguration.md) | framework | Mac Catalyst, iOS, iPadOS, macOS | shipping | changed-content |
 | [Automatic Sign-In API](AutomaticSignInAPI.md) | framework | Not indexed | not-assessed | catalog-only |
 | [CallKit](CallKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS, watchOS | not-assessed | catalog-only |
 | [CareKit](CareKit.md) | framework | Mac Catalyst, iOS, watchOS | not-assessed | catalog-only |
-| [CarKey](CarKey.md) | framework | Mac Catalyst, iOS, iPadOS | not-assessed | catalog-only |
-| [CarPlay](CarPlay.md) | framework | Mac Catalyst, iOS, iPadOS | mixed | changed-content |
-| [ClassKit](ClassKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS | mixed | changed-content |
-| [ClassKit Catalog API](ClassKitCatalogAPI.md) | framework | Not indexed | mixed | changed-content |
-| [ClassKit UI](ClassKitUI.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS | mixed | changed-content |
-| [Contacts](Contacts.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS, watchOS | mixed | changed-content |
-| [Core Location](CoreLocation.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | mixed | changed-content |
+| [CarKey](CarKey.md) | framework | Mac Catalyst, iOS, iPadOS | not-assessed | changed-content |
+| [CarPlay](CarPlay.md) | framework | Mac Catalyst, iOS, iPadOS | shipping | changed-content |
+| [ClassKit](ClassKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS | shipping | changed-content |
+| [ClassKit Catalog API](ClassKitCatalogAPI.md) | framework | Not indexed | shipping | changed-content |
+| [ClassKit UI](ClassKitUI.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS | shipping | changed-content |
+| [Contacts](Contacts.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS, watchOS | shipping | changed-content |
+| [Core Location](CoreLocation.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
 | [Enterprise Program API](EnterpriseProgramAPI.md) | service | Not indexed | independent | changed-content |
-| [EventKit](EventKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS, watchOS | mixed | changed-content |
-| [External Purchase Server API](ExternalPurchaseServerAPI.md) | framework | Not indexed | mixed | changed-content |
-| [FinanceKit](FinanceKit.md) | framework | Mac Catalyst, iOS, iPadOS | mixed | changed-content |
+| [EventKit](EventKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS, watchOS | shipping | changed-content |
+| [External Purchase Server API](ExternalPurchaseServerAPI.md) | framework | Not indexed | shipping | changed-content |
+| [FinanceKit](FinanceKit.md) | framework | Mac Catalyst, iOS, iPadOS | shipping | changed-content |
 | [GeoToolbox](GeoToolbox.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
-| [HealthKit](HealthKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS, watchOS | mixed | changed-content |
-| [iAd](iAd.md) | framework | Mac Catalyst, iOS, iPadOS | mixed | changed-content |
-| [iWork Document Exporting API](iWorkDocumentExportingAPI.md) | framework | Not indexed | mixed | changed-content |
-| [Journaling Suggestions](JournalingSuggestions.md) | framework | iOS, iPadOS | mixed | changed-content |
-| [LiveCommunicationKit](LiveCommunicationKit.md) | framework | Mac Catalyst, iOS, iPadOS, visionOS, watchOS | not-assessed | catalog-only |
+| [HealthKit](HealthKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS, watchOS | shipping | changed-content |
+| [iAd](iAd.md) | framework | Mac Catalyst, iOS, iPadOS | shipping | changed-content |
+| [iWork Document Exporting API](iWorkDocumentExportingAPI.md) | framework | Not indexed | shipping | changed-content |
+| [Journaling Suggestions](JournalingSuggestions.md) | framework | iOS, iPadOS | shipping | changed-content |
+| [LiveCommunicationKit](LiveCommunicationKit.md) | framework | Mac Catalyst, iOS, iPadOS, visionOS, watchOS | not-assessed | changed-content |
 | [MailKit](MailKit.md) | framework | macOS | not-assessed | catalog-only |
-| [MapKit](MapKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | mixed | changed-content |
+| [MapKit](MapKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
 | [MapKit JS](MapKitJS.md) | web | Not indexed | independent | changed-content |
 | [MarketplaceKit](MarketplaceKit.md) | framework | iOS, iPadOS | shipping | changed-content |
 | [Messages](Messages.md) | framework | Mac Catalyst, iOS, iPadOS | not-assessed | catalog-only |
 | [PassKit (Apple Pay and Wallet)](PassKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS, watchOS | shipping | changed-content |
-| [ProximityReader](ProximityReader.md) | framework | Mac Catalyst, iOS, iPadOS | mixed | changed-content |
+| [ProximityReader](ProximityReader.md) | framework | Mac Catalyst, iOS, iPadOS | shipping | changed-content |
 | [Push to Talk](PushToTalk.md) | framework | Mac Catalyst, iOS, iPadOS | not-assessed | catalog-only |
 | [PushKit](PushKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS, watchOS | not-assessed | catalog-only |
 | [ResearchKit](ResearchKit.md) | framework | Not indexed | not-assessed | catalog-only |
-| [Retention Messaging API](RetentionMessaging.md) | framework | iOS, iPadOS, macOS, visionOS | mixed | changed-content |
+| [Retention Messaging API](RetentionMessaging.md) | framework | iOS, iPadOS, macOS, visionOS | shipping | changed-content |
 | [Roster API](RosterAPI.md) | framework | Not indexed | not-assessed | catalog-only |
-| [ServicesAccountLinking](ServicesAccountLinking.md) | framework | Mac Catalyst, iOS, iPadOS | mixed | changed-content |
-| [Shared with You](SharedWithYou.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | mixed | changed-content |
+| [ServicesAccountLinking](ServicesAccountLinking.md) | framework | Mac Catalyst, iOS, iPadOS | shipping | changed-content |
+| [Shared with You](SharedWithYou.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | shipping | changed-content |
 | [SKAdNetwork for Web Ads](SKAdNetworkforWebAds.md) | framework | Not indexed | not-assessed | catalog-only |
 | [Social](Social.md) | framework | Mac Catalyst, iOS, iPadOS, macOS | shipping | changed-content |
-| [StoreKit](StoreKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | mixed | changed-content |
+| [StoreKit](StoreKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | shipping | changed-content |
 | [TV Services](TVServices.md) | framework | tvOS | not-assessed | catalog-only |
 | [Wallet Orders](WalletOrders.md) | framework | iOS, iPadOS, macOS | not-assessed | catalog-only |
-| [Wallet Passes](WalletPasses.md) | framework | Not indexed | mixed | changed-content |
+| [Wallet Passes](WalletPasses.md) | framework | Not indexed | shipping | changed-content |
 | [WeatherKit](WeatherKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS, watchOS | not-assessed | catalog-only |
 | [WeatherKit REST API](WeatherKitRESTAPI.md) | framework | Not indexed | not-assessed | catalog-only |
-| [WorkoutKit](WorkoutKit.md) | framework | Mac Catalyst, iOS, iPadOS, watchOS | mixed | changed-content |
+| [WorkoutKit](WorkoutKit.md) | framework | Mac Catalyst, iOS, iPadOS, watchOS | shipping | changed-content |
 
 ## Browser and web platform
 
@@ -449,8 +451,8 @@ The review column preserves the initial catalog/changed-content pass. `metadata/
 |---|---|---|---|---|
 | [BrowserEngineCore](BrowserEngineCore.md) | framework | iOS, iPadOS | shipping | changed-content |
 | [BrowserEngineKit](BrowserEngineKit.md) | framework | iOS, iPadOS | shipping | changed-content |
-| [BrowserKit](BrowserKit.md) | framework | iOS, iPadOS | mixed | changed-content |
-| [JavaScriptCore](JavaScriptCore.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | mixed | changed-content |
+| [BrowserKit](BrowserKit.md) | framework | iOS, iPadOS | shipping | changed-content |
+| [JavaScriptCore](JavaScriptCore.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, tvOS, visionOS | shipping | changed-content |
 | [Maps Web Snapshots](snapshots.md) | framework | Not indexed | not-assessed | changed-content |
 | [Safari app extensions](safari-app-extensions.md) | framework | Not indexed | not-assessed | changed-content |
 | [Safari Services](SafariServices.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS | shipping | changed-content |
@@ -458,11 +460,11 @@ The review column preserves the initial catalog/changed-content pass. `metadata/
 | [TVML](TVML.md) | web | Not indexed | not-assessed | catalog-only |
 | [TVMLKit](TVMLKit.md) | framework | tvOS | not-assessed | catalog-only |
 | [TVMLKit JS](tvmljs.md) | web | tvOS | not-assessed | catalog-only |
-| [WebKit](WebKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS | mixed | changed-content |
+| [WebKit](WebKit.md) | framework | Mac Catalyst, iOS, iPadOS, macOS, visionOS | shipping | changed-content |
 | [WebKit JS](webkitjs.md) | web | Not indexed | independent | changed-content |
 
 ## Executable examples
 
 | Topic | Kind | Platforms tagged in page | Release status | Initial review scope |
 |---|---|---|---|---|
-| [Sample Code Library](SampleCode.md) | overview | Not indexed | mixed | changed-content |
+| [Sample Code Library](SampleCode.md) | overview | Not indexed | shipping | changed-content |
