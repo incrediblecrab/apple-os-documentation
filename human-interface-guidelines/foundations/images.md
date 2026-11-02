@@ -36,6 +36,7 @@ As you create different types of images, consider the following recommendations.
 | Bitmap or raster work | De-interlaced PNG files |
 | PNG graphics that don't require full 24-bit color | An 8-bit color palette |
 | Photos | JPEG files, optimized as necessary, or HEIC files |
+| Stereo or spatial photos | Stereo HEIC |
 | Flat icons, interface icons, and other flat artwork that requires high-resolution scaling | PDF or SVG files |
 
 ### Best practices
@@ -88,9 +89,27 @@ In visionOS, people can view images over a wide range of sizes, and the system a
 
 **Create a layered app icon.** App icons in visionOS are composed of two to three layers that provide the appearance of depth by moving at subtly different rates when the icon is in focus. For guidance, see visionOS app icons.
 
-**Prefer vector-based art for 2D interface images.** Vector artwork remains sharp when scaled; this recommendation doesn't exclude photographs or other inherently raster content. If you use Core Animation layers, see Drawing sharp layer-based content in visionOS for developer guidance.
+**Prefer vector-based art for 2D interface images.** Vector artwork remains sharp when scaled, while bitmap content might not look good when the system scales it up. When an image has to be raster, such as a photograph, follow the resolution guidance below. If you use Core Animation layers, see Drawing sharp layer-based content in visionOS for developer guidance.
 
 **If you need to use rasterized images, balance quality with performance as you choose a resolution.** Although a @2x image looks fine at common viewing distances, its fixed resolution means that the system doesn't dynamically scale it and it might not look sharp from close up. To help a rasterized image look sharp when people view it from a wide range of distances, you can use a higher resolution, but each increase in resolution results in a larger file size and may impact your app's runtime performance, especially for resolutions over @6x. If you use images that have resolutions higher than @2x, be sure to also apply high-quality image filtering to help balance quality and performance (for developer guidance, see filters).
+
+#### Spatial photos and spatial scenes
+
+Besides 2D and stereoscopic images, visionOS apps and games can use RealityKit to show spatial photos and spatial scenes. A spatial photo is a stereoscopic photo that carries spatial metadata, such as one captured on iPhone 15 Pro or later, Apple Vision Pro, or another compatible camera. A spatial scene is a 3D image generated from a 2D image, with a parallax effect that responds to head movement. For developer guidance, see ImagePresentationComponent.
+
+**Use stereo HEIC for spatial photos.** A stereo HEIC file with spatial metadata is recognized as a spatial photo, and visionOS applies visual treatments that reduce common causes of stereo-viewing discomfort.
+
+**Put text over spatial photos on the feathered glass background effect.** The effect adds contrast so the text is readable and blurs detail behind it, which reduces discomfort when people read text over a spatial photo. For developer guidance, see GlassBackgroundEffect.
+
+**Consider viewing comfort when you make spatial photos from 2D content.** Spatial metadata such as disparity adjustment changes how people perceive the 3D scene and can cause discomfort from some viewing positions. For developer guidance, see Creating spatial photos and videos with spatial metadata.
+
+**Show spatial photos and spatial scenes in their own view.** Inline placement next to other content can cause discomfort, so present them in a separate view such as a sheet or window. If you must show stereoscopic images inline, leave generous space between the image and the surrounding content so people's eyes can adjust to the change in depth.
+
+**Reserve spatial scenes for specific moments.** Generating a spatial scene from an existing image can take several seconds. The Photos app, for example, offers an explicit action to create one while someone is immersed in a single photo. Avoid showing many spatial scenes at once; use scroll views, pagination, or explicit actions to move between photos.
+
+**Keep the interface minimal in immersive presentations.** The Spatial Gallery app, for example, shows one item with a short caption and a single Back button, and people swipe to move between items.
+
+**Prefer larger spatial scenes centered in the field of view.** People may move their head from side to side to see the parallax effect, and a smaller scene gives less of it.
 
 **watchOS**
 
@@ -120,6 +139,9 @@ In general, avoid transparency to keep image files small. If you always composit
 - [Images](https://developer.apple.com/documentation/swiftui/images) — SwiftUI
 - [UIImageView](https://developer.apple.com/documentation/uikit/uiimageview) — UIKit
 - [NSImageView](https://developer.apple.com/documentation/appkit/nsimageview) — AppKit
+- [ImagePresentationComponent](https://developer.apple.com/documentation/realitykit/imagepresentationcomponent) — RealityKit
+- [GlassBackgroundEffect](https://developer.apple.com/documentation/swiftui/glassbackgroundeffect) — SwiftUI
+- [Creating spatial photos and videos with spatial metadata](https://developer.apple.com/documentation/imageio/creating-spatial-photos-and-videos-with-spatial-metadata) — Image I/O
 
 #### Videos
 
@@ -127,6 +149,9 @@ In general, avoid transparency to keep image files small. If you always composit
 - [Get Started with Display P3](https://developer.apple.com/videos/play/wwdc2017/821/)
 
 ## Changelog
+
+### December 16, 2025
+- Added guidance for spatial photos and spatial scenes in visionOS.
 
 ### December 5, 2023
 - Clarified guidance on choosing a resolution for a rasterized image in a visionOS app.

@@ -10,7 +10,7 @@ VideoToolbox is a low-level framework that provides direct access to hardware en
 
 ## OS 27 low-latency processing
 
-The [iOS and iPadOS](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes#VideoToolbox), [macOS](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes#VideoToolbox), and [visionOS](https://developer.apple.com/documentation/visionos-release-notes/visionos-27-release-notes#VideoToolbox) Beta 8 notes checked September 8, 2026 describe two additions:
+The [iOS and iPadOS](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes#VideoToolbox), [macOS](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes#VideoToolbox), and [visionOS](https://developer.apple.com/documentation/visionos-release-notes/visionos-27-release-notes#VideoToolbox) 27 release notes, first checked as Beta 8 notes on September 8, 2026 and re-read November 1, 2026, list two new VideoToolbox features; the 27.2 notes for those platforms add no VideoToolbox entry:
 
 - [VTLowLatencySuperResolutionScalerConfiguration](https://developer.apple.com/documentation/videotoolbox/vtlowlatencysuperresolutionscalerconfiguration) supports a **1.5×** scale factor (177635243). Query `supportedScaleFactors(frameWidth:frameHeight:)` for the actual source dimensions rather than assuming every input supports it.
 - `VTLowLatencyFrameInterpolationConfiguration` supports arbitrary source dimensions **up to 1080p** (179040806). This is not a statement that low-latency interpolation accepts every resolution or runs on every device.

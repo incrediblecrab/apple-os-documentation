@@ -10,25 +10,25 @@ PhotoKit is the combination of the Photos and PhotosUI frameworks, which togethe
 
 ## OS 27 asset metadata
 
-The September 8, 2026 review of the [iOS and iPadOS](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes#PhotoKit), [macOS](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes#PhotoKit), and [visionOS](https://developer.apple.com/documentation/visionos-release-notes/visionos-27-release-notes#PhotoKit) Beta 8 notes identifies two developer-facing changes:
+The [iOS and iPadOS](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes#PhotoKit), [macOS](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes#PhotoKit), and [visionOS](https://developer.apple.com/documentation/visionos-release-notes/visionos-27-release-notes#PhotoKit) 27 release notes, first reviewed as Beta 8 notes on September 8, 2026 and re-read November 1, 2026, list two developer-facing PhotoKit changes; the 27.2 notes for those platforms add no PhotoKit entry:
 
-- Use the new optional [PHAssetResource.filename](https://developer.apple.com/documentation/photos/phassetresource/filename) on its supported OS 27 platforms. It replaces the misleadingly non-null `originalFilename` contract (175412725). A missing filename is valid; do not force-unwrap it or require every resource to supply a display name.
-- The `PHAsset.addedDate` issue that could return `nil` despite a non-null declaration is listed as **resolved** (175050631), not a current blanket limitation.
+- Use the new optional [PHAssetResource.filename](https://developer.apple.com/documentation/photos/phassetresource/filename) (`String?`; iOS, iPadOS, Mac Catalyst, macOS, tvOS, and visionOS 27.0). It replaces `originalFilename`, whose non-null declaration misrepresents the value (175412725). The notes list this under deprecations, and the reference marks `originalFilename` deprecated in 27.0 on those platforms; it is deprecated, not removed. A missing filename is valid; do not force-unwrap it or require every resource to supply a display name.
+- The `PHAsset.addedDate` issue that could return `nil` despite a non-null declaration is listed as **resolved** (175050631), not a current blanket limitation. The current Swift reference declares the property as `Date?`, so still handle `nil`.
 
 These API changes do not imply unrestricted library access. Retain the Photos picker and authorization guidance below, and request only the access the feature needs. Consumer Photos editing features are not a specification for PhotoKit transformations, export limits, or watermark metadata.
 
 ## Topics
 
 ### Frameworks
-Reference the API that compose PhotoKit.
+Reference the APIs that compose PhotoKit.
 
 - [Photos](https://developer.apple.com/documentation/photos) - Work with image and video assets that the Photos app manages, including those from iCloud Photos and Live Photos.
 - [PhotosUI](https://developer.apple.com/documentation/photosui) - Present a person's photo library using a picker interface, display Live Photos, or extend the Photos app with custom functionality.
 
 ### Sample code
-Browse sample code that walk through specific Photos and PhotosUI workflows.
+Browse sample code that walks through specific Photos and PhotosUI workflows.
 
-- [Browsing and Modifying Photo Albums](https://developer.apple.com/documentation/photokit/browsing-and-modifying-photo-albums) - Help users organize their photos into albums and browse photo collections in a grid-based layout using PhotoKit.
+- [Browsing and Modifying Photo Albums](https://developer.apple.com/documentation/photokit/browsing-and-modifying-photo-albums) - Help people organize their photos into albums and browse photo collections in a grid-based layout using PhotoKit.
 - [Selecting Photos and Videos in iOS](https://developer.apple.com/documentation/photokit/selecting-photos-and-videos-in-ios) - Improve the user experience of finding and selecting assets by using the Photos picker.
 - [Bringing Photos picker to your SwiftUI app](https://developer.apple.com/documentation/photokit/bringing-photos-picker-to-your-swiftui-app) - Select media assets by using a Photos picker view that SwiftUI provides.
 - [Implementing an inline Photos picker](https://developer.apple.com/documentation/photokit/implementing-an-inline-photos-picker) - Embed a system-provided, half-height Photos picker into your app's view.

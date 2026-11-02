@@ -14,7 +14,7 @@ Choose a store scope appropriate to the task. `OSLogStore.Scope.currentProcessId
 
 ### Reading archives from the 27 generation
 
-**Reviewed September 8, 2026:** The macOS 27 release notes document an updated Unified Logging archive format. Archives generated on 27.0 releases require **macOS 26.2 or later** to read; macOS 26.1 and earlier cannot read them.
+**Reviewed November 1, 2026:** The macOS 27 Golden Gate release notes document an updated Unified Logging archive format (160567675). Archives generated on 27.0 releases require **macOS 26.2 or later** to read; macOS 26.1 and earlier cannot read them. The macOS 27.2 release notes add no logging entries.
 
 This is an archive-reader compatibility requirement, not a change to every OSLog API's minimum version. Use a compatible analysis Mac when collecting 27-device logs for management-network audits or diagnosing app failures.
 
@@ -46,4 +46,4 @@ For structured app-state context in Instruments and MetricKit, see [StateReporti
 
 *Source: [Apple Developer Documentation](https://developer.apple.com/documentation/OSLog)*
 
-*27-beta source: [macOS release notes — Apple Unified Logging System](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes.md).*
+*macOS 27 source: [macOS 27 Golden Gate release notes — Apple Unified Logging System](https://developer.apple.com/documentation/macos-release-notes/macos-27-release-notes.md).*

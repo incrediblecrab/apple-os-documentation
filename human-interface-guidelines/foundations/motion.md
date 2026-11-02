@@ -6,7 +6,9 @@ Beautiful, fluid motions bring the interface to life, conveying status, providin
 
 ## Overview
 
-Many system components automatically include motion, letting you offer familiar and consistent experiences throughout your app or game. If you design custom motion, follow the guidelines below.
+Many system components automatically include motion, letting you offer familiar and consistent experiences throughout your app or game. System components can also adjust their motion to accessibility settings and to the input method. Liquid Glass, for example, moves with more emphasis when someone touches it directly and with a more subdued effect when they use a trackpad. For guidance, see [Materials](https://developer.apple.com/design/human-interface-guidelines/materials#Liquid-Glass).
+
+If you design custom motion, follow the guidelines below.
 
 ## Topics
 
@@ -78,6 +80,9 @@ SwiftUI provides a powerful and streamlined way to add motion to your app. If yo
 - [Design considerations for vision and motion](https://developer.apple.com/videos/play/wwdc2023/10078)
 
 ## Changelog
+
+### September 9, 2025
+- Added guidance for Liquid Glass.
 
 ### June 10, 2024
 - Added game-specific examples and enhanced guidance for using motion in games.

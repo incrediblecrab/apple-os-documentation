@@ -12,13 +12,13 @@ For watchOS, expect to spend more time planning, designing, and refining your ap
 
 ### OS26 and OS27 planning
 
-**Checked September 8, 2026:** watchOS **26.6** (`23U67`, July 27) was the shipping 26-generation release. **Update September 14, 2026:** watchOS **27.0** (`24R364`) is shipping. [Release listings](https://developer.apple.com/news/releases/) do not establish complete Watch/iPhone pairing requirements.
+**Checked September 8, 2026:** watchOS **26.6** (`23U67`, July 27) was the shipping 26-generation release. watchOS **27.0** (`24R364`) shipped September 14, 2026. **Checked November 1, 2026:** watchOS **27.0.1** (`24R365`, September 28) and **27.2** (`24S118`, October 26) have since shipped, and Xcode 27.2 (`27B52`, October 29) bundles the [watchOS 27.2 SDK](https://developer.apple.com/documentation/watchos-release-notes/watchos-27_2-release-notes). [Release listings](https://developer.apple.com/news/releases/) do not establish complete Watch/iPhone pairing requirements.
 
 - Preserve the older-platform guidance below and the [OS26 introduction](../os26-intro/watchOS.md) when maintaining older deployment targets.
-- The [watchOS 27 notes](https://developer.apple.com/documentation/watchos-release-notes/watchos-27-release-notes) add HealthKit heart-rate/cycling-power zones and deprecate `WKExtension`/`WKExtensionDelegate` for apps whose **minimum deployment target is watchOS 9.2 or later**. This is not the UIKit scene migration required on other platforms.
+- The [watchOS 27 notes](https://developer.apple.com/documentation/watchos-release-notes/watchos-27-release-notes) add HealthKit heart-rate/cycling-power zones and deprecate `WKExtension`/`WKExtensionDelegate` for apps whose **minimum deployment target is watchOS 9.2 or later**. This is not the UIKit scene migration required on other platforms; for a dual-target project, see [Migrating to a single-target watchOS app](https://developer.apple.com/documentation/watchos-apps/migrating-to-a-single-target-watchos-app).
 - Re-test SwiftUI `@State` initializers and `AsyncImage` caching with Xcode 27. Keep complications and workouts useful when the phone or network is unavailable.
 - Treat fixed complication, connectivity, and workout issues as regression tests—not permanent restrictions. Check authorization and unavailable health samples separately.
-- **Xcode 27** requires **Apple silicon and macOS Tahoe 26.6 or later**, not macOS 27. The macOS 27 SDK supports back deploying Universal apps to macOS 12 and later, and Intel development remains possible with Rosetta-supporting macOS such as macOS 27. See the [Xcode notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes).
+- **Xcode 27** requires **Apple silicon and macOS Tahoe 26.6 or later**, not macOS 27; the [Xcode 27.2 notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_2-release-notes) keep the macOS Tahoe 26.6 minimum. The macOS 27 SDK supports back deploying Universal apps to macOS 12 and later, and Intel development remains possible with Rosetta-supporting macOS such as macOS 27. See the [Xcode notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes).
 
 The exact watchOS 27 model and companion-device list is not verified here. See the [OS27 introduction](../os27-intro/watchOS.md) for migration checks and [App Store readiness](../guides/app-store-readiness.md) for submission policy.
 
@@ -47,6 +47,7 @@ Use App Intents for modern Siri, Shortcuts, and Apple Intelligence integration. 
 - [Updating your app and widgets for watchOS 10](https://developer.apple.com/documentation/watchos-apps/updating-your-app-and-widgets-for-watchos-10) - Integrate SwiftUI elements and watch-specific features, and build widgets for the Smart Stack.
 - [Building a watchOS app](https://developer.apple.com/documentation/watchOS-Apps/building_a_watchos_app) - Set up your app's life cycle and create its user interface with SwiftUI.
 - [watchOS updates](https://developer.apple.com/documentation/updates/watchos) - Learn about important changes to watchOS.
+- [Migrating to a single-target watchOS app](https://developer.apple.com/documentation/watchos-apps/migrating-to-a-single-target-watchos-app) - Adopt the single-target configuration to simplify your project and avoid ambiguity about where to store resources and apply entitlements.
 
 ### App experience
 - [Setting up a watchOS project](https://developer.apple.com/documentation/watchos-apps/setting-up-a-watchos-project) - Create a new watchOS project or add a watch target to an existing iOS project.
@@ -77,6 +78,7 @@ Use App Intents for modern Siri, Shortcuts, and Apple Intelligence integration. 
 - [Notifications](https://developer.apple.com/documentation/watchOS-Apps/notifications) - Communicate with users even when your app isn't running.
 
 ### Siri
+- [Making actions and content discoverable by Apple Intelligence](https://developer.apple.com/documentation/appintents/making-actions-and-content-discoverable-by-apple-intelligence) - Equip the system so that Siri can work with your app by adding specific schemas from relevant domains.
 - [App Intents](https://developer.apple.com/documentation/appintents) - Expose app actions and entities to supported Siri, Shortcuts, Spotlight, widget, and control experiences.
 - [Creating an Intents App Extension](https://developer.apple.com/documentation/sirikit/creating-an-intents-app-extension) - Add and configure an Intents app extension in your Xcode project.
 

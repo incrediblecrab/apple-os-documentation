@@ -21,7 +21,7 @@ You can integrate SwiftUI views with objects from the UIKit, AppKit, and WatchKi
 
 ## OS 27 migration
 
-The following changes are documented in the September 2026 betas; they do not raise SwiftUI's framework minimums above.
+The following changes are documented in Apple's OS 27 release notes and SwiftUI reference, re-read November 1, 2026; they do not raise SwiftUI's framework minimums above.
 
 ### State initialization in Xcode 27
 
@@ -67,7 +67,7 @@ On iOS, iPadOS, Mac Catalyst, macOS, and visionOS 27+, use [`ReadableDocument`](
 - The release notes describe [`URLDocumentConfiguration`](https://developer.apple.com/documentation/swiftui/urldocumentconfiguration) as an observable, main-actor-isolated reference that is **no longer `Sendable`**, but its symbol page still lists `Sendable` among its conformances. Document factories are also main-actor isolated; keep configuration access on the main actor.
 - Register undo actions for user edits so autosave can observe them. When migrating `FileWrapperDocumentWriter`, accept its second `previous` argument to reuse unchanged package content.
 
-Follow [Updating your document-based app](https://developer.apple.com/documentation/swiftui/updating-your-document-based-app). The beta notes still list document progress not appearing as a **known issue**, not a permanent API limitation.
+Follow [Updating your document-based app](https://developer.apple.com/documentation/swiftui/updating-your-document-based-app). As of November 1, 2026, the iOS & iPadOS 27 and macOS 27 release notes still list progress reported through `read(from:progress:)` and `write(snapshot:to:previous:progress:)` possibly not being presented as a SwiftUI **known issue** (158441261), not a permanent API limitation; the 27.2 release notes add no SwiftUI entries.
 
 ### Layout, input, and toolbars
 
@@ -179,7 +179,7 @@ Sources: [SwiftUI updates](https://developer.apple.com/documentation/updates/swi
 - [`SliderTick`](https://developer.apple.com/documentation/swiftui/slidertick) - Slider tick content, with the same non-tvOS 26+ platform set as `SliderTickContent`.
 
 ### Xcode 26 Features
-- **`#Playground` blocks** - Interactive code exploration in Xcode's preview panel. See [Xcode](Xcode.md) for toolchain-specific playground guidance.
+- **`#Playground` blocks** - Interactive code exploration in Xcode's preview panel. See [Xcode](Xcode.md) for toolchain versions.
 
 ---
 

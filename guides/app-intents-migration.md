@@ -8,7 +8,7 @@ Move one custom intent to App Intents, preserve its identity and data, and verif
 - Establish a passing legacy flow before changing it. [SiriKit](../documentation/SiriKit.md) still provides legacy support for most existing Siri interactions, Shortcuts actions, and widget configuration. Apple recommends App Intents for modern integration; it has not made a blanket framework-removal announcement.
 - [App Intents](../documentation/AppIntents.md) begins at iOS/iPadOS 16, Mac Catalyst 16, macOS 13, tvOS 16, watchOS 9, and visionOS 1. Keep legacy paths for earlier deployment targets.
 - This custom-intent recipe uses [`CustomIntentMigratedAppIntent`](https://developer.apple.com/documentation/appintents/customintentmigratedappintent.md), available at iOS/iPadOS/Mac Catalyst/tvOS 16, macOS 13, watchOS 9, and visionOS 1.0. Versioned DocC metadata confirms Catalyst 16; the visionOS 1.0 API availability was checked with the installed XRSimulator 26.5 SDK.
-- [App Intents Testing](../documentation/AppIntentsTesting.md) requires OS 27 APIs and an **XCTest UI testing bundle**. Use Xcode 27 (`27A266a`) on an Apple silicon Mac running macOS Tahoe 26.6 or later for this workflow.
+- [App Intents Testing](../documentation/AppIntentsTesting.md) requires OS 27 APIs and an **XCTest UI testing bundle**. Use Xcode 27 or later on an Apple silicon Mac running macOS Tahoe 26.6 or later for this workflow. Xcode 27 (`27A266a`) shipped September 14, 2026; as of November 1, 2026, Apple's [release feed](https://developer.apple.com/news/releases/) lists Xcode 27.2 (`27B52`, October 29, 2026) as the latest release, with the same host requirement.
 
 ## 1. Share the action implementation
 
@@ -77,3 +77,5 @@ Remove a legacy path only after its supported users and shortcuts have a verifie
 - [CustomIntentMigratedAppIntent](https://developer.apple.com/documentation/appintents/customintentmigratedappintent.md)
 - [Providing contextual cues](https://developer.apple.com/documentation/appintents/providing-contextual-cues-to-apple-intelligence-and-siri.md)
 - [Testing your App Intents code](https://developer.apple.com/documentation/appintentstesting/testing-your-app-intents-code.md)
+- [Xcode 27.2 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_2-release-notes)
+- [Apple developer release history](https://developer.apple.com/news/releases/)

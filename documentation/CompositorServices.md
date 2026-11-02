@@ -20,7 +20,7 @@ Choose this framework when your engine owns Metal rendering and frame scheduling
 
 This is distinct from [Spatial Preview](SpatialPreview.md), the OS 27 document/USD authoring workflow, and [Foveated Streaming](FoveatedStreaming.md), the visionOS 26.4+ endpoint-streaming framework.
 
-The [visionOS 27 Beta 8 notes](https://developer.apple.com/documentation/visionos-release-notes/visionos-27-release-notes#Compositor-Services), checked September 8, 2026, mark the `RemoteImmersiveSpace` device-discovery failure as **resolved** (177989580). Re-test discovery and reconnection; do not describe remote immersive delivery as currently broken.
+The [visionOS 27 release notes](https://developer.apple.com/documentation/visionos-release-notes/visionos-27-release-notes#Compositor-Services), re-read November 1, 2026, list the `RemoteImmersiveSpace` device-discovery failure as **resolved** (177989580), as the Beta 8 notes did when this page was first checked on September 8, 2026. The [visionOS 27.2 release notes](https://developer.apple.com/documentation/visionos-release-notes/visionos-27_2-release-notes) add no Compositor Services entries. Re-test discovery and reconnection; do not describe remote immersive delivery as currently broken.
 
 ## Topics
 
