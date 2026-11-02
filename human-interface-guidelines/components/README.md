@@ -67,7 +67,7 @@ The review column preserves the initial catalog/changed-content pass. `metadata/
 | [Token fields](token-fields.md) | design | macOS | independent | catalog-only |
 | [Toolbars](toolbars.md) | design | iOS, iPadOS, macOS, tvOS, visionOS, watchOS | independent | changed-content |
 | [Top Shelf](top-shelf.md) | design | tvOS | independent | changed-content |
-| [Virtual keyboards](virtual-keyboards.md) | design | iOS, iPadOS, tvOS, visionOS, watchOS | independent | catalog-only |
+| [Virtual keyboards](virtual-keyboards.md) | design | iOS, iPadOS, tvOS, visionOS, watchOS | independent | changed-content |
 | [Watch faces](watch-faces.md) | design | watchOS | independent | changed-content |
 | [Web views](web-views.md) | design | iOS, iPadOS, macOS, visionOS | independent | changed-content |
 | [Widgets](widgets.md) | design | iOS, iPadOS, macOS, watchOS | independent | changed-content |

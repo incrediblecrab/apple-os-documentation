@@ -36,7 +36,7 @@ Great iPhone experiences integrate the platform and device capabilities that peo
 
 - **Adapt to user preferences** - Adapt seamlessly to appearance changes — like device orientation, Dark Mode, and Dynamic Type — letting people choose the configurations that work best for them.
 
-- **Support natural interactions** - Support interactions that accommodate the way people usually hold their device. For example, it tends to be easier and more comfortable for people to reach a control when it's located in the middle or bottom area of the display, so it's especially important let people swipe to navigate back or initiate actions in a list row.
+- **Support natural interactions** - Support interactions that accommodate the way people usually hold their device. For example, it tends to be easier and more comfortable for people to reach a control when it's located in the middle or bottom area of the display, so it's especially important to let people swipe to navigate back or initiate actions in a list row.
 
 - **Integrate platform capabilities** - With people's permission, integrate information available through platform capabilities in ways that enhance the experience without asking people to enter data. For example, you might accept payments, provide security through biometric authentication, or offer features that use the device's location.
 

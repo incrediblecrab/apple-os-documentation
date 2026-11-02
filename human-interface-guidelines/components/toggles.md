@@ -28,7 +28,9 @@ Use the switch toggle style only in a list row. You don't need to supply a label
 
 Change the default color of a switch only if necessary. The default green color tends to work well in most cases, but you might want to use your app's accent color instead. Be sure to use a color that provides enough contrast with the uncolored appearance to be perceptible.
 
-Outside of a list, use a button that behaves like a toggle, not a switch. Avoid supplying a label that explains the button's purpose. The interface icon you create — combined with the alternative background appearances you supply — help people understand what the button does. For developer guidance, see changesSelectionAsPrimaryAction.
+Outside of a list, use a button that behaves like a toggle, not a switch. For example, the filter button in the Phone app's recent calls works as a toggle: a blue highlight appears behind its symbol while a filter is active and goes away when people return to all recent calls.
+
+Avoid supplying a label that explains the button's purpose. The interface icon you create — combined with the alternative background appearances you supply — help people understand what the button does. For developer guidance, see changesSelectionAsPrimaryAction.
 
 **macOS**
 
@@ -54,17 +56,17 @@ Consider using radio buttons if you need to present a set of more than two mutua
 
 Consider using a label to introduce a group of checkboxes if their relationship isn't clear. Describe the set of options, and align the label's baseline with the first checkbox in the group.
 
-Accurately reflect a checkbox's state in its appearance. A checkbox can be in a selected, deselected, or mixed state. If you use a checkbox to globally turn on and off multiple subordinate checkboxes, show a mixed state when the subordinate checkboxes have different states. For example, you might need to present a text-style setting that turns all styles on or off, but also lets people choose a subset of individual style settings like bold, italic, or underline. For developer guidance, see allowsMixedState.
+Accurately reflect a checkbox's state in its appearance. A checkbox's state can be on, off, or mixed. If you use a checkbox to globally turn on and off multiple subordinate checkboxes, show a mixed state when the subordinate checkboxes have different states. For example, you might need to present a text-style setting that turns all styles on or off, but also lets people choose a subset of individual style settings like bold, italic, or underline. For developer guidance, see allowsMixedState.
 
-- Deselected
-- Selected
+- Off
+- On
 - Mixed
 
 #### Radio buttons
 
 A radio button is a small, circular button followed by a label. Typically displayed in groups of two to five, radio buttons present a set of mutually exclusive choices.
 
-A radio button's state is either on (a filled circle) or off (an empty circle). Although a radio button can also display a mixed state (indicated by a dash), this state is rarely useful because you can communicate multiple states by using additional radio buttons. If you need to show that a setting or item has a mixed state, consider using a checkbox instead.
+A radio button's state is either selected (a filled circle) or deselected (an empty circle). Although a radio button can also display a mixed state (indicated by a dash), this state is rarely useful because you can communicate multiple states by using additional radio buttons. If you need to show that a setting or item has a mixed state, consider using a checkbox instead.
 
 - Deselected
 - Selected

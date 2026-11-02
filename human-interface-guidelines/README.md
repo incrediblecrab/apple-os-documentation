@@ -165,7 +165,7 @@ The review column preserves the initial catalog/changed-content pass. `metadata/
 | [Top Shelf](components/top-shelf.md) | design | tvOS | independent | changed-content |
 | [Typography](foundations/typography.md) | design | iOS, iPadOS, macOS, tvOS, visionOS, watchOS | independent | changed-content |
 | [Undo and Redo](patterns/undo-and-redo.md) | design | iOS, iPadOS, macOS, visionOS | independent | catalog-only |
-| [Virtual keyboards](components/virtual-keyboards.md) | design | iOS, iPadOS, tvOS, visionOS, watchOS | independent | catalog-only |
+| [Virtual keyboards](components/virtual-keyboards.md) | design | iOS, iPadOS, tvOS, visionOS, watchOS | independent | changed-content |
 | [VoiceOver](technologies/voiceover.md) | design | iOS, iPadOS, macOS, tvOS, visionOS, watchOS | independent | changed-content |
 | [Wallet](technologies/wallet.md) | design | iOS, iPadOS, macOS, visionOS, watchOS | independent | changed-content |
 | [Watch faces](components/watch-faces.md) | design | watchOS | independent | changed-content |

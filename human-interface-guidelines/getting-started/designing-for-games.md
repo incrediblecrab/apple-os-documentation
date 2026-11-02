@@ -54,7 +54,7 @@ Keep HUDs and controls legible over moving game content. Test supported input me
 |---|---|---|
 | iOS | Touch | Game controller |
 | iPadOS | Touch | Game controller, keyboard, mouse, trackpad, Apple Pencil |
-| macOS | Keyboard, mouse, trackpad | Game controller |
+| macOS | Keyboard, mouse, trackpad | Game controller, touch |
 | tvOS | Remote | Game controller, keyboard, mouse, trackpad |
 | visionOS | Touch | Game controller, keyboard, mouse, trackpad, spatial game controller |
 | watchOS | Touch | – |
@@ -89,11 +89,12 @@ Keep HUDs and controls legible over moving game content. Test supported input me
 
 ### Developer Documentation
 
-- [Games Pathway](https://developer.apple.com/games/)
+- [Games Pathway](https://developer.apple.com/games/get-started/)
 - [Create games for Apple platforms](https://developer.apple.com/games/)
 
 ### Videos
 
+- [Bringing Cyberpunk 2077 to Mac](https://developer.apple.com/videos/play/wwdc2026/356)
 - [Level up your games](https://developer.apple.com/videos/play/wwdc2025/209)
 - [Design no-code games with Reality Composer Pro 3](https://developer.apple.com/videos/play/wwdc2026/252)
 

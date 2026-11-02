@@ -17,7 +17,6 @@ When it makes sense in your app, you can replace the system-provided keyboard wi
 - **Choose a keyboard that matches the type of content people are editing** - For example, you can help people enter numeric data by providing the numbers and punctuation keyboard. When you specify a semantic meaning for a text input area, the system can automatically provide a keyboard that matches the type of input you expect, potentially using this information to refine the keyboard corrections it offers. For developer guidance, see keyboardType(_:) (SwiftUI), textContentType(_:)(SwiftUI), UIKeyboardType (UIKit), and UITextContentType (UIKit).
 
 Available keyboard types include:
-- Alphabet
 - ASCII capable
 - ASCII capable number pad
 - Decimal pad

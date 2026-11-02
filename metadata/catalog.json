@@ -11712,14 +11712,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": [
-          "Removed or replaced the unsupported release-specific callout; retained applicable general guidance without treating repetition in repository text as corroboration.",
-          "Refreshed 4 canonical references from the primary DocC reference map; these are link-target checks, not independent audits of every linked body."
-        ],
-        "limitations": [
-          "Retained prose, numeric specifications and API examples outside the listed changes were not exhaustively fact-checked. No app/device accessibility or rendering tests were run."
-        ]
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review after the live HIG article changed without a change-log entry; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08."
       },
       "release_status": "independent",
       "platforms": [
@@ -12004,13 +11998,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": [
-          "Removed or replaced the unsupported release-specific callout; retained applicable general guidance without treating repetition in repository text as corroboration."
-        ],
-        "limitations": [
-          "Retained prose, numeric specifications and API examples outside the listed changes were not exhaustively fact-checked. No app/device accessibility or rendering tests were run."
-        ]
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review after the live HIG article changed without a change-log entry; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08."
       },
       "release_status": "independent",
       "platforms": [
@@ -12103,9 +12092,9 @@
         "https://developer.apple.com/design/human-interface-guidelines/virtual-keyboards"
       ],
       "review": {
-        "scope": "catalog-only",
-        "checked_on": "2026-09-08",
-        "scope_note": "Source/topic mapping checked; existing body retained."
+        "scope": "changed-content",
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review after the live HIG article changed without a change-log entry; full-body outcome in metadata/accuracy.json. Earlier: catalog-only on 2026-09-08."
       },
       "release_status": "independent",
       "platforms": [
@@ -12391,14 +12380,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": [
-          "Removed or replaced the unsupported release-specific callout; retained applicable general guidance without treating repetition in repository text as corroboration.",
-          "Refreshed 1 canonical references from the primary DocC reference map; these are link-target checks, not independent audits of every linked body."
-        ],
-        "limitations": [
-          "Retained prose, numeric specifications and API examples outside the listed changes were not exhaustively fact-checked. No app/device accessibility or rendering tests were run."
-        ]
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review after the live HIG article changed without a change-log entry; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08."
       },
       "release_status": "independent",
       "platforms": [
@@ -12620,13 +12603,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": [
-          "Refreshed 2 canonical references from the primary DocC reference map; these are link-target checks, not independent audits of every linked body."
-        ],
-        "limitations": [
-          "Retained prose, numeric specifications and API examples outside the listed changes were not exhaustively fact-checked. No app/device accessibility or rendering tests were run."
-        ]
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review after the live HIG article changed without a change-log entry; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08."
       },
       "release_status": "independent",
       "platforms": [
@@ -12804,14 +12782,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": [
-          "Removed or replaced the unsupported release-specific callout; retained applicable general guidance without treating repetition in repository text as corroboration.",
-          "Refreshed 2 canonical references from the primary DocC reference map; these are link-target checks, not independent audits of every linked body."
-        ],
-        "limitations": [
-          "Retained prose, numeric specifications and API examples outside the listed changes were not exhaustively fact-checked. No app/device accessibility or rendering tests were run."
-        ]
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review after the live HIG article changed without a change-log entry; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08."
       },
       "release_status": "independent",
       "platforms": [
@@ -12837,16 +12809,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": [
-          "Removed or replaced the unsupported release-specific callout; retained applicable general guidance without treating repetition in repository text as corroboration.",
-          "Reachable handheld actions, keyboard and safe-area behavior, navigation context, Dynamic Type, VoiceOver, RTL, contrast and reduced effects.",
-          "Linked Design principles and topic-specific HIG articles; did not invent a platform OS 27 delta.",
-          "Refreshed 3 canonical references from the primary DocC reference map; these are link-target checks, not independent audits of every linked body."
-        ],
-        "limitations": [
-          "Retained prose, numeric specifications and API examples outside the listed changes were not exhaustively fact-checked. No app/device accessibility or rendering tests were run."
-        ]
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review after the live HIG article changed without a change-log entry; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08."
       },
       "release_status": "independent",
       "platforms": [
@@ -13440,14 +13404,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": [
-          "Removed or replaced the unsupported release-specific callout; retained applicable general guidance without treating repetition in repository text as corroboration.",
-          "Refreshed 2 canonical references from the primary DocC reference map; these are link-target checks, not independent audits of every linked body."
-        ],
-        "limitations": [
-          "Retained prose, numeric specifications and API examples outside the listed changes were not exhaustively fact-checked. No app/device accessibility or rendering tests were run."
-        ]
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review after the live HIG article changed without a change-log entry; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08."
       },
       "release_status": "independent",
       "platforms": [
@@ -14260,14 +14218,8 @@
       ],
       "review": {
         "scope": "changed-content",
-        "checked_on": "2026-09-08",
-        "scope_note": [
-          "Removed or replaced the unsupported release-specific callout; retained applicable general guidance without treating repetition in repository text as corroboration.",
-          "Refreshed 1 canonical references from the primary DocC reference map; these are link-target checks, not independent audits of every linked body."
-        ],
-        "limitations": [
-          "Retained prose, numeric specifications and API examples outside the listed changes were not exhaustively fact-checked. No app/device accessibility or rendering tests were run."
-        ]
+        "checked_on": "2026-11-01",
+        "scope_note": "November 1, 2026 targeted primary-source review after the live HIG article changed without a change-log entry; full-body outcome in metadata/accuracy.json. Earlier: changed-content on 2026-09-08."
       },
       "release_status": "independent",
       "platforms": [
@@ -20903,14 +20855,6 @@
       "human_verified_on": null,
       "purpose": "Specific high-impact claim evidence; not an exhaustive source review. Re-captured November 1, 2026 (US local; 2026-11-01 UTC) by scripts/docs.py sources; the dependent pages were re-checked against the current text in the November 1 drift pass.",
       "retrieval_date_timezone": "UTC"
-    },
-    {
-      "url": "https://developer.apple.com/documentation/realitycomposerpro/reality-composer-pro-beta-5-release-notes.md",
-      "retrieved_on": "2026-09-08",
-      "sha256": "801111612d3e12d989dbd73ffaf326c7e1a3e6d6ccaea40d98562a47203d5acb",
-      "source_published_on": null,
-      "human_verified_on": null,
-      "purpose": "Specific high-impact claim evidence; not an exhaustive source review."
     },
     {
       "url": "https://developer.apple.com/documentation/swiftui/state().md",

@@ -1,14 +1,12 @@
 # Sidebars
 
-A sidebar appears on the leading side of a view and lets people navigate between sections in your app or game.
+A sidebar appears on the leading side of a view and lets people navigate between areas of your app or top-level collections of content, like folders and playlists.
 
 **Platforms:** iOS | iPadOS | macOS | tvOS | visionOS
 
 ## Overview
 
-A sidebar floats above content without being anchored to the edges of the view. It provides a broad, flat view of an app's information hierarchy, giving people access to several peer content areas or modes at the same time.
-
-A sidebar requires a large amount of vertical and horizontal space. When space is limited or you want to devote more of the screen to other information or functionality, a more compact control such as a tab bar may provide a better navigation experience. For guidance, see [Layout](https://developer.apple.com/design/human-interface-guidelines/layout).
+A sidebar requires a large amount of vertical and horizontal space. When space is limited or you want to devote more of the screen to other information or functionality, a more compact control such as a tab bar may provide a better navigation experience. Many apps don't have to pick one: a tab bar style can offer both a tab bar and a sidebar. For guidance, see [Tab bars](https://developer.apple.com/design/human-interface-guidelines/tab-bars) and [Layout](https://developer.apple.com/design/human-interface-guidelines/layout).
 
 ## Topics
 
@@ -42,12 +40,14 @@ No additional considerations for tvOS. Not supported in watchOS.
 
 Developer note: To display a sidebar only, use NavigationSplitView to present a sidebar in the primary pane of a split view, or use UISplitViewController.
 
-**macOS**  
+**macOS**
+
 - A sidebar's row height, text, and glyph size depend on its small, medium, or large size. Respect the person's system sidebar icon-size preference as well as programmatic sizing.
 - Consider automatically hiding and revealing a sidebar when its container window resizes. For example, reducing the size of a Mail viewer window can automatically collapse its sidebar, making more room for message content.
 - Avoid putting critical information or actions at the bottom of a sidebar. People often relocate a window in a way that hides its bottom edge.
 
-**visionOS**  
+**visionOS**
+
 - If your app's hierarchy is deep, consider using a sidebar within a tab in a tab bar. In this situation, a sidebar can support secondary navigation within the tab. If you do this, be sure to prevent selections in the sidebar from changing which tab is currently open.
 
 ### Related Components

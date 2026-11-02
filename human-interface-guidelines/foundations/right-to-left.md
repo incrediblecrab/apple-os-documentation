@@ -50,7 +50,7 @@ If your app covers mathematical concepts or other number-centric topics, it's a 
 
 ### Interface icons
 
-When you use SF Symbols to supply interface icons for your app, you get variants for the RTL context and localized symbols for Arabic and Hebrew, among other languages. If you create custom symbols, you can specify their directionality. For developer guidance, see Creating custom symbol images for your app.
+When you use SF Symbols to supply interface icons for your app, you get variants for the RTL context and localized symbols for Arabic and Hebrew, among other languages. If you create custom symbols, you can specify their directionality. For developer guidance, see Creating custom symbols.
 
 **Flip interface icons that represent text or reading direction.** For example, if an interface icon uses left-aligned bars to represent text in the LTR context, right-align the bars in the RTL context.
 

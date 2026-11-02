@@ -6,7 +6,7 @@ CarPlay lets people get directions, make calls, send and receive messages, liste
 
 ## Overview
 
-People download CarPlay apps from the App Store and install them on iPhone like any other app. When people connect their iPhone with their vehicle, app icons for installed CarPlay apps appear on the CarPlay Home screen.
+People download CarPlay apps from the App Store and install them on iPhone like any other app. When people connect their iPhone with their vehicle, app icons for installed CarPlay apps appear on the CarPlay Home screen. CarPlay audio and video apps also work on Apple HomeView without any changes to the app.
 
 Driver-facing CarPlay experiences need to support quick tasks with minimal interaction. The guidance below focuses on that driving context. Some capabilities have a different safety boundary: Apple's WWDC26 guidance describes video apps for supported vehicles only while parked, as well as voice-based conversational apps. Follow the requirements for your app category rather than assuming every CarPlay capability is usable while driving.
 
@@ -84,6 +84,7 @@ No additional considerations for iOS. Not supported in iPadOS, macOS, tvOS, visi
 ### Videos
 
 - [Rev up your CarPlay app](https://developer.apple.com/videos/play/wwdc2026/212/)
+- [Turbocharge your app for CarPlay](https://developer.apple.com/videos/play/wwdc2025/216/)
 
 ## Changelog
 
